@@ -1,0 +1,152 @@
+{
+  "timestamp": "2026-11-02T19:12:37.460822",
+  "phases": {
+    "Phase 1: Hardware": [
+      {
+        "name": "ComfyUI API Health",
+        "status": "PASS",
+        "details": "Version 0.41.0 (PyTorch 2.14.1+cu130)"
+      },
+      {
+        "name": "GPU Detection",
+        "status": "PASS",
+        "details": "cuda:0 NVIDIA GeForce RTX 5070 Ti : cudaMallocAsync (Total: 15.89 GB, Free: 14.53 GB)"
+      },
+      {
+        "name": "CPU Allocation (Docker/WSL2)",
+        "status": "PASS",
+        "details": "Allocated: 32 cores (Expected: 32)"
+      }
+    ],
+    "Phase 2: Custom Nodes": [
+      {
+        "name": "H3 Character Sheet Designer v1.3.0",
+        "status": "PASS",
+        "details": "Registered class: H3CharacterSheetDesignerReferenceV13"
+      },
+      {
+        "name": "H3 Character Sheet Designer MultiReference",
+        "status": "PASS",
+        "details": "Registered class: H3CharacterSheetDesignerMultiReference"
+      },
+      {
+        "name": "Power Lora Loader (rgthree)",
+        "status": "PASS",
+        "details": "Registered class: Power Lora Loader (rgthree)"
+      },
+      {
+        "name": "TextEncodeQwenImage21",
+        "status": "PASS",
+        "details": "Registered class: TextEncodeQwenImage21"
+      },
+      {
+        "name": "ConditioningZeroOut",
+        "status": "PASS",
+        "details": "Registered class: ConditioningZeroOut"
+      },
+      {
+        "name": "UpscaleModelLoader",
+        "status": "PASS",
+        "details": "Registered class: UpscaleModelLoader"
+      },
+      {
+        "name": "ImageUpscaleWithModel",
+        "status": "PASS",
+        "details": "Registered class: ImageUpscaleWithModel"
+      }
+    ],
+    "Phase 3: Models": [
+      {
+        "name": "diffusion_models/NoctQ_V4_int8_convrot.safetensors",
+        "status": "PASS",
+        "details": "Exposed via ComfyUI API"
+      },
+      {
+        "name": "diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "status": "PASS",
+        "details": "Exposed via ComfyUI API"
+      },
+      {
+        "name": "diffusion_models/krea2_turbo_int8_convrot.safetensors",
+        "status": "PASS",
+        "details": "Exposed via ComfyUI API"
+      },
+      {
+        "name": "diffusion_models/seedvr2_7b_int8_convrot.safetensors",
+        "status": "PASS",
+        "details": "Exposed via ComfyUI API"
+      },
+      {
+        "name": "text_encoders/qwen3vl_8b_int8_convrot.safetensors",
+        "status": "PASS",
+        "details": "Exposed via ComfyUI API"
+      },
+      {
+        "name": "text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "status": "PASS",
+        "details": "Exposed via ComfyUI API"
+      },
+      {
+        "name": "vae/qwen_image_2.1_vae_bf16.safetensors",
+        "status": "PASS",
+        "details": "Exposed via ComfyUI API"
+      },
+      {
+        "name": "vae/minimax_h3_video_vae_int8_convrot.safetensors",
+        "status": "PASS",
+        "details": "Exposed via ComfyUI API"
+      },
+      {
+        "name": "upscale_models/RealESRGAN_x4plus.pth",
+        "status": "PASS",
+        "details": "Exposed via ComfyUI API"
+      }
+    ],
+    "Phase 4: Live GPU Benchmark": [
+      {
+        "name": "RealESRGAN 4X Super-Resolution",
+        "status": "PASS",
+        "details": "Rendered in 7.45s | Resolution: 4488x5608 (25.17 MP) | Size: 26.25 MB | File: UAT_TEST_RealESRGAN_4K_00001_.png"
+      }
+    ],
+    "Phase 5: Resolution Optimization": [
+      {
+        "name": "Native 672p Layout Compilation",
+        "status": "PASS",
+        "details": "Canvas: 2624x768 (2.02 MP) in 0.42ms"
+      },
+      {
+        "name": "Heavy 1120p Layout Compilation",
+        "status": "PASS",
+        "details": "Canvas: 4320x1280 (5.53 MP) in 0.31ms"
+      },
+      {
+        "name": "Speedup & Token Optimization Ratio",
+        "status": "PASS",
+        "details": "Native 672p reduces spatial tokens by 2.74x (from 5.53 MP down to 2.02 MP)"
+      }
+    ],
+    "Phase 6: Memory Mesh": [
+      {
+        "name": "Local Hindsight Service (:8890)",
+        "status": "PASS",
+        "details": "Status: healthy"
+      },
+      {
+        "name": "Git Sync to GitHub (main)",
+        "status": "PASS",
+        "details": "Clean worktree at commit: bc0f3a5 docs: add section 3.7 'Quy trÃ¬nh chuáº©n 2 bÆ°á»›c: Sinh Native -> Upscale chuyÃªn dá»¥ng'"
+      }
+    ]
+  },
+  "pass_count": 25,
+  "fail_count": 0,
+  "benchmarks": {
+    "realesrgan_4k_seconds": 7.45,
+    "output_dimensions": "4488x5608",
+    "megapixels": 25.17,
+    "native_672_canvas": "2624x768 (2.02 MP)",
+    "heavy_1120_canvas": "4320x1280 (5.53 MP)",
+    "token_reduction_factor": 2.74
+  }
+}
