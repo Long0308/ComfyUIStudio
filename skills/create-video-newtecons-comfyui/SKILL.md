@@ -116,3 +116,19 @@ Chữ thêu bộ phận bên trái ảnh gile phải **đúng 100% từng chữ 
 **Handoff state 2026-10-25:** Three current v002 workflows are open in ComfyUI, Flux1 selected, queue empty. Browser hard reload loaded the native Run ledger extension. Static graph validation, prompt reference, schema, encoder and seed widget checks pass; Node logic/lifecycle suites pass and TypeScript reviewer/Astra have reviewed the current scope. No GPU inference has been submitted; the user will run Flux1 → Krea2 → Z-Image. All stages return T2I base, reference edit and HD draft; 4K remains muted pending HD review. Read the final checkpoint in [the benchmark reference](references/char08-three-model-review-20261025.md#final-ui-preflight-and-archive-state--2026-10-25).
 
 **Blender previz (domain `newtecons_live_action`):** set, blocking and camera previz only, with blocking proxies and never character generation, via the shared [comfyui-blender](../comfyui-blender/SKILL.md#domain-routing) skill (`scripts/scene_layout.py`, status `previz_only`; read its Domain routing section first). Characters, wardrobe and video stay on local ComfyUI as described above; JennieJoy cartoon cast, briefs and recipes are never used here.
+
+## ⚠️ Bẫy kỹ thuật LiteGraph / ComfyUI: slot_index trong node.outputs (Bắt buộc khi build Custom Node hoặc tạo Workflow)
+
+Trong định dạng JSON của ComfyUI (LiteGraph engine):
+- Mỗi phần tử trong mảng `node.outputs` BẮT BUỘC phải có thuộc tính `"slot_index": 0, 1, 2...` tương ứng với vị trí chân cắm đầu ra (0 = output đầu tiên, 1 = output thứ hai, ...).
+- **Hiện tượng lỗi**: Nếu thiếu `"slot_index"`, ComfyUI vẫn load được node lên canvas và JSON vẫn chứa mảng `links`, nhưng LiteGraph **sẽ không thể xác định điểm gốc của chân cắm đầu ra và tự động ẩn toàn bộ dây nối (wires) trên màn hình**, khiến người dùng thấy các node đứng trơ trọi không có dây cắm.
+- **Quy tắc chuẩn khi dựng workflow bằng script/code**:
+  ```json
+  "outputs": [
+    {"name": "IMAGE", "type": "IMAGE", "links": [1, 2], "slot_index": 0},
+    {"name": "MASK", "type": "MASK", "links": [], "slot_index": 1}
+  ]
+  ```
+- **Hệ thống liên kết `links` chuẩn**: `[link_id, origin_node_id, origin_slot_index, target_node_id, target_slot_index, "TYPE"]`.
+- Top-level workflow JSON bắt buộc phải có `"version": 0.4` để LiteGraph kích hoạt engine vẽ dây chuẩn.
+

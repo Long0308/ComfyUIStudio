@@ -164,27 +164,44 @@ flowchart LR
     end
 
     subgraph SHEET ["4. H3 CHARACTER SHEET DESIGNER"]
-        H3D["[03 DESIGN] H3 Sheet Designer<br>(4 hàng riêng biệt: Mặt, Dáng, Mũ 3D, Áo 3D)"]
+        H3D["[03 DESIGN] H3 Sheet Designer<br>• Hàng 1: Đầu & Mặt<br>• Hàng 2: Dáng toàn thân<br>• Hàng 3: Mũ bảo hộ NEWTECONS 3D<br>• Hàng 4: Áo phản quang NAM 3D<br>• Hàng 5: Áo phản quang NỮ 3D"]
     end
 
     subgraph VIDEO ["5. AI QUAY VIDEO"]
         H3V["MiniMax H3 ReferenceToVideo<br>Xuất bảng xoay 13-20 góc"]
     end
 
-    A -->|Dây nối 1| P
-    B -->|Dây nối 2| P
-    C -->|Dây nối 3| P
+    A -->|Dây nối 1: Mặt| P
+    B -->|Dây nối 2: Dáng| P
+    C -->|Dây nối 3: Trang phục| P
     P --> K
     K --> V
-    V -->|Dây nối nhân vật| H3D
+    V -->|Dây nối nhân vật Fused| H3D
     C -->|Dây nối áo| H3D
     D -->|Dây nối mũ| H3D
     H3D --> H3V
 ```
 
-* File workflow chuẩn: `H3_Character_Sheet_Designer_v1.3.json` và `NEWTECONS_Master_Character_Creation_To_H3_Sheet.json`
-* Tự động hiển thị `IMAGE ENGINE` trên thanh điều hướng.
-* Đã chia 5 nhóm Group màu sắc rõ ràng kèm tiêu đề kích thước lớn trực quan.
+* **Workflow chuẩn**: `H3_Character_Sheet_Designer_v1.3.json` và `NEWTECONS_Master_Character_Creation_To_H3_Sheet.json`
+* **Hiển thị giao diện**: Tự động chuyển sang `IMAGE ENGINE` màu vàng cam.
+* **Chia 5 nhóm Group màu sắc**: 
+  1. Khung Xanh Dương (4 Input)
+  2. Khung Cam (Hộp Prompt lớn)
+  3. Khung Tím (Noct-Q Qwen 2.1 Generator)
+  4. Khung Xanh Lá (H3 Character Sheet Designer với phân khu Mũ 3D + Áo Nam 3D + Áo Nữ 3D)
+  5. Khung Vàng Hoàng Kim (MiniMax H3 Video Turnaround)
+
+#### ⚠️ Lưu ý kỹ thuật cho Developer & Custom Node Builder:
+* Trong LiteGraph / ComfyUI JSON, mọi cổng ra tại `node.outputs` **bắt buộc phải có `"slot_index": 0, 1...`**. Nếu thiếu thuộc tính này, LiteGraph sẽ không xác định được chân cắm đầu ra và **ẩn toàn bộ dây nối trên canvas**.
+* Cấu trúc liên kết `links` chuẩn: `[link_id, origin_node_id, origin_slot_index, target_node_id, target_slot_index, "TYPE"]`.
+* Top-level JSON bắt buộc phải có `"version": 0.4`.
+
+### 3.6 Hệ thống Ký Ức Phân Tầng (Hindsight & Cognee Mesh)
+
+Repo đã tích hợp sẵn 2 skill quản trị ký ức dài hạn để đồng bộ tri thức khi làm việc ở máy công ty và máy nhà:
+* [skills/hindsight-ky-uc-phan-tang](skills/hindsight-ky-uc-phan-tang/SKILL.md): Quản trị ký ức phân tầng, bảo mật hai kho không trộn (Local `:8890` vs VPS `:8888`), lưu trữ kinh nghiệm sửa lỗi, thông số render và bẫy kỹ thuật.
+* [skills/cognee-hindsight-mesh](skills/cognee-hindsight-mesh/SKILL.md): Semantic Knowledge Graph kết hợp Vector Memory để tra cứu chéo ngữ cảnh giữa các phiên làm việc.
+* **Nguyên tắc bảo mật**: Chỉ lưu facts, code patterns và kinh nghiệm kiến trúc; không bao giờ lưu token, cookie hay dữ liệu cá nhân lên Git.
 
 ## 4. Bắt đầu nhanh theo phim (giữ hai domain tách biệt)
 
