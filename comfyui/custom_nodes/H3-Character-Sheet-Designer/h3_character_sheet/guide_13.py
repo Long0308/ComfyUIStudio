@@ -12,7 +12,9 @@ EXTRA_SIZES = {'face_right': (325, 487), 'face_3q_left': (398, 490),
                'helmet_front': (1024, 1024), 'helmet_3q_left': (1024, 1024),
                'helmet_3q_right': (1024, 1024), 'helmet_side': (1024, 1024),
                'vest_front': (1024, 1024), 'vest_back': (1024, 1024),
-               'vest_3q': (1024, 1024)}
+               'vest_3q': (1024, 1024),
+               'vest_female_front': (512, 768), 'vest_female_back': (512, 768),
+               'vest_female_3q': (512, 768)}
 
 
 def _contained_size(source, bounds):

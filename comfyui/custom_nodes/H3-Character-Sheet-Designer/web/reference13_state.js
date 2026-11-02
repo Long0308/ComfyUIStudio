@@ -6,7 +6,8 @@ import {
 export {PART_IDS, PART_PROMPT_MAX_LENGTH, StateError} from './state.js';
 export const PPE_VIEW_IDS = Object.freeze([
   'helmet_front', 'helmet_3q_left', 'helmet_3q_right', 'helmet_side',
-  'vest_front', 'vest_back', 'vest_3q'
+  'vest_front', 'vest_back', 'vest_3q',
+  'vest_female_front', 'vest_female_back', 'vest_female_3q'
 ]);
 export const MULTI_VIEW_IDS = Object.freeze([
   'face_front', 'face_left', 'face_right', 'face_3q_left', 'face_3q_right', 'face_back',

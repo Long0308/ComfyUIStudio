@@ -19,6 +19,7 @@ EXTRA_VIEWS = {
     "clothing_front", "clothing_back",
     "helmet_front", "helmet_3q_left", "helmet_3q_right", "helmet_side",
     "vest_front", "vest_back", "vest_3q",
+    "vest_female_front", "vest_female_back", "vest_female_3q",
 }
 
 

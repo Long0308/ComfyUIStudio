@@ -9,15 +9,20 @@ const EN = {
   face_front: 'Portrait', face_left: 'Left portrait', face_right: 'Right portrait', face_3q_left: 'Left 3/4', face_3q_right: 'Right 3/4', face_back: 'Rear portrait',
   body_front: 'Front', body_left: 'Left side', body_back: 'Back', clothing_front: 'Clothing front', clothing_back: 'Clothing back', hands: 'Hands', feet: 'Footwear',
   helmet_front: 'Mũ trước', helmet_3q_left: 'Mũ 3/4 T', helmet_3q_right: 'Mũ 3/4 P', helmet_side: 'Mũ ngang',
-  vest_front: 'Áo trước', vest_back: 'Áo sau', vest_3q: 'Áo 3/4',
+  vest_front: 'Áo Nam trước', vest_back: 'Áo Nam sau', vest_3q: 'Áo Nam 3/4',
+  vest_female_front: 'Áo Nữ trước', vest_female_back: 'Áo Nữ sau', vest_female_3q: 'Áo Nữ 3/4',
   helmet_front_tip: 'Mũ bảo hộ NEWTECONS mặt trước có logo chữ N',
   helmet_3q_left_tip: 'Mũ bảo hộ NEWTECONS góc nghiêng trái 45°',
   helmet_3q_right_tip: 'Mũ bảo hộ NEWTECONS góc nghiêng phải 45°',
   helmet_side_tip: 'Mũ bảo hộ NEWTECONS góc nhìn ngang',
-  vest_front_tip: 'Áo gile phản quang kỹ sư NEWTECONS mặt trước có logo',
-  vest_back_tip: 'Áo gile phản quang kỹ sư NEWTECONS mặt sau có chữ',
-  vest_3q_tip: 'Áo gile phản quang kỹ sư NEWTECONS góc nghiêng 3/4',
-  newtecons_ppe: 'NEWTECONS · Full PPE',
+  vest_front_tip: 'Áo gile phản quang kỹ sư NAM NEWTECONS mặt trước có logo',
+  vest_back_tip: 'Áo gile phản quang kỹ sư NAM NEWTECONS mặt sau có chữ',
+  vest_3q_tip: 'Áo gile phản quang kỹ sư NAM NEWTECONS góc nghiêng 3/4',
+  vest_female_front_tip: 'Áo gile phản quang kỹ sư NỮ NEWTECONS mặt trước có logo',
+  vest_female_back_tip: 'Áo gile phản quang kỹ sư NỮ NEWTECONS mặt sau có chữ',
+  vest_female_3q_tip: 'Áo gile phản quang kỹ sư NỮ NEWTECONS góc nghiêng 3/4',
+  newtecons_male: 'NEWTECONS · Full PPE Nam',
+  newtecons_female: 'NEWTECONS · Full PPE Nữ',
   face_front_tip: 'Front-facing face to chest', face_left_tip: 'Head to chest, camera facing the subject’s anatomical left side', body_front_tip: 'Full body, head to soles', body_left_tip: "Camera looks directly at the subject’s anatomical left side", body_back_tip: 'Direct rear view, full body', hands_tip: 'Both hands; retain gloves from the reference', feet_tip: 'Separate close-up of both feet in reference footwear; visible boot shafts retained',
   preset: 'Preset', five: 'Standard · 5 views', basic: 'Basic · 4 views', detail: 'Detail · 7 views', turnaround: 'Turnaround · 3', single: 'Single view', seven: '7 views · hands and feet', custom: 'Custom',
   auto: 'Auto', manual: 'Manual', size: 'Output size', bodyHeight: 'Panel height', width: 'Width', height: 'Height', returnAuto: 'Back to Auto', updating: 'Updating dimensions…',
@@ -177,9 +182,11 @@ export function createDesignerUI({controller, v13 = false, locale = 'en', compat
   const bodyRow = element('div', 'h3-card-row h3-body-row');
   const helmetTitle = element('div', 'h3-row-title', 'Mũ bảo hộ NEWTECONS (3D Helmet)');
   const helmetRow = element('div', 'h3-card-row h3-helmet-row');
-  const vestTitle = element('div', 'h3-row-title', 'Áo phản quang NEWTECONS (3D Vest)');
-  const vestRow = element('div', 'h3-card-row h3-vest-row');
-  cards.append(headTitle, headRow, bodyTitle, bodyRow, helmetTitle, helmetRow, vestTitle, vestRow);
+  const vestMaleTitle = element('div', 'h3-row-title', 'Áo phản quang NAM NEWTECONS (Male 3D Vest)');
+  const vestMaleRow = element('div', 'h3-card-row h3-vest-row');
+  const vestFemaleTitle = element('div', 'h3-row-title', 'Áo phản quang NỮ NEWTECONS (Female 3D Vest)');
+  const vestFemaleRow = element('div', 'h3-card-row h3-vest-row');
+  cards.append(headTitle, headRow, bodyTitle, bodyRow, helmetTitle, helmetRow, vestMaleTitle, vestMaleRow, vestFemaleTitle, vestFemaleRow);
   for (const view of viewIds) {
     const card = button('h3-card'); card.dataset.view = view;
     const figure = element('span', 'h3-card-figure'); figure.append(createArtwork(view, `${id}-card-${view}`, {mirror: multiReference && MULTI_MIRRORED_VIEWS.includes(view), garment: v13}));
@@ -188,7 +195,8 @@ export function createDesignerUI({controller, v13 = false, locale = 'en', compat
     listen(card, 'click', () => act(() => controller.toggle(view)));
     if (view.startsWith('face_')) headRow.append(card);
     else if (view.startsWith('helmet_')) helmetRow.append(card);
-    else if (view.startsWith('vest_')) vestRow.append(card);
+    else if (view.startsWith('vest_female_')) vestFemaleRow.append(card);
+    else if (view.startsWith('vest_')) vestMaleRow.append(card);
     else bodyRow.append(card);
     cardMap.set(view, {card, label});
   }
