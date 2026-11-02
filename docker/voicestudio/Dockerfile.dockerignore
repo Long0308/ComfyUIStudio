@@ -1,0 +1,10 @@
+.venv
+.runtime-ready
+**/__pycache__
+**/*.pyc
+backend/tests
+omnivoice/training
+omnivoice/eval
+frontend
+research
+*.log

@@ -1,0 +1,56 @@
+name: voicestudio
+# ONE shared OmniVoice/VoiceStudio service for every lane: http://127.0.0.1:8080
+x-voicestudio: &voicestudio
+  build:
+    # Code is COPIED into the image at build time from the VoiceStudio runtime project.
+    context: ${VS_SRC:-C:/Users/Admin/AppData/Roaming/VoiceStudio/runtime/project}
+    dockerfile: ${VS_DOCKERFILE:-J:/1.JennieHomeSchool/03 Voice/production-local/voicestudio-docker/Dockerfile}
+    additional_contexts:
+      sidecar: .
+  image: voicestudio:local
+  restart: unless-stopped
+  init: true
+  mem_limit: 10g
+  memswap_limit: 10g          # no swap on top: can never eat the host
+  shm_size: 1gb
+  ports:
+    - "127.0.0.1:8080:8080"
+  environment:
+    MODEL_DEVICE: ${MODEL_DEVICE:-cpu}
+    OMNIVOICE_DEVICE: ${MODEL_DEVICE:-cpu}
+    # backend's own idle reaper (services/model_manager.py idle_worker) - ticks every 30 s
+    OMNIVOICE_IDLE_TIMEOUT_S: ${IDLE_SECONDS:-600}
+    IDLE_RESTART_RSS_MB: ${IDLE_RESTART_RSS_MB:-1500}
+    IDLE_SECONDS: ${IDLE_SECONDS:-600}
+  volumes:
+    - "${VS_DATA:-C:/Users/Admin/AppData/Roaming/OmniVoice}:/data"
+    - "${VS_HF_CACHE:-C:/AI-Models-Fast/2.Model-AI-Local/VoiceStudio/hf_cache}:/hf_cache:ro"
+    - "${VS_HACHT:-J:/2.Model-AI-Local/VoiceStudio/models/Hacht_omnivoice-vietnamese}:/models/Hacht_omnivoice-vietnamese:ro"
+  logging:
+    driver: json-file
+    options: {max-size: "20m", max-file: "3"}
+
+services:
+  voicestudio:
+    <<: *voicestudio
+    container_name: VoiceStudio
+
+  # GPU variant: only with `docker compose --profile gpu up -d voicestudio-gpu` (RTX 5080 is shared with ComfyUI H3).
+  # Stop the cpu service first - both bind 127.0.0.1:8080.
+  voicestudio-gpu:
+    <<: *voicestudio
+    container_name: VoiceStudio-GPU
+    profiles: ["gpu"]
+    environment:
+      MODEL_DEVICE: cuda
+      OMNIVOICE_DEVICE: cuda
+      OMNIVOICE_IDLE_TIMEOUT_S: ${IDLE_SECONDS:-600}
+      IDLE_RESTART_RSS_MB: ${IDLE_RESTART_RSS_MB:-1500}
+      IDLE_SECONDS: ${IDLE_SECONDS:-600}
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
