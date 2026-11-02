@@ -1,0 +1,210 @@
+{
+  "schema": "jjv/audio-recipe/v1",
+  "recipe_id": "audio/ntc-site-sfx-v001",
+  "family": "audio-sfx",
+  "domain": "newtecons_live_action",
+  "note": "STRUCTURAL DRAFT ONLY. NTC cue taxonomy and local model/license qualification remain unresolved; do not execute.",
+  "engine": "stable-audio-3-small-sfx",
+  "models": [
+    {
+      "role": "checkpoint (DiT + VAE)",
+      "path": "models/checkpoints/stable_audio_3_small_sfx.safetensors",
+      "bytes": 2270384940,
+      "sha256": "ed9cf1b6172f1a8c2921a9560c21109ff3239524563ced9dce6dcdef41e2f515",
+      "licence_id": "stability-community-2024-07-05",
+      "graph_binding": {
+        "node": "1",
+        "input": "ckpt_name",
+        "value": "stable_audio_3_small_sfx.safetensors"
+      }
+    },
+    {
+      "role": "text encoder",
+      "path": "models/text_encoders/t5gemma_b_b_ul2.safetensors",
+      "bytes": 1187264003,
+      "sha256": "1e1eba25be8872edb0d3c6335c6658fd6388e7b14b60da6e454e404cfcd8150e",
+      "licence_id": "stability-community-2024-07-05",
+      "graph_binding": {
+        "node": "2",
+        "input": "clip_name",
+        "value": "t5gemma_b_b_ul2.safetensors"
+      }
+    }
+  ],
+  "licences": {
+    "stability-community-2024-07-05": {
+      "name": "Stability AI Community License (2024-07-05)",
+      "url": "https://huggingface.co/stabilityai/stable-audio-open-1.0/blob/main/LICENSE.md",
+      "text_sha256": "d6f6b1a4dce5c852bd6d7d9482d002baf0ccdb71e662250b73be9eec8764ee8d",
+      "relied_on": "Free for individuals and organisations below US$1M annual revenue; attribution 'Powered by Stability AI'.",
+      "note": "text_sha256 is the sha256 of the licence copy saved by the first episode audio lane (audio/sfx-v003/licenses)."
+    }
+  },
+  "graph": {
+    "1": {
+      "class_type": "CheckpointLoaderSimple",
+      "inputs": {
+        "ckpt_name": "stable_audio_3_small_sfx.safetensors"
+      }
+    },
+    "2": {
+      "class_type": "CLIPLoader",
+      "inputs": {
+        "clip_name": "t5gemma_b_b_ul2.safetensors",
+        "type": "stable_audio"
+      }
+    },
+    "3": {
+      "class_type": "CLIPTextEncode",
+      "inputs": {
+        "clip": [
+          "2",
+          0
+        ],
+        "text": ""
+      }
+    },
+    "4": {
+      "class_type": "CLIPTextEncode",
+      "inputs": {
+        "clip": [
+          "2",
+          0
+        ],
+        "text": ""
+      }
+    },
+    "5": {
+      "class_type": "EmptyLatentAudio",
+      "inputs": {
+        "seconds": 1.0,
+        "batch_size": 1
+      }
+    },
+    "6": {
+      "class_type": "KSampler",
+      "inputs": {
+        "model": [
+          "1",
+          0
+        ],
+        "seed": 0,
+        "steps": 8,
+        "cfg": 1.0,
+        "sampler_name": "lcm",
+        "scheduler": "simple",
+        "positive": [
+          "3",
+          0
+        ],
+        "negative": [
+          "4",
+          0
+        ],
+        "latent_image": [
+          "5",
+          0
+        ],
+        "denoise": 1.0
+      }
+    },
+    "7": {
+      "class_type": "VAEDecodeAudio",
+      "inputs": {
+        "samples": [
+          "6",
+          0
+        ],
+        "vae": [
+          "1",
+          2
+        ]
+      }
+    },
+    "8": {
+      "class_type": "SaveAudio",
+      "inputs": {
+        "audio": [
+          "7",
+          0
+        ],
+        "filename_prefix": "audio/placeholder"
+      }
+    }
+  },
+  "slots": {
+    "prompt": [
+      [
+        "3",
+        "text"
+      ]
+    ],
+    "negative": [
+      [
+        "4",
+        "text"
+      ]
+    ],
+    "seed": [
+      [
+        "6",
+        "seed"
+      ]
+    ],
+    "seconds": [
+      [
+        "5",
+        "seconds"
+      ]
+    ],
+    "filename_prefix": [
+      [
+        "8",
+        "filename_prefix"
+      ]
+    ]
+  },
+  "output": {
+    "node": "8"
+  },
+  "sample_rate": 48000,
+  "seed_base": 20261101,
+  "negative_prompt": "speech, voice, singing, music, melody, cartoon, toy, magic sparkle, distortion, harsh impact",
+  "negation_words": [
+    "no",
+    "never",
+    "without",
+    "not",
+    "nor",
+    "avoid",
+    "forbid",
+    "forbidden"
+  ],
+  "cue_classes": {
+    "construction_site": {
+      "prompt": "quiet live-action construction site ambience, distant machinery, safe controlled level, no speech, no music",
+      "seconds": 12.0,
+      "gain_db": -30.0,
+      "event": "bed",
+      "optional": true,
+      "loop": true
+    },
+    "office_planning": {
+      "prompt": "subtle modern construction office room tone, paper and restrained desk movement, no speech, no music",
+      "seconds": 3.0,
+      "gain_db": -24.0,
+      "event": "keyword",
+      "keywords": [
+        "planning",
+        "drawing review"
+      ],
+      "offset_s": 0.2
+    }
+  },
+  "postprocess": {
+    "trim_threshold_dbfs": -50.0,
+    "peak_dbfs": -3.0,
+    "fade_in_s": 0.01,
+    "fade_out_s": 0.05
+  }
+}

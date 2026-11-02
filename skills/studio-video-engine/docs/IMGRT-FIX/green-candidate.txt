@@ -1,0 +1,19 @@
+python -I -B -c pytest.main ['J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\tests\\test_images_prompt_route.py', 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\tests\\test_images_codex.py', 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\tests\\test_images_codex_batch.py', 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\tests\\test_images_codex_imgrt.py', 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\tests\\test_images_codex_lanes.py', 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\tests\\test_images_codex_mcp.py', 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\tests\\test_images_codex_n.py', 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\tests\\test_images_codex_take_race.py', '-q', '--tb=short', '-p', 'no:cacheprovider', '--basetemp', '.pytest_work_tmp/IMGRT-FIX'] candidate= True
+..................F..................................................... [ 96%]
+...                                                                      [100%]
+================================== FAILURES ===================================
+_________________ test_cooling_text_and_failure_kind_parsing __________________
+..\..\..\tests\test_images_codex.py:191: in test_cooling_text_and_failure_kind_parsing
+    recipe = json.loads((Path(codex.__file__).parents[2] / "recipes" / "images" / "codex-exec-v001.json").read_text("utf-8"))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:787: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:771: in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   FileNotFoundError: [Errno 2] No such file or directory: 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\docs\\recipes\\images\\codex-exec-v001.json'
+=========================== short test summary info ===========================
+FAILED ..\..\..\tests\test_images_codex.py::test_cooling_text_and_failure_kind_parsing
+1 failed, 74 passed in 63.79s (0:01:03)
+EXIT_CODE 1

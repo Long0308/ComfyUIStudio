@@ -1,0 +1,23 @@
+{
+  "id": "engine-source-names-episode-or-domain-neutrality-red",
+  "engine": "studio-video-engine engine source code (engine/h3/prepare.py docstring, engine/run/dag.py docstring)",
+  "environment": "Windows 11, pytest neutrality tests during the M8b(e) and M8 wave",
+  "observed_at": "2026-10-28",
+  "symptom": "Neutrality tests failed on engine source because module docstrings named an episode or domain (h3/prepare.py docstring, run/dag.py docstring); the failing line reported was engine/run/dag.py:156.",
+  "root_cause": "Measured by the test run: the engine must stay domain-neutral (domain and episode names are data in recipes/ and config), but two docstrings wrote a concrete film or domain name in prose. The guard is tests/test_config_hardening.py::test_engine_source_is_neutral_except_the_named_frozen_guard (:239), which bans the tokens jenniejoy, newtecons, 04-milk-and-mom, .comfyui-image-submit and 'ep04' in every engine/*.py except frozen.py. Current state: engine/h3/prepare.py:1-12 and engine/run/dag.py:1-6 describe the behaviour without naming a domain.",
+  "root_cause_status": "measured (neutrality test output; the exact pre-fix docstring text is NOT retained in this entry, so the wording is inferred from the failing tokens). Current sha256 engine/run/dag.py 45685370077a0d73b34371b6b0526a7c0747ff4258989569b5b37f177f2685da, engine/h3/prepare.py f86e77e11e4538884ed351f8021ca35096cd006b92e35884f220369c6088af83",
+  "fix_or_workaround": "Rewrote the docstrings so they state the rule (domain allowlist and stage DAG are data in recipes/) with no film or domain name. Re-ran the neutrality tests: green. The 'ep04' token is allowed only in frozen.py, which carries a named, temporary resume guard.",
+  "verification": "tests/test_config_hardening.py::test_engine_source_is_neutral_except_the_named_frozen_guard (:239); module neutrality tests tests/h3/test_h3_inputs_m8b.py::test_inputs_module_is_small_and_neutral (:166), tests/test_plan_cli.py::test_the_plan_package_is_small_neutral_offline_and_has_no_job_runner (:79), tests/test_timing_modules.py::test_modules_stay_small_and_neutral (:16), tests/test_seedvr2_adopt.py::test_adopt_module_is_small_and_neutral (:268).",
+  "prevention": "Rule to keep: engine docstrings and comments describe the mechanism, never a concrete episode, film or domain. Put the example in recipes/ or in a test fixture. Run the neutrality tests after any docstring edit, because they are the only gate on this.",
+  "status": "fixed (neutrality tests green on the current tree)",
+  "evidence_paths": [
+    "production-local/engine/WAVE-2026-10-28-PLAN.md",
+    ".agents/skills/studio-video-engine/engine/run/dag.py",
+    ".agents/skills/studio-video-engine/engine/h3/prepare.py",
+    ".agents/skills/studio-video-engine/tests/test_config_hardening.py"
+  ],
+  "affected_artifacts": [
+    "engine/run/dag.py",
+    "engine/h3/prepare.py"
+  ]
+}

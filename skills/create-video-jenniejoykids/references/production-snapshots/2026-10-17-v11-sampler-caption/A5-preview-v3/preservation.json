@@ -1,0 +1,9 @@
+{
+  "film_only_change": "S01_L1.position=top-left",
+  "same_audio_bytes": true,
+  "source_binding_equal": false,
+  "output_sha256": "5964b20ce54a120238acd533e706555854979b93d999dbe77e29fb7fd1f2df9d",
+  "not_fullfilm": true,
+  "listening": "pending",
+  "event_foley": "notyetplaced"
+}

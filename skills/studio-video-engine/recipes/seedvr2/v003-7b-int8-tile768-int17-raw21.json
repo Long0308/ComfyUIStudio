@@ -1,0 +1,90 @@
+{
+  "schema": "jjv/recipe/v1",
+  "recipe_id": "seedvr2/v003-7b-int8-tile768-int17-raw21",
+  "family": "seedvr2",
+  "domain": "jenniejoy_cartoon_3d",
+  "qualifies_only": "864x480 native -> 3888x2160 processing, 21-frame raw segments, tile 768/64, internal sampler 17 frames. Not a certification of full-film seams, lipsync or delivery, and never valid for another domain or native size.",
+  "native": {
+    "width": 864,
+    "height": 480
+  },
+  "geometry": {
+    "fps": "24/1",
+    "core_frames": 13,
+    "context_frames_each_side": 4,
+    "max_raw_segment_frames": 21,
+    "internal_sampler_max_pixel_frames": 17,
+    "tile_size": 768,
+    "tile_overlap": 64,
+    "processing_width": 3888,
+    "processing_height": 2160,
+    "final_width": 3840,
+    "final_height": 2160,
+    "final_crop_left": 24,
+    "final_crop_top": 0,
+    "padding_alignment": 4,
+    "padding_formula": "n + ((1 - n) % 4)",
+    "core_encoding": "libx264-crf0-yuv420p"
+  },
+  "graph_recipe": {
+    "model": "7b",
+    "model_file": "seedvr2_7b_int8_convrot.safetensors",
+    "vae": "seedvr2_ema_vae_fp16.safetensors",
+    "upscale_method": "lanczos",
+    "processing_width": 3888,
+    "processing_height": 2160,
+    "image_scale_crop": "disabled",
+    "tile_size": 768,
+    "tile_overlap": 64,
+    "vae_temporal_size": 32,
+    "vae_temporal_overlap": 4,
+    "temporal_chunk_overlap": 1,
+    "chunking_mode": "manual",
+    "internal_sampler_max_pixel_frames": 17,
+    "sampler_seed": 2026101806,
+    "sampler_steps": 1,
+    "sampler_cfg": 1.0,
+    "sampler_name": "euler",
+    "scheduler": "simple",
+    "denoise": 1.0,
+    "post_color_correction_method": "lab",
+    "save_format": "mp4",
+    "save_codec": "h264",
+    "save_encoding": "re-encode",
+    "save_crf": 16
+  },
+  "allowed_api_diff_paths": [
+    "$.1.inputs.file",
+    "$.15.inputs.filename_prefix"
+  ],
+  "models": {
+    "diffusion": {
+      "file": "seedvr2_7b_int8_convrot.safetensors",
+      "size_bytes": 8334897976,
+      "sha256": "5aa0d25fc9d35e449b659d0c9a5dcb22e2a4fa04032101b95a39da42b32c1be6"
+    },
+    "vae": {
+      "file": "seedvr2_ema_vae_fp16.safetensors",
+      "size_bytes": 501324814,
+      "sha256": "20678548f420d98d26f11442d3528f8b8c94e57ee046ef93dbb7633da8612ca1"
+    }
+  },
+  "pilot": {
+    "qualification_receipt": "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/seedvr2-production-v003/pilot-interior21-internal17/S01_A/qualification-v003.json",
+    "qualification_receipt_sha256": "a3218406e3cb26043011bbce272577300784923b6cfcbfb441a6ac353ab1d142",
+    "prompt_id": "43f87ebe-b678-4012-bfaf-79021d7ee476",
+    "graph_file": "production-local/JennieJoyKids-Story/04-milk-and-mom/workflows/seedvr2-production-v003/pilot-interior21-internal17/S01_A/chunk-0001.api.json",
+    "graph_file_sha256": "75f436c82d03aeedd0c7adae92507cebd6fa671793378fedc1362518451f3512",
+    "graph_canonical_sha256": "a0c6aafc8e06612aad46bbbf3fba3ca52f85975ab73d7329ac530216cbccb5eb",
+    "graph_canonical_mode": "ascii",
+    "graph_recipe_sha256": "24091fdedd7b53b9b0da98e66a9d7199d1151f2387a53581c95b7bb485357d58",
+    "graph_recipe_sha256_canonical_mode": "ascii",
+    "graph_recipe_sha256_method": "canonical-ascii sha256 of the full API graph with node 1 inputs.file replaced by \"<SOURCE_INPUT>\" and node 15 inputs.filename_prefix replaced by \"<OUTPUT_PREFIX>\" (v001 executor graph_recipe_sha256, which used the utf8 canonical form; identical to ascii for this pure-ASCII graph); not a hash of the graph_recipe block",
+    "graph_recipe_block_sha256": "081726bbbd3618b0930170f3b01fec32ffd73dd0ddf6e7324a763f989976a8c0",
+    "gui_file_sha256": "215a92090370184cc2755d01c14d14d3a1a99559990d474d84a41b15469fbdbf",
+    "server_execution_s": 175.15,
+    "sampled_peak_container_memory_bytes": 23728713728,
+    "sampled_peak_gpu_mib": 14465,
+    "geometry_block_sha256": "c34ea6a3a57648ee5a651ed8d036add11c10c5ad5dbfd35c0e8387550fde0c99"
+  }
+}

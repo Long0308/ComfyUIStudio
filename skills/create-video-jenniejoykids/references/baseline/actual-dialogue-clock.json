@@ -1,0 +1,134 @@
+[
+  {
+    "id": "S01_L1",
+    "scene": "S01",
+    "text": "Mom, Dad, and me!",
+    "start_local": 1.36,
+    "end_local": 3.34,
+    "start_global": 1.36,
+    "end_global": 3.34,
+    "timing_source": "unprompted actual native Seedance output word timestamps; no REF_ONLY audio mixed",
+    "source_sha256": "ac153e8b164f041d4240698e7e3a889f226e1380927f2d16755bb1c7b56abf47"
+  },
+  {
+    "id": "S01_L2",
+    "scene": "S01",
+    "text": "Let's go to the zoo!",
+    "start_local": 4,
+    "end_local": 5.32,
+    "start_global": 4,
+    "end_global": 5.32,
+    "timing_source": "unprompted actual native Seedance output word timestamps; no REF_ONLY audio mixed",
+    "source_sha256": "ac153e8b164f041d4240698e7e3a889f226e1380927f2d16755bb1c7b56abf47"
+  },
+  {
+    "id": "S02_L1",
+    "scene": "S02",
+    "text": "Look! A little bird.",
+    "start_local": 0,
+    "end_local": 3.02,
+    "start_global": 10,
+    "end_global": 13.02,
+    "timing_source": "unprompted actual native Seedance output word timestamps; no REF_ONLY audio mixed",
+    "source_sha256": "4fd750281d07d2ecb16de7e349472b949b0847af7dea3be516358746eed9c25e"
+  },
+  {
+    "id": "S02_L2",
+    "scene": "S02",
+    "text": "Bird. A little bird.",
+    "start_local": 3.72,
+    "end_local": 6.64,
+    "start_global": 13.72,
+    "end_global": 16.64,
+    "timing_source": "unprompted actual native Seedance output word timestamps; no REF_ONLY audio mixed",
+    "source_sha256": "4fd750281d07d2ecb16de7e349472b949b0847af7dea3be516358746eed9c25e"
+  },
+  {
+    "id": "S03_L1",
+    "scene": "S03",
+    "text": "I see a giraffe.",
+    "start_local": 1.26,
+    "end_local": 2.94,
+    "start_global": 21.26,
+    "end_global": 22.94,
+    "timing_source": "unprompted actual native Seedance output word timestamps; no REF_ONLY audio mixed",
+    "source_sha256": "020421ea9cd5865dccd7b6b505f86ccea4b402c9e9caf9af79a0e7e740cf1790"
+  },
+  {
+    "id": "S03_L2",
+    "scene": "S03",
+    "text": "A tall giraffe!",
+    "start_local": 5.37,
+    "end_local": 6.81,
+    "start_global": 25.37,
+    "end_global": 26.81,
+    "timing_source": "unprompted actual native Seedance output word timestamps; no REF_ONLY audio mixed",
+    "source_sha256": "020421ea9cd5865dccd7b6b505f86ccea4b402c9e9caf9af79a0e7e740cf1790"
+  },
+  {
+    "id": "S04_L1",
+    "scene": "S04",
+    "text": "Hello, little tiger!",
+    "start_local": 0.75,
+    "end_local": 2.21,
+    "start_global": 30.75,
+    "end_global": 32.21,
+    "timing_source": "unprompted actual native Seedance output word timestamps; no REF_ONLY audio mixed",
+    "source_sha256": "81256c7223fe9e586dbec7eb600cbb53818009cd51825e73f78d8bae69bc7b96"
+  },
+  {
+    "id": "S04_L2",
+    "scene": "S04",
+    "text": "Tiger. Hello, tiger!",
+    "start_local": 2.21,
+    "end_local": 6.35,
+    "start_global": 32.21,
+    "end_global": 36.35,
+    "timing_source": "unprompted actual native Seedance output word timestamps; no REF_ONLY audio mixed",
+    "source_sha256": "81256c7223fe9e586dbec7eb600cbb53818009cd51825e73f78d8bae69bc7b96"
+  },
+  {
+    "id": "S05_L1",
+    "scene": "S05",
+    "text": "Look! A panda.",
+    "start_local": 0.98,
+    "end_local": 2.6,
+    "start_global": 40.98,
+    "end_global": 42.6,
+    "timing_source": "unprompted actual native Seedance output word timestamps; no REF_ONLY audio mixed",
+    "source_sha256": "4fd3fdc7dd8269bfcae172c7db9488d0aae9c5645b2d0287f495c392ed050508"
+  },
+  {
+    "id": "S05_L2",
+    "scene": "S05",
+    "text": "Panda. A hungry panda.",
+    "start_local": 5.59,
+    "end_local": 8.23,
+    "start_global": 45.59,
+    "end_global": 48.23,
+    "timing_source": "unprompted actual native Seedance output word timestamps; no REF_ONLY audio mixed",
+    "source_sha256": "4fd3fdc7dd8269bfcae172c7db9488d0aae9c5645b2d0287f495c392ed050508"
+  },
+  {
+    "id": "S06_L1",
+    "scene": "S06",
+    "text": "Bye-bye, animals!",
+    "start_local": 1.18,
+    "end_local": 2.58,
+    "start_global": 51.18,
+    "end_global": 52.58,
+    "timing_source": "unprompted actual native Seedance output word timestamps; no REF_ONLY audio mixed",
+    "source_sha256": "a0dbfac019042d6f93c35fa95a3c103e342abfb42ee7e8b5487e3371214c66ac"
+  },
+  {
+    "id": "S06_L2",
+    "scene": "S06",
+    "text": "Bye-bye, zoo!",
+    "start_local": 4.52,
+    "end_local": 5.82,
+    "start_global": 54.52,
+    "end_global": 55.82,
+    "timing_source": "unprompted actual native Seedance output word timestamps; no REF_ONLY audio mixed",
+    "source_sha256": "a0dbfac019042d6f93c35fa95a3c103e342abfb42ee7e8b5487e3371214c66ac"
+  }
+]

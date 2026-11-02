@@ -1,0 +1,17 @@
+{
+  "id": "harness-precode-recall-venv-missing",
+  "engine": "SetupAgent codex_router harness-cli.ps1 (subagent dispatch for Gemini / DeepSeek roles)",
+  "environment": "Windows 11; Claude Code root dispatching non-Claude children",
+  "observed_at": "2026-10-27",
+  "symptom": "harness-cli.ps1 -Executor windows -Vai explorer|worker exited 1 before any model call with 'Pre-code recall Python runtime missing.' Two real dispatches (MAM-R27-G1, MAM-R27-D1) failed this way; second-brain MCP also refused connection.",
+  "root_cause": "D:/61.SetupAgent/codex_router/tools/harness-memory.ps1:86 requires D:/61.SetupAgent/agentic-os/backend/.venv/Scripts/python.exe, and that venv directory does not exist (Test-Path False).",
+  "root_cause_status": "confirmed",
+  "fix_or_workaround": "Workaround used: `Get-Content <prompt.md> -Raw | codex exec -m custom/oauth-anti-gemini-flash-high -c model_reasoning_effort=high -s read-only -C <episode dir> --skip-git-repo-check --json -o <final.md>` (and `-m opencode-go/deepseek-v4.1-flash -s workspace-write` for the builder). Same codex-router, but without four-layer recall and without the harness's 4-proof receipt, so resolved model/upstream must be read from the JSONL thread and router usage events.",
+  "prevention": "Before a multi-model round, run the harness -KiemTra preview AND a check that the recall venv exists; preview alone does not exercise recall. Repairing the SetupAgent venv belongs to the SetupAgent owner, not to a film round.",
+  "verification": "codex exec threads started for both roles (thread.started + turn.started in JSONL). Completion and resolved model are recorded per task in the episode PLAN.",
+  "status": "open",
+  "evidence_paths": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/PLAN.md"
+  ],
+  "affected_artifacts": []
+}

@@ -1,0 +1,149 @@
+{
+  "at_utc": "2026-10-16T21:06:54.683782+00:00",
+  "job_id": "741cd009-e681-4704-b3ce-06df75a535ec",
+  "nodes": 27,
+  "configured_inputs_equal": true,
+  "literal19_exact": true,
+  "literal19_sha256": "a7e09b2581ec4fa23c34c6261b898f4ec9f2137fb438ba17e9e93bb19c37f3a4",
+  "checks": [
+    {
+      "node": "1",
+      "equal": true
+    },
+    {
+      "node": "2",
+      "equal": true
+    },
+    {
+      "node": "3",
+      "equal": true
+    },
+    {
+      "node": "4",
+      "equal": true
+    },
+    {
+      "node": "19",
+      "equal": true
+    },
+    {
+      "node": "6",
+      "equal": true
+    },
+    {
+      "node": "7",
+      "equal": true
+    },
+    {
+      "node": "8",
+      "equal": true
+    },
+    {
+      "node": "10",
+      "equal": true
+    },
+    {
+      "node": "11",
+      "equal": true
+    },
+    {
+      "node": "12",
+      "equal": true
+    },
+    {
+      "node": "13",
+      "equal": true
+    },
+    {
+      "node": "14",
+      "equal": true
+    },
+    {
+      "node": "15",
+      "equal": true
+    },
+    {
+      "node": "16",
+      "equal": true
+    },
+    {
+      "node": "17",
+      "equal": true
+    },
+    {
+      "node": "18",
+      "equal": true
+    },
+    {
+      "node": "50",
+      "equal": true
+    },
+    {
+      "node": "52",
+      "equal": true
+    },
+    {
+      "node": "51",
+      "equal": true
+    },
+    {
+      "node": "53",
+      "equal": true
+    },
+    {
+      "node": "54",
+      "equal": true
+    },
+    {
+      "node": "55",
+      "equal": true
+    },
+    {
+      "node": "58",
+      "equal": true
+    },
+    {
+      "node": "56",
+      "equal": true
+    },
+    {
+      "node": "57",
+      "equal": true
+    },
+    {
+      "node": "20",
+      "equal": true
+    }
+  ],
+  "frontend_added_defaults": [
+    {
+      "node": "17",
+      "values": {
+        "bit_depth": "auto",
+        "color_space": "sRGB",
+        "codec": "none"
+      }
+    },
+    {
+      "node": "18",
+      "values": {
+        "format.codec": "auto"
+      }
+    },
+    {
+      "node": "56",
+      "values": {
+        "bit_depth": "auto",
+        "color_space": "sRGB",
+        "codec": "none"
+      }
+    },
+    {
+      "node": "57",
+      "values": {
+        "format.codec": "auto"
+      }
+    }
+  ],
+  "status": "queued_one_visible_Chrome_Run_picture_pending"
+}

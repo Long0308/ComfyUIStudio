@@ -1,0 +1,24 @@
+{
+  "affected_artifacts": [
+    "production-local/studio-app",
+    "04-milk-and-mom/workflows",
+    "ComfyUI/user/default/workflows/04-milk-and-mom"
+  ],
+  "engine": "ComfyUI Web UI & JennieJoy Studio :5050",
+  "symptom": "Reopening saved ComfyUI workflow JSONs showed empty canvases or blank output nodes; Studio /films.html could not render image job previews from workflow definitions alone.",
+  "observed_at": "2026-10-26",
+  "status": "open",
+  "verification": "Existing seven image-job records and preview URLs demonstrate Studio registration/HTTP proof for that scoped catalog. A pinned LoadImage GUI workflow, supported registration, HTTP media/hash readback and reopened films.html inspection must be saved separately; workflow JSON alone proves none of the later stages.",
+  "limitations": "Full four-way readback is not established for every asset. Reused assets and imagegen calls may have runtime_id null; native video review uses media playback endpoints.",
+  "root_cause": "ComfyUI SaveImage node exports files to output/ but does not preserve persistent image buffer across UI reloads. Without an explicit LoadImage node pointing to the output, reloaded canvas is empty.",
+  "fix_or_workaround": "Resolve the helper under the active episode and create a companion review GUI workflow with a pinned LoadImage node in ComfyUI/input. Separately register the artifact in Studio with truthful runtime_id or null, read back the actual HTTP media/hash, and reopen the specific UI item.",
+  "prevention": "Save Comfy GUI import, Studio registration, HTTP media/hash and reopened UI proof independently. Do not treat a LoadImage node or workflow JSON as an automatic films.html preview.",
+  "id": "comfyui-saveimage-reload-preview-loss",
+  "root_cause_status": "confirmed",
+  "evidence_paths": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/tools/attach_comfy_result_preview.py",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/studio-publish-v001/catalog-with-preview.json",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/workflows/COMFY-JOBS-v003.json"
+  ],
+  "environment": "Windows, ComfyUI :8188, Studio :5050"
+}

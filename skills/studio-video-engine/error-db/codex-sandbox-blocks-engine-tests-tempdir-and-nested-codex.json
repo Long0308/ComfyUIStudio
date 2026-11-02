@@ -1,0 +1,21 @@
+{
+  "id": "codex-sandbox-blocks-engine-tests-tempdir-and-nested-codex",
+  "engine": "studio-video-engine worker dispatch (codex exec subagents), pytest runs, .agents skill edits",
+  "environment": "Windows 11, codex exec workspace-write sandbox (Gemini/DeepSeek/GPT routes), 2026-10-28 wave",
+  "observed_at": "2026-10-28",
+  "symptom": "Codex workers failed in the sandbox: .agents was read-only; a nested codex exec returned EPERM; pytest's default temp dir raised PermissionError; M9b-1 and CR-M4f1c could not run their exact command and judged by reading only.",
+  "root_cause": "Measured in the worker logs: the sandbox restricts writes outside the workspace (including the .agents tree and the default %TEMP%), forbids child-process creation for nested codex, and blocks pytest's default basetemp. This is sandbox policy, not a broken install. Same family as codex-sandbox-blocks-chromium-remotion-render (create-video-jenniejoykids/error-db). Plan evidence: M9b-1 (gpt-6-astra, 131,650 tokens; exact command failed only on temp-dir permission), CR-M4f1c (7,549,772 tokens in under 15 minutes, PermissionError, judged by reading only).",
+  "root_cause_status": "measured (worker output and PermissionError lines; root re-ran outside the sandbox: M9b-1 94 passed, M4-f1c 64 passed)",
+  "fix_or_workaround": "Claude native workers own every .agents edit and every live UAT (root runs the live ComfyUI/Docker/Remotion steps unsandboxed). Codex/Gemini/DeepSeek critics run read-only with --basetemp inside the workspace and at most 5 files per capsule. Root re-runs the test command outside the sandbox before accepting any worker's pass.",
+  "verification": "Root re-run outside the sandbox: M9b-1 94 passed, M9b-2 160 passed, M4-f1c 64 passed (plan section 5). The rule that a worker's own pass is not accepted until root re-runs it is in plan section 4.",
+  "prevention": "Rule to keep: a sandboxed worker never owns .agents edits, live UAT, nested codex, or a pytest run with the default temp dir. Give it config or code work and state 'root runs the test'. Critic capsules: --basetemp inside the workspace, <=5 files, <=20 tool calls. Never accept a worker's self-reported pass; re-run it outside the sandbox.",
+  "status": "workaround (routing rule) — the sandbox policy itself is unchanged",
+  "evidence_paths": [
+    "production-local/engine/WAVE-2026-10-28-PLAN.md",
+    "create-video-jenniejoykids/error-db/codex-sandbox-blocks-chromium-remotion-render.json"
+  ],
+  "affected_artifacts": [
+    "engine test runs",
+    ".agents/skills/studio-video-engine SKILL and tests"
+  ]
+}

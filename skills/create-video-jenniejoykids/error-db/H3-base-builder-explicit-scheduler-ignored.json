@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "id": "H3-base-builder-explicit-scheduler-ignored",
+  "status": "source_fix_in_progress_actualv15preserved",
+  "measured": {
+    "intended_config_scheduler": "simple",
+    "actual_v15_node13_scheduler": "beta",
+    "steps": 20,
+    "root_cause": "Base singlebuilder BasicScheduler13 hardcoded beta; config key silently ignored. Continuousdelegates segment unchanged."
+  },
+  "action": "Do not change running job or its config. Add typed optional beta/simple support retaining legacydefault. Conditionalv16config reconciledbeta to preserveactualv15method. Sourcefixisnotmotionqualityfix.",
+  "evidence": [
+    "shots/S01-B-v15-aligned-anchors-prep/config.json",
+    "shots/S01-B-v15-aligned-anchors-prep/actual-queue.json",
+    "paired-v16-data-review.md"
+  ]
+}

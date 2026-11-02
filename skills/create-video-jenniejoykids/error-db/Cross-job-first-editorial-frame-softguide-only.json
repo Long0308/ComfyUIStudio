@@ -1,0 +1,12 @@
+{
+  "id": "Cross-job-first-editorial-frame-softguide-only",
+  "status": "fixed_singlecontinuation_runtime_verified_scene2_pending",
+  "scope": "DetectedbeforeScene2submission;nofailedproductiontake",
+  "cause": "Initialsegmentofnewcontinuousgraphusedgeneratednativeframe0;onlyinternalsiblingshardcarriedprevious_last. SoftfirstframeguidealonecannotpromiseexactScene1B119→Scene2A0.",
+  "fix_intent": "Optionalrootcarry_in_first_frame:true; splicealreadyloadedacceptedlosslessboundaryPNGintoeditorialA0, nativeAVunchanged; measuredW/Hpreflightrequired",
+  "current_job_impact": "None; S01v9A→B is samegraphalreadyhardcarried; frozenjobnotchanged",
+  "future_scene": "S02prepnot_submitted_dependencyblocked",
+  "at_utc": "2026-10-16T20:19:57.340712+00:00",
+  "verification": "128tests+independentreviews;actualBv10boundary-startRGBpixelsEQUALactualv9A119viaPILImageChops, native864x480. FullBmotionrejectedseparately;Scene2crossjobstillpending.",
+  "evidence": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\qa\\S01-B-v10\\measurement.json"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "concurrent-builders-overwrote-skill-section",
+  "engine": "Orchestration: parallel builders editing the same skill file",
+  "environment": "studio-video-engine/SKILL.md during engine wave 1 (T-E28a, T-E28b, T-E30 in parallel), 2026-10-27",
+  "observed_at": "2026-10-27",
+  "symptom": "The remotion-kit builder reported adding a 'remotion-kit' section to studio-video-engine/SKILL.md, but the re-critic found no such section: the T-E28a builder rewrote SKILL.md concurrently (read-modify-write) and the section was lost. Line 109 still says the review render (remotion-kit) is not implemented.",
+  "root_cause": "Root allowed several builders to edit the same SKILL.md in one wave; each did read → edit → write on a stale copy (lost update).",
+  "root_cause_status": "measured",
+  "fix_or_workaround": "remotion-kit builder made the only writer of that file for round 3 and told to re-add the section after re-reading the file.",
+  "prevention": "One writer per file per wave, including SKILL.md files: builders that are not the owner put their section text in their own folder (e.g. SKILL-SECTION.md) and root merges; after any parallel wave, root greps every SKILL file for each builder's claimed section before marking the wave done.",
+  "verification": "grep of studio-video-engine/SKILL.md headings 2026-10-27 ~15:4x: no remotion-kit section; T-E30 and T-E28a sections present.",
+  "status": "fix_in_progress",
+  "evidence_paths": [".agents/skills/studio-video-engine/SKILL.md"],
+  "affected_artifacts": []
+}

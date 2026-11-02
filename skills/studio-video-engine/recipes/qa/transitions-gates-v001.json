@@ -1,0 +1,7 @@
+{
+  "schema": "jjv/qa-transitions-recipe/v1",
+  "id": "transitions-gates-v001",
+  "comment": "Thresholds of `jjv qa transitions` that are not shared with Q3/Q4 (those stay in review-gates-v001.json: same_framing_ncc_min is the hard same-seat line). same_seat_grey_ncc_min < same_framing_ncc_min opens a grey band: a non-cut boundary measuring in [grey, hard) is UNCERTAIN (a critic looks at the sheet) instead of PASS. Measured: shipped ep04 T1310 = 0.338 (cut_push, exempt); shipped T390 whip = 0.310, user-approved film, so the band starts above it; negative control v005 T1310 = 0.335 stays in the band. Root set 0.32 on 2026-10-29.",
+  "same_seat_grey_ncc_min": 0.32,
+  "extract_chunk_frames": 12
+}

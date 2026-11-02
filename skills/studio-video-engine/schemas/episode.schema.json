@@ -1,0 +1,241 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jjv/schemas/episode/v1",
+  "$defs": {
+    "engine_relative_json": {
+      "type": "string",
+      "pattern": "^(\\.\\./)?(?!/)(?!\\.\\./)(?!.*/\\.\\./)[^\\\\:]+\\.json$"
+    },
+    "frames": { "type": "integer", "minimum": 0 },
+    "section": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "frames"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$" },
+        "kind": { "enum": ["intro", "dialogue", "logo_hold", "vocab_card", "end_plate", "end_card", "broll", "insert", "motion_still", "title"] },
+        "frames": { "type": "integer", "minimum": 1 },
+        "term": { "type": "string", "minLength": 1 },
+        "speech_frames": { "type": "integer", "minimum": 1 }
+      }
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "episode_id",
+    "film_id",
+    "title",
+    "domain",
+    "recipes",
+    "files",
+    "timeline",
+    "engine_tree_sha256",
+    "overrides"
+  ],
+  "properties": {
+    "schema": {
+      "const": "jjv/episode/v1"
+    },
+    "episode_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"
+    },
+    "film_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "domain": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "recipes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+/[a-z0-9][a-z0-9._-]*$"
+      },
+      "propertyNames": {
+        "pattern": "^[a-z0-9]+$"
+      }
+    },
+    "files": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "shots"
+      ],
+      "properties": {
+        "shots": {
+          "type": "string",
+          "pattern": "^[^/\\\\:]+\\.json$"
+        },
+        "mouth_boxes": {
+          "type": "string",
+          "pattern": "^[^/\\\\:]+\\.json$"
+        },
+        "dialogue": { "$ref": "#/$defs/engine_relative_json" },
+        "cast": { "$ref": "#/$defs/engine_relative_json" },
+        "script": { "$ref": "#/$defs/engine_relative_json" },
+        "icon_registry": { "$ref": "#/$defs/engine_relative_json" },
+        "review_config": { "$ref": "#/$defs/engine_relative_json" },
+        "shot_pack": { "$ref": "#/$defs/engine_relative_json" },
+        "contract_inputs": { "$ref": "#/$defs/engine_relative_json" },
+        "h3_spec": { "$ref": "#/$defs/engine_relative_json" },
+        "master_config": { "$ref": "#/$defs/engine_relative_json" }
+      }
+    },
+    "cast_roles": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "delivery_contract": {
+      "type": "string",
+      "minLength": 1
+    },
+    "timeline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "intro_s",
+        "dialogue_s",
+        "outro_s"
+      ],
+      "properties": {
+        "intro_s": {
+          "type": "number",
+          "minimum": 0
+        },
+        "dialogue_s": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "outro_s": {
+          "type": "number",
+          "minimum": 0
+        },
+        "end_card_s": {
+          "type": "number",
+          "minimum": 0
+        },
+        "end_card_frames": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "engine_tree_sha256": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      ]
+    },
+    "overrides": {
+      "type": "object"
+    },
+    "contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["revision", "fps", "main_frames", "end_card_frames", "total_frames", "brand_intro_frames",
+                   "vocab_count", "sections", "sha256"],
+      "properties": {
+        "revision": { "type": "string", "minLength": 1 },
+        "fps": { "type": "integer", "minimum": 1 },
+        "main_frames": { "type": "integer", "minimum": 1 },
+        "end_card_frames": { "$ref": "#/$defs/frames" },
+        "total_frames": { "type": "integer", "minimum": 1 },
+        "brand_intro_frames": { "$ref": "#/$defs/frames" },
+        "vocab_count": { "$ref": "#/$defs/frames" },
+        "sections": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/section" } },
+        "inputs_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "extra": { "type": "object" },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+      }
+    },
+    "audio": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "music": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "recipe": { "type": "string", "pattern": "^audio/" },
+            "brief": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "bpm": { "type": "number", "minimum": 40, "maximum": 240 },
+                "key": { "type": "string", "minLength": 1 },
+                "instruments": { "type": "string", "minLength": 1 }
+              }
+            }
+          }
+        },
+        "sfx": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "recipe": { "type": "string", "pattern": "^audio/" },
+            "enabled": { "type": "boolean" }
+          }
+        },
+        "mix": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": { "recipe": { "type": "string", "pattern": "^audio/" } }
+        },
+        "brand_voice": { "enum": ["intro", "film", "none"] }
+      }
+    },
+    "voice": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "recipe": { "type": "string", "pattern": "^voice/" },
+        "version": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$" }
+      }
+    },
+    "timing": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": { "recipe": { "type": "string", "pattern": "^timing/" } }
+    },
+    "seedvr2": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "production_version",
+        "input_name_template",
+        "output_prefix_template"
+      ],
+      "properties": {
+        "production_version": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"
+        },
+        "input_name_template": {
+          "type": "string",
+          "minLength": 1
+        },
+        "output_prefix_template": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

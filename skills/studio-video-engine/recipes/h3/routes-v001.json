@@ -1,0 +1,17 @@
+{
+  "schema": "jjv/h3-routes/v1",
+  "id": "routes-v001",
+  "comment": "Domain table of `jjv h3`. The legacy allow-list remains qualified. Other domains require their own hash-pinned local GPU pilot receipt before H3 preparation or submission; a null pin is not qualification.",
+  "allowed_domains": ["jenniejoy_cartoon_3d"],
+  "qualification_required": {
+    "newtecons_live_action": {
+      "receipt": {
+        "path": "production-local/engine/qualifications/h3/newtecons-live-action-v001.json",
+        "sha256": "30cd429bc932995c0d59f65ea4e8b30465aa5951636ebd3fcd4054e127db39f8"
+      },
+      "output_prefix_root": "NEWTECONS"
+    }
+  },
+  "legacy_voice_episodes": ["04-milk-and-mom"],
+  "legacy_voice_comment": "Only episodes produced BEFORE the voice stage existed may bind a WAV to a prior preparation receipt instead of a listen-approved voice_dir. Every new episode uses voice_dir."
+}

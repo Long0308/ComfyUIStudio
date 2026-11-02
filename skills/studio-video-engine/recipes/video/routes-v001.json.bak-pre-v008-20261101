@@ -1,0 +1,52 @@
+{
+  "schema": "jjv/video-routes/v1",
+  "id": "video-routes-v001",
+  "comment": "Bảng domain của `jjv video` (pipeline VIDEO theo từng shot, spec docs/specs/2026-10-31-video-engine-per-shot.md). Code engine không nêu tên domain: template H3, port graph, lưới frame, seed gốc và chính sách upscale của từng domain đều nằm ở đây. Domain không có trong allowed_domains bị từ chối trước khi ghi bất kỳ file nào. Backend upscale khác `none` cần receipt qualification ghi ở upscale.qualified[backend] của ĐÚNG domain đó; recipe SeedVR2 của domain hoạt hình không bao giờ được tra ở đây.",
+  "allowed_domains": ["newtecons_live_action"],
+  "shotlist_schemas": ["jjv/script/v1"],
+  "stages": ["01 ĐỌC SHOTLIST", "02 VIẾT PROMPT", "03 AI QUAY VIDEO", "04 LÊN 1080P", "05 LƯU & QUAY TIẾP"],
+  "max_lanes": 10,
+  "take_gate": "first",
+  "domains": {
+    "newtecons_live_action": {
+      "template": {
+        "path": "production-local/ComfyUI/user/default/workflows/NEWTECONS_H3/NEWTECONS_H3_R2V_LIVE_ACTION_v007-realism.api.json",
+        "sha256": "51cde82f560d3ad3a4e015733cd881e90d0cae5c395a6af964e6316619c50632",
+        "comment": "31/10 root: v007-realism = v006-wardrobe (c86e6dad..., kept) + user 'tránh ảnh AI, phải có độ chân thật' realism block in node 19. v006 = v001 (4c6a1fda..., kept) with wardrobe-rule wording (CR-WARDROBE-PROMPT gap)."
+      },
+      "ports": {
+        "face": [["5", "image"]],
+        "anchor": [["8", "image"]],
+        "wav": [["7", "audio"]],
+        "prompt": "19.value",
+        "length": "6.length",
+        "seed": "11.noise_seed",
+        "editorial_node": "18",
+        "output_ports": [["18", "filename_prefix"]]
+      },
+      "geometry": { "width_port": "6.width", "height_port": "6.height", "fps_port": "17.fps", "width": 1280, "height": 704, "multiple_of": 32,
+        "source": "USER-DECISIONS-2026-10-31.json video_config C2 -> 1440: H3 turbo 8-step HD LoRA at 1280x704 (704 = 22*32)" },
+      "frame_grid": {
+        "step": 17,
+        "offset": 5,
+        "source": "production-local/ComfyUI/user/default/workflows/NEWTECONS_H3/README.md: node H3 làm tròn số frame lên lưới 17k+5 (124 = 17*7+5). Chưa đo trên NEWTECONS."
+      },
+      "seed_base": 20261030,
+      "h3_route": "h3-ref2va",
+      "h3_routes_file": "recipes/h3/routes-v001.json",
+      "wardrobe_prompts": {
+        "comment": "User rule 31/10/2026: office AND site container office = van_phong (company shirt, no helmet, no vest); outdoors on site = cong_truong full PPE, helmet WORN. Read by engine/video/plan.py wardrobe_for(); prompt.compose applies rule + drops forbidden script phrases (kept in receipt as provenance).",
+        "van_phong": {"rule": "Wardrobe (van_phong, office or site container office): the company fine blue-white grid shirt with the small collar logo only; no helmet, no safety vest, nothing reflective.", "forbid": ["helmet", "hard hat", "hardhat", "vest", "reflective", "hi-vis", "high-visibility", "PPE"]},
+        "cong_truong": {"rule": "Wardrobe (cong_truong, outdoors on site): full PPE over the company shirt; the white safety helmet with the company logo is worn on the head, chin strap fastened, never carried; reflective safety vest on.", "forbid": []}
+      },
+      "upscale": {
+        "default_backend": "none",
+        "target": "2560x1440",
+        "backends": ["none", "rtx-vsr", "seedvr2-3b", "seedvr2-7b", "realesrgan", "lanczos", "comfy-realesrgan-1080"],
+        "qualified": {},
+        "crop_mode": null,
+        "comment": "`none` = ghi upscale_pending và dừng ở cổng needs-gpu-pilot-approval. Một backend chỉ chạy khi qualified[backend] trỏ tới receipt qualification NEWTECONS (path + sha256) do user cho phép pilot; crop/pad 1944x1080 -> 1920x1080 chưa chốt: `crop_mode` để null cho tới khi user chọn (adapter comfy-realesrgan-1080 từ chối chạy khi null; giá trị hợp lệ v1: center-crop)."
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "id": "H3-continuous-turnaround-neck-twist-second-12",
+  "observed_at": "2026-10-17T01:15:00.000000+00:00",
+  "status": "resolved_via_cinematic_cut_tableau",
+  "engine": "MiniMax H3 Ref2VA / FL2VA",
+  "environment": "RTX 5070 12GB; ComfyUI Native; 120 frames @ 24fps",
+  "symptom": "At second 12 (Scene 2A), the protagonist's (Alice) head rotated 180 degrees unnaturally while her body remained rear-facing or fixed, morphing facial features directly onto the back of the skull.",
+  "evidence_paths": [
+    "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\Scene01-10s-review-prep-v1\\renders\\comparison_s02_anatomy_fix.jpg",
+    "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\JennieKidJoys\\S02-tableau-v1\\A\\editorial_00001_.mp4"
+  ],
+  "root_cause_status": "isolated_and_verified",
+  "root_cause": "MiniMax H3 is a 2D diffusion flow-matching video generator lacking 3D skeletal rigging or cel turnaround comprehension. When prompted to transition from walking away into the zoo (rear view) to facing forward and looking at a bird within a continuous take, the model interpolates latents by blending face textures onto the back of the skull rather than executing a physically plausible head/torso turn.",
+  "fix_or_workaround": "Never force a continuous 180-degree turnaround in a single generative shot. Apply standard animation grammar (a cinematic cut): transition from the rear entrance shot (Scene 1B) to a 3/4 frontal tableau (Scene 2A) where the family is already standing near the willow tree looking upward. The diffusion model then only performs subtle upward gaze, pointing gestures, and arm elevation.",
+  "verification": "Rendered ComfyUI native job 71efabfe-b97f-4242-848d-7ef9bc4aea5d in 294.33s. All 120 frames (0, 30, 60, 90, 119) show natural 3/4 alignment, zero neck twist, fluid pointing arm, and stable preschool cartoon aesthetic.",
+  "limitations": "Requires staging an initial 3/4 tableau keyframe for Scene 2A instead of carrying the raw rear-view frame 119 directly across an axis reversal.",
+  "prevention": "Rule: If a scene transitions from moving away (rear view) to stationary interaction (front/side view), cut to a new tableau setup rather than forcing continuous rotation."
+}

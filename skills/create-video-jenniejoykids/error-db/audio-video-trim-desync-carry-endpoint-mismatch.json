@@ -1,0 +1,24 @@
+{
+  "affected_artifacts": [
+    "04-milk-and-mom/editorial/finishing-v001",
+    "04-milk-and-mom/editorial/captions-v001",
+    "04-milk-and-mom/clips/hybrid-v001"
+  ],
+  "engine": "Remotion Finishing + H3 Motion",
+  "symptom": "The reviewed Remotion scaffold used startFrom on dialogue without a paired picture offset, and its caption manifest assigned 140 delivery frames at 30fps (4.6667s) while the native video had 120 used frames at 24fps (5.0s). The review identified a blocking integration risk and endpoint mismatch; no affected completed export was observed.",
+  "observed_at": "2026-10-27",
+  "status": "open",
+  "verification": "Independent audit P0-01 established the paired-AV requirement from source review. S01_A's 5-second editorial mapping correctly equates 120 native frames at 24fps to 150 delivery frames at 30fps, but the full-timeline composition still requires a rendered export and audible lip/caption review.",
+  "limitations": "Source-level risk is confirmed, not an observed final-export desynchronization. Record any validated scoped shot preview separately and keep full-film AV resolution open.",
+  "root_cause": "Audio silence was trimmed in the compositor after H3 generation rather than before; delivery 30fps frames were calculated without paired mathematical mapping to native 24fps video.",
+  "fix_or_workaround": "Trim exact WAV silence ONCE before H3 motion generation. Bind native FPS (24), used native frames, picture offset, delivery FPS (30), and carry endpoint in a unified manifest. Continuous shots use exact last USED native frame.",
+  "prevention": "Never trim audio in finishing without paired video offset; perform all silence trimming upstream before H3.",
+  "id": "audio-video-trim-desync-carry-endpoint-mismatch",
+  "root_cause_status": "confirmed_integration_risk_final_export_not_observed",
+  "evidence_paths": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/engine-orchestration-audit-v001/AUDIT.md",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/editorial/finishing-v001/src/index.jsx",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/tools/prepare_finishing_v001.py"
+  ],
+  "environment": "Windows, Remotion :3000, ComfyUI H3 :8188"
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "id": "H3-partial-clipguide-exposure-ghost-v9",
+  "status": "confirmed_B_rejected_independent_review_next_v10_pending",
+  "observed_at_utc": "2026-10-16T20:19:57.340712+00:00",
+  "engine": "MiniMax H3 Ref2VA INT8",
+  "job_id": "00af6f7c-e581-4ea2-ad77-cc0ea018bb27",
+  "symptom": "B rear walking preserved but repeated pale exposure pulses and translucent gate/family duplicates; cannot accept or repair with blind temporal blends.",
+  "measured": {
+    "native_dimensions": [
+      864,
+      480
+    ],
+    "fps": 24,
+    "native_frames": 124,
+    "used_frames": [
+      0,
+      119
+    ],
+    "job_elapsed_seconds": 1512.716,
+    "pulse_start_frames": [
+      25,
+      42,
+      59,
+      76,
+      93,
+      110
+    ],
+    "pulse_interval_frames": 17,
+    "B_guide_frames": 90,
+    "B_guide_start": 24,
+    "A_guide_frames": 124,
+    "A_guide_start": 0,
+    "B_output_gray_mean_range": [
+      139.48,
+      192.9
+    ],
+    "B_guide_gray_mean_range": [
+      152.76,
+      158.03
+    ]
+  },
+  "visual_estimates": [
+    "Gate and father duplicate/transparent aroundB18..21; no legitimate fade/cut planned there.",
+    "Strong exposure wash around25..31 and repeated later spans.",
+    "Rear gait remains forward; direction solved provisionally, picture defect separate."
+  ],
+  "evidence": [
+    "qa/S01-paired-v9/B-exposure-diagnostic.json",
+    "qa/S01-paired-v9/B-overview.png",
+    "qa/S01-paired-v9/B-consecutive/frames-020-039.jpg",
+    "qa/S01-paired-v9/B-consecutive/f028.png"
+  ],
+  "root_cause_status": "not_isolated",
+  "hypothesis": "The17-frame cadence may relate to temporal guide/token grouping; partial offset guide is a suspect, not established model bug.",
+  "next_experiment": "B-onlyv10 actualA119first+cleanv9B119end withrootcarry, noclipguide/noearly8;newseed4341.Changesconditioningandseed;notasingle-variabletest. Fullmotion/seam/exposureacceptancepending.",
+  "audio_policy": "Preserve nativeAV; unchanged canonical Alice PCM placed only in editorial; no voice retiming.",
+  "prevention": "Inspect entire target used span, exposure cadence and spatial duplicates; success history/seam equality alone is not film acceptance.",
+  "independent_review": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\qa\\S01-paired-v9\\B-independent\\REVIEW.md",
+  "additional_source_finding": "Independentvisualreviewfounddoubledrailsinv7B98..101/residual97..104. Do not treatv7B60..119aswhollyclean."
+}

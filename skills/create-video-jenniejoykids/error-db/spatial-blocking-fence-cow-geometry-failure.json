@@ -1,0 +1,24 @@
+{
+  "affected_artifacts": [
+    "04-milk-and-mom/storyboard",
+    "04-milk-and-mom/concept",
+    "04-milk-and-mom/technical/storyboard-layout-v012"
+  ],
+  "engine": "ComfyUI FLUX / SD / Krea2 + Blender 3D Layout",
+  "symptom": "v003 composite showed 3 cows intersecting fence rails and family in cattle corridor; v006 had no front barrier; v007 had cows standing in front of fence line on family side.",
+  "observed_at": "2026-10-26",
+  "status": "resolved",
+  "verification": "Blender v012 layout guide was generated with world-space udder bounds (0.74 x 0.60 x 0.38 m), normalized hand contact 0.955, and a continuous front fence with side returns. This resolves guide geometry only; no final diffusion frame is certified.",
+  "limitations": "The Blender guide provides spatial control only. It does not validate cartoon styling, actor identity, generated enclosure topology, H3 motion or visual acceptance.",
+  "root_cause": "Text-only prompts cannot enforce spatial depth, occlusion boundaries, or physical enclosure topology in diffusion models. Prompt repetition fails.",
+  "fix_or_workaround": "Use the deterministic 3D Blender guide defining five depth planes and measured contact points, then require pixel review of each generated frame. Scope closure to the guide geometry until a final frame passes that review.",
+  "prevention": "Require 3D blocking guide whenever shots involve physical barriers, animal containment, or exact actor/prop contact.",
+  "id": "spatial-blocking-fence-cow-geometry-failure",
+  "root_cause_status": "confirmed",
+  "evidence_paths": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/concept/S01_A-CINEMATIC-BLOCKING-v004.md",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/storyboard-layout-v012/S01_A-CLOSED-PADDOCK-layout-v012.png",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/tools/build_s01a_layout_v012.py"
+  ],
+  "environment": "Windows, RTX 5080, ComfyUI :8188, Blender 5.2.2"
+}

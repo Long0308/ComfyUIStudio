@@ -1,0 +1,25 @@
+{
+  "affected_artifacts": [
+    "04-milk-and-mom/PLAN.md",
+    "04-milk-and-mom/technical/studio-publish-v001",
+    "04-milk-and-mom/audio/sfx-v001"
+  ],
+  "engine": "Studio Orchestration / App Publisher",
+  "symptom": "PLAN had unassigned or stale owners. A finishing scaffold existed; Studio held one genuine completed H3 job and seven image jobs but no published artifacts at the cited audit.",
+  "observed_at": "2026-10-27",
+  "status": "open",
+  "verification": "PLAN now records explicit concrete owners for the active lanes. At the audit snapshot, Studio actually held one genuine completed H3 job and seven indexed image jobs, while its artifact list was empty. Assignment is fixed; complete reviewable delivery remains unverified.",
+  "limitations": "A job count is not media delivery. Studio preview readback proves registration only, not visual/listening acceptance, and every asset still needs the separate GUI/registration/HTTP/UI proof gates.",
+  "root_cause": "Observed ownership/publication gaps. The extent to which these delayed editorial work or paused CPU/cloud lanes is inferred and not established by the cited chronology.",
+  "fix_or_workaround": "Enforce engine-dispatch-contract.md: assign a concrete live root/agent ID, not a skill name, for every lane at project start. Separate music and SFX stems with cue ducking. Scaffold HyperFrames and Remotion concurrently. Publish truthful runtime provenance and verify registration, HTTP/hash and reopened UI separately.",
+  "prevention": "Every lane must have a live owner and concrete release condition before expensive GPU inference starts, and completion remains open until real artifacts are reviewable in the reopened app.",
+  "id": "production-lane-orphan-unowned-finishing-delivery",
+  "root_cause_status": "partially_observed; delay_causation_unverified",
+  "evidence_paths": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/engine-orchestration-audit-v001/AUDIT.md",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/audio/sfx-v001/README.md",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/editorial/finishing-v001/README.md",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/studio-publish-v001/catalog-readback.json"
+  ],
+  "environment": "Local Windows workspace, Studio App :5050"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "brief-targeted-frozen-file-during-run",
+  "engine": "Orchestration (root briefs to builders) vs studio-video-engine FROZEN-EP04 guard",
+  "environment": "Episode 04 while the 4K SeedVR2 production job (PID 52776) was running",
+  "observed_at": "2026-10-27",
+  "symptom": "Root's T-E21 brief told the hybrid-bridge builder to add a refusal to .agents/skills/comfyui-video-pipeline/scripts/comfy_guarded_submit.py, a file listed in FROZEN-EP04.json that the running job depends on.",
+  "root_cause": "The brief was written from the feature need without first reading the frozen-file list.",
+  "root_cause_status": "caught_before_damage",
+  "fix_or_workaround": "Root stopped the builder; change staged under custom_nodes/jenniejoy_claude_bridge/staged/ for after the run. `jjv frozen verify` = ALL MATCH (sha 752077d3… unchanged).",
+  "prevention": "Before briefing any builder during a production run, run `jjv frozen verify` and list the frozen files as FORBIDDEN in the brief; changes to them are staged copies + diff applied by root after the run.",
+  "verification": "jjv frozen verify output 2026-10-27 ~13:1x: ALL MATCH, PID ALIVE.",
+  "status": "resolved_process_rule",
+  "evidence_paths": [".agents/skills/studio-video-engine/FROZEN-EP04.json"],
+  "affected_artifacts": []
+}

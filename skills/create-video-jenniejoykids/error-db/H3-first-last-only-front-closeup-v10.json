@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "id": "H3-first-last-only-front-closeup-v10",
+  "status": "confirmed_picture_reject",
+  "at_utc": "2026-10-16T20:33:48.334969+00:00",
+  "job_id": "08a1256b-8244-48fe-8c1a-f2ea125ed992",
+  "settings": {
+    "seed": 4341,
+    "steps": 20,
+    "frames": 124,
+    "width": 864,
+    "height": 480,
+    "guide_clips": [],
+    "first_frame": "actualv9A119",
+    "last_anchor_frame": 119
+  },
+  "measured": {
+    "job_seconds": 308.825,
+    "lossless_boundary_pixel_equal": true
+  },
+  "visual_estimates": [
+    "Rearopeningthenlargefrontchildcloseupduringmiddle;laterrearfamilyreset.",
+    "Noarbitrarycameraorbit/cutwasrequested. Frame0equalitydoesnotpreventmidtakecut."
+  ],
+  "evidence": [
+    "qa/S01-B-v10/overview.jpg",
+    "qa/S01-B-v10/measurement.json"
+  ],
+  "root_cause_status": "not_isolated_H3posecameraattention",
+  "conclusion": "First-lastanchors+newseedwithoutmotionguidefailed. Donotrerollsameconfigurationorclaimboundaryidentityiscontinuity.",
+  "next_action": "Prepareandinspectgeometricallycoherentcontinuousmotionguidebeforeanotherexpensiverun;retainv9AandrawnativeAV/canonicalvoice."
+}

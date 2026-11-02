@@ -1,0 +1,23 @@
+{
+  "id": "studio-uat-false-success-20261018",
+  "status": "resolved",
+  "engine": "Studio API + VoiceStudio adapter",
+  "symptom": "False 9/9, cross-episode Master and duplicated bedtime audio. State lost on restart.",
+  "root_cause": "Hardcoded success/fallback paths, copied WAV fixture, in-memory mutations and single-threaded runtime.",
+  "fix_or_workaround": "Episode-scoped validated media, real synthesis/provenance, atomic revisions, threaded singleton and evidence gates.",
+  "verification": "29 Python regressions, live 12 unique WAVs, 20 concurrent reads, missing Master stays blocked.",
+  "limitations": "No Milk picture Master, listening or lip-sync acceptance.",
+  "evidence_paths": [
+    "ENGINE-FIX-TRACKER.md",
+    "uat/2026-10-18/live-verification.json",
+    "uat/2026-10-18/real-audio-verification.json"
+  ],
+  "observed_at": "2026-10-18",
+  "environment": "Windows, RTX 5070, local Studio 5050 / ComfyUI 8188 / VoiceStudio 8080",
+  "root_cause_status": "confirmed",
+  "prevention": "Inspect real outputs, source hashes and pending reviews; never certify from a button response.",
+  "affected_artifacts": [
+    "production-local/studio-app",
+    "03-drinking-milk"
+  ]
+}

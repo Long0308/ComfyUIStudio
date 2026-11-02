@@ -1,0 +1,183 @@
+{
+  "schema_version": "1.0",
+  "project_id": "alice-zoo-continuous-entry-proposal",
+  "delivery": {
+    "fps": 24,
+    "width": 1280,
+    "height": 720
+  },
+  "sources": [],
+  "shots": [
+    {
+      "id": "zoo-entry",
+      "start_seconds": 0,
+      "duration_seconds": 5,
+      "characters": [
+        {
+          "id": "alice",
+          "name": "Alice",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Two-year-old toddler girl",
+          "body_proportions": "Small round toddler torso, short limbs and oversized round head",
+          "surface": "Warm peach skin, rosy round cheeks with two tiny white highlights",
+          "eyes": "Very large dark-brown eyes, near-black pupils, white catchlights and short upper lashes",
+          "brows": "Gently arched chestnut eyebrows",
+          "nose_beak": "Tiny peach button nose",
+          "mouth": "Small mouth, red-pink interior and rounded tongue; flexible speech phonemes",
+          "ears": "Small rounded peach ears",
+          "hair_head": "Chestnut short wavy bob, side-swept bangs, high side ponytail on anatomical RIGHT",
+          "clothes": "Rose-pink A-line dress, short puff sleeves, white two-lobed Peter Pan collar, ONE centered white chest heart, lightly pleated skirt, thin white hem line",
+          "footwear": "White frilly ankle socks; rose-pink lace-up sneakers with white laces, white rounded toe caps and white soles",
+          "accessories": "One large rose-pink bow at anatomical RIGHT ponytail anchor; no other accessories",
+          "marks_asymmetry": "Bow and ponytail on anatomical RIGHT, viewer LEFT in front view; no mirroring",
+          "reference_assets": [
+            {
+              "role": "face_front",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical front-view identity; no assertion of unseen side views"
+            },
+            {
+              "role": "wardrobe",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical puff sleeve dress and sneakers"
+            },
+            {
+              "role": "accessories",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical anatomical right bow"
+            },
+            {
+              "role": "gesture_only",
+              "path": "assets/references/alice2.jpg",
+              "status": "available",
+              "scope": "Expression and gestures only; exclude alternative costumes"
+            },
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        },
+        {
+          "id": "mother",
+          "name": "Mother",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Adult woman approximately thirty years old",
+          "body_proportions": "About twice Alice height, softly rounded adult proportions",
+          "surface": "Warm light-peach skin, oval face, softly rounded cheeks",
+          "eyes": "Almond dark-brown eyes with small white catchlights",
+          "brows": "Gently arched brown eyebrows",
+          "nose_beak": "Small rounded peach nose",
+          "mouth": "Small curved mouth with flexible silent smiles",
+          "ears": "Small rounded ears partly covered by hair",
+          "hair_head": "Chestnut shoulder-length hair, left-side part, ends curled inward",
+          "clothes": "Muted dusty-teal short-sleeved blouse, plain round neck, straight cream ankle-length trousers",
+          "footwear": "Simple off-white flat shoes",
+          "accessories": "No glasses, jewelry, hat or handbag",
+          "marks_asymmetry": "Left-side hair part remains anatomical left; no distinctive facial marks",
+          "reference_assets": [
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        },
+        {
+          "id": "father",
+          "name": "Father",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Adult man approximately thirty-two years old",
+          "body_proportions": "Adult softly broad shoulders, slightly taller than Mother",
+          "surface": "Warm light-peach skin, softly rounded rectangular face, clean-shaven",
+          "eyes": "Almond dark-brown eyes with small white catchlights",
+          "brows": "Straight dark-brown eyebrows",
+          "nose_beak": "Small broad rounded peach nose",
+          "mouth": "Small curved mouth with flexible silent smiles",
+          "ears": "Rounded ears visible beside short hair",
+          "hair_head": "Short neat dark-chestnut hair with fixed anatomical left side part",
+          "clothes": "Muted sage-green short-sleeved polo, small folded collar, two cream buttons; straight beige trousers",
+          "footwear": "Simple brown low shoes with rounded toes",
+          "accessories": "No glasses, facial hair, hat, watch or bag",
+          "marks_asymmetry": "Clean-shaven face, fixed anatomical left hair part, no other distinctive marks",
+          "reference_assets": [
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        }
+      ],
+      "seed": 20261017,
+      "events": [
+        {
+          "id": "anticipate",
+          "phase": "starting_state",
+          "start_seconds": 0,
+          "end_seconds": 1,
+          "focus": "Family facing open gate ahead from outside",
+          "description": "Creative choice: rear three-quarter camera follows on one axis. Mother left, toddler center, father right, hands connected. No turn-around."
+        },
+        {
+          "id": "forward",
+          "phase": "action",
+          "start_seconds": 1,
+          "end_seconds": 4,
+          "focus": "Forward grounded steps through opening",
+          "description": "Bodies move straight between pillars toward inside path; independent knees, weight and hand contacts. Native acting, no sliding cutouts."
+        },
+        {
+          "id": "seam",
+          "phase": "response",
+          "start_seconds": 4,
+          "end_seconds": 5,
+          "focus": "Threshold crossed, same forward gait carried into next segment",
+          "description": "Use editorial image119 as direct next frame0 guide and exact pre-encode editorial replacement; preserve native124frames. Review actual motion."
+        }
+      ],
+      "layout": {
+        "safe_margin": 36,
+        "headline_box": {
+          "x": 200,
+          "y": 600,
+          "width": 880,
+          "height": 80
+        },
+        "max_headline_lines": 2,
+        "logo_reserved_box": {
+          "x": 1100,
+          "y": 40,
+          "width": 140,
+          "height": 80
+        },
+        "font": "Trebuchet MS",
+        "font_status": "pending",
+        "longest_copy_check": {
+          "copy": "Mom, Dad, and me!",
+          "line_count": 1,
+          "fits": true,
+          "status": "pending"
+        }
+      },
+      "review": {
+        "status": "proposed",
+        "minimum_reading_hold_seconds": 0,
+        "legible_start_seconds": 1,
+        "legible_end_seconds": 3.25,
+        "notes": "Creative native-motion plan only; text is a later Remotion subtitle, not H3 lettering. Full cast repeated. Source/audio/font/direction/continuity review pending. Not accepted or rendered."
+      }
+    }
+  ],
+  "review_stage": "authorized_implementation_after_skill_validation"
+}

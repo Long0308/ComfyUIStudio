@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "production_request": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\A5-preview-v3\\request.json",
+  "project_dir": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\A5-preview-v3\\edit",
+  "fps": 24,
+  "accepted_clips": [
+    {
+      "segment_id": "S01_A",
+      "file": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\JennieKidJoys\\Scene-01-v9\\S01_A\\editorial_00001_.mp4",
+      "engine": "native_h3",
+      "accepted": true,
+      "review_scope": "OnlyAframes0..119rear-forwardpicturevisualpass;5sengineeringpreviewwithcanonicalvoicebed. B/fullsceneacceptanceandlisteningpending."
+    }
+  ],
+  "canonical_mix": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\A5-preview-v3\\bed-first5.wav",
+  "brand_events": [
+    {
+      "file": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\brand-opening-v2\\brand-opening-v2.mp4",
+      "start": 0,
+      "end": 0.9166666666666666,
+      "review_scope": "Approved source: exact JennieKidJoys / Let's Go to the Zoo!"
+    }
+  ],
+  "runtime": {
+    "node": "C:/Program Files/nodejs/node.exe",
+    "renderer_cli": "D:/23.JennieHomeSchool/03 Voice/jenniejoy-zoo-film/node_modules/@remotion/cli/remotion-cli.js",
+    "ffmpeg": "C:\\Users\\Admin\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0-full_build\\bin\\ffmpeg.EXE",
+    "ffprobe": "C:\\Users\\Admin\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0-full_build\\bin\\ffprobe.EXE"
+  },
+  "comfy_url": "http://127.0.0.1:8188",
+  "port": 3047,
+  "caption_positions": {
+    "S01_L1": "top-left"
+  }
+}

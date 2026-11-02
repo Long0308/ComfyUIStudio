@@ -1,0 +1,18 @@
+{
+  "id": "comfyui-loadaudio-combo-hides-flac-pins",
+  "engine": "ComfyUI 0.41 LoadAudio (folder_paths.filter_files_content_types) in the Comfyui-Studio image",
+  "environment": "Episode 04 review GUIs for audio results (T-A10)",
+  "observed_at": "2026-10-27",
+  "symptom": "Review workflows pinned the FLAC results via a LoadAudio node; GET /object_info/LoadAudio listed none of the 31 pinned files (0 of 31), so the pinned widget value was 'not in list' in the UI. A first check also miscounted because the input spec is ['COMBO', {options}] and len('COMBO') == 5.",
+  "root_cause": "Inside the container mimetypes.guess_type('a.flac') is (None, None); the content-type filter therefore drops .flac from the combo while .wav passes ('audio/x-wav').",
+  "root_cause_status": "measured_in_container",
+  "fix_or_workaround": "Pin 48 kHz WAV copies (ComfyUI/input/04-milk-and-mom-T-A10-<label>-<sha12>.wav) instead of FLAC; verify every review GUI's pinned name is in the LoadAudio options list (31/31 after the fix).",
+  "prevention": "Any result pin for audio must be WAV; a publish step must read /object_info/LoadAudio options (spec[1]['options']) and fail when a pinned name is missing.",
+  "verification": "Script in the T-A10 session: 'review GUIs with pin NOT in combo: 0'.",
+  "status": "resolved",
+  "evidence_paths": [
+    "production-local/ComfyUI/user/default/workflows/JENNIEJOYKIDS_04_MILK_AND_MOM/06_AUDIO_MUSIC",
+    "production-local/ComfyUI/user/default/workflows/JENNIEJOYKIDS_04_MILK_AND_MOM/07_AUDIO_SFX"
+  ],
+  "affected_artifacts": []
+}

@@ -1,0 +1,11 @@
+{
+  "id": "cleanup-deleted-media-used-as-test-negative-controls",
+  "engine": "ep04 cleanup (technical/cleanup-2026-10-27) vs studio-video-engine tests",
+  "observed_at": "2026-10-27",
+  "symptom": "After the user-approved ep04 cleanup the full suite went 4 failed / 2244 passed: test_qa_review_ep04 (v012 white flash Q3 ×2, v005 dissolve Q4) and test_qa_preflight_ep04 (v012 gate) could not open review-hd-v005/v012 exports.",
+  "root_cause": "The keep-list was built by grepping file NAMES in engine source/tests; these tests build the path at run time (f'review-hd-v{n}' + pattern), so the literal never appeared and the files were deleted. No other copy existed.",
+  "root_cause_status": "measured (ffmpeg 'No such file' in the failing tests)",
+  "fix_or_workaround": "Tests now SKIP with a named reason (never PASS) when the source export is missing; queue Q-9: rebuild small negative-control fixture clips (re-render the v012 T1010/T1310 windows and the v005 T1310 dissolve window from their kept configs/src, ~2 s each) into engine tests/fixtures so the gates keep a real-defect control.",
+  "prevention": "Before deleting production media, run the FULL test suite with the candidate files temporarily moved aside (or a dry-run that hides them), and keep negative-control evidence as small fixtures inside the engine, never as references into an episode folder.",
+  "status": "workaround (tests skip) — fixture rebuild queued"
+}

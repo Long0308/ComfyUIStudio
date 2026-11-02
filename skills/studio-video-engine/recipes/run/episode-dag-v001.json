@@ -1,0 +1,295 @@
+{
+  "schema": "jjv/run-dag/v1",
+  "id": "run/episode-dag-v001",
+  "domains": ["jenniejoy_cartoon_3d"],
+  "notes": [
+    "Stage DAG of `jjv run episode` (M8 / Q-6; M8-f1 wires h3 inputs/publish-shots, editorial boundaries write, qa transitions, deliver init, health preflight; M8-f2 wires seedvr2 segments -> plan -> adopt -> execute on the adopted plan). Data only: the orchestrator (engine/run/) walks `stages` in order, runs every `gates` verb (no render), skips a stage whose ledger entry matches its `inputs` and whose `receipts` exist, and STOPS (exit != 0, next step printed) at every human gate, at every `gpu` step without --approve-gpu, at every failing `pre`/`post` check and at the first failing verb.",
+    "Placeholders: {episode} {episode_file} {episode_root} {engine_dir} {episode_id} {domain} {skill_root} {stages_root} {stage_dir} {stage:<id>} {file:<episode.files key>} {run_dir} {runs_root} {scratch} {shot} (per_shot steps) {approved_sha} (images native, from the shot's current approval). In a check's `next`, {latest} is the newest matching file name.",
+    "Step keys beyond argv: `write_once` (skip the step when that output exists: the verb refuses to overwrite it), `argv_if_exists` (optional inputs passed only when the file is on disk), `pre` (a read-only check before the step). Stage key `post`: read-only checks after the steps, re-evaluated on reuse and in --dry-run. Check shapes: engine/run/checks.py. A `{missing: NAME}` marker of delivery.json, a boundaries DRAFT, an unmet H3 gap (MOUTH_BOXES_NOT_DERIVABLE) or a published shot list the episode does not adopt is a named STOP with its next step, never a crash.",
+    "NEWTECONS (newtecons_live_action) has NO run recipe on purpose: it is local-only and unqualified for SeedVR2 / H3 until its own GPU pilot; a cross-domain run is refused before anything is read.",
+    "Music generation (`jjv audio music pick --execute`, GPU) is a manual branch: when the library pick exits non-zero the run stops and names it.",
+    "S-numbers are the SKILL.md stage labels (informational); `needs` is the real dependency order.",
+    "Fixed --out folders: deliver film-2k, brand title/join and publish refuse an existing output directory (`fresh`), so a second real run of those stages needs the stage folder moved aside first; the orchestrator reports the verb's refusal as step-failed."
+  ],
+  "health_gate": {
+    "todo": "T-E39 engine-level health preflight (docker engine, container identity + --disable-partner-nodes, ComfyUI HTTP, idle queue, free VRAM, graph nodes). Since M8-f1 `bin/jjv.py` registers `health`, and the orchestrator runs `argv` as a gate right before EVERY gpu step (voice synth, every layout render, every images submit, h3 submit, seedvr2 execute). When the module or its verb is missing the run records `health_gate: not-available` and every gpu step STOPS (nothing runs unchecked).",
+    "module": "engine.health.cli",
+    "argv": ["health", "preflight", "--episode", "{episode}"]
+  },
+  "stages": [
+    {
+      "id": "config", "s": "S0", "label": "contract + config",
+      "needs": [], "always": true,
+      "inputs": ["{episode_file}", "{file:shots}", "{episode_root}/DELIVERY-CONTRACT.json"],
+      "gates": [
+        {"id": "config-validate", "argv": ["config", "validate", "--episode", "{episode}"]},
+        {"id": "frozen-verify", "argv": ["frozen", "verify"]}
+      ],
+      "steps": [
+        {"id": "contract-check", "argv": ["config", "contract", "--episode", "{episode}"],
+         "note": "read-only: exit 1 when DELIVERY-CONTRACT.json is stale; lock it with `jjv config contract --write`"}
+      ],
+      "receipts": []
+    },
+    {
+      "id": "script", "s": "S1", "label": "script ingest",
+      "needs": ["config"],
+      "inputs": ["{file:script}"],
+      "gates": [],
+      "steps": [
+        {"id": "ingest", "argv": ["script", "ingest", "--script", "{file:script}", "--episode", "{episode}", "--out", "{stage_dir}"]}
+      ],
+      "receipts": ["{stage_dir}/ingest-receipt.json"]
+    },
+    {
+      "id": "storyboard", "s": "S2", "label": "storyboard plan + continuity check",
+      "needs": ["script"],
+      "inputs": ["{stage:script}/ingest-receipt.json", "{stage:script}/shots.json"],
+      "gates": [],
+      "steps": [
+        {"id": "plan", "argv": ["storyboard", "plan", "--episode", "{episode}", "--ingest", "{stage:script}", "--out", "{stage_dir}"]},
+        {"id": "check", "argv": ["storyboard", "check", "--episode", "{episode}", "--ingest", "{stage:script}", "--out", "{stage_dir}"]}
+      ],
+      "receipts": ["{stage_dir}/storyboard-plan.json", "{stage_dir}/storyboard-check.json"]
+    },
+    {
+      "id": "voice", "s": "S4", "label": "voice: plan -> synth (GPU) -> listen approval -> finalize",
+      "needs": ["script"],
+      "inputs": ["{file:script}", "{file:cast}"],
+      "gates": [],
+      "steps": [
+        {"id": "plan", "argv": ["voice", "plan", "--episode", "{episode}", "--out", "{stage_dir}", "--script", "{file:script}", "--cast", "{file:cast}"]},
+        {"id": "synth", "gpu": true, "argv": ["voice", "synth", "--episode", "{episode}", "--out", "{stage_dir}", "--execute"],
+         "note": "VoiceStudio TTS: GPU lock + idle queue; a take whose native WAV still hashes is reused by the verb itself"},
+        {"id": "finalize", "human": "voice-listen-approval",
+         "argv": ["voice", "finalize", "--episode", "{episode}", "--out", "{stage_dir}", "--category", "all"]}
+      ],
+      "human_gates": {"voice-listen-approval": {"out": "{stage_dir}"}},
+      "receipts": ["{stage_dir}/voice-finalize.json", "{stage_dir}/voice-bindings.json"]
+    },
+    {
+      "id": "timing", "s": "S6", "label": "word timing + Q1",
+      "needs": ["voice"],
+      "inputs": ["{stage:voice}/voice-bindings.json"],
+      "gates": [],
+      "steps": [
+        {"id": "words", "argv": ["timing", "words", "--episode", "{episode}", "--dialogue", "{stage:voice}/voice-bindings.json", "--out", "{stage_dir}"]},
+        {"id": "q1", "argv": ["qa", "words", "--episode", "{episode}", "--timing", "{stage_dir}/WORD-TIMING.json"]}
+      ],
+      "receipts": ["{stage_dir}/WORD-TIMING.json", "{stage_dir}/timing-receipt.json"]
+    },
+    {
+      "id": "music", "s": "S7a", "label": "music: brief -> library pick -> music approval",
+      "needs": ["script"],
+      "inputs": ["{file:script}", "{file:shot_pack}"],
+      "gates": [],
+      "steps": [
+        {"id": "plan", "argv": ["audio", "music", "plan", "--episode", "{episode}", "--out", "{stage_dir}", "--shot-pack", "{file:shot_pack}", "--dry-run"]},
+        {"id": "pick", "argv": ["audio", "music", "pick", "--episode", "{episode}", "--out", "{stage_dir}", "--shot-pack", "{file:shot_pack}"],
+         "note": "library first; exit != 0 when nothing fits -> generate by hand with `jjv audio music pick --execute` (GPU, needs the user's approval), then re-run --from music"}
+      ],
+      "human_gates": {"music-approval": {"subject": "{stage_dir}/music-pick.json"}},
+      "human": "music-approval",
+      "receipts": ["{stage_dir}/music-pick.json"]
+    },
+    {
+      "id": "layout", "s": "S3a", "label": "Blender layout: plan -> check -> render (GPU beauty pass)",
+      "needs": ["storyboard"],
+      "inputs": ["{stage:storyboard}/storyboard-plan.json", "{file:cast}"],
+      "gates": [],
+      "steps": [
+        {"id": "plan", "argv": ["layout", "plan", "--episode", "{episode}", "--out", "{stage_dir}", "--cast", "{file:cast}"]},
+        {"id": "check", "argv": ["layout", "check", "--layout", "{stage_dir}"]},
+        {"id": "render", "gpu": true, "per_shot": "{file:shots}",
+         "argv": ["layout", "render", "--layout", "{stage_dir}", "--shot", "{shot}", "--passes", "beauty,depth,mask"]}
+      ],
+      "receipts": ["{stage_dir}/layout-plan.json"]
+    },
+    {
+      "id": "images", "s": "S3b", "label": "images (hybrid): plan -> candidates -> compare -> user pick -> native anchor",
+      "needs": ["layout"],
+      "inputs": ["{stage:layout}/layout-plan.json"],
+      "gates": [],
+      "steps": [
+        {"id": "plan", "argv": ["images", "plan", "--episode", "{episode}", "--out", "{stage_dir}", "--layout", "{stage:layout}"]},
+        {"id": "submit", "gpu": true, "per_shot": "{file:shots}",
+         "argv": ["images", "submit", "--episode", "{episode}", "--out", "{stage_dir}", "--shot", "{shot}"],
+         "note": "marked gpu on purpose: comfyui-local spends GPU, codex-exec/openrouter spend an account; every take is a new folder"},
+        {"id": "compare", "per_shot": "{file:shots}",
+         "argv": ["images", "compare", "--episode", "{episode}", "--out", "{stage_dir}", "--shot", "{shot}"]},
+        {"id": "native", "human": "images-approval", "per_shot": "{file:shots}",
+         "argv": ["images", "native", "--episode", "{episode}", "--out", "{stage_dir}", "--shot", "{shot}", "--sha", "{approved_sha}"]}
+      ],
+      "human_gates": {"images-approval": {"out": "{stage_dir}", "shots": "{file:shots}"}},
+      "receipts": ["{stage_dir}/images-plan.json"]
+    },
+    {
+      "id": "h3", "s": "S5", "label": "H3 motion: inputs (manifest from receipts) -> prepare -> submit (GPU) -> adopt -> shot acceptance -> publish shots",
+      "needs": ["images", "voice"],
+      "inputs": ["{file:h3_spec}", "{file:cast}", "{stage:voice}/voice-finalize.json", "{stage:voice}/voice-bindings.json", "{stage:images}/images-plan.json"],
+      "known_gap": "carry shots: `h3 inputs --carry-from` binds the previous shot's ACCEPTED take, so an episode with carry shots needs two rounds (a spec with the cut shots first, then the carry shots once their sources are picked). The manifest is write-once: identical bytes are reused, different bytes are refused by the verb (move {stage_dir}/h3-inputs.json aside, then re-run --from h3).",
+      "gates": [],
+      "steps": [
+        {"id": "inputs", "argv": ["h3", "inputs", "--episode", "{episode}", "--spec", "{file:h3_spec}", "--images", "{stage:images}", "--voice", "{stage:voice}", "--out", "{stage_dir}/h3-inputs.json", "--carry-from", "{stage_dir}"],
+         "note": "builds the jjv/h3-inputs/v1 manifest from engine receipts (the approved native anchor, the listen-approved finalize WAV, cast faces by role); episode.files.h3_spec is the hand-written jjv/h3-spec/v1 graph data (template, ports, face roles, mouth widget values; no shas)"},
+        {"id": "prepare", "argv": ["h3", "prepare", "--episode", "{episode}", "--inputs", "{stage_dir}/h3-inputs.json", "--out", "{stage_dir}"]},
+        {"id": "submit", "gpu": true, "argv": ["h3", "submit", "--episode", "{episode}", "--out", "{stage_dir}", "--approve-gpu"]},
+        {"id": "adopt", "argv": ["h3", "adopt", "--episode", "{episode}", "--out", "{stage_dir}"]},
+        {"id": "publish-shots", "human": "h3-acceptance",
+         "argv": ["h3", "publish-shots", "--episode", "{episode}", "--out", "{stage_dir}", "--dest-dir", "{engine_dir}"],
+         "note": "after every listed shot is picked: shots-h3-vNNN.json + .publication.json next to episode.json (write-once pair, identical content reuses the version); the publication's `unmet` list and the episode's files.shots are the post checks below"}
+      ],
+      "human_gates": {"h3-acceptance": {"out": "{stage_dir}", "shots": "{file:shots}"}},
+      "post": [
+        {"kind": "unmet-gap", "latest": "{engine_dir}/shots-h3-v[0-9][0-9][0-9].publication.json", "list": "unmet",
+         "next": "close the gap named in {latest} (MOUTH_BOXES_NOT_DERIVABLE: no engine receipt carries mouth-box tracks; the h3 owner's follow-up reports it only when episode.files.mouth_boxes is named), then re-publish by hand: jjv h3 publish-shots --episode {episode} --out {stage_dir} --dest-dir {engine_dir} (a gap-free publication is the next version), then re-run --from h3"},
+        {"kind": "shots-not-adopted", "latest": "{engine_dir}/shots-h3-v[0-9][0-9][0-9].json", "equals": "{file:shots}",
+         "next": "set episode.files.shots = \"{latest}\" in {episode_file} (the engine never rewrites episode.json), then re-run --from config"}
+      ],
+      "receipts": ["{stage_dir}/*/adopt.json", "{engine_dir}/shots-h3-v[0-9][0-9][0-9].publication.json"]
+    },
+    {
+      "id": "editorial", "s": "S8", "label": "editorial: boundaries write -> build-config (review config, events, segments)",
+      "needs": ["storyboard", "timing", "h3"],
+      "inputs": ["{stage:storyboard}/storyboard-check.json", "{stage:script}/boundaries-input.json", "{episode_root}/DELIVERY-CONTRACT.json", "{stage:timing}/WORD-TIMING.json", "{file:shots}", "{stage_dir}/boundaries-media.json", "{stage_dir}/boundaries-suggested.json"],
+      "gates": [],
+      "steps": [
+        {"id": "boundaries-write",
+         "argv": ["editorial", "boundaries", "write", "--storyboard-check", "{stage:storyboard}/storyboard-check.json", "--boundaries-input", "{stage:script}/boundaries-input.json", "--contract", "{episode_root}/DELIVERY-CONTRACT.json", "--out", "{stage_dir}/boundaries"],
+         "argv_if_exists": [
+           {"file": "{stage_dir}/boundaries-media.json", "argv": ["--media", "{stage_dir}/boundaries-media.json"]},
+           {"file": "{stage_dir}/boundaries-suggested.json", "argv": ["--suggested", "{stage_dir}/boundaries-suggested.json"]}
+         ],
+         "note": "from the GREEN storyboard check + ingest boundaries input + the locked contract; versioned write-once under {stage_dir}/boundaries/versions/; without cards audio + icons (boundaries-media.json next to this stage) the table is a DRAFT and no boundaries.json is written; measured rows come from `jjv editorial boundaries suggest` (boundaries-suggested.json)"},
+        {"id": "build-config",
+         "pre": {"kind": "boundaries-draft", "unless": "{stage_dir}/boundaries/boundaries.json", "latest": "{stage_dir}/boundaries/versions/boundaries-draft-v*.json", "list": "pending",
+                 "next": "the boundaries table is a DRAFT ({latest}): write {stage_dir}/boundaries-media.json (cards_audio per term: path + sha256; icons; logo; expect_silent) and/or {stage_dir}/boundaries-suggested.json for the pending items, then re-run --from editorial"},
+         "argv": ["editorial", "build-config", "--episode", "{episode}", "--boundaries", "{stage_dir}/boundaries/boundaries.json", "--word-timing", "{stage:timing}/WORD-TIMING.json", "--out", "{stage_dir}"]}
+      ],
+      "receipts": ["{stage_dir}/boundaries/boundaries.current.json", "{stage_dir}/review-config.json", "{stage_dir}/events.json", "{stage_dir}/segments.json"]
+    },
+    {
+      "id": "mix", "s": "S7b", "label": "audio mix (speech sample-exact, approved bed, gate)",
+      "needs": ["editorial", "music"],
+      "inputs": ["{stage:editorial}/review-config.json", "{stage:music}/music-pick.json"],
+      "gates": [],
+      "steps": [
+        {"id": "mix", "human": "music-approval",
+         "argv": ["audio", "mix", "--episode", "{episode}", "--out", "{stage_dir}", "--review-config", "{stage:editorial}/review-config.json", "--music-receipt", "{stage:music}/music-pick.json"]}
+      ],
+      "human_gates": {"music-approval": {"subject": "{stage:music}/music-pick.json"}},
+      "receipts": ["{stage_dir}/mix-receipt.json"]
+    },
+    {
+      "id": "edit", "s": "S9", "label": "review render (1080p segments + mux)",
+      "needs": ["editorial", "mix"],
+      "inputs": ["{stage:editorial}/review-config.json", "{stage:editorial}/events.json", "{stage:editorial}/boundaries/boundaries.json", "{stage:mix}/mix-receipt.json"],
+      "gates": [
+        {"id": "qa-preflight", "argv": ["qa", "preflight", "--config", "{stage:editorial}/review-config.json", "--episode", "{episode}", "--mix-receipt", "{stage:mix}/mix-receipt.json", "--json"]}
+      ],
+      "explain": {"inputs_dir": "{stage:editorial}", "target": "review"},
+      "steps": [
+        {"id": "review-render", "argv": ["edit", "review-render", "--cache", "{stage_dir}/cache", "--out", "{stage_dir}/review.mp4", "--episode", "{episode_file}", "--boundaries", "{stage:editorial}/boundaries/boundaries.json", "--word-timing", "{stage:timing}/WORD-TIMING.json"]}
+      ],
+      "receipts": ["{stage_dir}/review.mp4"]
+    },
+    {
+      "id": "qa", "s": "S10", "label": "qa gate on the review cut (Q1B..Q5) + transitions (T-E34)",
+      "needs": ["edit"],
+      "inputs": ["{stage:edit}/review.mp4", "{stage:editorial}/review-config.json", "{stage:editorial}/boundaries/boundaries.json"],
+      "gates": [],
+      "steps": [
+        {"id": "gate", "argv": ["qa", "gate", "--config", "{stage:editorial}/review-config.json", "--episode", "{episode}", "--video", "{stage:edit}/review.mp4", "--mix-receipt", "{stage:mix}/mix-receipt.json", "--out", "{stage_dir}/qa-gate-report.json", "--json"]},
+        {"id": "transitions", "argv": ["qa", "transitions", "--episode", "{episode}", "--video", "{stage:edit}/review.mp4", "--boundaries", "{stage:editorial}/boundaries/boundaries.json", "--timing", "{stage:timing}/WORD-TIMING.json", "--out", "{stage_dir}/transitions", "--json"],
+         "note": "full-resolution mid-transition checks (ghost, dip peak vs first spoken frame, same seat = cut/cut_push, contact sheets); exit 1 FAIL / 2 UNCERTAIN stop the run"}
+      ],
+      "receipts": ["{stage_dir}/qa-gate-report.json", "{stage_dir}/transitions/transitions-receipt.json"]
+    },
+    {
+      "id": "review", "s": "S10h", "label": "user review of the cut (at most 2 user-facing versions)",
+      "needs": ["qa"],
+      "inputs": ["{stage:edit}/review.mp4"],
+      "gates": [],
+      "steps": [],
+      "human_gates": {"user-review": {"subject": "{stage:edit}/review.mp4", "limit": 2}},
+      "human": "user-review",
+      "receipts": []
+    },
+    {
+      "id": "seedvr2", "s": "S11", "label": "SeedVR2 4K cores: segments (scratch) -> plan (scratch, bound) -> adopt (into the stage) -> execute (GPU, on the adopted plan)",
+      "needs": ["review", "h3"],
+      "inputs": ["{stage:editorial}/review-config.json", "{stage:h3}/*/adopt.json"],
+      "gates": [],
+      "steps": [
+        {"id": "segments", "argv": ["seedvr2", "segments", "--episode", "{episode}", "--out", "{scratch}/seedvr2-segments"],
+         "note": "frame-exact cuts of the plan built from the config (CPU ffmpeg, md5-proved, never overwritten: an existing cut is kept only when its frames equal the source slice)"},
+        {"id": "plan", "argv": ["seedvr2", "plan", "--episode", "{episode}", "--out", "{scratch}/seedvr2-plan", "--segments-root", "{scratch}/seedvr2-segments", "--reads", "{stage:editorial}/review-config.json"],
+         "note": "--out must be a fresh (absent or empty) folder outside the episode tree; bound to the cut segments so the plan is PLANNED_NOT_RENDERED (a plan without --segments-root is PLANNED_SEGMENTS_PENDING and both adopt and execute refuse it). To re-plan, move {scratch}/seedvr2-plan aside, then re-run --from seedvr2"},
+        {"id": "adopt", "argv": ["seedvr2", "adopt", "--episode", "{episode}", "--plan", "{scratch}/seedvr2-plan", "--segments-root", "{scratch}/seedvr2-segments", "--into", "{stage:seedvr2}/plan"],
+         "note": "SV2-GAP2 closed: proves every graph and segment against the plan, then copies plan + graphs + segments INTO the stage folder (write-once, ADOPT.json; re-adopting identical bytes is a no-op, drift is refused). --into must be inside the episode tree, so a run with --stages-root outside it is refused here by the verb"},
+        {"id": "execute", "gpu": true, "argv": ["seedvr2", "execute", "--episode", "{episode}", "--plan", "{stage:seedvr2}/plan/seedvr2-plan-v2.json", "--execute"],
+         "note": "runs the ADOPTED plan (its segments sit beside it, the verb's default --segments-root); run receipts land in {stage:seedvr2}/plan/runs/"}
+      ],
+      "receipts": ["{stage:seedvr2}/plan/ADOPT.json", "{stage:seedvr2}/plan/runs/run-state.json"]
+    },
+    {
+      "id": "master", "s": "S11b", "label": "master render (4K segments, cores bound by receipts)",
+      "needs": ["seedvr2", "review"],
+      "inputs": ["{file:master_config}", "{stage:editorial}/review-config.json", "{stage:editorial}/boundaries/boundaries.json"],
+      "known_gap": "episode.files.master_config is the receipt-bound kit config of the master, built by the master adapter once the 4K cores exist (`edit master-config` is in progress); until it exists the step fails with the verb's own message.",
+      "gates": [],
+      "explain": {"inputs_dir": "{stage:editorial}", "target": "master"},
+      "steps": [
+        {"id": "master-render", "argv": ["edit", "master-render", "--cache", "{stage_dir}/cache", "--out", "{stage_dir}/master.mp4", "--master-config", "{file:master_config}", "--episode", "{episode_file}", "--boundaries", "{stage:editorial}/boundaries/boundaries.json", "--word-timing", "{stage:timing}/WORD-TIMING.json"]}
+      ],
+      "receipts": ["{stage_dir}/master.mp4"]
+    },
+    {
+      "id": "deliver", "s": "S12", "label": "delivery sidecar (deliver init, write-once) + 2K deliverable (CPU downscale of the master)",
+      "needs": ["master"],
+      "inputs": ["{stage:master}/master.mp4"],
+      "gates": [],
+      "steps": [
+        {"id": "init", "write_once": "{engine_dir}/delivery.json",
+         "argv": ["deliver", "init", "--episode", "{episode}"],
+         "note": "writes <episode>/engine/delivery.json once from the domain, the locked contract and machine.json; a value with no source is a {missing: NAME} marker (never an invented path); the markers are checked right before the step that needs them"},
+        {"id": "film-2k",
+         "pre": {"kind": "unresolved-marker", "file": "{engine_dir}/delivery.json", "section": "film_2k",
+                 "next": "fill the key's source (MISSING_MACHINE_KEY -> production-local/engine/machine.json; MISSING_PATH -> that machine.json path on disk; MISSING_EPISODE_KEY -> the episode's brand-kit files), then move {engine_dir}/delivery.json aside and re-run --from deliver (init rewrites it)"},
+         "argv": ["deliver", "film-2k", "--episode", "{episode}", "--master", "{stage:master}/master.mp4", "--out", "{stage_dir}/film-2k"]}
+      ],
+      "receipts": ["{stage_dir}/film-2k/*.json"]
+    },
+    {
+      "id": "brand", "s": "S12b", "label": "brand title + join (intro -> title -> film)",
+      "needs": ["deliver"],
+      "inputs": ["{engine_dir}/delivery.json", "{stage:deliver}/film-2k/*.json"],
+      "gates": [],
+      "steps": [
+        {"id": "title",
+         "pre": {"kind": "unresolved-marker", "file": "{engine_dir}/delivery.json", "section": "brand", "ignore": ["film", "title"],
+                 "next": "fill the key's source (MISSING_MACHINE_KEY -> production-local/engine/machine.json; MISSING_PATH -> that machine.json path on disk; MISSING_EPISODE_KEY -> the brand kit's episodes/{episode_id}/ files), then move {engine_dir}/delivery.json aside, run `jjv deliver init --episode {episode}` by hand and re-run --from brand"},
+         "argv": ["brand", "title", "--episode", "{episode}", "--out", "{stage_dir}/title"]},
+        {"id": "join", "argv": ["brand", "join", "--episode", "{episode}", "--out", "{stage_dir}/join", "--title", "{stage_dir}/title/title.mp4", "--film", "{stage:deliver}/film-2k/film-2k.mp4"],
+         "note": "the intro comes from the delivery config (brand kit); the title is the one rendered by the step above and the film is the 2K deliverable, so their delivery.json markers (brand.title, brand.film) are not needed"}
+      ],
+      "receipts": ["{stage_dir}/join/branded-film.JOIN-RECEIPT.json"]
+    },
+    {
+      "id": "publish", "s": "S13", "label": "publish to Studio (dry run, then additive publish after approval)",
+      "needs": ["brand"],
+      "inputs": ["{engine_dir}/delivery.json", "{stage:brand}/join/branded-film.JOIN-RECEIPT.json"],
+      "gates": [],
+      "steps": [
+        {"id": "dry-run",
+         "pre": {"kind": "unresolved-marker", "file": "{engine_dir}/delivery.json", "section": "publish",
+                 "next": "publish.artifacts is filled by hand in {engine_dir}/delivery.json: a list of rows with path, sha256, receipt, role, version, provenance, review_status (the branded film {stage:brand}/join/branded-film.mp4 and its JOIN receipt); a MISSING_MACHINE_KEY (studio.url, publish.film_library) goes into production-local/engine/machine.json and needs delivery.json rewritten by `jjv deliver init`; then re-run --from publish"},
+         "argv": ["publish", "studio", "--episode", "{episode}", "--dry-run", "--out", "{stage_dir}/dry-run"]},
+        {"id": "publish", "human": "publish-approval",
+         "argv": ["publish", "studio", "--episode", "{episode}", "--publish", "--out", "{stage_dir}/publish"]}
+      ],
+      "human_gates": {"publish-approval": {"subject": "{stage:brand}/join/branded-film.JOIN-RECEIPT.json"}},
+      "receipts": ["{stage_dir}/publish/publication-intent.json"]
+    }
+  ]
+}

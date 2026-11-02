@@ -1,0 +1,448 @@
+{
+  "reviewed_utc": "2026-10-16T19:34:49.011585+00:00",
+  "scope": "Independent read-only PCM placement verification; no models, GPU, runtime, transcription or browser used. Only these review artifacts were written.",
+  "provenance_file_sha256": "df6e614d3f08b46b3a92cdfbd90b65ec2fd5beff35e11c52ddf4301b26f0c828",
+  "pass": true,
+  "checks": {
+    "timeline_metadata": true,
+    "unique_expected_line_ids": true,
+    "new_full_format_duration": true,
+    "guide_format_duration": true,
+    "old_full_format_duration": true,
+    "output_container_hashes_match_provenance": true,
+    "all12_source_hash_pcm_metadata_and_placements_pass": true,
+    "new_full_pcm_matches_independent_reconstruction": true,
+    "old_full_pcm_matches_independent_reconstruction": true,
+    "no_utterance_overlap": true,
+    "all_placements_in_bounds": true,
+    "all_unoccupied_gaps_exact_zero": true,
+    "guide_exact_copy_of_canonical_seconds45_to50": true,
+    "old_new_identical_outside_only_changed_union": true,
+    "s05_l2_only_scheduled_change": true,
+    "all_track_strict_decodes_valid": true,
+    "s05_voice_ends_before_bite": true,
+    "post_bite_to_s06_pause_is_2_05_seconds": true
+  },
+  "tracks": {
+    "new_canonical": {
+      "channels": 1,
+      "width_bytes": 2,
+      "rate": 24000,
+      "frames": 1440000,
+      "compression": "NONE",
+      "duration": 60.0,
+      "payload_bytes": 2880000,
+      "payload_pcm_sha256": "864c1fabf1ce412b8c9db1236ab7e669e4ca32ef805d3c75d48fdc9126298e05",
+      "container_sha256": "348e8d8ca0c1fe60aaf3d827c63289eb246e5c9163fe607096735f977b41b79c",
+      "declared_length_matches_read": true,
+      "ffmpeg_strict_decode_exit": 0,
+      "ffmpeg_errors": ""
+    },
+    "s05_b_guide": {
+      "channels": 1,
+      "width_bytes": 2,
+      "rate": 24000,
+      "frames": 120000,
+      "compression": "NONE",
+      "duration": 5.0,
+      "payload_bytes": 240000,
+      "payload_pcm_sha256": "b3d230e1c2bebbf3e99497384746cbe630b2f5d520e44475a95e8e801b6a5b24",
+      "container_sha256": "72790bb714873b7af697d9f93119b705e77df1c44091594b29136b5723c05381",
+      "declared_length_matches_read": true,
+      "ffmpeg_strict_decode_exit": 0,
+      "ffmpeg_errors": ""
+    },
+    "old_canonical": {
+      "channels": 1,
+      "width_bytes": 2,
+      "rate": 24000,
+      "frames": 1440000,
+      "compression": "NONE",
+      "duration": 60.0,
+      "payload_bytes": 2880000,
+      "payload_pcm_sha256": "4974f607b755c4f2d4f87fabfb02093cb8443b0e07ac33df813b7b7c30629fcd",
+      "container_sha256": "60098c9e3be6493f7bc686d2f7ebca1c970a2bd230b5b25d1e27b0436a440467",
+      "declared_length_matches_read": true,
+      "ffmpeg_strict_decode_exit": 0,
+      "ffmpeg_errors": ""
+    }
+  },
+  "lines": [
+    {
+      "line_id": "S01_L1",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\native\\S01_L1.wav",
+      "source_file_sha256": "ae49e101ea554e02e155e1aa739c90651b089b18b9df203e309920f90b5443a5",
+      "source_pcm_sha256": "7f30f6de62b0b89594a103854f7fe679676f69fdcf7630e36473eac44d1bd4f6",
+      "start_sample": 24000,
+      "end_sample_exclusive": 78000,
+      "global_start": 1.0,
+      "global_end": 3.25,
+      "duration": 2.25,
+      "checks": {
+        "source_container_hash_matches": true,
+        "source_payload_hash_matches": true,
+        "source_format_valid": true,
+        "source_decode_valid": true,
+        "placement_metadata_matches": true,
+        "new_readback_byte_identical": true,
+        "old_readback_byte_identical": true
+      }
+    },
+    {
+      "line_id": "S01_L2",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\native\\S01_L2.wav",
+      "source_file_sha256": "9e81aa62a751695cc757b02f554d67c4988369d9a6ce3d7819262b0cc7ea5ff4",
+      "source_pcm_sha256": "fbb7975071279ec3c3934721545a367f5e63064c232baf053d31a578212a4e2a",
+      "start_sample": 144000,
+      "end_sample_exclusive": 199680,
+      "global_start": 6.0,
+      "global_end": 8.32,
+      "duration": 2.32,
+      "checks": {
+        "source_container_hash_matches": true,
+        "source_payload_hash_matches": true,
+        "source_format_valid": true,
+        "source_decode_valid": true,
+        "placement_metadata_matches": true,
+        "new_readback_byte_identical": true,
+        "old_readback_byte_identical": true
+      }
+    },
+    {
+      "line_id": "S02_L1",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\native\\S02_L1.wav",
+      "source_file_sha256": "cbe7709bc5270ff14a8ca05e7368f2be5a36abca2c64c678585a06379a16e37e",
+      "source_pcm_sha256": "510bd0913a9cf02af07785bf135ab421e479cfc8c608f2d1e79bf186c3a91e10",
+      "start_sample": 264000,
+      "end_sample_exclusive": 323280,
+      "global_start": 11.0,
+      "global_end": 13.47,
+      "duration": 2.47,
+      "checks": {
+        "source_container_hash_matches": true,
+        "source_payload_hash_matches": true,
+        "source_format_valid": true,
+        "source_decode_valid": true,
+        "placement_metadata_matches": true,
+        "new_readback_byte_identical": true,
+        "old_readback_byte_identical": true
+      }
+    },
+    {
+      "line_id": "S02_L2",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\native\\S02_L2.wav",
+      "source_file_sha256": "a945787f6cb403752ceef2e0713fd8e8ecb3d9834df10dbd4efe4ad83d9f6ba5",
+      "source_pcm_sha256": "b43a869a8c902786c7ad4c76231b9563df34e7a88ad2623b409f17e1eaa44c46",
+      "start_sample": 384000,
+      "end_sample_exclusive": 447120,
+      "global_start": 16.0,
+      "global_end": 18.63,
+      "duration": 2.63,
+      "checks": {
+        "source_container_hash_matches": true,
+        "source_payload_hash_matches": true,
+        "source_format_valid": true,
+        "source_decode_valid": true,
+        "placement_metadata_matches": true,
+        "new_readback_byte_identical": true,
+        "old_readback_byte_identical": true
+      }
+    },
+    {
+      "line_id": "S03_L1",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\native\\S03_L1.wav",
+      "source_file_sha256": "f8d49063f2ecc9ddd4519c563c5ce8982c693c23458b4268e55af13bdac7d5fe",
+      "source_pcm_sha256": "baab749c834d51b747539c9cc718a4d04e7e0d99352288e38ebde27bdc20067a",
+      "start_sample": 504000,
+      "end_sample_exclusive": 552960,
+      "global_start": 21.0,
+      "global_end": 23.04,
+      "duration": 2.04,
+      "checks": {
+        "source_container_hash_matches": true,
+        "source_payload_hash_matches": true,
+        "source_format_valid": true,
+        "source_decode_valid": true,
+        "placement_metadata_matches": true,
+        "new_readback_byte_identical": true,
+        "old_readback_byte_identical": true
+      }
+    },
+    {
+      "line_id": "S03_L2",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\native\\S03_L2.wav",
+      "source_file_sha256": "5dfe03dc219a32e05d8a6c0fbe888a99dd3ece21224b22baa163cfdff13c9202",
+      "source_pcm_sha256": "2656a470f90c69f815f029ee96518c4f72d7c2140da018e3bcb74a0b73b1c857",
+      "start_sample": 624000,
+      "end_sample_exclusive": 677040,
+      "global_start": 26.0,
+      "global_end": 28.21,
+      "duration": 2.21,
+      "checks": {
+        "source_container_hash_matches": true,
+        "source_payload_hash_matches": true,
+        "source_format_valid": true,
+        "source_decode_valid": true,
+        "placement_metadata_matches": true,
+        "new_readback_byte_identical": true,
+        "old_readback_byte_identical": true
+      }
+    },
+    {
+      "line_id": "S04_L1",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\native\\S04_L1.wav",
+      "source_file_sha256": "a0c82be23f9d2e920bc7e72fb0de3cf63112ca9003c272fc42330e752e66cb51",
+      "source_pcm_sha256": "c9f94d198544d6de100c33077cefcdec51abd4dc29b1556f5344defacdc181c4",
+      "start_sample": 744000,
+      "end_sample_exclusive": 794880,
+      "global_start": 31.0,
+      "global_end": 33.12,
+      "duration": 2.12,
+      "checks": {
+        "source_container_hash_matches": true,
+        "source_payload_hash_matches": true,
+        "source_format_valid": true,
+        "source_decode_valid": true,
+        "placement_metadata_matches": true,
+        "new_readback_byte_identical": true,
+        "old_readback_byte_identical": true
+      }
+    },
+    {
+      "line_id": "S04_L2",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\native\\S04_L2.wav",
+      "source_file_sha256": "0a39f6739a042f97d9f69e3d2af89703ced2ea089dfba155f66c75215c5a48d2",
+      "source_pcm_sha256": "386377f50726f4e56aecc63560a5852f2f13161125327863a63a1fea8a0c4055",
+      "start_sample": 864000,
+      "end_sample_exclusive": 929280,
+      "global_start": 36.0,
+      "global_end": 38.72,
+      "duration": 2.72,
+      "checks": {
+        "source_container_hash_matches": true,
+        "source_payload_hash_matches": true,
+        "source_format_valid": true,
+        "source_decode_valid": true,
+        "placement_metadata_matches": true,
+        "new_readback_byte_identical": true,
+        "old_readback_byte_identical": true
+      }
+    },
+    {
+      "line_id": "S05_L1",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\native\\S05_L1.wav",
+      "source_file_sha256": "1f7f0894b7243931dc748382aade8d3f5685f230ed210715b3b4350018809528",
+      "source_pcm_sha256": "a2e648dac67dd79ea81fd6dd249686710bbc05356d141b1e1c56c2754cea2f38",
+      "start_sample": 984000,
+      "end_sample_exclusive": 1031760,
+      "global_start": 41.0,
+      "global_end": 42.99,
+      "duration": 1.99,
+      "checks": {
+        "source_container_hash_matches": true,
+        "source_payload_hash_matches": true,
+        "source_format_valid": true,
+        "source_decode_valid": true,
+        "placement_metadata_matches": true,
+        "new_readback_byte_identical": true,
+        "old_readback_byte_identical": true
+      }
+    },
+    {
+      "line_id": "S05_L2",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\native\\S05_L2.wav",
+      "source_file_sha256": "eba082320b753bda89a5b0076d919591766939f54dcd64f50d361943e4804fff",
+      "source_pcm_sha256": "88c4f10ffc16beb5abe2dc413716386e0541cce111bb79ca7a9eaeb29435ea8f",
+      "start_sample": 1088400,
+      "end_sample_exclusive": 1158960,
+      "global_start": 45.35,
+      "global_end": 48.29,
+      "duration": 2.94,
+      "checks": {
+        "source_container_hash_matches": true,
+        "source_payload_hash_matches": true,
+        "source_format_valid": true,
+        "source_decode_valid": true,
+        "placement_metadata_matches": true,
+        "new_readback_byte_identical": true,
+        "old_readback_byte_identical": true
+      }
+    },
+    {
+      "line_id": "S06_L1",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\native\\S06_L1.wav",
+      "source_file_sha256": "d5dc08c64aa8bc3bb287ef948b0a501559bd8b53c75c2710b2a9afb0ab275cf0",
+      "source_pcm_sha256": "18012c45e563c35c84ab24e2dcf6f1be3df7a953d8b34d7403b167e982470fd4",
+      "start_sample": 1224000,
+      "end_sample_exclusive": 1271040,
+      "global_start": 51.0,
+      "global_end": 52.96,
+      "duration": 1.96,
+      "checks": {
+        "source_container_hash_matches": true,
+        "source_payload_hash_matches": true,
+        "source_format_valid": true,
+        "source_decode_valid": true,
+        "placement_metadata_matches": true,
+        "new_readback_byte_identical": true,
+        "old_readback_byte_identical": true
+      }
+    },
+    {
+      "line_id": "S06_L2",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\native\\S06_L2.wav",
+      "source_file_sha256": "faf1a9380d965668b48ca9eaa44edaf752cdabee4a284c0c35b56c0cb606df02",
+      "source_pcm_sha256": "bb74d028445f2d31bd953c84254013e9f1b5d8034b22eff07967fd938744bf2c",
+      "start_sample": 1344000,
+      "end_sample_exclusive": 1394640,
+      "global_start": 56.0,
+      "global_end": 58.11,
+      "duration": 2.11,
+      "checks": {
+        "source_container_hash_matches": true,
+        "source_payload_hash_matches": true,
+        "source_format_valid": true,
+        "source_decode_valid": true,
+        "placement_metadata_matches": true,
+        "new_readback_byte_identical": true,
+        "old_readback_byte_identical": true
+      }
+    }
+  ],
+  "zero_gaps": [
+    {
+      "start_sample": 0,
+      "end_sample_exclusive": 24000,
+      "start": 0.0,
+      "end": 1.0,
+      "duration": 1.0,
+      "all_zero_pcm_bytes": true
+    },
+    {
+      "start_sample": 78000,
+      "end_sample_exclusive": 144000,
+      "start": 3.25,
+      "end": 6.0,
+      "duration": 2.75,
+      "all_zero_pcm_bytes": true
+    },
+    {
+      "start_sample": 199680,
+      "end_sample_exclusive": 264000,
+      "start": 8.32,
+      "end": 11.0,
+      "duration": 2.68,
+      "all_zero_pcm_bytes": true
+    },
+    {
+      "start_sample": 323280,
+      "end_sample_exclusive": 384000,
+      "start": 13.47,
+      "end": 16.0,
+      "duration": 2.53,
+      "all_zero_pcm_bytes": true
+    },
+    {
+      "start_sample": 447120,
+      "end_sample_exclusive": 504000,
+      "start": 18.63,
+      "end": 21.0,
+      "duration": 2.37,
+      "all_zero_pcm_bytes": true
+    },
+    {
+      "start_sample": 552960,
+      "end_sample_exclusive": 624000,
+      "start": 23.04,
+      "end": 26.0,
+      "duration": 2.96,
+      "all_zero_pcm_bytes": true
+    },
+    {
+      "start_sample": 677040,
+      "end_sample_exclusive": 744000,
+      "start": 28.21,
+      "end": 31.0,
+      "duration": 2.79,
+      "all_zero_pcm_bytes": true
+    },
+    {
+      "start_sample": 794880,
+      "end_sample_exclusive": 864000,
+      "start": 33.12,
+      "end": 36.0,
+      "duration": 2.88,
+      "all_zero_pcm_bytes": true
+    },
+    {
+      "start_sample": 929280,
+      "end_sample_exclusive": 984000,
+      "start": 38.72,
+      "end": 41.0,
+      "duration": 2.28,
+      "all_zero_pcm_bytes": true
+    },
+    {
+      "start_sample": 1031760,
+      "end_sample_exclusive": 1088400,
+      "start": 42.99,
+      "end": 45.35,
+      "duration": 2.36,
+      "all_zero_pcm_bytes": true
+    },
+    {
+      "start_sample": 1158960,
+      "end_sample_exclusive": 1224000,
+      "start": 48.29,
+      "end": 51.0,
+      "duration": 2.71,
+      "all_zero_pcm_bytes": true
+    },
+    {
+      "start_sample": 1271040,
+      "end_sample_exclusive": 1344000,
+      "start": 52.96,
+      "end": 56.0,
+      "duration": 3.04,
+      "all_zero_pcm_bytes": true
+    },
+    {
+      "start_sample": 1394640,
+      "end_sample_exclusive": 1440000,
+      "start": 58.11,
+      "end": 60.0,
+      "duration": 1.89,
+      "all_zero_pcm_bytes": true
+    }
+  ],
+  "difference_from_old": {
+    "allowed_union_seconds": [
+      45.35,
+      48.94
+    ],
+    "allowed_union_samples": [
+      1088400,
+      1174560
+    ],
+    "differing_sample_count": 85977,
+    "first_differing_sample": 1088400,
+    "last_differing_sample": 1174559
+  },
+  "s05_b_timing": {
+    "guide_global_range": [
+      45,
+      50
+    ],
+    "line_local_start": 0.3500000000000014,
+    "line_local_end": 3.289999999999999,
+    "planned_bite_local_range": [
+      3.55,
+      3.95
+    ],
+    "voice_end_to_bite_start": 0.259999999999998,
+    "bite_end_to_s06_voice_start": 2.049999999999997
+  },
+  "sample_peak_dbfs": -1.8260725840912386,
+  "clipped_sample_count": 0,
+  "voice_identity_limit": "All12sourcecontainersandPCMmatchdeclarednativefilesandoldcanonicalplacements. Liveprofile/model and subjective voice similarity were not rerun."
+}

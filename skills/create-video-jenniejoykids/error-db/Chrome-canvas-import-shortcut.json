@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "id": "Chrome-canvas-import-shortcut",
+  "observed_at": "2026-10-17",
+  "status": "resolved",
+  "engine": "ChromeComfyUIfrontend",
+  "environment": "ExistingChrome3 Comfy0.41.0",
+  "symptom": "Genericcua pressKeyControl_L+o failed to open filechooser",
+  "evidence_paths": [
+    "references/comfy-h3.md",
+    "D:/23.JennieHomeSchool/03 Voice/production-local/shots/S01-paired-entry-v3/submitted-queue.json"
+  ],
+  "root_cause_status": "not_isolated_workaround_verified",
+  "root_cause": "Generickeypress did not trigger expectedpagehandler in observedfocus/session; exactcause unproven",
+  "fix_or_workaround": "Armevent then DOM-grounded graph-canvas.press(Control+o), setFilesabsoluteJSON; Control+s/Confirm save",
+  "verification": "New54nodegraph imported/saved; oneRunactuallyqueued",
+  "limitations": "UIversion/focus dependent, always inspect currentDOM",
+  "prevention": "Prefer canvas-scoped Playwrightpress after observedselector, avoidblind repeats",
+  "affected_artifacts": [
+    "Scene1pairedv3workflow"
+  ]
+}

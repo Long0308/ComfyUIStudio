@@ -1,0 +1,498 @@
+{
+  "at_utc": "2026-10-16T20:31:44.881591+00:00",
+  "source": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\JennieKidJoys\\Scene-01-B-v10\\S01_B\\native_00001_.mp4",
+  "native_sha256": "4f04ac5d34b6073a5289c10d3ac02d5976de7aea001d678dbe6babf331faa51b",
+  "job_elapsed_seconds": 308.825,
+  "boundary_png_pixel_equal": true,
+  "png_dimensions": [
+    864,
+    480
+  ],
+  "B0_boundary_sha": "df3a4a621697062a8b982ba461b5593446ab6ac26e633832091246ce1dc5d7f3",
+  "A119_boundary_sha": "8ca17bcd83dd8f4c6b4473cd66ddd4104a9bc045bc2dd79a65936c03607cfb16",
+  "gray_means": [
+    {
+      "frame": 0,
+      "gray_mean": 151.02
+    },
+    {
+      "frame": 1,
+      "gray_mean": 150.43
+    },
+    {
+      "frame": 2,
+      "gray_mean": 149.21
+    },
+    {
+      "frame": 3,
+      "gray_mean": 148.67
+    },
+    {
+      "frame": 4,
+      "gray_mean": 146.91
+    },
+    {
+      "frame": 5,
+      "gray_mean": 146.45
+    },
+    {
+      "frame": 6,
+      "gray_mean": 145.99
+    },
+    {
+      "frame": 7,
+      "gray_mean": 145.92
+    },
+    {
+      "frame": 8,
+      "gray_mean": 145.37
+    },
+    {
+      "frame": 9,
+      "gray_mean": 145.28
+    },
+    {
+      "frame": 10,
+      "gray_mean": 144.97
+    },
+    {
+      "frame": 11,
+      "gray_mean": 144.93
+    },
+    {
+      "frame": 12,
+      "gray_mean": 143.95
+    },
+    {
+      "frame": 13,
+      "gray_mean": 144.29
+    },
+    {
+      "frame": 14,
+      "gray_mean": 126.38
+    },
+    {
+      "frame": 15,
+      "gray_mean": 126.72
+    },
+    {
+      "frame": 16,
+      "gray_mean": 126.72
+    },
+    {
+      "frame": 17,
+      "gray_mean": 126.63
+    },
+    {
+      "frame": 18,
+      "gray_mean": 126.56
+    },
+    {
+      "frame": 19,
+      "gray_mean": 126.74
+    },
+    {
+      "frame": 20,
+      "gray_mean": 126.67
+    },
+    {
+      "frame": 21,
+      "gray_mean": 126.66
+    },
+    {
+      "frame": 22,
+      "gray_mean": 126.44
+    },
+    {
+      "frame": 23,
+      "gray_mean": 126.54
+    },
+    {
+      "frame": 24,
+      "gray_mean": 125.91
+    },
+    {
+      "frame": 25,
+      "gray_mean": 125.96
+    },
+    {
+      "frame": 26,
+      "gray_mean": 127.67
+    },
+    {
+      "frame": 27,
+      "gray_mean": 127.77
+    },
+    {
+      "frame": 28,
+      "gray_mean": 129.09
+    },
+    {
+      "frame": 29,
+      "gray_mean": 129.11
+    },
+    {
+      "frame": 30,
+      "gray_mean": 126.58
+    },
+    {
+      "frame": 31,
+      "gray_mean": 126.73
+    },
+    {
+      "frame": 32,
+      "gray_mean": 127.6
+    },
+    {
+      "frame": 33,
+      "gray_mean": 127.64
+    },
+    {
+      "frame": 34,
+      "gray_mean": 127.89
+    },
+    {
+      "frame": 35,
+      "gray_mean": 128.05
+    },
+    {
+      "frame": 36,
+      "gray_mean": 128.1
+    },
+    {
+      "frame": 37,
+      "gray_mean": 128.15
+    },
+    {
+      "frame": 38,
+      "gray_mean": 127.49
+    },
+    {
+      "frame": 39,
+      "gray_mean": 127.72
+    },
+    {
+      "frame": 40,
+      "gray_mean": 127.3
+    },
+    {
+      "frame": 41,
+      "gray_mean": 127.36
+    },
+    {
+      "frame": 42,
+      "gray_mean": 126.78
+    },
+    {
+      "frame": 43,
+      "gray_mean": 126.97
+    },
+    {
+      "frame": 44,
+      "gray_mean": 126.73
+    },
+    {
+      "frame": 45,
+      "gray_mean": 126.77
+    },
+    {
+      "frame": 46,
+      "gray_mean": 126.47
+    },
+    {
+      "frame": 47,
+      "gray_mean": 126.55
+    },
+    {
+      "frame": 48,
+      "gray_mean": 126.47
+    },
+    {
+      "frame": 49,
+      "gray_mean": 126.5
+    },
+    {
+      "frame": 50,
+      "gray_mean": 126.11
+    },
+    {
+      "frame": 51,
+      "gray_mean": 125.74
+    },
+    {
+      "frame": 52,
+      "gray_mean": 125.48
+    },
+    {
+      "frame": 53,
+      "gray_mean": 126.7
+    },
+    {
+      "frame": 54,
+      "gray_mean": 126.7
+    },
+    {
+      "frame": 55,
+      "gray_mean": 127.99
+    },
+    {
+      "frame": 56,
+      "gray_mean": 127.84
+    },
+    {
+      "frame": 57,
+      "gray_mean": 128.92
+    },
+    {
+      "frame": 58,
+      "gray_mean": 128.86
+    },
+    {
+      "frame": 59,
+      "gray_mean": 133.3
+    },
+    {
+      "frame": 60,
+      "gray_mean": 133.1
+    },
+    {
+      "frame": 61,
+      "gray_mean": 138.26
+    },
+    {
+      "frame": 62,
+      "gray_mean": 138.21
+    },
+    {
+      "frame": 63,
+      "gray_mean": 140.61
+    },
+    {
+      "frame": 64,
+      "gray_mean": 140.17
+    },
+    {
+      "frame": 65,
+      "gray_mean": 144.08
+    },
+    {
+      "frame": 66,
+      "gray_mean": 144.0
+    },
+    {
+      "frame": 67,
+      "gray_mean": 147.88
+    },
+    {
+      "frame": 68,
+      "gray_mean": 147.64
+    },
+    {
+      "frame": 69,
+      "gray_mean": 151.6
+    },
+    {
+      "frame": 70,
+      "gray_mean": 151.75
+    },
+    {
+      "frame": 71,
+      "gray_mean": 153.36
+    },
+    {
+      "frame": 72,
+      "gray_mean": 153.39
+    },
+    {
+      "frame": 73,
+      "gray_mean": 154.98
+    },
+    {
+      "frame": 74,
+      "gray_mean": 155.1
+    },
+    {
+      "frame": 75,
+      "gray_mean": 153.29
+    },
+    {
+      "frame": 76,
+      "gray_mean": 153.22
+    },
+    {
+      "frame": 77,
+      "gray_mean": 153.34
+    },
+    {
+      "frame": 78,
+      "gray_mean": 150.88
+    },
+    {
+      "frame": 79,
+      "gray_mean": 150.87
+    },
+    {
+      "frame": 80,
+      "gray_mean": 148.68
+    },
+    {
+      "frame": 81,
+      "gray_mean": 148.65
+    },
+    {
+      "frame": 82,
+      "gray_mean": 148.39
+    },
+    {
+      "frame": 83,
+      "gray_mean": 148.43
+    },
+    {
+      "frame": 84,
+      "gray_mean": 148.48
+    },
+    {
+      "frame": 85,
+      "gray_mean": 148.32
+    },
+    {
+      "frame": 86,
+      "gray_mean": 148.59
+    },
+    {
+      "frame": 87,
+      "gray_mean": 148.59
+    },
+    {
+      "frame": 88,
+      "gray_mean": 148.24
+    },
+    {
+      "frame": 89,
+      "gray_mean": 148.24
+    },
+    {
+      "frame": 90,
+      "gray_mean": 147.66
+    },
+    {
+      "frame": 91,
+      "gray_mean": 147.66
+    },
+    {
+      "frame": 92,
+      "gray_mean": 147.01
+    },
+    {
+      "frame": 93,
+      "gray_mean": 147.02
+    },
+    {
+      "frame": 94,
+      "gray_mean": 146.47
+    },
+    {
+      "frame": 95,
+      "gray_mean": 146.47
+    },
+    {
+      "frame": 96,
+      "gray_mean": 146.95
+    },
+    {
+      "frame": 97,
+      "gray_mean": 146.97
+    },
+    {
+      "frame": 98,
+      "gray_mean": 147.65
+    },
+    {
+      "frame": 99,
+      "gray_mean": 148.25
+    },
+    {
+      "frame": 100,
+      "gray_mean": 148.47
+    },
+    {
+      "frame": 101,
+      "gray_mean": 148.29
+    },
+    {
+      "frame": 102,
+      "gray_mean": 148.33
+    },
+    {
+      "frame": 103,
+      "gray_mean": 148.09
+    },
+    {
+      "frame": 104,
+      "gray_mean": 148.31
+    },
+    {
+      "frame": 105,
+      "gray_mean": 147.86
+    },
+    {
+      "frame": 106,
+      "gray_mean": 148.3
+    },
+    {
+      "frame": 107,
+      "gray_mean": 148.2
+    },
+    {
+      "frame": 108,
+      "gray_mean": 148.28
+    },
+    {
+      "frame": 109,
+      "gray_mean": 147.95
+    },
+    {
+      "frame": 110,
+      "gray_mean": 148.14
+    },
+    {
+      "frame": 111,
+      "gray_mean": 148.9
+    },
+    {
+      "frame": 112,
+      "gray_mean": 149.01
+    },
+    {
+      "frame": 113,
+      "gray_mean": 149.01
+    },
+    {
+      "frame": 114,
+      "gray_mean": 149.39
+    },
+    {
+      "frame": 115,
+      "gray_mean": 150.14
+    },
+    {
+      "frame": 116,
+      "gray_mean": 150.36
+    },
+    {
+      "frame": 117,
+      "gray_mean": 150.48
+    },
+    {
+      "frame": 118,
+      "gray_mean": 150.94
+    },
+    {
+      "frame": 119,
+      "gray_mean": 151.83
+    }
+  ],
+  "min_gray_mean": 125.48,
+  "max_gray_mean": 155.1,
+  "visual_acceptance": "pending"
+}

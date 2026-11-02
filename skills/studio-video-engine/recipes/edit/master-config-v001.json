@@ -1,0 +1,5 @@
+{
+  "schema": "jjv/master-config-recipe/v1",
+  "note": "Extra tail-map schema names `jjv edit master-config` accepts besides the engine's own jjv/master-tail-map/v1 (must stay in step with remotion-kit/lib/receipts.cjs TAIL_MAP_SCHEMAS).",
+  "tail_map_schemas": ["mam-r27-master-tail-map/v1"]
+}

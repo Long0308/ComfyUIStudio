@@ -1,0 +1,16 @@
+{
+  "id": "Windows-Comfy-operator-path-and-inventory-preflight",
+  "status": "resolved_operator_checks_only",
+  "observed": {
+    "monitor_path": "Attemptedbundledskill/scripts/monitor_job.py doesnotexist;actualprojectmonitor_job.py",
+    "combo_inventory": "InitialprobeincorrectlytestedLoadAudio/Video spec[0] stringCOMBO; fileswerepresent",
+    "test_cwd": "Runningtestswithcwdskillroot skippedinstalledworkspacefixtures; no testfailure"
+  },
+  "resolution": {
+    "monitor": "Useproduction-local/monitor_job.py withexistingmonitorconfig; donotsubmitnewrender",
+    "combo": "ReadlegacyarrayorCOMBOspec[1].options; actualv9assets9/9checked",
+    "test": "Useworkspacecwd,absolute-s skill/tests,COMFYUI_ROOTandNode/FFmpegPATH; all114PASS0skips"
+  },
+  "scope": "NoComfyUIbackend/model/VoiceStudioruntimefailure; operatorpreflightonly",
+  "time_utc": "2026-10-16T19:55:14.860268+00:00"
+}

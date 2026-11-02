@@ -1,0 +1,167 @@
+{
+  "schema": "jjv/ep04-negative-controls/v1",
+  "provenance": "CPU reconstruction from retained source footage, historical transition configs and approximate captions",
+  "historical_export_recovered": false,
+  "limitations": [
+    "Pillow approximates the original caption panel, text, colours and fades; line layout/shadow are not exact.",
+    "Icons, review labels, word-pop transforms and sparkle overlays omitted.",
+    "FFmpeg fps conversion and Pillow blur replace Chromium video sampling and CSS blur.",
+    "Rebuilt clips are not claimed pixel-identical to the deleted exports."
+  ],
+  "generator": {
+    "file": "rebuild.py",
+    "sha256": "9fac362e509f29ac62f07f240e4646cef6eb879b22cd2326c58f8d2f93491934",
+    "command": [
+      "python",
+      "tests/fixtures/ep04-negative-controls/rebuild.py",
+      "--editorial",
+      "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\editorial",
+      "--font-regular",
+      "C:\\Windows\\Fonts\\trebuc.ttf",
+      "--font-bold",
+      "D:\\23.JennieHomeSchool\\03 Voice\\jenniejoy-zoo-film\\hyperframes\\vendor\\trebucbd.ttf"
+    ],
+    "fonts": [
+      {
+        "path": "C:\\Windows\\Fonts\\trebuc.ttf",
+        "sha256": "fe3e8bdd64c1c9f3b9cf5189d06510c80d72cec28e03d04bffc560f77eec58d1"
+      },
+      {
+        "path": "D:\\23.JennieHomeSchool\\03 Voice\\jenniejoy-zoo-film\\hyperframes\\vendor\\trebucbd.ttf",
+        "sha256": "dfcc306777a594d2815368547dd897e2ac82aff8073e55d9e682569939e49b81"
+      }
+    ],
+    "ffmpeg_version": "ffmpeg version 9.0-full_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers",
+    "gpu_used": false,
+    "comfyui_called": false
+  },
+  "configs": {
+    "005": {
+      "file": "review-config-v005.json",
+      "sha256": "68205debcae72c16b083abe4bb57ba567558231d252ad7b08920041140627ac7",
+      "source_path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\editorial\\review-hd-v005\\config\\review-config-v005.json",
+      "compositor_reference": {
+        "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\editorial\\review-hd-v005\\src\\transitions.jsx",
+        "sha256": "2c93272da416917a9b29ab917c49615e5982c330a9e43f3d7ebc823cb5859caa"
+      },
+      "constants_reference": {
+        "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\editorial\\review-hd-v005\\src\\constants.js",
+        "sha256": "b9b7213e7033732f27a27fb15d96f8c98d21aa1412cf10453b7bb69104d69ef8"
+      }
+    },
+    "012": {
+      "file": "review-config-v012.json",
+      "sha256": "8e4a84c1a578825056ad627da844540e4ca7380b33c6957a15d9945947db2bdd",
+      "source_path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\editorial\\review-hd-v012\\config\\review-config-v012.json",
+      "compositor_reference": {
+        "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\editorial\\review-hd-v012\\src\\transitions.jsx",
+        "sha256": "aa96063c1ec203b2be52a1ba6a417739c47fefb2fb3556c06af2ab7fc0e819aa"
+      },
+      "constants_reference": {
+        "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\editorial\\review-hd-v012\\src\\constants.js",
+        "sha256": "8c5accbbe17fa4896ad011417c61029e10a88db7e7b245f8acf9181ec30c4588"
+      }
+    }
+  },
+  "clips": [
+    {
+      "file": "v012-f995-1054-q3.mp4",
+      "sha256": "a93e65da0db44602b0c991db24bcba7add462e3918b48ba710652b7bcee77fbc",
+      "version": "012",
+      "first_frame": 995,
+      "end_frame_exclusive": 1055,
+      "frame_count": 60,
+      "fps": 30,
+      "size": [
+        640,
+        360
+      ],
+      "boundary": "T1010",
+      "gate": "Q3",
+      "expected_status": "FAIL",
+      "sources": [
+        {
+          "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\clips\\motion-v005\\S03_B-editorial.mp4",
+          "sha256": "8cc48409f00e85887409f47a6adf9fed58ba4f81ca8d6de14a8f410e59877c39",
+          "decoded_frames_30fps": 125
+        },
+        {
+          "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\clips\\motion-v003\\S04_A-editorial.mp4",
+          "sha256": "d63a8424d4e80029cf243ca1dff3cc36caca1afb8fd7a47a9604b2dd2d90ed8d",
+          "decoded_frames_30fps": 140
+        },
+        {
+          "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\clips\\motion-v005\\S03_B-native.mp4",
+          "sha256": "3d06069a4dc2d4f9c8047d0027f20b3c777398288061e5b0b292061d62c6d8a5",
+          "decoded_frames_30fps": 134
+        }
+      ]
+    },
+    {
+      "file": "v012-f1290-1349-q3.mp4",
+      "sha256": "a2a90224bbdcda1c95dd5f0b727779a487d8c7ecf1267328bdebddefb709b048",
+      "version": "012",
+      "first_frame": 1290,
+      "end_frame_exclusive": 1350,
+      "frame_count": 60,
+      "fps": 30,
+      "size": [
+        640,
+        360
+      ],
+      "boundary": "T1310",
+      "gate": "Q3",
+      "expected_status": "FAIL",
+      "sources": [
+        {
+          "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\clips\\motion-v004\\S04_B-editorial.mp4",
+          "sha256": "217e440b5bdbd6b01a1dccc921490bbaa23b471dd5ed1513030b76fcbcdee346",
+          "decoded_frames_30fps": 160
+        },
+        {
+          "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\clips\\motion-v005\\S05_A-editorial.mp4",
+          "sha256": "1d94ed91875cc97203009f225cb4076539564a1e8c890a2279957f5ad8e6634a",
+          "decoded_frames_30fps": 185
+        },
+        {
+          "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\clips\\motion-v004\\S04_B-native.mp4",
+          "sha256": "afce0761eb59b9ddb4fc901994989fd2f0870258d78d5167e951663835549925",
+          "decoded_frames_30fps": 176
+        }
+      ]
+    },
+    {
+      "file": "v005-f1295-1334-q4.mp4",
+      "sha256": "e5f6edcd89adf1647d1b99838f89e3e16f430b74cfb2d226d6c0302c4f5ad7f2",
+      "version": "005",
+      "first_frame": 1295,
+      "end_frame_exclusive": 1335,
+      "frame_count": 40,
+      "fps": 30,
+      "size": [
+        640,
+        360
+      ],
+      "boundary": "T1310",
+      "gate": "Q4",
+      "expected_status": "FAIL",
+      "sources": [
+        {
+          "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\clips\\motion-v004\\S04_B-editorial.mp4",
+          "sha256": "217e440b5bdbd6b01a1dccc921490bbaa23b471dd5ed1513030b76fcbcdee346",
+          "decoded_frames_30fps": 160
+        },
+        {
+          "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\clips\\motion-v005\\S05_A-editorial.mp4",
+          "sha256": "1d94ed91875cc97203009f225cb4076539564a1e8c890a2279957f5ad8e6634a",
+          "decoded_frames_30fps": 185
+        },
+        {
+          "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\clips\\motion-v004\\S04_B-native.mp4",
+          "sha256": "afce0761eb59b9ddb4fc901994989fd2f0870258d78d5167e951663835549925",
+          "decoded_frames_30fps": 176
+        }
+      ]
+    }
+  ]
+}

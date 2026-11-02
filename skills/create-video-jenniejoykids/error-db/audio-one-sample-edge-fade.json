@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "id": "audio-one-sample-edge-fade",
+  "observed_at": "2026-10-16T18:47:42.334958+00:00",
+  "status": "resolved",
+  "engine": "JSON audio finishing",
+  "environment": "Python/NumPy/FFmpeg9",
+  "symptom": "Zero fade uses samples[-0:] with empty multiplier",
+  "evidence_paths": [
+    "tests/test_audio_mixer.py"
+  ],
+  "root_cause_status": "reproduced_and_fixed",
+  "root_cause": "Zero fade uses samples[-0:] with empty multiplier",
+  "fix_or_workaround": "Guard fade>0; actual one-sample regression",
+  "verification": "96full tests passed;9audio tests independently passed",
+  "limitations": "Technical correctness only, listening pending",
+  "prevention": "Retain one-sample boundary regression",
+  "affected_artifacts": [
+    "scripts/mix_audio.py"
+  ]
+}

@@ -1,0 +1,181 @@
+python -I -B -c pytest.main ['J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\tests\\test_images_codex_imgrt.py', '-q', '--tb=short', '-p', 'no:cacheprovider', '--basetemp', '.pytest_work_tmp/IMGRT-FIX'] candidate= False
+EEEEEEEEEEEEEEEEEEEEEEEEE                                                [100%]
+=================================== ERRORS ====================================
+___ ERROR at setup of test_gap1_unowned_or_wrong_domain_refused[None-codex] ___
+C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:1011: in mkdir
+    os.mkdir(self, mode)
+docs/IMGRT-FIX/run_tests.py:21: in inherited_mkdir
+    ???
+E   FileNotFoundError: [WinError 3] The system cannot find the path specified: 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\docs\\IMGRT-FIX\\red-regressions\\.pytest_work_tmp\\IMGRT-FIX'
+___ ERROR at setup of test_gap1_unowned_or_wrong_domain_refused[None-comfy] ___
+C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:1011: in mkdir
+    os.mkdir(self, mode)
+docs/IMGRT-FIX/run_tests.py:21: in inherited_mkdir
+    ???
+E   FileNotFoundError: [WinError 3] The system cannot find the path specified: 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\docs\\IMGRT-FIX\\red-regressions\\.pytest_work_tmp\\IMGRT-FIX'
+_ ERROR at setup of test_gap1_unowned_or_wrong_domain_refused[jenniejoy_cartoon_3d-codex] _
+C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:1011: in mkdir
+    os.mkdir(self, mode)
+docs/IMGRT-FIX/run_tests.py:21: in inherited_mkdir
+    ???
+E   FileNotFoundError: [WinError 3] The system cannot find the path specified: 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\docs\\IMGRT-FIX\\red-regressions\\.pytest_work_tmp\\IMGRT-FIX'
+_ ERROR at setup of test_gap1_unowned_or_wrong_domain_refused[jenniejoy_cartoon_3d-comfy] _
+C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:1011: in mkdir
+    os.mkdir(self, mode)
+docs/IMGRT-FIX/run_tests.py:21: in inherited_mkdir
+    ???
+E   FileNotFoundError: [WinError 3] The system cannot find the path specified: 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\docs\\IMGRT-FIX\\red-regressions\\.pytest_work_tmp\\IMGRT-FIX'
+____ ERROR at setup of test_gap1_queue_document_can_declare_domain[codex] _____
+C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:1011: in mkdir
+    os.mkdir(self, mode)
+docs/IMGRT-FIX/run_tests.py:21: in inherited_mkdir
+    ???
+E   FileNotFoundError: [WinError 3] The system cannot find the path specified: 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\docs\\IMGRT-FIX\\red-regressions\\.pytest_work_tmp\\IMGRT-FIX'
+____ ERROR at setup of test_gap1_queue_document_can_declare_domain[comfy] _____
+C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:1011: in mkdir
+    os.mkdir(self, mode)
+docs/IMGRT-FIX/run_tests.py:21: in inherited_mkdir
+    ???
+E   FileNotFoundError: [WinError 3] The system cannot find the path specified: 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\docs\\IMGRT-FIX\\red-regressions\\.pytest_work_tmp\\IMGRT-FIX'
+__ ERROR at setup of test_gap1_legacy_r005_requires_own_staging[True-codex] ___
+C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:1011: in mkdir
+    os.mkdir(self, mode)
+docs/IMGRT-FIX/run_tests.py:21: in inherited_mkdir
+    ???
+E   FileNotFoundError: [WinError 3] The system cannot find the path specified: 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\docs\\IMGRT-FIX\\red-regressions\\.pytest_work_tmp\\IMGRT-FIX'
+__ ERROR at setup of test_gap1_legacy_r005_requires_own_staging[True-comfy] ___
+C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:1011: in mkdir
+    os.mkdir(self, mode)
+docs/IMGRT-FIX/run_tests.py:21: in inherited_mkdir
+    ???
+E   FileNotFoundError: [WinError 3] The system cannot find the path specified: 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\docs\\IMGRT-FIX\\red-regressions\\.pytest_work_tmp\\IMGRT-FIX'
+__ ERROR at setup of test_gap1_legacy_r005_requires_own_staging[False-codex] __
+C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:1011: in mkdir
+    os.mkdir(self, mode)
+docs/IMGRT-FIX/run_tests.py:21: in inherited_mkdir
+    ???
+E   FileNotFoundError: [WinError 3] The system cannot find the path specified: 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\docs\\IMGRT-FIX\\red-regressions\\.pytest_work_tmp\\IMGRT-FIX'
+__ ERROR at setup of test_gap1_legacy_r005_requires_own_staging[False-comfy] __
+C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:1011: in mkdir
+    os.mkdir(self, mode)
+docs/IMGRT-FIX/run_tests.py:21: in inherited_mkdir
+    ???
+E   FileNotFoundError: [WinError 3] The system cannot find the path specified: 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\docs\\IMGRT-FIX\\red-regressions\\.pytest_work_tmp\\IMGRT-FIX'
+_______________ ERROR at setup of test_gap2_new_rows_are_marked _______________
+C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:1011: in mkdir
+    os.mkdir(self, mode)
+docs/IMGRT-FIX/run_tests.py:21: in inherited_mkdir
+    ???
+E   FileNotFoundError: [WinError 3] The system cannot find the path specified: 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\docs\\IMGRT-FIX\\red-regressions\\.pytest_work_tmp\\IMGRT-FIX'
+_ ERROR at setup of test_gap2_manual_dispatch_toggle_needs_confirmation[codex] _
+C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:1011: in mkdir
+    os.mkdir(self, mode)
+docs/IMGRT-FIX/run_tests.py:21: in inherited_mkdir
+    ???
+E   FileNotFoundError: [WinError 3] The system cannot find the path specified: 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\docs\\IMGRT-FIX\\red-regressions\\.pytest_work_tmp\\IMGRT-FIX'
+_ ERROR at setup of test_gap2_manual_dispatch_toggle_needs_confirmation[comfy] _
+C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:1011: in mkdir
+    os.mkdir(self, mode)
+docs/IMGRT-FIX/run_tests.py:21: in inherited_mkdir
+    ???
+E   FileNotFoundError: [WinError 3] The system cannot find the path specified: 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\docs\\IMGRT-FIX\\red-regressions\\.pytest_work_tmp\\IMGRT-FIX'
+________ ERROR at setup of test_gap2_receipt_must_match[prompt_sha256] ________
+C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:1011: in mkdir
+    os.mkdir(self, mode)
+docs/IMGRT-FIX/run_tests.py:21: in inherited_mkdir
+    ???
+E   FileNotFoundError: [WinError 3] The system cannot find the path specified: 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\docs\\IMGRT-FIX\\red-regressions\\.pytest_work_tmp\\IMGRT-FIX'
+__________ ERROR at setup of test_gap2_receipt_must_match[prompt_id] __________
+C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:1011: in mkdir
+    os.mkdir(self, mode)
+docs/IMGRT-FIX/run_tests.py:21: in inherited_mkdir
+    ???
+E   FileNotFoundError: [WinError 3] The system cannot find the path specified: 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\docs\\IMGRT-FIX\\red-regressions\\.pytest_work_tmp\\IMGRT-FIX'
+____________ ERROR at setup of test_gap2_receipt_must_match[queue] ____________
+C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:1011: in mkdir
+    os.mkdir(self, mode)
+docs/IMGRT-FIX/run_tests.py:21: in inherited_mkdir
+    ???
+E   FileNotFoundError: [WinError 3] The system cannot find the path specified: 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\docs\\IMGRT-FIX\\red-regressions\\.pytest_work_tmp\\IMGRT-FIX'
+___________ ERROR at setup of test_gap2_receipt_must_match[schema] ____________
+C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:1011: in mkdir
+    os.mkdir(self, mode)
+docs/IMGRT-FIX/run_tests.py:21: in inherited_mkdir
+    ???
+E   FileNotFoundError: [WinError 3] The system cannot find the path specified: 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\docs\\IMGRT-FIX\\red-regressions\\.pytest_work_tmp\\IMGRT-FIX'
+____________ ERROR at setup of test_gap3_no_lock_is_explicit[SHOT] ____________
+C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:1011: in mkdir
+    os.mkdir(self, mode)
+docs/IMGRT-FIX/run_tests.py:21: in inherited_mkdir
+    ???
+E   FileNotFoundError: [WinError 3] The system cannot find the path specified: 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\docs\\IMGRT-FIX\\red-regressions\\.pytest_work_tmp\\IMGRT-FIX'
+___________ ERROR at setup of test_gap3_no_lock_is_explicit[ASSET] ____________
+C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:1011: in mkdir
+    os.mkdir(self, mode)
+docs/IMGRT-FIX/run_tests.py:21: in inherited_mkdir
+    ???
+E   FileNotFoundError: [WinError 3] The system cannot find the path specified: 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\docs\\IMGRT-FIX\\red-regressions\\.pytest_work_tmp\\IMGRT-FIX'
+____________ ERROR at setup of test_gap3_no_lock_is_explicit[SET] _____________
+C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:1011: in mkdir
+    os.mkdir(self, mode)
+docs/IMGRT-FIX/run_tests.py:21: in inherited_mkdir
+    ???
+E   FileNotFoundError: [WinError 3] The system cannot find the path specified: 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\docs\\IMGRT-FIX\\red-regressions\\.pytest_work_tmp\\IMGRT-FIX'
+____________ ERROR at setup of test_gap3_no_lock_is_explicit[FIX] _____________
+C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:1011: in mkdir
+    os.mkdir(self, mode)
+docs/IMGRT-FIX/run_tests.py:21: in inherited_mkdir
+    ???
+E   FileNotFoundError: [WinError 3] The system cannot find the path specified: 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\docs\\IMGRT-FIX\\red-regressions\\.pytest_work_tmp\\IMGRT-FIX'
+__________ ERROR at setup of test_gap3_recipe_lock_is_checked[SHOT] ___________
+C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:1011: in mkdir
+    os.mkdir(self, mode)
+docs/IMGRT-FIX/run_tests.py:21: in inherited_mkdir
+    ???
+E   FileNotFoundError: [WinError 3] The system cannot find the path specified: 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\docs\\IMGRT-FIX\\red-regressions\\.pytest_work_tmp\\IMGRT-FIX'
+__________ ERROR at setup of test_gap3_recipe_lock_is_checked[ASSET] __________
+C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:1011: in mkdir
+    os.mkdir(self, mode)
+docs/IMGRT-FIX/run_tests.py:21: in inherited_mkdir
+    ???
+E   FileNotFoundError: [WinError 3] The system cannot find the path specified: 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\docs\\IMGRT-FIX\\red-regressions\\.pytest_work_tmp\\IMGRT-FIX'
+___________ ERROR at setup of test_gap3_recipe_lock_is_checked[SET] ___________
+C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:1011: in mkdir
+    os.mkdir(self, mode)
+docs/IMGRT-FIX/run_tests.py:21: in inherited_mkdir
+    ???
+E   FileNotFoundError: [WinError 3] The system cannot find the path specified: 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\docs\\IMGRT-FIX\\red-regressions\\.pytest_work_tmp\\IMGRT-FIX'
+___________ ERROR at setup of test_gap3_recipe_lock_is_checked[FIX] ___________
+C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:1011: in mkdir
+    os.mkdir(self, mode)
+docs/IMGRT-FIX/run_tests.py:21: in inherited_mkdir
+    ???
+E   FileNotFoundError: [WinError 3] The system cannot find the path specified: 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\docs\\IMGRT-FIX\\red-regressions\\.pytest_work_tmp\\IMGRT-FIX'
+=========================== short test summary info ===========================
+ERROR ..\..\..\tests\test_images_codex_imgrt.py::test_gap1_unowned_or_wrong_domain_refused[None-codex]
+ERROR ..\..\..\tests\test_images_codex_imgrt.py::test_gap1_unowned_or_wrong_domain_refused[None-comfy]
+ERROR ..\..\..\tests\test_images_codex_imgrt.py::test_gap1_unowned_or_wrong_domain_refused[jenniejoy_cartoon_3d-codex]
+ERROR ..\..\..\tests\test_images_codex_imgrt.py::test_gap1_unowned_or_wrong_domain_refused[jenniejoy_cartoon_3d-comfy]
+ERROR ..\..\..\tests\test_images_codex_imgrt.py::test_gap1_queue_document_can_declare_domain[codex]
+ERROR ..\..\..\tests\test_images_codex_imgrt.py::test_gap1_queue_document_can_declare_domain[comfy]
+ERROR ..\..\..\tests\test_images_codex_imgrt.py::test_gap1_legacy_r005_requires_own_staging[True-codex]
+ERROR ..\..\..\tests\test_images_codex_imgrt.py::test_gap1_legacy_r005_requires_own_staging[True-comfy]
+ERROR ..\..\..\tests\test_images_codex_imgrt.py::test_gap1_legacy_r005_requires_own_staging[False-codex]
+ERROR ..\..\..\tests\test_images_codex_imgrt.py::test_gap1_legacy_r005_requires_own_staging[False-comfy]
+ERROR ..\..\..\tests\test_images_codex_imgrt.py::test_gap2_new_rows_are_marked
+ERROR ..\..\..\tests\test_images_codex_imgrt.py::test_gap2_manual_dispatch_toggle_needs_confirmation[codex]
+ERROR ..\..\..\tests\test_images_codex_imgrt.py::test_gap2_manual_dispatch_toggle_needs_confirmation[comfy]
+ERROR ..\..\..\tests\test_images_codex_imgrt.py::test_gap2_receipt_must_match[prompt_sha256]
+ERROR ..\..\..\tests\test_images_codex_imgrt.py::test_gap2_receipt_must_match[prompt_id]
+ERROR ..\..\..\tests\test_images_codex_imgrt.py::test_gap2_receipt_must_match[queue]
+ERROR ..\..\..\tests\test_images_codex_imgrt.py::test_gap2_receipt_must_match[schema]
+ERROR ..\..\..\tests\test_images_codex_imgrt.py::test_gap3_no_lock_is_explicit[SHOT]
+ERROR ..\..\..\tests\test_images_codex_imgrt.py::test_gap3_no_lock_is_explicit[ASSET]
+ERROR ..\..\..\tests\test_images_codex_imgrt.py::test_gap3_no_lock_is_explicit[SET]
+ERROR ..\..\..\tests\test_images_codex_imgrt.py::test_gap3_no_lock_is_explicit[FIX]
+ERROR ..\..\..\tests\test_images_codex_imgrt.py::test_gap3_recipe_lock_is_checked[SHOT]
+ERROR ..\..\..\tests\test_images_codex_imgrt.py::test_gap3_recipe_lock_is_checked[ASSET]
+ERROR ..\..\..\tests\test_images_codex_imgrt.py::test_gap3_recipe_lock_is_checked[SET]
+ERROR ..\..\..\tests\test_images_codex_imgrt.py::test_gap3_recipe_lock_is_checked[FIX]
+25 errors in 0.64s
+EXIT_CODE 1

@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jjv/schemas/machine/v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "comfy", "gpu_lock_path", "studio", "node_modules"],
+  "properties": {
+    "schema": { "const": "jjv/machine/v1" },
+    "note": { "type": "string" },
+    "comfy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["url", "root", "container"],
+      "properties": {
+        "url": { "type": "string", "pattern": "^http://[^/\\s]+$" },
+        "root": { "type": "string", "minLength": 1 },
+        "output_dir": { "type": "string", "minLength": 1 },
+        "container": { "type": "string", "minLength": 1 }
+      }
+    },
+    "gpu_lock_path": { "type": "string", "minLength": 1 },
+    "legacy_roots": {
+      "type": "object",
+      "propertyNames": { "minLength": 1 },
+      "additionalProperties": { "type": "string", "minLength": 1 }
+    },
+    "studio": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["url"],
+      "properties": { "url": { "type": "string", "pattern": "^http://[^/\\s]+$" } }
+    },
+    "node_modules": { "type": "string", "minLength": 1 },
+    "tools": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "blender_exe": { "type": "string", "minLength": 1 }
+      }
+    },
+    "images": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "codex_bin": {
+          "anyOf": [
+            { "type": "null" },
+            { "type": "string", "minLength": 1 },
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": { "type": "string", "minLength": 1 }
+            }
+          ]
+        },
+        "codex_state_path": { "type": "string", "minLength": 1 },
+        "codex_accounts": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["label", "codex_home"],
+            "properties": {
+              "label": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,60}$"
+              },
+              "codex_home": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      }
+    },
+    "voicestudio": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["url"],
+      "properties": { "url": { "type": "string", "pattern": "^https?://" } }
+    },
+    "brand": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kit": { "type": "string", "minLength": 1 }
+      }
+    },
+    "remotion": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "browser": { "type": "string", "minLength": 1 }
+      }
+    },
+    "publish": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "film_library": { "type": "string", "minLength": 1 }
+      }
+    },
+    "audio": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "vocal_gate": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["command"],
+          "properties": {
+            "command": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }
+          }
+        }
+      }
+    },
+    "timing": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "python": { "type": "string", "minLength": 1 },
+        "model_dir": { "type": "string", "minLength": 1 }
+      }
+    },
+    "resilience": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "max_lost_retries": { "type": "integer", "minimum": 0, "maximum": 5 },
+        "stall_factor": { "type": "number", "minimum": 1 },
+        "lost_recheck_seconds": { "type": "number", "minimum": 0 },
+        "expected_chunk_seconds": { "type": "number", "exclusiveMinimum": 0 }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "domain-edit-invalidated-tail-plan-v3",
+  "engine": "studio-video-engine config binding (seedvr2 plan hashes the whole resolved domain + machine)",
+  "environment": "Episode 04, tail-restoration plan technical/seedvr2-tails-v001/episode/plan-v3 (re-planned once already after T-E21/T-E23 domain edits)",
+  "observed_at": "2026-10-27",
+  "symptom": "The tail plan-v3 dry-run was refused (`plan domain sha256 differs from the resolved config: 5a1c3fda… != d05abed4…`) hours before its GPU run, because root applied the T-E22 seam-blend engine port, which added a `seam_blend` block to domains/jenniejoy_cartoon_3d.json after v3 was planned.",
+  "root_cause": "Root applied a staged engine change that touched a domain file without re-checking pending engine plans; plans bind the full domain/machine sha (by design), so any domain edit invalidates every unexecuted plan.",
+  "root_cause_status": "measured (T-E30 builder ran the dry-run before/after its own change: identical refusal)",
+  "fix_or_workaround": "Re-plan the tails as plan-v4 against the current config; domain/machine configs frozen until the tails have executed.",
+  "prevention": "Before applying ANY change to domains/*.json, machine.json, recipes or episode configs: list unexecuted engine plans and run their execute dry-run after the change; if a GPU run is pending, stage the config change until after it. Longer term (T-E29 note): bind plans only to the config keys they use.",
+  "verification": "T-E30 report (three byte-identical dry-run refusals); plan-v4 dry-run pending.",
+  "status": "fix_in_progress",
+  "evidence_paths": ["production-local/JennieJoyKids-Story/04-milk-and-mom/technical/seedvr2-tails-v001/episode/plan-v3/seedvr2-plan-v3.json"],
+  "affected_artifacts": []
+}

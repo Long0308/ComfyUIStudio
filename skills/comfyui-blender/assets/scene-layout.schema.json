@@ -1,0 +1,230 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "scene-layout.schema.json",
+  "title": "Scene layout brief (spatial structure API)",
+  "description": "Deterministic 3D blockout brief consumed by scripts/scene_layout.py. Shared infrastructure only: `domain` selects which domain rules apply and cast, prompts, workflows, recipes, anchors and acceptance never cross domains. A brief may reference a shared SET (`set`, see $defs/scene_set) that supplies ground zones, fences and static props, and may carry a `continuity` block of tolerances used by `scene_layout.py continuity`. Units are metres; world axes: +X right, +Y into the scene (away from the garden-side camera), +Z up. facing_deg is the direction an actor/animal looks, counter-clockwise from +X in plan (0 = +X, 90 = +Y, -90 = towards a camera at -Y).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "brief_id", "domain", "status", "units", "camera", "output"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "brief_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{1,80}$"},
+    "domain": {
+      "description": "jenniejoy_cartoon_3d = JennieJoyKids 3D cartoon (geometry/camera/contact guides for storyboard). newtecons_live_action = NEWTECONS live-action (set/blocking/camera previz only, proxies only, never character generation). aec = architecture/MEP view framing from a simplified blockout; real AEC renders come from the model.",
+      "enum": ["jenniejoy_cartoon_3d", "newtecons_live_action", "aec"]
+    },
+    "status": {"enum": ["layout_guide_only", "previz_only", "draft"]},
+    "purpose": {"type": "string"},
+    "units": {"const": "meters"},
+    "notes": {"type": "array", "items": {"type": "string"}},
+    "provenance": {"type": "object"},
+    "set": {"type": "string", "minLength": 1, "description": "Shared scene set: a path (relative to this brief's folder) to a scene_set JSON, or its set_id (looked up among *.json in the brief's folder). Zones/fences/props of the set are merged in; a shot that redefines a set item differently gets SET_MISMATCH. Without `set`, `ground` is required (GROUND_MISSING)."},
+    "continuity": {"$ref": "#/$defs/continuity"},
+    "ground": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["zones"],
+      "properties": {
+        "zones": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/zone"}}
+      }
+    },
+    "fences": {"type": "array", "items": {"$ref": "#/$defs/fence"}},
+    "props": {"type": "array", "items": {"$ref": "#/$defs/prop"}},
+    "actors": {"type": "array", "items": {"$ref": "#/$defs/actor"}},
+    "animals": {"type": "array", "items": {"$ref": "#/$defs/animal_group"}},
+    "camera": {"$ref": "#/$defs/camera"},
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height"],
+      "properties": {
+        "width": {"type": "integer", "minimum": 16, "maximum": 8192},
+        "height": {"type": "integer", "minimum": 16, "maximum": 8192},
+        "basename": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,80}$"}
+      }
+    },
+    "rules": {"type": "array", "items": {"$ref": "#/$defs/rule"}}
+  },
+  "$defs": {
+    "continuity": {
+      "description": "Tolerances for `scene_layout.py continuity` between two shots that will share a transition. When both briefs declare a value the stricter one (smaller tolerance, larger min_iou) wins; absent values fall back to the defaults in scene_continuity.py (0.15 m, 15 deg, NDC centre shift 0.05, min_iou 0, set props excluded).",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "position_tol_m": {"type": "number", "minimum": 0},
+        "facing_tol_deg": {"type": "number", "minimum": 0},
+        "ndc_shift_tol": {"type": "number", "minimum": 0},
+        "min_iou": {"type": "number", "minimum": 0, "maximum": 1},
+        "include_set_props": {"type": "boolean", "description": "Also compare static props that both shots take from the same set (default false: SET_MISMATCH already guarantees they are identical in the world)."}
+      }
+    },
+    "track_as": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,60}$", "description": "Continuity matching key when the same entity has different ids in two shots; defaults to the entity id."},
+    "scene_set": {
+      "description": "A shared scene set: ground zones, fences and static props only. No actors, animals, camera, cast or rules. `kind` must be 'scene_set'; `domain` must equal the referencing brief's domain.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "schema_version", "set_id", "domain", "units", "ground"],
+      "properties": {
+        "kind": {"const": "scene_set"},
+        "schema_version": {"const": 1},
+        "set_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{1,80}$"},
+        "domain": {"enum": ["jenniejoy_cartoon_3d", "newtecons_live_action", "aec"]},
+        "purpose": {"type": "string"},
+        "units": {"const": "meters"},
+        "notes": {"type": "array", "items": {"type": "string"}},
+        "provenance": {"type": "object"},
+        "ground": {"type": "object", "additionalProperties": false, "required": ["zones"],
+                   "properties": {"zones": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/zone"}}}},
+        "fences": {"type": "array", "items": {"$ref": "#/$defs/fence"}},
+        "props": {"type": "array", "items": {"$ref": "#/$defs/prop"}}
+      }
+    },
+    "vec2": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}},
+    "vec3": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "number"}},
+    "range": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}},
+    "color": {"type": "array", "minItems": 3, "maxItems": 3, "items": {"type": "number", "minimum": 0, "maximum": 1}},
+    "id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,60}$"},
+    "zone": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "x", "y"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "kind": {"enum": ["garden", "pen", "pasture", "floor", "interior", "road", "yard", "other"]},
+        "x": {"$ref": "#/$defs/range"},
+        "y": {"$ref": "#/$defs/range"},
+        "color": {"$ref": "#/$defs/color"}
+      }
+    },
+    "fence": {
+      "description": "Closed rectangular fence run (four sides, posts + continuous rails). front_edge names the side facing the audience/camera. The validator uses it for FRONT_EDGE_CAMERA (a wholly_inside_fence rule requires the camera on that side) and for outside_fence rules with side=front (OUTSIDE_NOT_FRONT). A footprint wholly inside the rectangle is behind every edge by construction, so the inside test itself does not depend on which edge is front.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "shape", "x", "y", "front_edge"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "shape": {"const": "rect"},
+        "x": {"$ref": "#/$defs/range"},
+        "y": {"$ref": "#/$defs/range"},
+        "front_edge": {"enum": ["min_y", "max_y", "min_x", "max_x"]},
+        "height_m": {"type": "number", "exclusiveMinimum": 0},
+        "thickness_m": {"type": "number", "exclusiveMinimum": 0},
+        "post_spacing_m": {"type": "number", "exclusiveMinimum": 0},
+        "rail_heights_m": {"type": "array", "minItems": 1, "items": {"type": "number", "exclusiveMinimum": 0}},
+        "color": {"$ref": "#/$defs/color"}
+      }
+    },
+    "support": {
+      "description": "Horizontal plane the actor sits or kneels on. prop_id (optional) must name a prop whose top equals top_z.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "top_z"],
+      "properties": {
+        "kind": {"enum": ["floor", "stool", "bench", "chair", "cushion"]},
+        "top_z": {"type": "number", "minimum": 0},
+        "prop_id": {"$ref": "#/$defs/id"}
+      }
+    },
+    "footprint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["half"],
+      "properties": {
+        "half": {"$ref": "#/$defs/vec2"},
+        "offset": {"$ref": "#/$defs/vec2"}
+      }
+    },
+    "actor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "role", "pose", "position", "facing_deg", "head_top_z", "zone"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "label": {"type": "string"},
+        "track_as": {"$ref": "#/$defs/track_as"},
+        "role": {"enum": ["child", "adult", "scale_figure", "proxy"]},
+        "pose": {"enum": ["standing", "seated", "kneeling"]},
+        "position": {"$ref": "#/$defs/vec2"},
+        "facing_deg": {"type": "number"},
+        "head_top_z": {"type": "number", "exclusiveMinimum": 0},
+        "zone": {"$ref": "#/$defs/id"},
+        "support": {"$ref": "#/$defs/support"},
+        "footprint": {"$ref": "#/$defs/footprint"},
+        "proxy": {"const": "blocking_proxy"},
+        "cast_ref": {"type": ["string", "null"], "description": "Domain-owned identity reference (cartoon cast library path). Must be null/absent in newtecons_live_action and aec: previz never generates or binds characters."},
+        "color": {"$ref": "#/$defs/color"}
+      }
+    },
+    "prop": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "position", "size"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "label": {"type": "string"},
+        "track_as": {"$ref": "#/$defs/track_as"},
+        "kind": {"enum": ["box", "cylinder", "ellipsoid"]},
+        "position": {"$ref": "#/$defs/vec3"},
+        "size": {"$ref": "#/$defs/vec3"},
+        "yaw_deg": {"type": "number"},
+        "color": {"$ref": "#/$defs/color"}
+      }
+    },
+    "animal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "position", "facing_deg", "zone"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "label": {"type": "string"},
+        "track_as": {"$ref": "#/$defs/track_as"},
+        "position": {"$ref": "#/$defs/vec2"},
+        "facing_deg": {"type": "number"},
+        "scale": {"type": "number", "exclusiveMinimum": 0},
+        "zone": {"$ref": "#/$defs/id"},
+        "footprint": {"$ref": "#/$defs/footprint"},
+        "height_m": {"type": "number", "exclusiveMinimum": 0},
+        "color": {"$ref": "#/$defs/color"}
+      }
+    },
+    "animal_group": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["species", "count", "members"],
+      "properties": {
+        "species": {"type": "string", "pattern": "^[a-z][a-z_]{1,30}$"},
+        "count": {"type": "integer", "minimum": 1},
+        "members": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/animal"}}
+      }
+    },
+    "camera": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["position_xy", "height_m", "target", "lens_mm"],
+      "properties": {
+        "position_xy": {"$ref": "#/$defs/vec2"},
+        "height_m": {"type": "number"},
+        "target": {"$ref": "#/$defs/vec3"},
+        "lens_mm": {"type": "number", "exclusiveMinimum": 0},
+        "sensor_width_mm": {"type": "number", "exclusiveMinimum": 0}
+      }
+    },
+    "rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "type": {"enum": ["exact_count", "wholly_inside_fence", "outside_fence", "inside_zone", "camera_frames"]},
+        "species": {"type": "string"},
+        "count": {"type": "integer", "minimum": 0},
+        "subjects": {"type": "array", "minItems": 1, "items": {"type": "string"}, "description": "Selectors: 'actors', 'animals', 'species:<name>' or an entity id."},
+        "fence": {"$ref": "#/$defs/id"},
+        "zone": {"$ref": "#/$defs/id"},
+        "clearance_m": {"type": "number", "minimum": 0},
+        "side": {"const": "front", "description": "outside_fence only: subjects must be wholly on the front side (the fence's front_edge, the audience/camera side)."},
+        "margin": {"type": "number", "minimum": 0, "maximum": 0.45}
+      }
+    }
+  }
+}

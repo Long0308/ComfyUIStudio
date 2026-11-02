@@ -1,0 +1,307 @@
+{
+  "schema_version": "1.0",
+  "project_id": "alice-zoo-local-h3-60s",
+  "goal": "Complete60s720pEnglish zoo film plus voiced version, comparisons, SRT and report",
+  "status": "active",
+  "skill_status": "128tests_4independentreviews_captionv3visualpass_packagingv7",
+  "comfy_status": "running_Bv11_simple_officialschedule_trial",
+  "heartbeat_id": "ho-n-th-nh-phim-jenniekidjoys-60s",
+  "delivery": {
+    "duration_seconds": 60,
+    "fps": 24,
+    "draft": [
+      1280,
+      720
+    ],
+    "final": [
+      1920,
+      1080
+    ],
+    "final_approval": "pending",
+    "native": [
+      864,
+      480
+    ]
+  },
+  "rules": [
+    "Last USED frame N becomes next first frame/input; inspect actual forward motion",
+    "Initial family outside looking through open gate; straight inside, no turn-around",
+    "Full cast repeated every segment; canonical saved Alice voice",
+    "Never use rejectedS01_B-entry-v2 in new edit"
+  ],
+  "scenes": [
+    {
+      "id": "S01",
+      "name": "Scene 1 — Entering the Zoo",
+      "script_md": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-01\\SCENE.md",
+      "scene_json": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-01\\SCENE.json",
+      "segments": [
+        "S01_A",
+        "S01_B"
+      ],
+      "status": "A_v9_visualpass_B_v11_rendering",
+      "native_outputs": [
+        "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\JennieKidJoys\\Scene-01-v9\\S01_A\\native_00001_.mp4",
+        "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\JennieKidJoys\\Scene-01-v9\\S01_B\\native_00001_.mp4"
+      ],
+      "job_ids": [
+        "d1d30ff4-7b1f-4442-aba7-0777beea7ab0",
+        "34e8b8aa-d71b-493d-b2da-1ff9f10e9bc5",
+        "e4a73333-92cc-4a42-9bcd-f5dd85183052",
+        "5d52c76e-33c6-4a91-9996-c9dea6c98e60",
+        "00af6f7c-e581-4ea2-ad77-cc0ea018bb27",
+        "08a1256b-8244-48fe-8c1a-f2ea125ed992",
+        "f0472c3b-1da2-420c-b485-97e37f47728a"
+      ],
+      "higgsfield_comparison": "pending",
+      "motion_review": "A0..119rearforwardpass;Bfullusedspanrearforwardbutghost/exposureREJECT",
+      "audio_review": "pending",
+      "technical_qa": "v10decodeoutputscomplete_308.825s_fullQA_pending",
+      "workflow": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\user\\default\\workflows\\Scene 1B - Gate Continuation v10.json",
+      "rejected_takes": [
+        "S01_B-entry-v2",
+        "S01_A-paired-v3-backward-child",
+        "S01_A-paired-v4-front-turn-backward-child",
+        "v6r2_ui_prompt_truncated_interrupted",
+        "v7A_first53frames_turn",
+        "v7B_initial_frontal_zoom",
+        "v8A_frontal_greeting_midtake",
+        "v8B_frontal_closeup_then_family_turn",
+        "v9B_spatialghost_exposure17framecadence",
+        "v10B_frontal_closeup_then_rear_reset"
+      ],
+      "editorial_outputs": [
+        "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\JennieKidJoys\\Scene-01-v9\\S01_A\\editorial_00001_.mp4",
+        "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\JennieKidJoys\\Scene-01-v9\\S01_B\\editorial_00001_.mp4"
+      ],
+      "boundary_outputs": [
+        "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\JennieKidJoys\\Scene-01-v9\\S01_A\\boundary-start_00001_.png",
+        "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\JennieKidJoys\\Scene-01-v9\\S01_A\\boundary-end_00001_.png",
+        "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\JennieKidJoys\\Scene-01-v9\\S01_B\\boundary-start_00001_.png",
+        "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\JennieKidJoys\\Scene-01-v9\\S01_B\\boundary-end_00001_.png"
+      ],
+      "accepted": false
+    },
+    {
+      "id": "S02",
+      "name": "Scene 2 — A Little Bird",
+      "script_md": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-02\\SCENE.md",
+      "scene_json": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-02\\SCENE.json",
+      "segments": [
+        "S02_A",
+        "S02_B"
+      ],
+      "status": "planned_not_generated",
+      "native_outputs": [],
+      "job_ids": [],
+      "higgsfield_comparison": "pending",
+      "motion_review": "pending",
+      "audio_review": "pending",
+      "technical_qa": "pending"
+    },
+    {
+      "id": "S03",
+      "name": "Scene 3 — A Tall Giraffe",
+      "script_md": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-03\\SCENE.md",
+      "scene_json": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-03\\SCENE.json",
+      "segments": [
+        "S03_A",
+        "S03_B"
+      ],
+      "status": "planned_not_generated",
+      "native_outputs": [],
+      "job_ids": [],
+      "higgsfield_comparison": "pending",
+      "motion_review": "pending",
+      "audio_review": "pending",
+      "technical_qa": "pending"
+    },
+    {
+      "id": "S04",
+      "name": "Scene 4 — Hello, Tiger",
+      "script_md": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-04\\SCENE.md",
+      "scene_json": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-04\\SCENE.json",
+      "segments": [
+        "S04_A",
+        "S04_B"
+      ],
+      "status": "planned_not_generated",
+      "native_outputs": [],
+      "job_ids": [],
+      "higgsfield_comparison": "pending",
+      "motion_review": "pending",
+      "audio_review": "pending",
+      "technical_qa": "pending"
+    },
+    {
+      "id": "S05",
+      "name": "Scene 5 — A Hungry Panda",
+      "script_md": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-05\\SCENE.md",
+      "scene_json": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-05\\SCENE.json",
+      "segments": [
+        "S05_A",
+        "S05_B"
+      ],
+      "status": "planned_not_generated",
+      "native_outputs": [],
+      "job_ids": [],
+      "higgsfield_comparison": "pending",
+      "motion_review": "pending",
+      "audio_review": "pending",
+      "technical_qa": "pending"
+    },
+    {
+      "id": "S06",
+      "name": "Scene 6 — Bye-bye, Zoo",
+      "script_md": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-06\\SCENE.md",
+      "scene_json": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-06\\SCENE.json",
+      "segments": [
+        "S06_A",
+        "S06_B"
+      ],
+      "status": "planned_not_generated",
+      "native_outputs": [],
+      "job_ids": [],
+      "higgsfield_comparison": "pending",
+      "motion_review": "pending",
+      "audio_review": "pending",
+      "technical_qa": "pending"
+    }
+  ],
+  "current_action": "AwaitBv11scheduleronlytrialthenreviewactualmovie;captiontop-leftQA+skillarchive",
+  "report_file": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\OVERNIGHT-REPORT.md",
+  "current_request": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\production-request-v9.json",
+  "current_stages": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\stages-v9",
+  "skill_archive": "D:\\23.JennieHomeSchool\\03 Voice\\JennieJoyKids-Archive\\Create-Video-JennieJoyKids-2026-10-17-v6.zip",
+  "sfx_library": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\audio\\sfx-library-v2\\manifest.json",
+    "assets": 17,
+    "technical_qa": "passed",
+    "independent_review": "approved_for_pending_sources",
+    "listening": "pending",
+    "placement": "pending_measured_motion"
+  },
+  "future_request": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\production-request-v9.json",
+  "future_stages": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\stages-v9",
+  "script_revision": "Current and future intent v9 promoted; completed Scene1 v9 render used frozen production-request-v8.json/stages-v8. Canonical v2 retains original PCM; S05_L2 at 45.35–48.29 seconds.",
+  "updated_at": "2026-10-16T20:19:44.648554+00:00",
+  "skill_archive_sha256": "dced35f6f9214402b913e24e86abdf5275021dbad89303094cc4fd64d4dcbecd",
+  "skill_archive_entries": 190,
+  "canonical_future_audio": {
+    "file": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\audio\\canonical-v2\\alice-canonical-60s.wav",
+    "sha256": "348e8d8ca0c1fe60aaf3d827c63289eb246e5c9163fe607096735f977b41b79c",
+    "independent_review": "passed12PCM/zerooverlap/strictdecode; listeningfinalmixpending"
+  },
+  "canonical_audio": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\audio\\canonical-v2\\alice-canonical-60s.wav",
+  "updated_utc": "2026-10-16T20:44:31.258775+00:00",
+  "scene1_v8_review": {
+    "version": "v8",
+    "prompt_id": "5d52c76e-33c6-4a91-9996-c9dea6c98e60",
+    "status": "rejected_full_takes",
+    "elapsed_seconds": 725.589,
+    "evidence": [
+      "qa/S01-paired-v8/A-overview.png",
+      "qa/S01-paired-v8/B-overview.png"
+    ],
+    "visual_estimates": {
+      "A": "Rear walking initially, frontal family greeting aroundframes60-104, thenrear.",
+      "B": "Rear initially; frontal toddlercloseup around12-24, wholefamilyfrontal24-48, rear fromroughly54 onward."
+    },
+    "measured": "History successful decode, bothMP4s preserved; livequeued prompt exact. Exactturnframes still needconsecutiveinspection.",
+    "next_experiment": "Contiguous rear-forward IMAGEbatchguides; notmoreindependentstills; motionacceptancepending."
+  },
+  "captions": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\audio\\canonical-v2\\captions-canonical-v2.srt",
+  "captions_status": "canonical_PCM_clock_aligned_native_lipsync_and_readability_pending",
+  "sound_design": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\SOUND-DESIGN.md",
+  "future_script_sha256": "3dd21650d1a9c3ab247a2aaf1748672c38d80619aa7676ed4aadecbef7ccb643",
+  "baseline_visual_report": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\reference-study\\higgsfield-scenes02-06\\BASELINE.md",
+  "baseline_status": "all6historicalvisualsourcesinspected_newH3comparisonsremainpending",
+  "canonical_audio_music_candidate": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\audio\\music-unducked-v1\\music-unducked-original.wav",
+  "music_candidate_status": "technicalpass_independentreviewpending_listeningpending",
+  "canonical_audio_music_candidate_status": "independent_code_python_and_PCM_bitexact_verified_listeningpending",
+  "audio_bed_preview": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\audio\\bed-preview-v2\\final-mix.wav",
+  "audio_bed_preview_status": "60s48kstereo_-16LUFS_-1dBTP_technicalpass_noeventcues_listeningpending",
+  "current_script_sha256": "3dd21650d1a9c3ab247a2aaf1748672c38d80619aa7676ed4aadecbef7ccb643",
+  "scene1_v9_review": {
+    "version": "v9",
+    "prompt_id": "00af6f7c-e581-4ea2-ad77-cc0ea018bb27",
+    "status": "terminal_success_not_scene_accepted",
+    "elapsed_seconds": 1512.716,
+    "source_request": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\production-request-v8.json",
+    "source_stages": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\stages-v8",
+    "history": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S01-paired-entry-v9\\run\\history.json",
+    "A": "Full used frames 0–119 rear-forward visual pass reported by root.",
+    "B": "Exposure flashes observed; possible ghosting and exact frame intervals pending root consecutive review.",
+    "audio_review": "Final Foley placement and listening pending."
+  },
+  "cross_job_boundary_fix": {
+    "status": "code_reviewed_runtime_pending",
+    "builder_tests": "121/121 passed",
+    "focused_tests": "7/7 passed",
+    "review": "Reviewed root carry-in correction; actual Scene2 boundary asset preflight and runtime not verified.",
+    "error_record": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\error-db\\Cross-job-first-editorial-frame-softguide-only.json"
+  },
+  "sound_coverage_review": {
+    "status": "all_six_plans_covered_final_foley_and_listening_pending",
+    "source_script_sha256": "3dd21650d1a9c3ab247a2aaf1748672c38d80619aa7676ed4aadecbef7ccb643",
+    "canonical_audio": "audio/canonical-v2/alice-canonical-60s.wav",
+    "tracks": [
+      "canonical_voice",
+      "music",
+      "ambience",
+      "footsteps",
+      "animal",
+      "props"
+    ],
+    "scene5_local_seconds": {
+      "A_speech": [
+        1,
+        2.99
+      ],
+      "A_sip_planned": [
+        3.25,
+        4.35
+      ],
+      "B_speech": [
+        0.35,
+        3.29
+      ],
+      "B_bite_planned": [
+        3.55,
+        3.95
+      ]
+    },
+    "S05_L2_master_seconds": [
+      45.35,
+      48.29
+    ],
+    "next_speech_master_seconds": 51,
+    "mouth_readiness": "Visual verification pending; planned pause is not proof of swallowing."
+  },
+  "milestone_11": {
+    "updated_utc": "2026-10-16T20:19:44.648554+00:00",
+    "summary": "v9 pair rendered; A direction passes, B exposure issue remains; six-scene sound coverage checked against canonical v2; current intent v9 promoted.",
+    "accepted_scene_count": 0,
+    "remaining": "B exposure/ghosting diagnosis, Scene2 asset preflight, scenes2–6, measured Foley, final listening, comparisons and two720p60s variants/SRT/report.",
+    "archive": "Do not package until root completes exposure diagnosis."
+  },
+  "scene1_v10_review": {
+    "job_id": "08a1256b-8244-48fe-8c1a-f2ea125ed992",
+    "elapsed_seconds": 308.825,
+    "status": "rejected_frontal_closeup",
+    "visual_estimate_frames": "frontcloseup20..60,rearreset70..90;exacteventsconsecutivereviewpending",
+    "boundary_png_pixel_equal": true,
+    "measured": "qa/S01-B-v10/measurement.json",
+    "overview": "qa/S01-B-v10/overview.jpg"
+  },
+  "work_preview": {
+    "file": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\A5-preview-v3\\edit\\renders\\JennieKidJoys-A5-workpreview-v3-720p-English.mp4",
+    "duration": 5,
+    "technical_qa": "passed",
+    "caption_clearance": "inspected8frames_top-left",
+    "not_full_film": true,
+    "listening": "pending",
+    "event_foley": "pending"
+  },
+  "latest_handoff": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\handoffs\\milestone-12-caption-and-sampler-trial.md"
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "jjv/grade-look/v1",
+  "name": "jenniejoy_soft_v001",
+  "domain_id": "jenniejoy_cartoon_3d",
+  "status": "PROPOSED - pending before/after approval by user",
+  "source": "docs/plans/2026-11-01-two-systems/JENNIEJOY-CHILD-SAFE-COLOUR-SPEC-v001.md section (b); user: 'Jennie mau binh thuong ko choi qua hai mat cho be'",
+  "lift": [0.02, 0.02, 0.02],
+  "gamma": [1.03, 1.03, 1.03],
+  "gain": [0.92, 0.92, 0.92],
+  "warmth": 0.03,
+  "saturation": 0.95,
+  "contrast": 0.97,
+  "split": {"shadow_cool": 0.0, "highlight_warm": 0.0},
+  "brand": [],
+  "brand_de_max": null,
+  "post_defaults": {"grain": 0, "halation": 0, "soften": 0}
+}

@@ -1,0 +1,17 @@
+{
+  "id": "transition-duplicates-from-shot-continuity-mismatch",
+  "engine": "Storyboard/H3 continuity + Remotion transition design + review QA",
+  "environment": "Episode 04 review cuts v004–v007 (f1010 S03_B→S04_A, f1310 S04_B→S05_A)",
+  "observed_at": "2026-10-27",
+  "symptom": "Every transition that shows two shots at once duplicated content: cross-dissolves showed two mothers/two girls (v005 f1311, v006 f1014); the v007 radial wipe centred on the milk bottle showed two bottles at f1011. v007 critic (full-res duplicate check): cloud wipes also duplicated Alice (f1315 R→L, f1616 L→R: sitting + standing Alice) — every simultaneous-two-shot transition fails on continuity-mismatched pairs.",
+  "root_cause": "Layered: (1) storyboard/plan had no continuity gate — S03_B and S04_A (generated separately) place characters and props differently (the transition audit already noted 'props appear, characters reposition'); (2) the transition rule covered characters only, and the builder centred the wipe on the very prop that moved; (3) no automatic duplicate check — critics judged on dY curves, which cannot see content overlap. Prompt/H3 contributed only by not repeating placements; Remotion/engine executed as designed.",
+  "root_cause_status": "analysed_by_root",
+  "fix_or_workaround": "Skills updated: props included in the no-duplicate rule, masks open where shots agree, continuity lock via comfyui-blender scene_layout + repeated placement in H3 prompts for transition pairs; critic-loop requires a full-res duplicate answer per transition frame. Engine follow-up T-E25: `jjv qa transitions` that renders full-res mid-transition sheets and refuses a review receipt without a recorded duplicate check per transition (optionally an automatic mismatch score between outgoing tail and incoming frames at the mask edge). v008: replace T1010/T1310/T1610 with dip-to-white/bloom transitions that never show both shots at once.",
+  "prevention": "Plan transitions at storyboard time: for each planned transition pair, check prop/character placement agreement before H3; choose transition type from that agreement (agree → wipe/dissolve OK; disagree → whip, cut-on-action, or mask from agreeing region).",
+  "verification": "root frames v006 f1014, v007 f1011–1016; pending v007 critic.",
+  "status": "rules_written_engine_followup_open",
+  "evidence_paths": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/transition-audit-r27/TRANSITION-AUDIT.md"
+  ],
+  "affected_artifacts": []
+}

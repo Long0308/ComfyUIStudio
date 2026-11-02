@@ -1,0 +1,113 @@
+{
+  "schema": "jjv/images-routes/v1",
+  "id": "routes-v001",
+  "comment": "Image-route policy of `jjv layout` / `jjv images` (Q-2). The domain table is DATA on purpose: engine source stays domain-neutral. A domain that is not listed has NO provider (everything refused). A domain's own `images.allowed_providers` (CONFIG-PATCH) may only TIGHTEN this list. Every numeric value marked GUESS is policy, not a measurement.",
+  "providers": [
+    "comfyui-local",
+    "openrouter",
+    "codex-adopt",
+    "codex-exec"
+  ],
+  "domains": {
+    "jenniejoy_cartoon_3d": {
+      "allowed_providers": [
+        "codex-exec",
+        "openrouter",
+        "comfyui-local",
+        "codex-adopt"
+      ],
+      "brief_status": "draft",
+      "cast_ref_in_brief": true,
+      "note": "hybrid authorised by the user for this domain (create-video skill, hybrid section)",
+      "preferred_order": [
+        "codex-exec",
+        "openrouter",
+        "comfyui-local"
+      ],
+      "preferred_note": "user 2026-10-27: \"nếu đường OAuth tạo được thì ưu tiên vì tôi có nhiều tài khoản\" — codex-exec (4 OAuth accounts rotated by label) first; openrouter only with --spend-ok after credit top-up; comfyui-local as the free candidate for the compare sheet"
+    },
+    "newtecons_live_action": {
+      "allowed_providers": [
+        "comfyui-local"
+      ],
+      "brief_status": "previz_only",
+      "cast_ref_in_brief": false,
+      "note": "local ComfyUI only: no cloud route, no hand-made adoption; previz briefs carry no cast",
+      "preferred_order": [
+        "comfyui-local"
+      ]
+    }
+  },
+  "layout": {
+    "scaffold": {
+      "set_zone": {
+        "id": "ground",
+        "kind": "other",
+        "x": [
+          -10,
+          10
+        ],
+        "y": [
+          -10,
+          10
+        ]
+      },
+      "camera": {
+        "position_xy": [
+          0.0,
+          -8.0
+        ],
+        "height_m": 1.4,
+        "target": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "lens_mm": 35,
+        "sensor_width_mm": 36
+      },
+      "output": {
+        "width": 1536,
+        "height": 864
+      },
+      "actor_head_top_z": 1.5,
+      "actor_x": 1.0
+    },
+    "render": {
+      "min_free_vram_mib": 2048,
+      "timeout_seconds": 300,
+      "lock_timeout_seconds": 30,
+      "passes": [
+        "beauty",
+        "depth",
+        "mask"
+      ]
+    }
+  },
+  "native_comment": "864x480 is 1.8:1, a 16:9 source (1672x941) is stretched 1.3 % by a plain resize, which is what the first episode did by hand; tolerance 0.02 (relative aspect error) is a GUESS, anything wider needs --center-crop.",
+  "native": {
+    "width": 864,
+    "height": 480,
+    "aspect_tolerance": 0.02,
+    "resample": "lanczos"
+  },
+  "compare": {
+    "cell_height": 480,
+    "overlay_alpha": 0.5,
+    "checklist": [
+      "identity",
+      "headcount",
+      "enclosure",
+      "listener_mouth_closed",
+      "no_text",
+      "costume_print_side"
+    ]
+  },
+  "approve": {
+    "statuses": [
+      "pass",
+      "fail",
+      "unreviewed"
+    ]
+  }
+}

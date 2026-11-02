@@ -1,0 +1,17 @@
+{
+  "id": "codex-sandbox-blocks-chromium-remotion-render",
+  "engine": "Remotion render (Chromium headless shell, SwiftShader) launched by a codex exec subagent",
+  "environment": "codex exec -s workspace-write (DeepSeek V4.1 builder, task T-V07m master-4k-v001), Windows 11",
+  "observed_at": "2026-10-27",
+  "symptom": "Inside the codex workspace-write sandbox, Remotion could not render: first `spawn EPERM` (esbuild loader, where.exe, ffprobe, chrome-headless-shell.exe), then after workarounds Chromium died with `FATAL mojo platform_channel.cc:112 Check failed: Access is denied (0x5)` and `Failed to grant sandbox access to cache directory`. The builder burned time on loader/browser hacks (jsx-loader-no-child.cjs, connected-browser path).",
+  "root_cause": "The codex Windows sandbox runs commands under a restricted token that forbids child-process creation and Chromium's own sandbox/IPC channel. It is a policy of the sandbox, not a broken install; restarting the agent does not change it. A web-scraping MCP (Firecrawl) cannot render local Remotion compositions either.",
+  "root_cause_status": "measured",
+  "fix_or_workaround": "Root (unsandboxed host shell) runs every Remotion/Chromium/ffmpeg-spawning render; codex subagents only prepare configs/scripts. For T-V07m root ran `node editorial/master-4k-v001/render_master_v001.cjs --preview --stills ...` at below-normal priority.",
+  "prevention": "Never delegate a Remotion/Chromium render to a codex exec sandboxed subagent (Gemini/DeepSeek route); give them config/script work and state 'root renders'. Claude Agent-tool subagents running in the host shell may render (CPU, concurrency <= 2).",
+  "verification": "D6-deepseek-codex.jsonl log lines (EPERM, mojo 0x5); root render result recorded in PLAN T-V07m.",
+  "status": "workaround_root_renders",
+  "evidence_paths": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/editorial/master-4k-v001/stills-root-run.log"
+  ],
+  "affected_artifacts": []
+}

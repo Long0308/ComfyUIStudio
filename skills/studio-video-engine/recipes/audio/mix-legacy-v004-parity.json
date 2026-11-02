@@ -1,0 +1,71 @@
+{
+ "schema": "jjv/audio-recipe/v1",
+ "recipe_id": "audio/mix-legacy-v004-parity",
+ "family": "audio-mix",
+ "domain": "jenniejoy_cartoon_3d",
+ "note": "Reproduces the first episode music stem (mix-plan v003/v004: -10 dB bed, -14 dB duck, 0.14 s attack, 0.28 s release, no hold, no loudness stage). Parity only; never gated, never for new films.",
+ "profile": "legacy",
+ "sample_rate": 48000,
+ "music": {
+  "gain_db": -10.0,
+  "section_gains_db": {},
+  "loop_crossfade_s": 2.0,
+  "fade_in_s": 0.6,
+  "fade_out_s": 0.8,
+  "after_brand_voice_fade_in_s": 0.5
+ },
+ "duck": {
+  "depth_db": -14.0,
+  "attack_s": 0.14,
+  "release_s": 0.28,
+  "merge_gap_s": 0.0
+ },
+ "sfx": {
+  "duck_db": 0.0,
+  "avoid_speech_s": 0.0,
+  "default_enabled": false
+ },
+ "speech": {
+  "threshold_dbfs": -45.0,
+  "window_ms": 10
+ },
+ "loudness": {
+  "enabled": false,
+  "target_lufs": -17.0,
+  "tolerance_lu": 1.0,
+  "true_peak_max_dbtp": -1.0,
+  "max_section_jump_lu": 2.0,
+  "bed_gain_min_db": -24.0,
+  "bed_gain_max_db": 0.0,
+  "max_bed_step_db": 99.0,
+  "max_iterations": 1,
+  "ramp_s": 0.3,
+  "min_measure_s": 0.5,
+  "bed_only": {
+   "target_lufs": -22.0,
+   "tolerance_lu": 3.0,
+   "below_speech_lu": 3.0,
+   "min_s": 3.0
+  },
+  "brand_voice": {
+   "target_lufs": -16.0,
+   "tolerance_lu": 1.5
+  }
+ },
+ "pumping": {
+  "enabled": false,
+  "max_swing_db": 3.0,
+  "min_window_s": 1.0,
+  "gap_s": 0.5
+ },
+ "speech_buses": {
+  "*": {
+   "mode": "fixed",
+   "gain_db": 0.0
+  }
+ },
+ "remux": {
+  "audio_codec": "aac",
+  "audio_bitrate": "192k"
+ }
+}

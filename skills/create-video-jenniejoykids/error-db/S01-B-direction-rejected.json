@@ -1,0 +1,25 @@
+{
+  "id": "S01-B-direction-rejected",
+  "status": "rejected_by_user",
+  "engine": "H3 prompt/world blocking",
+  "symptom": "Family appears to walk out/turn around instead of straight into zoo",
+  "root_cause_status": "prompt_and_user_review_confirmed",
+  "root_cause": "Gate behind frontal family plus explicit turn-away prompt; first-frame match alone insufficient",
+  "fix_or_workaround": "New outside-facing-gate layout; oneRunpairedA/B; direct usedframe119→B0; forward-onlycamera/travel",
+  "verification": "New paired workflow offline84tests; new motion run still pending",
+  "limitations": "Tensor seam equality does not prove forward motion",
+  "prevention": "Inspect outside/gate/inside topology and full crossing at normal speed",
+  "schema_version": "1.0",
+  "observed_at": "2026-10-17",
+  "environment": "Windows RTX5070/12GB; isolatedComfyCUDA13; VoiceStudioCUDA12.8preserved",
+  "evidence_paths": [
+    "references/h3-decoder-fix.md",
+    "references/h3-decoder-recovery.json",
+    "references/S01_A-voice-clarity.json",
+    "D:/23.JennieHomeSchool/03 Voice/production-local/comfy-gpu-decode.log"
+  ],
+  "affected_artifacts": [
+    "nativeS01_A",
+    "nativeS01_B-entry-v2"
+  ]
+}

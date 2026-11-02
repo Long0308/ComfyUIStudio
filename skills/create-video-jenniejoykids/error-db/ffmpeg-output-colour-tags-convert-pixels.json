@@ -1,0 +1,19 @@
+{
+  "id": "ffmpeg-output-colour-tags-convert-pixels",
+  "engine": "ffmpeg 9.0 (gyan full build) rawvideo -> libx264 crf0 encode used by seam_blend_v001.py",
+  "environment": "Episode 04 4K seam-blend experiments (T-V06c/T-V06d), Windows host",
+  "observed_at": "2026-10-27",
+  "symptom": "Files the seam tool wrote as 'lossless crf0' differed from the production 4K cores on ~94% of pixels (mean ~3 Y levels, max 16-17, PSNR 37 dB) — including frames outside every blend window that were supposed to be bit-identical.",
+  "root_cause": "The encoder passed -color_range/-colorspace/-color_primaries/-color_trc only as OUTPUT options while the rawvideo input was untagged; ffmpeg 9 then inserts a real colour conversion (unspecified -> bt709) instead of only writing VUI tags. Second trap: the psnr filter also auto-converts when its two inputs carry different colour tags, so a PSNR check can report 37 dB for bit-identical pixels.",
+  "root_cause_status": "measured_framemd5",
+  "fix_or_workaround": "Tags moved to the rawvideo INPUT side (before -i). Root framemd5 test: output-only tags -> md5 differs (identical to the faulty built file); input tags or no tags -> md5 identical to the production core. Fixed tool rebuilt S02_A cores bit-identical (md5 match on frames 0-2); pytest 10/10.",
+  "prevention": "Every pixel-identity check uses decoded framemd5 (rawvideo), never psnr/ssim filters across files with different tags. Any ffmpeg encode of rawvideo declares colour tags on the input. The engine port of seam blend (T-E22) must carry this fix and a framemd5 identity test against production cores. Ports of verified tools must be diffed against the CURRENT fixed source, not the version the porter first read.",
+  "verification": "scratchpad colortest/{out_tags,in_tags,none}.mp4 framemd5 vs runs/S01_B/chunk-0000 core; S02_A_core_fixed.mp4 md5 == production. | 2026-10-27: DeepSeek's engine port (T-E22) re-introduced output-only tags; root fixed staging before apply (tags on input, transfer iec61966-2-1), added regression test test_encoder_colour_tags_are_input_options; `jjv seedvr2 seam-blend --mode core` S02_A framemd5 == production, tags bt709/iec61966-2-1; engine 463 passed.",
+  "status": "resolved_in_tool_and_engine",
+  "evidence_paths": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/seedvr2-production-v004/runs/S01_B/chunk-0000/core/chunk-0000_00001_-core-3840x2160.mp4"
+  ],
+  "affected_artifacts": [
+    "T-V06c/T-V06d built blend files and the hf8 metrics derived from them (S02_A analysis2.json) — re-measure with the fixed tool"
+  ]
+}

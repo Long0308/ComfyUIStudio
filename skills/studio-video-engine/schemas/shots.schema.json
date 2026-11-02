@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jjv/schemas/shots/v1",
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "shot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["shot", "logical_shot", "speaker", "listener", "receipt_dir", "entry", "clip", "wav_binding"],
+      "properties": {
+        "shot": { "type": "string", "pattern": "^S[0-9]{2}_[A-Z][0-9]?$" },
+        "logical_shot": { "type": "string", "pattern": "^S[0-9]{2}_[A-Z]$" },
+        "speaker": { "type": "string", "minLength": 1 },
+        "listener": { "type": "string", "minLength": 1 },
+        "receipt_dir": { "type": "string", "minLength": 1 },
+        "entry": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "evidence"],
+          "properties": {
+            "kind": { "enum": ["carry", "cut"] },
+            "from_shot": { "type": "string" },
+            "frame": { "type": "integer", "minimum": 0 },
+            "evidence": { "type": "string", "minLength": 1 }
+          }
+        },
+        "clip": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["path", "sha256", "sha_source", "frames"],
+          "properties": {
+            "path": { "type": "string", "minLength": 1 },
+            "sha256": { "$ref": "#/$defs/sha256" },
+            "sha_source": { "type": "string", "minLength": 1 },
+            "frames": { "type": "integer", "minimum": 1 }
+          }
+        },
+        "wav_binding": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "path", "sha256", "receipt_source", "offset_s"],
+          "properties": {
+            "kind": { "enum": ["job_json_wav_sha256", "preparation_json_wav_sha256"] },
+            "path": { "type": "string", "minLength": 1 },
+            "sha256": { "$ref": "#/$defs/sha256" },
+            "receipt_source": { "type": "string", "minLength": 1 },
+            "offset_s": { "type": "number", "minimum": 0 }
+          }
+        }
+      }
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "episode_id", "shots"],
+  "properties": {
+    "schema": { "const": "jjv/shots/v1" },
+    "episode_id": { "type": "string", "minLength": 1 },
+    "sources": { "type": "array", "items": { "type": "string" } },
+    "shots": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/shot" } }
+  }
+}

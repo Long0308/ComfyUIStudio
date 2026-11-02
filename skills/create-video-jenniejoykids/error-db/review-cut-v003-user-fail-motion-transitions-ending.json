@@ -1,0 +1,20 @@
+{
+  "id": "review-cut-v003-user-fail-motion-transitions-ending",
+  "engine": "Editorial / Remotion compositor (jenniejoy_cartoon_3d)",
+  "environment": "Episode 04 Milk and Mom review cut editorial/review-hd-v003 (1920x1080, 30 fps, 2520 f, native 864x480 clips upscaled)",
+  "observed_at": "2026-10-27",
+  "symptom": "User watched review-hd-v003 at normal speed and rejected the motion layer even though an independent critic had passed the stills: (1) subtitles appear as a whole line, not word by word in sync with speech; (2) no icon pops when an emphasised vocabulary word is spoken inside each dialogue line; (3) abrupt hard cuts with no camera move or cinematic transition at 12->13-14 s (S01_B->S02_A, f390), 22->24 s (S02_B->S03_A, f710), 40-44 s (S04_B->S05_A, f1310) and others; (4) 48->49 s (S05_A->S05_B, f1495): Alice appears at the height-measuring tree with no shot of her moving there (missing action bridge / spatial continuity); (5) the GitHub motion techniques (awesome-opus5-5-videos) were not visible; (6) no film ending: the story ends ~1:11 without an ending beat and the video never shows the JennieJoy logo at the end; (7) user asked what the picture quality is — the review cut is native 864x480 upscaled to 1080p, which looks soft; the 4K SeedVR2 master is separate.",
+  "root_cause": "Gates checked spelling, layout, hold length and WAV timing on still frames only; no gate required word-level caption timing, keyword icon events, a designed transition at every scene boundary, an on-screen action bridge when the character changes location, or an end-of-film logo beat. Stills-only critique cannot judge motion or cut rhythm.",
+  "root_cause_status": "confirmed_by_user_review",
+  "fix_or_workaround": "Review cut v004 (task T-V12c): word-level timing (T-V12b) drives karaoke-style word-by-word subtitles and vocabulary icon pops on the spoken word; every scene boundary gets a designed transition from the boundary audit (T-V12a) using tail handles / virtual camera moves / cartoon wipes without changing the 2520-frame timeline or audio; an action bridge or motivated transition for location changes (S05_A->S05_B); a story-ending beat (e.g. iris-out on the sleeping Alice with the JennieJoy logo) and the logo on the final frames; label the review cut quality honestly (native upscale vs 4K master).",
+  "prevention": "Mandatory gates for every JennieJoy film before a review cut is offered: G-CAP word-level caption timing + running-word subtitle; G-ICON vocabulary icon pop on the spoken word for every target vocabulary term; G-CUT a boundary table with one designed transition per scene boundary (no unmotivated hard cut) checked on a moving preview around each boundary (boundary-1 s .. +1 s), not on stills; G-BRIDGE storyboard must show the movement when a character changes location, or the cut must be a declared motivated transition; G-END story-ending beat + JennieJoy logo end frames; G-MOTION list which awesome-opus5-5-videos techniques are applied where; critics must watch partial renders around each boundary, not only stills.",
+  "verification": "Pending: v004 review cut + critic on moving partial renders + user normal-speed review.",
+  "status": "open",
+  "evidence_paths": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/PLAN.md",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/editorial/review-hd-v003/RECEIPT.json"
+  ],
+  "affected_artifacts": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/editorial/review-hd-v003/milk-and-mom-REVIEW-1080p30-v003.mp4"
+  ]
+}

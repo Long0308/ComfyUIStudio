@@ -1,0 +1,15 @@
+{
+  "id": "review-v005-dissolve-double-exposure-and-logo-hides-word",
+  "engine": "Editorial / Remotion compositor (review-hd-v005)",
+  "environment": "Episode 04 review cut v005 (2580 f), independent critic frame-by-frame review",
+  "observed_at": "2026-10-27",
+  "symptom": "(1) The 8 f tail-only dissolve at f1310 (S04_B→S05_A) shows two translucent mothers and two girls at f1311–1313 (same characters at different positions). (2) The shrinking JennieJoy logo disc covered the vocabulary word on card 1 (only 'y'/'amy' readable at f2160–2163) while the 'Creamy' WAV was playing. (3) An undeclared 3 f card→end-plate fade at f2516–2519.",
+  "root_cause": "Transition type chosen per boundary from the audit table without checking subject overlap; overlay timing designed from the logo-hold requirement without a check against the vocabulary pill rectangle and its WAV window; transition table only listed planned events.",
+  "root_cause_status": "confirmed_by_root_on_critic_crops",
+  "fix_or_workaround": "v006: masked wipe at f1310; disc kept off the pill (or pill above disc) f2160–2163; T2516 declared in events/BRIEF.",
+  "prevention": "Rules added to jenniejoy-remotion + create-video-jenniejoykids skills: never cross-dissolve shots with the same characters in different positions; no overlay may hide a vocabulary word during its pronunciation; every visible change must have a transition-table row.",
+  "verification": "critic-v005 crops diss-1311-1314-grid.png, creamy-2158-2166-crop.png; pending v006 critic.",
+  "status": "fix_in_progress_v006",
+  "evidence_paths": ["production-local/JennieJoyKids-Story/04-milk-and-mom/editorial/review-hd-v005/milk-and-mom-REVIEW-1080p30-native-upscaled-v005.mp4"],
+  "affected_artifacts": []
+}

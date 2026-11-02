@@ -1,0 +1,17 @@
+{
+  "id": "seedvr2-plan-editorial-only-no-tail-handles",
+  "engine": "SeedVR2 4K production plan (technical/seedvr2-production-v004) vs editorial transitions",
+  "environment": "Episode 04 Milk and Mom, 4K plan v004 (14 shots, 134 chunks), review cut v005 tail-only transitions",
+  "observed_at": "2026-10-27",
+  "symptom": "The pipeline audit (T-V14) found that the 4K run restores only the editorial clips (PRODUCTION-PLAN totals.total_source_frames 1656 = sum of editorial frame counts, sources *-editorial.mp4), while the user-requested cinematic transitions in review cut v005 borrow NATIVE tail frames after the outgoing shot's out-point (dissolves f1010/S03_B, f1310/S04_B, cloud wipe f1610/S05_B). The 4K master would lack those frames.",
+  "root_cause": "The 4K restoration scope was frozen from the editorial cut before the transition design existed; no gate checked that every frame the editorial timeline reads (including tail handles) is inside the restoration scope.",
+  "root_cause_status": "measured",
+  "fix_or_workaround": "T-V05t plans a small extra SeedVR2 v003 run of just the needed native tail ranges (+context overlapping the last core chunk) after the main run; master v002 models a per-shot tail_source that refuses master mode when the 4K tail is missing.",
+  "prevention": "Before any 4K restoration plan is frozen, derive its source frame ranges from the FINAL editorial event list (cuts + every transition's borrowed handle frames), not from the editorial clip list; add an engine check: every frame the review/master config reads from a shot must be covered by a restored chunk.",
+  "verification": "PRODUCTION-PLAN.json totals + shots[].source_path; review-hd-v005/build_config_v005.py tail mapping.",
+  "status": "open_fix_planned",
+  "evidence_paths": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/seedvr2-production-v004/PRODUCTION-PLAN.json"
+  ],
+  "affected_artifacts": []
+}

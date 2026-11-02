@@ -1,0 +1,455 @@
+{
+  "schema_version": "1.0",
+  "resources": [
+    {
+      "path": "references/baseline/script.json",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\docs\\script.json",
+      "sha256": "4d620c8bef45721dd24b75c032e36e3ecfdc2b18af554776db905295ecf56e94",
+      "bytes": 68088
+    },
+    {
+      "path": "references/baseline/script.md",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\docs\\script.md",
+      "sha256": "1aba782c4e746eaec4f0e235231ab325638af5669836025951c687bc1a48a965",
+      "bytes": 11938
+    },
+    {
+      "path": "references/baseline/scene-prompts.md",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\docs\\scene-prompts.md",
+      "sha256": "5314497dd65043f4847a5bac936465d5c0e6b9fa40befbebb3f2e52f39f09f2d",
+      "bytes": 39841
+    },
+    {
+      "path": "references/baseline/submitted-video-requests.json",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\docs\\submitted-video-requests.json",
+      "sha256": "eb3d64710321e32122d98a45d8d507329969149c4123d2d9d28ede61db7a6d0a",
+      "bytes": 39570
+    },
+    {
+      "path": "references/baseline/keyvisual-prompts.json",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\docs\\keyvisual-prompts.json",
+      "sha256": "a2c51d2781ec366cddec8b2028a6e44bbd924f98eb8db8fef0295f4b2d546fbd",
+      "bytes": 17529
+    },
+    {
+      "path": "references/baseline/production-state.json",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\docs\\higgsfield-production-state.json",
+      "sha256": "41c08b7aaa37944108c3a7ffac8ca251a38ea6ff8e6bb4b0ea6ecb8dd99ddda2",
+      "bytes": 3641
+    },
+    {
+      "path": "references/baseline/native-video-results.json",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\docs\\native-video-results.json",
+      "sha256": "a5d2dd9b94386f66ced8b72263322a1899738551981d5d6da7f5dc7338cbe60a",
+      "bytes": 2082
+    },
+    {
+      "path": "references/baseline/actual-dialogue-clock.json",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\qa\\postproduction-actual-dialogue-clock.json",
+      "sha256": "17d55222bf1d2261851e1395d46efe73025ac67961e9433adeeac8e81c535c6a",
+      "bytes": 4507
+    },
+    {
+      "path": "references/baseline/final-delivery.json",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\qa\\final-delivery.json",
+      "sha256": "7b24d6e56d0ae0cebb3c3949769260ab0f2d89952472e96a5b73b8ded373fdc4",
+      "bytes": 5040
+    },
+    {
+      "path": "references/baseline/voice-provenance.json",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\voice-provenance.json",
+      "sha256": "c8582f91e3dbf580cfa49d97bf873a9c8d989130d8d3cf6a0aba751ec08fdb31",
+      "bytes": 40852
+    },
+    {
+      "path": "references/baseline/legacy-audio-reference-manifest.json",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\REF_ONLY-reference-files.json",
+      "sha256": "2f0624160122ae9f44f6046364b90a23a35b350c167ae023021c3e0b730f45ef",
+      "bytes": 8362
+    },
+    {
+      "path": "assets/references/alice1.jpg",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\JennieJoyKids-Archive\\2026-10-16-zoo\\reference-inputs\\alice1.jpg",
+      "sha256": "63b93c6f34f66f5b64e198513b42130bef17307925f8932fc114ca40f12f7db8",
+      "bytes": 271870
+    },
+    {
+      "path": "assets/references/alice2.jpg",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\JennieJoyKids-Archive\\2026-10-16-zoo\\reference-inputs\\alice2.jpg",
+      "sha256": "34e637e44d13baab055a7cf04ea150aad861136f9b24858c235c15b9bdce9d60",
+      "bytes": 429186
+    },
+    {
+      "path": "assets/references/rc-trang-02.mp3.wav",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\JennieJoyKids-Archive\\2026-10-16-zoo\\reference-inputs\\rc-trang-02.mp3.wav",
+      "sha256": "ce1767dade2208915817bb826285d6a1c992eb492ef84d4fe3dd1103cd497478",
+      "bytes": 416684
+    },
+    {
+      "path": "assets/references/family-reference-higgsfield.png",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\assets\\family-reference-higgsfield.png",
+      "sha256": "88ae818f0a84b9f4aef8ef7d218afb0dad20f554f1c7ac1a7969ec9dfa95428f",
+      "bytes": 3343246
+    },
+    {
+      "path": "assets/voice/native/S01_L1.wav",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\native\\S01_L1.wav",
+      "sha256": "ae49e101ea554e02e155e1aa739c90651b089b18b9df203e309920f90b5443a5",
+      "bytes": 108044
+    },
+    {
+      "path": "assets/voice/native/S01_L2.wav",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\native\\S01_L2.wav",
+      "sha256": "9e81aa62a751695cc757b02f554d67c4988369d9a6ce3d7819262b0cc7ea5ff4",
+      "bytes": 111404
+    },
+    {
+      "path": "assets/voice/native/S02_L1.wav",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\native\\S02_L1.wav",
+      "sha256": "cbe7709bc5270ff14a8ca05e7368f2be5a36abca2c64c678585a06379a16e37e",
+      "bytes": 118604
+    },
+    {
+      "path": "assets/voice/native/S02_L2.wav",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\native\\S02_L2.wav",
+      "sha256": "a945787f6cb403752ceef2e0713fd8e8ecb3d9834df10dbd4efe4ad83d9f6ba5",
+      "bytes": 126284
+    },
+    {
+      "path": "assets/voice/native/S03_L1.wav",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\native\\S03_L1.wav",
+      "sha256": "f8d49063f2ecc9ddd4519c563c5ce8982c693c23458b4268e55af13bdac7d5fe",
+      "bytes": 97964
+    },
+    {
+      "path": "assets/voice/native/S03_L2.wav",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\native\\S03_L2.wav",
+      "sha256": "5dfe03dc219a32e05d8a6c0fbe888a99dd3ece21224b22baa163cfdff13c9202",
+      "bytes": 106124
+    },
+    {
+      "path": "assets/voice/native/S04_L1.wav",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\native\\S04_L1.wav",
+      "sha256": "a0c82be23f9d2e920bc7e72fb0de3cf63112ca9003c272fc42330e752e66cb51",
+      "bytes": 101804
+    },
+    {
+      "path": "assets/voice/native/S04_L2.wav",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\native\\S04_L2.wav",
+      "sha256": "0a39f6739a042f97d9f69e3d2af89703ced2ea089dfba155f66c75215c5a48d2",
+      "bytes": 130604
+    },
+    {
+      "path": "assets/voice/native/S05_L1.wav",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\native\\S05_L1.wav",
+      "sha256": "1f7f0894b7243931dc748382aade8d3f5685f230ed210715b3b4350018809528",
+      "bytes": 95564
+    },
+    {
+      "path": "assets/voice/native/S05_L2.wav",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\native\\S05_L2.wav",
+      "sha256": "eba082320b753bda89a5b0076d919591766939f54dcd64f50d361943e4804fff",
+      "bytes": 141164
+    },
+    {
+      "path": "assets/voice/native/S06_L1.wav",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\native\\S06_L1.wav",
+      "sha256": "d5dc08c64aa8bc3bb287ef948b0a501559bd8b53c75c2710b2a9afb0ab275cf0",
+      "bytes": 94124
+    },
+    {
+      "path": "assets/voice/native/S06_L2.wav",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\native\\S06_L2.wav",
+      "sha256": "faf1a9380d965668b48ca9eaa44edaf752cdabee4a284c0c35b56c0cb606df02",
+      "bytes": 101324
+    },
+    {
+      "path": "assets/voice/scenes/canonical_S01-alice-10s.wav",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\scenes\\REF_ONLY_S01-alice-10s.wav",
+      "sha256": "72c8a8f00132a3d5c732e2214c2052cf87713de0d1556a718b2adbd232818136",
+      "bytes": 480044
+    },
+    {
+      "path": "assets/voice/scenes/canonical_S02-alice-10s.wav",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\scenes\\REF_ONLY_S02-alice-10s.wav",
+      "sha256": "767e7086d573859b22e72d61ecb8d1cd915f4d8216a0f75209cb7808789ea978",
+      "bytes": 480044
+    },
+    {
+      "path": "assets/voice/scenes/canonical_S03-alice-10s.wav",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\scenes\\REF_ONLY_S03-alice-10s.wav",
+      "sha256": "60c83cc54819faf89d02215250e09c3554944b7a7aa53baa0cec0986adea4a9b",
+      "bytes": 480044
+    },
+    {
+      "path": "assets/voice/scenes/canonical_S04-alice-10s.wav",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\scenes\\REF_ONLY_S04-alice-10s.wav",
+      "sha256": "fc13e7c9f2f39dcf611d326a4421f68d92ef636c01a07475f73f383fff34a37f",
+      "bytes": 480044
+    },
+    {
+      "path": "assets/voice/scenes/canonical_S05-alice-10s.wav",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\scenes\\REF_ONLY_S05-alice-10s.wav",
+      "sha256": "813ff97eac0d78ce7b23aab073902ac5df5c2403d02fe936ef4d237109b9217e",
+      "bytes": 480044
+    },
+    {
+      "path": "assets/voice/scenes/canonical_S06-alice-10s.wav",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\scenes\\REF_ONLY_S06-alice-10s.wav",
+      "sha256": "d75477639b1932bcfb428566d22f47a2a8a3d8f93d4cdb1b5d7369a1d38d5aa8",
+      "bytes": 480044
+    },
+    {
+      "path": "assets/baseline-remotion/package.json",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\package.json",
+      "sha256": "e469c1121a96a017686ec2cf80f9534911251ee354878d45c795adf8adef923a",
+      "bytes": 638
+    },
+    {
+      "path": "assets/baseline-remotion/remotion.config.ts",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\remotion.config.ts",
+      "sha256": "38d33761182042194846d4fcd412ce7bfad9b797340a42e883497f41e897aca2",
+      "bytes": 185
+    },
+    {
+      "path": "assets/baseline-remotion/tsconfig.json",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\tsconfig.json",
+      "sha256": "a7383330882791b82798e4182ee011dd97ac6df3c8f721c45da8dc1440a0d549",
+      "bytes": 311
+    },
+    {
+      "path": "assets/baseline-remotion/src/dialogue.json",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\src\\dialogue.json",
+      "sha256": "17d55222bf1d2261851e1395d46efe73025ac67961e9433adeeac8e81c535c6a",
+      "bytes": 4507
+    },
+    {
+      "path": "assets/baseline-remotion/src/index.tsx",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\src\\index.tsx",
+      "sha256": "5ec8c2790c9e7c22e9a2ec9ba9abeb52e4539eadb098970d094c1a9612b0463e",
+      "bytes": 480
+    },
+    {
+      "path": "assets/baseline-remotion/src/ZooFilm.tsx",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\src\\ZooFilm.tsx",
+      "sha256": "2a025cb24fdc3ecbce8c749b5b79f0a744db160422706690a2cdd9150f3ab70d",
+      "bytes": 6296
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/hyperframes.json",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\hyperframes.json",
+      "sha256": "834bf11fb6658fc43114bfa87587833bfc7b7ae38ea44c7ef33947a55bafdc63",
+      "bytes": 60
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/index.html",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\index.html",
+      "sha256": "ff6a99fa6cf41bc620fbb7ba667a040a56496fb9fdeb52ba4e9018ca9d152b06",
+      "bytes": 3157
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/index.motion.json",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\index.motion.json",
+      "sha256": "aa51cbc91e78621f08ed2792019136a569a8c046bc99d88c09fd47178b477dee",
+      "bytes": 192
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/PROVENANCE.md",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\PROVENANCE.md",
+      "sha256": "eb44d89678e89ab2874af4fe040fc3e5589cc372648079481000b35120e8d4fb",
+      "bytes": 2794
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/.hyperframes/hf-ids-stamped.json",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\.hyperframes\\hf-ids-stamped.json",
+      "sha256": "1f37669da3bd6ceeb0a1a5308a4742c8bc6cfd2220a4253cf5c88bcb17136cfc",
+      "bytes": 44
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/.hyperframes/history-id",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\.hyperframes\\history-id",
+      "sha256": "bd8bffe9a371599693b34a7fd7456dc5f9f1d9be9e2e5641b6cad93663e78f99",
+      "bytes": 37
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/.hyperframes/video-state.json",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\.hyperframes\\video-state.json",
+      "sha256": "5a3b1edd2be3f8998998eceaff1502d57a5bdcb85f8150e0300b785ca0d6b0a6",
+      "bytes": 20163
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/.thumbnails/v5_7f402c7c8e1851cc_26d9171c7caa4d4a_jpeg_source_index.html_1920x1080_1920x1080_1792168397263_0.00.jpg",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\.thumbnails\\v5_7f402c7c8e1851cc_26d9171c7caa4d4a_jpeg_source_index.html_1920x1080_1920x1080_1792168397263_0.00.jpg",
+      "sha256": "a4f8ca65f948758786a5b94e512446055841876ba8b333f351cfcb59d7823298",
+      "bytes": 35943
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/.thumbnails/v5_v3_7f402c7c8e1851cc_26d9171c7caa4d4a_jpeg_preview_index.html_1920x1080_240x135_1792168397263_0.50_71ebcc6048c8885e_0.jpg",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\.thumbnails\\v5_v3_7f402c7c8e1851cc_26d9171c7caa4d4a_jpeg_preview_index.html_1920x1080_240x135_1792168397263_0.50_71ebcc6048c8885e_0.jpg",
+      "sha256": "4af66ac24c2dc4bf505121abb9eacb2cb3a20c5c6bd9feeb94e1bc219f348450",
+      "bytes": 2538
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/.thumbnails/v5_v3_7f402c7c8e1851cc_26d9171c7caa4d4a_jpeg_preview_index.html_1920x1080_240x135_1792168397263_0.50_f0b735ddbcfed787_0.jpg",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\.thumbnails\\v5_v3_7f402c7c8e1851cc_26d9171c7caa4d4a_jpeg_preview_index.html_1920x1080_240x135_1792168397263_0.50_f0b735ddbcfed787_0.jpg",
+      "sha256": "6fdb32b549d185271e6feb94f6840dcd625039b3bf96b3fd71caad2349467fa3",
+      "bytes": 988
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/.thumbnails/v5_v3_7f402c7c8e1851cc_26d9171c7caa4d4a_jpeg_preview_index.html_1920x1080_240x135_1792168397263_3.00.jpg",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\.thumbnails\\v5_v3_7f402c7c8e1851cc_26d9171c7caa4d4a_jpeg_preview_index.html_1920x1080_240x135_1792168397263_3.00.jpg",
+      "sha256": "95d829a40b45b2ae3abcda8c4b7917ffef40a676e539abf9b029c743ebd893e1",
+      "bytes": 2540
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/fonts/georgia-bold.ttf",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\fonts\\georgia-bold.ttf",
+      "sha256": "72a6cd94fab6c179392075d3fb361e269cdddfad41bb7ab385fa22a37e49a900",
+      "bytes": 207476
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/fonts/trebuchet.ttf",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\fonts\\trebuchet.ttf",
+      "sha256": "fe3e8bdd64c1c9f3b9cf5189d06510c80d72cec28e03d04bffc560f77eec58d1",
+      "bytes": 254396
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/qa/brand-sting-preview.png",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\qa\\brand-sting-preview.png",
+      "sha256": "faf8d7287d39292136601e3e1d88b3b332455d0eaf3e534d74ecac82855d70df",
+      "bytes": 91022
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/qa/check.json",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\qa\\check.json",
+      "sha256": "01c0da8f26950eab084c9a42172de2dfe31fa8d6f473c6d77592d9ddf96a9860",
+      "bytes": 2577
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/qa/ffprobe.json",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\qa\\ffprobe.json",
+      "sha256": "107ffef1cc7751d2516c1157e5e14401d8512d2c5c8a18f5e99764286ba6f77f",
+      "bytes": 3080
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/qa/render.log",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\qa\\render.log",
+      "sha256": "251e850be3c3e5d96d82fea08fe029cf551d5c3e6ee9c6269ebbf3c4b2b666ad",
+      "bytes": 11114
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/vendor/gsap.min.js",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\vendor\\gsap.min.js",
+      "sha256": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb",
+      "bytes": 72927
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/.hyperframes/preview/67a7e364eb40a9b8958d05262cc16929.html",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\.hyperframes\\preview\\67a7e364eb40a9b8958d05262cc16929.html",
+      "sha256": "4f3b81ba801f2e855bf117acd1d007b6acccbd1c2109a3fd635ae6953f5a504d",
+      "bytes": 111466
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/.hyperframes/artifacts/checks/8cb6b9b7-e875-4652-839e-2e57fd91e635.json",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\.hyperframes\\artifacts\\checks\\8cb6b9b7-e875-4652-839e-2e57fd91e635.json",
+      "sha256": "6ec10d136b9f969137e22be0d25680861de27e4cba6ea17044b99096d5a5682e",
+      "bytes": 2033
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/.hyperframes/artifacts/checks/ecf4d406-18de-4805-96ea-9cab2e88cd2e.json",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\.hyperframes\\artifacts\\checks\\ecf4d406-18de-4805-96ea-9cab2e88cd2e.json",
+      "sha256": "399888f0c1719f828d474ca797a0effbfe7adbd565c0507564a64408d14ba649",
+      "bytes": 2685
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/.hyperframes/artifacts/snapshots/a716c80a-5533-4e3a-8e7a-7140006587e0/.capture-owner.json",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\.hyperframes\\artifacts\\snapshots\\a716c80a-5533-4e3a-8e7a-7140006587e0\\.capture-owner.json",
+      "sha256": "1204479d9e594c9b4fd2d7eb7af5bb290f07bf5f89418f8c1af90bc508ea9e55",
+      "bytes": 41
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/.hyperframes/artifacts/snapshots/a716c80a-5533-4e3a-8e7a-7140006587e0/frame-00-at-0.1s.png",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\.hyperframes\\artifacts\\snapshots\\a716c80a-5533-4e3a-8e7a-7140006587e0\\frame-00-at-0.1s.png",
+      "sha256": "67e65a4aa42752be4096d9f9375d3d7ea2450b82169471cd1364d06712f64669",
+      "bytes": 40104
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/.hyperframes/artifacts/snapshots/a716c80a-5533-4e3a-8e7a-7140006587e0/frame-01-at-0.3s.png",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\.hyperframes\\artifacts\\snapshots\\a716c80a-5533-4e3a-8e7a-7140006587e0\\frame-01-at-0.3s.png",
+      "sha256": "88a216a4ac88e9ceea63ece3ec79bb7aa5caa4992788ef0792907e494040113c",
+      "bytes": 40342
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/.hyperframes/artifacts/snapshots/a716c80a-5533-4e3a-8e7a-7140006587e0/frame-02-at-0.5s.png",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\.hyperframes\\artifacts\\snapshots\\a716c80a-5533-4e3a-8e7a-7140006587e0\\frame-02-at-0.5s.png",
+      "sha256": "168f6331f5b810fcb4436af759ea9a5646f5ceb471ea1546d8336ce5d42ee6c6",
+      "bytes": 40358
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/.hyperframes/artifacts/snapshots/a716c80a-5533-4e3a-8e7a-7140006587e0/frame-03-at-0.7s.png",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\.hyperframes\\artifacts\\snapshots\\a716c80a-5533-4e3a-8e7a-7140006587e0\\frame-03-at-0.7s.png",
+      "sha256": "6d9039035135cd732351df9d48161fe8f486362d7a4745901928ee5b541c8dfb",
+      "bytes": 40179
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/.hyperframes/artifacts/snapshots/a716c80a-5533-4e3a-8e7a-7140006587e0/frame-04-at-0.9s.png",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\.hyperframes\\artifacts\\snapshots\\a716c80a-5533-4e3a-8e7a-7140006587e0\\frame-04-at-0.9s.png",
+      "sha256": "6ea0591dbb496e344cc4a2046c6cda99fc5f99bde6cd19cdc2f8d133062e0f9b",
+      "bytes": 40019
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/.hyperframes/artifacts/snapshots/b30618bb-a174-4417-99bb-1e73ff0fd1b7/.capture-owner.json",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\.hyperframes\\artifacts\\snapshots\\b30618bb-a174-4417-99bb-1e73ff0fd1b7\\.capture-owner.json",
+      "sha256": "3ca0d6c78a8121d888eb1e76d97588e7acc598e7cc717bf95c829cb451ed1248",
+      "bytes": 41
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/.hyperframes/artifacts/snapshots/b30618bb-a174-4417-99bb-1e73ff0fd1b7/frame-00-at-0.1s.png",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\.hyperframes\\artifacts\\snapshots\\b30618bb-a174-4417-99bb-1e73ff0fd1b7\\frame-00-at-0.1s.png",
+      "sha256": "67e65a4aa42752be4096d9f9375d3d7ea2450b82169471cd1364d06712f64669",
+      "bytes": 40104
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/.hyperframes/artifacts/snapshots/b30618bb-a174-4417-99bb-1e73ff0fd1b7/frame-01-at-0.3s.png",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\.hyperframes\\artifacts\\snapshots\\b30618bb-a174-4417-99bb-1e73ff0fd1b7\\frame-01-at-0.3s.png",
+      "sha256": "88a216a4ac88e9ceea63ece3ec79bb7aa5caa4992788ef0792907e494040113c",
+      "bytes": 40342
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/.hyperframes/artifacts/snapshots/b30618bb-a174-4417-99bb-1e73ff0fd1b7/frame-02-at-0.5s.png",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\.hyperframes\\artifacts\\snapshots\\b30618bb-a174-4417-99bb-1e73ff0fd1b7\\frame-02-at-0.5s.png",
+      "sha256": "168f6331f5b810fcb4436af759ea9a5646f5ceb471ea1546d8336ce5d42ee6c6",
+      "bytes": 40358
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/.hyperframes/artifacts/snapshots/b30618bb-a174-4417-99bb-1e73ff0fd1b7/frame-03-at-0.7s.png",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\.hyperframes\\artifacts\\snapshots\\b30618bb-a174-4417-99bb-1e73ff0fd1b7\\frame-03-at-0.7s.png",
+      "sha256": "6d9039035135cd732351df9d48161fe8f486362d7a4745901928ee5b541c8dfb",
+      "bytes": 40179
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/.hyperframes/artifacts/snapshots/b30618bb-a174-4417-99bb-1e73ff0fd1b7/frame-04-at-0.9s.png",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\hyperframes\\.hyperframes\\artifacts\\snapshots\\b30618bb-a174-4417-99bb-1e73ff0fd1b7\\frame-04-at-0.9s.png",
+      "sha256": "6ea0591dbb496e344cc4a2046c6cda99fc5f99bde6cd19cdc2f8d133062e0f9b",
+      "bytes": 40019
+    },
+    {
+      "path": "references/h3-model-selection.json",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\JennieJoyKids-Archive\\2026-10-16-zoo\\research\\h3-model-selection.json",
+      "sha256": "377a1e418b00f87056a262a4967b9c143994f94ff6cfec12d00c52f346a621e1",
+      "bytes": 1729
+    },
+    {
+      "path": "assets/comfyui/upstream/h3-r2v-template.json",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\upstream\\h3-r2v-template.json",
+      "sha256": "afeea99e9fd5a1456df348e0573e289c1243f2f28546fc95c1c963f808d61ddb",
+      "bytes": 45323
+    },
+    {
+      "path": "assets/comfyui/upstream/nodes_minimax_h3.py",
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\upstream\\nodes_minimax_h3.py",
+      "sha256": "108ceff11e5a5c9a34a57bbc380447cf9941beb673a1bd421abc818de54ccd5c",
+      "bytes": 30934
+    }
+  ]
+}

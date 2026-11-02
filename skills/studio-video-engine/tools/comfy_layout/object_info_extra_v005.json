@@ -1,0 +1,119 @@
+{
+ "provenance": {
+  "url": "http://127.0.0.1:8188/object_info",
+  "fetched_at_utc": "2026-10-31T11:35:04Z",
+  "full_response_sha256": "b351c9afdc20acc7f3bf687c312b50a31de5d96f2b4f22f2bfe7bef941c30834",
+  "full_class_count": 685,
+  "kept_classes": [
+   "ImageStitch"
+  ],
+  "note": "v005 additions; GET only."
+ },
+ "nodes": {
+  "ImageStitch": {
+   "input": {
+    "required": {
+     "image1": [
+      "IMAGE",
+      {}
+     ],
+     "direction": [
+      "COMBO",
+      {
+       "default": "right",
+       "multiselect": false,
+       "options": [
+        "right",
+        "down",
+        "left",
+        "up"
+       ]
+      }
+     ],
+     "match_image_size": [
+      "BOOLEAN",
+      {
+       "default": true
+      }
+     ],
+     "spacing_width": [
+      "INT",
+      {
+       "advanced": true,
+       "default": 0,
+       "min": 0,
+       "max": 1024,
+       "step": 2
+      }
+     ],
+     "spacing_color": [
+      "COMBO",
+      {
+       "advanced": true,
+       "default": "white",
+       "multiselect": false,
+       "options": [
+        "white",
+        "black",
+        "red",
+        "green",
+        "blue"
+       ]
+      }
+     ]
+    },
+    "optional": {
+     "image2": [
+      "IMAGE",
+      {}
+     ]
+    }
+   },
+   "input_order": {
+    "required": [
+     "image1",
+     "direction",
+     "match_image_size",
+     "spacing_width",
+     "spacing_color"
+    ],
+    "optional": [
+     "image2"
+    ]
+   },
+   "is_input_list": false,
+   "output": [
+    "IMAGE"
+   ],
+   "output_is_list": [
+    false
+   ],
+   "output_name": [
+    "IMAGE"
+   ],
+   "output_tooltips": [
+    null
+   ],
+   "output_matchtypes": null,
+   "name": "ImageStitch",
+   "display_name": "Stitch Images",
+   "description": "Stitches image2 to image1 in the specified direction.\nIf image2 is not provided, returns image1 unchanged.\nOptional spacing can be added between images.",
+   "python_module": "comfy_extras.nodes_images",
+   "category": "image/transform",
+   "output_node": false,
+   "deprecated": false,
+   "experimental": false,
+   "dev_only": false,
+   "api_node": false,
+   "price_badge": null,
+   "search_aliases": [
+    "combine images",
+    "join images",
+    "concatenate images",
+    "side by side"
+   ],
+   "essentials_category": null,
+   "has_intermediate_output": false
+  }
+ }
+}

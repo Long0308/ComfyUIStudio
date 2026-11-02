@@ -1,0 +1,31 @@
+{
+  "schema": "jjv/domain/v1",
+  "domain_id": "jenniejoy_cartoon_3d",
+  "label": "JennieJoyKids 3D cartoon",
+  "frame_rates": {
+    "native_fps": 24,
+    "delivery_fps": 30,
+    "mapping": { "num": 5, "den": 4 }
+  },
+  "delivery": {
+    "master": { "width": 3840, "height": 2160, "fps": 30, "duration_s": 84, "frames": 2520 },
+    "end_card": { "frames_max": 60 },
+    "review": { "width": 1920, "height": 1080, "label": "REVIEW 1080p · native upscaled" },
+    "film_2k": { "width": 2560, "height": 1440, "method": "lanczos", "source": "master" }
+  },
+  "forbidden_node_classes": ["ClaudeNode", "JJClaudeBridge", "bfs_body_swap", "bfs_head_swap"],
+  "forbid_partner_nodes": true,
+  "allowed_custom_nodes": ["comfyui-krea2edit"],
+  "allowed_recipes": ["seedvr2/v003-7b-int8-tile768-int17-raw21"],
+  "seam_blend": {
+    "policy_version": "seam-policy/v001",
+    "window_half_frames": 4,
+    "blend_frames": 8,
+    "low_motion_max": 5.0,
+    "excess_trigger": 1.0,
+    "hf8_sigma": 1.5,
+    "allow_clipped_tail": true,
+    "motion_metric": "native_mean_absdY",
+    "excess_metric": "mean_excess_peak"
+  }
+}

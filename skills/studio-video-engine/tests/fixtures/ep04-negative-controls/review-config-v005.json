@@ -1,0 +1,2762 @@
+{
+ "schema": "jenniejoykids-milk-mom-review-hd-config/v005-motion-layer",
+ "status": "REVIEW_NOT_MASTER",
+ "episode_id": "04-milk-and-mom",
+ "fps": 30,
+ "width": 1920,
+ "height": 1080,
+ "total_frames": 2520,
+ "label": "REVIEW 1080p · native upscaled",
+ "opening": {
+  "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\storyboard\\gpt-opening-v001\\S01_A-user-approved-opening.png",
+  "sha256": "2113acd0d7a3eb335c64e1e0145998a01d8d4a53624da70628501b7d5b8ab47f",
+  "bytes": 2572922
+ },
+ "logo": {
+  "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\studio-app\\logo-jenniejoy-kids.png",
+  "sha256": "7a07c108e4b915b65d4cf17156a48e8dfbd91367edf5c6ca063fa269199ce473",
+  "bytes": 1102621
+ },
+ "dialogue": [
+  {
+   "id": "S01_A",
+   "speaker": "mother",
+   "start_frame": 90,
+   "duration_frames": 150,
+   "end_frame_exclusive": 240,
+   "speech_text": "Alice, look! What does milk look like?",
+   "en_markup": "Alice, [look]! What does [milk] [look] like?",
+   "dialogue_vi": "Alice ơi, nhìn này! Sữa trông như thế nào nhỉ?",
+   "target_keywords": [
+    "look",
+    "milk"
+   ],
+   "speech_end_in_window_s": 4.41,
+   "segments": [
+    {
+     "source_id": "S01_A",
+     "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\clips\\hybrid-v001\\S01_A-editorial-5s.mp4",
+     "sha256": "9cfce446d449e58079c9890b8f887a110f1d9e57b974653e1d5642d331f1b993",
+     "native_frames": 120,
+     "delivery_frames": 150,
+     "width": 864,
+     "height": 480,
+     "fps": "24/1",
+     "relative_start_frame": 0
+    }
+   ],
+   "audio": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\audio\\voicestudio-batch-v001\\editorial\\dialogue-S01_A-c5d51236-editorial-48k.wav",
+    "sha256": "5d33ad49807cd680ca28156e13c8863db1e54f788cc3f576957e1b23d93d900f",
+    "duration_seconds": 4.63,
+    "offset_frames": 0,
+    "finishing_trim": false,
+    "captions_v003_sha256": "5d33ad49807cd680ca28156e13c8863db1e54f788cc3f576957e1b23d93d900f",
+    "h3_receipt_checks": {
+     "S01_A": {
+      "receipt": "technical/hybrid-v001/job.json",
+      "key": "wav_sha256",
+      "receipt_wav_sha256": "5d33ad49807cd680ca28156e13c8863db1e54f788cc3f576957e1b23d93d900f",
+      "matches_bound_wav": true
+     }
+    },
+    "s06b_segments_concat_equals_full": true
+   },
+   "words": [
+    {
+     "w": "Alice,",
+     "startF": 93,
+     "endF": 125,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "look!",
+     "startF": 141,
+     "endF": 154,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "What",
+     "startF": 174,
+     "endF": 178,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "does",
+     "startF": 178,
+     "endF": 186,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "milk",
+     "startF": 186,
+     "endF": 194,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "look",
+     "startF": 194,
+     "endF": 204,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "like?",
+     "startF": 204,
+     "endF": 223,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    }
+   ]
+  },
+  {
+   "id": "S01_B",
+   "speaker": "alice",
+   "start_frame": 240,
+   "duration_frames": 150,
+   "end_frame_exclusive": 390,
+   "speech_text": "Milk is white, smooth, and liquid, Mommy!",
+   "en_markup": "Milk is white, [smooth], and [liquid], Mommy!",
+   "dialogue_vi": "Sữa có màu trắng, mịn màng và ở dạng lỏng ạ, Mẹ ơi!",
+   "target_keywords": [
+    "smooth",
+    "liquid"
+   ],
+   "speech_end_in_window_s": 4.76,
+   "segments": [
+    {
+     "source_id": "S01_B",
+     "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\clips\\motion-v002\\S01_B-editorial.mp4",
+     "sha256": "0544acc59eb788486b95142da522272b32c30f74ae0a3ea23258e3e25680e7dd",
+     "native_frames": 120,
+     "delivery_frames": 150,
+     "width": 864,
+     "height": 480,
+     "fps": "24/1",
+     "relative_start_frame": 0
+    }
+   ],
+   "audio": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\audio\\dialogue-trim-v002\\dialogue-S01_B-trim-v002-48k.wav",
+    "sha256": "d00c399c39d1b53f87b94176d3ce6753f22929af7e1f41f40c36a3ddaa7cefad",
+    "duration_seconds": 4.86,
+    "offset_frames": 0,
+    "finishing_trim": false,
+    "captions_v003_sha256": "d00c399c39d1b53f87b94176d3ce6753f22929af7e1f41f40c36a3ddaa7cefad",
+    "h3_receipt_checks": {
+     "S01_B": {
+      "receipt": "technical/motion-v002/S01_B/preparation.json",
+      "key": "wav.sha256",
+      "receipt_wav_sha256": "d00c399c39d1b53f87b94176d3ce6753f22929af7e1f41f40c36a3ddaa7cefad",
+      "matches_bound_wav": true
+     }
+    },
+    "s06b_segments_concat_equals_full": true
+   },
+   "words": [
+    {
+     "w": "Milk",
+     "startF": 242,
+     "endF": 253,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "is",
+     "startF": 253,
+     "endF": 260,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "white,",
+     "startF": 260,
+     "endF": 276,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "smooth,",
+     "startF": 290,
+     "endF": 310,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": "smooth.png",
+     "anchor": true
+    },
+    {
+     "w": "and",
+     "startF": 331,
+     "endF": 335,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "liquid,",
+     "startF": 335,
+     "endF": 350,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": "liquid.png",
+     "anchor": true
+    },
+    {
+     "w": "Mommy!",
+     "startF": 361,
+     "endF": 384,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    }
+   ]
+  },
+  {
+   "id": "S02_A",
+   "speaker": "mother",
+   "start_frame": 390,
+   "duration_frames": 160,
+   "end_frame_exclusive": 550,
+   "speech_text": "Good job! Where does our fresh milk come from?",
+   "en_markup": "Good job! Where does our [fresh] milk [come from]?",
+   "dialogue_vi": "Giỏi quá! Sữa tươi của chúng mình đến từ đâu nào?",
+   "target_keywords": [
+    "fresh",
+    "come from"
+   ],
+   "speech_end_in_window_s": 4.98,
+   "segments": [
+    {
+     "source_id": "S02_A",
+     "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\clips\\motion-v004\\S02_A-editorial.mp4",
+     "sha256": "e97e08fe3b1d82b9d573eaf1b0f4a508fb11190896bfdf0a31c284936d8bf92a",
+     "native_frames": 128,
+     "delivery_frames": 160,
+     "width": 864,
+     "height": 480,
+     "fps": "24/1",
+     "relative_start_frame": 0
+    }
+   ],
+   "audio": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\audio\\dialogue-trim-v002\\dialogue-S02_A-trim-v002-48k.wav",
+    "sha256": "938d893a3353ace09ff52c8f25b0b3651032713b10db0711690f9958db70a6b7",
+    "duration_seconds": 5.08,
+    "offset_frames": 0,
+    "finishing_trim": false,
+    "captions_v003_sha256": "938d893a3353ace09ff52c8f25b0b3651032713b10db0711690f9958db70a6b7",
+    "h3_receipt_checks": {
+     "S02_A": {
+      "receipt": "technical/motion-v004/S02_A/preparation.json",
+      "key": "wav.sha256",
+      "receipt_wav_sha256": "938d893a3353ace09ff52c8f25b0b3651032713b10db0711690f9958db70a6b7",
+      "matches_bound_wav": true
+     }
+    },
+    "s06b_segments_concat_equals_full": true
+   },
+   "words": [
+    {
+     "w": "Good",
+     "startF": 392,
+     "endF": 428,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "job!",
+     "startF": 428,
+     "endF": 441,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "Where",
+     "startF": 470,
+     "endF": 483,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "does",
+     "startF": 483,
+     "endF": 490,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "our",
+     "startF": 490,
+     "endF": 497,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "fresh",
+     "startF": 497,
+     "endF": 505,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": "fresh.png",
+     "anchor": true
+    },
+    {
+     "w": "milk",
+     "startF": 505,
+     "endF": 514,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "come",
+     "startF": 514,
+     "endF": 524,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "from?",
+     "startF": 524,
+     "endF": 540,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    }
+   ]
+  },
+  {
+   "id": "S02_B",
+   "speaker": "alice",
+   "start_frame": 550,
+   "duration_frames": 160,
+   "end_frame_exclusive": 710,
+   "speech_text": "It comes from dairy cows on a green farm!",
+   "en_markup": "It comes from [dairy] [cows] on a green [farm]!",
+   "dialogue_vi": "Sữa đến từ những cô bò sữa ở nông trại xanh ạ!",
+   "target_keywords": [
+    "dairy",
+    "cows",
+    "farm"
+   ],
+   "speech_end_in_window_s": 4.97,
+   "segments": [
+    {
+     "source_id": "S02_B",
+     "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\clips\\motion-v005\\S02_B-editorial.mp4",
+     "sha256": "ef75780775f4f9e1f8af372403524584bd3fe8f74154004489514f23f1b332d8",
+     "native_frames": 128,
+     "delivery_frames": 160,
+     "width": 864,
+     "height": 480,
+     "fps": "24/1",
+     "relative_start_frame": 0
+    }
+   ],
+   "audio": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\audio\\dialogue-trim-v002\\dialogue-S02_B-trim-v002-48k.wav",
+    "sha256": "3d03fe6b0f5c39d40c708c5bec04bebf528049b80d14fd8db2d1f461984462da",
+    "duration_seconds": 5.07,
+    "offset_frames": 0,
+    "finishing_trim": false,
+    "captions_v003_sha256": "3d03fe6b0f5c39d40c708c5bec04bebf528049b80d14fd8db2d1f461984462da",
+    "h3_receipt_checks": {
+     "S02_B": {
+      "receipt": "technical/motion-v005/S02_B/preparation.json",
+      "key": "wav.sha256",
+      "receipt_wav_sha256": "3d03fe6b0f5c39d40c708c5bec04bebf528049b80d14fd8db2d1f461984462da",
+      "matches_bound_wav": true
+     }
+    },
+    "s06b_segments_concat_equals_full": true
+   },
+   "words": [
+    {
+     "w": "It",
+     "startF": 552,
+     "endF": 557,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "comes",
+     "startF": 557,
+     "endF": 573,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "from",
+     "startF": 573,
+     "endF": 587,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "dairy",
+     "startF": 587,
+     "endF": 606,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": "dairy-cow.png",
+     "anchor": true
+    },
+    {
+     "w": "cows",
+     "startF": 606,
+     "endF": 624,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": "dairy-cow.png",
+     "anchor": false
+    },
+    {
+     "w": "on",
+     "startF": 624,
+     "endF": 651,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "a",
+     "startF": 651,
+     "endF": 659,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "green",
+     "startF": 659,
+     "endF": 671,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "farm!",
+     "startF": 671,
+     "endF": 700,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": "farm.png",
+     "anchor": true
+    }
+   ]
+  },
+  {
+   "id": "S03_A",
+   "speaker": "mother",
+   "start_frame": 710,
+   "duration_frames": 175,
+   "end_frame_exclusive": 885,
+   "speech_text": "How does the milk taste when you take a sip, sweetie?",
+   "en_markup": "How does the milk [taste] when you take a [sip], sweetie?",
+   "dialogue_vi": "Khi nhấp một ngụm, sữa có vị thế nào hả con yêu?",
+   "target_keywords": [
+    "sip",
+    "taste"
+   ],
+   "speech_end_in_window_s": 5.64,
+   "segments": [
+    {
+     "source_id": "S03_A",
+     "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\clips\\motion-v004\\S03_A-editorial.mp4",
+     "sha256": "ac51c347ffba226c2d14ce4c1ffa6165b2c486356ac418955bc4a03e143af52d",
+     "native_frames": 140,
+     "delivery_frames": 175,
+     "width": 864,
+     "height": 480,
+     "fps": "24/1",
+     "relative_start_frame": 0
+    }
+   ],
+   "audio": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\audio\\dialogue-trim-v002\\dialogue-S03_A-trim-v002-48k.wav",
+    "sha256": "be8ee5522c2886aa857ca5f044fd002413f1c1d37bf3d11ecdd73e2496503aea",
+    "duration_seconds": 5.74,
+    "offset_frames": 0,
+    "finishing_trim": false,
+    "captions_v003_sha256": "be8ee5522c2886aa857ca5f044fd002413f1c1d37bf3d11ecdd73e2496503aea",
+    "h3_receipt_checks": {
+     "S03_A": {
+      "receipt": "technical/motion-v004/S03_A/preparation.json",
+      "key": "wav.sha256",
+      "receipt_wav_sha256": "be8ee5522c2886aa857ca5f044fd002413f1c1d37bf3d11ecdd73e2496503aea",
+      "matches_bound_wav": true
+     }
+    },
+    "s06b_segments_concat_equals_full": true
+   },
+   "words": [
+    {
+     "w": "How",
+     "startF": 712,
+     "endF": 750,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "does",
+     "startF": 750,
+     "endF": 762,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "the",
+     "startF": 762,
+     "endF": 768,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "milk",
+     "startF": 768,
+     "endF": 774,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "taste",
+     "startF": 774,
+     "endF": 793,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "when",
+     "startF": 793,
+     "endF": 809,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "you",
+     "startF": 809,
+     "endF": 814,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "take",
+     "startF": 814,
+     "endF": 823,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "a",
+     "startF": 823,
+     "endF": 828,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "sip,",
+     "startF": 828,
+     "endF": 838,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "sweetie?",
+     "startF": 861,
+     "endF": 880,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    }
+   ]
+  },
+  {
+   "id": "S03_B",
+   "speaker": "alice",
+   "start_frame": 885,
+   "duration_frames": 125,
+   "end_frame_exclusive": 1010,
+   "speech_text": "It tastes creamy, fresh, and yummy!",
+   "en_markup": "It tastes [creamy], [fresh], and [yummy]!",
+   "dialogue_vi": "Sữa béo ngậy, tươi ngon và ngon tuyệt ạ!",
+   "target_keywords": [
+    "creamy",
+    "fresh",
+    "yummy"
+   ],
+   "speech_end_in_window_s": 3.96,
+   "segments": [
+    {
+     "source_id": "S03_B",
+     "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\clips\\motion-v005\\S03_B-editorial.mp4",
+     "sha256": "8cc48409f00e85887409f47a6adf9fed58ba4f81ca8d6de14a8f410e59877c39",
+     "native_frames": 100,
+     "delivery_frames": 125,
+     "width": 864,
+     "height": 480,
+     "fps": "24/1",
+     "relative_start_frame": 0
+    }
+   ],
+   "audio": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\audio\\dialogue-trim-v002\\dialogue-S03_B-trim-v002-48k.wav",
+    "sha256": "2ef2bc4383cddd2a54939499ee9f32d79b6e25d562dae7d7abb54a3f3eee7477",
+    "duration_seconds": 4.06,
+    "offset_frames": 0,
+    "finishing_trim": false,
+    "captions_v003_sha256": "2ef2bc4383cddd2a54939499ee9f32d79b6e25d562dae7d7abb54a3f3eee7477",
+    "h3_receipt_checks": {
+     "S03_B": {
+      "receipt": "technical/motion-v005/S03_B/preparation.json",
+      "key": "wav.sha256",
+      "receipt_wav_sha256": "2ef2bc4383cddd2a54939499ee9f32d79b6e25d562dae7d7abb54a3f3eee7477",
+      "matches_bound_wav": true
+     }
+    },
+    "s06b_segments_concat_equals_full": true
+   },
+   "words": [
+    {
+     "w": "It",
+     "startF": 887,
+     "endF": 892,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "tastes",
+     "startF": 892,
+     "endF": 911,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "creamy,",
+     "startF": 911,
+     "endF": 937,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": "creamy.png",
+     "anchor": true
+    },
+    {
+     "w": "fresh,",
+     "startF": 952,
+     "endF": 964,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": "fresh.png",
+     "anchor": true
+    },
+    {
+     "w": "and",
+     "startF": 977,
+     "endF": 981,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "yummy!",
+     "startF": 981,
+     "endF": 1004,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": "yummy.png",
+     "anchor": true
+    }
+   ]
+  },
+  {
+   "id": "S04_A",
+   "speaker": "mother",
+   "start_frame": 1010,
+   "duration_frames": 140,
+   "end_frame_exclusive": 1150,
+   "speech_text": "Can milk be served warm or cold?",
+   "en_markup": "Can milk be served [warm] or [cold]?",
+   "dialogue_vi": "Sữa có thể uống khi ấm hoặc lạnh không con?",
+   "target_keywords": [
+    "warm",
+    "cold"
+   ],
+   "speech_end_in_window_s": 4.39,
+   "segments": [
+    {
+     "source_id": "S04_A",
+     "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\clips\\motion-v003\\S04_A-editorial.mp4",
+     "sha256": "d63a8424d4e80029cf243ca1dff3cc36caca1afb8fd7a47a9604b2dd2d90ed8d",
+     "native_frames": 112,
+     "delivery_frames": 140,
+     "width": 864,
+     "height": 480,
+     "fps": "24/1",
+     "relative_start_frame": 0
+    }
+   ],
+   "audio": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\audio\\dialogue-trim-v002\\dialogue-S04_A-trim-v002-48k.wav",
+    "sha256": "2ab13e8fff486e3023d7064492cc346102a7e2d31a5dd23b4034a02d94ea38d7",
+    "duration_seconds": 4.49,
+    "offset_frames": 0,
+    "finishing_trim": false,
+    "captions_v003_sha256": "2ab13e8fff486e3023d7064492cc346102a7e2d31a5dd23b4034a02d94ea38d7",
+    "h3_receipt_checks": {
+     "S04_A": {
+      "receipt": "technical/motion-v003/S04_A/preparation.json",
+      "key": "wav.sha256",
+      "receipt_wav_sha256": "2ab13e8fff486e3023d7064492cc346102a7e2d31a5dd23b4034a02d94ea38d7",
+      "matches_bound_wav": true
+     }
+    },
+    "s06b_segments_concat_equals_full": true
+   },
+   "words": [
+    {
+     "w": "Can",
+     "startF": 1012,
+     "endF": 1038,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "milk",
+     "startF": 1038,
+     "endF": 1060,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "be",
+     "startF": 1060,
+     "endF": 1073,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "served",
+     "startF": 1073,
+     "endF": 1084,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "warm",
+     "startF": 1084,
+     "endF": 1103,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": "warm-cold.png",
+     "anchor": true
+    },
+    {
+     "w": "or",
+     "startF": 1103,
+     "endF": 1119,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "cold?",
+     "startF": 1119,
+     "endF": 1142,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": "warm-cold.png",
+     "anchor": true
+    }
+   ]
+  },
+  {
+   "id": "S04_B",
+   "speaker": "alice",
+   "start_frame": 1150,
+   "duration_frames": 160,
+   "end_frame_exclusive": 1310,
+   "speech_text": "Yes! I enjoy milk both warm and cold, Mommy!",
+   "en_markup": "Yes! I enjoy milk both [warm] and [cold], Mommy!",
+   "dialogue_vi": "Dạ được ạ! Con thích sữa cả khi ấm lẫn khi lạnh, Mẹ ơi!",
+   "target_keywords": [
+    "warm",
+    "cold"
+   ],
+   "speech_end_in_window_s": 5.19,
+   "segments": [
+    {
+     "source_id": "S04_B",
+     "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\clips\\motion-v004\\S04_B-editorial.mp4",
+     "sha256": "217e440b5bdbd6b01a1dccc921490bbaa23b471dd5ed1513030b76fcbcdee346",
+     "native_frames": 128,
+     "delivery_frames": 160,
+     "width": 864,
+     "height": 480,
+     "fps": "24/1",
+     "relative_start_frame": 0
+    }
+   ],
+   "audio": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\audio\\dialogue-trim-v002\\dialogue-S04_B-trim-v002-48k.wav",
+    "sha256": "8d5daf9768da13df5ec41320f3d5f26d9d064246b55fba4fd1ef06e5396feb36",
+    "duration_seconds": 5.29,
+    "offset_frames": 0,
+    "finishing_trim": false,
+    "captions_v003_sha256": "8d5daf9768da13df5ec41320f3d5f26d9d064246b55fba4fd1ef06e5396feb36",
+    "h3_receipt_checks": {
+     "S04_B": {
+      "receipt": "technical/motion-v004/S04_B/preparation.json",
+      "key": "wav.sha256",
+      "receipt_wav_sha256": "8d5daf9768da13df5ec41320f3d5f26d9d064246b55fba4fd1ef06e5396feb36",
+      "matches_bound_wav": true
+     }
+    },
+    "s06b_segments_concat_equals_full": true
+   },
+   "words": [
+    {
+     "w": "Yes!",
+     "startF": 1152,
+     "endF": 1165,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "I",
+     "startF": 1183,
+     "endF": 1193,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "enjoy",
+     "startF": 1193,
+     "endF": 1205,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "milk",
+     "startF": 1205,
+     "endF": 1219,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "both",
+     "startF": 1219,
+     "endF": 1229,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "warm",
+     "startF": 1229,
+     "endF": 1249,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": "warm-cold.png",
+     "anchor": true
+    },
+    {
+     "w": "and",
+     "startF": 1249,
+     "endF": 1257,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "cold,",
+     "startF": 1257,
+     "endF": 1275,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": "warm-cold.png",
+     "anchor": true
+    },
+    {
+     "w": "Mommy!",
+     "startF": 1280,
+     "endF": 1306,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    }
+   ]
+  },
+  {
+   "id": "S05_A",
+   "speaker": "mother",
+   "start_frame": 1310,
+   "duration_frames": 185,
+   "end_frame_exclusive": 1495,
+   "speech_text": "Milk has calcium to help your bones grow strong and healthy!",
+   "en_markup": "Milk has calcium to help your [bones] grow strong and [healthy]!",
+   "dialogue_vi": "Sữa có canxi giúp xương con phát triển chắc khỏe!",
+   "target_keywords": [
+    "bones",
+    "healthy"
+   ],
+   "speech_end_in_window_s": 6.03,
+   "segments": [
+    {
+     "source_id": "S05_A",
+     "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\clips\\motion-v005\\S05_A-editorial.mp4",
+     "sha256": "1d94ed91875cc97203009f225cb4076539564a1e8c890a2279957f5ad8e6634a",
+     "native_frames": 148,
+     "delivery_frames": 185,
+     "width": 864,
+     "height": 480,
+     "fps": "24/1",
+     "relative_start_frame": 0
+    }
+   ],
+   "audio": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\audio\\dialogue-trim-v002\\dialogue-S05_A-trim-v002-48k.wav",
+    "sha256": "24127ef3f228ffe9c84171596f76354895f4ad6675bd4ea12284bd021614f2c6",
+    "duration_seconds": 6.13,
+    "offset_frames": 0,
+    "finishing_trim": false,
+    "captions_v003_sha256": "24127ef3f228ffe9c84171596f76354895f4ad6675bd4ea12284bd021614f2c6",
+    "h3_receipt_checks": {
+     "S05_A": {
+      "receipt": "technical/motion-v005/S05_A/preparation.json",
+      "key": "wav.sha256",
+      "receipt_wav_sha256": "24127ef3f228ffe9c84171596f76354895f4ad6675bd4ea12284bd021614f2c6",
+      "matches_bound_wav": true
+     }
+    },
+    "s06b_segments_concat_equals_full": true
+   },
+   "words": [
+    {
+     "w": "Milk",
+     "startF": 1312,
+     "endF": 1344,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "has",
+     "startF": 1344,
+     "endF": 1361,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "calcium",
+     "startF": 1361,
+     "endF": 1376,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "to",
+     "startF": 1376,
+     "endF": 1392,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "help",
+     "startF": 1392,
+     "endF": 1399,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "your",
+     "startF": 1399,
+     "endF": 1408,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "bones",
+     "startF": 1408,
+     "endF": 1422,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": "bones.png",
+     "anchor": true
+    },
+    {
+     "w": "grow",
+     "startF": 1422,
+     "endF": 1432,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "strong",
+     "startF": 1432,
+     "endF": 1455,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "and",
+     "startF": 1455,
+     "endF": 1470,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "healthy!",
+     "startF": 1470,
+     "endF": 1491,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    }
+   ]
+  },
+  {
+   "id": "S05_B",
+   "speaker": "alice",
+   "start_frame": 1495,
+   "duration_frames": 115,
+   "end_frame_exclusive": 1610,
+   "speech_text": "Look, Mommy! My bones are growing strong!",
+   "en_markup": "Look, Mommy! My [bones] are growing [strong]!",
+   "dialogue_vi": "Mẹ nhìn này! Xương con đang lớn lên thật chắc khỏe!",
+   "target_keywords": [
+    "bones",
+    "strong"
+   ],
+   "speech_end_in_window_s": 3.69,
+   "segments": [
+    {
+     "source_id": "S05_B",
+     "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\clips\\motion-v003\\S05_B-editorial.mp4",
+     "sha256": "6dfb9098d005be0eb3268fc07a226643083166986ade5a408c3a50218a9db2f4",
+     "native_frames": 92,
+     "delivery_frames": 115,
+     "width": 864,
+     "height": 480,
+     "fps": "24/1",
+     "relative_start_frame": 0
+    }
+   ],
+   "audio": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\audio\\dialogue-trim-v002\\dialogue-S05_B-trim-v002-48k.wav",
+    "sha256": "b4d2366d2c27b08e4c2b045286c64da01ac682535f12ab72ca5dfa6498ec8ad4",
+    "duration_seconds": 3.79,
+    "offset_frames": 0,
+    "finishing_trim": false,
+    "captions_v003_sha256": "b4d2366d2c27b08e4c2b045286c64da01ac682535f12ab72ca5dfa6498ec8ad4",
+    "h3_receipt_checks": {
+     "S05_B": {
+      "receipt": "technical/motion-v003/S05_B/preparation.json",
+      "key": "wav.sha256",
+      "receipt_wav_sha256": "b4d2366d2c27b08e4c2b045286c64da01ac682535f12ab72ca5dfa6498ec8ad4",
+      "matches_bound_wav": true
+     }
+    },
+    "s06b_segments_concat_equals_full": true
+   },
+   "words": [
+    {
+     "w": "Look,",
+     "startF": 1497,
+     "endF": 1505,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "Mommy!",
+     "startF": 1509,
+     "endF": 1517,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "My",
+     "startF": 1537,
+     "endF": 1543,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "bones",
+     "startF": 1543,
+     "endF": 1558,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": "bones.png",
+     "anchor": true
+    },
+    {
+     "w": "are",
+     "startF": 1558,
+     "endF": 1566,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "growing",
+     "startF": 1566,
+     "endF": 1577,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "strong!",
+     "startF": 1577,
+     "endF": 1606,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    }
+   ]
+  },
+  {
+   "id": "S06_A",
+   "speaker": "mother",
+   "start_frame": 1610,
+   "duration_frames": 175,
+   "end_frame_exclusive": 1785,
+   "speech_text": "What yummy foods can we make from milk, Alice?",
+   "en_markup": "What [yummy] foods can we make from [milk], Alice?",
+   "dialogue_vi": "Chúng mình có thể làm món ngon nào từ sữa nhỉ, Alice?",
+   "target_keywords": [
+    "yummy",
+    "milk"
+   ],
+   "speech_end_in_window_s": 5.61,
+   "segments": [
+    {
+     "source_id": "S06_A",
+     "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\clips\\motion-v004\\S06_A-editorial.mp4",
+     "sha256": "7233da4efbac668dbae1f51beb98fb70c6483e9749aa7fdce234af941896c50c",
+     "native_frames": 140,
+     "delivery_frames": 175,
+     "width": 864,
+     "height": 480,
+     "fps": "24/1",
+     "relative_start_frame": 0
+    }
+   ],
+   "audio": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\audio\\dialogue-trim-v002\\dialogue-S06_A-trim-v002-48k.wav",
+    "sha256": "5adae82db2ca82ca24496926792446d93e8ca1a99ba206c510a1666c6c1046d7",
+    "duration_seconds": 5.71,
+    "offset_frames": 0,
+    "finishing_trim": false,
+    "captions_v003_sha256": "5adae82db2ca82ca24496926792446d93e8ca1a99ba206c510a1666c6c1046d7",
+    "h3_receipt_checks": {
+     "S06_A": {
+      "receipt": "technical/motion-v004/S06_A/preparation.json",
+      "key": "wav.sha256",
+      "receipt_wav_sha256": "5adae82db2ca82ca24496926792446d93e8ca1a99ba206c510a1666c6c1046d7",
+      "matches_bound_wav": true
+     }
+    },
+    "s06b_segments_concat_equals_full": true
+   },
+   "words": [
+    {
+     "w": "What",
+     "startF": 1612,
+     "endF": 1648,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "yummy",
+     "startF": 1648,
+     "endF": 1668,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": "yummy.png",
+     "anchor": true
+    },
+    {
+     "w": "foods",
+     "startF": 1668,
+     "endF": 1690,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "can",
+     "startF": 1690,
+     "endF": 1700,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "we",
+     "startF": 1700,
+     "endF": 1705,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "make",
+     "startF": 1705,
+     "endF": 1718,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "from",
+     "startF": 1718,
+     "endF": 1729,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "milk,",
+     "startF": 1729,
+     "endF": 1744,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "Alice?",
+     "startF": 1760,
+     "endF": 1779,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    }
+   ]
+  },
+  {
+   "id": "S06_B",
+   "speaker": "alice",
+   "start_frame": 1785,
+   "duration_frames": 375,
+   "end_frame_exclusive": 2160,
+   "speech_text": "We can make yogurt, cheese, and ice cream! Yummy! Drink milk, grow strong, and stay happy!",
+   "en_markup": "We can make [yogurt], [cheese], and [ice cream]! [Yummy]! Drink milk, grow strong, and stay happy!",
+   "dialogue_vi": "Mình có thể làm sữa chua, phô mai và kem! Ngon tuyệt! Uống sữa, lớn khỏe, luôn vui nhé!",
+   "target_keywords": [
+    "yogurt",
+    "cheese",
+    "ice cream",
+    "yummy"
+   ],
+   "speech_end_in_window_s": 10.66,
+   "segments": [
+    {
+     "source_id": "S06_B1",
+     "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\clips\\motion-v005\\S06_B1-editorial.mp4",
+     "sha256": "e0be87956f333c721546ea283b6bf4c7a0b4dfa20165e7c44ac60596cc8861f8",
+     "native_frames": 120,
+     "delivery_frames": 150,
+     "width": 864,
+     "height": 480,
+     "fps": "24/1",
+     "relative_start_frame": 0
+    },
+    {
+     "source_id": "S06_B2",
+     "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\clips\\motion-v006\\S06_B2-editorial.mp4",
+     "sha256": "e1c15952eeba3a0e6017019ee3e0451c7ffcb934176a4e53e374a0d187af72ed",
+     "native_frames": 140,
+     "delivery_frames": 175,
+     "width": 864,
+     "height": 480,
+     "fps": "24/1",
+     "relative_start_frame": 150
+    },
+    {
+     "source_id": "S06_B3",
+     "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\clips\\motion-v006\\S06_B3-editorial.mp4",
+     "sha256": "4c25adc38904b538d44587d900029b1768a8779337ca4d1600e1622a6e4b9747",
+     "native_frames": 40,
+     "delivery_frames": 50,
+     "width": 864,
+     "height": 480,
+     "fps": "24/1",
+     "relative_start_frame": 325
+    }
+   ],
+   "audio": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\audio\\dialogue-trim-v002\\dialogue-S06_B-full-12.5s-editorial-v003-48k.wav",
+    "sha256": "f6c3665215e3ff64de91c0e9078d99123be3a293ece5fd176ed7b43221dbef89",
+    "duration_seconds": 12.5,
+    "offset_frames": 0,
+    "finishing_trim": false,
+    "captions_v003_sha256": "f6c3665215e3ff64de91c0e9078d99123be3a293ece5fd176ed7b43221dbef89",
+    "h3_receipt_checks": {
+     "S06_B1": {
+      "receipt": "technical/motion-v005/S06_B1/preparation.json",
+      "key": "wav.sha256",
+      "receipt_wav_sha256": "838ebc73e5c1917bdb096ca11ec3bb8b08c0cba5537c28867aa0bd47eb96a3f9",
+      "matches_bound_wav": true
+     },
+     "S06_B2": {
+      "receipt": "technical/motion-v006/S06_B2/preparation.json",
+      "key": "wav.sha256",
+      "receipt_wav_sha256": "b9d9cff93dbaf17c8665f8b28ce4daa576b3187c457d5ed297e5072761256666",
+      "matches_bound_wav": true
+     },
+     "S06_B3": {
+      "receipt": "technical/motion-v006/S06_B3/preparation.json",
+      "key": "wav.sha256",
+      "receipt_wav_sha256": "4b3ceb49814c3b68ebab97a81c41a34b052c384763a093baba1cb5a9e64fe3be",
+      "matches_bound_wav": true
+     }
+    },
+    "s06b_segments_concat_equals_full": true
+   },
+   "words": [
+    {
+     "w": "We",
+     "startF": 1787,
+     "endF": 1793,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "can",
+     "startF": 1793,
+     "endF": 1801,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "make",
+     "startF": 1801,
+     "endF": 1808,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "yogurt,",
+     "startF": 1808,
+     "endF": 1825,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": "yogurt.png",
+     "anchor": true
+    },
+    {
+     "w": "cheese,",
+     "startF": 1842,
+     "endF": 1857,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": "cheese.png",
+     "anchor": true
+    },
+    {
+     "w": "and",
+     "startF": 1872,
+     "endF": 1876,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "ice",
+     "startF": 1876,
+     "endF": 1888,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": "ice-cream.png",
+     "anchor": true
+    },
+    {
+     "w": "cream!",
+     "startF": 1888,
+     "endF": 1913,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": "ice-cream.png",
+     "anchor": false
+    },
+    {
+     "w": "Yummy!",
+     "startF": 1940,
+     "endF": 1956,
+     "keyword": true,
+     "method": "whisper-small.en",
+     "icon": "yummy.png",
+     "anchor": true
+    },
+    {
+     "w": "Drink",
+     "startF": 1973,
+     "endF": 1979,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "milk,",
+     "startF": 1979,
+     "endF": 1994,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "grow",
+     "startF": 2008,
+     "endF": 2020,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "strong,",
+     "startF": 2020,
+     "endF": 2036,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "and",
+     "startF": 2056,
+     "endF": 2058,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "stay",
+     "startF": 2058,
+     "endF": 2074,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    },
+    {
+     "w": "happy!",
+     "startF": 2074,
+     "endF": 2105,
+     "keyword": false,
+     "method": "whisper-small.en",
+     "icon": null,
+     "anchor": false
+    }
+   ]
+  }
+ ],
+ "outro_cards": [
+  {
+   "term": "Creamy",
+   "ipa": "/ˈkriːmi/",
+   "vi": "Béo ngậy, béo thơm",
+   "example_en": "Milk is rich and creamy.",
+   "example_vi": "Sữa thật béo ngậy và thơm ngon.",
+   "start_frame": 2160,
+   "duration_frames": 30,
+   "relative_start_frame": 0,
+   "icon": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\creamy.png",
+    "sha256": "65235535e4a2ee7e643a6aab29a4ef6cd5b401a4511ef2a16cf9220f39b4fa8e",
+    "bytes": 401161
+   },
+   "audio": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\audio\\outro-trim-v002\\vocabulary-Creamy-trim-v002-48k.wav",
+    "sha256": "965542eac145dc6a3cc735fba0b741b5e4ecf2fa68965353c5ffa04041214b67",
+    "bytes": 155564
+   },
+   "audio_duration_s": 0.81
+  },
+  {
+   "term": "Smooth",
+   "ipa": "/smuːð/",
+   "vi": "Mịn màng, mềm mượt",
+   "example_en": "Milk is white and smooth.",
+   "example_vi": "Dòng sữa trắng mịn màng.",
+   "start_frame": 2190,
+   "duration_frames": 30,
+   "relative_start_frame": 30,
+   "icon": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\smooth.png",
+    "sha256": "3b978179f9d93613a5ee390b7b86f54dfd281c90a0a97c326f5ea2653040b0e4",
+    "bytes": 369135
+   },
+   "audio": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\audio\\outro-trim-v002\\vocabulary-Smooth-trim-v002-48k.wav",
+    "sha256": "2db04d16da5364c5317564ee94cfedf581c52803dc199e7bc6e2b73b1323248c",
+    "bytes": 157484
+   },
+   "audio_duration_s": 0.82
+  },
+  {
+   "term": "Liquid",
+   "ipa": "/ˈlɪkwɪd/",
+   "vi": "Dạng lỏng, dạng nước",
+   "example_en": "Milk flows like a smooth liquid.",
+   "example_vi": "Sữa chảy sóng sánh dạng lỏng.",
+   "start_frame": 2220,
+   "duration_frames": 27,
+   "relative_start_frame": 60,
+   "icon": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\liquid.png",
+    "sha256": "19e3679bfae352bc7267c132c6797176677d298854e4f3aed4aec066b51d2982",
+    "bytes": 514916
+   },
+   "audio": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\audio\\outro-trim-v002\\vocabulary-Liquid-trim-v002-48k.wav",
+    "sha256": "c7e93448826e207aeb329338c58418f317c12bdfc9f968cf6b2b220408077d3a",
+    "bytes": 147884
+   },
+   "audio_duration_s": 0.77
+  },
+  {
+   "term": "Dairy Cow",
+   "ipa": "/ˈdeəri kaʊ/",
+   "vi": "Cô bò sữa",
+   "example_en": "The dairy cow gives us sweet milk.",
+   "example_vi": "Cô bò sữa cho chúng mình dòng sữa ngọt lành.",
+   "start_frame": 2247,
+   "duration_frames": 35,
+   "relative_start_frame": 87,
+   "icon": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\dairy-cow.png",
+    "sha256": "0f9d294ff6606f86ef6771a2941e46d8c09390cb35e84169e1db90596e8af64f",
+    "bytes": 571805
+   },
+   "audio": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\audio\\outro-trim-v002\\vocabulary-Dairy-Cow-trim-v002-48k.wav",
+    "sha256": "4cd61dbc769b091093419589ba2628298c0cb42c70b972eea574a98318057207",
+    "bytes": 207404
+   },
+   "audio_duration_s": 1.08
+  },
+  {
+   "term": "Farm",
+   "ipa": "/fɑːm/",
+   "vi": "Nông trại",
+   "example_en": "The cows live on a sunny green farm.",
+   "example_vi": "Những chú bò sống trên nông trại xanh ngập tràn ánh nắng.",
+   "start_frame": 2282,
+   "duration_frames": 25,
+   "relative_start_frame": 122,
+   "icon": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\farm.png",
+    "sha256": "794950affee64cd8444b822884fc675ccac3109389ed299790353703976e3aaa",
+    "bytes": 482102
+   },
+   "audio": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\audio\\outro-trim-v002\\vocabulary-Farm-trim-v002-48k.wav",
+    "sha256": "376b1320620be73892c5711b64a358298af3c6048eda88f5158ccc22262147c1",
+    "bytes": 128684
+   },
+   "audio_duration_s": 0.67
+  },
+  {
+   "term": "Fresh",
+   "ipa": "/freʃ/",
+   "vi": "Tươi ngon, tươi mới",
+   "example_en": "Fresh milk is good for you.",
+   "example_vi": "Sữa tươi rất tốt cho sức khỏe của con.",
+   "start_frame": 2307,
+   "duration_frames": 27,
+   "relative_start_frame": 147,
+   "icon": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\fresh.png",
+    "sha256": "644db53071c387044ac9a3f8cd9b19574864e1e52f254fafa1dca273706c0520",
+    "bytes": 463354
+   },
+   "audio": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\audio\\outro-trim-v002\\vocabulary-Fresh-trim-v002-48k.wav",
+    "sha256": "98de182d0d6da6771bb8bb46261fcc0c361ee32d9ad999cd8dbf16051065c640",
+    "bytes": 149804
+   },
+   "audio_duration_s": 0.78
+  },
+  {
+   "term": "Yummy",
+   "ipa": "/ˈjʌmi/",
+   "vi": "Ngon tuyệt cú mèo",
+   "example_en": "This cup of milk is so yummy!",
+   "example_vi": "Ly sữa này thơm ngon tuyệt cú mèo!",
+   "start_frame": 2334,
+   "duration_frames": 25,
+   "relative_start_frame": 174,
+   "icon": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\yummy.png",
+    "sha256": "9446ac03a2896170d448963c8b04229e9eccbd397e39e94a59f4eac074cf7034",
+    "bytes": 529159
+   },
+   "audio": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\audio\\outro-trim-v002\\vocabulary-Yummy-trim-v002-48k.wav",
+    "sha256": "73998313d291c9be2921ad09cf4ca7a43e2e6d96d28f34fc44d218da88ba4c27",
+    "bytes": 138284
+   },
+   "audio_duration_s": 0.72
+  },
+  {
+   "term": "Warm and Cold",
+   "ipa": "/wɔːm ænd kəʊld/",
+   "vi": "Ấm và lạnh",
+   "example_en": "We can drink milk warm and cold.",
+   "example_vi": "Chúng mình có thể uống sữa ấm hoặc lạnh.",
+   "start_frame": 2359,
+   "duration_frames": 47,
+   "relative_start_frame": 199,
+   "icon": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\warm-cold.png",
+    "sha256": "45e2a0d9084733ceb58d1fb9b2367a834c0d8e2fb65200526c080a99c5737a8d",
+    "bytes": 560494
+   },
+   "audio": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\audio\\outro-trim-v002\\vocabulary-Warm-and-Cold-trim-v002-48k.wav",
+    "sha256": "2daca97ee79a219da519e60fda763d0e1c3ad45364493975a8e2218b2ff569b8",
+    "bytes": 274604
+   },
+   "audio_duration_s": 1.43
+  },
+  {
+   "term": "Bones",
+   "ipa": "/bəʊnz/",
+   "vi": "Xương",
+   "example_en": "Milk helps our bones grow strong.",
+   "example_vi": "Sữa giúp xương của chúng mình phát triển chắc khỏe.",
+   "start_frame": 2406,
+   "duration_frames": 25,
+   "relative_start_frame": 246,
+   "icon": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\bones.png",
+    "sha256": "f36079dafb1fd65d3f7cea67d32ed2946868e16ddbd14cb4dec1b99ed2c6d8ed",
+    "bytes": 435317
+   },
+   "audio": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\audio\\outro-trim-v002\\vocabulary-Bones-trim-v002-48k.wav",
+    "sha256": "b6f050445ae5ec988760735c42979a6621ab1f533dd23e1f675d19ffb8a29f41",
+    "bytes": 144044
+   },
+   "audio_duration_s": 0.75
+  },
+  {
+   "term": "Yogurt",
+   "ipa": "/ˈjɒɡət/",
+   "vi": "Sữa chua",
+   "example_en": "Yogurt is a delicious treat from milk.",
+   "example_vi": "Sữa chua là món ăn vặt ngon tuyệt làm từ sữa.",
+   "start_frame": 2431,
+   "duration_frames": 24,
+   "relative_start_frame": 271,
+   "icon": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\yogurt.png",
+    "sha256": "9bb7209a5313054829990cb64ab47ede189c6050d97850d5538cdf4730a6caf1",
+    "bytes": 497503
+   },
+   "audio": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\audio\\outro-trim-v002\\vocabulary-Yogurt-trim-v002-48k.wav",
+    "sha256": "39591b49e52529e617d2f5cccc18f9aa64a38e658177c21759e99fae9c02e953",
+    "bytes": 136364
+   },
+   "audio_duration_s": 0.71
+  },
+  {
+   "term": "Cheese",
+   "ipa": "/tʃiːz/",
+   "vi": "Phô mai",
+   "example_en": "Golden cheese is made from fresh milk.",
+   "example_vi": "Những miếng phô mai vàng óng được làm từ sữa tươi.",
+   "start_frame": 2455,
+   "duration_frames": 30,
+   "relative_start_frame": 295,
+   "icon": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\cheese.png",
+    "sha256": "221688434233453e601ecc8088d69fe22e1f64c23e40664a5cd36c3619642b8a",
+    "bytes": 470306
+   },
+   "audio": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\audio\\outro-trim-v002\\vocabulary-Cheese-trim-v002-48k.wav",
+    "sha256": "6ac26c95cfe3027b40de30559faae95fdaef02ff23012e4a0cf552b98ae7c8cf",
+    "bytes": 165164
+   },
+   "audio_duration_s": 0.86
+  },
+  {
+   "term": "Ice Cream",
+   "ipa": "/ˌaɪs ˈkriːm/",
+   "vi": "Kem",
+   "example_en": "Sweet ice cream makes Alice happy.",
+   "example_vi": "Cây kem ngọt ngào làm bé Alice vui sướng.",
+   "start_frame": 2485,
+   "duration_frames": 35,
+   "relative_start_frame": 325,
+   "icon": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\ice-cream.png",
+    "sha256": "636413cdb3263692f0df14d00be5c25585eb0a36b862428f28bf188b554f49d1",
+    "bytes": 456726
+   },
+   "audio": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\audio\\outro-trim-v002\\vocabulary-Ice-Cream-trim-v002-48k.wav",
+    "sha256": "d02698734025a202f8b7fa6439325a7716adf8afd4383508ae747a6562b97025",
+    "bytes": 209324
+   },
+   "audio_duration_s": 1.09
+  }
+ ],
+ "mix": {
+  "music": {
+   "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\audio\\mix-plan-v003\\milk-mom-music-stem-v003-candidate.wav",
+   "sha256": "ab0beb31f3d7e18484147c953ff6bc8187bdb7440116fe65b4a13dfdb3a970a5",
+   "bytes": 16128044,
+   "duration_seconds": 84.0,
+   "gain": 1.0,
+   "status": "CANDIDATE_UNAPPROVED"
+  },
+  "ambience_foley": {
+   "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\audio\\mix-plan-v003\\milk-mom-ambience-foley-stem-v003-candidate.wav",
+   "sha256": "f80cf586f3840edd2c303400e25aba7c6c303a3dac94562d6ce57dd0ef06960f",
+   "bytes": 16128044,
+   "duration_seconds": 84.0,
+   "gain": 1.0,
+   "status": "CANDIDATE_UNAPPROVED"
+  }
+ },
+ "sources_read_only": {
+  "captions_v003": {
+   "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\editorial\\captions-v003\\manifest.json",
+   "sha256": "fd26101aca3bfa9c9202ccfef0526b50546a3ea4854f1732cdf0923fe3083eac",
+   "bytes": 55500
+  },
+  "av_review_pack_manifest": {
+   "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\technical\\av-review-pack-v001\\MANIFEST.json",
+   "sha256": "a937480c90f39f17ae589727ae34863985a90b364f6a8e4c3b7e675774ad18e9",
+   "bytes": 22261
+  },
+  "finishing_v001_config": {
+   "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\editorial\\finishing-v001\\config\\finishing-v001.json",
+   "sha256": "0cb7e884368ff0cc9d1372ec8036ff778c435c53d59d761de6e549471bb3fe94",
+   "bytes": 115554
+  }
+ },
+ "issues": [],
+ "v003_window_override": {
+  "reason": "critic T-V11c C2: full-opacity hold >= pronunciation WAV; captions-v003 manifest NOT edited",
+  "old_to_new": [
+   {
+    "term": "Creamy",
+    "old_rel_start": 0,
+    "old_dur": 30,
+    "new_rel_start": 0,
+    "new_dur": 30,
+    "new_global_start": 2160
+   },
+   {
+    "term": "Smooth",
+    "old_rel_start": 30,
+    "old_dur": 25,
+    "new_rel_start": 30,
+    "new_dur": 30,
+    "new_global_start": 2190
+   },
+   {
+    "term": "Liquid",
+    "old_rel_start": 55,
+    "old_dur": 25,
+    "new_rel_start": 60,
+    "new_dur": 27,
+    "new_global_start": 2220
+   },
+   {
+    "term": "Dairy Cow",
+    "old_rel_start": 80,
+    "old_dur": 35,
+    "new_rel_start": 87,
+    "new_dur": 35,
+    "new_global_start": 2247
+   },
+   {
+    "term": "Farm",
+    "old_rel_start": 115,
+    "old_dur": 25,
+    "new_rel_start": 122,
+    "new_dur": 25,
+    "new_global_start": 2282
+   },
+   {
+    "term": "Fresh",
+    "old_rel_start": 140,
+    "old_dur": 25,
+    "new_rel_start": 147,
+    "new_dur": 27,
+    "new_global_start": 2307
+   },
+   {
+    "term": "Yummy",
+    "old_rel_start": 165,
+    "old_dur": 25,
+    "new_rel_start": 174,
+    "new_dur": 25,
+    "new_global_start": 2334
+   },
+   {
+    "term": "Warm and Cold",
+    "old_rel_start": 190,
+    "old_dur": 45,
+    "new_rel_start": 199,
+    "new_dur": 47,
+    "new_global_start": 2359
+   },
+   {
+    "term": "Bones",
+    "old_rel_start": 235,
+    "old_dur": 25,
+    "new_rel_start": 246,
+    "new_dur": 25,
+    "new_global_start": 2406
+   },
+   {
+    "term": "Yogurt",
+    "old_rel_start": 260,
+    "old_dur": 30,
+    "new_rel_start": 271,
+    "new_dur": 24,
+    "new_global_start": 2431
+   },
+   {
+    "term": "Cheese",
+    "old_rel_start": 290,
+    "old_dur": 30,
+    "new_rel_start": 295,
+    "new_dur": 30,
+    "new_global_start": 2455
+   },
+   {
+    "term": "Ice Cream",
+    "old_rel_start": 320,
+    "old_dur": 40,
+    "new_rel_start": 325,
+    "new_dur": 35,
+    "new_global_start": 2485
+   }
+  ]
+ },
+ "word_timing": {
+  "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\editorial\\word-timing-v001\\WORD-TIMING-v001.json",
+  "sha256": "75ac590be7a2c6b3eb108c6cf5bb6d4b7cb1f1a3d30dcaa002310bf2c9e60b10",
+  "schema": "jenniejoykids-word-timing/v001",
+  "words": 108
+ },
+ "end_hold_frames": 60,
+ "motion": {
+  "transitions": [
+   {
+    "id": "T90",
+    "boundary": 90,
+    "from": "INTRO",
+    "to": "S01_A",
+    "class": "title exit",
+    "type": "bloom",
+    "frames": 6,
+    "direction": 0,
+    "motivation": "optional 6 f warm bloom bridge centred on f90 (title exit, MAE 17)",
+    "placement": "centred",
+    "start": 87,
+    "end_exclusive": 93
+   },
+   {
+    "id": "T240",
+    "boundary": 240,
+    "from": "S01_A",
+    "to": "S01_B",
+    "class": "carry smooth",
+    "type": "none",
+    "frames": 0,
+    "direction": 0,
+    "motivation": "pixel-continuous carry (MAE 1.73): no transition needed",
+    "placement": "n/a",
+    "start": 240,
+    "end_exclusive": 240
+   },
+   {
+    "id": "T390",
+    "boundary": 390,
+    "from": "S01_B",
+    "to": "S02_A",
+    "class": "hard cut",
+    "type": "whip",
+    "frames": 8,
+    "direction": 1,
+    "motivation": "close-up -> wide two-shot; Mother's pointing eyeline in S02_A goes right",
+    "placement": "centred",
+    "start": 386,
+    "end_exclusive": 394,
+    "out_frames": 4,
+    "in_frames": 4
+   },
+   {
+    "id": "T550",
+    "boundary": 550,
+    "from": "S02_A",
+    "to": "S02_B",
+    "class": "carry smooth",
+    "type": "none",
+    "frames": 0,
+    "direction": 0,
+    "motivation": "pixel-continuous carry (MAE 1.37)",
+    "placement": "n/a",
+    "start": 550,
+    "end_exclusive": 550
+   },
+   {
+    "id": "T710",
+    "boundary": 710,
+    "from": "S02_B",
+    "to": "S03_A",
+    "class": "hard cut",
+    "type": "whip",
+    "frames": 8,
+    "direction": 1,
+    "motivation": "Mother moves left -> right between the shots (worst cut, MAE 62.6)",
+    "placement": "centred",
+    "start": 706,
+    "end_exclusive": 714,
+    "out_frames": 4,
+    "in_frames": 4
+   },
+   {
+    "id": "T885",
+    "boundary": 885,
+    "from": "S03_A",
+    "to": "S03_B",
+    "class": "carry",
+    "type": "none",
+    "frames": 0,
+    "direction": 0,
+    "motivation": "carry, mild jump (MAE 3.05): none",
+    "placement": "n/a",
+    "start": 885,
+    "end_exclusive": 885
+   },
+   {
+    "id": "T1010",
+    "boundary": 1010,
+    "from": "S03_B",
+    "to": "S04_A",
+    "class": "hard cut",
+    "type": "dissolve",
+    "frames": 8,
+    "direction": 0,
+    "motivation": "props appear / characters reposition: 8 f tail-only cross-dissolve",
+    "placement": "tail-only (starts on boundary)",
+    "start": 1010,
+    "end_exclusive": 1018,
+    "outgoing_tail": {
+     "shot": "S03_B",
+     "native_path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\clips\\motion-v005\\S03_B-native.mp4",
+     "native_sha256": "3d06069a4dc2d4f9c8047d0027f20b3c777398288061e5b0b292061d62c6d8a5",
+     "native_frames": 107,
+     "editorial_frames": 100,
+     "tail_frames_available": 7,
+     "tail_frames_needed": 7,
+     "last_native_index_used": 106,
+     "start_from_frame": 125
+    }
+   },
+   {
+    "id": "T1150",
+    "boundary": 1150,
+    "from": "S04_A",
+    "to": "S04_B",
+    "class": "carry",
+    "type": "none",
+    "frames": 0,
+    "direction": 0,
+    "motivation": "carry, borderline (MAE 3.37): none",
+    "placement": "n/a",
+    "start": 1150,
+    "end_exclusive": 1150
+   },
+   {
+    "id": "T1310",
+    "boundary": 1310,
+    "from": "S04_B",
+    "to": "S05_A",
+    "class": "hard cut",
+    "type": "dissolve",
+    "frames": 8,
+    "direction": 0,
+    "motivation": "Mother stands, camera wider, props removed: 8 f tail-only cross-dissolve, ease-out (v005: shortened from 12 f, critic saw a double-exposed Mother f1315-1318)",
+    "curve": "out",
+    "placement": "tail-only (starts on boundary)",
+    "start": 1310,
+    "end_exclusive": 1318,
+    "outgoing_tail": {
+     "shot": "S04_B",
+     "native_path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\clips\\motion-v004\\S04_B-native.mp4",
+     "native_sha256": "afce0761eb59b9ddb4fc901994989fd2f0870258d78d5167e951663835549925",
+     "native_frames": 141,
+     "editorial_frames": 128,
+     "tail_frames_available": 13,
+     "tail_frames_needed": 7,
+     "last_native_index_used": 134,
+     "start_from_frame": 160
+    }
+   },
+   {
+    "id": "T1495",
+    "boundary": 1495,
+    "from": "S05_A",
+    "to": "S05_B",
+    "class": "hard cut (location change)",
+    "type": "whip",
+    "frames": 8,
+    "direction": 1,
+    "motivation": "G-BRIDGE option A (user-approved): motivated follow-pan toward the height tree on the right; no new H3",
+    "placement": "centred",
+    "start": 1491,
+    "end_exclusive": 1499,
+    "out_frames": 4,
+    "in_frames": 4
+   },
+   {
+    "id": "T1610",
+    "boundary": 1610,
+    "from": "S05_B",
+    "to": "S06_A",
+    "class": "hard cut",
+    "type": "cloud",
+    "frames": 12,
+    "direction": 0,
+    "motivation": "tree -> bench & book: 12 f tail-only soft cloud wipe",
+    "placement": "tail-only (starts on boundary)",
+    "start": 1610,
+    "end_exclusive": 1622,
+    "outgoing_tail": {
+     "shot": "S05_B",
+     "native_path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\clips\\motion-v003\\S05_B-native.mp4",
+     "native_sha256": "69d31c40d4a24133646a9afe80c6b93190e42568754a4ed2e108e8d7f4663c55",
+     "native_frames": 107,
+     "editorial_frames": 92,
+     "tail_frames_available": 15,
+     "tail_frames_needed": 10,
+     "last_native_index_used": 101,
+     "start_from_frame": 115
+    }
+   },
+   {
+    "id": "T1785",
+    "boundary": 1785,
+    "from": "S06_A",
+    "to": "S06_B1",
+    "class": "carry smooth",
+    "type": "none",
+    "frames": 0,
+    "direction": 0,
+    "motivation": "pixel-continuous carry (MAE 2.76)",
+    "placement": "n/a",
+    "start": 1785,
+    "end_exclusive": 1785
+   },
+   {
+    "id": "T1935",
+    "boundary": 1935,
+    "from": "S06_B1",
+    "to": "S06_B2",
+    "class": "carry smooth",
+    "type": "none",
+    "frames": 0,
+    "direction": 0,
+    "motivation": "pixel-continuous carry (MAE 1.18)",
+    "placement": "n/a",
+    "start": 1935,
+    "end_exclusive": 1935
+   },
+   {
+    "id": "T2110",
+    "boundary": 2110,
+    "from": "S06_B2",
+    "to": "S06_B3",
+    "class": "carry",
+    "type": "none",
+    "frames": 0,
+    "direction": 0,
+    "motivation": "carry, mild jump (MAE 3.35): none",
+    "placement": "n/a",
+    "start": 2110,
+    "end_exclusive": 2110
+   },
+   {
+    "id": "T2160",
+    "boundary": 2160,
+    "from": "S06_B3",
+    "to": "OUTRO",
+    "class": "picture -> card",
+    "type": "iris",
+    "frames": 44,
+    "direction": 0,
+    "motivation": "G-END: iris-out on sleeping Alice f2116-f2140 (eyes close f2138-f2142), logo disc grows out of the closing circle f2142-f2148, card 1 ramps in under the disc f2160-f2165 (v005: no 1-frame swap)",
+    "placement": "ends on boundary",
+    "start": 2116,
+    "end_exclusive": 2166,
+    "iris_close_f": 2140,
+    "logo_in_f": 2142,
+    "disc_fade_start_f": 2160,
+    "disc_fade_frames": 6,
+    "card1_ramp_frames": 6
+   },
+   {
+    "id": "T2190",
+    "boundary": 2190,
+    "from": "CARD_Creamy",
+    "to": "CARD_Smooth",
+    "class": "card swap",
+    "type": "card-slide",
+    "frames": 6,
+    "direction": -1,
+    "placement": "outgoing card keeps its full hold to the window end, lingers 6 f after it sliding left 300 px + fading (fast ease-out); incoming card slides in from +70 px over the same 6 f; its WAV start frame and window are unchanged",
+    "start": 2190,
+    "end_exclusive": 2196,
+    "motivation": "swap between two flashcards of the same layout: slide-fade instead of a hard pop"
+   },
+   {
+    "id": "T2220",
+    "boundary": 2220,
+    "from": "CARD_Smooth",
+    "to": "CARD_Liquid",
+    "class": "card swap",
+    "type": "card-slide",
+    "frames": 6,
+    "direction": -1,
+    "placement": "outgoing card keeps its full hold to the window end, lingers 6 f after it sliding left 300 px + fading (fast ease-out); incoming card slides in from +70 px over the same 6 f; its WAV start frame and window are unchanged",
+    "start": 2220,
+    "end_exclusive": 2226,
+    "motivation": "swap between two flashcards of the same layout: slide-fade instead of a hard pop"
+   },
+   {
+    "id": "T2247",
+    "boundary": 2247,
+    "from": "CARD_Liquid",
+    "to": "CARD_Dairy Cow",
+    "class": "card swap",
+    "type": "card-slide",
+    "frames": 6,
+    "direction": -1,
+    "placement": "outgoing card keeps its full hold to the window end, lingers 6 f after it sliding left 300 px + fading (fast ease-out); incoming card slides in from +70 px over the same 6 f; its WAV start frame and window are unchanged",
+    "start": 2247,
+    "end_exclusive": 2253,
+    "motivation": "swap between two flashcards of the same layout: slide-fade instead of a hard pop"
+   },
+   {
+    "id": "T2282",
+    "boundary": 2282,
+    "from": "CARD_Dairy Cow",
+    "to": "CARD_Farm",
+    "class": "card swap",
+    "type": "card-slide",
+    "frames": 6,
+    "direction": -1,
+    "placement": "outgoing card keeps its full hold to the window end, lingers 6 f after it sliding left 300 px + fading (fast ease-out); incoming card slides in from +70 px over the same 6 f; its WAV start frame and window are unchanged",
+    "start": 2282,
+    "end_exclusive": 2288,
+    "motivation": "swap between two flashcards of the same layout: slide-fade instead of a hard pop"
+   },
+   {
+    "id": "T2307",
+    "boundary": 2307,
+    "from": "CARD_Farm",
+    "to": "CARD_Fresh",
+    "class": "card swap",
+    "type": "card-slide",
+    "frames": 6,
+    "direction": -1,
+    "placement": "outgoing card keeps its full hold to the window end, lingers 6 f after it sliding left 300 px + fading (fast ease-out); incoming card slides in from +70 px over the same 6 f; its WAV start frame and window are unchanged",
+    "start": 2307,
+    "end_exclusive": 2313,
+    "motivation": "swap between two flashcards of the same layout: slide-fade instead of a hard pop"
+   },
+   {
+    "id": "T2334",
+    "boundary": 2334,
+    "from": "CARD_Fresh",
+    "to": "CARD_Yummy",
+    "class": "card swap",
+    "type": "card-slide",
+    "frames": 6,
+    "direction": -1,
+    "placement": "outgoing card keeps its full hold to the window end, lingers 6 f after it sliding left 300 px + fading (fast ease-out); incoming card slides in from +70 px over the same 6 f; its WAV start frame and window are unchanged",
+    "start": 2334,
+    "end_exclusive": 2340,
+    "motivation": "swap between two flashcards of the same layout: slide-fade instead of a hard pop"
+   },
+   {
+    "id": "T2359",
+    "boundary": 2359,
+    "from": "CARD_Yummy",
+    "to": "CARD_Warm and Cold",
+    "class": "card swap",
+    "type": "card-slide",
+    "frames": 6,
+    "direction": -1,
+    "placement": "outgoing card keeps its full hold to the window end, lingers 6 f after it sliding left 300 px + fading (fast ease-out); incoming card slides in from +70 px over the same 6 f; its WAV start frame and window are unchanged",
+    "start": 2359,
+    "end_exclusive": 2365,
+    "motivation": "swap between two flashcards of the same layout: slide-fade instead of a hard pop"
+   },
+   {
+    "id": "T2406",
+    "boundary": 2406,
+    "from": "CARD_Warm and Cold",
+    "to": "CARD_Bones",
+    "class": "card swap",
+    "type": "card-slide",
+    "frames": 6,
+    "direction": -1,
+    "placement": "outgoing card keeps its full hold to the window end, lingers 6 f after it sliding left 300 px + fading (fast ease-out); incoming card slides in from +70 px over the same 6 f; its WAV start frame and window are unchanged",
+    "start": 2406,
+    "end_exclusive": 2412,
+    "motivation": "swap between two flashcards of the same layout: slide-fade instead of a hard pop"
+   },
+   {
+    "id": "T2431",
+    "boundary": 2431,
+    "from": "CARD_Bones",
+    "to": "CARD_Yogurt",
+    "class": "card swap",
+    "type": "card-slide",
+    "frames": 6,
+    "direction": -1,
+    "placement": "outgoing card keeps its full hold to the window end, lingers 6 f after it sliding left 300 px + fading (fast ease-out); incoming card slides in from +70 px over the same 6 f; its WAV start frame and window are unchanged",
+    "start": 2431,
+    "end_exclusive": 2437,
+    "motivation": "swap between two flashcards of the same layout: slide-fade instead of a hard pop"
+   },
+   {
+    "id": "T2455",
+    "boundary": 2455,
+    "from": "CARD_Yogurt",
+    "to": "CARD_Cheese",
+    "class": "card swap",
+    "type": "card-slide",
+    "frames": 6,
+    "direction": -1,
+    "placement": "outgoing card keeps its full hold to the window end, lingers 6 f after it sliding left 300 px + fading (fast ease-out); incoming card slides in from +70 px over the same 6 f; its WAV start frame and window are unchanged",
+    "start": 2455,
+    "end_exclusive": 2461,
+    "motivation": "swap between two flashcards of the same layout: slide-fade instead of a hard pop"
+   },
+   {
+    "id": "T2485",
+    "boundary": 2485,
+    "from": "CARD_Cheese",
+    "to": "CARD_Ice Cream",
+    "class": "card swap",
+    "type": "card-slide",
+    "frames": 6,
+    "direction": -1,
+    "placement": "outgoing card keeps its full hold to the window end, lingers 6 f after it sliding left 300 px + fading (fast ease-out); incoming card slides in from +70 px over the same 6 f; its WAV start frame and window are unchanged",
+    "start": 2485,
+    "end_exclusive": 2491,
+    "motivation": "swap between two flashcards of the same layout: slide-fade instead of a hard pop"
+   }
+  ],
+  "icons": [
+   {
+    "id": "IC01",
+    "shot": "S01_B",
+    "word": "smooth",
+    "term": "smooth",
+    "icon": "smooth.png",
+    "icon_path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\smooth.png",
+    "icon_sha256": "3b978179f9d93613a5ee390b7b86f54dfd281c90a0a97c326f5ea2653040b0e4",
+    "word_start_frame": 290,
+    "frame": 290,
+    "frame_source": "start_frame",
+    "hold_frames": 21,
+    "fade_frames": 5,
+    "total_frames": 32,
+    "lead_frames": 0
+   },
+   {
+    "id": "IC02",
+    "shot": "S01_B",
+    "word": "liquid",
+    "term": "liquid",
+    "icon": "liquid.png",
+    "icon_path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\liquid.png",
+    "icon_sha256": "19e3679bfae352bc7267c132c6797176677d298854e4f3aed4aec066b51d2982",
+    "word_start_frame": 335,
+    "frame": 335,
+    "frame_source": "start_frame",
+    "hold_frames": 21,
+    "fade_frames": 5,
+    "total_frames": 32,
+    "lead_frames": 0
+   },
+   {
+    "id": "IC03",
+    "shot": "S02_A",
+    "word": "fresh",
+    "term": "fresh",
+    "icon": "fresh.png",
+    "icon_path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\fresh.png",
+    "icon_sha256": "644db53071c387044ac9a3f8cd9b19574864e1e52f254fafa1dca273706c0520",
+    "word_start_frame": 497,
+    "frame": 497,
+    "frame_source": "start_frame",
+    "hold_frames": 21,
+    "fade_frames": 5,
+    "total_frames": 32,
+    "lead_frames": 0
+   },
+   {
+    "id": "IC04",
+    "shot": "S02_B",
+    "word": "dairy",
+    "term": "dairy cows",
+    "icon": "dairy-cow.png",
+    "icon_path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\dairy-cow.png",
+    "icon_sha256": "0f9d294ff6606f86ef6771a2941e46d8c09390cb35e84169e1db90596e8af64f",
+    "word_start_frame": 587,
+    "frame": 587,
+    "frame_source": "start_frame",
+    "hold_frames": 21,
+    "fade_frames": 5,
+    "total_frames": 32,
+    "lead_frames": 0
+   },
+   {
+    "id": "IC05",
+    "shot": "S02_B",
+    "word": "farm",
+    "term": "farm",
+    "icon": "farm.png",
+    "icon_path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\farm.png",
+    "icon_sha256": "794950affee64cd8444b822884fc675ccac3109389ed299790353703976e3aaa",
+    "word_start_frame": 671,
+    "frame": 671,
+    "frame_source": "start_frame",
+    "hold_frames": 21,
+    "fade_frames": 5,
+    "total_frames": 32,
+    "lead_frames": 0
+   },
+   {
+    "id": "IC06",
+    "shot": "S03_B",
+    "word": "creamy",
+    "term": "creamy",
+    "icon": "creamy.png",
+    "icon_path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\creamy.png",
+    "icon_sha256": "65235535e4a2ee7e643a6aab29a4ef6cd5b401a4511ef2a16cf9220f39b4fa8e",
+    "word_start_frame": 911,
+    "frame": 911,
+    "frame_source": "start_frame",
+    "hold_frames": 21,
+    "fade_frames": 5,
+    "total_frames": 32,
+    "lead_frames": 0
+   },
+   {
+    "id": "IC07",
+    "shot": "S03_B",
+    "word": "fresh",
+    "term": "fresh",
+    "icon": "fresh.png",
+    "icon_path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\fresh.png",
+    "icon_sha256": "644db53071c387044ac9a3f8cd9b19574864e1e52f254fafa1dca273706c0520",
+    "word_start_frame": 952,
+    "frame": 952,
+    "frame_source": "start_frame",
+    "hold_frames": 21,
+    "fade_frames": 5,
+    "total_frames": 32,
+    "lead_frames": 0
+   },
+   {
+    "id": "IC08",
+    "shot": "S03_B",
+    "word": "yummy",
+    "term": "yummy",
+    "icon": "yummy.png",
+    "icon_path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\yummy.png",
+    "icon_sha256": "9446ac03a2896170d448963c8b04229e9eccbd397e39e94a59f4eac074cf7034",
+    "word_start_frame": 981,
+    "frame": 981,
+    "frame_source": "start_frame",
+    "hold_frames": 21,
+    "fade_frames": 5,
+    "total_frames": 32,
+    "lead_frames": 0
+   },
+   {
+    "id": "IC09",
+    "shot": "S04_A",
+    "word": "warm",
+    "term": "warm-cold",
+    "icon": "warm-cold.png",
+    "icon_path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\warm-cold.png",
+    "icon_sha256": "45e2a0d9084733ceb58d1fb9b2367a834c0d8e2fb65200526c080a99c5737a8d",
+    "word_start_frame": 1084,
+    "frame": 1084,
+    "frame_source": "start_frame",
+    "hold_frames": 21,
+    "fade_frames": 5,
+    "total_frames": 32,
+    "lead_frames": 0
+   },
+   {
+    "id": "IC10",
+    "shot": "S04_A",
+    "word": "cold",
+    "term": "warm-cold",
+    "icon": "warm-cold.png",
+    "icon_path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\warm-cold.png",
+    "icon_sha256": "45e2a0d9084733ceb58d1fb9b2367a834c0d8e2fb65200526c080a99c5737a8d",
+    "word_start_frame": 1119,
+    "frame": 1119,
+    "frame_source": "start_frame",
+    "hold_frames": 21,
+    "fade_frames": 5,
+    "total_frames": 32,
+    "lead_frames": 0
+   },
+   {
+    "id": "IC11",
+    "shot": "S04_B",
+    "word": "warm",
+    "term": "warm-cold",
+    "icon": "warm-cold.png",
+    "icon_path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\warm-cold.png",
+    "icon_sha256": "45e2a0d9084733ceb58d1fb9b2367a834c0d8e2fb65200526c080a99c5737a8d",
+    "word_start_frame": 1229,
+    "frame": 1229,
+    "frame_source": "start_frame",
+    "hold_frames": 21,
+    "fade_frames": 5,
+    "total_frames": 32,
+    "lead_frames": 0
+   },
+   {
+    "id": "IC12",
+    "shot": "S04_B",
+    "word": "cold",
+    "term": "warm-cold",
+    "icon": "warm-cold.png",
+    "icon_path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\warm-cold.png",
+    "icon_sha256": "45e2a0d9084733ceb58d1fb9b2367a834c0d8e2fb65200526c080a99c5737a8d",
+    "word_start_frame": 1257,
+    "frame": 1257,
+    "frame_source": "start_frame",
+    "hold_frames": 21,
+    "fade_frames": 5,
+    "total_frames": 32,
+    "lead_frames": 0
+   },
+   {
+    "id": "IC13",
+    "shot": "S05_A",
+    "word": "bones",
+    "term": "bones",
+    "icon": "bones.png",
+    "icon_path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\bones.png",
+    "icon_sha256": "f36079dafb1fd65d3f7cea67d32ed2946868e16ddbd14cb4dec1b99ed2c6d8ed",
+    "word_start_frame": 1408,
+    "frame": 1408,
+    "frame_source": "start_frame",
+    "hold_frames": 21,
+    "fade_frames": 5,
+    "total_frames": 32,
+    "lead_frames": 0
+   },
+   {
+    "id": "IC14",
+    "shot": "S05_B",
+    "word": "bones",
+    "term": "bones",
+    "icon": "bones.png",
+    "icon_path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\bones.png",
+    "icon_sha256": "f36079dafb1fd65d3f7cea67d32ed2946868e16ddbd14cb4dec1b99ed2c6d8ed",
+    "word_start_frame": 1543,
+    "frame": 1543,
+    "frame_source": "start_frame",
+    "hold_frames": 21,
+    "fade_frames": 5,
+    "total_frames": 32,
+    "lead_frames": 0
+   },
+   {
+    "id": "IC15",
+    "shot": "S06_A",
+    "word": "yummy",
+    "term": "yummy",
+    "icon": "yummy.png",
+    "icon_path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\yummy.png",
+    "icon_sha256": "9446ac03a2896170d448963c8b04229e9eccbd397e39e94a59f4eac074cf7034",
+    "word_start_frame": 1648,
+    "frame": 1648,
+    "frame_source": "start_frame",
+    "hold_frames": 21,
+    "fade_frames": 5,
+    "total_frames": 32,
+    "lead_frames": 0
+   },
+   {
+    "id": "IC16",
+    "shot": "S06_B",
+    "word": "yogurt",
+    "term": "yogurt",
+    "icon": "yogurt.png",
+    "icon_path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\yogurt.png",
+    "icon_sha256": "9bb7209a5313054829990cb64ab47ede189c6050d97850d5538cdf4730a6caf1",
+    "word_start_frame": 1808,
+    "frame": 1808,
+    "frame_source": "start_frame",
+    "hold_frames": 21,
+    "fade_frames": 5,
+    "total_frames": 32,
+    "lead_frames": 0
+   },
+   {
+    "id": "IC17",
+    "shot": "S06_B",
+    "word": "cheese",
+    "term": "cheese",
+    "icon": "cheese.png",
+    "icon_path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\cheese.png",
+    "icon_sha256": "221688434233453e601ecc8088d69fe22e1f64c23e40664a5cd36c3619642b8a",
+    "word_start_frame": 1842,
+    "frame": 1842,
+    "frame_source": "start_frame",
+    "hold_frames": 21,
+    "fade_frames": 5,
+    "total_frames": 32,
+    "lead_frames": 0
+   },
+   {
+    "id": "IC18",
+    "shot": "S06_B",
+    "word": "ice",
+    "term": "ice cream",
+    "icon": "ice-cream.png",
+    "icon_path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\ice-cream.png",
+    "icon_sha256": "636413cdb3263692f0df14d00be5c25585eb0a36b862428f28bf188b554f49d1",
+    "word_start_frame": 1876,
+    "frame": 1876,
+    "frame_source": "start_frame",
+    "hold_frames": 21,
+    "fade_frames": 5,
+    "total_frames": 32,
+    "lead_frames": 0
+   },
+   {
+    "id": "IC19",
+    "shot": "S06_B",
+    "word": "Yummy",
+    "term": "yummy",
+    "icon": "yummy.png",
+    "icon_path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\assets3d\\vocabulary-v002\\png\\yummy.png",
+    "icon_sha256": "9446ac03a2896170d448963c8b04229e9eccbd397e39e94a59f4eac074cf7034",
+    "word_start_frame": 1940,
+    "frame": 1940,
+    "frame_source": "start_frame",
+    "hold_frames": 21,
+    "fade_frames": 5,
+    "total_frames": 32,
+    "lead_frames": 0
+   }
+  ],
+  "ending": {
+   "iris": {
+    "start": 2116,
+    "closed": 2140,
+    "centre": [
+     940,
+     570
+    ],
+    "end_radius": 250
+   },
+   "logo_disc": {
+    "in": 2142,
+    "fade_start": 2160,
+    "fade_frames": 6,
+    "full_logo_frames": "f2147-f2159 (13 f) then crossfade f2160-f2165",
+    "diameter_start": 524,
+    "diameter_end": 860,
+    "centre": [
+     960,
+     540
+    ]
+   },
+   "end_logo": {
+    "frames": 60,
+    "from_frame": 2520,
+    "total_frames": 2580,
+    "audio_tail": "music stem 81.5-83.5 s replayed, fade in 6 f / out f20-f60, from f2520",
+    "implementation": "end_hold_frames path inside MilkMom-ReviewHD plus a standalone 60 f MilkMom-EndLogo composition (same EndPlate component, starts at plate clock t=4)"
+   },
+   "end_plate": {
+    "start": 2516,
+    "last_frame": 2519,
+    "ice_cream_speech_end_frame": 2515.3,
+    "ice_cream_speech_end_s": 1.01,
+    "fixed_frames_after_speech": 4,
+    "ice_cream_speech_end_source": "RMS offset 0.99-1.01 s (2%-10% of peak) in vocabulary-Ice-Cream-trim-v002-48k.wav, card start f2485",
+    "text_en": "See you next time!",
+    "text_vi": "Hẹn gặp lại bé nhé!"
+   },
+   "logo": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\studio-app\\logo-jenniejoy-kids.png",
+    "sha256": "7a07c108e4b915b65d4cf17156a48e8dfbd91367edf5c6ca063fa269199ce473",
+    "bytes": 1102621
+   }
+  }
+ },
+ "base_config": {
+  "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\editorial\\review-hd-v003\\config\\review-config-v003.json",
+  "sha256": "60aed933f78aee92eee77934100a3c415d18bc1ae44c829190f3ce84d99a2af8"
+ }
+}

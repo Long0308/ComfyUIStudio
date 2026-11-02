@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "id": "H3-rear-voice-body-reversal-v3",
+  "observed_at": "2026-10-16T19:24:22.732917+00:00",
+  "status": "v9_direction_addressed_B_picture_rejected",
+  "engine": "H3 Ref2VA reference/performance",
+  "environment": "RTX5070 12GB;20steps;864x480/124frames",
+  "symptom": "v7 full literal text now reachesmodel, but A initialfamilyturn/Binitialchildfrontalzoom still violate continuous rear walking. Later portions walk inward.",
+  "evidence_paths": [
+    "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\qa\\S01-paired-v3\\A-overview.png",
+    "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S01-paired-entry-v3\\run\\history.json",
+    "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\qa\\S01-paired-v4\\A-overview.png",
+    "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S01-paired-entry-v4\\run\\history.json",
+    "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\qa\\S01-paired-v7\\A-overview.png",
+    "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\qa\\S01-paired-v7\\B-overview.png"
+  ],
+  "root_cause_status": "not_isolated;prompttransportfixednotquality",
+  "root_cause": "Cannot blame currenttoken truncation: localencoder source+offlinecounts show full2589/2622tokens underbudget. Modelpose/actionattention is a hypothesis.",
+  "fix_or_workaround": "Nextv8: prioritize action/camera/setting before full cast JSON; dense earlyframe8/24 guides from actual rear-forward portions, preserve fullcast/nativeAV/seam.",
+  "verification": "v7complete technicalpair, jobseconds611.516; A/B4fpsoverviews visually inspected, fulltake motion rejected.",
+  "limitations": "Aonlyforwardvisualpass;pairnotaccepted.Bnewpicturedefecttrackedseparately.",
+  "prevention": "Inspect complete firstclip gait; firstframe equality alone does not prove direction",
+  "affected_artifacts": [
+    "Scene1pairedv3A-rejected",
+    "Scene1pairedv3B-interrupted",
+    "Scene1pairedv4A-rejected",
+    "Scene1pairedv4B-interrupted"
+  ],
+  "v8_result": {
+    "version": "v8",
+    "prompt_id": "5d52c76e-33c6-4a91-9996-c9dea6c98e60",
+    "status": "rejected_full_takes",
+    "elapsed_seconds": 725.589,
+    "evidence": [
+      "qa/S01-paired-v8/A-overview.png",
+      "qa/S01-paired-v8/B-overview.png"
+    ],
+    "visual_estimates": {
+      "A": "Rear walking initially, frontal family greeting aroundframes60-104, thenrear.",
+      "B": "Rear initially; frontal toddlercloseup around12-24, wholefamilyfrontal24-48, rear fromroughly54 onward."
+    },
+    "measured": "History successful decode, bothMP4s preserved; livequeued prompt exact. Exactturnframes still needconsecutiveinspection.",
+    "next_experiment": "Contiguous rear-forward IMAGEbatchguides; notmoreindependentstills; motionacceptancepending."
+  },
+  "v9_A_review": {
+    "scene": "S01_A",
+    "version": "engine-v9",
+    "job": "00af6f7c-e581-4ea2-ad77-cc0ea018bb27",
+    "source": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\JennieKidJoys\\Scene-01-v9\\S01_A\\native_00001_.mp4",
+    "sha256": "db36229b0a62e9fb763f632a77759d16820d136974f32eea266b964bcdbf105f",
+    "status": "forward_motion_visual_pass_pair_and_playback_pending",
+    "measured": {
+      "technical_qa": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\qa\\S01-paired-v9\\A-technical-qa.json",
+      "native_dimensions": [
+        864,
+        480
+      ],
+      "native_frames": 124,
+      "fps": 24,
+      "used_frames_inclusive": [
+        0,
+        119
+      ]
+    },
+    "inspected_full_body_frames": [
+      [
+        0,
+        23
+      ],
+      [
+        24,
+        47
+      ],
+      [
+        48,
+        71
+      ],
+      [
+        72,
+        95
+      ],
+      [
+        96,
+        119
+      ]
+    ],
+    "inspected_feet_frames": [
+      0,
+      119
+    ],
+    "evidence_dir": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\qa\\S01-paired-v9\\A-consecutive",
+    "observations": [
+      "Rear-facingfullfamilyremainsrearforused120frames; nofrontflip",
+      "Alternatingknees/shoesandclothmotion; parenthandcontactretained",
+      "Gatepostsmoveoutwardwithforwardtracking; familyadvancesinward",
+      "Noheartonplainback;rightbowviewer-rightinrear;mutedparentwardrobeconsistent"
+    ],
+    "limits": [
+      "Bstillrendering; noSeam/fullScene1acceptanceyet",
+      "Normal-speedplaybackandfinalsound/subtitlereviewpending",
+      "ExactcontactframesnotyetcertifiedforFoley",
+      "Facegeometrynotvisibleinrearview; cannotcertifyfaceidentityfrombacks"
+    ],
+    "conditioning": "A124-framecontiguousrear guide@0, derivedfromv7A54..119retimedvisual-only; source/cfg/provenance preserved",
+    "at_utc": "2026-10-16T20:10:48.658706+00:00"
+  },
+  "v9_B_review": {
+    "status": "rejected_spatial_ghost_and_exposure_pulses",
+    "report": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\qa\\S01-paired-v9\\B-independent\\REVIEW.md",
+    "direction": "rearforwardmaintained",
+    "scene_acceptance": false
+  }
+}

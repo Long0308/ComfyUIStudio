@@ -1,0 +1,15 @@
+{
+  "id": "hindsight-container-drift-stale-compose-and-bim02-bind",
+  "engine": "Local Hindsight memory container (sa-memory-hindsight-local) on the home machine",
+  "environment": "Home machine; D:/61.SetupAgent/.env is a 1:1 mirror of BIM02 (KV vault); compose D:/61.SetupAgent/docker-compose.yml project 'setupagent'",
+  "observed_at": "2026-10-27",
+  "symptom": "(1) The running container used api.deepseek.com/deepseek-chat (402 out of balance) although .env already routed Hindsight to New-API (token-newapi:3000) — the container had been created from a stale compose dir (D:/21.Setupagent/setupagent) and never re-created. (2) Re-creating it from D:/61.SetupAgent failed: BIND_HINDSIGHT=100.78.215.48 is BIM02's Tailscale IP and cannot be bound on the home machine, leaving memory down until fixed.",
+  "root_cause": "Config drift between the live container and the compose/.env source; the mirrored .env carries BIM02-specific bind addresses.",
+  "root_cause_status": "measured",
+  "fix_or_workaround": "HINDSIGHT_LLM_MODEL=deepseek-v4.1-flash (OpenCode Go DeepSeek via New-API, user decision; .env backed up as .env.bak-hindsight-model-<ts>); container re-created with a loopback-only override (production-local/engine/hindsight-loopback.override.yml: 127.0.0.1:8890/9999) — same named volume setupagent_memory-hindsight-local-pg, data intact (may-agent-memory 38 nodes). Binding to the home Tailscale IP was refused by auto-mode (exposes a local service) and not done.",
+  "prevention": "Before trusting a memory/service container, compare `docker inspect` env/ports with the compose + .env it should come from. On the home machine always re-create Hindsight with the loopback override (`docker compose -p setupagent -f docker-compose.yml -f <override> up -d --no-deps --no-build memory-hindsight-local`) and verify /health, the LLM env, bank stats and a 1-fact retain → node count > 0.",
+  "verification": "health 200; env BASE_URL token-newapi:3000/v1, MODEL deepseek-v4.1-flash; test fact stored (bank nodes 0→4, readback co=True).",
+  "status": "resolved_loopback_override",
+  "evidence_paths": ["production-local/engine/hindsight-loopback.override.yml"],
+  "affected_artifacts": []
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "id": "ASR-VAD-initial-word-omission-v1",
+  "status": "isolated_original_no_vad_recognizes_words_listening_pending",
+  "observed": "Full-track VAD-enabled CPU ASR omitted initial Look in S02_L1 and S05_L1; canonical WER3/43, bed WER2/43.",
+  "controlled_followup": {
+    "device": "cpu",
+    "compute_type": "int8",
+    "model": "local faster-whisper-large-v3",
+    "vad_filter": false,
+    "initial_prompt": null,
+    "hotwords": null,
+    "original_utterances": ["S02_L1", "S05_L1"],
+    "recognized": ["Look! A little bird.", "Look! A panda!"],
+    "source_hashes_unchanged": true
+  },
+  "lesson": "Check the original isolated utterance and VAD boundary before declaring a word absent or resynthesizing the saved voice.",
+  "limits": "ASR does not prove listening comfort, voice identity, lip sync or exact edit timestamps. Preserve original canonical PCM and timing.",
+  "evidence": ["audio/asr-cpu-audit-v1/audit.json", "audio/asr-cpu-audit-lines-v2/audit.json"]
+}

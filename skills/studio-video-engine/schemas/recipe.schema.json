@@ -1,0 +1,394 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jjv/schemas/recipe/v1",
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "posint": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "model": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "file",
+        "size_bytes",
+        "sha256"
+      ],
+      "properties": {
+        "file": {
+          "type": "string",
+          "minLength": 1
+        },
+        "size_bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "recipe_id",
+    "family",
+    "domain",
+    "qualifies_only",
+    "native",
+    "geometry",
+    "graph_recipe",
+    "allowed_api_diff_paths",
+    "models",
+    "pilot"
+  ],
+  "properties": {
+    "schema": {
+      "const": "jjv/recipe/v1"
+    },
+    "recipe_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+/[a-z0-9][a-z0-9._-]*$"
+    },
+    "family": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+$"
+    },
+    "domain": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "qualifies_only": {
+      "type": "string",
+      "minLength": 1
+    },
+    "native": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "width",
+        "height"
+      ],
+      "properties": {
+        "width": {
+          "$ref": "#/$defs/posint"
+        },
+        "height": {
+          "$ref": "#/$defs/posint"
+        }
+      }
+    },
+    "geometry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fps",
+        "core_frames",
+        "context_frames_each_side",
+        "max_raw_segment_frames",
+        "internal_sampler_max_pixel_frames",
+        "tile_size",
+        "tile_overlap",
+        "processing_width",
+        "processing_height",
+        "final_width",
+        "final_height",
+        "final_crop_left",
+        "final_crop_top",
+        "padding_alignment",
+        "padding_formula",
+        "core_encoding"
+      ],
+      "properties": {
+        "fps": {
+          "type": "string",
+          "pattern": "^[0-9]+/[0-9]+$"
+        },
+        "core_frames": {
+          "$ref": "#/$defs/posint"
+        },
+        "context_frames_each_side": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_raw_segment_frames": {
+          "$ref": "#/$defs/posint"
+        },
+        "internal_sampler_max_pixel_frames": {
+          "$ref": "#/$defs/posint"
+        },
+        "tile_size": {
+          "$ref": "#/$defs/posint"
+        },
+        "tile_overlap": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "processing_width": {
+          "$ref": "#/$defs/posint"
+        },
+        "processing_height": {
+          "$ref": "#/$defs/posint"
+        },
+        "final_width": {
+          "$ref": "#/$defs/posint"
+        },
+        "final_height": {
+          "$ref": "#/$defs/posint"
+        },
+        "final_crop_left": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "final_crop_top": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "padding_alignment": {
+          "$ref": "#/$defs/posint"
+        },
+        "padding_formula": {
+          "type": "string",
+          "minLength": 1
+        },
+        "core_encoding": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "graph_recipe": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "chunking_mode",
+        "denoise",
+        "image_scale_crop",
+        "internal_sampler_max_pixel_frames",
+        "model",
+        "model_file",
+        "post_color_correction_method",
+        "processing_height",
+        "processing_width",
+        "sampler_cfg",
+        "sampler_name",
+        "sampler_seed",
+        "sampler_steps",
+        "save_codec",
+        "save_crf",
+        "save_encoding",
+        "save_format",
+        "scheduler",
+        "temporal_chunk_overlap",
+        "tile_overlap",
+        "tile_size",
+        "upscale_method",
+        "vae",
+        "vae_temporal_overlap",
+        "vae_temporal_size"
+      ],
+      "properties": {
+        "chunking_mode": {
+          "type": "string",
+          "minLength": 1
+        },
+        "denoise": {
+          "type": "number"
+        },
+        "image_scale_crop": {
+          "type": "string",
+          "minLength": 1
+        },
+        "internal_sampler_max_pixel_frames": {
+          "type": "integer"
+        },
+        "model": {
+          "type": "string",
+          "minLength": 1
+        },
+        "model_file": {
+          "type": "string",
+          "minLength": 1
+        },
+        "post_color_correction_method": {
+          "type": "string",
+          "minLength": 1
+        },
+        "processing_height": {
+          "type": "integer"
+        },
+        "processing_width": {
+          "type": "integer"
+        },
+        "sampler_cfg": {
+          "type": "number"
+        },
+        "sampler_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sampler_seed": {
+          "type": "integer"
+        },
+        "sampler_steps": {
+          "type": "integer"
+        },
+        "save_codec": {
+          "type": "string",
+          "minLength": 1
+        },
+        "save_crf": {
+          "type": "integer"
+        },
+        "save_encoding": {
+          "type": "string",
+          "minLength": 1
+        },
+        "save_format": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scheduler": {
+          "type": "string",
+          "minLength": 1
+        },
+        "temporal_chunk_overlap": {
+          "type": "integer"
+        },
+        "tile_overlap": {
+          "type": "integer"
+        },
+        "tile_size": {
+          "type": "integer"
+        },
+        "upscale_method": {
+          "type": "string",
+          "minLength": 1
+        },
+        "vae": {
+          "type": "string",
+          "minLength": 1
+        },
+        "vae_temporal_overlap": {
+          "type": "integer"
+        },
+        "vae_temporal_size": {
+          "type": "integer"
+        }
+      }
+    },
+    "allowed_api_diff_paths": {
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^\\$\\."
+      }
+    },
+    "models": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "diffusion",
+        "vae"
+      ],
+      "properties": {
+        "diffusion": {
+          "$ref": "#/$defs/model"
+        },
+        "vae": {
+          "$ref": "#/$defs/model"
+        }
+      }
+    },
+    "pilot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "qualification_receipt",
+        "qualification_receipt_sha256",
+        "prompt_id",
+        "graph_file_sha256",
+        "graph_canonical_sha256",
+        "graph_canonical_mode",
+        "graph_recipe_sha256",
+        "server_execution_s",
+        "sampled_peak_container_memory_bytes",
+        "sampled_peak_gpu_mib",
+        "graph_file",
+        "graph_recipe_sha256_method",
+        "graph_recipe_block_sha256",
+        "graph_recipe_sha256_canonical_mode",
+        "geometry_block_sha256"
+      ],
+      "properties": {
+        "qualification_receipt": {
+          "type": "string",
+          "minLength": 1
+        },
+        "qualification_receipt_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "prompt_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "graph_file_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "graph_canonical_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "graph_canonical_mode": {
+          "enum": [
+            "ascii",
+            "utf8"
+          ]
+        },
+        "graph_recipe_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "gui_file_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "server_execution_s": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "sampled_peak_container_memory_bytes": {
+          "$ref": "#/$defs/posint"
+        },
+        "sampled_peak_gpu_mib": {
+          "$ref": "#/$defs/posint"
+        },
+        "graph_file": {
+          "type": "string",
+          "minLength": 1
+        },
+        "graph_recipe_sha256_method": {
+          "type": "string",
+          "minLength": 1
+        },
+        "graph_recipe_block_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "graph_recipe_sha256_canonical_mode": {
+          "enum": [
+            "ascii",
+            "utf8"
+          ]
+        },
+        "geometry_block_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    }
+  }
+}

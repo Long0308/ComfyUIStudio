@@ -1,0 +1,25 @@
+{
+  "affected_artifacts": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/tools/hybrid_image_coordinator_v001.py",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/hybrid-coordinator-v001"
+  ],
+  "engine": "Python Hybrid Coordinator / Dispatch Gate",
+  "symptom": "Coordinator marked unknown/timeout outcomes as terminal failures, unlocking duplicate attempt B-002; manufactured queued provenance from unrelated receipts; skipped existing-output adoption after initial registration.",
+  "observed_at": "2026-10-27",
+  "status": "resolved",
+  "verification": "FOLLOWUP-REVIEW.md reviewed coordinator source SHA b5805c45337141e313d35c47301f4842a5a85409d0382cc44c8781ec91f046ae, found the two prior HIGH blockers resolved at that normalized receipt contract, and recorded 16/16 scoped tests passing plus 3/3 AST parses.",
+  "limitations": "Two medium findings remain: reused identity refs are not hash-bound by the helper, and file ownership is implicit. Full multi-contender stale recovery has a race, so the documented single-writer restriction remains mandatory. The ledger is not an independent remote verifier or launcher.",
+  "root_cause": "Fail command accepted any existing file as failure receipt without checking prompt ID; dispatch checked UUID syntax only rather than matching film/shot/branch/route or success response; registration returned changed=false before processing adoption flags.",
+  "fix_or_workaround": "Bind failure evidence to the active attempt; preserve unknown outcomes as unresolved and require manual queue/history reconciliation. Enforce semantic receipt validation and adoption precedence. Close only the prior HIGH findings at the reviewed source hash; retain medium findings and the single-writer restriction.",
+  "prevention": "Never mark a timeout or unknown outcome as terminal failure without verifying non-execution on the server.",
+  "id": "hybrid-coordinator-unknown-outcome-duplicate-retry",
+  "root_cause_status": "confirmed",
+  "evidence_paths": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/hybrid-coordinator-v001/PYTHON-REVIEW.md",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/hybrid-coordinator-v001/PYTHON-REVIEW-HASHES.json",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/hybrid-coordinator-v001/FOLLOWUP-REVIEW.md",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/hybrid-coordinator-v001/FOLLOWUP-REVIEW-HASHES.json",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/tools/hybrid_image_coordinator_v001.py"
+  ],
+  "environment": "Local Python 3.14, hybrid_image_coordinator_v001.py"
+}

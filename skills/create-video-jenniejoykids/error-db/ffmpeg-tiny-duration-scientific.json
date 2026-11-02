@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "id": "ffmpeg-tiny-duration-scientific",
+  "observed_at": "2026-10-16T18:47:42.334958+00:00",
+  "status": "resolved",
+  "engine": "JSON audio finishing",
+  "environment": "Python/NumPy/FFmpeg9",
+  "symptom": "Scientific notation from str(1/48000) rejected by FFmpeg -t",
+  "evidence_paths": [
+    "tests/test_audio_mixer.py"
+  ],
+  "root_cause_status": "reproduced_and_fixed",
+  "root_cause": "Scientific notation from str(1/48000) rejected by FFmpeg -t",
+  "fix_or_workaround": "Format offset/duration to12decimal places; actual one-sample test",
+  "verification": "96full tests passed;9audio tests independently passed",
+  "limitations": "Technical correctness only, listening pending",
+  "prevention": "Retain one-sample boundary regression",
+  "affected_artifacts": [
+    "scripts/mix_audio.py"
+  ]
+}

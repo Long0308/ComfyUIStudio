@@ -1,0 +1,185 @@
+{
+  "at_utc": "2026-10-16T19:53:58.139840+00:00",
+  "status": "skillvalidated_productionv9rendering_nofinalmaster",
+  "source_project": "D:\\23.JennieHomeSchool\\03 Voice\\production-local",
+  "tested": {
+    "tests": 114,
+    "skipped": 0,
+    "result": "OK",
+    "independent_reviews": 2
+  },
+  "files": [
+    {
+      "path": "production-request-v8.json",
+      "sha256": "7f05ccbc0d5af2e69b3b4b66e3398e1ea2fa19ba84d5fd05010736c5a556c68e"
+    },
+    {
+      "path": "task-tracking.json",
+      "sha256": "aa67bd95a5d5ba585b25cbf0480ce900233ba4635f9f52b30c57d8be6075fe69"
+    },
+    {
+      "path": "TASK-TRACKING.md",
+      "sha256": "a7f9fe86e01d68c8fd7df2c07c5a65ce861f9378197b1cfaa032688c62488042"
+    },
+    {
+      "path": "OVERNIGHT-REPORT.md",
+      "sha256": "08592b569b336209864ae3842f0704125ea01a0705919c47ac56d676119466d0"
+    },
+    {
+      "path": "SOUND-DESIGN.md",
+      "sha256": "bd7d8bcdbe164d13dbdc5ab97dc0bea273f80488a2aa57d105d606be1a0270c9"
+    },
+    {
+      "path": "guide-clips-independent-review.md",
+      "sha256": "a8fb7d73b5dc91effccac8eff58cbff35d7ed9bd50f89c8bc0d278fd2e37c4c8"
+    },
+    {
+      "path": "guide-clips-python-review.md",
+      "sha256": "ff4ac4b10bea4122d177802b2cdca0af3942853292588fe22a8cc6bd52bc8464"
+    },
+    {
+      "path": "shots/S01-paired-entry-v9/config.json",
+      "sha256": "8f0ce0de9beac33cd629a2f0bce51f2dffe714cc788f2a46d2ffd6b5d1380240"
+    },
+    {
+      "path": "shots/S01-paired-entry-v9/asset-preflight.json",
+      "sha256": "f70ca7487686094f61774f4536663010a2dd0355e83a161d341d70647bafe5b8"
+    },
+    {
+      "path": "shots/S01-paired-entry-v9/motion-guides/manifest.json",
+      "sha256": "3ed2e63947cc8847a12767615fbb3bb844daf847869a48ac662ae1ae7db7b3de"
+    },
+    {
+      "path": "shots/S01-paired-entry-v9/workflow/workflow-provenance.json",
+      "sha256": "08d7a6aacce36981b47af949e975f967735f11549b0da0950cd61911b7b37c24"
+    },
+    {
+      "path": "shots/S01-paired-entry-v9/run/prompt-integrity.json",
+      "sha256": "4b78bd5b0adc8a98a6d753fb8bdb91ad26882ffb113ae882fde18dce98e7c345"
+    },
+    {
+      "path": "qa/S01-paired-v8/motion-review.json",
+      "sha256": "51049da0a9a6dac3b9ce48eb832326cafdb41b9ff85b833ac958efd9a6eea430"
+    },
+    {
+      "path": "astra-image-audit-v9/IMAGE-AUDIT.md",
+      "sha256": "55277a8ae8b6920f420ad6feb06bbab4aa89d9f3560bd1956b7e748a6e32a9eb"
+    },
+    {
+      "path": "astra-image-audit-v9/production-request-v9-proposed.json",
+      "sha256": "150bb30aa3e4dac8cefd534806cb62306f1c2b8d6061e7f6a614e8e1897af179"
+    },
+    {
+      "path": "future-keyframe-plan-v8.json",
+      "sha256": "70cf7853bf92746def4e7b4189787e39133b2303911a6bd578c8b76924f9a26f"
+    },
+    {
+      "path": "audio/canonical-v2/captions-canonical-v2.srt",
+      "sha256": "fac735ceb5e54e5ae50ecd5ec87dca76483f9a8fa687934c00963e0d7319032a"
+    },
+    {
+      "path": "audio/canonical-v2/captions-clock-v2.json",
+      "sha256": "534e9ebe26586196ee8234386d56014c05f46a9f9b45dcaa990098383becccd2"
+    },
+    {
+      "path": "audio/canonical-v2/independent-review.json",
+      "sha256": "3ba13336c81f26e904ab81d9342eaea50cd40de7cb116d4ca5c9b9960be7b262"
+    },
+    {
+      "path": "scenes/scene-01/SCENE.md",
+      "sha256": "1c5be5f6d7de528b88257d8fa044a6418f03df8dd7c94d6269d263e080dd07e8"
+    },
+    {
+      "path": "scenes/scene-01/SCENE.json",
+      "sha256": "37acb0848ba05249502cee75f4ab6d744c87628f8eb3d224dec253941af0433f"
+    },
+    {
+      "path": "scenes/scene-01/SOUND-PLAN.md",
+      "sha256": "d7ece0c5b89574c709cd583ef58afb7c3fd215a93a705a7cdcf859f70efb82ec"
+    },
+    {
+      "path": "scenes/scene-01/SOUND-PLAN.json",
+      "sha256": "212fcfe5c47d93d461be70f5eb8d84f193b7b48dcbe89584be030ba805ef999c"
+    },
+    {
+      "path": "scenes/scene-02/SCENE.md",
+      "sha256": "9d7dcdbcb33f354f95d047a3858573d093a0eb034d4934ae949ec18b9c809183"
+    },
+    {
+      "path": "scenes/scene-02/SCENE.json",
+      "sha256": "d555634be1240e593131a5b9b851c3d94c6b0b1da7a8497016ee4d5a8969b3e8"
+    },
+    {
+      "path": "scenes/scene-02/SOUND-PLAN.md",
+      "sha256": "3e114ddc39d2564ff53813d38881471cdef1b9a3fd75a35b7138550d93ee838d"
+    },
+    {
+      "path": "scenes/scene-02/SOUND-PLAN.json",
+      "sha256": "fa08cb06a0b5a239033755cbf0a7144b2231502eb33e52494c12c4e727b250e6"
+    },
+    {
+      "path": "scenes/scene-03/SCENE.md",
+      "sha256": "de5f5cb7eb46d87f0442aed69cd4b86a7c4eaa88bda75a68ab2bd27d53e43093"
+    },
+    {
+      "path": "scenes/scene-03/SCENE.json",
+      "sha256": "9b380d0e622e99294837959760eebfdf50b55e9e28de649d44bd5b62a834af29"
+    },
+    {
+      "path": "scenes/scene-03/SOUND-PLAN.md",
+      "sha256": "3c7a15e3a7e5f6a64d2461295bfffdd5a083fa943b96b2bf574621e1a2e16fb6"
+    },
+    {
+      "path": "scenes/scene-03/SOUND-PLAN.json",
+      "sha256": "6461f0b8745e310b436b35225036a7af40ca549cf41e31d5cd5514e84cd70e9f"
+    },
+    {
+      "path": "scenes/scene-04/SCENE.md",
+      "sha256": "5168aa9536a336443163422e077971016213a7ddd935639bafe3445a482f3edf"
+    },
+    {
+      "path": "scenes/scene-04/SCENE.json",
+      "sha256": "fce89131881a5bdf5faf4fc73fd84d588d49998c9e9451d44a9d0524bafe8ea3"
+    },
+    {
+      "path": "scenes/scene-04/SOUND-PLAN.md",
+      "sha256": "200abcdc9f2dd7e6e6c2abbb91f727e3ecc9bbd4b7299dcb06b9820563eb3dd3"
+    },
+    {
+      "path": "scenes/scene-04/SOUND-PLAN.json",
+      "sha256": "b7245e710a56563879a88c2b29f7dc94d190e9863b065a133578b49e5d052594"
+    },
+    {
+      "path": "scenes/scene-05/SCENE.md",
+      "sha256": "33bfb2d9dfc0a4f1e0d07094490cd526b896b5fc313d58b9af4a0132546f9720"
+    },
+    {
+      "path": "scenes/scene-05/SCENE.json",
+      "sha256": "82e65e76aeac94e02758d7bb2c93842ee8a1d5a5f353f8f1f125d9d511101551"
+    },
+    {
+      "path": "scenes/scene-05/SOUND-PLAN.md",
+      "sha256": "8f3ead42b0e5cf4214209d57ff85a6275e2320e65059c33b9bb9dc306d2592ca"
+    },
+    {
+      "path": "scenes/scene-05/SOUND-PLAN.json",
+      "sha256": "7741605d05c98242e55bb5f57a7d574c39a217156c0c6d10f02654a055e4c6bf"
+    },
+    {
+      "path": "scenes/scene-06/SCENE.md",
+      "sha256": "b7a16f74d5eac225be2e3ea840cd5621e68200c601272a63926acb9e7b071d70"
+    },
+    {
+      "path": "scenes/scene-06/SCENE.json",
+      "sha256": "4db17a4f78737b46a6316555692b45285ce872c46c92270f26c498ec6031a256"
+    },
+    {
+      "path": "scenes/scene-06/SOUND-PLAN.md",
+      "sha256": "574abf836c16303aab6c5ffc82af22940cc62f3dcaa67e52311b46efdb0f09df"
+    },
+    {
+      "path": "scenes/scene-06/SOUND-PLAN.json",
+      "sha256": "56fe839afd2ecd1b30538df738ad819b25709d556fe7d6331ca587fe3bf43b70"
+    }
+  ]
+}

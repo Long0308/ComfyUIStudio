@@ -1,0 +1,531 @@
+# Scene 1 / S01 — kịch bản phim
+
+Nguồn: production-request-v8.json. Scene 1 đang render engine v8 từ source v6; nội dung visual/dialogue Scene 1 vẫn giữ nguyên trong master request v8. Xem SOUND-PLAN.md cho thoại, nhạc, SFX và hậu kỳ.
+
+```json
+{
+  "id": "S01",
+  "start": 0,
+  "duration": 10,
+  "characters": [
+    {
+      "id": "alice",
+      "name": "Alice",
+      "entity": "Human preschool cartoon character",
+      "species": "Homo sapiens human",
+      "age": "Two-year-old toddler girl",
+      "body_proportions": "Small round toddler torso, short limbs and oversized round head",
+      "surface": "Warm peach skin, rosy round cheeks with two tiny white highlights",
+      "eyes": "Very large dark-brown eyes, near-black pupils, white catchlights and short upper lashes",
+      "brows": "Gently arched chestnut eyebrows",
+      "nose_beak": "Tiny peach button nose",
+      "mouth": "Small mouth, red-pink interior and rounded tongue; flexible speech phonemes",
+      "ears": "Small rounded peach ears",
+      "hair_head": "Chestnut short wavy bob, side-swept bangs, high side ponytail on anatomical RIGHT",
+      "clothes": "Rose-pink A-line dress, short puff sleeves, white two-lobed Peter Pan collar, ONE centered white chest heart, lightly pleated skirt, thin white hem line",
+      "footwear": "White frilly ankle socks; rose-pink lace-up sneakers with white laces, white rounded toe caps and white soles",
+      "accessories": "One large rose-pink bow at anatomical RIGHT ponytail anchor; no other accessories",
+      "marks_asymmetry": "Bow and ponytail on anatomical RIGHT, viewer LEFT in front view; no mirroring",
+      "reference_assets": [
+        {
+          "role": "face_front",
+          "path": "assets/references/alice1.jpg",
+          "status": "available",
+          "scope": "Canonical front-view identity; no assertion of unseen side views"
+        },
+        {
+          "role": "wardrobe",
+          "path": "assets/references/alice1.jpg",
+          "status": "available",
+          "scope": "Canonical puff sleeve dress and sneakers"
+        },
+        {
+          "role": "accessories",
+          "path": "assets/references/alice1.jpg",
+          "status": "available",
+          "scope": "Canonical anatomical right bow"
+        },
+        {
+          "role": "gesture_only",
+          "path": "assets/references/alice2.jpg",
+          "status": "available",
+          "scope": "Expression and gestures only; exclude alternative costumes"
+        },
+        {
+          "role": "family_lineup",
+          "path": "assets/references/family-reference-higgsfield.png",
+          "status": "available",
+          "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+        }
+      ]
+    },
+    {
+      "id": "mother",
+      "name": "Mother",
+      "entity": "Human preschool cartoon character",
+      "species": "Homo sapiens human",
+      "age": "Adult woman approximately thirty years old",
+      "body_proportions": "About twice Alice height, softly rounded adult proportions",
+      "surface": "Warm light-peach skin, oval face, softly rounded cheeks",
+      "eyes": "Almond dark-brown eyes with small white catchlights",
+      "brows": "Gently arched brown eyebrows",
+      "nose_beak": "Small rounded peach nose",
+      "mouth": "Small curved mouth with flexible silent smiles",
+      "ears": "Small rounded ears partly covered by hair",
+      "hair_head": "Chestnut shoulder-length hair, left-side part, ends curled inward",
+      "clothes": "Muted dusty-teal short-sleeved blouse, plain round neck, straight cream ankle-length trousers",
+      "footwear": "Simple off-white flat shoes",
+      "accessories": "No glasses, jewelry, hat or handbag",
+      "marks_asymmetry": "Left-side hair part remains anatomical left; no distinctive facial marks",
+      "reference_assets": [
+        {
+          "role": "family_lineup",
+          "path": "assets/references/family-reference-higgsfield.png",
+          "status": "available",
+          "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+        }
+      ]
+    },
+    {
+      "id": "father",
+      "name": "Father",
+      "entity": "Human preschool cartoon character",
+      "species": "Homo sapiens human",
+      "age": "Adult man approximately thirty-two years old",
+      "body_proportions": "Adult softly broad shoulders, slightly taller than Mother",
+      "surface": "Warm light-peach skin, softly rounded rectangular face, clean-shaven",
+      "eyes": "Almond dark-brown eyes with small white catchlights",
+      "brows": "Straight dark-brown eyebrows",
+      "nose_beak": "Small broad rounded peach nose",
+      "mouth": "Small curved mouth with flexible silent smiles",
+      "ears": "Rounded ears visible beside short hair",
+      "hair_head": "Short neat dark-chestnut hair with fixed anatomical left side part",
+      "clothes": "Muted sage-green short-sleeved polo, small folded collar, two cream buttons; straight beige trousers",
+      "footwear": "Simple brown low shoes with rounded toes",
+      "accessories": "No glasses, facial hair, hat, watch or bag",
+      "marks_asymmetry": "Clean-shaven face, fixed anatomical left hair part, no other distinctive marks",
+      "reference_assets": [
+        {
+          "role": "family_lineup",
+          "path": "assets/references/family-reference-higgsfield.png",
+          "status": "available",
+          "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+        }
+      ]
+    }
+  ],
+  "setting": "OUTSIDE plaza in foreground, OPEN cream-and-sage gate ahead at a fixed threshold plane, interior garden path continuing into depth beyond the opening. Mother left, toddler center, father right, hands connected. All bodies face inward away from rear three-quarter following camera. Soft morning light; no180degree turn or reversed travel.",
+  "lighting": "Soft warm morning daylight; broad key from upper screen-left, gentle cream bounce fill, no hard rim or colored neon light. Stable white balance and exposure on peach skin and muted rose/dusty-teal/sage clothes; pale sky and restrained greens. Same light direction across cuts.",
+  "camera": "Rear three-quarter medium-wide tracking camera outside and behind family, continuously moving forward along the gate-to-interior axis; no orbit,180degree turn or jump.",
+  "action": "First half: All three family members walk FORWARD INTO DEPTH from the OUTSIDE plaza toward the OPEN gate ahead. Mother on screen-left, toddler centered, father on screen-right; both parent hand contacts stay connected. Their backs and rear heads remain toward the following camera, gaze aimed down the garden path. Show grounded alternating footfalls, knee flexion and natural weight transfer, with hair and cloth overlap. Camera tracks forward behind without overtaking or orbiting. At localframe60 approach the arch; at usedframe119 reach the gate threshold in an uninterrupted forward stride, with pillars alongside and interior ahead. Keep the plain dress back visible; the front chest heart is hidden by body orientation. Off-screen voiceover is reserved for later editorial; this native pass is nonverbal with relaxed hidden mouths and quiet environmental ambience. Second half: Begin at the actual preceding usedframe119 at the gate threshold, identical stride, rear head/body orientation and both parent hand contacts. Walk FORWARD THROUGH the opening between the cream pillars and DEEPER INSIDE along the garden path, never reverse or step backward. By localframe60 the whole family is inside and the gate is behind the rear-following camera. Continue toward the willow ahead through usedframe119. Keep mother left, toddler central, father right, with grounded alternating gait and independent knee/elbow articulation. Camera continues on the same inward axis without orbit, cut, or overtaking. Only plain dress back is visible. Off-screen voiceover is reserved for later editorial; native pass is nonverbal quiet environmental ambience with relaxed hidden mouths.",
+  "dialogue": [
+    {
+      "id": "S01_L1",
+      "speaker": "alice",
+      "text": "Mom, Dad, and me!",
+      "start": 1.0,
+      "end": 3.25,
+      "timing_status": "planned"
+    },
+    {
+      "id": "S01_L2",
+      "speaker": "alice",
+      "text": "Let's go to the zoo!",
+      "start": 6.0,
+      "end": 8.32,
+      "timing_status": "planned"
+    }
+  ],
+  "music": "Gentle cheerful original pentatonic plucked/marimba-style instrumental, no lyrics, quiet underneath canonical Alice, duck smoothly during all words, stable modest level through transitions.",
+  "sfx": [
+    {
+      "at": 0.25,
+      "event": "soft two-note title bell"
+    },
+    {
+      "at": 0.7,
+      "event": "quiet alternating footsteps"
+    },
+    {
+      "at": 9.5,
+      "event": "very soft foliage swish"
+    }
+  ],
+  "subtitle": {
+    "language": "en",
+    "style": "Exact English words, large rounded white type on restrained dark-teal band, lower 18 percent safe."
+  },
+  "repeat_cues": [
+    {
+      "start": 3.4,
+      "end": 4.85,
+      "text": "Your turn"
+    },
+    {
+      "start": 8.47,
+      "end": 9.85,
+      "text": "Your turn"
+    }
+  ],
+  "transition": {
+    "intent": "Follow family gaze and travel direction into next story location; motivate any foreground occlusion through actual scene foliage.",
+    "camera_continuity": "Carry screen direction, horizon, family spacing and eyelines through the cut; avoid a blanket preset wipe.",
+    "duration": 0.3
+  },
+  "continuity": {
+    "previous_scene_id": "",
+    "setting_layout": "OUTSIDE plaza in foreground, OPEN cream-and-sage gate ahead at a fixed threshold plane, interior garden path continuing into depth beyond the opening. Mother left, toddler center, father right, hands connected. All bodies face inward away from rear three-quarter following camera. Soft morning light; no180degree turn or reversed travel.",
+    "theme": "Gentle English discovery and repetition with family at the zoo.",
+    "action_continuation": "Forward walk carries through gate threshold with identical gait phase and hand contacts; used119 directly becomes next firstframe",
+    "entry_state": "Family outside on approach path, facing straight through the OPEN zoo gate ahead, mother left toddler center father right, hands connected, rear three-quarter camera follows toward interior",
+    "exit_state": "Family entirely inside on garden path, still facing forward away from same following camera; gate behind, willow tree ahead, hands connected"
+  },
+  "script_tracking": {
+    "segment_summary": "Outside approach, straight through open gate, then continue inside with parents.",
+    "dialogue_ids": [
+      "S01_L1",
+      "S01_L2"
+    ],
+    "status": "ready",
+    "review_notes": "Exact frozen baseline dialogue; intended timing only, conform to accepted new audio."
+  },
+  "subshots": [
+    {
+      "id": "S01_A",
+      "start": 0,
+      "duration": 5,
+      "characters": [
+        {
+          "id": "alice",
+          "name": "Alice",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Two-year-old toddler girl",
+          "body_proportions": "Small round toddler torso, short limbs and oversized round head",
+          "surface": "Warm peach skin, rosy round cheeks with two tiny white highlights",
+          "eyes": "Very large dark-brown eyes, near-black pupils, white catchlights and short upper lashes",
+          "brows": "Gently arched chestnut eyebrows",
+          "nose_beak": "Tiny peach button nose",
+          "mouth": "Small mouth, red-pink interior and rounded tongue; flexible speech phonemes",
+          "ears": "Small rounded peach ears",
+          "hair_head": "Chestnut short wavy bob, side-swept bangs, high side ponytail on anatomical RIGHT",
+          "clothes": "Rose-pink A-line dress, short puff sleeves, white two-lobed Peter Pan collar, ONE centered white chest heart, lightly pleated skirt, thin white hem line",
+          "footwear": "White frilly ankle socks; rose-pink lace-up sneakers with white laces, white rounded toe caps and white soles",
+          "accessories": "One large rose-pink bow at anatomical RIGHT ponytail anchor; no other accessories",
+          "marks_asymmetry": "Bow and ponytail on anatomical RIGHT, viewer LEFT in front view; no mirroring",
+          "reference_assets": [
+            {
+              "role": "face_front",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical front-view identity; no assertion of unseen side views"
+            },
+            {
+              "role": "wardrobe",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical puff sleeve dress and sneakers"
+            },
+            {
+              "role": "accessories",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical anatomical right bow"
+            },
+            {
+              "role": "gesture_only",
+              "path": "assets/references/alice2.jpg",
+              "status": "available",
+              "scope": "Expression and gestures only; exclude alternative costumes"
+            },
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        },
+        {
+          "id": "mother",
+          "name": "Mother",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Adult woman approximately thirty years old",
+          "body_proportions": "About twice Alice height, softly rounded adult proportions",
+          "surface": "Warm light-peach skin, oval face, softly rounded cheeks",
+          "eyes": "Almond dark-brown eyes with small white catchlights",
+          "brows": "Gently arched brown eyebrows",
+          "nose_beak": "Small rounded peach nose",
+          "mouth": "Small curved mouth with flexible silent smiles",
+          "ears": "Small rounded ears partly covered by hair",
+          "hair_head": "Chestnut shoulder-length hair, left-side part, ends curled inward",
+          "clothes": "Muted dusty-teal short-sleeved blouse, plain round neck, straight cream ankle-length trousers",
+          "footwear": "Simple off-white flat shoes",
+          "accessories": "No glasses, jewelry, hat or handbag",
+          "marks_asymmetry": "Left-side hair part remains anatomical left; no distinctive facial marks",
+          "reference_assets": [
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        },
+        {
+          "id": "father",
+          "name": "Father",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Adult man approximately thirty-two years old",
+          "body_proportions": "Adult softly broad shoulders, slightly taller than Mother",
+          "surface": "Warm light-peach skin, softly rounded rectangular face, clean-shaven",
+          "eyes": "Almond dark-brown eyes with small white catchlights",
+          "brows": "Straight dark-brown eyebrows",
+          "nose_beak": "Small broad rounded peach nose",
+          "mouth": "Small curved mouth with flexible silent smiles",
+          "ears": "Rounded ears visible beside short hair",
+          "hair_head": "Short neat dark-chestnut hair with fixed anatomical left side part",
+          "clothes": "Muted sage-green short-sleeved polo, small folded collar, two cream buttons; straight beige trousers",
+          "footwear": "Simple brown low shoes with rounded toes",
+          "accessories": "No glasses, facial hair, hat, watch or bag",
+          "marks_asymmetry": "Clean-shaven face, fixed anatomical left hair part, no other distinctive marks",
+          "reference_assets": [
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        }
+      ],
+      "setting": "OUTSIDE plaza in foreground, OPEN cream-and-sage gate ahead at a fixed threshold plane, interior garden path continuing into depth beyond the opening. Mother left, toddler center, father right, hands connected. All bodies face inward away from rear three-quarter following camera. Soft morning light; no180degree turn or reversed travel.",
+      "lighting": "Soft warm morning daylight; broad key from upper screen-left, gentle cream bounce fill, no hard rim or colored neon light. Stable white balance and exposure on peach skin and muted rose/dusty-teal/sage clothes; pale sky and restrained greens. Same light direction across cuts.",
+      "camera": "Rear three-quarter medium-wide tracking camera outside and behind family, continuously moving forward along the gate-to-interior axis; no orbit,180degree turn or jump.",
+      "action": "All three family members walk FORWARD INTO DEPTH from the OUTSIDE plaza toward the OPEN gate ahead. Mother on screen-left, toddler centered, father on screen-right; both parent hand contacts stay connected. Their backs and rear heads remain toward the following camera, gaze aimed down the garden path. Show grounded alternating footfalls, knee flexion and natural weight transfer, with hair and cloth overlap. Camera tracks forward behind without overtaking or orbiting. At localframe60 approach the arch; at usedframe119 reach the gate threshold in an uninterrupted forward stride, with pillars alongside and interior ahead. Keep the plain dress back visible; the front chest heart is hidden by body orientation. Off-screen voiceover is reserved for later editorial; this native pass is nonverbal with relaxed hidden mouths and quiet environmental ambience.",
+      "dialogue": [
+        {
+          "id": "S01_L1",
+          "speaker": "alice",
+          "text": "Mom, Dad, and me!",
+          "start": 1.0,
+          "end": 3.25,
+          "timing_status": "planned"
+        }
+      ],
+      "music": "Gentle cheerful original pentatonic plucked/marimba-style instrumental, no lyrics, quiet underneath canonical Alice, duck smoothly during all words, stable modest level through transitions.",
+      "sfx": [
+        {
+          "at": 0.25,
+          "event": "soft two-note title bell"
+        },
+        {
+          "at": 0.7,
+          "event": "quiet alternating footsteps"
+        }
+      ],
+      "subtitle": {
+        "language": "en",
+        "style": "Exact English words, large rounded white type on restrained dark-teal band, lower 18 percent safe."
+      },
+      "repeat_cues": [
+        {
+          "start": 3.4,
+          "end": 4.85,
+          "text": "Your turn"
+        }
+      ],
+      "transition": {
+        "intent": "Follow family gaze and travel direction into next story location; motivate any foreground occlusion through actual scene foliage.",
+        "camera_continuity": "Carry screen direction, horizon, family spacing and eyelines through the cut; avoid a blanket preset wipe.",
+        "duration": 0.3,
+        "kind": "match_on_action"
+      },
+      "continuity": {
+        "previous_scene_id": "",
+        "setting_layout": "OUTSIDE plaza in foreground, OPEN cream-and-sage gate ahead at a fixed threshold plane, interior garden path continuing into depth beyond the opening. Mother left, toddler center, father right, hands connected. All bodies face inward away from rear three-quarter following camera. Soft morning light; no180degree turn or reversed travel.",
+        "theme": "Gentle English discovery and repetition with family at the zoo.",
+        "action_continuation": "Forward walk carries through gate threshold with identical gait phase and hand contacts; used119 directly becomes next firstframe",
+        "entry_state": "Family outside on approach path, facing straight through the OPEN zoo gate ahead, mother left toddler center father right, hands connected, rear three-quarter camera follows toward interior",
+        "exit_state": "Family at gate threshold mid-forward stride, same rear camera axis and hand contacts; open gate alongside, inside garden path ahead"
+      },
+      "script_tracking": {
+        "segment_summary": "All three family members walk FORWARD INTO DEPTH from the OUTSIDE plaza toward the OPEN gate ahead. Mother on screen-left, toddler centered, father on screen-right; both parent hand contacts stay connected. Their backs and rear heads remain toward the following camera, gaze aimed down the garden path. Show grounded alternating footfalls, knee flexion and natural weight transfer, with hair and cloth overlap. Camera tracks forward behind without overtaking or orbiting. At localframe60 approach the arch; at usedframe119 reach the gate threshold in an uninterrupted forward stride, with pillars alongside and interior ahead. Keep the plain dress back visible; the front chest heart is hidden by body orientation. Off-screen voiceover is reserved for later editorial; this native pass is nonverbal with relaxed hidden mouths and quiet environmental ambience.",
+        "dialogue_ids": [
+          "S01_L1"
+        ],
+        "status": "ready",
+        "review_notes": "V6 visual-only native generation with mid/end image guides; exact canonical Alice lines remain in dialogue/AUDIO for later editorial. Threshold crossing and full gait require actual video review."
+      }
+    },
+    {
+      "id": "S01_B",
+      "start": 5,
+      "duration": 5,
+      "characters": [
+        {
+          "id": "alice",
+          "name": "Alice",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Two-year-old toddler girl",
+          "body_proportions": "Small round toddler torso, short limbs and oversized round head",
+          "surface": "Warm peach skin, rosy round cheeks with two tiny white highlights",
+          "eyes": "Very large dark-brown eyes, near-black pupils, white catchlights and short upper lashes",
+          "brows": "Gently arched chestnut eyebrows",
+          "nose_beak": "Tiny peach button nose",
+          "mouth": "Small mouth, red-pink interior and rounded tongue; flexible speech phonemes",
+          "ears": "Small rounded peach ears",
+          "hair_head": "Chestnut short wavy bob, side-swept bangs, high side ponytail on anatomical RIGHT",
+          "clothes": "Rose-pink A-line dress, short puff sleeves, white two-lobed Peter Pan collar, ONE centered white chest heart, lightly pleated skirt, thin white hem line",
+          "footwear": "White frilly ankle socks; rose-pink lace-up sneakers with white laces, white rounded toe caps and white soles",
+          "accessories": "One large rose-pink bow at anatomical RIGHT ponytail anchor; no other accessories",
+          "marks_asymmetry": "Bow and ponytail on anatomical RIGHT, viewer LEFT in front view; no mirroring",
+          "reference_assets": [
+            {
+              "role": "face_front",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical front-view identity; no assertion of unseen side views"
+            },
+            {
+              "role": "wardrobe",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical puff sleeve dress and sneakers"
+            },
+            {
+              "role": "accessories",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical anatomical right bow"
+            },
+            {
+              "role": "gesture_only",
+              "path": "assets/references/alice2.jpg",
+              "status": "available",
+              "scope": "Expression and gestures only; exclude alternative costumes"
+            },
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        },
+        {
+          "id": "mother",
+          "name": "Mother",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Adult woman approximately thirty years old",
+          "body_proportions": "About twice Alice height, softly rounded adult proportions",
+          "surface": "Warm light-peach skin, oval face, softly rounded cheeks",
+          "eyes": "Almond dark-brown eyes with small white catchlights",
+          "brows": "Gently arched brown eyebrows",
+          "nose_beak": "Small rounded peach nose",
+          "mouth": "Small curved mouth with flexible silent smiles",
+          "ears": "Small rounded ears partly covered by hair",
+          "hair_head": "Chestnut shoulder-length hair, left-side part, ends curled inward",
+          "clothes": "Muted dusty-teal short-sleeved blouse, plain round neck, straight cream ankle-length trousers",
+          "footwear": "Simple off-white flat shoes",
+          "accessories": "No glasses, jewelry, hat or handbag",
+          "marks_asymmetry": "Left-side hair part remains anatomical left; no distinctive facial marks",
+          "reference_assets": [
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        },
+        {
+          "id": "father",
+          "name": "Father",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Adult man approximately thirty-two years old",
+          "body_proportions": "Adult softly broad shoulders, slightly taller than Mother",
+          "surface": "Warm light-peach skin, softly rounded rectangular face, clean-shaven",
+          "eyes": "Almond dark-brown eyes with small white catchlights",
+          "brows": "Straight dark-brown eyebrows",
+          "nose_beak": "Small broad rounded peach nose",
+          "mouth": "Small curved mouth with flexible silent smiles",
+          "ears": "Rounded ears visible beside short hair",
+          "hair_head": "Short neat dark-chestnut hair with fixed anatomical left side part",
+          "clothes": "Muted sage-green short-sleeved polo, small folded collar, two cream buttons; straight beige trousers",
+          "footwear": "Simple brown low shoes with rounded toes",
+          "accessories": "No glasses, facial hair, hat, watch or bag",
+          "marks_asymmetry": "Clean-shaven face, fixed anatomical left hair part, no other distinctive marks",
+          "reference_assets": [
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        }
+      ],
+      "setting": "Start at the gate threshold in the actual incoming rear-view boundary image. Advance through the opening into the garden path; pillars slide behind the same following camera by localframe60. Interior paving, low wooden rails, restrained flower beds and willow ahead remain visible. Mother left, toddler center, father right, both hand contacts connected. The outside plaza remains behind the camera after crossing; do not place a second gate ahead.",
+      "lighting": "Soft warm morning daylight; broad key from upper screen-left, gentle cream bounce fill, no hard rim or colored neon light. Stable white balance and exposure on peach skin and muted rose/dusty-teal/sage clothes; pale sky and restrained greens. Same light direction across cuts.",
+      "camera": "Rear medium-wide tracking camera starts behind the family at the gate threshold and moves FORWARD THROUGH the opening into the interior garden. Keep the same inward world axis, follow without overtaking, no orbit or180degree turn; gate recedes behind the camera, willow remains ahead.",
+      "action": "Begin at the actual preceding usedframe119 at the gate threshold, identical stride, rear head/body orientation and both parent hand contacts. Walk FORWARD THROUGH the opening between the cream pillars and DEEPER INSIDE along the garden path, never reverse or step backward. By localframe60 the whole family is inside and the gate is behind the rear-following camera. Continue toward the willow ahead through usedframe119. Keep mother left, toddler central, father right, with grounded alternating gait and independent knee/elbow articulation. Camera continues on the same inward axis without orbit, cut, or overtaking. Only plain dress back is visible. Off-screen voiceover is reserved for later editorial; native pass is nonverbal quiet environmental ambience with relaxed hidden mouths.",
+      "dialogue": [
+        {
+          "id": "S01_L2",
+          "speaker": "alice",
+          "text": "Let's go to the zoo!",
+          "start": 1.0,
+          "end": 3.32,
+          "timing_status": "planned"
+        }
+      ],
+      "music": "Gentle cheerful original pentatonic plucked/marimba-style instrumental, no lyrics, quiet underneath canonical Alice, duck smoothly during all words, stable modest level through transitions.",
+      "sfx": [
+        {
+          "at": 4.5,
+          "event": "very soft foliage swish"
+        }
+      ],
+      "subtitle": {
+        "language": "en",
+        "style": "Exact English words, large rounded white type on restrained dark-teal band, lower 18 percent safe."
+      },
+      "repeat_cues": [
+        {
+          "start": 3.47,
+          "end": 4.85,
+          "text": "Your turn"
+        }
+      ],
+      "transition": {
+        "intent": "Follow family gaze and travel direction into next story location; motivate any foreground occlusion through actual scene foliage.",
+        "camera_continuity": "Carry screen direction, horizon, family spacing and eyelines through the cut; avoid a blanket preset wipe.",
+        "duration": 0.3,
+        "kind": "motivated_cut"
+      },
+      "continuity": {
+        "previous_scene_id": "",
+        "setting_layout": "Start at the gate threshold in the actual incoming rear-view boundary image. Advance through the opening into the garden path; pillars slide behind the same following camera by localframe60. Interior paving, low wooden rails, restrained flower beds and willow ahead remain visible. Mother left, toddler center, father right, both hand contacts connected. The outside plaza remains behind the camera after crossing; do not place a second gate ahead.",
+        "theme": "Gentle English discovery and repetition with family at the zoo.",
+        "action_continuation": "Forward walk carries through gate threshold with identical gait phase and hand contacts; used119 directly becomes next firstframe",
+        "entry_state": "Family at gate threshold mid-forward stride, same rear camera axis and hand contacts; open gate alongside, inside garden path ahead",
+        "exit_state": "Family entirely inside on garden path, still facing forward away from same following camera; gate behind, willow tree ahead, hands connected"
+      },
+      "script_tracking": {
+        "segment_summary": "Begin at the actual preceding usedframe119 at the gate threshold, identical stride, rear head/body orientation and both parent hand contacts. Walk FORWARD THROUGH the opening between the cream pillars and DEEPER INSIDE along the garden path, never reverse or step backward. By localframe60 the whole family is inside and the gate is behind the rear-following camera. Continue toward the willow ahead through usedframe119. Keep mother left, toddler central, father right, with grounded alternating gait and independent knee/elbow articulation. Camera continues on the same inward axis without orbit, cut, or overtaking. Only plain dress back is visible. Off-screen voiceover is reserved for later editorial; native pass is nonverbal quiet environmental ambience with relaxed hidden mouths.",
+        "dialogue_ids": [
+          "S01_L2"
+        ],
+        "status": "ready",
+        "review_notes": "V6 visual-only native generation with mid/end image guides; exact canonical Alice lines remain in dialogue/AUDIO for later editorial. Threshold crossing and full gait require actual video review."
+      }
+    }
+  ]
+}
+```

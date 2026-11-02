@@ -1,0 +1,74 @@
+{
+  "template": true,
+  "brief_version": "1.2",
+  "production_domain": null,
+  "production_domain_allowed": [
+    "jenniejoy_cartoon_3d",
+    "newtecons_live_action",
+    "aec"
+  ],
+  "domain_note": "production_domain is the ONLY domain taxonomy. newtecons_live_action briefs are previz/blocking proxies only (never character generation); aec briefs are model renders; game is not a domain (out of scope until a user decision).",
+  "project_id": null,
+  "profile": null,
+  "intent": null,
+  "sources": {
+    "scene_path": null,
+    "scene_revision": null,
+    "bim_path": null,
+    "bim_revision": null,
+    "units": null,
+    "element_id_mapping_path": null,
+    "character_project_json": null
+  },
+  "delivery": {
+    "kind": null,
+    "width": null,
+    "height": null,
+    "fps": null,
+    "duration_seconds": null,
+    "output_directory": null
+  },
+  "preservation": {
+    "source_immutable": true,
+    "work_on_copy": true,
+    "locked_features": [],
+    "allowed_changes": []
+  },
+  "references": [],
+  "shots_or_views": [],
+  "construction_steps": [],
+  "reusable_assets_manifest": null,
+  "game_target": {
+    "requested": false,
+    "engine": null,
+    "engine_version": null,
+    "platform": null,
+    "runtime_budget": null,
+    "status": "out_of_scope_until_user_decision"
+  },
+  "incremental": {
+    "artifact_boundaries": [],
+    "changed_inputs": [],
+    "affected_stages": [],
+    "reuse_evidence": []
+  },
+  "execution": {
+    "route": null,
+    "workflow_editor_path": null,
+    "workflow_api_path": null,
+    "required_node_classes": [],
+    "model_bindings": [],
+    "control_passes": [],
+    "seed": null,
+    "pilot": {
+      "status": "not_run",
+      "prompt_id": null,
+      "measured_seconds": null,
+      "outputs": [],
+      "review": null
+    }
+  },
+  "provenance_manifest_path": null,
+  "unresolved_inputs": [],
+  "status": "brief_template"
+}

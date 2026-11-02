@@ -1,0 +1,23 @@
+{
+  "id": "second-conftest-shadows-top-conftest",
+  "engine": "studio-video-engine pytest harness (tests/conftest.py)",
+  "environment": "Windows 11, pytest 9.x, full suite run from the engine root; M5/M6 Codex workers",
+  "observed_at": "2026-10-28",
+  "symptom": "Existing tests lost REAL_LOCK and ATTEMPTS, and registered pytest options were not seen outside the sub-folder, after two Codex workers each added a tests/<sub>/conftest.py.",
+  "root_cause": "Measured: pytest imports every conftest.py as the module name 'conftest'. A second tests/<sub>/conftest.py therefore shadows the top tests/conftest.py. Tests that do 'import conftest' (tests/test_config.py:10, :50, :55) then read the wrong module. Option registration added only in the sub-conftest was invisible to the rest of the suite.",
+  "root_cause_status": "measured (plan section 5 entry 2026-10-28, M5/M6 apply; the shadow file is gone now: the only conftest.py under tests/ is tests/conftest.py, sha256 50cf16741a169e5d125be370a98e5bca951e3ac3bd671fd9c313a41dcbe09d55)",
+  "fix_or_workaround": "Helpers moved to a uniquely named module tests/script/_m6_helpers.py (its docstring records the shadow reason). Shared options and fixtures appended to the top tests/conftest.py. Apply gate caught both shadows and the rollback worked. Accepted state: sha256 of tests/conftest.py as above.",
+  "verification": "Guard test: tests/test_no_shadow_conftest.py::test_the_real_tree_has_only_the_top_conftest and ::test_the_real_tree_lists_exactly_the_top_conftest_under_tests (real tree: only tests/conftest.py under tests/, none under engine/); the helper is proven on synthetic trees by ::test_helper_catches_a_sub_conftest_in_a_synthetic_tree and ::test_helper_catches_a_conftest_under_engine_and_a_missing_top. Behavioural check: tests/test_config.py assertions on conftest.REAL_LOCK and conftest.ATTEMPTS pass in the full run.",
+  "prevention": "Rule to keep: new tests never add a second conftest.py. Shared options/fixtures go into the top tests/conftest.py; helpers go into a uniquely named module. Run the FULL suite from the engine root, never from a sub-folder, before reporting. Known gap: CR-TE39 (MAJOR) narrowing the autouse fixture in tests/conftest.py is still a follow-up, so edits to that file need the full suite again.",
+  "status": "fixed (shadow removed; no guard test yet)",
+  "evidence_paths": [
+    "production-local/engine/WAVE-2026-10-28-PLAN.md",
+    ".agents/skills/studio-video-engine/tests/conftest.py",
+    ".agents/skills/studio-video-engine/tests/script/_m6_helpers.py",
+    ".agents/skills/studio-video-engine/tests/test_config.py"
+  ],
+  "affected_artifacts": [
+    "tests/conftest.py",
+    "tests/script/"
+  ]
+}

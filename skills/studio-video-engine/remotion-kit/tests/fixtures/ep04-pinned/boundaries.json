@@ -1,0 +1,541 @@
+{
+  "schema": "jjv/boundaries/v1",
+  "episode_id": "04-milk-and-mom",
+  "boundaries": [
+    {
+      "frame": 90,
+      "from_shot": "INTRO",
+      "to_shot": "S01_A",
+      "class": "cut",
+      "type": "bloom",
+      "frames": 6,
+      "direction": 0,
+      "motivation": "optional 6 f warm bloom bridge centred on f90 (title exit, MAE 17)",
+      "continuity": "unknown"
+    },
+    {
+      "frame": 240,
+      "from_shot": "S01_A",
+      "to_shot": "S01_B",
+      "class": "carry",
+      "type": "none",
+      "frames": 0,
+      "direction": 0,
+      "motivation": "pixel-continuous carry (MAE 1.73): no transition needed",
+      "continuity": "agree"
+    },
+    {
+      "frame": 390,
+      "from_shot": "S01_B",
+      "to_shot": "S02_A",
+      "class": "cut",
+      "type": "whip",
+      "frames": 8,
+      "direction": 1,
+      "motivation": "close-up -> wide two-shot; Mother's pointing eyeline in S02_A goes right",
+      "continuity": "mismatch"
+    },
+    {
+      "frame": 550,
+      "from_shot": "S02_A",
+      "to_shot": "S02_B",
+      "class": "carry",
+      "type": "none",
+      "frames": 0,
+      "direction": 0,
+      "motivation": "pixel-continuous carry (MAE 1.37)",
+      "continuity": "agree"
+    },
+    {
+      "frame": 710,
+      "from_shot": "S02_B",
+      "to_shot": "S03_A",
+      "class": "cut",
+      "type": "whip",
+      "frames": 8,
+      "direction": 1,
+      "motivation": "Mother moves left -> right between the shots (worst cut, MAE 62.6)",
+      "continuity": "mismatch"
+    },
+    {
+      "frame": 885,
+      "from_shot": "S03_A",
+      "to_shot": "S03_B",
+      "class": "carry",
+      "type": "none",
+      "frames": 0,
+      "direction": 0,
+      "motivation": "carry, mild jump (MAE 3.05): none",
+      "continuity": "agree"
+    },
+    {
+      "frame": 1010,
+      "from_shot": "S03_B",
+      "to_shot": "S04_A",
+      "class": "cut",
+      "type": "dip_white",
+      "frames": 9,
+      "direction": 0,
+      "motivation": "props appear / characters reposition: v008 9 f dip-to-white (outgoing S03_B brightens on its tail frames, white peak f1013, S04_A emerges from white); NO frame shows both shots (root/critic: bubble wipe showed two bottles at f1011); rule: only transitions that never show both shots in one frame",
+      "continuity": "mismatch",
+      "tail_clip": "clips/motion-v005/S03_B-native.mp4"
+    },
+    {
+      "frame": 1150,
+      "from_shot": "S04_A",
+      "to_shot": "S04_B",
+      "class": "carry",
+      "type": "none",
+      "frames": 0,
+      "direction": 0,
+      "motivation": "carry, borderline (MAE 3.37): none",
+      "continuity": "agree"
+    },
+    {
+      "frame": 1310,
+      "from_shot": "S04_B",
+      "to_shot": "S05_A",
+      "class": "cut",
+      "type": "dip_white",
+      "frames": 9,
+      "direction": 0,
+      "motivation": "Mother stands, camera wider, props removed: v008 9 f dip-to-white (S04_B tail frames out, white peak f1313, S05_A in); replaces the cloud wipe that showed two Alices at f1315; only one shot visible in any frame",
+      "continuity": "mismatch",
+      "tail_clip": "clips/motion-v004/S04_B-native.mp4"
+    },
+    {
+      "frame": 1495,
+      "from_shot": "S05_A",
+      "to_shot": "S05_B",
+      "class": "cut",
+      "type": "whip",
+      "frames": 8,
+      "direction": 1,
+      "motivation": "G-BRIDGE option A (user-approved): motivated follow-pan toward the height tree on the right; no new H3",
+      "continuity": "mismatch",
+      "g_bridge": "G-BRIDGE satisfied by a declared motivated transition, user-approved option A (2026-10-27); no new shot, no new H3"
+    },
+    {
+      "frame": 1610,
+      "from_shot": "S05_B",
+      "to_shot": "S06_A",
+      "class": "cut",
+      "type": "dip_white",
+      "frames": 9,
+      "direction": 0,
+      "motivation": "tree -> bench & book: v008 9 f dip-to-white (S05_B tail frames out, white peak f1613, S06_A in); replaces the cloud wipe that showed a sitting and a standing Alice at f1616; only one shot visible in any frame",
+      "continuity": "mismatch",
+      "tail_clip": "clips/motion-v003/S05_B-native.mp4"
+    },
+    {
+      "frame": 1785,
+      "from_shot": "S06_A",
+      "to_shot": "S06_B1",
+      "class": "carry",
+      "type": "none",
+      "frames": 0,
+      "direction": 0,
+      "motivation": "pixel-continuous carry (MAE 2.76)",
+      "continuity": "agree"
+    },
+    {
+      "frame": 1935,
+      "from_shot": "S06_B1",
+      "to_shot": "S06_B2",
+      "class": "carry",
+      "type": "none",
+      "frames": 0,
+      "direction": 0,
+      "motivation": "pixel-continuous carry (MAE 1.18)",
+      "continuity": "agree"
+    },
+    {
+      "frame": 2110,
+      "from_shot": "S06_B2",
+      "to_shot": "S06_B3",
+      "class": "carry",
+      "type": "none",
+      "frames": 0,
+      "direction": 0,
+      "motivation": "carry, mild jump (MAE 3.35): none",
+      "continuity": "agree"
+    },
+    {
+      "frame": 2160,
+      "from_shot": "S06_B3",
+      "to_shot": "OUTRO",
+      "class": "cut",
+      "type": "iris",
+      "frames": 44,
+      "direction": 0,
+      "motivation": "G-END: iris-out on sleeping Alice f2116-f2140 (eyes close f2138-f2142), logo disc grows out of the closing circle f2142-f2148, steps aside to the left f2152-f2159 (clear of the Creamy pill), then shrinks away f2160-f2166 while card 1 appears; the Creamy pill is fully opaque from f2160",
+      "continuity": "unknown",
+      "params": {
+        "iris_close_f": 2140,
+        "logo_in_f": 2142,
+        "disc_fade_start_f": 2160,
+        "disc_fade_frames": 6,
+        "card1_ramp_frames": 6
+      }
+    },
+    {
+      "frame": 2190,
+      "from_shot": "CARD_Creamy",
+      "to_shot": "CARD_Smooth",
+      "class": "cut",
+      "type": "card_slide",
+      "frames": 6,
+      "direction": -1,
+      "motivation": "swap between two flashcards of the same layout: slide-fade instead of a hard pop",
+      "continuity": "agree"
+    },
+    {
+      "frame": 2220,
+      "from_shot": "CARD_Smooth",
+      "to_shot": "CARD_Liquid",
+      "class": "cut",
+      "type": "card_slide",
+      "frames": 6,
+      "direction": -1,
+      "motivation": "swap between two flashcards of the same layout: slide-fade instead of a hard pop",
+      "continuity": "agree"
+    },
+    {
+      "frame": 2247,
+      "from_shot": "CARD_Liquid",
+      "to_shot": "CARD_Dairy Cow",
+      "class": "cut",
+      "type": "card_slide",
+      "frames": 6,
+      "direction": -1,
+      "motivation": "swap between two flashcards of the same layout: slide-fade instead of a hard pop",
+      "continuity": "agree"
+    },
+    {
+      "frame": 2282,
+      "from_shot": "CARD_Dairy Cow",
+      "to_shot": "CARD_Farm",
+      "class": "cut",
+      "type": "card_slide",
+      "frames": 6,
+      "direction": -1,
+      "motivation": "swap between two flashcards of the same layout: slide-fade instead of a hard pop",
+      "continuity": "agree"
+    },
+    {
+      "frame": 2307,
+      "from_shot": "CARD_Farm",
+      "to_shot": "CARD_Fresh",
+      "class": "cut",
+      "type": "card_slide",
+      "frames": 6,
+      "direction": -1,
+      "motivation": "swap between two flashcards of the same layout: slide-fade instead of a hard pop",
+      "continuity": "agree"
+    },
+    {
+      "frame": 2334,
+      "from_shot": "CARD_Fresh",
+      "to_shot": "CARD_Yummy",
+      "class": "cut",
+      "type": "card_slide",
+      "frames": 6,
+      "direction": -1,
+      "motivation": "swap between two flashcards of the same layout: slide-fade instead of a hard pop",
+      "continuity": "agree"
+    },
+    {
+      "frame": 2359,
+      "from_shot": "CARD_Yummy",
+      "to_shot": "CARD_Warm and Cold",
+      "class": "cut",
+      "type": "card_slide",
+      "frames": 6,
+      "direction": -1,
+      "motivation": "swap between two flashcards of the same layout: slide-fade instead of a hard pop",
+      "continuity": "agree"
+    },
+    {
+      "frame": 2406,
+      "from_shot": "CARD_Warm and Cold",
+      "to_shot": "CARD_Bones",
+      "class": "cut",
+      "type": "card_slide",
+      "frames": 6,
+      "direction": -1,
+      "motivation": "swap between two flashcards of the same layout: slide-fade instead of a hard pop",
+      "continuity": "agree"
+    },
+    {
+      "frame": 2431,
+      "from_shot": "CARD_Bones",
+      "to_shot": "CARD_Yogurt",
+      "class": "cut",
+      "type": "card_slide",
+      "frames": 6,
+      "direction": -1,
+      "motivation": "swap between two flashcards of the same layout: slide-fade instead of a hard pop",
+      "continuity": "agree"
+    },
+    {
+      "frame": 2455,
+      "from_shot": "CARD_Yogurt",
+      "to_shot": "CARD_Cheese",
+      "class": "cut",
+      "type": "card_slide",
+      "frames": 6,
+      "direction": -1,
+      "motivation": "swap between two flashcards of the same layout: slide-fade instead of a hard pop",
+      "continuity": "agree"
+    },
+    {
+      "frame": 2485,
+      "from_shot": "CARD_Cheese",
+      "to_shot": "CARD_Ice Cream",
+      "class": "cut",
+      "type": "card_slide",
+      "frames": 6,
+      "direction": -1,
+      "motivation": "swap between two flashcards of the same layout: slide-fade instead of a hard pop",
+      "continuity": "agree"
+    },
+    {
+      "frame": 2516,
+      "from_shot": "CARD_Ice Cream",
+      "to_shot": "END_PLATE",
+      "class": "cut",
+      "type": "plate_in",
+      "frames": 4,
+      "direction": 0,
+      "motivation": "the plate must not cover the word while its WAV plays; only f2516-f2519 remain inside the fixed 2520 f",
+      "continuity": "agree"
+    },
+    {
+      "frame": 2520,
+      "from_shot": "END_PLATE",
+      "to_shot": "ENDLOGO",
+      "class": "carry",
+      "type": "none",
+      "frames": 0,
+      "direction": 0,
+      "motivation": "user decision 2026-10-27 option B: EndLogo f2520-f2579",
+      "continuity": "agree"
+    }
+  ],
+  "cards": [
+    {
+      "term": "Creamy",
+      "start_frame": 2160,
+      "duration_frames": 30,
+      "audio": {
+        "path": "audio/outro-trim-v002/vocabulary-Creamy-trim-v002-48k.wav",
+        "sha256": "965542eac145dc6a3cc735fba0b741b5e4ecf2fa68965353c5ffa04041214b67"
+      }
+    },
+    {
+      "term": "Smooth",
+      "start_frame": 2190,
+      "duration_frames": 30,
+      "audio": {
+        "path": "audio/outro-trim-v002/vocabulary-Smooth-trim-v002-48k.wav",
+        "sha256": "2db04d16da5364c5317564ee94cfedf581c52803dc199e7bc6e2b73b1323248c"
+      }
+    },
+    {
+      "term": "Liquid",
+      "start_frame": 2220,
+      "duration_frames": 27,
+      "audio": {
+        "path": "audio/outro-trim-v002/vocabulary-Liquid-trim-v002-48k.wav",
+        "sha256": "c7e93448826e207aeb329338c58418f317c12bdfc9f968cf6b2b220408077d3a"
+      }
+    },
+    {
+      "term": "Dairy Cow",
+      "start_frame": 2247,
+      "duration_frames": 35,
+      "audio": {
+        "path": "audio/outro-trim-v002/vocabulary-Dairy-Cow-trim-v002-48k.wav",
+        "sha256": "4cd61dbc769b091093419589ba2628298c0cb42c70b972eea574a98318057207"
+      }
+    },
+    {
+      "term": "Farm",
+      "start_frame": 2282,
+      "duration_frames": 25,
+      "audio": {
+        "path": "audio/outro-trim-v002/vocabulary-Farm-trim-v002-48k.wav",
+        "sha256": "376b1320620be73892c5711b64a358298af3c6048eda88f5158ccc22262147c1"
+      }
+    },
+    {
+      "term": "Fresh",
+      "start_frame": 2307,
+      "duration_frames": 27,
+      "audio": {
+        "path": "audio/outro-trim-v002/vocabulary-Fresh-trim-v002-48k.wav",
+        "sha256": "98de182d0d6da6771bb8bb46261fcc0c361ee32d9ad999cd8dbf16051065c640"
+      }
+    },
+    {
+      "term": "Yummy",
+      "start_frame": 2334,
+      "duration_frames": 25,
+      "audio": {
+        "path": "audio/outro-trim-v002/vocabulary-Yummy-trim-v002-48k.wav",
+        "sha256": "73998313d291c9be2921ad09cf4ca7a43e2e6d96d28f34fc44d218da88ba4c27"
+      }
+    },
+    {
+      "term": "Warm and Cold",
+      "start_frame": 2359,
+      "duration_frames": 47,
+      "audio": {
+        "path": "audio/outro-trim-v002/vocabulary-Warm-and-Cold-trim-v002-48k.wav",
+        "sha256": "2daca97ee79a219da519e60fda763d0e1c3ad45364493975a8e2218b2ff569b8"
+      }
+    },
+    {
+      "term": "Bones",
+      "start_frame": 2406,
+      "duration_frames": 25,
+      "audio": {
+        "path": "audio/outro-trim-v002/vocabulary-Bones-trim-v002-48k.wav",
+        "sha256": "b6f050445ae5ec988760735c42979a6621ab1f533dd23e1f675d19ffb8a29f41"
+      }
+    },
+    {
+      "term": "Yogurt",
+      "start_frame": 2431,
+      "duration_frames": 24,
+      "audio": {
+        "path": "audio/outro-trim-v002/vocabulary-Yogurt-trim-v002-48k.wav",
+        "sha256": "39591b49e52529e617d2f5cccc18f9aa64a38e658177c21759e99fae9c02e953"
+      }
+    },
+    {
+      "term": "Cheese",
+      "start_frame": 2455,
+      "duration_frames": 30,
+      "audio": {
+        "path": "audio/outro-trim-v002/vocabulary-Cheese-trim-v002-48k.wav",
+        "sha256": "6ac26c95cfe3027b40de30559faae95fdaef02ff23012e4a0cf552b98ae7c8cf"
+      }
+    },
+    {
+      "term": "Ice Cream",
+      "start_frame": 2485,
+      "duration_frames": 35,
+      "audio": {
+        "path": "audio/outro-trim-v002/vocabulary-Ice-Cream-trim-v002-48k.wav",
+        "sha256": "d02698734025a202f8b7fa6439325a7716adf8afd4383508ae747a6562b97025"
+      }
+    }
+  ],
+  "icons": {
+    "dir": "assets3d/vocabulary-v002/png",
+    "terms": [
+      {
+        "term": "creamy",
+        "icon": "creamy.png"
+      },
+      {
+        "term": "smooth",
+        "icon": "smooth.png"
+      },
+      {
+        "term": "liquid",
+        "icon": "liquid.png"
+      },
+      {
+        "term": "dairy cows",
+        "icon": "dairy-cow.png"
+      },
+      {
+        "term": "farm",
+        "icon": "farm.png"
+      },
+      {
+        "term": "fresh",
+        "icon": "fresh.png"
+      },
+      {
+        "term": "yummy",
+        "icon": "yummy.png"
+      },
+      {
+        "term": "warm-cold",
+        "icon": "warm-cold.png"
+      },
+      {
+        "term": "bones",
+        "icon": "bones.png"
+      },
+      {
+        "term": "yogurt",
+        "icon": "yogurt.png"
+      },
+      {
+        "term": "cheese",
+        "icon": "cheese.png"
+      },
+      {
+        "term": "ice cream",
+        "icon": "ice-cream.png"
+      }
+    ],
+    "hold_frames": 21,
+    "fade_frames": 5,
+    "pop_frames": 6,
+    "lead_frames": 0
+  },
+  "ending": {
+    "iris": {
+      "start": 2116,
+      "closed": 2140,
+      "centre": [
+        940,
+        570
+      ],
+      "end_radius": 250
+    },
+    "logo_disc": {
+      "in": 2142,
+      "slide_left": "f2152-f2159 to centre x=520",
+      "shrink": "f2160-f2166 about (520,540)",
+      "fade_start": 2160,
+      "fade_frames": 6,
+      "full_logo_frames": "f2147-f2159 (13 f) then crossfade f2160-f2165",
+      "diameter_start": 524,
+      "diameter_end": 860,
+      "centre": [
+        960,
+        540
+      ]
+    },
+    "end_logo": {
+      "audio_tail": "music stem 81.5-83.5 s replayed, fade in 6 f / out f20-f60, from f2520",
+      "implementation": "end_hold_frames path inside MilkMom-ReviewHD plus a standalone 60 f MilkMom-EndLogo composition (same EndPlate component, starts at plate clock t=4)"
+    },
+    "end_plate": {
+      "start": 2516,
+      "last_frame": 2519,
+      "fixed_frames_after_speech": 4,
+      "text_en": "See you next time!",
+      "text_vi": "Hẹn gặp lại bé nhé!",
+      "speech_end_source": "RMS offset 0.99-1.01 s (2%-10% of peak) in vocabulary-Ice-Cream-trim-v002-48k.wav, card start f2485"
+    },
+    "logo": {
+      "path": "../../studio-app/logo-jenniejoy-kids.png",
+      "sha256": "7a07c108e4b915b65d4cf17156a48e8dfbd91367edf5c6ca063fa269199ce473"
+    }
+  },
+  "expect_silent": [
+    {
+      "shot": "S06_B3",
+      "start_frame": 2110,
+      "end_frame_exclusive": 2160,
+      "max_rms": 0.04
+    }
+  ]
+}

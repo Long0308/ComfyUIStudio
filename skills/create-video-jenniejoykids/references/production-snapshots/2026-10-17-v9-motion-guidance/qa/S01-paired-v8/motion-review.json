@@ -1,0 +1,16 @@
+{
+  "version": "v8",
+  "prompt_id": "5d52c76e-33c6-4a91-9996-c9dea6c98e60",
+  "status": "rejected_full_takes",
+  "elapsed_seconds": 725.589,
+  "evidence": [
+    "qa/S01-paired-v8/A-overview.png",
+    "qa/S01-paired-v8/B-overview.png"
+  ],
+  "visual_estimates": {
+    "A": "Rear walking initially, frontal family greeting aroundframes60-104, thenrear.",
+    "B": "Rear initially; frontal toddlercloseup around12-24, wholefamilyfrontal24-48, rear fromroughly54 onward."
+  },
+  "measured": "History successful decode, bothMP4s preserved; livequeued prompt exact. Exactturnframes still needconsecutiveinspection.",
+  "next_experiment": "Contiguous rear-forward IMAGEbatchguides; notmoreindependentstills; motionacceptancepending."
+}

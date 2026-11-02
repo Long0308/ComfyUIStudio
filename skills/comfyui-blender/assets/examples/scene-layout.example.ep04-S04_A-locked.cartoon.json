@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "brief_id": "ep04-S04_A-garden-locked-example",
+  "domain": "jenniejoy_cartoon_3d",
+  "status": "layout_guide_only",
+  "purpose": "Incoming shot with the layout locked to S03_B within tolerance (bottle/cup 0.05 m, Mother 0.1 m and 5 deg). Slightly longer lens: a small push-in.",
+  "units": "meters",
+  "set": "scene-set.example.ep04-garden.json",
+  "notes": [
+    "Blender is a layout/control tool only: this guide is neither storyboard art nor an accepted frame.",
+    "POLICY/GUESS, NOT MEASURED: every position below is an illustration derived from the S01_A example. It reproduces the KIND of S03_B -> S04_A disagreement (bottle/cups moved, Mother repositioned) that caused the v005-v007 double exposures, not the real coordinates.",
+    "AGREE on purpose: every transition is allowed."
+  ],
+  "provenance": {
+    "error_db": "create-video-jenniejoykids/error-db/transition-duplicates-from-shot-continuity-mismatch.json",
+    "unmeasured": [
+      "props[*].position",
+      "actors[*].position",
+      "actors[*].facing_deg"
+    ]
+  },
+  "props": [
+    {
+      "id": "SEALED_BOTTLE",
+      "label": "Sealed milk bottle",
+      "kind": "box",
+      "position": [
+        1.53,
+        -2.1,
+        0.93
+      ],
+      "size": [
+        0.19,
+        0.19,
+        0.5
+      ],
+      "color": [
+        0.94,
+        0.78,
+        0.65
+      ]
+    },
+    {
+      "id": "CUP_A",
+      "label": "Cup A",
+      "kind": "cylinder",
+      "position": [
+        0.6,
+        -2.15,
+        0.74
+      ],
+      "size": [
+        0.1,
+        0.1,
+        0.1
+      ],
+      "color": [
+        0.9,
+        0.9,
+        0.95
+      ]
+    },
+    {
+      "id": "CUP_B",
+      "label": "Cup B",
+      "kind": "cylinder",
+      "position": [
+        0.9,
+        -1.95,
+        0.74
+      ],
+      "size": [
+        0.1,
+        0.1,
+        0.1
+      ],
+      "color": [
+        0.9,
+        0.9,
+        0.95
+      ]
+    }
+  ],
+  "actors": [
+    {
+      "id": "ALICE",
+      "label": "Alice (kneeling, screen left)",
+      "role": "child",
+      "pose": "kneeling",
+      "position": [
+        -3.3,
+        -2.4
+      ],
+      "facing_deg": 0,
+      "head_top_z": 1.21,
+      "zone": "garden",
+      "support": {
+        "kind": "cushion",
+        "top_z": 0.22,
+        "prop_id": "ALICE_CUSHION"
+      },
+      "proxy": "blocking_proxy",
+      "cast_ref": "production-local/character-library/alice/2026-10-18-v1/canonical-approved-latest.png",
+      "color": [
+        0.9,
+        0.56,
+        0.67
+      ]
+    },
+    {
+      "id": "MOTHER",
+      "label": "Mother (seated on bench, screen right)",
+      "role": "adult",
+      "pose": "seated",
+      "position": [
+        2.23,
+        -2.2
+      ],
+      "facing_deg": 175,
+      "head_top_z": 1.86,
+      "zone": "garden",
+      "support": {
+        "kind": "bench",
+        "top_z": 0.56,
+        "prop_id": "MOTHER_BENCH_SEAT"
+      },
+      "proxy": "blocking_proxy",
+      "cast_ref": "production-local/character-library/mother/2026-10-18-v1/canonical-production-reference.png",
+      "color": [
+        0.62,
+        0.29,
+        0.43
+      ]
+    }
+  ],
+  "camera": {
+    "position_xy": [
+      0.0,
+      -13.0
+    ],
+    "height_m": 5.1,
+    "target": [
+      0.0,
+      8.0,
+      0.75
+    ],
+    "lens_mm": 32.5,
+    "sensor_width_mm": 36
+  },
+  "output": {
+    "width": 1152,
+    "height": 648,
+    "basename": "S04_A-garden-locked"
+  },
+  "rules": [
+    {
+      "id": "family_inside_garden",
+      "type": "inside_zone",
+      "subjects": [
+        "actors"
+      ],
+      "zone": "garden"
+    },
+    {
+      "id": "camera_frames_cast",
+      "type": "camera_frames",
+      "subjects": [
+        "actors"
+      ],
+      "margin": 0.02
+    }
+  ]
+}

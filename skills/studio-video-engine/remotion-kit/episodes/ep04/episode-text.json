@@ -1,0 +1,167 @@
+{
+ "schema": "jjk-remotion-kit/episode-text/v1",
+ "note": "Episode text + assets that the engine review config does not carry (intro/strings/Vietnamese captions/vocabulary card details/music stem). Paths are relative to the episode root; hashes are verified by adapter-engine.cjs.",
+ "strings": {
+  "cardsHeader": "Bé cùng đọc nhé! · Say it with me!",
+  "cardsHeaderClosing": "Hẹn gặp lại bé nhé! · See you next time!"
+ },
+ "intro": {
+  "kicker": "JENNIEJOY KIDS",
+  "titleLines": [
+   "Milk",
+   "and Mom"
+  ],
+  "pill": "Cùng bé khám phá thế giới sữa",
+  "footer": "12 từ vựng · 12 cuộc trò chuyện nhỏ",
+  "mark": "drop"
+ },
+ "captionLines": {
+  "S06_B": 2
+ },
+ "shotVi": {
+  "S01_A": "Alice ơi, nhìn này! Sữa trông như thế nào nhỉ?",
+  "S01_B": "Sữa có màu trắng, mịn màng và ở dạng lỏng ạ, Mẹ ơi!",
+  "S02_A": "Giỏi quá! Sữa tươi của chúng mình đến từ đâu nào?",
+  "S02_B": "Sữa đến từ những cô bò sữa ở nông trại xanh ạ!",
+  "S03_A": "Khi nhấp một ngụm, sữa có vị thế nào hả con yêu?",
+  "S03_B": "Sữa béo ngậy, tươi ngon và ngon tuyệt ạ!",
+  "S04_A": "Sữa có thể uống khi ấm hoặc lạnh không con?",
+  "S04_B": "Dạ được ạ! Con thích sữa cả khi ấm lẫn khi lạnh, Mẹ ơi!",
+  "S05_A": "Sữa có canxi giúp xương con phát triển chắc khỏe!",
+  "S05_B": "Mẹ nhìn này! Xương con đang lớn lên thật chắc khỏe!",
+  "S06_A": "Chúng mình có thể làm món ngon nào từ sữa nhỉ, Alice?",
+  "S06_B": "Mình có thể làm sữa chua, phô mai và kem! Ngon tuyệt! Uống sữa, lớn khỏe, luôn vui nhé!"
+ },
+ "cards": {
+  "Creamy": {
+   "ipa": "/ˈkriːmi/",
+   "vi": "Béo ngậy, béo thơm",
+   "exampleEn": "Milk is rich and creamy.",
+   "icon": {
+    "path": "assets3d/vocabulary-v002/png/creamy.png",
+    "sha256": "65235535e4a2ee7e643a6aab29a4ef6cd5b401a4511ef2a16cf9220f39b4fa8e"
+   }
+  },
+  "Smooth": {
+   "ipa": "/smuːð/",
+   "vi": "Mịn màng, mềm mượt",
+   "exampleEn": "Milk is white and smooth.",
+   "icon": {
+    "path": "assets3d/vocabulary-v002/png/smooth.png",
+    "sha256": "3b978179f9d93613a5ee390b7b86f54dfd281c90a0a97c326f5ea2653040b0e4"
+   }
+  },
+  "Liquid": {
+   "ipa": "/ˈlɪkwɪd/",
+   "vi": "Dạng lỏng, dạng nước",
+   "exampleEn": "Milk flows like a smooth liquid.",
+   "icon": {
+    "path": "assets3d/vocabulary-v002/png/liquid.png",
+    "sha256": "19e3679bfae352bc7267c132c6797176677d298854e4f3aed4aec066b51d2982"
+   }
+  },
+  "Dairy Cow": {
+   "ipa": "/ˈdeəri kaʊ/",
+   "vi": "Cô bò sữa",
+   "exampleEn": "The dairy cow gives us sweet milk.",
+   "icon": {
+    "path": "assets3d/vocabulary-v002/png/dairy-cow.png",
+    "sha256": "0f9d294ff6606f86ef6771a2941e46d8c09390cb35e84169e1db90596e8af64f"
+   }
+  },
+  "Farm": {
+   "ipa": "/fɑːm/",
+   "vi": "Nông trại",
+   "exampleEn": "The cows live on a sunny green farm.",
+   "icon": {
+    "path": "assets3d/vocabulary-v002/png/farm.png",
+    "sha256": "794950affee64cd8444b822884fc675ccac3109389ed299790353703976e3aaa"
+   }
+  },
+  "Fresh": {
+   "ipa": "/freʃ/",
+   "vi": "Tươi ngon, tươi mới",
+   "exampleEn": "Fresh milk is good for you.",
+   "icon": {
+    "path": "assets3d/vocabulary-v002/png/fresh.png",
+    "sha256": "644db53071c387044ac9a3f8cd9b19574864e1e52f254fafa1dca273706c0520"
+   }
+  },
+  "Yummy": {
+   "ipa": "/ˈjʌmi/",
+   "vi": "Ngon tuyệt cú mèo",
+   "exampleEn": "This cup of milk is so yummy!",
+   "icon": {
+    "path": "assets3d/vocabulary-v002/png/yummy.png",
+    "sha256": "9446ac03a2896170d448963c8b04229e9eccbd397e39e94a59f4eac074cf7034"
+   }
+  },
+  "Warm and Cold": {
+   "ipa": "/wɔːm ænd kəʊld/",
+   "vi": "Ấm và lạnh",
+   "exampleEn": "We can drink milk warm and cold.",
+   "icon": {
+    "path": "assets3d/vocabulary-v002/png/warm-cold.png",
+    "sha256": "45e2a0d9084733ceb58d1fb9b2367a834c0d8e2fb65200526c080a99c5737a8d"
+   }
+  },
+  "Bones": {
+   "ipa": "/bəʊnz/",
+   "vi": "Xương",
+   "exampleEn": "Milk helps our bones grow strong.",
+   "icon": {
+    "path": "assets3d/vocabulary-v002/png/bones.png",
+    "sha256": "f36079dafb1fd65d3f7cea67d32ed2946868e16ddbd14cb4dec1b99ed2c6d8ed"
+   }
+  },
+  "Yogurt": {
+   "ipa": "/ˈjɒɡət/",
+   "vi": "Sữa chua",
+   "exampleEn": "Yogurt is a delicious treat from milk.",
+   "icon": {
+    "path": "assets3d/vocabulary-v002/png/yogurt.png",
+    "sha256": "9bb7209a5313054829990cb64ab47ede189c6050d97850d5538cdf4730a6caf1"
+   }
+  },
+  "Cheese": {
+   "ipa": "/tʃiːz/",
+   "vi": "Phô mai",
+   "exampleEn": "Golden cheese is made from fresh milk.",
+   "icon": {
+    "path": "assets3d/vocabulary-v002/png/cheese.png",
+    "sha256": "221688434233453e601ecc8088d69fe22e1f64c23e40664a5cd36c3619642b8a"
+   }
+  },
+  "Ice Cream": {
+   "ipa": "/ˌaɪs ˈkriːm/",
+   "vi": "Kem",
+   "exampleEn": "Sweet ice cream makes Alice happy.",
+   "icon": {
+    "path": "assets3d/vocabulary-v002/png/ice-cream.png",
+    "sha256": "636413cdb3263692f0df14d00be5c25585eb0a36b862428f28bf188b554f49d1"
+   }
+  }
+ },
+ "assets": {
+  "opening": {
+   "path": "storyboard/gpt-opening-v001/S01_A-user-approved-opening.png",
+   "sha256": "2113acd0d7a3eb335c64e1e0145998a01d8d4a53624da70628501b7d5b8ab47f"
+  },
+  "music": {
+   "path": "audio/mix-plan-v003/milk-mom-music-stem-v003-candidate.wav",
+   "sha256": "ab0beb31f3d7e18484147c953ff6bc8187bdb7440116fe65b4a13dfdb3a970a5"
+  },
+  "ambience": {
+   "path": "audio/mix-plan-v003/milk-mom-ambience-foley-stem-v003-candidate.wav",
+   "sha256": "f80cf586f3840edd2c303400e25aba7c6c303a3dac94562d6ce57dd0ef06960f"
+  }
+ },
+ "ending": {
+  "tailFromSeconds": 81.5,
+  "endLogoTail": {"fadeInFrames": 6, "fadeStartFrames": 20},
+  "discSlideStart": 2152,
+  "discSlideEnd": 2159,
+  "discSlideX": 520,
+  "pillLeftX": 988
+ }
+}

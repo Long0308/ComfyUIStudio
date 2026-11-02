@@ -1,0 +1,31 @@
+{
+  "test_log": "green-ready.txt",
+  "test_log_sha256": "788b1a96161620876cd691a680440f09641cb2fc17467aed54b7abb247351704",
+  "files": [
+    {
+      "file": "engine\\images\\codex_queue.py",
+      "before_sha256": "7a17c77cd6d18b3d63e8fa26e58c2a400515267c82ff09505e7236eaaaa20cda",
+      "after_sha256": "857d67bcbb5112388ef36cc6e558ecd17825d2a955f60e05477457171de95bb4",
+      "method": "fsync temporary + os.replace"
+    },
+    {
+      "file": "engine\\images\\codex.py",
+      "before_sha256": "13e81e4994e1e6acff84ee4a713241e6efe2f5075b41035c3353d586897fd65c",
+      "after_sha256": "e5e110aee9f36b0aff6a55f254e143e66b0835607fea30267f4af74729902c89",
+      "method": "fsync temporary + os.replace"
+    },
+    {
+      "file": "engine\\images\\local.py",
+      "before_sha256": "61a57b1bed5c87447bd0717ed1ba2eb29eae2403a10b6880fa768a628e45f980",
+      "after_sha256": "9d3e2c5f382cb01b0f45d59bc3f3a6eed64acf52528dd2c0f3ce08adb9f16f86",
+      "method": "fsync temporary + os.replace"
+    },
+    {
+      "file": "engine\\images\\prompt_route.py",
+      "before_sha256": "9c4f4e255c4bac02d0bcd62242d2f6906d9e9898ad32492c9589343972d44199",
+      "after_sha256": "a8c2b697847f981aaac285132a244082f0c1245bb3ed4971c8253eb1b4e652e9",
+      "method": "fsync temporary + os.replace"
+    }
+  ],
+  "running_processes_restarted": false
+}

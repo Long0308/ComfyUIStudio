@@ -1,0 +1,756 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "enum": [
+        "1.0"
+      ]
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "delivery": {
+      "type": "object",
+      "properties": {
+        "fps": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "fps",
+        "width",
+        "height"
+      ],
+      "additionalProperties": false
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/source"
+      }
+    },
+    "shots": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/shot"
+      }
+    },
+    "review_stage": {
+      "type": "string",
+      "minLength": 1
+    },
+    "needed_frames": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "start_frame": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "end_frame": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "source_id",
+          "start_frame",
+          "end_frame",
+          "reason"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "project_id",
+    "delivery",
+    "sources",
+    "shots"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Standalone motion plan sidecar 1.0",
+  "$defs": {
+    "box": {
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "number",
+          "minimum": 0
+        },
+        "y": {
+          "type": "number",
+          "minimum": 0
+        },
+        "width": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "height": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      },
+      "required": [
+        "x",
+        "y",
+        "width",
+        "height"
+      ],
+      "additionalProperties": false
+    },
+    "motion": {
+      "type": "object",
+      "properties": {
+        "coordinate_space": {
+          "type": "string",
+          "enum": [
+            "source_pixels",
+            "export_pixels"
+          ]
+        },
+        "start_box": {
+          "$ref": "#/$defs/box"
+        },
+        "end_box": {
+          "$ref": "#/$defs/box"
+        },
+        "evidence": {
+          "type": "string",
+          "enum": [
+            "measured",
+            "visual_estimate",
+            "creative_choice",
+            "unknown"
+          ]
+        },
+        "curve": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "linear",
+                "cubic_ease_out",
+                "spring"
+              ]
+            },
+            "parameters": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "type",
+            "parameters"
+          ],
+          "additionalProperties": false
+        },
+        "opacity_start": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "opacity_end": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "scale_start": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "scale_end": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "visible_overshoot": {
+          "type": "object",
+          "properties": {
+            "visible": {
+              "type": "boolean"
+            },
+            "evidence": {
+              "type": "string",
+              "enum": [
+                "measured",
+                "visual_estimate",
+                "creative_choice",
+                "unknown"
+              ]
+            },
+            "description": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "visible",
+            "evidence",
+            "description"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "coordinate_space",
+        "start_box",
+        "end_box",
+        "evidence",
+        "curve",
+        "opacity_start",
+        "opacity_end",
+        "scale_start",
+        "scale_end",
+        "visible_overshoot"
+      ],
+      "additionalProperties": false
+    },
+    "event": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "phase": {
+          "type": "string",
+          "enum": [
+            "starting_state",
+            "attention",
+            "action",
+            "response",
+            "reading_hold",
+            "transition"
+          ]
+        },
+        "start_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "end_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "focus": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "motion": {
+          "$ref": "#/$defs/motion"
+        },
+        "expected_local_start_frame": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "expected_local_end_frame": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "expected_global_start_frame": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "expected_global_end_frame": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "id",
+        "phase",
+        "start_seconds",
+        "end_seconds",
+        "focus",
+        "description"
+      ],
+      "additionalProperties": false
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "file": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "fps_num": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "fps_den": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "duration_seconds": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "frame_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "frame_pts_seconds": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "variable_frame_rate": {
+          "type": "boolean"
+        },
+        "start_pts_seconds": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "file",
+        "sha256",
+        "width",
+        "height",
+        "fps_num",
+        "fps_den",
+        "duration_seconds",
+        "frame_count"
+      ],
+      "additionalProperties": false
+    },
+    "source_event": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "classification": {
+          "type": "string",
+          "enum": [
+            "measured",
+            "visual_estimate",
+            "creative_choice",
+            "unknown"
+          ]
+        },
+        "frame_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "timestamp_seconds": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "classification",
+        "timestamp_seconds"
+      ],
+      "additionalProperties": false
+    },
+    "audio_cue": {
+      "type": "object",
+      "properties": {
+        "event_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_file": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_transient_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "source_duration_seconds": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "timeline_hit_seconds": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Shot-local editorial seconds; source_transient_seconds is source-local. offset + source transient = timeline hit."
+        },
+        "classification": {
+          "type": "string",
+          "minLength": 1
+        },
+        "offset_seconds": {
+          "type": "number",
+          "description": "Shot-local editorial seconds; source_transient_seconds is source-local. offset + source transient = timeline hit."
+        }
+      },
+      "required": [
+        "event_id",
+        "source_file",
+        "source_transient_seconds",
+        "source_duration_seconds",
+        "timeline_hit_seconds",
+        "classification",
+        "offset_seconds"
+      ],
+      "additionalProperties": false
+    },
+    "layout": {
+      "type": "object",
+      "properties": {
+        "safe_margin": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Pixels in export coordinate space."
+        },
+        "headline_box": {
+          "$ref": "#/$defs/box"
+        },
+        "max_headline_lines": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "logo_reserved_box": {
+          "$ref": "#/$defs/box"
+        },
+        "font": {
+          "type": "string",
+          "minLength": 1
+        },
+        "font_status": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "available",
+            "verified"
+          ]
+        },
+        "longest_copy_check": {
+          "type": "object",
+          "properties": {
+            "copy": {
+              "type": "string",
+              "minLength": 1
+            },
+            "line_count": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "fits": {
+              "type": "boolean"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "pending",
+                "measured"
+              ]
+            }
+          },
+          "required": [
+            "copy",
+            "line_count",
+            "fits",
+            "status"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "safe_margin",
+        "headline_box",
+        "max_headline_lines",
+        "logo_reserved_box",
+        "font",
+        "font_status",
+        "longest_copy_check"
+      ],
+      "additionalProperties": false
+    },
+    "review": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "proposed",
+            "pending",
+            "reviewed"
+          ]
+        },
+        "minimum_reading_hold_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "legible_start_seconds": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Shot-local seconds."
+        },
+        "legible_end_seconds": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Shot-local seconds."
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "status",
+        "minimum_reading_hold_seconds",
+        "legible_start_seconds",
+        "legible_end_seconds",
+        "notes"
+      ],
+      "additionalProperties": false
+    },
+    "shot": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "start_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "duration_seconds": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "characters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/character"
+          }
+        },
+        "reference_source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "seed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/event"
+          },
+          "minItems": 1
+        },
+        "layout": {
+          "$ref": "#/$defs/layout"
+        },
+        "review": {
+          "$ref": "#/$defs/review"
+        },
+        "source_events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source_event"
+          }
+        },
+        "audio_cues": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/audio_cue"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "start_seconds",
+        "duration_seconds",
+        "characters",
+        "seed",
+        "events",
+        "layout",
+        "review"
+      ],
+      "additionalProperties": false
+    },
+    "character": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "entity": {
+          "type": "string",
+          "minLength": 8
+        },
+        "species": {
+          "type": "string",
+          "minLength": 8
+        },
+        "age": {
+          "type": "string",
+          "minLength": 8
+        },
+        "body_proportions": {
+          "type": "string",
+          "minLength": 8
+        },
+        "surface": {
+          "type": "string",
+          "minLength": 8
+        },
+        "eyes": {
+          "type": "string",
+          "minLength": 8
+        },
+        "brows": {
+          "type": "string",
+          "minLength": 8
+        },
+        "nose_beak": {
+          "type": "string",
+          "minLength": 8
+        },
+        "mouth": {
+          "type": "string",
+          "minLength": 8
+        },
+        "ears": {
+          "type": "string",
+          "minLength": 8
+        },
+        "hair_head": {
+          "type": "string",
+          "minLength": 8
+        },
+        "clothes": {
+          "type": "string",
+          "minLength": 8
+        },
+        "footwear": {
+          "type": "string",
+          "minLength": 8
+        },
+        "accessories": {
+          "type": "string",
+          "minLength": 8
+        },
+        "marks_asymmetry": {
+          "type": "string",
+          "minLength": 8
+        },
+        "reference_assets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference"
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "entity",
+        "species",
+        "age",
+        "body_proportions",
+        "surface",
+        "eyes",
+        "brows",
+        "nose_beak",
+        "mouth",
+        "ears",
+        "hair_head",
+        "clothes",
+        "footwear",
+        "accessories",
+        "marks_asymmetry",
+        "reference_assets"
+      ]
+    },
+    "reference": {
+      "type": "object",
+      "properties": {
+        "role": {
+          "type": "string",
+          "enum": [
+            "face_front",
+            "face_left",
+            "face_right",
+            "wardrobe",
+            "accessories",
+            "turnaround_3views",
+            "expressions",
+            "poses",
+            "family_lineup",
+            "gesture_only"
+          ]
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "available",
+            "planned",
+            "approved"
+          ]
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "role",
+        "path",
+        "status",
+        "scope"
+      ]
+    }
+  }
+}

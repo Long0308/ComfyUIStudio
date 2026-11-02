@@ -1,0 +1,16 @@
+{
+  "id": "router-bridge-recall-venv-missing-on-home-machine",
+  "engine": "astra-router-bridge → D:\\61.SetupAgent\\codex_router\\tools\\harness-cli.ps1 pre-code recall",
+  "environment": "Home machine after `git pull` of 61.SetupAgent (ad016913), first DeepSeek dispatch from Claude Code, 2026-10-27",
+  "observed_at": "2026-10-27",
+  "symptom": "The first task routed to opencode-go/deepseek-v4.1-flash stopped before any model call with 'LOI: Pre-code recall Python runtime missing.'; no thread, no rollout, KET LUAN not produced; the wrapper still printed exit 0.",
+  "root_cause": "harness-memory.ps1:155-156 hard-requires D:\\61.SetupAgent\\agentic-os\\backend\\.venv\\Scripts\\python.exe; .venv is gitignored, so a pulled repo on a new machine has no venv. recall.py itself is stdlib-only. The Cognee runtime venv (tools/cognee-runtime/.venv) is also absent on this machine.",
+  "root_cause_status": "measured",
+  "fix_or_workaround": "Created the venv with the local Python 3.14 (`python -m venv agentic-os/backend/.venv`). Attempt 2 then failed with ModuleNotFoundError httpx: recall.py itself is stdlib-only but it imports agentic-os/backend/app/nao.py, which needs httpx (the only third-party import among nao, bon_agent, cognee_recall, error_db, ky_uc, nen, skill, cau_hinh). Installed the repo-pinned httpx==0.28.1 into the venv; `from app import nao` imports. Cognee layer runs degraded (allowed only when Hindsight is ok and every failing layer is Cognee).",
+  "prevention": "After pulling 61.SetupAgent on any machine, pre-flight the bridge: check agentic-os/backend/.venv/Scripts/python.exe and tools/cognee-runtime/.venv exist before the first dispatch; a bridge result without a KET LUAN line is 'never reached the model', not a task failure. Wrapper exit 0 is not evidence.",
+  "verification": "Bridge report 2026-10-27 (harness output in the session task file bj1arz3mi.output); venv python 3.14.2 confirmed.",
+  "followup_attempt_3": "Recall then ran (Hindsight ok, Cognee unavailable → degraded) but harness-memory.ps1:121 refused: 'Degraded recall: capsule has 0 usable facts.' The degraded branch accepts only Hindsight facts with id+text+store=hindsight+sourceSha256+sourcePath (B09S4-R3 allowlist); the may-agent-memory facts on the home machine carry no source fields, so 0 usable. Real fix = install the Cognee runtime venv (tools/cognee-runtime/.venv: torch/gliner2/lancedb/kuzu) so recall is not degraded, or retain provenance-bound facts; pending user decision.",
+  "status": "blocked_pending_user",
+  "evidence_paths": ["D:/61.SetupAgent/codex_router/tools/harness-memory.ps1"],
+  "affected_artifacts": []
+}

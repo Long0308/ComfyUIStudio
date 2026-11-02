@@ -1,0 +1,198 @@
+{
+  "schema_version": "1.0",
+  "project_id": "alice-zoo-local-h3-60s",
+  "goal": "Complete60s720pEnglish zoo film plus voiced version, comparisons, SRT and report",
+  "status": "active",
+  "skill_status": "114tests_2independentreviews_clipguidefeature",
+  "comfy_status": "running_scene1_v9_motionguide_integrity_passed",
+  "heartbeat_id": "ho-n-th-nh-phim-jenniekidjoys-60s",
+  "delivery": {
+    "duration_seconds": 60,
+    "fps": 24,
+    "draft": [
+      1280,
+      720
+    ],
+    "final": [
+      1920,
+      1080
+    ],
+    "final_approval": "pending",
+    "native": [
+      864,
+      480
+    ]
+  },
+  "rules": [
+    "Last USED frame N becomes next first frame/input; inspect actual forward motion",
+    "Initial family outside looking through open gate; straight inside, no turn-around",
+    "Full cast repeated every segment; canonical saved Alice voice",
+    "Never use rejectedS01_B-entry-v2 in new edit"
+  ],
+  "scenes": [
+    {
+      "id": "S01",
+      "name": "Scene 1 — Entering the Zoo",
+      "script_md": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-01\\SCENE.md",
+      "scene_json": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-01\\SCENE.json",
+      "segments": [
+        "S01_A",
+        "S01_B"
+      ],
+      "status": "rendering_pair_v9",
+      "native_outputs": [
+        "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\JennieKidJoys\\Scene-01-v8\\S01_A\\native_00001_.mp4",
+        "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\JennieKidJoys\\Scene-01-v8\\S01_B\\native_00001_.mp4"
+      ],
+      "job_ids": [
+        "d1d30ff4-7b1f-4442-aba7-0777beea7ab0",
+        "34e8b8aa-d71b-493d-b2da-1ff9f10e9bc5",
+        "e4a73333-92cc-4a42-9bcd-f5dd85183052",
+        "5d52c76e-33c6-4a91-9996-c9dea6c98e60",
+        "00af6f7c-e581-4ea2-ad77-cc0ea018bb27"
+      ],
+      "higgsfield_comparison": "pending",
+      "motion_review": "rejected_front_turns_both",
+      "audio_review": "pending",
+      "technical_qa": "decode_completed_media_probe_pending_v8",
+      "workflow": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\user\\default\\workflows\\Scene 1 - Zoo Entry A-B v9 Motion Guides.json",
+      "rejected_takes": [
+        "S01_B-entry-v2",
+        "S01_A-paired-v3-backward-child",
+        "S01_A-paired-v4-front-turn-backward-child",
+        "v6r2_ui_prompt_truncated_interrupted",
+        "v7A_first53frames_turn",
+        "v7B_initial_frontal_zoom",
+        "v8A_frontal_greeting_midtake",
+        "v8B_frontal_closeup_then_family_turn"
+      ]
+    },
+    {
+      "id": "S02",
+      "name": "Scene 2 — A Little Bird",
+      "script_md": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-02\\SCENE.md",
+      "scene_json": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-02\\SCENE.json",
+      "segments": [
+        "S02_A",
+        "S02_B"
+      ],
+      "status": "planned_not_generated",
+      "native_outputs": [],
+      "job_ids": [],
+      "higgsfield_comparison": "pending",
+      "motion_review": "pending",
+      "audio_review": "pending",
+      "technical_qa": "pending"
+    },
+    {
+      "id": "S03",
+      "name": "Scene 3 — A Tall Giraffe",
+      "script_md": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-03\\SCENE.md",
+      "scene_json": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-03\\SCENE.json",
+      "segments": [
+        "S03_A",
+        "S03_B"
+      ],
+      "status": "planned_not_generated",
+      "native_outputs": [],
+      "job_ids": [],
+      "higgsfield_comparison": "pending",
+      "motion_review": "pending",
+      "audio_review": "pending",
+      "technical_qa": "pending"
+    },
+    {
+      "id": "S04",
+      "name": "Scene 4 — Hello, Tiger",
+      "script_md": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-04\\SCENE.md",
+      "scene_json": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-04\\SCENE.json",
+      "segments": [
+        "S04_A",
+        "S04_B"
+      ],
+      "status": "planned_not_generated",
+      "native_outputs": [],
+      "job_ids": [],
+      "higgsfield_comparison": "pending",
+      "motion_review": "pending",
+      "audio_review": "pending",
+      "technical_qa": "pending"
+    },
+    {
+      "id": "S05",
+      "name": "Scene 5 — A Hungry Panda",
+      "script_md": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-05\\SCENE.md",
+      "scene_json": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-05\\SCENE.json",
+      "segments": [
+        "S05_A",
+        "S05_B"
+      ],
+      "status": "planned_not_generated",
+      "native_outputs": [],
+      "job_ids": [],
+      "higgsfield_comparison": "pending",
+      "motion_review": "pending",
+      "audio_review": "pending",
+      "technical_qa": "pending"
+    },
+    {
+      "id": "S06",
+      "name": "Scene 6 — Bye-bye, Zoo",
+      "script_md": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-06\\SCENE.md",
+      "scene_json": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-06\\SCENE.json",
+      "segments": [
+        "S06_A",
+        "S06_B"
+      ],
+      "status": "planned_not_generated",
+      "native_outputs": [],
+      "job_ids": [],
+      "higgsfield_comparison": "pending",
+      "motion_review": "pending",
+      "audio_review": "pending",
+      "technical_qa": "pending"
+    }
+  ],
+  "current_action": "Monitorv9contiguousmotionguides,actualqueueintact;preserveallnativeAV",
+  "report_file": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\OVERNIGHT-REPORT.md",
+  "current_request": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\production-request-v8.json",
+  "current_stages": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\stages-v8",
+  "skill_archive": "D:\\23.JennieHomeSchool\\03 Voice\\JennieJoyKids-Archive\\Create-Video-JennieJoyKids-2026-10-17-v5.zip",
+  "sfx_library": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\audio\\sfx-library-v2\\manifest.json",
+    "assets": 17,
+    "technical_qa": "passed",
+    "independent_review": "approved_for_pending_sources",
+    "listening": "pending",
+    "placement": "pending_measured_motion"
+  },
+  "future_request": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\production-request-v8.json",
+  "future_stages": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\stages-v8",
+  "script_revision": "Futuremasterv8 promoted fromAstrareview; S05L2 retimed earlier .65s originalPCM verified, partialLEFTprofile and explicit prophands; runningScene1v8 sourcev6unchanged",
+  "updated_at": "2026-10-16T19:28:25.338085+00:00",
+  "skill_archive_sha256": "461d292f38cf4bbc77ec62ed1bb9ec2a808c3c46c42f36b34fefac75ad385332",
+  "skill_archive_entries": 190,
+  "canonical_future_audio": {
+    "file": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\audio\\canonical-v2\\alice-canonical-60s.wav",
+    "sha256": "348e8d8ca0c1fe60aaf3d827c63289eb246e5c9163fe607096735f977b41b79c",
+    "independent_review": "passed12PCM/zerooverlap/strictdecode; listeningfinalmixpending"
+  },
+  "canonical_audio": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\audio\\canonical-v2\\alice-canonical-60s.wav",
+  "updated_utc": "2026-10-16T19:48:59.044726+00:00",
+  "scene1_v8_review": {
+    "version": "v8",
+    "prompt_id": "5d52c76e-33c6-4a91-9996-c9dea6c98e60",
+    "status": "rejected_full_takes",
+    "elapsed_seconds": 725.589,
+    "evidence": [
+      "qa/S01-paired-v8/A-overview.png",
+      "qa/S01-paired-v8/B-overview.png"
+    ],
+    "visual_estimates": {
+      "A": "Rear walking initially, frontal family greeting aroundframes60-104, thenrear.",
+      "B": "Rear initially; frontal toddlercloseup around12-24, wholefamilyfrontal24-48, rear fromroughly54 onward."
+    },
+    "measured": "History successful decode, bothMP4s preserved; livequeued prompt exact. Exactturnframes still needconsecutiveinspection.",
+    "next_experiment": "Contiguous rear-forward IMAGEbatchguides; notmoreindependentstills; motionacceptancepending."
+  }
+}

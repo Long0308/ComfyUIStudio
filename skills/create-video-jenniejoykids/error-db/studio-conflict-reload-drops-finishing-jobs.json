@@ -1,0 +1,15 @@
+{
+  "id": "studio-conflict-reload-drops-finishing-jobs",
+  "engine": "Studio web app (production-local/studio-app) state persistence",
+  "environment": "T-W02 round 2 (review screen + 409 conflict reload + render-jobs.jsonl journal), independent Haiku critic with probes, 2026-10-27",
+  "observed_at": "2026-10-27",
+  "symptom": "On a 409 conflict (studio-state.json changed on disk) the server reloads state; a RUNNING finishing job (ffmpeg render-master) disappears from the live view, so a second start_render is accepted and a duplicate render can start. Journal replay also resurrects a superseded ComfyUI prompt and demotes a newer job; feedback/journal JSONL readers using splitlines() silently drop records containing U+2028/U+2029/U+0085; the client sha256 on review submit was optional server-side.",
+  "root_cause": "Several writers mutate studio-state.json and only render_jobs were journaled; _reload_from_disk (engine.py ~613-632) re-attaches render_jobs/history + journal but not finishing_jobs, and the journal is replayed in full with no high-water mark, so older records override newer state.",
+  "root_cause_status": "measured",
+  "fix_or_workaround": "Round 3: one append-only job journal for every external job (ComfyUI prompts and Popen/ffmpeg) with intent (client job id, before the external call) -> started -> terminal records; studio-state.json stores journal_seq and replay applies only records with seq > journal_seq; intents without a started record are reconciled against /history or the process table before re-dispatch; client sha256 required and compared lowercase; JSONL split on b'\\n' only; journal compacted on save.",
+  "prevention": "Any long-running external side effect started by Studio must be journaled before it is launched and recovered from the journal, never from a single state file that other writers can replace. Conflict/reload paths need a test that a RUNNING job of every kind survives a stale external write.",
+  "verification": "Critic probes p_m1.py, p_m1b.py, p_m2.py in the session scratchpad critic-tw02-r2/probes reproduce the drop and the resurrection on round-2 code; round-3 acceptance = those probes pass + pytest.",
+  "status": "fix_in_progress",
+  "evidence_paths": ["production-local/studio-app/engine.py", "production-local/studio-app/review_api.py"],
+  "affected_artifacts": []
+}

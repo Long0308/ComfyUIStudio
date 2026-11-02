@@ -1,0 +1,1621 @@
+{
+ "schema": "jjv/transition-presets/v1",
+ "param_flags": "a param with required:true must be written by the row; optional:true params have no default and are only recorded when written (iris layout numbers)",
+ "comment": "ONE source of truth for transition presets (engine/editorial/transitions.py loads it; remotion-kit tests parse it). A boundary row picks `type` = a preset name and optional `params`. Presets are a COMPOSITING layer applied after the shot videos exist: choosing or changing one never re-renders shot video. tail_frames: none | all (= frames) | half (= ceil(frames/2)) | schedule (= out_tail rows). window: where the effect sits around the boundary B.",
+ "categories": [
+  {
+   "id": "cut",
+   "en": "Cut",
+   "vi": "Cắt"
+  },
+  {
+   "id": "camera",
+   "en": "Camera move",
+   "vi": "Chuyển động máy"
+  },
+  {
+   "id": "push",
+   "en": "Slide / Push",
+   "vi": "Trượt / Đẩy"
+  },
+  {
+   "id": "zoom",
+   "en": "Zoom",
+   "vi": "Phóng to / thu nhỏ"
+  },
+  {
+   "id": "iris",
+   "en": "Iris / Radial",
+   "vi": "Mở vòng / tia"
+  },
+  {
+   "id": "wipe",
+   "en": "Wipe / Cover",
+   "vi": "Quét / Phủ"
+  },
+  {
+   "id": "dissolve",
+   "en": "Dissolve",
+   "vi": "Hòa tan"
+  },
+  {
+   "id": "dip",
+   "en": "Dip to colour",
+   "vi": "Nhá màu"
+  },
+  {
+   "id": "light",
+   "en": "Light",
+   "vi": "Ánh sáng"
+  },
+  {
+   "id": "3d",
+   "en": "3D motion",
+   "vi": "Chuyển động 3D"
+  },
+  {
+   "id": "graphic",
+   "en": "Graphic boundary",
+   "vi": "Chuyển giữa đồ họa"
+  },
+  {
+   "id": "legacy",
+   "en": "Legacy",
+   "vi": "Bản cũ"
+  }
+ ],
+ "presets": {
+  "none": {
+   "status": "ready",
+   "category": "cut",
+   "label": {
+    "en": "Carry (no transition)",
+    "vi": "Nối liền (carry)"
+   },
+   "renders_as": "none",
+   "shows_both": false,
+   "tail_only": false,
+   "tail_frames": "none",
+   "frames": {
+    "fixed": 0
+   },
+   "direction": "none",
+   "window": "at_boundary",
+   "params": {},
+   "safe_for": [
+    "picture"
+   ],
+   "when": {
+    "en": "Pixel-continuous carry: the next clip starts where the last one ended.",
+    "vi": "Hai đoạn liền mạch: clip sau bắt đầu đúng chỗ clip trước dừng."
+   },
+   "legacy": false
+  },
+  "cut": {
+   "status": "ready",
+   "category": "cut",
+   "label": {
+    "en": "Hard cut",
+    "vi": "Cắt thẳng"
+   },
+   "renders_as": "cut",
+   "shows_both": false,
+   "tail_only": false,
+   "tail_frames": "none",
+   "frames": {
+    "fixed": 0
+   },
+   "direction": "none",
+   "window": "at_boundary",
+   "params": {},
+   "safe_for": [
+    "picture"
+   ],
+   "when": {
+    "en": "Same framing is NOT needed: a plain cut is always safe. Use it when nothing else is motivated.",
+    "vi": "Cắt thẳng luôn an toàn; dùng khi không có lý do gì khác."
+   },
+   "legacy": false
+  },
+  "cut_push": {
+   "status": "ready",
+   "category": "cut",
+   "label": {
+    "en": "Cut + push-in",
+    "vi": "Cắt + đẩy vào (zoom nhẹ)"
+   },
+   "renders_as": "cut_push",
+   "shows_both": false,
+   "tail_only": false,
+   "tail_frames": "none",
+   "frames": {
+    "default": 12,
+    "min": 4,
+    "max": 30
+   },
+   "direction": "none",
+   "window": "from_boundary",
+   "params": {
+    "scale_from": {
+     "type": "number",
+     "default": 1.04,
+     "min": 1.01,
+     "max": 1.2,
+     "label": {
+      "vi": "Độ phóng ban đầu"
+     }
+    },
+    "ease": {
+     "type": "enum",
+     "default": "out",
+     "values": [
+      "out",
+      "in_out"
+     ],
+     "label": {
+      "vi": "Kiểu chuyển động"
+     }
+    }
+   },
+   "safe_for": [
+    "picture"
+   ],
+   "when": {
+    "en": "Same seat and angle, only a prop or pose changes: cut, then a gentle push-in on the incoming shot. One shot visible, no tail needed.",
+    "vi": "Cùng góc máy, chỉ đổi đạo cụ / tư thế: cắt rồi đẩy nhẹ vào cảnh mới. Một cảnh duy nhất, không cần khung đuôi."
+   },
+   "legacy": false
+  },
+  "whip": {
+   "status": "ready",
+   "category": "camera",
+   "label": {
+    "en": "Whip pan",
+    "vi": "Quét nhanh (whip pan)"
+   },
+   "renders_as": "whip",
+   "shows_both": false,
+   "tail_only": false,
+   "tail_frames": "none",
+   "frames": {
+    "default": 8,
+    "min": 4,
+    "max": 8,
+    "even": true
+   },
+   "direction": "required",
+   "window": "centred",
+   "params": {},
+   "safe_for": [
+    "picture"
+   ],
+   "when": {
+    "en": "Camera angle or place changes and the move is motivated by the action (eyeline, a pointing arm).",
+    "vi": "Đổi góc máy / địa điểm và có lý do từ hành động (ánh mắt, cánh tay chỉ)."
+   },
+   "legacy": false
+  },
+  "pan_motivated": {
+   "status": "ready",
+   "category": "camera",
+   "label": {
+    "en": "Motivated pan",
+    "vi": "Lia máy có lý do"
+   },
+   "renders_as": "whip",
+   "shows_both": false,
+   "tail_only": false,
+   "tail_frames": "none",
+   "frames": {
+    "default": 8,
+    "min": 4,
+    "max": 8,
+    "even": true
+   },
+   "direction": "required",
+   "window": "centred",
+   "params": {},
+   "safe_for": [
+    "picture"
+   ],
+   "when": {
+    "en": "A follow-pan toward something the story points at (for example the height tree); needs a written motivation / g_bridge.",
+    "vi": "Lia theo thứ câu chuyện chỉ tới (ví dụ cây đo chiều cao); phải ghi rõ lý do / g_bridge."
+   },
+   "legacy": false
+  },
+  "push_slide": {
+   "status": "ready",
+   "category": "push",
+   "label": {
+    "en": "Push slide",
+    "vi": "Đẩy trượt"
+   },
+   "renders_as": "push_slide",
+   "shows_both": true,
+   "tail_only": true,
+   "tail_frames": "all",
+   "frames": {
+    "default": 12,
+    "min": 8,
+    "max": 30
+   },
+   "direction": "required",
+   "window": "from_boundary",
+   "params": {
+    "axis": {
+     "type": "enum",
+     "default": "x",
+     "values": [
+      "x",
+      "y"
+     ],
+     "label": {
+      "vi": "Trục trượt"
+     }
+    },
+    "ease": {
+     "type": "enum",
+     "default": "in_out",
+     "values": [
+      "in_out",
+      "out"
+     ],
+     "label": {
+      "vi": "Kiểu chuyển động"
+     }
+    }
+   },
+   "safe_for": [
+    "picture"
+   ],
+   "when": {
+    "en": "Both shots slide together (new pushes old out). Scene or angle change; both shots visible, so only on continuity agree.",
+    "vi": "Hai cảnh trượt cùng nhau. Đổi cảnh / góc máy; cả hai cảnh cùng hiện nên chỉ dùng khi hai cảnh khớp (agree)."
+   },
+   "legacy": false
+  },
+  "zoom_through": {
+   "status": "ready",
+   "category": "zoom",
+   "label": {
+    "en": "Zoom through",
+    "vi": "Phóng xuyên qua"
+   },
+   "renders_as": "zoom_through",
+   "shows_both": true,
+   "tail_only": true,
+   "tail_frames": "all",
+   "frames": {
+    "default": 12,
+    "min": 6,
+    "max": 24
+   },
+   "direction": "none",
+   "window": "from_boundary",
+   "params": {
+    "scale_out": {
+     "type": "number",
+     "default": 2.5,
+     "min": 1.2,
+     "max": 4.0,
+     "label": {
+      "vi": "Phóng cảnh cũ"
+     }
+    },
+    "scale_in_from": {
+     "type": "number",
+     "default": 0.5,
+     "min": 0.3,
+     "max": 0.9,
+     "label": {
+      "vi": "Cảnh mới bắt đầu từ"
+     }
+    },
+    "blur_px": {
+     "type": "number",
+     "default": 8,
+     "min": 0,
+     "max": 20,
+     "label": {
+      "vi": "Độ nhòe (px)"
+     }
+    }
+   },
+   "safe_for": [
+    "picture"
+   ],
+   "when": {
+    "en": "High-energy change of place: the old shot zooms past the camera while the new one arrives. Both visible: continuity agree only.",
+    "vi": "Đổi địa điểm, nhịp mạnh: cảnh cũ lao qua máy, cảnh mới đến. Cả hai cùng hiện: chỉ dùng khi agree."
+   },
+   "legacy": false
+  },
+  "zoom_out": {
+   "status": "ready",
+   "category": "zoom",
+   "label": {
+    "en": "Zoom out",
+    "vi": "Thu nhỏ ra"
+   },
+   "renders_as": "zoom_out",
+   "shows_both": true,
+   "tail_only": true,
+   "tail_frames": "all",
+   "frames": {
+    "default": 12,
+    "min": 6,
+    "max": 24
+   },
+   "direction": "none",
+   "window": "from_boundary",
+   "params": {
+    "scale_to": {
+     "type": "number",
+     "default": 0.3,
+     "min": 0.1,
+     "max": 0.8,
+     "label": {
+      "vi": "Thu cảnh cũ còn"
+     }
+    }
+   },
+   "safe_for": [
+    "picture"
+   ],
+   "when": {
+    "en": "The old shot shrinks away and reveals the new one behind it. Both visible: continuity agree only.",
+    "vi": "Cảnh cũ thu nhỏ để lộ cảnh mới phía sau. Cả hai cùng hiện: chỉ dùng khi agree."
+   },
+   "legacy": false
+  },
+  "iris_circle": {
+   "status": "ready",
+   "category": "iris",
+   "label": {
+    "en": "Circle iris",
+    "vi": "Mở vòng tròn"
+   },
+   "renders_as": "iris_circle",
+   "shows_both": true,
+   "tail_only": true,
+   "tail_frames": "all",
+   "frames": {
+    "default": 12,
+    "min": 8,
+    "max": 30
+   },
+   "direction": "none",
+   "window": "from_boundary",
+   "params": {
+    "centre_x": {
+     "type": "number",
+     "default": 0.5,
+     "min": 0,
+     "max": 1,
+     "label": {
+      "vi": "Tâm X (0-1)"
+     }
+    },
+    "centre_y": {
+     "type": "number",
+     "default": 0.5,
+     "min": 0,
+     "max": 1,
+     "label": {
+      "vi": "Tâm Y (0-1)"
+     }
+    },
+    "softness_px": {
+     "type": "number",
+     "default": 4,
+     "min": 0,
+     "max": 40,
+     "label": {
+      "vi": "Độ mềm viền (px)"
+     }
+    }
+   },
+   "safe_for": [
+    "picture"
+   ],
+   "when": {
+    "en": "An expanding circle reveals the new shot (open it from where the two shots agree). Both visible: continuity agree only.",
+    "vi": "Vòng tròn mở rộng để lộ cảnh mới (mở từ chỗ hai cảnh giống nhau). Cả hai cùng hiện: chỉ dùng khi agree."
+   },
+   "legacy": false
+  },
+  "iris_diamond": {
+   "status": "ready",
+   "category": "iris",
+   "label": {
+    "en": "Diamond iris",
+    "vi": "Mở hình thoi"
+   },
+   "renders_as": "iris_diamond",
+   "shows_both": true,
+   "tail_only": true,
+   "tail_frames": "all",
+   "frames": {
+    "default": 12,
+    "min": 8,
+    "max": 30
+   },
+   "direction": "none",
+   "window": "from_boundary",
+   "params": {
+    "centre_x": {
+     "type": "number",
+     "default": 0.5,
+     "min": 0,
+     "max": 1,
+     "label": {
+      "vi": "Tâm X (0-1)"
+     }
+    },
+    "centre_y": {
+     "type": "number",
+     "default": 0.5,
+     "min": 0,
+     "max": 1,
+     "label": {
+      "vi": "Tâm Y (0-1)"
+     }
+    },
+    "softness_px": {
+     "type": "number",
+     "default": 4,
+     "min": 0,
+     "max": 40,
+     "label": {
+      "vi": "Độ mềm viền (px)"
+     }
+    }
+   },
+   "safe_for": [
+    "picture"
+   ],
+   "when": {
+    "en": "An expanding diamond reveals the new shot. Both visible: continuity agree only.",
+    "vi": "Hình thoi mở rộng để lộ cảnh mới. Cả hai cùng hiện: chỉ dùng khi agree."
+   },
+   "legacy": false
+  },
+  "clock_wipe": {
+   "status": "ready",
+   "category": "wipe",
+   "label": {
+    "en": "Clock wipe",
+    "vi": "Quét đồng hồ"
+   },
+   "renders_as": "clock_wipe",
+   "shows_both": true,
+   "tail_only": true,
+   "tail_frames": "all",
+   "frames": {
+    "default": 12,
+    "min": 8,
+    "max": 30
+   },
+   "direction": "none",
+   "window": "from_boundary",
+   "params": {
+    "start_angle_deg": {
+     "type": "number",
+     "default": 0,
+     "min": 0,
+     "max": 359,
+     "label": {
+      "vi": "Góc bắt đầu (độ)"
+     }
+    },
+    "clockwise": {
+     "type": "boolean",
+     "default": true,
+     "label": {
+      "vi": "Theo chiều kim đồng hồ"
+     }
+    }
+   },
+   "safe_for": [
+    "picture"
+   ],
+   "when": {
+    "en": "A radial sweep like a clock hand reveals the new shot; a fun mechanical look. Both visible: continuity agree only.",
+    "vi": "Quét tròn như kim đồng hồ để lộ cảnh mới; vui mắt. Cả hai cùng hiện: chỉ dùng khi agree."
+   },
+   "legacy": false
+  },
+  "wipe_linear": {
+   "status": "ready",
+   "category": "wipe",
+   "label": {
+    "en": "Linear wipe",
+    "vi": "Quét thẳng"
+   },
+   "renders_as": "wipe",
+   "shows_both": true,
+   "tail_only": true,
+   "tail_frames": "all",
+   "frames": {
+    "default": 12,
+    "min": 6,
+    "max": 30
+   },
+   "direction": "required",
+   "window": "from_boundary",
+   "params": {},
+   "safe_for": [
+    "picture"
+   ],
+   "when": {
+    "en": "A straight soft edge sweeps across (direction -1 right to left, +1 left to right). Both visible: continuity agree only.",
+    "vi": "Một mép mềm quét ngang (-1: phải sang trái, +1: trái sang phải). Cả hai cùng hiện: chỉ dùng khi agree."
+   },
+   "legacy": false
+  },
+  "blinds": {
+   "status": "ready",
+   "category": "wipe",
+   "label": {
+    "en": "Blinds",
+    "vi": "Cửa chớp"
+   },
+   "renders_as": "blinds",
+   "shows_both": true,
+   "tail_only": true,
+   "tail_frames": "all",
+   "frames": {
+    "default": 12,
+    "min": 8,
+    "max": 30
+   },
+   "direction": "none",
+   "window": "from_boundary",
+   "params": {
+    "count": {
+     "type": "integer",
+     "default": 8,
+     "min": 4,
+     "max": 16,
+     "label": {
+      "vi": "Số thanh"
+     }
+    },
+    "axis": {
+     "type": "enum",
+     "default": "h",
+     "values": [
+      "h",
+      "v"
+     ],
+     "label": {
+      "vi": "Hướng thanh (ngang / dọc)"
+     }
+    }
+   },
+   "safe_for": [
+    "picture"
+   ],
+   "when": {
+    "en": "Staggered strips reveal the new shot (calm: 4-6 strips, high energy: 12-16). Both visible: continuity agree only.",
+    "vi": "Các thanh lần lượt lộ cảnh mới (êm: 4-6 thanh, mạnh: 12-16). Cả hai cùng hiện: chỉ dùng khi agree."
+   },
+   "legacy": false
+  },
+  "crossfade": {
+   "status": "ready",
+   "category": "dissolve",
+   "label": {
+    "en": "Cross dissolve",
+    "vi": "Hòa tan"
+   },
+   "renders_as": "dissolve",
+   "shows_both": true,
+   "tail_only": true,
+   "tail_frames": "all",
+   "frames": {
+    "default": 12,
+    "min": 4,
+    "max": 30
+   },
+   "direction": "none",
+   "window": "from_boundary",
+   "params": {
+    "curve": {
+     "type": "enum",
+     "default": "in_out",
+     "values": [
+      "in_out",
+      "out"
+     ],
+     "label": {
+      "vi": "Đường cong"
+     }
+    }
+   },
+   "safe_for": [
+    "picture"
+   ],
+   "when": {
+    "en": "The baseline: the new shot fades in over the old. Only where the two shots agree on characters and props (never two Alices).",
+    "vi": "Mặc định: cảnh mới hiện dần lên cảnh cũ. Chỉ khi hai cảnh khớp nhân vật / đạo cụ (không bao giờ hai Alice)."
+   },
+   "legacy": false
+  },
+  "blur_crossfade": {
+   "status": "ready",
+   "category": "dissolve",
+   "label": {
+    "en": "Blur dissolve",
+    "vi": "Hòa tan nhòe"
+   },
+   "renders_as": "blur_crossfade",
+   "shows_both": true,
+   "tail_only": true,
+   "tail_frames": "all",
+   "frames": {
+    "default": 15,
+    "min": 8,
+    "max": 30
+   },
+   "direction": "none",
+   "window": "from_boundary",
+   "params": {
+    "blur_px": {
+     "type": "number",
+     "default": 10,
+     "min": 0,
+     "max": 30,
+     "label": {
+      "vi": "Độ nhòe (px)"
+     }
+    }
+   },
+   "safe_for": [
+    "picture"
+   ],
+   "when": {
+    "en": "Dissolve with a soft blur: hides a background colour clash. Both visible: continuity agree only.",
+    "vi": "Hòa tan kèm nhòe: che lệch màu nền. Cả hai cùng hiện: chỉ dùng khi agree."
+   },
+   "legacy": false
+  },
+  "focus_pull": {
+   "status": "ready",
+   "category": "dissolve",
+   "label": {
+    "en": "Focus pull",
+    "vi": "Kéo nét"
+   },
+   "renders_as": "focus_pull",
+   "shows_both": true,
+   "tail_only": true,
+   "tail_frames": "all",
+   "frames": {
+    "default": 12,
+    "min": 8,
+    "max": 30
+   },
+   "direction": "none",
+   "window": "from_boundary",
+   "params": {
+    "blur_px": {
+     "type": "number",
+     "default": 15,
+     "min": 0,
+     "max": 30,
+     "label": {
+      "vi": "Độ nhòe cảnh cũ (px)"
+     }
+    }
+   },
+   "safe_for": [
+    "picture"
+   ],
+   "when": {
+    "en": "The old shot defocuses, the new one arrives sharp (depth-of-field feel). Both visible: continuity agree only.",
+    "vi": "Cảnh cũ mờ dần, cảnh mới hiện nét (cảm giác lấy nét). Cả hai cùng hiện: chỉ dùng khi agree."
+   },
+   "legacy": false
+  },
+  "dip_white": {
+   "status": "ready",
+   "category": "dip",
+   "label": {
+    "en": "Dip to white (v010)",
+    "vi": "Nhá trắng"
+   },
+   "renders_as": "dip_white",
+   "shows_both": false,
+   "tail_only": false,
+   "tail_frames": "schedule",
+   "frames": {
+    "fixed": 8
+   },
+   "direction": "none",
+   "window": "schedule",
+   "params": {
+    "sparkles": {
+     "type": "boolean",
+     "default": true,
+     "label": {
+      "vi": "Lấp lánh quanh đỉnh trắng"
+     }
+    }
+   },
+   "safe_for": [
+    "picture"
+   ],
+   "when": {
+    "en": "Camera angle or scene changes and characters / props are laid out differently: the old shot brightens to white, the new emerges from white. One shot visible in every frame.",
+    "vi": "Đổi góc máy / cảnh và nhân vật, đạo cụ bố trí khác: cảnh cũ sáng dần thành trắng, cảnh mới hiện ra từ trắng. Mỗi khung chỉ một cảnh."
+   },
+   "legacy": false,
+   "schedule": [
+    {
+     "t": -2,
+     "shot": "out",
+     "white": 0.15
+    },
+    {
+     "t": -1,
+     "shot": "out",
+     "white": 0.5
+    },
+    {
+     "t": 0,
+     "shot": "out_tail",
+     "white": 0.85
+    },
+    {
+     "t": 1,
+     "shot": "none",
+     "white": 1.0
+    },
+    {
+     "t": 2,
+     "shot": "in",
+     "white": 0.62
+    },
+    {
+     "t": 3,
+     "shot": "in",
+     "white": 0.35
+    },
+    {
+     "t": 4,
+     "shot": "in",
+     "white": 0.15
+    },
+    {
+     "t": 5,
+     "shot": "in",
+     "white": 0.04
+    }
+   ],
+   "overlay": {
+    "kind": "colour",
+    "colour": "#FFF8EC"
+   }
+  },
+  "dip_white_legacy": {
+   "status": "ready",
+   "category": "legacy",
+   "label": {
+    "en": "Dip to white (legacy 9 f)",
+    "vi": "Nhá trắng (bản cũ 9 khung)"
+   },
+   "renders_as": "dip_white",
+   "shows_both": false,
+   "tail_only": false,
+   "tail_frames": "schedule",
+   "frames": {
+    "fixed": 9
+   },
+   "direction": "none",
+   "window": "schedule",
+   "params": {
+    "sparkles": {
+     "type": "boolean",
+     "default": true,
+     "label": {
+      "vi": "Lấp lánh quanh đỉnh trắng"
+     }
+    }
+   },
+   "safe_for": [
+    "picture"
+   ],
+   "when": {
+    "en": "The first build schedule (peak at B+3, hides the first spoken frames). Kept only to reproduce that build; do not use for new cuts.",
+    "vi": "Lịch cũ của bản đầu (đỉnh ở B+3, che mất vài khung đầu lời thoại). Chỉ để dựng lại bản đó; không dùng cho bản mới."
+   },
+   "legacy": true,
+   "schedule": [
+    {
+     "t": -1,
+     "shot": "out",
+     "white": 0.18
+    },
+    {
+     "t": 0,
+     "shot": "out_tail",
+     "white": 0.45
+    },
+    {
+     "t": 1,
+     "shot": "out_tail",
+     "white": 0.75
+    },
+    {
+     "t": 2,
+     "shot": "out_tail",
+     "white": 0.93
+    },
+    {
+     "t": 3,
+     "shot": "none",
+     "white": 1.0
+    },
+    {
+     "t": 4,
+     "shot": "in",
+     "white": 0.9
+    },
+    {
+     "t": 5,
+     "shot": "in",
+     "white": 0.65
+    },
+    {
+     "t": 6,
+     "shot": "in",
+     "white": 0.38
+    },
+    {
+     "t": 7,
+     "shot": "in",
+     "white": 0.15
+    }
+   ],
+   "overlay": {
+    "kind": "colour",
+    "colour": "#FFF8EC"
+   }
+  },
+  "dip_black": {
+   "status": "ready",
+   "category": "dip",
+   "label": {
+    "en": "Dip to black",
+    "vi": "Nhá đen"
+   },
+   "renders_as": "dip_white",
+   "shows_both": false,
+   "tail_only": false,
+   "tail_frames": "schedule",
+   "frames": {
+    "fixed": 8
+   },
+   "direction": "none",
+   "window": "schedule",
+   "params": {
+    "sparkles": {
+     "type": "boolean",
+     "default": false,
+     "label": {
+      "vi": "Lấp lánh quanh đỉnh"
+     }
+    }
+   },
+   "safe_for": [
+    "picture"
+   ],
+   "when": {
+    "en": "Scene or time change with a calmer feel (bedtime, ending of a block): fade through black. One shot visible in every frame.",
+    "vi": "Đổi cảnh / thời gian, êm hơn (giờ ngủ, kết một đoạn): tối dần qua màu đen. Mỗi khung chỉ một cảnh."
+   },
+   "legacy": false,
+   "schedule": [
+    {
+     "t": -2,
+     "shot": "out",
+     "white": 0.15
+    },
+    {
+     "t": -1,
+     "shot": "out",
+     "white": 0.5
+    },
+    {
+     "t": 0,
+     "shot": "out_tail",
+     "white": 0.85
+    },
+    {
+     "t": 1,
+     "shot": "none",
+     "white": 1.0
+    },
+    {
+     "t": 2,
+     "shot": "in",
+     "white": 0.62
+    },
+    {
+     "t": 3,
+     "shot": "in",
+     "white": 0.35
+    },
+    {
+     "t": 4,
+     "shot": "in",
+     "white": 0.15
+    },
+    {
+     "t": 5,
+     "shot": "in",
+     "white": 0.04
+    }
+   ],
+   "overlay": {
+    "kind": "colour",
+    "colour": "#000000"
+   }
+  },
+  "light_leak": {
+   "status": "ready",
+   "category": "light",
+   "label": {
+    "en": "Light leak",
+    "vi": "Rò sáng (light leak)"
+   },
+   "renders_as": "dip_white",
+   "shows_both": false,
+   "tail_only": false,
+   "tail_frames": "schedule",
+   "frames": {
+    "fixed": 12
+   },
+   "direction": "none",
+   "window": "schedule",
+   "params": {
+    "sparkles": {
+     "type": "boolean",
+     "default": false,
+     "label": {
+      "vi": "Lấp lánh quanh đỉnh"
+     }
+    }
+   },
+   "safe_for": [
+    "picture"
+   ],
+   "when": {
+    "en": "Dreamy change of scene: a warm light wash covers the cut. One shot visible in every frame (the swap happens under the leak).",
+    "vi": "Chuyển cảnh mơ màng: dải sáng ấm phủ lên chỗ cắt. Mỗi khung chỉ một cảnh (đổi cảnh ngay dưới dải sáng)."
+   },
+   "legacy": false,
+   "schedule": [
+    {
+     "t": -3,
+     "shot": "out",
+     "white": 0.1
+    },
+    {
+     "t": -2,
+     "shot": "out",
+     "white": 0.3
+    },
+    {
+     "t": -1,
+     "shot": "out",
+     "white": 0.55
+    },
+    {
+     "t": 0,
+     "shot": "out_tail",
+     "white": 0.8
+    },
+    {
+     "t": 1,
+     "shot": "none",
+     "white": 1.0
+    },
+    {
+     "t": 2,
+     "shot": "in",
+     "white": 0.8
+    },
+    {
+     "t": 3,
+     "shot": "in",
+     "white": 0.6
+    },
+    {
+     "t": 4,
+     "shot": "in",
+     "white": 0.42
+    },
+    {
+     "t": 5,
+     "shot": "in",
+     "white": 0.27
+    },
+    {
+     "t": 6,
+     "shot": "in",
+     "white": 0.15
+    },
+    {
+     "t": 7,
+     "shot": "in",
+     "white": 0.07
+    },
+    {
+     "t": 8,
+     "shot": "in",
+     "white": 0.02
+    }
+   ],
+   "overlay": {
+    "kind": "leak"
+   }
+  },
+  "film_burn": {
+   "status": "ready",
+   "category": "light",
+   "label": {
+    "en": "Film burn",
+    "vi": "Cháy phim"
+   },
+   "renders_as": "dip_white",
+   "shows_both": false,
+   "tail_only": false,
+   "tail_frames": "schedule",
+   "frames": {
+    "fixed": 12
+   },
+   "direction": "none",
+   "window": "schedule",
+   "params": {
+    "sparkles": {
+     "type": "boolean",
+     "default": false,
+     "label": {
+      "vi": "Lấp lánh quanh đỉnh"
+     }
+    }
+   },
+   "safe_for": [
+    "picture"
+   ],
+   "when": {
+    "en": "Nostalgic or fun change of scene: warm burn bleeds across the frame. One shot visible in every frame.",
+    "vi": "Chuyển cảnh hoài niệm / vui: vệt cháy ấm lan qua khung hình. Mỗi khung chỉ một cảnh."
+   },
+   "legacy": false,
+   "schedule": [
+    {
+     "t": -3,
+     "shot": "out",
+     "white": 0.08
+    },
+    {
+     "t": -2,
+     "shot": "out",
+     "white": 0.25
+    },
+    {
+     "t": -1,
+     "shot": "out",
+     "white": 0.5
+    },
+    {
+     "t": 0,
+     "shot": "out_tail",
+     "white": 0.8
+    },
+    {
+     "t": 1,
+     "shot": "none",
+     "white": 1.0
+    },
+    {
+     "t": 2,
+     "shot": "in",
+     "white": 0.85
+    },
+    {
+     "t": 3,
+     "shot": "in",
+     "white": 0.7
+    },
+    {
+     "t": 4,
+     "shot": "in",
+     "white": 0.5
+    },
+    {
+     "t": 5,
+     "shot": "in",
+     "white": 0.32
+    },
+    {
+     "t": 6,
+     "shot": "in",
+     "white": 0.18
+    },
+    {
+     "t": 7,
+     "shot": "in",
+     "white": 0.08
+    },
+    {
+     "t": 8,
+     "shot": "in",
+     "white": 0.02
+    }
+   ],
+   "overlay": {
+    "kind": "burn"
+   }
+  },
+  "card_flip_3d": {
+   "status": "ready",
+   "category": "3d",
+   "label": {
+    "en": "3D card flip",
+    "vi": "Lật thẻ 3D"
+   },
+   "renders_as": "card_flip_3d",
+   "shows_both": false,
+   "tail_only": false,
+   "tail_frames": "half",
+   "frames": {
+    "default": 18,
+    "min": 12,
+    "max": 36
+   },
+   "direction": "none",
+   "window": "from_boundary",
+   "params": {
+    "axis": {
+     "type": "enum",
+     "default": "y",
+     "values": [
+      "y",
+      "x"
+     ],
+     "label": {
+      "vi": "Trục lật"
+     }
+    },
+    "perspective_px": {
+     "type": "integer",
+     "default": 1200,
+     "min": 600,
+     "max": 3000,
+     "label": {
+      "vi": "Độ phối cảnh (px)"
+     }
+    }
+   },
+   "safe_for": [
+    "picture"
+   ],
+   "when": {
+    "en": "Playful change of scene: the old shot turns away and the new one turns in. Only one face is visible per frame, so it is picture-safe.",
+    "vi": "Chuyển cảnh vui: cảnh cũ quay đi, cảnh mới quay vào. Mỗi khung chỉ thấy một mặt nên an toàn cho cảnh với cảnh."
+   },
+   "legacy": false
+  },
+  "cloud": {
+   "status": "ready",
+   "category": "wipe",
+   "label": {
+    "en": "Cloud wipe",
+    "vi": "Quét mây"
+   },
+   "renders_as": "cloud",
+   "shows_both": true,
+   "tail_only": true,
+   "tail_frames": "all",
+   "frames": {
+    "default": 12,
+    "min": 4,
+    "max": 30
+   },
+   "direction": "required",
+   "window": "from_boundary",
+   "params": {},
+   "safe_for": [
+    "picture"
+   ],
+   "when": {
+    "en": "Soft cloud front sweeps across; both shots visible: continuity agree only.",
+    "vi": "Mép mây mềm quét ngang; hai cảnh cùng hiện: chỉ dùng khi agree."
+   },
+   "legacy": false
+  },
+  "bubble": {
+   "status": "ready",
+   "category": "wipe",
+   "label": {
+    "en": "Milk bubble splash",
+    "vi": "Bong bóng sữa"
+   },
+   "renders_as": "bubble",
+   "shows_both": true,
+   "tail_only": true,
+   "tail_frames": "all",
+   "frames": {
+    "default": 12,
+    "min": 4,
+    "max": 30
+   },
+   "direction": "none",
+   "window": "from_boundary",
+   "params": {
+    "centre_x": {
+     "type": "number",
+     "default": 0.52,
+     "min": 0,
+     "max": 1,
+     "label": {
+      "vi": "Tâm X"
+     }
+    },
+    "centre_y": {
+     "type": "number",
+     "default": 0.57,
+     "min": 0,
+     "max": 1,
+     "label": {
+      "vi": "Tâm Y"
+     }
+    }
+   },
+   "safe_for": [
+    "picture"
+   ],
+   "when": {
+    "en": "Radial splash wipe around an object both shots share. Both visible: continuity agree only.",
+    "vi": "Quét tròn quanh vật hai cảnh cùng có. Cả hai cùng hiện: chỉ dùng khi agree."
+   },
+   "legacy": false
+  },
+  "dissolve": {
+   "status": "ready",
+   "category": "dissolve",
+   "label": {
+    "en": "Dissolve (tail)",
+    "vi": "Hòa tan (đuôi)"
+   },
+   "renders_as": "dissolve",
+   "shows_both": true,
+   "tail_only": true,
+   "tail_frames": "all",
+   "frames": {
+    "default": 12,
+    "min": 4,
+    "max": 30
+   },
+   "direction": "none",
+   "window": "from_boundary",
+   "params": {
+    "curve": {
+     "type": "enum",
+     "default": "in_out",
+     "values": [
+      "in_out",
+      "out"
+     ],
+     "label": {
+      "vi": "Đường cong"
+     }
+    }
+   },
+   "safe_for": [
+    "picture"
+   ],
+   "when": {
+    "en": "Same renderer as crossfade (earlier name).",
+    "vi": "Cùng cách dựng với crossfade (tên cũ)."
+   },
+   "legacy": false
+  },
+  "wipe": {
+   "status": "ready",
+   "category": "wipe",
+   "label": {
+    "en": "Soft wipe",
+    "vi": "Quét mềm"
+   },
+   "renders_as": "wipe",
+   "shows_both": true,
+   "tail_only": true,
+   "tail_frames": "all",
+   "frames": {
+    "default": 12,
+    "min": 4,
+    "max": 30
+   },
+   "direction": "required",
+   "window": "from_boundary",
+   "params": {},
+   "safe_for": [
+    "picture"
+   ],
+   "when": {
+    "en": "Same renderer as wipe_linear (earlier name).",
+    "vi": "Cùng cách dựng với wipe_linear (tên cũ)."
+   },
+   "legacy": false
+  },
+  "iris": {
+   "status": "ready",
+   "category": "graphic",
+   "label": {
+    "en": "Iris out to logo disc",
+    "vi": "Iris khép ra đĩa logo"
+   },
+   "renders_as": "iris",
+   "shows_both": false,
+   "tail_only": false,
+   "tail_frames": "none",
+   "frames": {
+    "default": 44,
+    "min": 20,
+    "max": 90
+   },
+   "direction": "none",
+   "window": "iris",
+   "params": {
+    "disc_fade_frames": {
+     "type": "integer",
+     "default": 6,
+     "min": 0,
+     "max": 30,
+     "label": {
+      "vi": "Số khung đĩa mờ đi"
+     },
+     "required": true
+    },
+    "iris_close_f": {
+     "type": "integer",
+     "default": 0,
+     "min": 0,
+     "max": 100000,
+     "label": {
+      "vi": "Khung vòng khép hẳn"
+     },
+     "optional": true
+    },
+    "logo_in_f": {
+     "type": "integer",
+     "default": 0,
+     "min": 0,
+     "max": 100000,
+     "label": {
+      "vi": "Khung đĩa logo bắt đầu"
+     },
+     "optional": true
+    },
+    "disc_fade_start_f": {
+     "type": "integer",
+     "default": 0,
+     "min": 0,
+     "max": 100000,
+     "label": {
+      "vi": "Khung đĩa bắt đầu mờ"
+     },
+     "optional": true
+    },
+    "hold_frames": {
+     "type": "integer",
+     "default": 0,
+     "min": 0,
+     "max": 100000,
+     "label": {
+      "vi": "Số khung logo đứng yên trước khi đĩa thu nhỏ"
+     },
+     "optional": true
+    },
+    "card1_ramp_frames": {
+     "type": "integer",
+     "default": 0,
+     "min": 0,
+     "max": 30,
+     "label": {
+      "vi": "Số khung thẻ 1 hiện dần"
+     },
+     "optional": true
+    }
+   },
+   "safe_for": [
+    "picture",
+    "graphic"
+   ],
+   "when": {
+    "en": "The last story picture closes to a circle and a logo disc grows out of it (picture to card).",
+    "vi": "Khung hình cuối khép thành vòng tròn và đĩa logo mọc ra (cảnh sang thẻ)."
+   },
+   "legacy": false
+  },
+  "bloom": {
+   "status": "ready",
+   "category": "graphic",
+   "label": {
+    "en": "Warm bloom",
+    "vi": "Chói ấm"
+   },
+   "renders_as": "bloom",
+   "shows_both": false,
+   "tail_only": false,
+   "tail_frames": "none",
+   "frames": {
+    "default": 6,
+    "min": 2,
+    "max": 12,
+    "even": true
+   },
+   "direction": "none",
+   "window": "centred",
+   "params": {},
+   "safe_for": [
+    "picture",
+    "graphic"
+   ],
+   "when": {
+    "en": "A short warm glow bridging a title into the first shot.",
+    "vi": "Ánh sáng ấm ngắn nối tiêu đề vào cảnh đầu."
+   },
+   "legacy": false
+  },
+  "card_slide": {
+   "status": "ready",
+   "category": "graphic",
+   "label": {
+    "en": "Card slide",
+    "vi": "Trượt thẻ"
+   },
+   "renders_as": "card_slide",
+   "shows_both": true,
+   "tail_only": false,
+   "tail_frames": "none",
+   "frames": {
+    "default": 6,
+    "min": 2,
+    "max": 12
+   },
+   "direction": "required",
+   "window": "from_boundary",
+   "params": {},
+   "safe_for": [
+    "graphic"
+   ],
+   "when": {
+    "en": "Swap between two flashcards of the same layout (graphic to graphic).",
+    "vi": "Đổi giữa hai thẻ từ vựng cùng bố cục (đồ họa sang đồ họa)."
+   },
+   "legacy": false
+  },
+  "plate_in": {
+   "status": "ready",
+   "category": "graphic",
+   "label": {
+    "en": "End plate in",
+    "vi": "Vào tấm kết"
+   },
+   "renders_as": "plate_in",
+   "shows_both": true,
+   "tail_only": false,
+   "tail_frames": "none",
+   "frames": {
+    "default": 4,
+    "min": 2,
+    "max": 12
+   },
+   "direction": "none",
+   "window": "from_boundary",
+   "params": {},
+   "safe_for": [
+    "graphic"
+   ],
+   "when": {
+    "en": "The closing logo plate arrives after the last spoken word.",
+    "vi": "Tấm logo kết xuất hiện sau từ cuối cùng."
+   },
+   "legacy": false
+  },
+  "glitch": {
+   "status": "planned",
+   "category": "graphic",
+   "label": {
+    "en": "Glitch",
+    "vi": "Nhiễu giật"
+   },
+   "renders_as": "cut",
+   "shows_both": true,
+   "tail_only": true,
+   "tail_frames": "all",
+   "frames": {
+    "default": 12,
+    "min": 6,
+    "max": 30
+   },
+   "direction": "none",
+   "window": "from_boundary",
+   "params": {},
+   "safe_for": [
+    "graphic"
+   ],
+   "when": {
+    "en": "Decorative; for card / graphic boundaries only in a kids film (not picture-to-picture).",
+    "vi": "Trang trí; chỉ dùng ở ranh giới thẻ / đồ họa trong phim thiếu nhi (không dùng cảnh với cảnh)."
+   },
+   "legacy": false,
+   "kids_note": "Not for picture-to-picture; not implemented in phase 1."
+  },
+  "ripple": {
+   "status": "planned",
+   "category": "graphic",
+   "label": {
+    "en": "Ripple",
+    "vi": "Gợn sóng"
+   },
+   "renders_as": "cut",
+   "shows_both": true,
+   "tail_only": true,
+   "tail_frames": "all",
+   "frames": {
+    "default": 12,
+    "min": 6,
+    "max": 30
+   },
+   "direction": "none",
+   "window": "from_boundary",
+   "params": {},
+   "safe_for": [
+    "graphic"
+   ],
+   "when": {
+    "en": "Decorative; for card / graphic boundaries only in a kids film (not picture-to-picture).",
+    "vi": "Trang trí; chỉ dùng ở ranh giới thẻ / đồ họa trong phim thiếu nhi (không dùng cảnh với cảnh)."
+   },
+   "legacy": false,
+   "kids_note": "Not for picture-to-picture; not implemented in phase 1."
+  },
+  "grid_dissolve": {
+   "status": "planned",
+   "category": "graphic",
+   "label": {
+    "en": "Grid dissolve",
+    "vi": "Tan theo ô"
+   },
+   "renders_as": "cut",
+   "shows_both": true,
+   "tail_only": true,
+   "tail_frames": "all",
+   "frames": {
+    "default": 12,
+    "min": 6,
+    "max": 30
+   },
+   "direction": "none",
+   "window": "from_boundary",
+   "params": {},
+   "safe_for": [
+    "graphic"
+   ],
+   "when": {
+    "en": "Decorative; for card / graphic boundaries only in a kids film (not picture-to-picture).",
+    "vi": "Trang trí; chỉ dùng ở ranh giới thẻ / đồ họa trong phim thiếu nhi (không dùng cảnh với cảnh)."
+   },
+   "legacy": false,
+   "kids_note": "Not for picture-to-picture; not implemented in phase 1."
+  }
+ }
+}

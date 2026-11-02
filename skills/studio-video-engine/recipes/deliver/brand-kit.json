@@ -1,0 +1,7 @@
+{
+  "schema": "jjv/deliver-brand-kit/v1",
+  "note": "File-name patterns of the brand kit's per-episode outputs (<kit>/episodes/<episode_id>/). Data for engine/deliver/init.py; the kit itself has no manifest.",
+  "props": "title-props.json",
+  "intro": "brand-intro-4K-2160p30-v001.mp4",
+  "title": "title-{slug}-4K-2160p30-v001.mp4"
+}

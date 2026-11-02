@@ -1,0 +1,433 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jjv/schemas/boundaries/v1",
+  "$comment": "Declarative editorial input of `jjv editorial build-config`. Paths are relative to the episode root. Cross-field rules (both-shots forbidden under mismatch/unknown continuity, tail handles, coverage) are enforced by engine/editorial, not by this schema.",
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "from_shot",
+        "to_shot",
+        "class",
+        "type",
+        "motivation",
+        "continuity"
+      ],
+      "properties": {
+        "frame": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Optional: the start of to_shot on the timeline. When written it must equal it."
+        },
+        "from_shot": {
+          "type": "string",
+          "minLength": 1
+        },
+        "to_shot": {
+          "type": "string",
+          "minLength": 1
+        },
+        "class": {
+          "enum": [
+            "carry",
+            "cut"
+          ]
+        },
+        "type": {
+          "enum": [
+            "none",
+            "cut",
+            "cut_push",
+            "whip",
+            "pan_motivated",
+            "push_slide",
+            "zoom_through",
+            "zoom_out",
+            "iris_circle",
+            "iris_diamond",
+            "clock_wipe",
+            "wipe_linear",
+            "blinds",
+            "crossfade",
+            "blur_crossfade",
+            "focus_pull",
+            "dip_white",
+            "dip_white_legacy",
+            "dip_black",
+            "light_leak",
+            "film_burn",
+            "card_flip_3d",
+            "cloud",
+            "bubble",
+            "dissolve",
+            "wipe",
+            "iris",
+            "bloom",
+            "card_slide",
+            "plate_in"
+          ],
+          "description": "A transition PRESET name from schemas/transition-presets.json (the one source of truth: category, frames rule, params, direction, tail, shows_both, safe_for). This enum is generated from the catalog's ready presets (a test asserts equality); a planned preset is refused with its own message. 'none' = pixel-continuous carry, 'cut' = designed hard cut. `dip_white` with frames 9 is the legacy schedule (preset dip_white_legacy, build warning)."
+        },
+        "frames": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Optional: omitted = the preset default; written = must satisfy the preset's frames rule (fixed | min/max/even)."
+        },
+        "direction": {
+          "enum": [
+            -1,
+            0,
+            1
+          ],
+          "description": "Optional (0 when omitted); required to be -1 or +1 by presets whose direction rule is 'required'."
+        },
+        "motivation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "continuity": {
+          "enum": [
+            "agree",
+            "mismatch",
+            "unknown"
+          ]
+        },
+        "g_bridge": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tail_clip": {
+          "$ref": "#/$defs/path",
+          "description": "Native clip of the outgoing shot, inside the episode root (or allow-listed)."
+        },
+        "params": {
+          "type": "object",
+          "description": "Preset params; unknown, out-of-range or mistyped ones are refused, defaults are filled."
+        },
+        "framing": {
+          "enum": [
+            "same_framing",
+            "new_framing"
+          ],
+          "description": "Optional. same_framing (same seat/angle) + a visible preset gives a build warning (use cut or cut_push)."
+        }
+      }
+    },
+    "card": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "term",
+        "audio"
+      ],
+      "properties": {
+        "term": {
+          "type": "string",
+          "minLength": 1
+        },
+        "start_frame": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Required unless ending.derive_timeline (then derived from the card WAVs)."
+        },
+        "duration_frames": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Required unless ending.derive_timeline (then max(card_min_frames, ceil(wav_seconds x fps)))."
+        },
+        "audio": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "sha256"
+          ],
+          "properties": {
+            "path": {
+              "$ref": "#/$defs/path"
+            },
+            "sha256": {
+              "$ref": "#/$defs/sha256"
+            }
+          }
+        }
+      }
+    },
+    "icon_term": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "term",
+        "icon"
+      ],
+      "properties": {
+        "term": {
+          "type": "string",
+          "minLength": 1
+        },
+        "icon": {
+          "$ref": "#/$defs/path"
+        }
+      }
+    },
+    "silent_window": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "shot",
+        "start_frame",
+        "end_frame_exclusive",
+        "max_rms"
+      ],
+      "properties": {
+        "shot": {
+          "type": "string",
+          "minLength": 1
+        },
+        "start_frame": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end_frame_exclusive": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_rms": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 0.05,
+          "description": "Largest RMS (full scale) the EXPORT may have in the window; 0 < max_rms <= 0.05 (-26 dBFS). The ceiling is the engine constant engine/qa/av.py SILENT_MAX_RMS_CEILING and is justified by measurement on ep04: its quietest dialogue WAV has RMS 0.0731 and the silent-window bed measures 0.0279 (v010, S06_B3). Choose bed-relative: the measured bed times sqrt(2) (a line as loud as the bed raises the window by 3 dB), never above the ceiling. A larger value is refused."
+        }
+      }
+    },
+    "silent_bound": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "The expect_silent window as written into a review config's wav_bindings (silent_window without the shot name); qa av validates it with this definition.",
+      "required": [
+        "start_frame",
+        "end_frame_exclusive",
+        "max_rms"
+      ],
+      "properties": {
+        "start_frame": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end_frame_exclusive": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_rms": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 0.05,
+          "description": "Largest RMS (full scale) the EXPORT may have in the window; 0 < max_rms <= 0.05 (-26 dBFS). The ceiling is the engine constant engine/qa/av.py SILENT_MAX_RMS_CEILING and is justified by measurement on ep04: its quietest dialogue WAV has RMS 0.0731 and the silent-window bed measures 0.0279 (v010, S06_B3). Choose bed-relative: the measured bed times sqrt(2) (a line as loud as the bed raises the window by 3 dB), never above the ceiling. A larger value is refused."
+        }
+      }
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "episode_id",
+    "boundaries",
+    "icons"
+  ],
+  "properties": {
+    "schema": {
+      "const": "jjv/boundaries/v1"
+    },
+    "episode_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "boundaries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/boundary"
+      }
+    },
+    "cards": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/card"
+      }
+    },
+    "icons": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "dir",
+        "terms",
+        "hold_frames",
+        "fade_frames",
+        "pop_frames",
+        "lead_frames"
+      ],
+      "properties": {
+        "dir": {
+          "$ref": "#/$defs/path"
+        },
+        "terms": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/icon_term"
+          }
+        },
+        "hold_frames": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "fade_frames": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "pop_frames": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "lead_frames": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "ending": {
+      "type": "object",
+      "$comment": "Render parameters of the ending, passed through to the config. end_logo.frames/from_frame/total_frames are DERIVED from the episode timeline (end_card_frames) and may not be declared here. derive_timeline: card lengths come from the card WAVs, card 1 starts logo_hold_frames after the dialogue end, the end plate follows the last card window (end_plate.placement), main_frames = plate start + frames_after_card_window, the end card (EndLogo) is end_card_frames, and the logo disc layout / iris window follow the outro start (editorial property only; the domain master contract is unchanged, a longer result only warns).",
+      "properties": {
+        "end_plate": {
+          "type": "object",
+          "properties": {
+            "start": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Required unless ending.derive_timeline; when written it must equal the placement rule (card_end: the end of the last card window; speech_end: ceil of the measured speech end)."
+            },
+            "placement": {
+              "enum": [
+                "card_end",
+                "speech_end"
+              ],
+              "description": "Where the end plate starts. speech_end (default without derive_timeline): ceil of the measured end of the last card word, inside the last card window. card_end (default with derive_timeline): the first frame after the last card window; never before the measured speech end."
+            },
+            "frames_after_card_window": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "card_end only: plate frames kept inside the main film after the last card window (default 4); the end card follows."
+            }
+          }
+        },
+        "logo": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "sha256"
+          ],
+          "properties": {
+            "path": {
+              "$ref": "#/$defs/path"
+            },
+            "sha256": {
+              "$ref": "#/$defs/sha256"
+            }
+          }
+        },
+        "end_logo": {
+          "type": "object"
+        },
+        "derive_timeline": {
+          "type": "boolean"
+        },
+        "logo_hold_frames": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Schema sanity only (a positive integer); the floor is the domain delivery.sections.logo_hold.min, enforced by engine/editorial/end_card.check_params. derive_timeline: the still logo hold in frames between the dialogue end and card 1 (card 1 starts at dialogue end + logo_hold_frames). Default 60."
+        },
+        "end_card_frames": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Schema sanity only; the floor is the domain delivery.end_card.frames_min (end_card.check_params). derive_timeline: length of the end card (EndLogo) after the main film. Default: the episode timeline end_card_frames."
+        },
+        "card_min_frames": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Schema sanity only; the floor is the domain delivery.sections.vocab_card.min (end_card.check_params)."
+        },
+        "logo_disc_layout": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number"
+          },
+          "description": "Numeric layout of the logo disc (slide_start, slide_end, slide_x, pill_left_x, disc_in, ...), passed through as data."
+        },
+        "music_bed": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "extend"
+          ],
+          "description": "Music bed policy for a derived (longer) timeline, validated and passed through.",
+          "properties": {
+            "extend": {
+              "enum": [
+                "loop_phrase_crossfade",
+                "none"
+              ]
+            },
+            "loop_start_s": {
+              "type": "number",
+              "minimum": 0
+            },
+            "loop_end_s": {
+              "type": "number",
+              "minimum": 0
+            },
+            "crossfade_frames": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "duck_db": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "duck_attack_frames": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "duck_release_frames": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "duck_under": {
+              "enum": [
+                "words"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "expect_silent": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/silent_window"
+      },
+      "description": "One entry per physical shot whose bound WAV is silent. The window must equal the shot's window; qa av then checks that the EXPORT stays at or below max_rms (RMS, full scale) there and reports the measured bed level. A silent WAV without an entry, an entry for an audible WAV, max_rms above 0.05, or words timed inside the window are refused."
+    }
+  }
+}

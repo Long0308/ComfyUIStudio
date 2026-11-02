@@ -1,0 +1,214 @@
+{
+ "provenance": {
+  "url": "http://127.0.0.1:8188/object_info",
+  "fetched_at_utc": "2026-10-31T12:40:35Z",
+  "comfyui_version": "0.41.0",
+  "full_response_sha256": "f7b2b25772ea89235464f8b0fffdab649b693cb34b0f579bf955ac71b760c269",
+  "full_class_count": 685,
+  "kept_classes": [
+   "ComfySwitchNode",
+   "CodexOAuthImageLane"
+  ],
+  "note": "Classes missing from object_info_cache.json; GET only."
+ },
+ "nodes": {
+  "ComfySwitchNode": {
+   "input": {
+    "required": {
+     "switch": [
+      "BOOLEAN",
+      {}
+     ]
+    },
+    "optional": {
+     "on_false": [
+      "COMFY_MATCHTYPE_V3",
+      {
+       "lazy": true,
+       "template": {
+        "template_id": "switch",
+        "allowed_types": "*"
+       }
+      }
+     ],
+     "on_true": [
+      "COMFY_MATCHTYPE_V3",
+      {
+       "lazy": true,
+       "template": {
+        "template_id": "switch",
+        "allowed_types": "*"
+       }
+      }
+     ]
+    }
+   },
+   "input_order": {
+    "required": [
+     "switch"
+    ],
+    "optional": [
+     "on_false",
+     "on_true"
+    ]
+   },
+   "is_input_list": false,
+   "output": [
+    "COMFY_MATCHTYPE_V3"
+   ],
+   "output_is_list": [
+    false
+   ],
+   "output_name": [
+    "output"
+   ],
+   "output_tooltips": [
+    null
+   ],
+   "output_matchtypes": [
+    "switch"
+   ],
+   "name": "ComfySwitchNode",
+   "display_name": "If/Else Switch",
+   "description": "",
+   "python_module": "comfy_extras.nodes_logic",
+   "category": "utilities/logic",
+   "output_node": false,
+   "deprecated": false,
+   "experimental": true,
+   "dev_only": false,
+   "api_node": false,
+   "price_badge": null,
+   "search_aliases": [
+    "if",
+    "then",
+    "switch",
+    "conditional",
+    "branch"
+   ],
+   "essentials_category": null,
+   "has_intermediate_output": false
+  },
+  "CodexOAuthImageLane": {
+   "input": {
+    "required": {
+     "prompt": [
+      "STRING",
+      {
+       "multiline": true,
+       "default": ""
+      }
+     ],
+     "count": [
+      "INT",
+      {
+       "default": 10,
+       "min": 1,
+       "max": 10
+      }
+     ],
+     "episode": [
+      "STRING",
+      {
+       "default": "Newtecons-TienDo-KichTinh-30s"
+      }
+     ],
+     "kind": [
+      [
+       "SHOT",
+       "FACE",
+       "ACTION",
+       "ASSET",
+       "SET",
+       "FIX"
+      ],
+      {
+       "default": "SHOT"
+      }
+     ]
+    },
+    "optional": {
+     "refs": [
+      "IMAGE"
+     ],
+     "ref_role": [
+      "STRING",
+      {
+       "default": "identity"
+      }
+     ],
+     "prompts": [
+      "STRING",
+      {
+       "multiline": true,
+       "default": ""
+      }
+     ],
+     "timeout_seconds": [
+      "INT",
+      {
+       "default": 3600,
+       "min": 60,
+       "max": 14400
+      }
+     ],
+     "context": [
+      [
+       "(default)",
+       "cong_truong",
+       "van_phong",
+       "van_phong_suit"
+      ],
+      {
+       "default": "(default)"
+      }
+     ],
+     "company_wardrobe": [
+      "IMAGE"
+     ],
+     "scene_ref": [
+      "IMAGE"
+     ]
+    }
+   },
+   "input_order": {
+    "required": [
+     "prompt",
+     "count",
+     "episode",
+     "kind"
+    ],
+    "optional": [
+     "refs",
+     "ref_role",
+     "prompts",
+     "timeout_seconds",
+     "context",
+     "company_wardrobe",
+     "scene_ref"
+    ]
+   },
+   "is_input_list": false,
+   "output": [
+    "IMAGE",
+    "STRING"
+   ],
+   "output_is_list": [
+    false,
+    false
+   ],
+   "output_name": [
+    "images",
+    "job_info"
+   ],
+   "name": "CodexOAuthImageLane",
+   "display_name": "Codex OAuth Image Lane (cloud GPT — not local GPU)",
+   "description": "Cloud GPT image tool through Codex OAuth lanes on the host bridge: NOT local GPU inference. Each Run spends ChatGPT quota (count images).",
+   "python_module": "custom_nodes.codex_lane_bridge",
+   "category": "NEWTECONS/codex (cloud GPT)",
+   "output_node": false,
+   "has_intermediate_output": false,
+   "search_aliases": []
+  }
+ }
+}

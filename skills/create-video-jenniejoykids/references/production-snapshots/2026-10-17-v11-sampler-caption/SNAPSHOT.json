@@ -1,0 +1,253 @@
+{
+  "at_utc": "2026-10-16T20:44:31.258775+00:00",
+  "files": [
+    {
+      "path": "production-request-v9.json",
+      "sha256": "3dd21650d1a9c3ab247a2aaf1748672c38d80619aa7676ed4aadecbef7ccb643",
+      "bytes": 256491
+    },
+    {
+      "path": "TASK-TRACKING.md",
+      "sha256": "78f936e15ec76b0c20e1fc49ea4f8753e203e7c1427ba457af20b8888c9ca284",
+      "bytes": 6723
+    },
+    {
+      "path": "task-tracking.json",
+      "sha256": "0f8ccb35bc0ad7fbf6670188fbdff23aea12e1c0362591b0852274f4016f33a7",
+      "bytes": 14375
+    },
+    {
+      "path": "SOUND-DESIGN.md",
+      "sha256": "6acf0926cfa2a170b044675a548571638cba8274daabebf15d9cea625ce2504e",
+      "bytes": 4220
+    },
+    {
+      "path": "handoffs/milestone-12-caption-and-sampler-trial.md",
+      "sha256": "116fc09f343bb2be1a7b338b95fcfb9936390c0e10937d2f1787e3005ed6b5a6",
+      "bytes": 1732
+    },
+    {
+      "path": "caption-position-review/top-left-code-review.md",
+      "sha256": "8a40f24094ae882e45d18cb7ba5bb9959c60fee57bba7898f93727fb9d5c69ac",
+      "bytes": 2685
+    },
+    {
+      "path": "caption-position-review/top-left-python-review.md",
+      "sha256": "6ea5786632bf1c37b357d12c7d04679bb1a5c9acc1e14392fcbca1dada56a42a",
+      "bytes": 3095
+    },
+    {
+      "path": "qa/caption-placement-top-left-react-review.md",
+      "sha256": "5e8c7314287721d7936f5e375bfbfde226154052a264202950a0d3bc876a499b",
+      "bytes": 2371
+    },
+    {
+      "path": "qa/caption-placement-top-left-typescript-review.md",
+      "sha256": "c62cae8318dc2c2d9361afe1a23216964488611ffac54751fe7b1642dc751ddc",
+      "bytes": 2699
+    },
+    {
+      "path": "qa/S01-B-v10/measurement.json",
+      "sha256": "d8caf8792c52bd315cc457b687f1382be6fc4ddc850b80aeb7f8fa095fc2e29f",
+      "bytes": 8136
+    },
+    {
+      "path": "qa/S01-B-v10/native-technical-qa.json",
+      "sha256": "042e9f7b11e222f5299ac7e9dcbb45dfdc1d7bfbaec6d2c2f0b888feab401ed0",
+      "bytes": 372641
+    },
+    {
+      "path": "qa/S01-B-v10/editorial-technical-qa.json",
+      "sha256": "904901ddd99b1141f400e8af63329f1a3a2d9b0e28aae1e16764a508d3e9dde5",
+      "bytes": 354318
+    },
+    {
+      "path": "A5-preview-v3/technical-qa.json",
+      "sha256": "6b2d2950666e6a0ffb3da55e0c5f60f31db8e68848a40079d68b30f63182619c",
+      "bytes": 307982
+    },
+    {
+      "path": "A5-preview-v3/visual-review.json",
+      "sha256": "9120433f32ecee600b204b51b61746e58917a1a53b8e0212ad9de3759e58ea2b",
+      "bytes": 1019
+    },
+    {
+      "path": "A5-preview-v3/preservation.json",
+      "sha256": "9ad4fa616a01cb20b9e6bad096e7002079321f7a32e579c723ddd17ebe7ec31c",
+      "bytes": 293
+    },
+    {
+      "path": "A5-preview-v3/edit-settings.json",
+      "sha256": "d583389681b4ede1a43312cf18a3a734a5a7a3e99c5f9f495e894f9382c80569",
+      "bytes": 1722
+    },
+    {
+      "path": "A5-preview-v3/frames/f024.png",
+      "sha256": "c495c7c5a6025729e61d20eee09a54bb61c3a0cb2b371e9b4b16dffcc9eb718a",
+      "bytes": 1024500
+    },
+    {
+      "path": "observations/H3-official-native-research-v11/video_minimax_h3_r2v.json",
+      "sha256": "afeea99e9fd5a1456df348e0573e289c1243f2f28546fc95c1c963f808d61ddb",
+      "bytes": 45323
+    },
+    {
+      "path": "observations/H3-official-native-research-v11/model-metadata.json",
+      "sha256": "8d37c3e3da754b9b7116822c53457c09c4f03b913eec5a611d78772bbe6fd745",
+      "bytes": 892
+    },
+    {
+      "path": "shots/S01-B-repair-v10/workflow/code-review.md",
+      "sha256": "09b781a2b4add4f12bdec10b67b2d7c00e1bbf579e8b9342d4ae93ea7279d5f5",
+      "bytes": 3199
+    },
+    {
+      "path": "shots/S01-B-repair-v10/workflow/python-review.md",
+      "sha256": "39f75a25f43d20a325d145595e2ae4083e82df00b55eef6e8c62b1b105d00d18",
+      "bytes": 4956
+    },
+    {
+      "path": "shots/S01-B-repair-v11-simple/workflow-patch.json",
+      "sha256": "b5588da04ecd226fa1ddd961610674daeb0c169edb6a884c86217262cb5f4c4b",
+      "bytes": 1503
+    },
+    {
+      "path": "shots/S01-B-repair-v11-simple/workflow/workflow-api.json",
+      "sha256": "1facae6299a32c0126a548401650c329ecc1c41b9354894b8a5b39dfdceaee9a",
+      "bytes": 22427
+    },
+    {
+      "path": "shots/S01-B-repair-v11-simple/workflow/workflow-provenance.json",
+      "sha256": "3e7d305e697fe828b5b7c2ae56d5125740eb86b3dce484307a75bf688d881ba6",
+      "bytes": 8417
+    },
+    {
+      "path": "shots/S01-B-repair-v11-simple/run/prompt-integrity.json",
+      "sha256": "2daf965044448e0af26703865a84c458025d8e8bc147d24456f68b723f41d1ac",
+      "bytes": 350
+    },
+    {
+      "path": "scenes/scene-01/SCENE.json",
+      "sha256": "37acb0848ba05249502cee75f4ab6d744c87628f8eb3d224dec253941af0433f",
+      "bytes": 33660
+    },
+    {
+      "path": "scenes/scene-01/SCENE.md",
+      "sha256": "20977beecc20c19fcf6fa784cc672bc2a7ce787bc93b2a740262aff1b8fa44c6",
+      "bytes": 34316
+    },
+    {
+      "path": "scenes/scene-01/SOUND-PLAN.json",
+      "sha256": "479ec28c6b6ae91190dc9e23ea7a2d77cf368ef0989aa2528bc552f02068f90c",
+      "bytes": 3954
+    },
+    {
+      "path": "scenes/scene-01/SOUND-PLAN.md",
+      "sha256": "be23c61b4d3d095211e7feb45b93df1d1543d0f87d88665170a21b2191ad418c",
+      "bytes": 4449
+    },
+    {
+      "path": "scenes/scene-02/SCENE.json",
+      "sha256": "419b4ffc6891a66177905b038b8af83c8dc8c3375bd2a9ac4ba383b49c037867",
+      "bytes": 38535
+    },
+    {
+      "path": "scenes/scene-02/SCENE.md",
+      "sha256": "cc24090d7d5caa45e1d91d1aaf21f047e68a5177466273c2eb488a06e38ca3d0",
+      "bytes": 39198
+    },
+    {
+      "path": "scenes/scene-02/SOUND-PLAN.json",
+      "sha256": "9366f521cf815f8d05f3d45fddc96e6df4ebdeefdb8073882d65ccc1e249194a",
+      "bytes": 3827
+    },
+    {
+      "path": "scenes/scene-02/SOUND-PLAN.md",
+      "sha256": "9cb919ced6e7b48604b29d7d31d85432ce42cd43df4b3b137d3866d0069fa215",
+      "bytes": 4285
+    },
+    {
+      "path": "scenes/scene-03/SCENE.json",
+      "sha256": "8038215e3a5a1a75f4d001610dd9ca528d2219676e1384e52ebe9182097e7933",
+      "bytes": 39779
+    },
+    {
+      "path": "scenes/scene-03/SCENE.md",
+      "sha256": "381c303e6eeff41fe75edd0f50418b45471fb7ef7b6a3c48c9e91dd57b818cd5",
+      "bytes": 40433
+    },
+    {
+      "path": "scenes/scene-03/SOUND-PLAN.json",
+      "sha256": "d941cb8cc60cf03f4d15352813d82de31dabdf361e3ba9c3bb2fd404f9d27091",
+      "bytes": 3771
+    },
+    {
+      "path": "scenes/scene-03/SOUND-PLAN.md",
+      "sha256": "2637097f17ceb0826b0f63bfa019b1bddc516141bbdab980cb02cd53c9375d5c",
+      "bytes": 4192
+    },
+    {
+      "path": "scenes/scene-04/SCENE.json",
+      "sha256": "fce89131881a5bdf5faf4fc73fd84d588d49998c9e9451d44a9d0524bafe8ea3",
+      "bytes": 40638
+    },
+    {
+      "path": "scenes/scene-04/SCENE.md",
+      "sha256": "659eca0843d5bd95871f1e921a96582501366e4d0bea22920e31194ae8dd4a42",
+      "bytes": 41301
+    },
+    {
+      "path": "scenes/scene-04/SOUND-PLAN.json",
+      "sha256": "1e4c01eea8a9a896dd40236c4f5c8b6961bd6b6ef928b2ac1eee6a66c2371407",
+      "bytes": 3876
+    },
+    {
+      "path": "scenes/scene-04/SOUND-PLAN.md",
+      "sha256": "1481c92c7c6bb9f507b2e9aa72d01678f5c11e95d6be6443ee465aaa8be05e11",
+      "bytes": 4361
+    },
+    {
+      "path": "scenes/scene-05/SCENE.json",
+      "sha256": "82e65e76aeac94e02758d7bb2c93842ee8a1d5a5f353f8f1f125d9d511101551",
+      "bytes": 38696
+    },
+    {
+      "path": "scenes/scene-05/SCENE.md",
+      "sha256": "5532de0d74f978582311d688cc35f71d1e0cbb5e1a319c70121738b10630727f",
+      "bytes": 39355
+    },
+    {
+      "path": "scenes/scene-05/SOUND-PLAN.json",
+      "sha256": "10085b037412b5edecda70b7bb0d2e94a051e589f3de9bf7f1037b747a54a28a",
+      "bytes": 4975
+    },
+    {
+      "path": "scenes/scene-05/SOUND-PLAN.md",
+      "sha256": "fa1afee5eb1ac7a21e347adbac1803071f21a13120d69ec9e14d9e7729e56fa0",
+      "bytes": 5562
+    },
+    {
+      "path": "scenes/scene-06/SCENE.json",
+      "sha256": "4db17a4f78737b46a6316555692b45285ce872c46c92270f26c498ec6031a256",
+      "bytes": 36326
+    },
+    {
+      "path": "scenes/scene-06/SCENE.md",
+      "sha256": "ebd4b1fc7e1aa1198fc472f8b08c2d904b4b62a346aefc1878777b7fb44a6716",
+      "bytes": 36979
+    },
+    {
+      "path": "scenes/scene-06/SOUND-PLAN.json",
+      "sha256": "2251b931aefa680e1ef065d89440507a82fa27e70dad1bba8d628c4201a06a1b",
+      "bytes": 3933
+    },
+    {
+      "path": "scenes/scene-06/SOUND-PLAN.md",
+      "sha256": "f8f3e8394ba63c7c776f70e3018bdf9b9d6d3f5ad59ccfeee068a79c60057e68",
+      "bytes": 4505
+    }
+  ],
+  "live_job_at_snapshot": "f0472c3b-1da2-420c-b485-97e37f47728a",
+  "full_scene_acceptance": false,
+  "full60s_delivered": false
+}

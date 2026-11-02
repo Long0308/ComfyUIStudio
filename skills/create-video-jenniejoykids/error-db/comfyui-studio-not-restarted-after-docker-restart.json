@@ -1,0 +1,17 @@
+{
+  "id": "comfyui-studio-not-restarted-after-docker-restart",
+  "engine": "Comfyui-Studio Docker / ComfyUI 0.41.0",
+  "environment": "Windows 11, Docker Desktop, RTX 5080, ComfyUI published on 127.0.0.1:8188",
+  "observed_at": "2026-10-27",
+  "symptom": "ComfyUI on 127.0.0.1:8188 refused connections. `docker ps -a` showed Comfyui-Studio 'Exited (255)' finishing 2026-10-26T23:05:53Z (06:05 Asia/Bangkok) with OOMKilled=false and restart policy 'no', while SetupAgent containers (restart policies set) were 'Up 2 hours'. comfy-cli / MCP server_info also reports running:false because ComfyUI is a Docker process, not a comfy-cli process.",
+  "root_cause": "Docker Engine restarted; containers with restart policy 'no' are not brought back. Exit 255 is the engine-shutdown code, not a ComfyUI crash (last logs were idle-release and asset scans, no traceback).",
+  "root_cause_status": "probable",
+  "fix_or_workaround": "Check `docker ps -a --filter name=Comfyui-Studio` before declaring the queue idle or the GPU free. If Exited, run `docker start Comfyui-Studio` and poll GET /queue until HTTP 200; then GET /system_stats for VRAM. Starting the container submits no job. FIX (2026-10-27 R27, user decision T-E05): production-local/comfyui-docker/compose.yaml now sets restart policy `unless-stopped` and the container was recreated, so it is configured to come back after a Docker Engine restart (not yet exercised) (previous compose: production-local/comfyui-docker/runtime-receipts/compose-before-r27-20261027090357.yaml). Keep the docker ps -a check.",
+  "prevention": "Treat 'connection refused on 8188' as a container-state question first. Changing the restart policy (e.g. unless-stopped) is a user decision because it makes the GPU service start with Docker; it is tracked as T-E05 in the episode PLAN. Do not interpret comfy-cli `running:false` as ComfyUI being down.",
+  "verification": "2026-10-27 R27: after `docker start Comfyui-Studio`, GET /queue = {queue_running:[], queue_pending:[]}, /system_stats comfyui_version 0.41.0, cuda:0 RTX 5080 14.60 GiB free. After the compose change and recreation (2026-10-27), `docker inspect` reports restart policy `unless-stopped`; the restart-after-Docker-Engine-restart path itself was not re-triggered in this verification.",
+  "status": "config_fixed_restart_unverified",
+  "evidence_paths": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/PLAN.md"
+  ],
+  "affected_artifacts": []
+}

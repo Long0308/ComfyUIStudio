@@ -1,0 +1,26 @@
+{
+  "schema": "jjv/images-local-recipe/v1",
+  "id": "krea2-edit-local-v001",
+  "comment": "Local ComfyUI Krea2 edit route. qualification.status is UNQUALIFIED: no accepted full-cast frame was ever made locally (storyboard v014/v015 rejected, v016 blocked, v017 never run), so a real submit needs the explicit --pilot flag (a user-authorised GPU pilot). Model/LoRA file names are the ones present on this machine (read 2026-10-27 from models/ and an existing saved graph); their sha256 are NOT measured here.",
+  "qualification": {"status": "unqualified", "reason": "no accepted local full-cast frame yet; requires a user-authorised GPU pilot"},
+  "models": {
+    "unet": "krea2_turbo_int8_convrot.safetensors",
+    "clip": "qwen3vl_4b_fp8_scaled.safetensors",
+    "vae": "qwen_image_vae.safetensors"
+  },
+  "loras": {
+    "general": "krea2_general_edit_v2.safetensors",
+    "identity": "krea2_identity_edit_v2.safetensors"
+  },
+  "default_task": "general",
+  "lora_strength": 1.0,
+  "sampler": {"steps": 8, "cfg": 1.0, "sampler_name": "euler", "scheduler": "simple", "denoise": 1.0},
+  "patch": {"ref_boost": 1.0, "ref_boost_a": 1.0, "fit_mode": "fit", "ref_position": "beside (right of target)", "ref_position_a": "aligned (trained)"},
+  "grounding_px": 768,
+  "max_pixels": 2000000,
+  "multiple_of": 16,
+  "min_free_vram_mib": 10240,
+  "history_timeout_seconds": 900,
+  "poll_seconds": 2.0,
+  "output_prefix": "jjv-images"
+}

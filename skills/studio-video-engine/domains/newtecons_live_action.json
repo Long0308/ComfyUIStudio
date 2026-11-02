@@ -1,0 +1,671 @@
+{
+  "schema": "jjv/domain/v1",
+  "domain_id": "newtecons_live_action",
+  "label": "NEWTECONS live action",
+  "frame_rates": {
+    "native_fps": 24,
+    "delivery_fps": 24,
+    "mapping": {
+      "num": 1,
+      "den": 1
+    }
+  },
+  "delivery": {
+    "master": {
+      "width": 1920,
+      "height": 1080,
+      "fps": 24
+    },
+    "length": {
+      "main_frames_min": 240,
+      "main_frames_max": 4320
+    },
+    "review": {
+      "width": 1280,
+      "height": 720
+    },
+    "section_kinds": [
+      "intro",
+      "dialogue",
+      "broll",
+      "insert",
+      "motion_still",
+      "title",
+      "logo_hold",
+      "end_plate",
+      "end_card"
+    ],
+    "sections": {
+      "pause_native": {
+        "min": 6,
+        "max": 24
+      },
+      "broll": {
+        "min": 1,
+        "max": 4320,
+        "fixed": true,
+        "duration_source": "beat.duration_s"
+      },
+      "insert": {
+        "min": 1,
+        "max": 4320,
+        "fixed": true,
+        "duration_source": "beat.duration_s"
+      },
+      "motion_still": {
+        "min": 1,
+        "max": 4320,
+        "fixed": true,
+        "duration_source": "beat.duration_s"
+      },
+      "title": {
+        "min": 1,
+        "max": 4320,
+        "fixed": true,
+        "duration_source": "beat.duration_s"
+      },
+      "logo_hold": {
+        "min": 48,
+        "max": 96
+      },
+      "end_plate": {
+        "lead_min": 10,
+        "tail_min": 10,
+        "max": 120
+      }
+    },
+    "assemble": {
+      "enabled": true,
+      "edl_schema": "ntc/ep05-edl/v1",
+      "master": {
+        "width": 2560,
+        "height": 1440,
+        "fps": 24
+      },
+      "review": {
+        "width": 1920,
+        "height": 1080
+      },
+      "kinds": [
+        "clip",
+        "card",
+        "slate"
+      ],
+      "transitions": [
+        "cut",
+        "dissolve"
+      ],
+      "fonts": {
+        "regular": "C:/Windows/Fonts/arial.ttf",
+        "bold": "C:/Windows/Fonts/arialbd.ttf"
+      },
+      "card": {
+        "background": "white",
+        "logo_height_frac": 0.42,
+        "logo_fade_frames": 14
+      },
+      "audio": {
+        "sample_rate": 48000,
+        "dialogue_ref_dbfs": -16.5,
+        "tracks": [
+          {
+            "stem": "final",
+            "title": "Mix",
+            "codec": "flac",
+            "default": true,
+            "language": "vie",
+            "verify_exact": true
+          },
+          {
+            "stem": "dialogue",
+            "title": "Dialogue",
+            "codec": "flac",
+            "language": "vie",
+            "verify_exact": true
+          },
+          {
+            "stem": "music",
+            "title": "Music",
+            "codec": "flac",
+            "language": "zxx",
+            "verify_exact": true
+          },
+          {
+            "stem": "sfx",
+            "title": "SFX",
+            "codec": "flac",
+            "language": "zxx",
+            "verify_exact": true
+          }
+        ]
+      },
+      "easy": {
+        "codec": "aac",
+        "bitrate": "256k"
+      },
+      "review_encode": {
+        "crf": 18,
+        "audio_bitrate": "192k"
+      }
+    }
+  },
+  "forbidden_node_classes": [
+    "ClaudeNode",
+    "JJClaudeBridge"
+  ],
+  "forbid_partner_nodes": true,
+  "allowed_custom_nodes": [
+    "comfyui-krea2edit",
+    "newtecons_live_preview",
+    "newtecons_branding"
+  ],
+  "allowed_recipes": [],
+  "voice": {
+    "allowed_recipes": [
+      "voice/ntc-vi-adopt-passthrough-v001"
+    ],
+    "require_listen_approval": true
+  },
+  "audio": {
+    "allowed_recipes": [
+      "audio/music-pick-ntc-v001",
+      "audio/ntc-instrumental-v001",
+      "audio/ntc-site-sfx-v001",
+      "audio/ntc-mix-cinema-multitrack-v001"
+    ],
+    "sfx_default_on": true
+  },
+  "timing": {
+    "allowed_recipes": [
+      "timing/ntc-vi-words-v001"
+    ]
+  },
+  "post": {
+    "logo_composite": {
+      "enabled": true,
+      "asset": {
+        "path": "production-local/character-library/newtecons/wardrobe/v001/originals/LOGO_NEWTECONS_COLOR.png",
+        "sha256": "e320eabbf4af707351a6e36e13cf961fca71b43c058d84e60b61c3681552ca51"
+      },
+      "assets": {
+        "white": {
+          "path": "production-local/character-library/newtecons/wardrobe/v001/originals/LOGO_NEWTECONS_WHITE.png",
+          "sha256": "785e1770dfcb5d60e15c4ec5cbb85cf666dbf5431185896b891c98a26dac1df7"
+        }
+      },
+      "detect": {
+        "search_region": {
+          "x": 0.25,
+          "y": 0.1,
+          "w": 0.5,
+          "h": 0.5
+        },
+        "mark_height_frac": {
+          "min": 0.012,
+          "max": 0.03
+        },
+        "aspect_tolerance": 0.4,
+        "mark_rgb": [
+          50,
+          55,
+          103
+        ],
+        "dark_threshold": 50,
+        "fill_range": [
+          0.2,
+          0.95
+        ],
+        "color_min_similarity": 0.5,
+        "box_pad_frac": 0.2,
+        "search_frames": 12,
+        "min_score": 0.15,
+        "min_margin": 0.05,
+        "min_agreement": 0.5
+      }
+    },
+    "grade": {
+      "enabled": true,
+      "luts": {
+        "newtecons_film_v001": {
+          "path": "recipes/grade/newtecons_film_v001.cube",
+          "sha256": "2348b9962998a680387fb39f1b0ac00f92455e2ac5bfdf9a3c559b4002c7c524"
+        }
+      }
+    }
+  },
+  "final_gate": {
+    "enabled": true,
+    "rule": "NO_FINAL_UNTIL_SHOTS_APPROVED",
+    "rule_source": "production-local/engine/staging/newtecons-30s/USER-DECISIONS-2026-11-01-v003.json",
+    "decision_roots": [
+      "production-local/engine/staging/newtecons-30s"
+    ]
+  },
+  "identity_guard": {
+    "enabled": true,
+    "roles": [
+      "face",
+      "identity",
+      "head",
+      "face_ref",
+      "face_identity"
+    ],
+    "allowed_refs": [
+      {
+        "name": "CHAR_08_FACE_ANCHOR_USER_APPROVED",
+        "path": "production-local/ComfyUI/input/CHAR_08_FACE_ANCHOR_USER_APPROVED_c921dfea.png",
+        "sha256": "e98503e940625c25e8be87d8abff507578cbecd4775d5a62c42b76d25cd43359",
+        "source": "handover 2026-11-01-1745 section 8: user-approved CHAR_08 anchor (ComfyUI input copy)",
+        "tier": "canon"
+      },
+      {
+        "name": "FACESET-CODEX-CHAR_06-V001/portrait_00001_",
+        "path": "docs/media-stage/FACESET-CODEX-CHAR_06-V001/portrait_00001_.png",
+        "sha256": "825126b375a06f07ded0656542b43d9d4f92d2f2a3c1fa71b39d56d2e847e696",
+        "source": "face set README KEEP row (QA proposal)",
+        "tier": "qa_keep"
+      },
+      {
+        "name": "FACESET-CODEX-CHAR_06-V001/portrait_00002_",
+        "path": "docs/media-stage/FACESET-CODEX-CHAR_06-V001/portrait_00002_.png",
+        "sha256": "87d8eefa7023961fe46019aa0e55503a93fa5a740ff671b0bab6a6103756b4dd",
+        "source": "face set README KEEP row (QA proposal)",
+        "tier": "qa_keep"
+      },
+      {
+        "name": "FACESET-CODEX-CHAR_06-V001/portrait_00003_",
+        "path": "docs/media-stage/FACESET-CODEX-CHAR_06-V001/portrait_00003_.png",
+        "sha256": "bc7b44b82400ce11cee113dcaecfa85696a076ff5470661fd46ddbd72e4f5037",
+        "source": "face set README KEEP row (QA proposal)",
+        "tier": "qa_keep"
+      },
+      {
+        "name": "FACESET-CODEX-CHAR_06-V001/portrait_00004_",
+        "path": "docs/media-stage/FACESET-CODEX-CHAR_06-V001/portrait_00004_.png",
+        "sha256": "6767ba40399ac31e900b2c354374ae110c98c8efd539cc1701d188176825598f",
+        "source": "face set README KEEP row (QA proposal)",
+        "tier": "qa_keep"
+      },
+      {
+        "name": "FACESET-CODEX-CHAR_06-V001/portrait_00005_",
+        "path": "docs/media-stage/FACESET-CODEX-CHAR_06-V001/portrait_00005_.png",
+        "sha256": "207d50f4095f6e416a70ee5fedbdacd54ebf3df225cd006d95da45126ff0d538",
+        "source": "face set README KEEP row (QA proposal)",
+        "tier": "qa_keep"
+      },
+      {
+        "name": "FACESET-CODEX-CHAR_06-V001/portrait_00006_",
+        "path": "docs/media-stage/FACESET-CODEX-CHAR_06-V001/portrait_00006_.png",
+        "sha256": "aec8a0b66cfeeeb31168ce586813e17946f49f267f8d3ad1fdb7741e9bae6f22",
+        "source": "face set README KEEP row (QA proposal)",
+        "tier": "qa_keep"
+      },
+      {
+        "name": "FACESET-CODEX-CHAR_06-V001/portrait_00008_",
+        "path": "docs/media-stage/FACESET-CODEX-CHAR_06-V001/portrait_00008_.png",
+        "sha256": "17ba9b6a9b285b6eb8d3a755543655e38207f4522099e7a7389605bde401535a",
+        "source": "face set README KEEP row (QA proposal)",
+        "tier": "qa_keep"
+      },
+      {
+        "name": "FACESET-CODEX-CHAR_08-V001/portrait_00002_",
+        "path": "docs/media-stage/FACESET-CODEX-CHAR_08-V001/portrait_00002_.png",
+        "sha256": "24fe0308c5a017f276267420383885ce14d6b9f55ce9eb0af5c15543e0e6c6e2",
+        "source": "face set README KEEP row (QA proposal)",
+        "tier": "qa_keep"
+      },
+      {
+        "name": "FACESET-CODEX-CHAR_08-V001/portrait_00003_",
+        "path": "docs/media-stage/FACESET-CODEX-CHAR_08-V001/portrait_00003_.png",
+        "sha256": "cafbf832bf5f912d2654083d28693b4e64247f61275c52a4a686be8c6c773938",
+        "source": "face set README KEEP row (QA proposal)",
+        "tier": "qa_keep"
+      },
+      {
+        "name": "FACESET-CODEX-CHAR_08-V001/portrait_00004_",
+        "path": "docs/media-stage/FACESET-CODEX-CHAR_08-V001/portrait_00004_.png",
+        "sha256": "e316dea096043237517176cc204527b44a2810f8cd6fdadd9e0c9d09b8b89f3e",
+        "source": "face set README KEEP row (QA proposal)",
+        "tier": "qa_keep"
+      },
+      {
+        "name": "FACESET-CODEX-CHAR_08-V001/portrait_00005_",
+        "path": "docs/media-stage/FACESET-CODEX-CHAR_08-V001/portrait_00005_.png",
+        "sha256": "414d6c02fa8012a0ebcbcb60177caf20ab113a6d228c7acafc751a689f7fd00e",
+        "source": "face set README KEEP row (QA proposal)",
+        "tier": "qa_keep"
+      },
+      {
+        "name": "FACESET-CODEX-CHAR_08-V001/portrait_00006_",
+        "path": "docs/media-stage/FACESET-CODEX-CHAR_08-V001/portrait_00006_.png",
+        "sha256": "0c50eff813f4bfec9d71dc59059ea64cc237f2ef8e1396a1319ceca9d55ca723",
+        "source": "face set README KEEP row (QA proposal)",
+        "tier": "qa_keep"
+      },
+      {
+        "name": "FACESET-CODEX-CHAR_08-V001/portrait_00008_",
+        "path": "docs/media-stage/FACESET-CODEX-CHAR_08-V001/portrait_00008_.png",
+        "sha256": "951d5b08eb4254b72925e9e2e3ae3070357a1d22364f2a90b3b26fb5ae1acbf9",
+        "source": "face set README KEEP row (QA proposal)",
+        "tier": "qa_keep"
+      },
+      {
+        "name": "42_anh_goc/CHAR_02_so1_23992e8b5664",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_02_so1_23992e8b5664.png",
+        "sha256": "23992e8b566467a0bbfa72efe37173d91ae0113100cf024f028439b76657a696",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_02_so2_8f39ae3d38a1",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_02_so2_8f39ae3d38a1.png",
+        "sha256": "8f39ae3d38a12809aea0966677568168372fb26d113be815d0a4b09f886a6371",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_02_so3_ec26c53bf39b",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_02_so3_ec26c53bf39b.png",
+        "sha256": "ec26c53bf39bef8e7b1ceafb9e07b51bcda704bed8222c2f9fe6c8d0b098227d",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_02_so4_a700bcd7ee28",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_02_so4_a700bcd7ee28.png",
+        "sha256": "a700bcd7ee28aee12909b2cc49b14879f314e702e233cabdd90179ba620e7c3d",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_02_so5_bf94075b8aff",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_02_so5_bf94075b8aff.png",
+        "sha256": "bf94075b8afff7792e2bacfa633c70c91ff07354b970c1dadb2cfd53154b8740",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_02_so6_d43404713f4f",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_02_so6_d43404713f4f.png",
+        "sha256": "d43404713f4f401cacfa0ec02480c6784bf40266f07b1725c7e501e591fbe9e4",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_03_so1_ea103ff0b67a",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_03_so1_ea103ff0b67a.png",
+        "sha256": "ea103ff0b67a4ba5b23beda37a9ebe49eb0f83a8a036a8fe303f4aac0d277e36",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_03_so2_b7945fba19b6",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_03_so2_b7945fba19b6.png",
+        "sha256": "b7945fba19b61d8de9a3144ff60cfbca78e1b3dd99316d8b7057e19c7dfcefc3",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_03_so3_3accd17b93ec",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_03_so3_3accd17b93ec.png",
+        "sha256": "3accd17b93ec27f555f033e8210282b34845737bbf4f2b819ae5c1464579ef6b",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_03_so4_dea1b6ac0365",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_03_so4_dea1b6ac0365.png",
+        "sha256": "dea1b6ac0365edc6fbb3b22a95e571b53a7056a4e3e82924476e6b9d6f06b40d",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_03_so5_9ac00e9c8e23",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_03_so5_9ac00e9c8e23.png",
+        "sha256": "9ac00e9c8e23f80ef64f5e31128c738a56a4006c5f6a682e3af2424e08ded178",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_03_so6_42d1cb2db998",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_03_so6_42d1cb2db998.png",
+        "sha256": "42d1cb2db998627c5f4b33c5bb98ea054680760e294265092e08fe951126aa88",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_04_so1_4b49bc7f2391",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_04_so1_4b49bc7f2391.png",
+        "sha256": "4b49bc7f2391aa46d7082f93c495dd1a547de6ab1feda7acb706d4871de59b53",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_04_so2_832196b335f8",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_04_so2_832196b335f8.png",
+        "sha256": "832196b335f83193c79fd7cc3e28a6fc68f8cf36a37ff590dc85b96b1634bd71",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_04_so3_62f392bc2125",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_04_so3_62f392bc2125.png",
+        "sha256": "62f392bc21255d12e38139e1b2fb6902edff4636b0ba26e23b793631cca9814b",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_04_so4_748a08366d11",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_04_so4_748a08366d11.png",
+        "sha256": "748a08366d111fe5436448b6daca7770a21377f545312b76cc627d1bb254b6cd",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_04_so5_1b4089fc24a1",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_04_so5_1b4089fc24a1.png",
+        "sha256": "1b4089fc24a1857049b092aba31f3f60bad2f5b2901bbaf49d5b801cfb820ce5",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_04_so6_e6e64bc2cc34",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_04_so6_e6e64bc2cc34.png",
+        "sha256": "e6e64bc2cc34c3b7352f485d5f992ef1cc098f2c3ef2b4109e85ccb43bdd54ae",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_05_so1_06ce07f4defe",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_05_so1_06ce07f4defe.png",
+        "sha256": "06ce07f4defe4362ab0eed9197952c9c3fb42a5e88a7f6963305c2d45d5920f9",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_05_so2_057d3cc16273",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_05_so2_057d3cc16273.png",
+        "sha256": "057d3cc16273cc40e854271275f573f664015c7880cb7a1c310f686c477087b0",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_05_so3_8e617e951e3f",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_05_so3_8e617e951e3f.png",
+        "sha256": "8e617e951e3f86fae2781630a8af39a52a68c04d67b52c2cc2ab9ceeaf431884",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_05_so4_2b093fcae833",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_05_so4_2b093fcae833.png",
+        "sha256": "2b093fcae833bc1a6a9541dc055aca540f885e6b2d488135b85f608c5fdfd14e",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_05_so5_f7a236033615",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_05_so5_f7a236033615.png",
+        "sha256": "f7a23603361545d53d795f54bda5a5a4e689adc8c7aa462e21612209356da99c",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_05_so6_c11c930c0db5",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_05_so6_c11c930c0db5.png",
+        "sha256": "c11c930c0db571ea12f88b4e24b5faa26520a754b7d5d46f54ce2ab66d07fb82",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_06_so1_a9ec7f1f096b",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_06_so1_a9ec7f1f096b.png",
+        "sha256": "a9ec7f1f096b86da1491af201dd985f6919b9d40bd5cbc885f7057b7fe3e3961",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_06_so2_20e9ebbd8648",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_06_so2_20e9ebbd8648.png",
+        "sha256": "20e9ebbd8648b665020931faa44c913c1a866213305539ca8c10f959babd9e89",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_06_so3_a5e7365c4e6b",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_06_so3_a5e7365c4e6b.png",
+        "sha256": "a5e7365c4e6bfe480a22748f320d4ddfb7280b662abee7b5863b50beb497c0fc",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_06_so4_fb6d08dc6dfb",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_06_so4_fb6d08dc6dfb.png",
+        "sha256": "fb6d08dc6dfb18e198388d47e801d120fd91e1e6119d005846ab985397190919",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_06_so5_2dda7bd6289d",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_06_so5_2dda7bd6289d.png",
+        "sha256": "2dda7bd6289d7ef61d562bd330fa7661c455ade0b1dac175796b8f7081c950c4",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_06_so6_186ca92565f7",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_06_so6_186ca92565f7.png",
+        "sha256": "186ca92565f7a4e10c9b42845cf17afa08a8992493702dd4c4c29c1a20320d08",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_07_so1_56d259ce541f",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_07_so1_56d259ce541f.png",
+        "sha256": "56d259ce541ffc1f4e568a01524443ad74e07844826c56de8df916d0b963c8b8",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_07_so2_0a704c0451c8",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_07_so2_0a704c0451c8.png",
+        "sha256": "0a704c0451c8fd67179b2e660ed4ba9d47bd38488b04ae2ef8e22fed07f39514",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_07_so3_26c9e2120985",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_07_so3_26c9e2120985.png",
+        "sha256": "26c9e212098595b6cd1c4357beeb2817cb0aad8213dfe3ddf406b8ba48b0573b",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_07_so4_82368a9bb1f3",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_07_so4_82368a9bb1f3.png",
+        "sha256": "82368a9bb1f3a5b19b1f7a56f4e22b99fabc9e9e62c881d9c919b05ea365cdcb",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_07_so5_1e24375f2904",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_07_so5_1e24375f2904.png",
+        "sha256": "1e24375f29045d789d3c6e65216d02d28fe8cc8def5f07bfd78daa2643931cd0",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_07_so6_7a9511d2d761",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_07_so6_7a9511d2d761.png",
+        "sha256": "7a9511d2d761988063327686c52ee94ae0141289f61d8dc039a49b2cd3ad6fd1",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_08_so1_dcb24e27c764",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_08_so1_dcb24e27c764.png",
+        "sha256": "dcb24e27c7649d2044d08f9f5c0d9d16d40806e632e5dca8d9ea6b2a149aaedb",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_08_so2_4898eda93f73",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_08_so2_4898eda93f73.png",
+        "sha256": "4898eda93f73cbcb5d953562f15034a0a61095ced5424921cb31390ee42c6ba8",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_08_so3_c1cf236420f6",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_08_so3_c1cf236420f6.png",
+        "sha256": "c1cf236420f65db32664f03d459003a49935f43d0833f8f7d68b74e3085fe70d",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_08_so4_31b41d41ec94",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_08_so4_31b41d41ec94.png",
+        "sha256": "31b41d41ec945a9a6eeea2466f083d5fc8c1a6ca1e9d7c86f5eb0f9f7799948e",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_08_so5_f0218d070d72",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_08_so5_f0218d070d72.png",
+        "sha256": "f0218d070d724d4388726516322d240bf31b523c56defc79360fd724d4b10949",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      },
+      {
+        "name": "42_anh_goc/CHAR_08_so6_3b67e85726d2",
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/REVIEW/2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat/42_anh_goc/CHAR_08_so6_3b67e85726d2.png",
+        "sha256": "3b67e85726d266bb5a29e667e7747c32a4335348b506a6dc0f8ffc7ef8ee66f4",
+        "source": "user-approved 42-image face set (REVIEW 2026-10-31-CHO-ANH-CHOT/9_duyet_mat_nhan_vat)",
+        "tier": "canon"
+      }
+    ]
+  },
+  "model_policy": {
+    "enabled": true,
+    "roles": {
+      "still_base": [
+        "flux2_dev_fp8mixed",
+        "qwen_image_2512",
+        "qwen_image_edit_2511"
+      ],
+      "identity": [
+        "krea2_turbo",
+        "bfs_head_swap_v1.1_krea2",
+        "krea2_identity_edit_v2"
+      ],
+      "video": [
+        "minimax_h3_ref2va",
+        "minimax_h3_fl2va"
+      ]
+    },
+    "banned_models": [
+      "flux-2-klein-4b-fp8"
+    ],
+    "notes": "qwen_image_edit_2511 only edits an existing REAL photo/frame, never a hand collage; source handover 2026-11-01-1745 section 8 and 1840 model inventory"
+  }
+}

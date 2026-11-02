@@ -1,0 +1,813 @@
+{
+  "at_utc": "2026-10-16T20:54:18.891776+00:00",
+  "settings": {
+    "model_path": "C:\\Users\\Admin\\AppData\\Local\\OmniVoice\\hf_cache\\models--Systran--faster-whisper-large-v3\\snapshots\\edaa852ec7e145841d8ffdb056a99866b5f0a478",
+    "model": "faster-whisper-large-v3",
+    "device": "cpu",
+    "compute_type": "int8",
+    "cpu_threads": 4,
+    "num_workers": 1,
+    "local_files_only": true,
+    "language": "en",
+    "beam_size": 5,
+    "condition_on_previous_text": false,
+    "temperature": 0,
+    "word_timestamps": true,
+    "vad_filter": true,
+    "initial_prompt": null,
+    "hotwords": null
+  },
+  "actual_execution_device": "cpu",
+  "total_seconds": 33.375,
+  "inputs": [
+    {
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\audio\\canonical-v2\\alice-canonical-60s.wav",
+      "source_sha256": "348e8d8ca0c1fe60aaf3d827c63289eb246e5c9163fe607096735f977b41b79c",
+      "source_bytes_unchanged": true,
+      "elapsed_seconds": 14.437,
+      "actual_device": "cpu",
+      "expected_text": "Mom, Dad, and me! Let's go to the zoo! Look! A little bird. Bird. A little bird. I see a giraffe. A tall giraffe! Hello, little tiger! Tiger. Hello, tiger! Look! A panda. Panda. A hungry panda. Bye-bye, animals! Bye-bye, zoo!",
+      "recognized_text": "Mom, Dad, and me. Let's go to the zoo. A little bird. Bird. A little bird. I see a giraffe. A tall giraffe. Hello, little tiger. Tiger. Hello, tiger. Panda. Panda. A hungry panda. Bye-bye, animals. Bye-bye, zoo.",
+      "normalized_reference_word_count": 43,
+      "word_edit_distance": 3,
+      "word_error_rate": 0.06976744186046512,
+      "segments": [
+        {
+          "start": 1.07,
+          "end": 2.69,
+          "text": " Mom, Dad, and me.",
+          "avg_logprob": -0.3281267053202579,
+          "no_speech_prob": 0.14905810356140137,
+          "words": [
+            {
+              "start": 1.07,
+              "end": 1.71,
+              "word": " Mom,",
+              "probability": 0.9471667408943176
+            },
+            {
+              "start": 1.87,
+              "end": 2.29,
+              "word": " Dad,",
+              "probability": 0.6876721382141113
+            },
+            {
+              "start": 2.31,
+              "end": 2.49,
+              "word": " and",
+              "probability": 0.9969561100006104
+            },
+            {
+              "start": 2.49,
+              "end": 2.69,
+              "word": " me.",
+              "probability": 0.8625795841217041
+            }
+          ]
+        },
+        {
+          "start": 2.97,
+          "end": 7.56,
+          "text": " Let's go to the zoo.",
+          "avg_logprob": -0.3281267053202579,
+          "no_speech_prob": 0.14905810356140137,
+          "words": [
+            {
+              "start": 2.97,
+              "end": 3.77,
+              "word": " Let's",
+              "probability": 0.996253252029419
+            },
+            {
+              "start": 6.52,
+              "end": 6.62,
+              "word": " go",
+              "probability": 0.9993201494216919
+            },
+            {
+              "start": 6.62,
+              "end": 6.96,
+              "word": " to",
+              "probability": 0.9984385371208191
+            },
+            {
+              "start": 6.96,
+              "end": 7.24,
+              "word": " the",
+              "probability": 0.9994786381721497
+            },
+            {
+              "start": 7.24,
+              "end": 7.56,
+              "word": " zoo.",
+              "probability": 0.9855153560638428
+            }
+          ]
+        },
+        {
+          "start": 11.64,
+          "end": 12.96,
+          "text": " A little bird.",
+          "avg_logprob": -0.3281267053202579,
+          "no_speech_prob": 0.14905810356140137,
+          "words": [
+            {
+              "start": 11.64,
+              "end": 12.06,
+              "word": " A",
+              "probability": 0.9889023900032043
+            },
+            {
+              "start": 12.06,
+              "end": 12.42,
+              "word": " little",
+              "probability": 0.9872949719429016
+            },
+            {
+              "start": 12.42,
+              "end": 12.96,
+              "word": " bird.",
+              "probability": 0.9994561076164246
+            }
+          ]
+        },
+        {
+          "start": 15.98,
+          "end": 16.4,
+          "text": " Bird.",
+          "avg_logprob": -0.3281267053202579,
+          "no_speech_prob": 0.14905810356140137,
+          "words": [
+            {
+              "start": 15.98,
+              "end": 16.4,
+              "word": " Bird.",
+              "probability": 0.9581436514854431
+            }
+          ]
+        },
+        {
+          "start": 16.7,
+          "end": 18.0,
+          "text": " A little bird.",
+          "avg_logprob": -0.3281267053202579,
+          "no_speech_prob": 0.14905810356140137,
+          "words": [
+            {
+              "start": 16.7,
+              "end": 17.16,
+              "word": " A",
+              "probability": 0.9985066056251526
+            },
+            {
+              "start": 17.16,
+              "end": 17.58,
+              "word": " little",
+              "probability": 0.9994719624519348
+            },
+            {
+              "start": 17.58,
+              "end": 18.0,
+              "word": " bird.",
+              "probability": 0.999900221824646
+            }
+          ]
+        },
+        {
+          "start": 18.42,
+          "end": 22.42,
+          "text": " I see a giraffe.",
+          "avg_logprob": -0.3281267053202579,
+          "no_speech_prob": 0.14905810356140137,
+          "words": [
+            {
+              "start": 18.42,
+              "end": 18.88,
+              "word": " I",
+              "probability": 0.9986224174499512
+            },
+            {
+              "start": 21.24,
+              "end": 21.62,
+              "word": " see",
+              "probability": 0.9998277425765991
+            },
+            {
+              "start": 21.62,
+              "end": 21.88,
+              "word": " a",
+              "probability": 0.9997736811637878
+            },
+            {
+              "start": 21.88,
+              "end": 22.42,
+              "word": " giraffe.",
+              "probability": 0.9994475245475769
+            }
+          ]
+        },
+        {
+          "start": 25.77,
+          "end": 27.53,
+          "text": " A tall giraffe.",
+          "avg_logprob": -0.3281267053202579,
+          "no_speech_prob": 0.14905810356140137,
+          "words": [
+            {
+              "start": 25.77,
+              "end": 26.43,
+              "word": " A",
+              "probability": 0.9995089769363403
+            },
+            {
+              "start": 26.43,
+              "end": 26.89,
+              "word": " tall",
+              "probability": 0.9996699094772339
+            },
+            {
+              "start": 26.89,
+              "end": 27.53,
+              "word": " giraffe.",
+              "probability": 0.9998511075973511
+            }
+          ]
+        },
+        {
+          "start": 28.11,
+          "end": 32.48,
+          "text": " Hello, little tiger.",
+          "avg_logprob": -0.3281267053202579,
+          "no_speech_prob": 0.14905810356140137,
+          "words": [
+            {
+              "start": 28.11,
+              "end": 28.39,
+              "word": " Hello,",
+              "probability": 0.9977626800537109
+            },
+            {
+              "start": 31.62,
+              "end": 31.98,
+              "word": " little",
+              "probability": 0.9960651993751526
+            },
+            {
+              "start": 31.98,
+              "end": 32.48,
+              "word": " tiger.",
+              "probability": 0.998729407787323
+            }
+          ]
+        },
+        {
+          "start": 32.92,
+          "end": 33.62,
+          "text": " Tiger.",
+          "avg_logprob": -0.3281267053202579,
+          "no_speech_prob": 0.14905810356140137,
+          "words": [
+            {
+              "start": 32.92,
+              "end": 33.62,
+              "word": " Tiger.",
+              "probability": 0.999090313911438
+            }
+          ]
+        },
+        {
+          "start": 36.82,
+          "end": 38.08,
+          "text": " Hello, tiger.",
+          "avg_logprob": -0.3281267053202579,
+          "no_speech_prob": 0.14905810356140137,
+          "words": [
+            {
+              "start": 36.82,
+              "end": 37.56,
+              "word": " Hello,",
+              "probability": 0.9960483908653259
+            },
+            {
+              "start": 37.66,
+              "end": 38.08,
+              "word": " tiger.",
+              "probability": 0.9986728429794312
+            }
+          ]
+        },
+        {
+          "start": 38.52,
+          "end": 39.24,
+          "text": " Panda.",
+          "avg_logprob": -0.3281267053202579,
+          "no_speech_prob": 0.14905810356140137,
+          "words": [
+            {
+              "start": 38.52,
+              "end": 39.24,
+              "word": " Panda.",
+              "probability": 0.9996882677078247
+            }
+          ]
+        },
+        {
+          "start": 42.71,
+          "end": 43.37,
+          "text": " Panda.",
+          "avg_logprob": -0.3281267053202579,
+          "no_speech_prob": 0.14905810356140137,
+          "words": [
+            {
+              "start": 42.71,
+              "end": 43.37,
+              "word": " Panda.",
+              "probability": 0.9992165565490723
+            }
+          ]
+        },
+        {
+          "start": 46.06,
+          "end": 47.6,
+          "text": " A hungry panda.",
+          "avg_logprob": -0.3281267053202579,
+          "no_speech_prob": 0.14905810356140137,
+          "words": [
+            {
+              "start": 46.06,
+              "end": 46.64,
+              "word": " A",
+              "probability": 0.9952113032341003
+            },
+            {
+              "start": 46.64,
+              "end": 47.1,
+              "word": " hungry",
+              "probability": 0.999545156955719
+            },
+            {
+              "start": 47.1,
+              "end": 47.6,
+              "word": " panda.",
+              "probability": 0.9976779818534851
+            }
+          ]
+        },
+        {
+          "start": 48.28,
+          "end": 52.13,
+          "text": " Bye-bye, animals.",
+          "avg_logprob": -0.3281267053202579,
+          "no_speech_prob": 0.14905810356140137,
+          "words": [
+            {
+              "start": 48.28,
+              "end": 48.72,
+              "word": " Bye",
+              "probability": 0.9989567995071411
+            },
+            {
+              "start": 51.35,
+              "end": 51.59,
+              "word": "-bye,",
+              "probability": 0.9877821207046509
+            },
+            {
+              "start": 51.69,
+              "end": 52.13,
+              "word": " animals.",
+              "probability": 0.9993657469749451
+            }
+          ]
+        },
+        {
+          "start": 52.65,
+          "end": 57.36,
+          "text": " Bye-bye, zoo.",
+          "avg_logprob": -0.3281267053202579,
+          "no_speech_prob": 0.14905810356140137,
+          "words": [
+            {
+              "start": 52.65,
+              "end": 53.15,
+              "word": " Bye",
+              "probability": 0.9970672726631165
+            },
+            {
+              "start": 56.76,
+              "end": 57.0,
+              "word": "-bye,",
+              "probability": 0.9996798634529114
+            },
+            {
+              "start": 57.06,
+              "end": 57.36,
+              "word": " zoo.",
+              "probability": 0.9997556805610657
+            }
+          ]
+        }
+      ],
+      "scope": "ASRwordevidenceonly_notvoiceidentity/listeningcomfort/lipsyncapproval"
+    },
+    {
+      "source": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\audio\\bed-preview-v2\\final-mix.wav",
+      "source_sha256": "5e0ffa4c95ed8bef06e41f35a6b5357ec19abfb1597e38b1f32d449f6bcea771",
+      "source_bytes_unchanged": true,
+      "elapsed_seconds": 13.562,
+      "actual_device": "cpu",
+      "expected_text": "Mom, Dad, and me! Let's go to the zoo! Look! A little bird. Bird. A little bird. I see a giraffe. A tall giraffe! Hello, little tiger! Tiger. Hello, tiger! Look! A panda. Panda. A hungry panda. Bye-bye, animals! Bye-bye, zoo!",
+      "recognized_text": "Mom, Dad, and me. Let's go to the zoo. A little bird. Bird. A little bird. I see a giraffe. A tall giraffe. Hello, little tiger. Tiger. Hello, tiger. A panda. Panda. A hungry panda. Bye-bye, animals. Bye-bye, zoo.",
+      "normalized_reference_word_count": 43,
+      "word_edit_distance": 2,
+      "word_error_rate": 0.046511627906976744,
+      "segments": [
+        {
+          "start": 1.07,
+          "end": 2.69,
+          "text": " Mom, Dad, and me.",
+          "avg_logprob": -0.35221720580011606,
+          "no_speech_prob": 0.24836309254169464,
+          "words": [
+            {
+              "start": 1.07,
+              "end": 1.73,
+              "word": " Mom,",
+              "probability": 0.8904231786727905
+            },
+            {
+              "start": 1.87,
+              "end": 2.29,
+              "word": " Dad,",
+              "probability": 0.6778080463409424
+            },
+            {
+              "start": 2.31,
+              "end": 2.49,
+              "word": " and",
+              "probability": 0.9908916354179382
+            },
+            {
+              "start": 2.49,
+              "end": 2.69,
+              "word": " me.",
+              "probability": 0.7886136770248413
+            }
+          ]
+        },
+        {
+          "start": 5.7,
+          "end": 7.56,
+          "text": " Let's go to the zoo.",
+          "avg_logprob": -0.35221720580011606,
+          "no_speech_prob": 0.24836309254169464,
+          "words": [
+            {
+              "start": 5.7,
+              "end": 6.52,
+              "word": " Let's",
+              "probability": 0.9914036691188812
+            },
+            {
+              "start": 6.52,
+              "end": 6.6,
+              "word": " go",
+              "probability": 0.9984970092773438
+            },
+            {
+              "start": 6.6,
+              "end": 6.98,
+              "word": " to",
+              "probability": 0.996964156627655
+            },
+            {
+              "start": 6.98,
+              "end": 7.24,
+              "word": " the",
+              "probability": 0.9989051818847656
+            },
+            {
+              "start": 7.24,
+              "end": 7.56,
+              "word": " zoo.",
+              "probability": 0.9724739789962769
+            }
+          ]
+        },
+        {
+          "start": 11.61,
+          "end": 12.95,
+          "text": " A little bird.",
+          "avg_logprob": -0.35221720580011606,
+          "no_speech_prob": 0.24836309254169464,
+          "words": [
+            {
+              "start": 11.61,
+              "end": 12.13,
+              "word": " A",
+              "probability": 0.9842670559883118
+            },
+            {
+              "start": 12.13,
+              "end": 12.41,
+              "word": " little",
+              "probability": 0.9791325926780701
+            },
+            {
+              "start": 12.41,
+              "end": 12.95,
+              "word": " bird.",
+              "probability": 0.9989756345748901
+            }
+          ]
+        },
+        {
+          "start": 16.0,
+          "end": 16.41,
+          "text": " Bird.",
+          "avg_logprob": -0.35221720580011606,
+          "no_speech_prob": 0.24836309254169464,
+          "words": [
+            {
+              "start": 16.0,
+              "end": 16.41,
+              "word": " Bird.",
+              "probability": 0.9446045756340027
+            }
+          ]
+        },
+        {
+          "start": 16.65,
+          "end": 17.97,
+          "text": " A little bird.",
+          "avg_logprob": -0.35221720580011606,
+          "no_speech_prob": 0.24836309254169464,
+          "words": [
+            {
+              "start": 16.65,
+              "end": 17.17,
+              "word": " A",
+              "probability": 0.9982661604881287
+            },
+            {
+              "start": 17.17,
+              "end": 17.57,
+              "word": " little",
+              "probability": 0.9989417195320129
+            },
+            {
+              "start": 17.57,
+              "end": 17.97,
+              "word": " bird.",
+              "probability": 0.999799907207489
+            }
+          ]
+        },
+        {
+          "start": 18.41,
+          "end": 22.41,
+          "text": " I see a giraffe.",
+          "avg_logprob": -0.35221720580011606,
+          "no_speech_prob": 0.24836309254169464,
+          "words": [
+            {
+              "start": 18.41,
+              "end": 19.07,
+              "word": " I",
+              "probability": 0.99808669090271
+            },
+            {
+              "start": 21.21,
+              "end": 21.63,
+              "word": " see",
+              "probability": 0.9996515512466431
+            },
+            {
+              "start": 21.63,
+              "end": 21.87,
+              "word": " a",
+              "probability": 0.9995653033256531
+            },
+            {
+              "start": 21.87,
+              "end": 22.41,
+              "word": " giraffe.",
+              "probability": 0.9979060888290405
+            }
+          ]
+        },
+        {
+          "start": 22.77,
+          "end": 27.53,
+          "text": " A tall giraffe.",
+          "avg_logprob": -0.35221720580011606,
+          "no_speech_prob": 0.24836309254169464,
+          "words": [
+            {
+              "start": 22.77,
+              "end": 23.45,
+              "word": " A",
+              "probability": 0.9988337159156799
+            },
+            {
+              "start": 26.43,
+              "end": 26.89,
+              "word": " tall",
+              "probability": 0.9993427395820618
+            },
+            {
+              "start": 26.89,
+              "end": 27.53,
+              "word": " giraffe.",
+              "probability": 0.999447762966156
+            }
+          ]
+        },
+        {
+          "start": 28.13,
+          "end": 32.48,
+          "text": " Hello, little tiger.",
+          "avg_logprob": -0.35221720580011606,
+          "no_speech_prob": 0.24836309254169464,
+          "words": [
+            {
+              "start": 28.13,
+              "end": 28.37,
+              "word": " Hello,",
+              "probability": 0.9927923679351807
+            },
+            {
+              "start": 31.64,
+              "end": 31.98,
+              "word": " little",
+              "probability": 0.994217038154602
+            },
+            {
+              "start": 31.98,
+              "end": 32.48,
+              "word": " tiger.",
+              "probability": 0.9979745745658875
+            }
+          ]
+        },
+        {
+          "start": 32.92,
+          "end": 33.64,
+          "text": " Tiger.",
+          "avg_logprob": -0.35221720580011606,
+          "no_speech_prob": 0.24836309254169464,
+          "words": [
+            {
+              "start": 32.92,
+              "end": 33.64,
+              "word": " Tiger.",
+              "probability": 0.9978431463241577
+            }
+          ]
+        },
+        {
+          "start": 36.81,
+          "end": 38.07,
+          "text": " Hello, tiger.",
+          "avg_logprob": -0.35221720580011606,
+          "no_speech_prob": 0.24836309254169464,
+          "words": [
+            {
+              "start": 36.81,
+              "end": 37.53,
+              "word": " Hello,",
+              "probability": 0.9946106672286987
+            },
+            {
+              "start": 37.61,
+              "end": 38.07,
+              "word": " tiger.",
+              "probability": 0.9985225796699524
+            }
+          ]
+        },
+        {
+          "start": 38.6,
+          "end": 42.46,
+          "text": " A panda.",
+          "avg_logprob": -0.35221720580011606,
+          "no_speech_prob": 0.24836309254169464,
+          "words": [
+            {
+              "start": 38.6,
+              "end": 39.01,
+              "word": " A",
+              "probability": 0.9986240863800049
+            },
+            {
+              "start": 41.92,
+              "end": 42.46,
+              "word": " panda.",
+              "probability": 0.9941418766975403
+            }
+          ]
+        },
+        {
+          "start": 42.74,
+          "end": 43.42,
+          "text": " Panda.",
+          "avg_logprob": -0.35221720580011606,
+          "no_speech_prob": 0.24836309254169464,
+          "words": [
+            {
+              "start": 42.74,
+              "end": 43.42,
+              "word": " Panda.",
+              "probability": 0.9988043308258057
+            }
+          ]
+        },
+        {
+          "start": 46.23,
+          "end": 47.58,
+          "text": " A hungry panda.",
+          "avg_logprob": -0.35221720580011606,
+          "no_speech_prob": 0.24836309254169464,
+          "words": [
+            {
+              "start": 46.23,
+              "end": 46.64,
+              "word": " A",
+              "probability": 0.9946109056472778
+            },
+            {
+              "start": 46.64,
+              "end": 47.12,
+              "word": " hungry",
+              "probability": 0.9989537000656128
+            },
+            {
+              "start": 47.12,
+              "end": 47.58,
+              "word": " panda.",
+              "probability": 0.9992623925209045
+            }
+          ]
+        },
+        {
+          "start": 48.12,
+          "end": 52.12,
+          "text": " Bye-bye, animals.",
+          "avg_logprob": -0.35221720580011606,
+          "no_speech_prob": 0.24836309254169464,
+          "words": [
+            {
+              "start": 48.12,
+              "end": 48.74,
+              "word": " Bye",
+              "probability": 0.999053418636322
+            },
+            {
+              "start": 51.36,
+              "end": 51.58,
+              "word": "-bye,",
+              "probability": 0.971073180437088
+            },
+            {
+              "start": 51.66,
+              "end": 52.12,
+              "word": " animals.",
+              "probability": 0.9991042017936707
+            }
+          ]
+        },
+        {
+          "start": 52.62,
+          "end": 57.35,
+          "text": " Bye-bye, zoo.",
+          "avg_logprob": -0.35221720580011606,
+          "no_speech_prob": 0.24836309254169464,
+          "words": [
+            {
+              "start": 52.62,
+              "end": 53.1,
+              "word": " Bye",
+              "probability": 0.9987894892692566
+            },
+            {
+              "start": 56.75,
+              "end": 57.01,
+              "word": "-bye,",
+              "probability": 0.9995247423648834
+            },
+            {
+              "start": 57.07,
+              "end": 57.35,
+              "word": " zoo.",
+              "probability": 0.999612033367157
+            }
+          ]
+        }
+      ],
+      "scope": "ASRwordevidenceonly_notvoiceidentity/listeningcomfort/lipsyncapproval"
+    }
+  ],
+  "saved_VoiceStudio_profile": "8f1145d7_unchanged",
+  "voice_environment": "Existing VoiceStudiovenv read-only; no pip installs/configchanges/appmodelcalls",
+  "human_listening": "pending"
+}

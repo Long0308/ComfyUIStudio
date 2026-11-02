@@ -1,0 +1,14 @@
+{
+  "id": "engine-suite-flaky-when-builders-edit-live-tree",
+  "engine": "studio-video-engine tests (copytree of the skill dir, live recipes)",
+  "observed_at": "2026-10-27",
+  "symptom": "Full-suite runs showed 6–23 failures that vanished on re-run (test_audio_recipes copytree hit a temp file recipes/qa/seda3zzjM deleted mid-copy; Q3 negative controls passed once; default-recipe tests broke when another builder flipped the default).",
+  "root_cause": "Several builders edit the same live engine tree concurrently; tests copy the tree or read live recipes without a snapshot.",
+  "root_cause_status": "inferred from mtimes + reproduced copy race (independent audit 2026-10-27)",
+  "fix_or_workaround": "Assigned (audit gap #9): tests copy a recipe snapshot that ignores temp files; engine_tree_sha256 pinned into receipts. Root re-runs a full suite after builders stop before accepting.",
+  "prevention": "One builder per package; never accept a builder's 'suite green' while others are editing; pin the engine tree in every receipt.",
+  "status": "fix_in_progress",
+  "evidence_paths": [
+    "production-local/engine/specs/ENGINE-AUDIT-2026-10-27.md"
+  ]
+}

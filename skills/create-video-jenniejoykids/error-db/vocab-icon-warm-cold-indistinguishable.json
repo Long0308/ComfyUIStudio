@@ -1,0 +1,15 @@
+{
+  "id": "vocab-icon-warm-cold-indistinguishable",
+  "engine": "Vocabulary icon set (assets3d/vocabulary-v002, Blender CPU) + editorial icon events",
+  "environment": "ep04 Milk and Mom, user review of v013, 2026-10-27",
+  "observed_at": "2026-10-27",
+  "symptom": "User: the warm/cold icon does not distinguish hot from cold. One warm-cold.png (two near-identical grey glasses, faint steam, small snowflake) is used for both words (IC09-IC12, shots S04_A/S04_B) and on the outro card.",
+  "root_cause": "The icon brief named the term pair, not the visual difference; one image was bound to two opposite words; no pair QA at on-screen size.",
+  "root_cause_status": "measured",
+  "fix_or_workaround": "vocabulary-v003: warm.png (orange mug as on screen, steam, glow), cold.png (blue mug, ice, frost, snowflake), warm-cold.png side by side; events re-pointed per word; composite-only re-render (v014).",
+  "prevention": "G-ICON-ART rule in create-video-jenniejoykids (one icon per spoken word, distinguishing attribute, on-screen colours, opposite pairs look opposite, pair QA at real size). Engine icon layer = registry term->file sha, overlay only; build-config refuses one image for two words unless marked shared.",
+  "verification": "v013 config icons IC09-IC12 and card 'Warm and Cold' all point to assets3d/vocabulary-v002/png/warm-cold.png sha 45e2a0d9...",
+  "status": "fix_in_progress",
+  "evidence_paths": ["production-local/JennieJoyKids-Story/04-milk-and-mom/editorial/review-hd-v013/config/review-config-v013.json"],
+  "affected_artifacts": ["editorial/review-hd-v008", "editorial/review-hd-v009", "editorial/review-hd-v010", "editorial/review-hd-v011", "editorial/review-hd-v012", "editorial/review-hd-v013"]
+}

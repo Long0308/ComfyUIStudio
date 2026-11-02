@@ -1,0 +1,204 @@
+"""``jjv audio mix`` end to end on a synthetic episode: receipt WAV rule, stems, gate, mux (T-E43)."""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import subprocess
+from pathlib import Path
+
+import numpy as np
+import pytest
+from audio_fixtures import RATE, audio_world, hand_built_review, tone, wav_bytes, write_tone
+
+from engine.audio import mix, mixcli, remux
+from engine.core.errors import Refused
+from engine.seedvr2.seam_media import find_ffmpeg
+from engine.voice.wavio import read_wav
+
+
+def ffmpeg() -> str:
+    try:
+        return find_ffmpeg()
+    except Exception:
+        pytest.skip("ffmpeg not available")
+
+
+def make_args(tmp_path: Path, review: Path, music: Path, **over) -> argparse.Namespace:
+    values = dict(episode="", out=str(tmp_path / "mix"), review_config=str(review), recipe="audio/mix-cinema-v001",
+                  music_receipt=None, music_wav=str(music), music_sha256=None, sfx_receipt=None, sfx_stem=None, sfx_sha256=None,
+                  windows=None, sections=None, allow_outside=[], ffmpeg=None, dry_run=False, remux=None, remux_out=None,
+                  extra_wav=[], brand_voice=None, brand_voice_sha256=None, brand_voice_start_s=0.15, brand_voice_db=0.0,
+                  with_sfx=False, allow_ungated_music=False)
+    values.update(over)
+    return argparse.Namespace(**values)
+
+
+@pytest.fixture
+def episode(tmp_path):
+    config, _ = audio_world(tmp_path)
+    root = Path(config.episode_root)
+    # speech about -17 LUFS by itself (amplitude 0.17): the cinema rules put it in the band without touching the bed
+    review_doc = hand_built_review(root, total_frames=480, lines=(("S01_A", 30, 2.0, 0.17), ("S01_B", 150, 2.0, 0.17)),
+                                   cards=(("Alpha", 300, 3.0, 0.17), ("Beta", 390, 3.0, 0.17)))
+    review = root / "review-config.json"
+    review.write_text(json.dumps(review_doc), encoding="utf-8")
+    music = root / "music.wav"
+    write_tone(music, 6.0, 0.10, 180.0)
+    return config, root, review, music, str(tmp_path / "skill_unused")
+
+
+def run(config, args) -> tuple[dict, int]:
+    args.episode = str(Path(config.episode_root) / "engine" / "episode.json")
+    return mixcli.run_mix(args)
+
+
+def test_dry_run_validates_every_input_and_renders_nothing(episode, tmp_path) -> None:
+    config, root, review, music, _ = episode
+    summary, code = run(config, make_args(tmp_path, review, music, dry_run=True))
+    assert code == 0 and summary["dry_run"] and not (tmp_path / "mix").exists()
+    assert [w["name"] for w in summary["dialogue_wavs"]] == ["dlg S01_A", "dlg S01_B", "voc Alpha", "voc Beta"]
+    assert [s["name"] for s in summary["sections"]] == ["intro", "dialogue", "logo_hold", "outro_cards"]
+    assert summary["duck"]["speech_windows"] == 4 and summary["duck"]["duck_windows_after_merge"] == 3  # the two cards touch: one held window
+
+
+def test_a_mix_that_meets_the_standard_passes_and_keeps_the_dialogue_samples(episode, tmp_path) -> None:
+    ffmpeg()
+    config, root, review, music, _ = episode
+    summary, code = run(config, make_args(tmp_path, review, music))
+    receipt = json.loads((tmp_path / "mix" / mix.RECEIPT_FILE).read_text("utf-8"))
+    assert code == 0 and summary["verdict"] == "PASS", receipt["failures"]
+    assert receipt["dialogue_exact"] and receipt["mix_clipped_samples"] == 0
+    stem = read_wav(tmp_path / "mix" / mix.STEMS["dialogue"])
+    bound = read_wav(root / "audio" / "S01_A.wav")
+    placed = np.frombuffer(stem.pcm, dtype="<i2").reshape(-1, 2)[30 * 1600:30 * 1600 + bound.frames]
+    assert np.array_equal(placed, np.frombuffer(bound.pcm, dtype="<i2").reshape(-1, 2))  # sample-exact, offset 0
+    sections = receipt["loudness"]["sections"]
+    assert all(abs(s["integrated_lufs"] + 17.0) <= 1.0 for s in sections if s["measurable"])
+    assert abs(receipt["loudness"]["whole"]["integrated_lufs"] + 17.0) <= 1.0 and receipt["loudness"]["whole"]["true_peak_dbtp"] <= -1.0
+    assert len(set(receipt["section_gains_db"])) > 1 and receipt["pumping"]["max_swing_db"] <= 3.0
+    assert receipt["roles"] == ["bed_only", "speech", "bed_only", "speech"] and receipt["bed_schedule_db"] == [0.0, 0.0, 1.5, 1.5]
+    assert all(g <= cap + 1e-9 for g, cap in zip(receipt["section_gains_db"], receipt["bed_schedule_db"]))  # never above the recipe
+    assert [s["measurable"] for s in sections] == [False, True, False, True]  # the 1.3 s intro and 2.3 s hold are too short to judge
+    assert set(receipt["stems"]) == {"dialogue", "music", "sfx", "final"} and receipt["recipe"]["profile"] == "cinema"
+    final = read_wav(tmp_path / "mix" / mix.STEMS["final"])
+    assert final.frames == 480 * 1600 and hashlib.sha256((tmp_path / "mix" / mix.STEMS["final"]).read_bytes()).hexdigest() == receipt["stems"]["final"]["sha256"]
+
+
+def test_speech_that_is_too_loud_fails_the_gate_exit_1_and_a_failing_mix_is_never_muxed(tmp_path) -> None:
+    ffmpeg()
+    config, _ = audio_world(tmp_path)
+    root = Path(config.episode_root)
+    review_doc = hand_built_review(root, lines=(("S01_A", 30, 2.0, 0.5), ("S01_B", 150, 2.0, 0.5)))
+    review = root / "review-config.json"
+    review.write_text(json.dumps(review_doc), encoding="utf-8")
+    music = root / "music.wav"
+    write_tone(music, 6.0, 0.4, 180.0)
+    picture = tmp_path / "picture.mp4"
+    subprocess.run([ffmpeg(), "-v", "error", "-f", "lavfi", "-i", "testsrc=size=64x48:rate=30:duration=20", "-pix_fmt", "yuv420p",
+                    "-c:v", "libx264", str(picture)], check=True)
+    summary, code = run(config, make_args(tmp_path, review, music, remux=str(picture), remux_out=str(tmp_path / "film.mp4")))
+    assert code == 1 and summary["verdict"] == "FAIL" and not (tmp_path / "film.mp4").exists()
+    assert any("section dialogue" in f for f in summary["failures"]) and "never muxed" in summary["mux"]["skipped"]
+    assert (tmp_path / "mix" / mix.RECEIPT_FILE).is_file()  # the evidence of the failure is kept
+
+
+@pytest.mark.usefixtures("parity_mix_allowed")
+def test_the_legacy_profile_is_reported_ungated(episode, tmp_path) -> None:
+    ffmpeg()
+    config, root, review, music, _ = episode
+    summary, code = run(config, make_args(tmp_path, review, music, recipe="audio/mix-legacy-v004-parity"))
+    assert code == 0 and summary["verdict"] == "UNGATED"
+
+
+def test_receipt_wav_rule_overlap_and_format_refusals(episode, tmp_path) -> None:
+    config, root, review, music, _ = episode
+    (root / "audio" / "S01_A.wav").write_bytes(b"changed")
+    with pytest.raises(Refused, match="receipt sha256"):
+        run(config, make_args(tmp_path, review, music, dry_run=True))
+    doc2 = hand_built_review(root, lines=(("S01_A", 30, 2.0, 0.08), ("S01_B", 60, 2.0, 0.08)))   # S01_B starts inside S01_A
+    review.write_text(json.dumps(doc2), encoding="utf-8")
+    from engine.audio import windows
+    placed = mixcli_placed(config, review)
+    with pytest.raises(Refused, match="overlaps"):
+        windows.dialogue_stem(placed, 600 * 1600)
+    mono = root / "audio" / "mono.wav"
+    import wave
+    with wave.open(str(mono), "wb") as handle:
+        handle.setnchannels(1)
+        handle.setsampwidth(2)
+        handle.setframerate(RATE)
+        handle.writeframes(b"\x00\x01" * 4800)
+    doc3 = json.loads(review.read_text("utf-8"))
+    doc3["dialogue"][0]["audio"] = {"path": "audio/mono.wav", "sha256": hashlib.sha256(mono.read_bytes()).hexdigest()}
+    review.write_text(json.dumps(doc3), encoding="utf-8")
+    with pytest.raises(Refused, match="stereo"):
+        run(config, make_args(tmp_path, review, music, dry_run=True))
+
+
+def mixcli_placed(config, review):
+    from engine.audio import timeline, windows
+    line = timeline.resolve(config, timeline.load_review_config(review), RATE)
+    return windows.load_placed(json.loads(review.read_text("utf-8")), Path(config.episode_root), line, ())
+
+
+def test_a_wav_outside_the_episode_root_needs_allow_outside(episode, tmp_path) -> None:
+    config, root, review, music, _ = episode
+    doc = json.loads(review.read_text("utf-8"))
+    outside = tmp_path / "elsewhere" / "line.wav"
+    sha = write_tone(outside, 1.0, 0.1)
+    doc["dialogue"][0]["audio"] = {"path": str(outside), "sha256": sha}
+    review.write_text(json.dumps(doc), encoding="utf-8")
+    with pytest.raises(Refused, match="--allow-outside"):
+        run(config, make_args(tmp_path, review, music, dry_run=True))
+    summary, code = run(config, make_args(tmp_path, review, music, dry_run=True, allow_outside=[str(tmp_path / "elsewhere")]))
+    assert code == 0
+
+
+def test_the_remux_copies_the_picture_and_the_mix_becomes_the_only_audio(episode, tmp_path) -> None:
+    ffmpeg()
+    config, root, review, music, _ = episode
+    picture = tmp_path / "picture.mp4"
+    subprocess.run([ffmpeg(), "-v", "error", "-f", "lavfi", "-i", "testsrc=size=64x48:rate=30:duration=20", "-f", "lavfi", "-i",
+                    "sine=frequency=500:duration=20", "-pix_fmt", "yuv420p", "-c:v", "libx264", "-c:a", "aac", str(picture)], check=True)
+    film = tmp_path / "film.mp4"
+    summary, code = run(config, make_args(tmp_path, review, music, remux=str(picture), remux_out=str(film)))
+    assert code == 0, summary
+    mux = summary["mux"]
+    assert mux["video_untouched"] and mux["picture"]["video_packets"] == mux["output"]["video_packets"]
+    assert mux["mix_sha256"] == summary["stems"]["final"] and set(mux["stem_sha256"]) == {"dialogue", "music", "sfx", "final"}
+    assert mux["output"]["audio_codec"] == "aac" and mux["picture"]["sha256"] == hashlib.sha256(picture.read_bytes()).hexdigest()
+    receipt = json.loads((tmp_path / "mix" / mix.RECEIPT_FILE).read_text("utf-8"))
+    assert receipt["mux"]["output"]["sha256"] == hashlib.sha256(film.read_bytes()).hexdigest()
+    again = subprocess.run([ffmpeg(), "-v", "error", "-i", str(film), "-map", "0:a", "-f", "null", "-"], capture_output=True)
+    assert again.returncode == 0
+
+
+def test_mux_refuses_when_the_video_packets_would_change_and_removes_the_output(tmp_path, monkeypatch) -> None:
+    ffmpeg()
+    picture, film, wav = tmp_path / "p.mp4", tmp_path / "f.mp4", tmp_path / "a.wav"
+    subprocess.run([ffmpeg(), "-v", "error", "-f", "lavfi", "-i", "testsrc=size=64x48:rate=30:duration=2", "-pix_fmt", "yuv420p",
+                    "-c:v", "libx264", str(picture)], check=True)
+    wav.write_bytes(wav_bytes(tone(2.0, 0.1)))
+    real = remux.video_packets
+    calls = []
+
+    def tampered(ff, path, runner=subprocess.run):
+        calls.append(path)
+        result = real(ff, path, runner)
+        return result if len(calls) == 1 else {**result, "payload_sha256": "0" * 64}   # the muxed file "differs"
+
+    monkeypatch.setattr(remux, "video_packets", tampered)
+    ffprobe = str(Path(ffmpeg()).with_name("ffprobe" + Path(ffmpeg()).suffix))
+    with pytest.raises(Refused, match="video packet stream changed"):
+        remux.mux(ffmpeg(), ffprobe, picture, wav, film, {"audio_codec": "aac", "audio_bitrate": "128k"}, 30)
+    assert not film.exists() and not list(tmp_path.glob(".*tmp*"))
+    monkeypatch.setattr(remux, "video_packets", real)
+    remux.mux(ffmpeg(), ffprobe, picture, wav, film, {"audio_codec": "aac", "audio_bitrate": "128k"}, 30)
+    with pytest.raises(Refused, match="refusing to overwrite"):
+        remux.mux(ffmpeg(), ffprobe, picture, wav, film, {"audio_codec": "aac", "audio_bitrate": "128k"}, 30)
+    longer = tmp_path / "long.wav"
+    longer.write_bytes(wav_bytes(tone(3.0, 0.1)))
+    with pytest.raises(Refused, match="outrun the picture"):
+        remux.mux(ffmpeg(), ffprobe, picture, longer, tmp_path / "g.mp4", {"audio_codec": "aac", "audio_bitrate": "128k"}, 30)

@@ -1,0 +1,25 @@
+{
+  "id": "Alice-native-speech-unclear",
+  "status": "open",
+  "engine": "H3 native audio / VoiceStudio finishing",
+  "symptom": "User reports native generatedAlice diction unclear",
+  "root_cause_status": "user_reported_not_fully_isolated",
+  "root_cause": "Native synthesized speech does not preserve original WAV phonemes exactly",
+  "fix_or_workaround": "Keep nativeAV; canonical originalVoiceStudioAlice owns editorialVO; compare voice-only before remix; savedprofile regenerate only if sourceWAVfails",
+  "verification": "Original12utterancePCMhash/ASRverified; claritydiagnostic made, listening/lipsyncpending",
+  "limitations": "No finalvoiceidentity or clearlisteningacceptance yet",
+  "prevention": "Perline clarity and measuredtimingreview; never solve audio by unnecessary video rerender",
+  "schema_version": "1.0",
+  "observed_at": "2026-10-17",
+  "environment": "Windows RTX5070/12GB; isolatedComfyCUDA13; VoiceStudioCUDA12.8preserved",
+  "evidence_paths": [
+    "references/h3-decoder-fix.md",
+    "references/h3-decoder-recovery.json",
+    "references/S01_A-voice-clarity.json",
+    "D:/23.JennieHomeSchool/03 Voice/production-local/comfy-gpu-decode.log"
+  ],
+  "affected_artifacts": [
+    "nativeS01_A",
+    "nativeS01_B-entry-v2"
+  ]
+}

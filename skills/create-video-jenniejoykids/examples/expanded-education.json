@@ -1,0 +1,222 @@
+{
+  "schema_version": "1.0",
+  "project": {
+    "id": "milo-shapes",
+    "title": "Milo Finds a Circle",
+    "language": "en",
+    "timing_status": "planned"
+  },
+  "video_type": "shape_discovery",
+  "audience": "Preschool learners aged two to five",
+  "style": "Original preschool 2D cartoon animation, warm dark-brown outlines, softly painted classroom, restrained sage, mustard, navy and cream palette. Rounded original character anatomy with purposeful hand-drawn acting, gaze changes, blinks and natural joint movement. No oversaturation, photo collage, glossy plastic 3D or generated lettering. Reserve lower 18 percent for editorial English subtitles.",
+  "purpose": "Identify a circle through a quiet classroom learning story.",
+  "delivery": {
+    "duration": 8,
+    "width": 1920,
+    "height": 1080,
+    "fps": 24,
+    "aspect_ratio": "16:9",
+    "draft": {
+      "width": 1280,
+      "height": 720
+    },
+    "final": {
+      "width": 1920,
+      "height": 1080,
+      "approval_status": "pending"
+    }
+  },
+  "timeline_policy": {
+    "allow_gaps": false
+  },
+  "image_style_library": {
+    "repository": "https://github.com/freestylefly/awesome-gpt-image-2",
+    "revision": "63e6176fa01be51c000108dacd72716d3e46784b",
+    "template_ids": [
+      "character-design-sheet",
+      "illustration-art-style",
+      "scene-storytelling"
+    ],
+    "category": "Characters & People",
+    "styles": [
+      "Character",
+      "Illustration"
+    ],
+    "scenes": [
+      "Story"
+    ],
+    "adaptation": "Adapt identity and scene composition guidance to restrained preschool cartoon artwork, with no corporate photorealism or unprovided logos."
+  },
+  "image_engine": {
+    "provider": "OpenAI",
+    "execution": "cloud",
+    "model": "GPT Image2",
+    "profile": "Historical frozen example; explicit cloud opt-in",
+    "legacy_opt_in": true
+  },
+  "engine": {
+    "model": "H3",
+    "profile": "Ref2VA native pilot; runtime readiness checked separately",
+    "audio_mode": "canonical_voicestudio"
+  },
+  "voice": {
+    "provider": "VoiceStudio",
+    "profile_id": "milo-approved-profile-required",
+    "performance": "Warm unhurried child narration in English; require approved speaker profile before synthesis",
+    "canonical_audio_path": "audio/canonical-milo.wav",
+    "authority": "Canonical VoiceStudio dialogue for Milo; approve speaker profile and verify planned soundtrack path before production."
+  },
+  "reference_policy": {
+    "immutable_sources": true,
+    "identity_lock": "Preserve face geometry, silhouette, wardrobe, marks and anatomical asymmetry in cartoon rendering. Never delete original files.",
+    "allowed_performance": [
+      "purposeful expressions",
+      "blinks",
+      "mouth phonemes",
+      "body poses"
+    ],
+    "sheet_requirements": {
+      "plan_mode": "legacy-6x4",
+      "turnaround": [
+        "front",
+        "left",
+        "right"
+      ],
+      "expressions": [
+        "happy",
+        "sad",
+        "angry",
+        "surprised",
+        "afraid",
+        "neutral"
+      ],
+      "poses": [
+        "run",
+        "jump",
+        "laugh",
+        "cry"
+      ]
+    },
+    "original_on_sheet_canvas": false
+  },
+  "characters": [
+    {
+      "id": "milo",
+      "name": "Milo",
+      "entity": "Human preschool cartoon character",
+      "species": "Homo sapiens human",
+      "age": "Five-year-old child",
+      "body_proportions": "Compact child body, round head, short limbs and sturdy stance",
+      "surface": "Warm medium-brown skin, round cheeks, one small freckle below left eye",
+      "eyes": "Large hazel eyes with dark pupils and white catchlights",
+      "brows": "Short gently curved dark-brown eyebrows",
+      "nose_beak": "Small broad rounded nose",
+      "mouth": "Small flexible mouth with warm pink interior and rounded teeth",
+      "ears": "Rounded ears visible outside cropped hair",
+      "hair_head": "Short dark-brown curls, no ponytail, no head accessory",
+      "clothes": "Mustard-yellow long-sleeve sweatshirt with plain front; navy straight trousers",
+      "footwear": "Teal canvas sneakers with cream laces and soles",
+      "accessories": "No hat, jewelry, bag or additional accessories",
+      "marks_asymmetry": "One small freckle below anatomical LEFT eye; no mirrored placement",
+      "reference_assets": []
+    }
+  ],
+  "scenes": [
+    {
+      "id": "SH01",
+      "start": 0,
+      "duration": 8,
+      "characters": [
+        {
+          "id": "milo",
+          "name": "Milo",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Five-year-old child",
+          "body_proportions": "Compact child body, round head, short limbs and sturdy stance",
+          "surface": "Warm medium-brown skin, round cheeks, one small freckle below left eye",
+          "eyes": "Large hazel eyes with dark pupils and white catchlights",
+          "brows": "Short gently curved dark-brown eyebrows",
+          "nose_beak": "Small broad rounded nose",
+          "mouth": "Small flexible mouth with warm pink interior and rounded teeth",
+          "ears": "Rounded ears visible outside cropped hair",
+          "hair_head": "Short dark-brown curls, no ponytail, no head accessory",
+          "clothes": "Mustard-yellow long-sleeve sweatshirt with plain front; navy straight trousers",
+          "footwear": "Teal canvas sneakers with cream laces and soles",
+          "accessories": "No hat, jewelry, bag or additional accessories",
+          "marks_asymmetry": "One small freckle below anatomical LEFT eye; no mirrored placement",
+          "reference_assets": []
+        }
+      ],
+      "setting": "Warm cream classroom with a low sage table and a plain round wooden shape disk; no other people or anthropomorphic props.",
+      "lighting": "Soft warm daylight, diffuse shadows, restrained pastel storybook palette; no oversaturation.",
+      "camera": "Stable child-eye medium-wide view, slow move toward the circular disk.",
+      "action": "Milo lifts the plain wooden disk, traces its round edge with an index finger, then gives the audience time to repeat.",
+      "dialogue": [
+        {
+          "id": "SH01_L1",
+          "speaker": "milo",
+          "text": "Look! A circle.",
+          "start": 1,
+          "end": 3,
+          "timing_status": "planned"
+        }
+      ],
+      "music": "Gentle low-volume instrumental, sparse ukulele and bells; no lyrics, duck under speech.",
+      "sfx": [
+        {
+          "at": 0.5,
+          "event": "Soft wooden disk contact on table"
+        },
+        {
+          "at": 7.2,
+          "event": "Quiet rounded closing bell"
+        }
+      ],
+      "subtitle": {
+        "language": "en",
+        "style": "Exact English words, large rounded white type on restrained dark-teal band, lower 18 percent safe."
+      },
+      "repeat_cues": [
+        {
+          "start": 3.5,
+          "end": 7,
+          "text": "Circle — Your turn"
+        }
+      ],
+      "transition": {
+        "intent": "End after the completed circular tracing gesture and a gentle settling hold.",
+        "camera_continuity": "Maintain table orientation, disk shape and eyeline through the closing hold.",
+        "duration": 0.3
+      },
+      "continuity": {
+        "previous_scene_id": "",
+        "setting_layout": "Milo left of low sage table, round wooden disk centered on tabletop.",
+        "theme": "Gentle discovery of a circle in a classroom.",
+        "action_continuation": "Trace the circular edge, lower the disk and settle naturally.",
+        "entry_state": "Milo beside sage table looking at circular wooden disk",
+        "exit_state": "Milo places the circular wooden disk flat on the sage table"
+      },
+      "script_tracking": {
+        "segment_summary": "Milo discovers and names a round circle.",
+        "dialogue_ids": [
+          "SH01_L1"
+        ],
+        "status": "ready",
+        "review_notes": "Original non-zoo shape-learning script with intended timing; conform to accepted measured narration."
+      }
+    }
+  ],
+  "qa": {
+    "checks": [
+      "identity and wardrobe drift",
+      "setting layout and subject continuity",
+      "action continuation and natural motion",
+      "voice identity and full native audio preservation",
+      "English captions against measured speech",
+      "720p user acceptance before 1080p final"
+    ],
+    "benchmark_status": "Model, codec and runtime not benchmarked here; no Little Fox equivalence claim.",
+    "subtitle_safe_fraction": 0.18
+  }
+}

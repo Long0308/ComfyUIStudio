@@ -1,0 +1,74 @@
+# Scene 4 — âm thanh và hậu kỳ
+
+Nguồnproduction-request-v9.json SHA2563dd21650d1a9c3ab247a2aaf1748672c38d80619aa7676ed4aadecbef7ccb643; kế hoạch, chưa mix/nghe duyệt.
+
+Hổ thân thiện chớp mắt và cử động ngực; dùng một tiếng chuff/thở phì hoặc gừ rừ ngắn, êm trong khoảng nghỉ. Không gầm lớn gây giật mình; giọng Alice luôn rõ. Cảnh sau giới thiệu bình nước và hộp ăn ở khu khách.
+
+```json
+{
+  "schema_version": "1.0",
+  "scene_id": "S04",
+  "name": "Scene 4",
+  "global_interval_seconds": [
+    30,
+    40
+  ],
+  "fps": 24,
+  "status": "planned_not_mixed_or_listening_accepted",
+  "location": "Tiger viewing rail",
+  "voice": {
+    "profile_id": "8f1145d7",
+    "authority": "canonical_voicestudio",
+    "source": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\audio\\canonical-v2\\alice-canonical-60s.wav",
+    "notes": "Exact English words; slow clear consonants; no extra dialogue; separate eating/drinking from speech"
+  },
+  "ambience": "Calm warm enclosure air, faint foliage.",
+  "sfx_intent": "Short soft tiger chuff/purr/gentle low growl in a speech-free pause, low level and child-friendly, never an aggressive roar or lunge. Paw contact and tail/grass rustle only if visible.",
+  "music": "Gentle cheerful original pentatonic plucked/marimba-style instrumental, no lyrics, quiet underneath canonical Alice, duck smoothly during all words, stable modest level through transitions.",
+  "tracks": [
+    "canonical_voice",
+    "music",
+    "ambience",
+    "footsteps",
+    "animal",
+    "props"
+  ],
+  "cue_policy": {
+    "footsteps": "Align transient to actual observed contact frame; eventframes pending rendered motion",
+    "animal": "Prefer gaps between words; avoid masking first/final consonants",
+    "props": "Cue visible contact and audible transient; do not align blindly to file start",
+    "measurement": "planned seconds distinct from measured source PTS/local/global frames"
+  },
+  "mix_choices": {
+    "integrated_lufs_target": -16,
+    "true_peak_ceiling_db": -1,
+    "music_relative_to_voice_db_range": [
+      -18,
+      -12
+    ],
+    "status": "creative_choices_require_measured_mix_and_listening"
+  },
+  "asset_policy": "Record license/source/hash for acquired recordings. Existing synthesized cues are synthesized, not authentic animal recordings. No downloads/substitutions without provenance.",
+  "performance_and_foley": "Hổ thân thiện chớp mắt và cử động ngực; dùng một tiếng chuff/thở phì hoặc gừ rừ ngắn, êm trong khoảng nghỉ. Không gầm lớn gây giật mình; giọng Alice luôn rõ. Cảnh sau giới thiệu bình nước và hộp ăn ở khu khách.",
+  "source_script": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\production-request-v9.json",
+  "timing_status": "Canonicalv2originalPCMverified; captions-v2prepared; motioncontacts/lipsync/readability/finalducking/listeningpending.",
+  "postproduction": {
+    "stems": [
+      "canonical_voice",
+      "music",
+      "ambience",
+      "footsteps",
+      "animal",
+      "props"
+    ],
+    "voice_priority": "Original saved Alice; no duplicated generated speech; clear consonants and natural pace",
+    "music": "Cheerful original quiet instrumental, no lyrics; further ducking measured because source music already ducked",
+    "animal_style": "Soft non-startling cues, label synthesized sources honestly",
+    "lighting_picture": "Stable warm daylight, restrained saturation, no sudden exposure/white-balance changes; match consecutive boundaries",
+    "review": "Visual contacts, actual dialogue clock, subtitles, normal-speed listening and loudness/true-peak checks before completion Verify foreground gap budget, actual mouth readiness and explicit hand ownership. Keep mouth sounds subtle; no artificial accelerated chewing."
+  },
+  "source_script_sha256": "3dd21650d1a9c3ab247a2aaf1748672c38d80619aa7676ed4aadecbef7ccb643",
+  "source_intent_version": "v9-promoted-planned-not-generated",
+  "foreground_gap_budget": "At most one quiet foreground accent per speech-free gap; reserve remaining gap for child imitation. Footstep bed barely audible. Never stack chuff/paw/props accents. Inspect already-ducked music before additional ducking."
+}
+```

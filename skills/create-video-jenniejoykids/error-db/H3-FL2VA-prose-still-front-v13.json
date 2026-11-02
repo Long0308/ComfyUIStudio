@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "id": "H3-FL2VA-prose-still-front-v13",
+  "status": "rejected_picture_technical_pass",
+  "at_utc": "2026-10-16T21:13:27.440746+00:00",
+  "job_id": "741cd009-e681-4704-b3ce-06df75a535ec",
+  "elapsed_seconds": 247.13,
+  "inspected": "2fps overview and consecutive native0..29; sufficient to reject; no fulltake acceptance claimed",
+  "visual_estimates": {
+    "toddler_begins_turn": "~10",
+    "front_visible": "~17",
+    "closeup": "~30..68",
+    "rear_again": "~78..119"
+  },
+  "measured": {
+    "native_frames": 124,
+    "used": 120,
+    "fps": 24,
+    "dimensions": [
+      864,
+      480
+    ],
+    "canonical_voice_unchanged": true,
+    "all45appearance_values_exact": true,
+    "queued_literal_exact": true
+  },
+  "conclusion": "Prose projection alone does not fix front excursion; metadata competition not proven. Do not promote to verified fix. Native and editorial technical PASS are separate.",
+  "evidence": [
+    "qa/S01-B-FL2VA-v13-prose/overview.jpg",
+    "qa/S01-B-FL2VA-v13-prose/consecutive-000-029.jpg",
+    "shots/S01-B-FL2VA-v13-prose/queued-integrity.json"
+  ],
+  "next": "One seed-only controlled trial4303; source review of mid-frame control. No unchanged reroll."
+}

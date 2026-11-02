@@ -1,0 +1,415 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jjv/schemas/script/v1",
+  "title": "Authoring script: reservations before voice/H3 receipts",
+  "type": "object",
+  "required": [
+    "schema",
+    "film_id",
+    "title",
+    "duration_s",
+    "fps",
+    "structure",
+    "shots",
+    "vocabulary_cards",
+    "character_references"
+  ],
+  "properties": {
+    "schema": {
+      "enum": [
+        "jjv/script/v1",
+        "jenniejoykids-script-draft-v1"
+      ]
+    },
+    "film_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string"
+    },
+    "domain": {
+      "type": "string",
+      "minLength": 1
+    },
+    "duration_s": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "fps": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "character_references": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "canonical_path": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "canonical_sha256": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "speech_allowed": {
+            "type": "boolean"
+          },
+          "full_description": {
+            "type": "string"
+          },
+          "voice_profile_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "voice_reference": {
+      "type": "object",
+      "additionalProperties": {
+        "type": [
+          "object",
+          "string"
+        ],
+        "properties": {
+          "profile_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "pitch_semitones": {
+            "type": "number"
+          },
+          "tempo": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "vocabulary_speaker": {
+      "type": "string",
+      "minLength": 1
+    },
+    "structure": {
+      "type": "object",
+      "required": [
+        "intro"
+      ],
+      "properties": {
+        "intro": {
+          "type": "object",
+          "required": [
+            "duration_s"
+          ],
+          "properties": {
+            "duration_s": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "additionalProperties": true
+        },
+        "dialogue": {
+          "type": "object"
+        },
+        "outro": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": true
+    },
+    "shots": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "speaker",
+          "speech_text",
+          "duration_s",
+          "visual"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"
+          },
+          "speaker": {
+            "type": "string",
+            "minLength": 1
+          },
+          "listener": {
+            "type": "string",
+            "minLength": 1
+          },
+          "speech_text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "duration_s": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "duration_frames": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "start_s": {
+            "type": "number",
+            "minimum": 0
+          },
+          "end_s": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "start_frame": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "end_frame_exclusive": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "visual": {
+            "type": "string",
+            "minLength": 1
+          },
+          "continuity": {
+            "type": "object",
+            "properties": {
+              "setting_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "camera_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "seat_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "framing": {
+                "enum": [
+                  "same_framing",
+                  "new_framing",
+                  "unknown"
+                ]
+              },
+              "motivation": {
+                "type": "string"
+              },
+              "transition": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": true
+          },
+          "entry": {
+            "type": "object",
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "enum": [
+                  "cut",
+                  "carry"
+                ]
+              },
+              "from_shot": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidence": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          },
+          "layout_brief": {
+            "type": "object"
+          },
+          "dialogue_vi": {
+            "type": "string"
+          },
+          "target_keywords": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "vocabulary_cards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "term"
+        ],
+        "properties": {
+          "term": {
+            "type": "string",
+            "minLength": 1
+          },
+          "speaker": {
+            "type": "string",
+            "minLength": 1
+          },
+          "shot_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "target_duration_s": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "proposed_outro_duration_s": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "ipa": {
+            "type": "string"
+          },
+          "vi": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "delivery": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target_seconds": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "language": {
+      "type": "object",
+      "properties": {
+        "spoken": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subtitle": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "voice_extras": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "kind",
+          "id",
+          "speaker",
+          "text_tts",
+          "target_duration_s"
+        ],
+        "properties": {
+          "kind": {
+            "enum": [
+              "end_line",
+              "brand_voice"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{0,30}$"
+          },
+          "speaker": {
+            "type": "string",
+            "minLength": 1
+          },
+          "text_tts": {
+            "type": "string",
+            "minLength": 1
+          },
+          "target_duration_s": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "max_duration_s": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "subtitle": {
+            "type": "object"
+          },
+          "start_frame": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "duration_frames": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "en_markup": {
+            "type": "string"
+          },
+          "target_keywords": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "icon": {
+            "type": "string",
+            "minLength": 1
+          },
+          "emotion": {
+            "type": "string",
+            "minLength": 1
+          },
+          "language": {
+            "type": "string",
+            "minLength": 1
+          },
+          "effect_preset": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,30 @@
+{
+  "affected_artifacts": [
+    "04-milk-and-mom/technical/upscale-pilot-v001",
+    "04-milk-and-mom/technical/upscale-pilot-v002",
+    "workflows/seedvr2-video"
+  ],
+  "engine": "SeedVR2 7B / Comfyui-Studio Docker",
+  "symptom": "Docker container crashed with OOMKilled=true, exit code 1 during 2K upscale of S01_A 124-frame clip (prompt 669e3b2e-8be0-48d7-a83c-09e7988ff3b2).",
+  "observed_at": "2026-10-26",
+  "status": "open",
+  "verification": "Original 2K full-clip OOM preserved. Episode04 prompt55262320-60d9-4e16-a303-d81ee371f99f completed; independently decoded16 raw4Kframes at3888x2160/24fps. Server142.294s, sampled RAM20,629,848,064bytes(19.21GiB), GPU15254MiB. Root cropped12coreframes3840x2160. Only16raw/17effective1024tileconfiguration measured; interior21frame and seam/fullfilm gates open.",
+  "limitations": "Old episode03-derived v002 pilot remains technical-only. New episode04 pilot is eligible subject to actual review; it does not approve the full film. Short tile768 comparator8d554e65-b659-4fb7-9500-f6b053ad709a succeeded with sampled17.32GiB RAM; decode/qualification receipt pending. Keep4KMaster mandatory;2Kreview optional. Do not use fixed frame ceilings as no-OOM guarantees.",
+  "root_cause": "The observed 2K full-clip graph exhausted the 30 GB container memory ceiling. The evidence does not isolate one allocation cause or establish equivalent behavior at 4K.",
+  "fix_or_workaround": "Run a short pilot at the actual chosen 4K processing size/settings; start from the prepared 16-frame total segment and reduce the frame plan if measurements demand. Record peak host/container RAM, GPU VRAM, prompt/history, decode, exact output frame count and seam review. Execute bounded chunks serially under the shared lock, trim context and concatenate core frames.",
+  "prevention": "Keep the failed full-clip receipt immutable and keep the technical-only source restriction. Do not submit a large 4K batch or claim the OOM resolved until a measured target-resolution pilot and seam/decoded-output checks pass.",
+  "id": "seedvr2-2k-fullclip-container-oom-30gb",
+  "root_cause_status": "confirmed",
+  "evidence_paths": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/PLAN.md",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/upscale-pilot-v001/workflow-preparation-manifest-v001.json",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/upscale-pilot-v002/README.md",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/seedvr2-production-v001/README.md",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/seedvr2-production-v001/pilot/2160p/S01_A/PREPARATION-RECEIPT.json",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/tools/upscale_seedvr2_chunked.py",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/seedvr2-production-v001/pilot/2160p/S01_A/job.json",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/seedvr2-production-v001/pilot/2160p/S01_A/RUNTIME-VERIFICATION-v001.json",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/seedvr2-performance-v001/PERFORMANCE-RECOMMENDATION.md"
+  ],
+  "environment": "Windows, RTX 5080, Docker container Comfyui-Studio (30 GB RAM limit)"
+}

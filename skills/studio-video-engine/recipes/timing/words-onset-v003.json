@@ -1,0 +1,85 @@
+{
+  "schema": "jjv/timing-recipe/v1",
+  "recipe_id": "timing/words-onset-v003",
+  "family": "timing",
+  "domain": "jenniejoy_cartoon_3d",
+  "language": "en",
+  "document_schema": "jenniejoykids-word-timing/v004",
+  "note": "Root decision 2026-10-27 (after v002 called the consonant itself early): identical to v002 except q1.onset_voiced_dbfs -42 (the rule lights at the -45 dBFS consonant edge, a -35 dBFS detector treats the consonant as early) and q1.max_early_frames 1 (33 ms is below what a viewer sees; the defect the user caught was 4-7 f). Negative controls: a word 5 f early AND a word 2 f early must both FAIL. Late 1-2 f PASS, 3-6 f WARN, > 6 f FAIL.",
+  "recognition": {
+    "engine": "faster-whisper",
+    "model_label": "small.en",
+    "device": "cpu",
+    "compute_type": "int8",
+    "beam_size": 5,
+    "best_of": 5,
+    "patience": 1.0,
+    "temperature": 0.0,
+    "vad_filter": false,
+    "condition_on_previous_text": false,
+    "prompt_from": "speech_text",
+    "accept_similarity": 0.45,
+    "timeout_seconds": 900
+  },
+  "first_word": {
+    "hop_s": 0.01,
+    "threshold_dbfs": -40.0,
+    "merge_gap_s": 0.03,
+    "sustained_run_s": 0.15,
+    "isolated_gap_s": 0.5,
+    "move_min_s": 0.05,
+    "unvoiced_preroll_s": 0.1,
+    "calibrate_last_end": true,
+    "voiced": {
+      "window_s": 0.03,
+      "hop_s": 0.01,
+      "loud_dbfs": -30.0,
+      "autocorr_min": 0.6,
+      "pitch_min_hz": 70,
+      "pitch_max_hz": 400,
+      "centroid_max_hz": 4500,
+      "fft_size": 2048,
+      "search_s": 1.0,
+      "lead_back_s": 0.03
+    }
+  },
+  "all_words": {
+    "window_s": 0.02,
+    "hop_s": 0.01,
+    "floor_dbfs": -50.0,
+    "floor_window_s": 0.01,
+    "voiced_dbfs": -35.0,
+    "sustain_s": 0.06,
+    "edge_dbfs": -45.0,
+    "end_margin_frames": 2,
+    "search_past_end_s": 0.15,
+    "pause": {
+      "near_s": 0.2,
+      "mid_s": 0.4,
+      "near_min_s": 0.05,
+      "far_min_s": 0.1,
+      "max_shift_s": 0.6,
+      "search_extra_s": 0.2
+    }
+  },
+  "q1": {
+    "window_s": 0.01,
+    "silence_dbfs": -55.0,
+    "edge_dbfs": -45.0,
+    "pause_min_s": 0.1,
+    "pause_start_max_s": 0.4,
+    "lookback_s": 0.12,
+    "word_end_margin_s": 0.06,
+    "search_after_start_s": 0.45,
+    "max_early_frames": 1,
+    "max_late_frames": 2,
+    "control_shift_frames": 5,
+    "onset_voiced_dbfs": -42.0,
+    "onset_sustain_s": 0.03,
+    "warn_late_frames": 6,
+    "extra_control_shift_frames": [
+      2
+    ]
+  },
+  "default_for_domain": true
+}

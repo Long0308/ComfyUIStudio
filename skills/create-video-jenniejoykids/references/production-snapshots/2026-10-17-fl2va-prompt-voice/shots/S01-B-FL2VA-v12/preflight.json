@@ -1,0 +1,40 @@
+{
+  "actual_inputs": [
+    {
+      "role": "first_frame",
+      "staged": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\input\\JennieKidJoys_S01_v10_A119.png",
+      "dimensions": [
+        864,
+        480
+      ],
+      "sha256": "8ca17bcd83dd8f4c6b4473cd66ddd4104a9bc045bc2dd79a65936c03607cfb16"
+    },
+    {
+      "role": "last_frame",
+      "staged": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\input\\JennieKidJoys_S01_v10_B119.png",
+      "dimensions": [
+        864,
+        480
+      ],
+      "sha256": "4e6b47ffb6a7df04c25366c21ee980c2591168efd4396acd45ce1432e2697607"
+    }
+  ],
+  "model_download_verification": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\models\\diffusion_models\\minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+    "status": "verified",
+    "sha256": "e889202c41dafb67b10d67b97f0d8541508036a6090af23425a5c2615d03c47a",
+    "bytes": 20970379616,
+    "repo": "Comfy-Org/MiniMax-H3",
+    "revision": "e5eb578a89295337b8ff433a035929ce0279e0b6",
+    "elapsed_seconds": 205.859
+  },
+  "profile": "NativeH3FL2VA_first_last_i2v",
+  "native_frames": 124,
+  "editorial_frames": 120,
+  "conditioned_last_native": 123,
+  "actual_used_boundary_for_next": 119,
+  "voice": "CanonicalAliceoriginalWAVpostproduction_no_reclone",
+  "full_cast": "sourcev9VIDEOretained",
+  "runtime_status": "not_submitted_pending_independent_code_reviews",
+  "geometry_status": "InputPNGsprobed864x480; actualnewmotionnotyetgenerated"
+}

@@ -1,0 +1,90 @@
+{
+ "schema": "jjv/audio-recipe/v1",
+ "recipe_id": "audio/mix-cinema-ep04-final-v001",
+ "family": "audio-mix",
+ "domain": "jenniejoy_cartoon_3d",
+ "note": "The first episode's user-approved FINAL hand mix (editorial/audio-mix-v016/mix-plan-v016-final-giongC-nhacV2-4.json) as an episode recipe: bed story -9.0 / outro -6.5 dB, duck -7 dB (0.15 s / 0.8 s, hold 1.5 s), dialogue bus -1.5, vocabulary bus +2.7, end line +2.7-6.0 = -3.3, brand voice 0 dB. Buses are PINNED (fixed), not solved. Named explicitly with --recipe; never a default.",
+ "profile": "cinema",
+ "sample_rate": 48000,
+ "music": {
+  "gain_db": -9.0,
+  "section_gains_db": {
+   "logo_hold": -6.5,
+   "outro_cards": -6.5,
+   "end_plate": -6.5,
+   "ending": -6.5
+  },
+  "loop_crossfade_s": 2.0,
+  "fade_in_s": 0.25,
+  "fade_out_s": 2.0,
+  "after_brand_voice_fade_in_s": 0.5
+ },
+ "duck": {
+  "depth_db": -7.0,
+  "attack_s": 0.15,
+  "release_s": 0.8,
+  "merge_gap_s": 1.5
+ },
+ "sfx": {
+  "duck_db": -4.0,
+  "avoid_speech_s": 0.1,
+  "default_enabled": false
+ },
+ "speech": {
+  "threshold_dbfs": -45.0,
+  "window_ms": 10
+ },
+ "loudness": {
+  "enabled": true,
+  "target_lufs": -17.0,
+  "tolerance_lu": 1.0,
+  "true_peak_max_dbtp": -1.0,
+  "max_section_jump_lu": 2.0,
+  "bed_gain_min_db": -24.0,
+  "bed_gain_max_db": 0.0,
+  "max_bed_step_db": 3.0,
+  "max_iterations": 10,
+  "ramp_s": 1.0,
+  "min_measure_s": 0.5,
+  "bed_only": {
+   "target_lufs": -22.0,
+   "tolerance_lu": 3.0,
+   "below_speech_lu": 3.0,
+   "min_s": 3.0
+  },
+  "brand_voice": {
+   "target_lufs": -16.0,
+   "tolerance_lu": 1.5
+  }
+ },
+ "pumping": {
+  "enabled": true,
+  "max_swing_db": 3.0,
+  "min_window_s": 1.0,
+  "gap_s": 0.5
+ },
+ "speech_buses": {
+  "dialogue": {
+   "mode": "fixed",
+   "gain_db": -1.5
+  },
+  "vocabulary": {
+   "mode": "fixed",
+   "gain_db": 2.7
+  },
+  "end_line": {
+   "mode": "fixed",
+   "gain_db": -3.3
+  },
+  "*": {
+   "mode": "fixed",
+   "gain_db": 0.0
+  }
+ },
+ "remux": {
+  "audio_codec": "aac",
+  "audio_bitrate": "192k"
+ },
+ "selectable_by_default": false,
+ "pinned_from": "editorial/audio-mix-v016/mix-plan-v016-final-giongC-nhacV2-4.json"
+}

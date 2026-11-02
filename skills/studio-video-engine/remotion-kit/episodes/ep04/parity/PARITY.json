@@ -1,0 +1,656 @@
+{
+ "all_pass": true,
+ "frames": 61,
+ "rows": [
+  {
+   "group": "review still",
+   "frame": 45,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review still",
+   "frame": 88,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review still",
+   "frame": 388,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review still",
+   "frame": 390,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review still",
+   "frame": 392,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review still",
+   "frame": 680,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review still",
+   "frame": 1013,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review still",
+   "frame": 1314,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review still",
+   "frame": 1615,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review still",
+   "frame": 1800,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review still",
+   "frame": 2130,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review still",
+   "frame": 2155,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review still",
+   "frame": 2160,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review still",
+   "frame": 2300,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review still",
+   "frame": 2519,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review still",
+   "frame": 2550,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review still",
+   "frame": 2579,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 380-400",
+   "frame": 380,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 380-400",
+   "frame": 381,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 380-400",
+   "frame": 382,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 380-400",
+   "frame": 383,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 380-400",
+   "frame": 384,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 380-400",
+   "frame": 385,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 380-400",
+   "frame": 386,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 380-400",
+   "frame": 387,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 380-400",
+   "frame": 388,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 380-400",
+   "frame": 389,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 380-400",
+   "frame": 390,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 380-400",
+   "frame": 391,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 380-400",
+   "frame": 392,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 380-400",
+   "frame": 393,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 380-400",
+   "frame": 394,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 380-400",
+   "frame": 395,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 380-400",
+   "frame": 396,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 380-400",
+   "frame": 397,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 380-400",
+   "frame": 398,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 380-400",
+   "frame": 399,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 380-400",
+   "frame": 400,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 1005-1020",
+   "frame": 1005,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 1005-1020",
+   "frame": 1006,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 1005-1020",
+   "frame": 1007,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 1005-1020",
+   "frame": 1008,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 1005-1020",
+   "frame": 1009,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 1005-1020",
+   "frame": 1010,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 1005-1020",
+   "frame": 1011,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 1005-1020",
+   "frame": 1012,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 1005-1020",
+   "frame": 1013,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 1005-1020",
+   "frame": 1014,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 1005-1020",
+   "frame": 1015,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 1005-1020",
+   "frame": 1016,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 1005-1020",
+   "frame": 1017,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 1005-1020",
+   "frame": 1018,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 1005-1020",
+   "frame": 1019,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "review window 1005-1020",
+   "frame": 1020,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "master still",
+   "frame": 296,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "master still",
+   "frame": 390,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "master still",
+   "frame": 1010,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "master still",
+   "frame": 1013,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "master still",
+   "frame": 2155,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "master still",
+   "frame": 2160,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  },
+  {
+   "group": "master still",
+   "frame": 2550,
+   "identical_rgba_md5": true,
+   "psnr_db": null,
+   "pass": true
+  }
+ ],
+ "property_checks": [
+  {
+   "property": "PREVIEW mark changes pixels only inside its box (kit-vs-kit, not parity)",
+   "frame": 1010,
+   "pass": true
+  }
+ ],
+ "rule_report": {
+  "v008": {
+   "build_receipt": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\editorial\\review-hd-v008\\RECEIPT.json",
+    "sha256": "53189846b0350bf4f757dfdb7a6d96942e32018e29cc374df8ed85606bf3b950",
+    "kind": "build-receipt"
+   },
+   "engine_schedule": {
+    "engine_rows": 9,
+    "engine_tail_frames": 3,
+    "mismatch": [],
+    "label": "matches the engine schedule"
+   },
+   "issues": [
+    "T1010: dip_peak_before_first_word: the white peak (f1013) must come before the first spoken word of S04_A (f1012); it would hide 2 spoken frame(s) [first spoken frame from caption start (caption-based)]",
+    "T1310: dip_peak_before_first_word: the white peak (f1313) must come before the first spoken word of S05_A (f1312); it would hide 2 spoken frame(s) [first spoken frame from caption start (caption-based)]",
+    "T1610: dip_peak_before_first_word: the white peak (f1613) must come before the first spoken word of S06_A (f1612); it would hide 2 spoken frame(s) [first spoken frame from caption start (caption-based)]"
+   ],
+   "dip_peak_issues": 3,
+   "waived_in_adapter": 0,
+   "first_spoken": [
+    {
+     "transition": "T1010",
+     "first_spoken_frame": 1012,
+     "basis": "caption start (caption-based)"
+    },
+    {
+     "transition": "T1310",
+     "first_spoken_frame": 1312,
+     "basis": "caption start (caption-based)"
+    },
+    {
+     "transition": "T1610",
+     "first_spoken_frame": 1612,
+     "basis": "caption start (caption-based)"
+    }
+   ]
+  },
+  "v009": {
+   "build_receipt": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\editorial\\review-hd-v009\\RECEIPT.json",
+    "sha256": "d5bf979899dbe6cb7ee1f6ee76aa4d5a579c8ecc40a585c2c53dce7ffde27b65",
+    "kind": "build-receipt"
+   },
+   "engine_schedule": {
+    "engine_rows": 9,
+    "engine_tail_frames": 3,
+    "mismatch": [
+     "T1010",
+     "T1310",
+     "T1610"
+    ],
+    "label": "engine-schedule mismatch (later design, BRIEF v009; not engine-verified): the build uses its own dip schedule, the engine still encodes the 9-row / 3-tail-frame one"
+   },
+   "issues": [
+    "T1010: dip_sparkle_before_first_word: the sparkle burst around the white peak (f1011+1) reaches the first spoken word of S04_A (f1012); set motion.dip.sparkles 0 or move the peak earlier [first spoken frame from caption start (caption-based)]",
+    "T1310: dip_sparkle_before_first_word: the sparkle burst around the white peak (f1311+1) reaches the first spoken word of S05_A (f1312); set motion.dip.sparkles 0 or move the peak earlier [first spoken frame from caption start (caption-based)]",
+    "T1610: dip_sparkle_before_first_word: the sparkle burst around the white peak (f1611+1) reaches the first spoken word of S06_A (f1612); set motion.dip.sparkles 0 or move the peak earlier [first spoken frame from caption start (caption-based)]"
+   ],
+   "dip_peak_issues": 0,
+   "waived_in_adapter": 0,
+   "first_spoken": [
+    {
+     "transition": "T1010",
+     "first_spoken_frame": 1012,
+     "basis": "caption start (caption-based)"
+    },
+    {
+     "transition": "T1310",
+     "first_spoken_frame": 1312,
+     "basis": "caption start (caption-based)"
+    },
+    {
+     "transition": "T1610",
+     "first_spoken_frame": 1612,
+     "basis": "caption start (caption-based)"
+    }
+   ]
+  },
+  "v010": {
+   "build_receipt": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\editorial\\review-hd-v010\\RECEIPT.json",
+    "sha256": "184111178daecedb30a1d9ceccf1c9612d9a6f4edfa6ca6207699a86dc629a8e",
+    "kind": "build-receipt"
+   },
+   "engine_schedule": {
+    "engine_rows": 9,
+    "engine_tail_frames": 3,
+    "mismatch": [
+     "T1010",
+     "T1310",
+     "T1610"
+    ],
+    "label": "engine-schedule mismatch (later design, BRIEF v009; not engine-verified): the build uses its own dip schedule, the engine still encodes the 9-row / 3-tail-frame one"
+   },
+   "issues": [
+    "T1010: dip_sparkle_before_first_word: the sparkle burst around the white peak (f1011+1) reaches the first spoken word of S04_A (f1012); set motion.dip.sparkles 0 or move the peak earlier [first spoken frame from caption start (caption-based)]",
+    "T1310: dip_sparkle_before_first_word: the sparkle burst around the white peak (f1311+1) reaches the first spoken word of S05_A (f1312); set motion.dip.sparkles 0 or move the peak earlier [first spoken frame from caption start (caption-based)]",
+    "T1610: dip_sparkle_before_first_word: the sparkle burst around the white peak (f1611+1) reaches the first spoken word of S06_A (f1612); set motion.dip.sparkles 0 or move the peak earlier [first spoken frame from caption start (caption-based)]"
+   ],
+   "dip_peak_issues": 0,
+   "waived_in_adapter": 0,
+   "first_spoken": [
+    {
+     "transition": "T1010",
+     "first_spoken_frame": 1012,
+     "basis": "caption start (caption-based)"
+    },
+    {
+     "transition": "T1310",
+     "first_spoken_frame": 1312,
+     "basis": "caption start (caption-based)"
+    },
+    {
+     "transition": "T1610",
+     "first_spoken_frame": 1612,
+     "basis": "caption start (caption-based)"
+    }
+   ]
+  },
+  "v011": {
+   "build_receipt": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\editorial\\review-hd-v011\\RECEIPT.json",
+    "sha256": "692bae2ffcd29af1340178489d628ddcc8edb1faf323ecc893cde127be9ca1d6",
+    "kind": "build-receipt"
+   },
+   "engine_schedule": {
+    "engine_rows": 9,
+    "engine_tail_frames": 3,
+    "mismatch": [
+     "T1010",
+     "T1310",
+     "T1610"
+    ],
+    "label": "engine-schedule mismatch (later design, BRIEF v009; not engine-verified): the build uses its own dip schedule, the engine still encodes the 9-row / 3-tail-frame one"
+   },
+   "issues": [],
+   "dip_peak_issues": 0,
+   "waived_in_adapter": 0,
+   "first_spoken": [
+    {
+     "transition": "T1010",
+     "first_spoken_frame": 1033,
+     "basis": "onset evidence (jenniejoykids-word-timing/v002 onset_fix, sha256 eb5b8ca5f101)"
+    },
+    {
+     "transition": "T1310",
+     "first_spoken_frame": 1336,
+     "basis": "onset evidence (jenniejoykids-word-timing/v002 onset_fix, sha256 eb5b8ca5f101)"
+    },
+    {
+     "transition": "T1610",
+     "first_spoken_frame": 1643,
+     "basis": "onset evidence (jenniejoykids-word-timing/v002 onset_fix, sha256 eb5b8ca5f101)"
+    }
+   ]
+  },
+  "v012": {
+   "build_receipt": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\editorial\\review-hd-v012\\RECEIPT.json",
+    "sha256": "d85ad455ba37192dcec38bcce2631802be8f190f2ddc4bb6c844304809d03f55",
+    "kind": "build-receipt"
+   },
+   "engine_schedule": {
+    "engine_rows": 9,
+    "engine_tail_frames": 3,
+    "mismatch": [
+     "T1010",
+     "T1310",
+     "T1610"
+    ],
+    "label": "engine-schedule mismatch (later design, BRIEF v009; not engine-verified): the build uses its own dip schedule, the engine still encodes the 9-row / 3-tail-frame one"
+   },
+   "issues": [],
+   "dip_peak_issues": 0,
+   "waived_in_adapter": 0,
+   "first_spoken": [
+    {
+     "transition": "T1010",
+     "first_spoken_frame": 1033,
+     "basis": "onset evidence (jenniejoykids-word-timing/v003 onset_fix, sha256 871c7bd09445)"
+    },
+    {
+     "transition": "T1310",
+     "first_spoken_frame": 1336,
+     "basis": "onset evidence (jenniejoykids-word-timing/v003 onset_fix, sha256 871c7bd09445)"
+    },
+    {
+     "transition": "T1610",
+     "first_spoken_frame": 1643,
+     "basis": "onset evidence (jenniejoykids-word-timing/v003 onset_fix, sha256 871c7bd09445)"
+    }
+   ]
+  }
+ },
+ "change_detectors": [
+  {
+   "frame": 1011,
+   "status": "unchanged"
+  },
+  {
+   "frame": 1012,
+   "status": "unchanged"
+  },
+  {
+   "frame": 1311,
+   "status": "unchanged"
+  },
+  {
+   "frame": 1611,
+   "status": "unchanged"
+  }
+ ],
+ "change_detectors_note": "no-reference change detectors, not parity; excluded from all_pass",
+ "review_config_sha256": "c6f9a00b4699b356e7d6a26bb16540ea393df7fea4d6467adfe735856efd1cd7",
+ "master_config_sha256": "29191ddfdc9d51be43ca38397400d9e59b01bcc61352595054f6a7627e909d18"
+}

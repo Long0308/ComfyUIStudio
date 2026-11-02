@@ -1,0 +1,22 @@
+{
+  "id": "yue2-instrumental-prompt-still-sings",
+  "engine": "YuE2 3B int8 via ComfyUI 0.41 (YuE2GenerateABC full planning -> YuE2GenerateMusic)",
+  "environment": "Episode 04 audio/music-yue2-v001 beds NHAC-1/2/3 (T-A10), measured in T-A11 with Demucs htdemucs + faster-whisper",
+  "observed_at": "2026-10-27",
+  "symptom": "User heard lyrics in the picked bed NHAC-2. Demucs two-stem separation of all three v001 beds: vocal stem only 2.7-4.1 dB below the full bed (vocal RMS -23..-26 dBFS), 60-123 one-second windows above -40 dBFS. faster-whisper on the vocal stems transcribes 131 s (NHAC-2) and 177 s (NHAC-3) of sung English nonsense lyrics ('Same color line, proceve on the chime...').",
+  "root_cause": "Style text 'instrumental only, no vocals, no singing' plus lyrics '[Instrumental]' or an empty section skeleton does NOT stop YuE2 from singing: the ABC planner writes a Vocal voice anyway and the semantic stage sings invented words. Negative wording in the style is not honoured; the lyric field only controls WHAT is sung, not WHETHER.",
+  "root_cause_status": "measured_nine_takes_demucs_plus_asr (v001 NHAC-1/2/3 + T-A11 V2A/B/C tag+inst: 9/9 fail; the stronger style 'no vocals, no singing, no humming, no choir, no human voice' changed nothing: vocal stem -1.2..-3.5 dB rel., 24-52 windows > -40 dBFS)",
+  "fix_or_workaround": "Every YuE2 bed goes through Demucs htdemucs (production-local/engine/tools/demucs-venv) and the vocal gate (music-yue2-v002/tools/vocal_gate.py: vocal stem <= -35 dB relative AND no 1 s window > -40 dBFS); when a take fails, the deliverable is the no_vocals stem resampled to 48 kHz and re-gated. Never deliver a raw YuE2 bed as 'instrumental' without the gate.",
+  "prevention": "Vocal-free is a measured property, not a prompt property. Keep the gate in the skill (jenniejoy-music-sfx-yue step 4) and in jjv audio music; record gate numbers per candidate in the manifest; consider a generator with a real instrumental mode (ACE-Step 1.5) when the no_vocals stem sounds hollow.",
+  "verification": "music-yue2-v002/vocal-gate/v001-beds/*.gate.json and asr-on-vocal-stems.json.",
+  "status": "resolved_with_gate_workaround",
+  "evidence_paths": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/audio/music-yue2-v002/vocal-gate/v001-beds/NHAC-2-piano-musicbox-take3.gate.json",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/audio/music-yue2-v002/vocal-gate/v001-beds/asr-on-vocal-stems.json"
+  ],
+  "affected_artifacts": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/audio/music-yue2-v001/NHAC-1-ukulele-glockenspiel-take2-full-48k.wav",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/audio/music-yue2-v001/NHAC-2-piano-musicbox-take3-full-48k.wav",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/audio/music-yue2-v001/NHAC-3-guitar-marimba-full-48k.wav"
+  ]
+}

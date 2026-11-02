@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "id": "H3-FL2VA-frontal-detour-v12",
+  "at_utc": "2026-10-16T21:04:21.644375+00:00",
+  "job_id": "17047713-25b5-4aae-9d64-754401b24b65",
+  "status": "rejected_picture_technical_pass",
+  "measured": {
+    "elapsed_seconds": 297.863,
+    "native_frames": 124,
+    "used_frames": 120,
+    "fps": 24,
+    "width": 864,
+    "height": 480,
+    "canonical_first_png_pixel_equal": true,
+    "literal_and_all_configured_inputs_equal": true,
+    "engine": "MiniMaxH3ImageToVideo_FL2VA_INT8",
+    "seed": 4341,
+    "steps": 20,
+    "scheduler": "simple"
+  },
+  "visual_review": {
+    "inspected_native_frames": "0..119 consecutive, plus123 and2fps overview",
+    "parents_start_turning": "frames5..13",
+    "toddler_turns_front": "frames13..20",
+    "closeup": "frames30..68",
+    "turn_back": "frames73..83",
+    "rear_pullback": "frames84..119",
+    "interval_labels": "Visual judgements on individually numbered source frames; no bounding-box or camera calibration measurement claimed."
+  },
+  "conclusion": "Changing task family to native FL2VA alone did not prevent unsolicited rear-to-front shot detour. Technical first/last continuity is not action/camera continuity. Do not accept or reroll unchanged.",
+  "cause_status": "unknown; prompt salience/serialization is an untested hypothesis, not a diagnosed cause",
+  "evidence": [
+    "qa/S01-B-FL2VA-v12/overview.jpg",
+    "qa/S01-B-FL2VA-v12/consecutive-000-029.jpg",
+    "qa/S01-B-FL2VA-v12/consecutive-030-059.jpg",
+    "qa/S01-B-FL2VA-v12/consecutive-060-089.jpg",
+    "qa/S01-B-FL2VA-v12/consecutive-090-119.jpg",
+    "shots/S01-B-FL2VA-v12/queued-integrity.json",
+    "shots/S01-B-FL2VA-v12/history.json"
+  ],
+  "next": "Read-only prompt/native-node diagnosis; one isolated prompt-format experiment if justified. Preserve full descriptions, native AV and canonical Alice."
+}

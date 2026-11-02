@@ -1,0 +1,19 @@
+{
+  "id": "engine-graph-compare-int-vs-float-false-uncertain",
+  "engine": "studio-video-engine jjv seedvr2 execute → engine/comfy/history.py select_bound_entry (and queue/reconcile/lost/dispatch graph sha matching)",
+  "environment": "ep04 tails GPU run (plan-v4) on ComfyUI 0.41, 2026-10-27 17:21",
+  "observed_at": "2026-10-27",
+  "symptom": "S03_B chunk-0000 was POSTed and ComfyUI completed it (success, 11 frames 3888x2160), but the engine stopped exit 2 Uncertain 'completed history prompt … carries a different graph' and wrote job FAILED (posted, no auto-resubmit).",
+  "root_cause": "ComfyUI 0.41 records the SaveVideo widget 'format.codec.encoding.crf' 16 as 16.0 in /history. The engine port compared canonical JSON bytes (16 vs 16.0 differ); the frozen v004 executor compared dicts with == (16 == 16.0) and never tripped, so the port was stricter than the code it replaced. The same byte-level sha compare also broke duplicate-prompt (twins) detection, reconcile_intent and verify_known_prompt (the resume path) for any float-recorded widget.",
+  "root_cause_status": "measured",
+  "fix_or_workaround": "engine/comfy/graph_identity.py: identity form maps finite integral floats to int (bools untouched; 16 vs 16.5 and true vs 1 still differ); history.py, queue.PromptRecord.matches(), dispatch twins, lost, reconcile_intent and verify_known_prompt use it. 6 regression tests in tests/test_history.py; full suite 856 passed. Re-run the execute to reconcile the completed prompt from history (no re-POST) after the verifier PASS.",
+  "prevention": "When porting a working executor into the engine, keep its comparison semantics (or prove the stricter one against real ComfyUI history before the first GPU run): a dry run never reads /history, so a history-format mismatch only appears after GPU work. Add a fixture taken from a REAL ComfyUI history entry to the tests of every history/queue comparator.",
+  "verification": "Root diff of plan graph vs recorded graph: 0 value differences; canonical bytes differ only at crf 16 vs 16.0; v004 history.json also records 16.0.",
+  "second_defect_caught_by_verifier": "Root's first fix normalised only the RECORDED graph; the plan graph also carries floats (cfg 1.0, denoise 1.0) and the intent stores the RAW plan sha, so resume/reconcile/twins still never matched (tests used int-only graphs and passed). Corrected to identity-against-identity: graph_identity.wanted_shas(our graph, receipt sha) intersected with graph_shas(recorded) at every call site that holds the graph (resume, lost classify, watchdog, twins, timeout). Regression tests now use the real mixed shape (int crf + float cfg/denoise). Lesson: a normalising comparator must normalise BOTH sides, and its test fixture must be copied from a real ComfyUI history entry, not hand-made.",
+  "status": "fix_in_review",
+  "evidence_paths": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/seedvr2-tails-v001/episode/plan-v4/runs/S03_B/chunk-0000/history.json",
+    ".agents/skills/studio-video-engine/engine/comfy/graph_identity.py"
+  ],
+  "affected_artifacts": []
+}

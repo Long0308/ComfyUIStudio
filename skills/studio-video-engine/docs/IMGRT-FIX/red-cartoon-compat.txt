@@ -1,0 +1,42 @@
+python -I -B -c pytest.main ['J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\tests\\test_images_codex_imgrt.py', '-q', '--tb=short', '-p', 'no:cacheprovider', '--basetemp', '.pytest_work_tmp/IMGRT-FIX'] candidate= True
+.................................F.                                      [100%]
+================================== FAILURES ===================================
+____________ test_cartoon_free_form_dispatch_behavior_is_unchanged ____________
+..\..\..\engine\core\io.py:161: in read_json
+    return json.loads(Path(path).read_text(encoding="utf-8-sig"), parse_constant=_reject_constant)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:787: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\Admin\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py:771: in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   FileNotFoundError: [Errno 2] No such file or directory: 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\docs\\IMGRT-FIX\\red-cartoon-compat\\.pytest_work_tmp\\IMGRT-FIX\\test_cartoon_free_form_dispatc0\\prompts\\confirmations\\FREE_1-a4e3b4e59430.json'
+
+The above exception was the direct cause of the following exception:
+..\candidate\codex_queue.py:143: in _refuse_unconfirmed
+    value = read_json(record)
+            ^^^^^^^^^^^^^^^^^
+..\..\..\engine\core\io.py:163: in read_json
+    raise Uncertain(f"cannot read JSON {path}: {error}") from error
+E   engine.core.errors.Uncertain: cannot read JSON J:\1.JennieHomeSchool\03 Voice\.agents\skills\studio-video-engine\docs\IMGRT-FIX\red-cartoon-compat\.pytest_work_tmp\IMGRT-FIX\test_cartoon_free_form_dispatc0\prompts\confirmations\FREE_1-a4e3b4e59430.json: [Errno 2] No such file or directory: 'J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\docs\\IMGRT-FIX\\red-cartoon-compat\\.pytest_work_tmp\\IMGRT-FIX\\test_cartoon_free_form_dispatc0\\prompts\\confirmations\\FREE_1-a4e3b4e59430.json'
+
+The above exception was the direct cause of the following exception:
+..\..\..\tests\test_images_codex_imgrt.py:165: in test_cartoon_free_form_dispatch_behavior_is_unchanged
+    gate(ctx, Path(made["batch"]), "codex")
+..\..\..\tests\test_images_codex_imgrt.py:30: in gate
+    codex.submit_library_batch(ctx, batch.parent / "out", batch, [], codex_cmd=["unused"],
+..\candidate\codex.py:217: in submit_library_batch
+    return _run_items(ctx, library_out, items[0]["batch_id"], items, accounts, library_out=Path(library_out), **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\candidate\codex.py:226: in _run_items
+    _refuse_blocked(item, provenance, ctx=ctx)
+..\candidate\codex_queue.py:174: in _refuse_blocked
+    _refuse_unconfirmed(item)
+..\candidate\codex_queue.py:145: in _refuse_unconfirmed
+    raise Refused(f"prompt_route confirmation missing or unreadable: {record}") from error
+E   engine.core.errors.Refused: prompt_route confirmation missing or unreadable: J:\1.JennieHomeSchool\03 Voice\.agents\skills\studio-video-engine\docs\IMGRT-FIX\red-cartoon-compat\.pytest_work_tmp\IMGRT-FIX\test_cartoon_free_form_dispatc0\prompts\confirmations\FREE_1-a4e3b4e59430.json
+=========================== short test summary info ===========================
+FAILED ..\..\..\tests\test_images_codex_imgrt.py::test_cartoon_free_form_dispatch_behavior_is_unchanged
+1 failed, 34 passed in 3.58s
+EXIT_CODE 1

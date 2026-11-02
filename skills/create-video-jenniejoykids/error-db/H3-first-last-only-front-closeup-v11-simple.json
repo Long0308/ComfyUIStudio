@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "id": "H3-first-last-only-front-closeup-v11-simple",
+  "status": "confirmed_rejected_scheduler_only_trial",
+  "at_utc": "2026-10-16T20:47:17.227085+00:00",
+  "job_id": "f0472c3b-1da2-420c-b485-97e37f47728a",
+  "measured": {
+    "elapsed_seconds": 304.771,
+    "scheduler": "simple",
+    "seed": 4341,
+    "steps": 20,
+    "literal_prompt_sha256": "b920163be027cdcefba2af171ec9a1ef8841abcffd56c38496ddb254ca14a38e"
+  },
+  "visual_estimates": [
+    "Fronttoddlercloseup20..70;subsequentrearfamilyreset;parentslookback90..110.",
+    "Single schedulerchange did not remedy unsolicitedcut/turn."
+  ],
+  "evidence": [
+    "qa/S01-B-v11-simple/overview.jpg",
+    "shots/S01-B-repair-v11-simple/workflow-patch.json",
+    "shots/S01-B-repair-v11-simple/run/prompt-integrity.json"
+  ],
+  "conclusion": "Betanotisolatedcause;officialsimpleprofilealonedoesnotcertifycontinuity. StoprerollingthisRef2VAfirst-last-onlyconfiguration.",
+  "next_engine": "NativeH3FL2VAcheckpointwithMiniMaxH3ImageToVideo;canonicalAlicepostunchanged;requiresactualruntimepictureacceptance."
+}

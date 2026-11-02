@@ -1,0 +1,262 @@
+{
+  "purpose": "REF ONLY: Higgsfield voice/performance conditioning; NOT final film soundtrack.",
+  "clean_reference": {
+    "file": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\REF_ONLY_alice-clean-reference-10s.wav",
+    "purpose": "REF ONLY — Higgsfield voice conditioning",
+    "duration": 10,
+    "utterances": [
+      {
+        "id": "S01_L1",
+        "text": "Mom, Dad, and me!",
+        "start": 0.0,
+        "end": 1.8929583333333333
+      },
+      {
+        "id": "S01_L2",
+        "text": "Let's go to the zoo!",
+        "start": 2.1429583333333335,
+        "end": 4.156
+      },
+      {
+        "id": "S02_L1",
+        "text": "Look! A little bird.",
+        "start": 4.406,
+        "end": 6.502166666666667
+      },
+      {
+        "id": "S02_L2",
+        "text": "Bird. A little bird.",
+        "start": 6.752166666666667,
+        "end": 9.007958333333333
+      }
+    ],
+    "sha256": "88810B3ED4E66BFEB3D541AFD1B510AB7DE5404BEBE37A590B20255DA2D81340",
+    "quality": {
+      "duration": 10.0,
+      "sample_rate": 24000,
+      "channels": 1,
+      "bits_per_sample": 16,
+      "peak_dbfs": -1.8779072507968184,
+      "rms_dbfs": -15.429418485594681,
+      "clipped_samples": 0
+    }
+  },
+  "scene_guides": [
+    {
+      "scene": "S01",
+      "file": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\scenes\\REF_ONLY_S01-alice-10s.wav",
+      "purpose": "REF ONLY — Higgsfield performance guide",
+      "start": 0,
+      "duration": 10,
+      "placements": [
+        {
+          "id": "S01_L1",
+          "text": "Mom, Dad, and me!",
+          "local_start": 1.2,
+          "local_end": 3.0929583333333333,
+          "global_start": 1.2,
+          "duration": 1.8929583333333333
+        },
+        {
+          "id": "S01_L2",
+          "text": "Let's go to the zoo!",
+          "local_start": 4,
+          "local_end": 6.013041666666667,
+          "global_start": 4,
+          "duration": 2.0130416666666666
+        }
+      ],
+      "response_pause": 3.986958333333333,
+      "sha256": "72C8A8F00132A3D5C732E2214C2052CF87713DE0D1556A718B2ADBD232818136",
+      "quality": {
+        "duration": 10.0,
+        "sample_rate": 24000,
+        "channels": 1,
+        "bits_per_sample": 16,
+        "peak_dbfs": -1.9668753513424997,
+        "rms_dbfs": -16.819078298878974,
+        "clipped_samples": 0
+      }
+    },
+    {
+      "scene": "S02",
+      "file": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\scenes\\REF_ONLY_S02-alice-10s.wav",
+      "purpose": "REF ONLY — Higgsfield performance guide",
+      "start": 10,
+      "duration": 10,
+      "placements": [
+        {
+          "id": "S02_L1",
+          "text": "Look! A little bird.",
+          "local_start": 1.0999999999999996,
+          "local_end": 3.1961666666666666,
+          "global_start": 11.1,
+          "duration": 2.0961666666666665
+        },
+        {
+          "id": "S02_L2",
+          "text": "Bird. A little bird.",
+          "local_start": 4.5,
+          "local_end": 6.755791666666667,
+          "global_start": 14.5,
+          "duration": 2.2557916666666666
+        }
+      ],
+      "response_pause": 3.244208333333333,
+      "sha256": "767E7086D573859B22E72D61ECB8D1CD915F4D8216A0F75209CB7808789EA978",
+      "quality": {
+        "duration": 10.0,
+        "sample_rate": 24000,
+        "channels": 1,
+        "bits_per_sample": 16,
+        "peak_dbfs": -1.8779072507968184,
+        "rms_dbfs": -21.054494604804333,
+        "clipped_samples": 0
+      }
+    },
+    {
+      "scene": "S03",
+      "file": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\scenes\\REF_ONLY_S03-alice-10s.wav",
+      "purpose": "REF ONLY — Higgsfield performance guide",
+      "start": 20,
+      "duration": 10,
+      "placements": [
+        {
+          "id": "S03_L1",
+          "text": "I see a giraffe.",
+          "local_start": 1.1000000000000014,
+          "local_end": 2.7693333333333334,
+          "global_start": 21.1,
+          "duration": 1.6693333333333333
+        },
+        {
+          "id": "S03_L2",
+          "text": "A tall giraffe!",
+          "local_start": 4.399999999999999,
+          "local_end": 6.281208333333334,
+          "global_start": 24.4,
+          "duration": 1.8812083333333334
+        }
+      ],
+      "response_pause": 3.7187916666666663,
+      "sha256": "60C83CC54819FAF89D02215250E09C3554944B7A7AA53BAA0CEC0986ADEA4A9B",
+      "quality": {
+        "duration": 10.0,
+        "sample_rate": 24000,
+        "channels": 1,
+        "bits_per_sample": 16,
+        "peak_dbfs": -2.1039171302664244,
+        "rms_dbfs": -23.663013856164486,
+        "clipped_samples": 0
+      }
+    },
+    {
+      "scene": "S04",
+      "file": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\scenes\\REF_ONLY_S04-alice-10s.wav",
+      "purpose": "REF ONLY — Higgsfield performance guide",
+      "start": 30,
+      "duration": 10,
+      "placements": [
+        {
+          "id": "S04_L1",
+          "text": "Hello, little tiger!",
+          "local_start": 1.1000000000000014,
+          "local_end": 2.8502916666666667,
+          "global_start": 31.1,
+          "duration": 1.7502916666666666
+        },
+        {
+          "id": "S04_L2",
+          "text": "Tiger. Hello, tiger!",
+          "local_start": 4.399999999999999,
+          "local_end": 6.74775,
+          "global_start": 34.4,
+          "duration": 2.34775
+        }
+      ],
+      "response_pause": 3.25225,
+      "sha256": "FC13E7C9F2F39DCF611D326A4421F68D92EF636C01A07475F73F383FFF34A37F",
+      "quality": {
+        "duration": 10.0,
+        "sample_rate": 24000,
+        "channels": 1,
+        "bits_per_sample": 16,
+        "peak_dbfs": -1.8260725840912386,
+        "rms_dbfs": -17.853189191644553,
+        "clipped_samples": 0
+      }
+    },
+    {
+      "scene": "S05",
+      "file": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\scenes\\REF_ONLY_S05-alice-10s.wav",
+      "purpose": "REF ONLY — Higgsfield performance guide",
+      "start": 40,
+      "duration": 10,
+      "placements": [
+        {
+          "id": "S05_L1",
+          "text": "Look! A panda.",
+          "local_start": 1.1000000000000014,
+          "local_end": 2.728083333333333,
+          "global_start": 41.1,
+          "duration": 1.6280833333333333
+        },
+        {
+          "id": "S05_L2",
+          "text": "Panda. A hungry panda.",
+          "local_start": 4.5,
+          "local_end": 7.055083333333333,
+          "global_start": 44.5,
+          "duration": 2.555083333333333
+        }
+      ],
+      "response_pause": 2.944916666666667,
+      "sha256": "813FF97EAC0D78CE7B23AAB073902AC5DF5C2403D02FE936EF4D237109B9217E",
+      "quality": {
+        "duration": 10.0,
+        "sample_rate": 24000,
+        "channels": 1,
+        "bits_per_sample": 16,
+        "peak_dbfs": -2.2823667056376578,
+        "rms_dbfs": -21.63681154777176,
+        "clipped_samples": 0
+      }
+    },
+    {
+      "scene": "S06",
+      "file": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\audio\\scenes\\REF_ONLY_S06-alice-10s.wav",
+      "purpose": "REF ONLY — Higgsfield performance guide",
+      "start": 50,
+      "duration": 10,
+      "placements": [
+        {
+          "id": "S06_L1",
+          "text": "Bye-bye, animals!",
+          "local_start": 1.1000000000000014,
+          "local_end": 2.6866666666666665,
+          "global_start": 51.1,
+          "duration": 1.5866666666666667
+        },
+        {
+          "id": "S06_L2",
+          "text": "Bye-bye, zoo!",
+          "local_start": 4.399999999999999,
+          "local_end": 6.216333333333333,
+          "global_start": 54.4,
+          "duration": 1.8163333333333334
+        }
+      ],
+      "response_pause": 3.783666666666667,
+      "sha256": "D75477639B1932BCFB428566D22F47A2A8A3D8F93D4CDB1B5D7369A1D38D5AA8",
+      "quality": {
+        "duration": 10.0,
+        "sample_rate": 24000,
+        "channels": 1,
+        "bits_per_sample": 16,
+        "peak_dbfs": -2.027590424158327,
+        "rms_dbfs": -19.606102479117634,
+        "clipped_samples": 0
+      }
+    }
+  ]
+}

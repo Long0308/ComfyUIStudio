@@ -1,0 +1,35 @@
+{
+  "id": "h3-v003-spatial-restaging-and-carry-semantics",
+  "observed_at": "2026-10-27",
+  "status": "open",
+  "engine": "ComfyUI MiniMax H3 motion",
+  "environment": "Windows, local ComfyUI :8188, RTX 5080, native 24fps",
+  "symptom": "S02_A v003 motion enlarges Cow A and the milkmaid into the family-side foreground and loses the separating fence plane; S03_A brings the milkmaid and large pail into the foreground family grouping while reframing; S05_A moves into an excessive background cow/worker close-up. S04_A was sampled as materially better but remains unaccepted.",
+  "evidence_paths": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/clips/motion-v003/S02_A-contact.jpg",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/clips/motion-v003/S03_A-contact.jpg",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/clips/motion-v003/S04_A-contact.jpg",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/clips/motion-v003/S05_A-contact.jpg",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/workflows/motion-v003/S02_A.api.json",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/workflows/motion-v003/S03_A.api.json",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/motion-qa-v004/REPORT.md",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/motion-v004/S02_A/job.json",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/workflows/motion-v004/S02_A.api.json",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/workflows/motion-v004/S03_A.api.json",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/workflows/motion-v004/S06_A.api.json",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/motion-qa-v005/INDEPENDENT-MOTION-QA-v005.json"
+  ],
+  "root_cause_status": "spatial_failure_and_prompt_conflict_observed; standalone_reference_salience_hypothesis; v004_sampled_repair_observed",
+  "root_cause": "S02_A directly combines a continuous camera extension from S01_B with prominent milking detail and a fixed new camera angle, mixing carry and motivated-cut semantics. S03_A combines a dolly with preservation of the incoming composition while long production prose competes with the small gesture. Integrated-scene-plus-standalone-reference conditioning plausibly increases milkmaid foreground salience, but that cause has not been isolated.",
+  "fix_or_workaround": "Keep visible cast, spatial placement, props, speaker/listener state and one performance action in a concise model prompt. Move paths, hashes, proposal IDs and production metadata to the manifest/receipt. Declare carry or motivated cut explicitly. The v004 trial uses about 1,600 characters, one integrated-scene reference and an image-only end guide; it is not proven until the approved pilot is rendered and reviewed.",
+  "verification": "Contact sheets establish the S02_A, S03_A and S05_A spatial failures at sampled frames. technical/motion-qa-v004/REPORT.md read back the v004 API graphs, verified image-only node64 conditioning through BasicGuider10 and permits one S02_A pilot using endpoint 127 for 128 used frames and 139 for 140 used frames. S02_A prompt e5807445-bc27-4269-99d6-71111098ec64 was queued; no v004 output or motion acceptance exists in this incident record. Subsequent boundary: S02_A v004 completed and independent Astra sampled QA found cow/milkmaid behind fence. S03_A v0047435bfcb, S04_B6d9b97c5 and S06_A1974f1f4 completed at exact140/128/140nativeframes. Root sampled their real contacts; fullspeed AV/lip acceptance remains open. S01_B final119 is not a continuous carry into S02_A; use the declared motivated cut.",
+  "limitations": "Contact sheets do not certify normal-speed motion, dialogue, lips, decoded endpoints or identity. Frame count and prompt length are not fidelity guarantees. MiniMaxH3AddGuide.frame_idx is a timed conditioning endpoint, not a background mask or pixel lock. S04_A's sampled pass is not full acceptance.",
+  "prevention": "Inspect early, middle, late and decoded-end frames plus a normal-speed pass before any carry or upscale. Reject fence crossings, family-side restaging, abrupt depth/scale motion, missing educational action and prop/identity drift. Do not batch or restore candidate v003 background motion; do not assume the v004 pattern works until its pilot passes.",
+  "affected_artifacts": [
+    "04-milk-and-mom/clips/motion-v003",
+    "04-milk-and-mom/workflows/motion-v003",
+    "04-milk-and-mom/technical/motion-qa-v004",
+    "04-milk-and-mom/workflows/motion-v004",
+    "04-milk-and-mom/technical/motion-v004/S02_A"
+  ]
+}

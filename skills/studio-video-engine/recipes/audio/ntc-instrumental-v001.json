@@ -1,0 +1,316 @@
+{
+  "schema": "jjv/audio-recipe/v1",
+  "recipe_id": "audio/ntc-instrumental-v001",
+  "family": "audio-music",
+  "domain": "newtecons_live_action",
+  "note": "STRUCTURAL DRAFT ONLY. Do not execute: model files, graph, saved workflow, rights and NEWTECONS output qualification require independent verification.",
+  "engine": "acestep",
+  "models": [
+    {
+      "role": "diffusion model (turbo)",
+      "path": "models/diffusion_models/acestep_v1.5_turbo.safetensors",
+      "bytes": 4787825604,
+      "sha256": "3f6e0797fad420a39bd33979eb6e840e30989e34a3794e843d23b60ec6e422d7",
+      "licence_id": "ace-step-1.5-apache-2.0",
+      "graph_binding": {
+        "node": "1",
+        "input": "unet_name",
+        "value": "acestep_v1.5_turbo.safetensors"
+      }
+    },
+    {
+      "role": "text encoder 0.6b",
+      "path": "models/text_encoders/qwen_0.6b_ace15.safetensors",
+      "bytes": 1191588248,
+      "sha256": "fd4590c82153b8ddb67e15a2e7aaa8afa8b83a858c8a9b82a4831063156aa7a7",
+      "licence_id": "ace-step-1.5-apache-2.0",
+      "graph_binding": {
+        "node": "2",
+        "input": "clip_name1",
+        "value": "qwen_0.6b_ace15.safetensors"
+      }
+    },
+    {
+      "role": "text encoder 1.7b",
+      "path": "models/text_encoders/qwen_1.7b_ace15.safetensors",
+      "bytes": 3708523360,
+      "sha256": "ed63e9247d1f55f3ace04fa11e95b085fc82d459c82c5626f0b2e37b91ebd710",
+      "licence_id": "ace-step-1.5-apache-2.0",
+      "graph_binding": {
+        "node": "2",
+        "input": "clip_name2",
+        "value": "qwen_1.7b_ace15.safetensors"
+      }
+    },
+    {
+      "role": "audio VAE",
+      "path": "models/vae/ace_1.5_vae.safetensors",
+      "bytes": 337431732,
+      "sha256": "6de92e3a862acd287e08b024ac90f0783a8635451b728721a33ff03565bcb2bb",
+      "licence_id": "ace-step-1.5-apache-2.0",
+      "graph_binding": {
+        "node": "3",
+        "input": "vae_name",
+        "value": "ace_1.5_vae.safetensors"
+      }
+    }
+  ],
+  "licences": {
+    "ace-step-1.5-apache-2.0": {
+      "name": "ACE-Step 1.5 (Comfy-Org/ACE-Step-1.5 repack)",
+      "relied_on": "Proposed Apache-2.0 model license metadata; verify the exact repack, license text and commercial scope before registration or execution.",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "text_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "note": "Digest is an explicit unverified placeholder; save and hash the exact model/repack license before registration or use."
+    }
+  },
+  "graph": {
+    "1": {
+      "class_type": "UNETLoader",
+      "inputs": {
+        "unet_name": "acestep_v1.5_turbo.safetensors",
+        "weight_dtype": "default"
+      }
+    },
+    "2": {
+      "class_type": "DualCLIPLoader",
+      "inputs": {
+        "clip_name1": "qwen_0.6b_ace15.safetensors",
+        "clip_name2": "qwen_1.7b_ace15.safetensors",
+        "type": "ace",
+        "device": "default"
+      }
+    },
+    "3": {
+      "class_type": "VAELoader",
+      "inputs": {
+        "vae_name": "ace_1.5_vae.safetensors"
+      }
+    },
+    "4": {
+      "class_type": "TextEncodeAceStepAudio1.5",
+      "inputs": {
+        "clip": [
+          "2",
+          0
+        ],
+        "tags": "",
+        "lyrics": "[Instrumental]",
+        "seed": 0,
+        "bpm": 108,
+        "duration": 120.0,
+        "timesignature": "4",
+        "language": "en",
+        "keyscale": "F major",
+        "generate_audio_codes": true,
+        "cfg_scale": 2.0,
+        "temperature": 0.85,
+        "top_p": 0.9,
+        "top_k": 0,
+        "min_p": 0.0
+      }
+    },
+    "5": {
+      "class_type": "ConditioningZeroOut",
+      "inputs": {
+        "conditioning": [
+          "4",
+          0
+        ]
+      }
+    },
+    "6": {
+      "class_type": "EmptyAceStep1.5LatentAudio",
+      "inputs": {
+        "seconds": 120.0,
+        "batch_size": 1
+      }
+    },
+    "7": {
+      "class_type": "ModelSamplingAuraFlow",
+      "inputs": {
+        "model": [
+          "1",
+          0
+        ],
+        "shift": 3.0
+      }
+    },
+    "8": {
+      "class_type": "KSampler",
+      "inputs": {
+        "model": [
+          "7",
+          0
+        ],
+        "seed": 0,
+        "steps": 8,
+        "cfg": 1.0,
+        "sampler_name": "euler",
+        "scheduler": "simple",
+        "positive": [
+          "4",
+          0
+        ],
+        "negative": [
+          "5",
+          0
+        ],
+        "latent_image": [
+          "6",
+          0
+        ],
+        "denoise": 1.0
+      }
+    },
+    "9": {
+      "class_type": "VAEDecodeAudio",
+      "inputs": {
+        "samples": [
+          "8",
+          0
+        ],
+        "vae": [
+          "3",
+          0
+        ]
+      }
+    },
+    "10": {
+      "class_type": "SaveAudio",
+      "inputs": {
+        "audio": [
+          "9",
+          0
+        ],
+        "filename_prefix": "audio/placeholder"
+      }
+    }
+  },
+  "slots": {
+    "style": [
+      [
+        "4",
+        "tags"
+      ]
+    ],
+    "lyrics": [
+      [
+        "4",
+        "lyrics"
+      ]
+    ],
+    "seed": [
+      [
+        "4",
+        "seed"
+      ],
+      [
+        "8",
+        "seed"
+      ]
+    ],
+    "seconds": [
+      [
+        "4",
+        "duration"
+      ],
+      [
+        "6",
+        "seconds"
+      ]
+    ],
+    "filename_prefix": [
+      [
+        "10",
+        "filename_prefix"
+      ]
+    ]
+  },
+  "output": {
+    "node": "10"
+  },
+  "sample_rate": 48000,
+  "seed_base": 20261201,
+  "style_template": "instrumental only, restrained corporate cinematic live-action construction film, {bpm} BPM, {key}, {instruments}, room for Vietnamese dialogue, no vocals or speech",
+  "lyrics": "[Instrumental]",
+  "max_duration_s": 120.0,
+  "vocal_gate": {
+    "limit_db": -35.0,
+    "vocals_file": "vocals.wav",
+    "timeout_s": 3600.0,
+    "window_limit_dbfs": -40.0
+  },
+  "loop_extend": {
+    "beats_per_bar": 4,
+    "intro_bars": 2,
+    "window_bars": 4,
+    "crossfade_s": 0.25,
+    "target_extra_s": 3.0
+  },
+  "derivation": {
+    "energy": {
+      "calm_max_wps": 1.8,
+      "lively_min_wps": 2.8,
+      "default_by_section": {
+        "intro": "gentle",
+        "logo_hold": "gentle",
+        "outro_cards": "lively",
+        "end_plate": "lively",
+        "ending": "gentle",
+        "*": "gentle"
+      }
+    },
+    "tempo": {
+      "min": 90,
+      "max": 112,
+      "by_energy": {
+        "calm": 96,
+        "gentle": 100,
+        "lively": 108
+      }
+    },
+    "keys": [
+      "C major",
+      "G major",
+      "D major",
+      "F major"
+    ],
+    "instrument_palettes": [
+      {
+        "id": "restrained",
+        "instruments": "low strings, restrained piano, controlled bass",
+        "keywords": [
+          "site",
+          "engineering",
+          "delivery",
+          "team",
+          "quality"
+        ],
+        "energy": [
+          "calm",
+          "gentle"
+        ]
+      },
+      {
+        "id": "cinematic",
+        "instruments": "low strings, cinematic percussion, controlled bass",
+        "keywords": [
+          "milestone",
+          "structure",
+          "build",
+          "progress"
+        ],
+        "energy": [
+          "lively"
+        ]
+      }
+    ],
+    "default_palette": "restrained"
+  },
+  "default_brief": {
+    "bpm": 96,
+    "key": "G major",
+    "instruments": "low strings, restrained piano, controlled bass"
+  }
+}

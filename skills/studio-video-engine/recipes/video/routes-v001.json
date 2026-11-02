@@ -1,0 +1,143 @@
+{
+  "schema": "jjv/video-routes/v1",
+  "id": "video-routes-v001",
+  "comment": "Bảng domain của `jjv video` (pipeline VIDEO theo từng shot, spec docs/specs/2026-10-31-video-engine-per-shot.md). Code engine không nêu tên domain: template H3, port graph, lưới frame, seed gốc và chính sách upscale của từng domain đều nằm ở đây. Domain không có trong allowed_domains bị từ chối trước khi ghi bất kỳ file nào. Backend upscale khác `none` cần receipt qualification ghi ở upscale.qualified[backend] của ĐÚNG domain đó; recipe SeedVR2 của domain hoạt hình không bao giờ được tra ở đây.",
+  "allowed_domains": ["newtecons_live_action", "jenniejoy_cartoon_3d"],
+  "shotlist_schemas": ["jjv/script/v1"],
+  "stages": ["01 ĐỌC SHOTLIST", "02 VIẾT PROMPT", "03 AI QUAY VIDEO", "04 LÊN 1080P", "05 LƯU & QUAY TIẾP"],
+  "max_lanes": 10,
+  "take_gate": "first",
+  "domains": {
+    "newtecons_live_action": {
+      "template": {
+        "path": "production-local/ComfyUI/user/default/workflows/NEWTECONS_H3/NEWTECONS_H3_R2V_LIVE_ACTION_v008-c2turbo.api.json",
+        "sha256": "809fa9daa553e61df6e755786346b889e95f59b673c22f5cd8c23927dae58982",
+        "comment": "31/10 root: v007-realism = v006-wardrobe (c86e6dad..., kept) + user 'tránh ảnh AI, phải có độ chân thật' realism block in node 19. v006 = v001 (4c6a1fda..., kept) with wardrobe-rule wording (CR-WARDROBE-PROMPT gap)."
+      },
+      "ports": {
+        "face": [["5", "image"]],
+        "anchor": [["8", "image"]],
+        "wav": [["7", "audio"]],
+        "prompt": "19.value",
+        "length": "6.length",
+        "seed": "11.noise_seed",
+        "editorial_node": "18",
+        "output_ports": [["18", "filename_prefix"]]
+      },
+      "geometry": { "width_port": "6.width", "height_port": "6.height", "fps_port": "17.fps", "width": 1280, "height": 704, "multiple_of": 32,
+        "source": "USER-DECISIONS-2026-10-31.json video_config C2 -> 1440: H3 turbo 8-step HD LoRA at 1280x704 (704 = 22*32)" },
+      "frame_grid": {
+        "step": 17,
+        "offset": 5,
+        "source": "production-local/ComfyUI/user/default/workflows/NEWTECONS_H3/README.md: node H3 làm tròn số frame lên lưới 17k+5 (124 = 17*7+5). Chưa đo trên NEWTECONS."
+      },
+      "seed_base": 20261030,
+      "h3_route": "h3-ref2va",
+      "h3_routes_file": "recipes/h3/routes-v001.json",
+      "long_take": {
+        "route": "h3-longtake",
+        "domain": "newtecons_live_action",
+        "comment": "BP-42 (user 01/11, TAKE_MODE_SELECTOR). NEWTECONS only; a JennieJoy long-take route needs its OWN template in its OWN row. Not measured on GPU: the table of window counts is a reference table from a third-party post, context_length/overlap in the template are guesses. Needs its OWN qualification receipt (the h3 receipt 30cd429b covers only h3-ref2va).",
+        "template": {
+          "path": "production-local/ComfyUI/user/default/workflows/NEWTECONS_H3/NEWTECONS_H3_LONGTAKE_v001.api.json",
+          "sha256": "c4009207d6e3d74b2224dd46fbce6703b730a187a9ff26092d3b73dcb0ed8cdb"
+        },
+        "take_modes": ["short", "long", "auto"],
+        "default_take_mode": "auto",
+        "auto_long_over_s": 15,
+        "max_windows": 8,
+        "max_windows_comment": "template has 8 prompt slots; fewer windows = unused slots are pruned from the graph (engine/video/longtake.py prune_windows), more than 8 = refused (60 s needs 17 windows: needs a new template).",
+        "windows": {
+          "prompt_nodes": ["19", "41", "42", "43", "44", "45", "46", "47"],
+          "r2v_nodes": ["6", "51", "52", "53", "54", "55", "56", "57"],
+          "combine_nodes": ["61", "62", "63", "64", "65", "66", "67"],
+          "guide_node": "9",
+          "context_node": "22",
+          "sync_ports": ["width", "height", "length"]
+        },
+        "qualification": null
+      },
+      "wardrobe_prompts": {
+        "comment": "User rule 31/10/2026: office AND site container office = van_phong (company shirt, no helmet, no vest); outdoors on site = cong_truong full PPE, helmet WORN. Read by engine/video/plan.py wardrobe_for(); prompt.compose applies rule + drops forbidden script phrases (kept in receipt as provenance).",
+        "van_phong": {"rule": "Wardrobe (van_phong, office or site container office): the company fine blue-white grid shirt with the small collar logo only; no helmet, no safety vest, nothing reflective.", "forbid": ["helmet", "hard hat", "hardhat", "vest", "reflective", "hi-vis", "high-visibility", "PPE"],
+          "worn_markers": ["worn", "wears", "wearing", "on the head", "on his head", "on her head"]},
+        "cong_truong": {"rule": "Wardrobe (cong_truong, outdoors on site): full PPE over the company shirt; the white safety helmet with the company logo is worn on the head, chin strap fastened, never carried; reflective safety vest on.", "rule_with_props": "Wardrobe (cong_truong, outdoors on site): full PPE over the company shirt; the white safety helmet with the company logo is worn on the head, chin strap fastened; reflective safety vest on. A helmet the shot declares as a prop is held in hand, not worn.", "forbid": []}
+      },
+      "upscale": {
+        "default_backend": "none",
+        "target": "2560x1440",
+        "backends": ["none", "rtx-vsr", "seedvr2-3b", "seedvr2-7b", "realesrgan", "lanczos", "comfy-realesrgan-1080"],
+        "qualified": {},
+        "crop_mode": null,
+        "comment": "`none` = ghi upscale_pending và dừng ở cổng needs-gpu-pilot-approval. Một backend chỉ chạy khi qualified[backend] trỏ tới receipt qualification NEWTECONS (path + sha256) do user cho phép pilot; crop/pad 1944x1080 -> 1920x1080 chưa chốt: `crop_mode` để null cho tới khi user chọn (adapter comfy-realesrgan-1080 từ chối chạy khi null; giá trị hợp lệ v1: center-crop)."
+      }
+    },
+    "jenniejoy_cartoon_3d": {
+      "template": {
+        "path": "production-local/JennieJoyKids-Story/04-milk-and-mom/workflows/hybrid-v001/S01_A_HYBRID_A.api.json",
+        "sha256": "9d23360765c9891866570d6cb4d574e9f8e3d2ec8855adb5b04209a2b6de8036",
+        "comment": "API graph from the completed ep04 S01_A H3 job. `jjv video` reads API graphs by node id; the GUI workflow is retained below as authoring provenance, not used as the runtime template.",
+        "authoring_ui": {
+          "path": ".agents/skills/create-video-jenniejoykids/assets/comfyui/JennieJoyKids-H3-Video-Ready.json",
+          "sha256": "5f0b9da9e67531473fd0a47483a2250f07429af39f9f994fd50716a723a940fd"
+        }
+      },
+      "ports": {
+        "face": [["33", "image"], ["32", "image"], ["31", "image"]],
+        "anchor": [["30", "image"], ["8", "image"]],
+        "wav": [["7", "audio"]],
+        "prompt": "19.value",
+        "length": "6.length",
+        "seed": "11.noise_seed",
+        "editorial_node": "18",
+        "output_ports": [["18", "filename_prefix"]]
+      },
+      "geometry": {
+        "width_port": "6.width",
+        "height_port": "6.height",
+        "fps_port": "17.fps",
+        "width": 864,
+        "height": 480,
+        "multiple_of": 32,
+        "source": "Native cartoon H3 graph and SeedVR2 v003 both use 864x480, 24 fps."
+      },
+      "frame_grid": {
+        "step": 17,
+        "offset": 5,
+        "source": "Real ep04 H3 API graphs: S01_A length 124 = 17*7+5; S02_A length 141 = 17*8+5."
+      },
+      "seed_base": 20261027,
+      "h3_route": "h3-ref2va",
+      "h3_routes_file": "recipes/h3/routes-v001.json",
+      "wardrobe_prompts": {},
+      "wardrobe_policy": {
+        "mode": "cartoon_character_lock",
+        "source": "shotlist.character_references",
+        "comment": "No workplace wardrobe context rules are applied. Canonical approved cartoon character references own identity, costume, age, hair, symmetry and accessories."
+      },
+      "upscale": {
+        "default_backend": "none",
+        "target": "3840x2160",
+        "backends": ["none", "seedvr2-7b"],
+        "qualified": {
+          "seedvr2-7b": {
+            "path": "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/seedvr2-production-v003/pilot-interior21-internal17/S01_A/qualification-v003.json",
+            "sha256": "a3218406e3cb26043011bbce272577300784923b6cfcbfb441a6ac353ab1d142",
+            "recipe_id": "seedvr2/v003-7b-int8-tile768-int17-raw21",
+            "recipe_path": ".agents/skills/studio-video-engine/recipes/seedvr2/v003-7b-int8-tile768-int17-raw21.json",
+            "recipe_sha256": "97f933918baa393099eb51f5e2d7f2e909ca5fe16527516d978dbf7ec541a999",
+            "prompt_id": "43f87ebe-b678-4012-bfaf-79021d7ee476",
+            "native": "864x480",
+            "processing": "3888x2160",
+            "final": "3840x2160",
+            "crop_box": [24, 0, 3840, 2160],
+            "qualification_status": "PASS",
+            "fullfilm_seams_checked": false
+          }
+        },
+        "crop_mode": "center-crop",
+        "comment": "Only the existing cartoon SeedVR2 v003 qualification is pinned. It qualifies 864x480 -> 3888x2160 processing, then an exact 24 px left/right crop to 3840x2160; it does not certify full-film seams. The default remains `none` until a SeedVR2 adapter is registered."
+      }
+    }
+  }
+}

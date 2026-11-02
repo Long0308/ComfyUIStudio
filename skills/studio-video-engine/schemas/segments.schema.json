@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jjv/schemas/segments/v1",
+  "title": "segments.json: the cut list of a film (T-E45 P2)",
+  "$comment": "Output of `jjv editorial build-config`. Segments cover [0, total_frames) exactly with no gap or overlap; no cut falls inside an effect window; join_frame is the first frame without shot video for an iris ending (the kit's main/ending cut). inputs_slice_hint is an index only: the kit computes the real dependency slice hash.",
+  "$defs": {
+    "ids": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "segment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "start", "end_exclusive", "frames", "shots_visible", "inputs_slice_hint"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "kind": { "enum": ["intro", "shot_span", "transition", "card", "plate", "ending", "logo_hold"] },
+        "start": { "type": "integer", "minimum": 0 },
+        "end_exclusive": { "type": "integer", "minimum": 1 },
+        "frames": { "type": "integer", "minimum": 1 },
+        "shots_visible": { "$ref": "#/$defs/ids" },
+        "transition_id": { "type": "string", "minLength": 1 },
+        "transition_ids": { "$ref": "#/$defs/ids" },
+        "card_term": { "type": "string", "minLength": 1 },
+        "inputs_slice_hint": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["shots", "transitions", "icons", "cards"],
+          "properties": {
+            "shots": { "$ref": "#/$defs/ids" },
+            "transitions": { "$ref": "#/$defs/ids" },
+            "icons": { "$ref": "#/$defs/ids" },
+            "cards": { "$ref": "#/$defs/ids" }
+          }
+        }
+      }
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "fps", "total_frames", "main_frames", "join_frame", "cut_points", "segments"],
+  "properties": {
+    "schema": { "const": "jjv/segments/v1" },
+    "episode_id": { "type": "string", "minLength": 1 },
+    "fps": { "type": "integer", "minimum": 1 },
+    "total_frames": { "type": "integer", "minimum": 1 },
+    "main_frames": { "type": "integer", "minimum": 1 },
+    "join_frame": { "type": ["integer", "null"], "minimum": 1 },
+    "cut_points": { "type": "array", "minItems": 2, "items": { "type": "integer", "minimum": 0 } },
+    "segments": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/segment" } }
+  }
+}

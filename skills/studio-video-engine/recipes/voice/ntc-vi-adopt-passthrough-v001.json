@@ -1,0 +1,19 @@
+{
+  "schema": "jjv/voice-recipe/v1",
+  "recipe_id": "voice/ntc-vi-adopt-passthrough-v001",
+  "family": "voice",
+  "domain": "newtecons_live_action",
+  "mode": "passthrough",
+  "note": "NEWTECONS Vietnamese lines whose WAV a person already listened to and approved (VoiceStudio omnivoice clone takes, 48 kHz stereo 16-bit). The take IS the receipt WAV: no conversion, no pitch transform, no trim, no split, so receipt_wav.sha256 equals the approved native sha256. A take in another format is refused, never converted. Listen approval stays mandatory (domain voice.require_listen_approval).",
+  "engine": "omnivoice",
+  "language": "Vietnamese",
+  "effect_preset": "broadcast",
+  "wav_bits": "16",
+  "editorial": {
+    "sample_rate": 48000,
+    "channels": 2,
+    "sample_width_bytes": 2
+  },
+  "clipped_samples_max": 0,
+  "requires_ffmpeg_filters": []
+}

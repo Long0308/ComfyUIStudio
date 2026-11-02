@@ -1,0 +1,49 @@
+{
+  "schema": "jjv/episode/v1",
+  "episode_id": "04-milk-and-mom",
+  "film_id": "04-milk-and-mom",
+  "title": "Milk and Mom",
+  "domain": "jenniejoy_cartoon_3d",
+  "recipes": {
+    "seedvr2": "seedvr2/v003-7b-int8-tile768-int17-raw21"
+  },
+  "seedvr2": {
+    "production_version": "seedvr2-production-v004",
+    "input_name_template": "seedvr2-prod-v004-{src_sha16}-{shot}-{chunk}-f{start:06d}-{end:06d}-{seg_sha12}.mp4",
+    "output_prefix_template": "episodes/04-milk-and-mom/seedvr2-production-v004/{shot}/{chunk}"
+  },
+  "files": {
+    "shots": "shots.json",
+    "mouth_boxes": "mouth-boxes.json",
+    "shot_pack": "../script/shot-prompt-pack-v004.json"
+  },
+  "delivery_contract": "DELIVERY-CONTRACT.json",
+  "timeline": {
+    "intro_s": 3.0,
+    "dialogue_s": 69.0,
+    "outro_s": 12.0,
+    "end_card_s": 2.0,
+    "end_card_frames": 60
+  },
+  "engine_tree_sha256": null,
+  "overrides": {},
+  "audio": {
+    "music": {
+      "recipe": "audio/music-yue2-int8-v001"
+    },
+    "sfx": {
+      "recipe": "audio/sfx-stable-audio-3-small-v001",
+      "enabled": false
+    },
+    "mix": {
+      "recipe": "audio/mix-cinema-ep04-final-v001"
+    }
+  },
+  "voice": {
+    "recipe": "voice/omnivoice-en-broadcast-v001",
+    "version": "voice-v001"
+  },
+  "timing": {
+    "recipe": "timing/words-onset-v003"
+  }
+}

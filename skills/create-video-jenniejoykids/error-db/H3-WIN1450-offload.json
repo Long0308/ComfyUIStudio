@@ -1,0 +1,25 @@
+{
+  "id": "H3-WIN1450-offload",
+  "status": "resolved",
+  "engine": "ComfyUI H3",
+  "symptom": "Windows1450 HostBuffer.read_file_slice during sampling",
+  "root_cause_status": "workaround_verified_cause_not_fully_isolated",
+  "root_cause": "Async/pinned/fast disk offload path exhausted Windows resources in observed setup",
+  "fix_or_workaround": "Disable async-offload,pinned-memory,fast-disk in isolatedComfy runtime",
+  "verification": "Two20step nativeMP4jobs completed438.23s/454.19s",
+  "limitations": "Only observed RTX5070/Windows configuration; not a universal driver fix",
+  "prevention": "Check memory and server flags before resampling",
+  "schema_version": "1.0",
+  "observed_at": "2026-10-17",
+  "environment": "Windows RTX5070/12GB; isolatedComfyCUDA13; VoiceStudioCUDA12.8preserved",
+  "evidence_paths": [
+    "references/h3-decoder-fix.md",
+    "references/h3-decoder-recovery.json",
+    "references/S01_A-voice-clarity.json",
+    "D:/23.JennieHomeSchool/03 Voice/production-local/comfy-gpu-decode.log"
+  ],
+  "affected_artifacts": [
+    "nativeS01_A",
+    "nativeS01_B-entry-v2"
+  ]
+}

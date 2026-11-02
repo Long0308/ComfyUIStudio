@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jjv/schemas/machine/v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "comfy", "gpu_lock_path", "studio", "node_modules"],
+  "properties": {
+    "schema": { "const": "jjv/machine/v1" },
+    "note": { "type": "string" },
+    "comfy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["url", "root", "container"],
+      "properties": {
+        "url": { "type": "string", "pattern": "^http://[^/\\s]+$" },
+        "root": { "type": "string", "minLength": 1 },
+        "output_dir": { "type": "string", "minLength": 1 },
+        "container": { "type": "string", "minLength": 1 }
+      }
+    },
+    "gpu_lock_path": { "type": "string", "minLength": 1 },
+    "studio": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["url"],
+      "properties": { "url": { "type": "string", "pattern": "^http://[^/\\s]+$" } }
+    },
+    "node_modules": { "type": "string", "minLength": 1 },
+    "resilience": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "max_lost_retries": { "type": "integer", "minimum": 0, "maximum": 5 },
+        "stall_factor": { "type": "number", "minimum": 1 },
+        "lost_recheck_seconds": { "type": "number", "minimum": 0 },
+        "expected_chunk_seconds": { "type": "number", "exclusiveMinimum": 0 }
+      }
+    }
+  }
+}

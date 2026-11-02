@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "id": "Image-guides-frontal-bias-and-back-heart",
+  "observed_at": "2026-10-16T19:14:05.208099+00:00",
+  "status": "open",
+  "engine": "GPT image proposed scene2anchors",
+  "environment": "Fulltextcast + rearframe + frontidentityreferences",
+  "symptom": "ProposedA119 camera became frontal;B119 shows frontheart on rear dress",
+  "evidence_paths": [
+    "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\image-prep-scene02-v1\\prompts.json",
+    "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\image-prep-scene02-v1\\S02_A119-rejected-camera.png",
+    "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\image-prep-scene02-v1\\S02_B119-rejected-back-heart.png"
+  ],
+  "root_cause_status": "hypothesis_not_isolated",
+  "root_cause": "Frontal identity references may bias pose/costume placement; observed drift confirmed, cause not isolated",
+  "fix_or_workaround": "Rejectedboth, do notstage. Regenerate later from accepted predecessor/frame reference with explicit backwardrobe/axis checks.",
+  "verification": "Root inspected generated images; no runtimeuse",
+  "limitations": "No successful replacementyet",
+  "prevention": "Full descriptions and prompt constraints do not replace visual review; inspect front-only marks in rearview and camera axis",
+  "affected_artifacts": [
+    "proposedS02A119",
+    "proposedS02B119"
+  ]
+}

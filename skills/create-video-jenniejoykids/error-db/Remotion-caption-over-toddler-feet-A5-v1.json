@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "id": "Remotion-caption-over-toddler-feet-A5-v1",
+  "status": "fixed_scoped5spreview_fullfilm_layout_pending",
+  "at_utc": "2026-10-16T20:29:09.879398+00:00",
+  "scope": "720p5sworkpreviewonly_notacceptedfullfilm",
+  "symptom": "Bottom caption Mom,Dad,andme obscures toddlerfootwear during walking. TechnicalQApassesbutmeaningfulgroundcontacthidden.",
+  "source": "A5-preview-v1/edit/renders/JennieKidJoys-A5-workpreview-720p-English.mp4",
+  "evidence": [
+    "A5-preview-v1/frames/f024.png",
+    "A5-preview-v1/review-sheet.jpg"
+  ],
+  "visual_estimates": {
+    "frame": 24,
+    "caption_box_xywh_1280x720": [
+      431,
+      608,
+      419,
+      69
+    ],
+    "toddler_shoes_region_xywh": [
+      583,
+      592,
+      79,
+      78
+    ]
+  },
+  "measured_values": {
+    "width": 1280,
+    "height": 720,
+    "fps": 24,
+    "frames": 120,
+    "duration": 5
+  },
+  "repair_intent": "Optionalper-linecaption_positionsmappinginEDITsettings;usequiettopareaforScene1. Preservepicture/voice/timingandunmappeddefaultlayout. Rerenderlanding/speechstart/endandnormalplayback.",
+  "verification": {
+    "schema_version": "1.0",
+    "status": "caption_obstruction_fixed_in_5s_workpreview",
+    "source": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\A5-preview-v3\\edit\\renders\\JennieKidJoys-A5-workpreview-v3-720p-English.mp4",
+    "reviewed_frames": [
+      0,
+      22,
+      24,
+      60,
+      77,
+      78,
+      96,
+      119
+    ],
+    "visual_estimates": [
+      "Top-leftlineboxclearsallthreeheadsandshoesinspectedframes24/60/77.",
+      "Brandtext0legible;22nativepicture;78captionremoved;96Yourturnclear."
+    ],
+    "measured": {
+      "width": 1280,
+      "height": 720,
+      "fps": 24,
+      "frames": 120,
+      "duration": 5,
+      "position_mapping": {
+        "S01_L1": "top-left"
+      },
+      "same_unchanged_audio_bytes_as_v1": true
+    },
+    "technical_report": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\A5-preview-v3\\technical-qa.json",
+    "limitations": [
+      "5sonly_not60sfilm",
+      "NofinalcontactFoley/listeningreview",
+      "Native864x480upscaled"
+    ],
+    "1080_approval": "pending"
+  }
+}

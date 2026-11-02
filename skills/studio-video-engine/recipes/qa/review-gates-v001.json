@@ -1,0 +1,58 @@
+{
+  "schema": "jjv/qa-review-recipe/v1",
+  "id": "review-gates-v001",
+  "comment": "Thresholds of `jjv qa review` (gates Q2-Q5). Calibrated on six real review cuts of one episode (clean cuts and the user-rejected ones); every value can only be TIGHTENED by a config `qa.review` block. Type names are normalised first (hyphen -> underscore, then type_aliases).",
+  "type_aliases": {"dip": "dip_white", "push": "cut_push", "card_switch": "none", "cut": "cut"},
+  "q2_icons": {
+    "frame_tolerance": 3,
+    "onscreen_offset_frames": 9,
+    "before_offset_frames": 1,
+    "screen_width": 960,
+    "screen_height": 540,
+    "roi": [0.62, 0.40, 1.0, 0.95],
+    "diff_threshold": 24,
+    "tile_frac_of_width": 0.0604,
+    "disc_radius_frac": 0.8,
+    "min_tile_density": 0.5,
+    "alpha_min": 128,
+    "min_delta_e_file": 15.0,
+    "min_delta_e_screen": 12.0,
+    "min_hue_distance_deg": 40.0,
+    "hue_min_saturation": 0.10,
+    "opposite_pairs": [["warm", "cold"], ["hot", "cold"], ["big", "small"], ["tall", "short"], ["day", "night"], ["up", "down"], ["fast", "slow"], ["wet", "dry"], ["happy", "sad"], ["light", "dark"], ["open", "closed"], ["full", "empty"]]
+  },
+  "q3_flash": {
+    "baseline_frames": 8,
+    "spike_excess_min": 25.0,
+    "step_max_at_cut": 30.0,
+    "window_margin_frames": 3,
+    "analysis_width": 320,
+    "analysis_height": 180,
+    "same_framing_ncc_min": 0.35,
+    "spike_allowed_types": ["flash", "dip_white", "dip_black", "light_leak", "film_burn", "whip", "pan_motivated", "bloom"],
+    "needs_layout_change_types": ["flash", "dip_white", "dip_black", "light_leak", "film_burn"]
+  },
+  "q4_ghost": {
+    "ghost_fail": 0.15,
+    "ghost_warn": 0.09,
+    "mirror_rise_warn": 0.20,
+    "edge_cell": 4,
+    "sheet_max_tiles": 8,
+    "sheet_columns": 3,
+    "both_shots_types": ["dissolve", "crossfade", "blur_crossfade", "focus_pull", "cloud", "bubble", "wipe", "wipe_linear", "clock_wipe", "blinds", "iris_circle", "iris_diamond", "push_slide", "zoom_through", "zoom_out"],
+    "graphic_ids": ["INTRO", "OUTRO", "END_PLATE", "ENDLOGO"],
+    "graphic_prefixes": ["CARD_"]
+  },
+  "q5_pacing": {
+    "logo_still_min_frames": 60,
+    "card_min_frames": 90,
+    "still_diff_max": 2.0,
+    "still_window_margin": 0,
+    "target_lufs": -17.0,
+    "tolerance_lu": 1.0,
+    "true_peak_max_dbtp": -1.0,
+    "max_section_jump_lu": 2.0,
+    "gated_sections": ["dialogue", "logo_hold", "cards", "plate_endlogo", "whole"],
+    "ffprobe_duration_tolerance_s": 0.25
+  }
+}

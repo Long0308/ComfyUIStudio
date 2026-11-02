@@ -1,0 +1,23 @@
+{
+  "id": "hyperframes-intro-layout-history-20261018",
+  "status": "resolved",
+  "engine": "HyperFrames 0.8.169",
+  "symptom": "Six layout/contrast errors; OS emoji and shared history lock.",
+  "root_cause": "Decorative text glyphs, low contrast and simultaneous preview/check history ownership.",
+  "fix_or_workaround": "SVG graphics, explicit z order, darker text; render per-job source snapshot.",
+  "verification": "ok:true with 0 errors; actual Full HD 30fps five-second GPU render in 9.0 s.",
+  "limitations": "Intro only; native wrapper cold-start source fix staged separately.",
+  "evidence_paths": [
+    "uat/2026-10-18/hyperframes-check-after.json",
+    "jobs/09ed1788bb95/render.log",
+    "uat/2026-10-18/hyperframes-fixed-probe.json"
+  ],
+  "observed_at": "2026-10-18",
+  "environment": "Windows, RTX 5070, local Studio 5050 / ComfyUI 8188 / VoiceStudio 8080",
+  "root_cause_status": "confirmed",
+  "prevention": "Inspect real outputs, source hashes and pending reviews; never certify from a button response.",
+  "affected_artifacts": [
+    "production-local/studio-app",
+    "03-drinking-milk"
+  ]
+}

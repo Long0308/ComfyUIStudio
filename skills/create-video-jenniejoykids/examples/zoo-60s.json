@@ -1,0 +1,1495 @@
+{
+  "schema_version": "1.0",
+  "project": {
+    "id": "alice-zoo-60s",
+    "title": "JennieJoy Kids — A Day at the Zoo",
+    "language": "en",
+    "timing_status": "planned"
+  },
+  "video_type": "preschool_vocabulary_story",
+  "audience": "Children under three, especially two-year-old English learners; gentle unhurried language and repeat pauses.",
+  "style": "Original high-quality preschool 2D character animation, clean warm-dark-brown outlines, soft hand-painted storybook backgrounds, restrained pastel palette of rose pink, dusty teal, sage, warm cream and pale sky blue, moderate contrast and soft warm daylight. Keep Alice's pink recognizable but less glaring than the reference; no fluorescent or aggressively saturated colors. Rounded friendly animal anatomy, readable silhouettes, purposeful hand-drawn acting, natural anticipation, overlapping hair and cloth movement, grounded alternating walk cycles, independent elbow and knee bends, gaze changes and blinks. No photo collage, floating cutouts, static poster zoom, realistic skin, glossy plastic 3D, or copied TV-series characters. 1920x1080 delivery, 16:9 composition, 24 fps editorial timeline. Reserve the lower 18 percent as quiet subtitle-safe background without hiding shoes; keep every face above that zone.",
+  "purpose": "Learn and repeat English zoo vocabulary through a gentle family story.",
+  "delivery": {
+    "duration": 60,
+    "width": 1920,
+    "height": 1080,
+    "fps": 24,
+    "aspect_ratio": "16:9",
+    "draft": {
+      "width": 1280,
+      "height": 720
+    },
+    "final": {
+      "width": 1920,
+      "height": 1080,
+      "approval_status": "pending"
+    }
+  },
+  "timeline_policy": {
+    "allow_gaps": false
+  },
+  "image_style_library": {
+    "repository": "https://github.com/freestylefly/awesome-gpt-image-2",
+    "revision": "63e6176fa01be51c000108dacd72716d3e46784b",
+    "template_ids": [
+      "character-design-sheet",
+      "illustration-art-style",
+      "scene-storytelling"
+    ],
+    "category": "Characters & People",
+    "styles": [
+      "Character",
+      "Illustration"
+    ],
+    "scenes": [
+      "Story"
+    ],
+    "adaptation": "Adapt identity and scene composition guidance to restrained preschool cartoon artwork, with no corporate photorealism or unprovided logos."
+  },
+  "image_engine": {
+    "provider": "OpenAI",
+    "execution": "cloud",
+    "model": "GPT Image2",
+    "profile": "Historical frozen example; explicit cloud opt-in",
+    "legacy_opt_in": true
+  },
+  "engine": {
+    "model": "H3",
+    "profile": "Ref2VA native pilot; runtime readiness checked separately",
+    "audio_mode": "canonical_voicestudio"
+  },
+  "voice": {
+    "provider": "VoiceStudio",
+    "profile_id": "8f1145d7",
+    "performance": "Alice warm clear unhurried English; adults silent; no added narrator or speech",
+    "canonical_audio_path": "audio/canonical-voicestudio-alice.wav",
+    "authority": "Canonical VoiceStudio Alice dialogue; planned path requires verified output before production"
+  },
+  "reference_policy": {
+    "immutable_sources": true,
+    "identity_lock": "Preserve face geometry, silhouette, wardrobe, marks and anatomical asymmetry in cartoon rendering. Never delete original files.",
+    "allowed_performance": [
+      "purposeful expressions",
+      "blinks",
+      "mouth phonemes",
+      "body poses"
+    ],
+    "sheet_requirements": {
+      "plan_mode": "legacy-6x4",
+      "turnaround": [
+        "front",
+        "left",
+        "right"
+      ],
+      "expressions": [
+        "happy",
+        "sad",
+        "angry",
+        "surprised",
+        "afraid",
+        "neutral"
+      ],
+      "poses": [
+        "run",
+        "jump",
+        "laugh",
+        "cry"
+      ]
+    },
+    "original_on_sheet_canvas": false
+  },
+  "characters": [
+    {
+      "id": "alice",
+      "name": "Alice",
+      "entity": "Human preschool cartoon character",
+      "species": "Homo sapiens human",
+      "age": "Two-year-old toddler girl",
+      "body_proportions": "Small round toddler torso, short limbs and oversized round head",
+      "surface": "Warm peach skin, rosy round cheeks with two tiny white highlights",
+      "eyes": "Very large dark-brown eyes, near-black pupils, white catchlights and short upper lashes",
+      "brows": "Gently arched chestnut eyebrows",
+      "nose_beak": "Tiny peach button nose",
+      "mouth": "Small mouth, red-pink interior and rounded tongue; flexible speech phonemes",
+      "ears": "Small rounded peach ears",
+      "hair_head": "Chestnut short wavy bob, side-swept bangs, high side ponytail on anatomical RIGHT",
+      "clothes": "Rose-pink A-line dress, short puff sleeves, white two-lobed Peter Pan collar, ONE centered white chest heart, lightly pleated skirt, thin white hem line",
+      "footwear": "White frilly ankle socks; rose-pink lace-up sneakers with white laces, white rounded toe caps and white soles",
+      "accessories": "One large rose-pink bow at anatomical RIGHT ponytail anchor; no other accessories",
+      "marks_asymmetry": "Bow and ponytail on anatomical RIGHT, viewer LEFT in front view; no mirroring",
+      "reference_assets": [
+        {
+          "role": "face_front",
+          "path": "assets/references/alice1.jpg",
+          "status": "available",
+          "scope": "Canonical front-view identity; no assertion of unseen side views"
+        },
+        {
+          "role": "wardrobe",
+          "path": "assets/references/alice1.jpg",
+          "status": "available",
+          "scope": "Canonical puff sleeve dress and sneakers"
+        },
+        {
+          "role": "accessories",
+          "path": "assets/references/alice1.jpg",
+          "status": "available",
+          "scope": "Canonical anatomical right bow"
+        },
+        {
+          "role": "gesture_only",
+          "path": "assets/references/alice2.jpg",
+          "status": "available",
+          "scope": "Expression and gestures only; exclude alternative costumes"
+        },
+        {
+          "role": "family_lineup",
+          "path": "assets/references/family-reference-higgsfield.png",
+          "status": "available",
+          "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+        }
+      ]
+    },
+    {
+      "id": "mother",
+      "name": "Mother",
+      "entity": "Human preschool cartoon character",
+      "species": "Homo sapiens human",
+      "age": "Adult woman approximately thirty years old",
+      "body_proportions": "About twice Alice height, softly rounded adult proportions",
+      "surface": "Warm light-peach skin, oval face, softly rounded cheeks",
+      "eyes": "Almond dark-brown eyes with small white catchlights",
+      "brows": "Gently arched brown eyebrows",
+      "nose_beak": "Small rounded peach nose",
+      "mouth": "Small curved mouth with flexible silent smiles",
+      "ears": "Small rounded ears partly covered by hair",
+      "hair_head": "Chestnut shoulder-length hair, left-side part, ends curled inward",
+      "clothes": "Muted dusty-teal short-sleeved blouse, plain round neck, straight cream ankle-length trousers",
+      "footwear": "Simple off-white flat shoes",
+      "accessories": "No glasses, jewelry, hat or handbag",
+      "marks_asymmetry": "Left-side hair part remains anatomical left; no distinctive facial marks",
+      "reference_assets": [
+        {
+          "role": "family_lineup",
+          "path": "assets/references/family-reference-higgsfield.png",
+          "status": "available",
+          "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+        }
+      ]
+    },
+    {
+      "id": "father",
+      "name": "Father",
+      "entity": "Human preschool cartoon character",
+      "species": "Homo sapiens human",
+      "age": "Adult man approximately thirty-two years old",
+      "body_proportions": "Adult softly broad shoulders, slightly taller than Mother",
+      "surface": "Warm light-peach skin, softly rounded rectangular face, clean-shaven",
+      "eyes": "Almond dark-brown eyes with small white catchlights",
+      "brows": "Straight dark-brown eyebrows",
+      "nose_beak": "Small broad rounded peach nose",
+      "mouth": "Small curved mouth with flexible silent smiles",
+      "ears": "Rounded ears visible beside short hair",
+      "hair_head": "Short neat dark-chestnut hair with fixed anatomical left side part",
+      "clothes": "Muted sage-green short-sleeved polo, small folded collar, two cream buttons; straight beige trousers",
+      "footwear": "Simple brown low shoes with rounded toes",
+      "accessories": "No glasses, facial hair, hat, watch or bag",
+      "marks_asymmetry": "Clean-shaven face, fixed anatomical left hair part, no other distinctive marks",
+      "reference_assets": [
+        {
+          "role": "family_lineup",
+          "path": "assets/references/family-reference-higgsfield.png",
+          "status": "available",
+          "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+        }
+      ]
+    },
+    {
+      "id": "bird",
+      "name": "Bird",
+      "entity": "Friendly preschool cartoon animal",
+      "species": "Small songbird",
+      "age": "Healthy adult animal with gentle behavior",
+      "body_proportions": "Small rounded body, two wings, two slender legs and short tail",
+      "surface": "Muted-blue plumage, warm-cream belly",
+      "eyes": "Round dark eyes with tiny white catchlights",
+      "brows": "No separate human eyebrows; gentle expression through eyelids",
+      "nose_beak": "Tiny ochre beak with two halves",
+      "mouth": "Species-appropriate mouth with rounded interior; natural silent movement",
+      "ears": "Small ear openings covered by feathers; no external pinnae",
+      "hair_head": "Rounded feathered head, no human hair",
+      "clothes": "No clothes; natural animal surface fully visible",
+      "footwear": "No footwear; natural species-appropriate feet",
+      "accessories": "No accessories, harness, jewelry or human props",
+      "marks_asymmetry": "Cream belly bounded consistently; blue wings and tail; no asymmetrical marks",
+      "reference_assets": []
+    },
+    {
+      "id": "giraffe",
+      "name": "Giraffe",
+      "entity": "Friendly preschool cartoon animal",
+      "species": "Giraffa camelopardalis giraffe",
+      "age": "Healthy adult animal with gentle behavior",
+      "body_proportions": "Tall long neck, small head, four long legs, two ossicones and one tufted tail",
+      "surface": "Warm pale ochre coat with rounded caramel patches",
+      "eyes": "Gentle large dark eyes with short lashes",
+      "brows": "No separate human eyebrows; gentle expression through eyelids",
+      "nose_beak": "Broad cream muzzle, two nostrils above mouth",
+      "mouth": "Species-appropriate mouth with rounded interior; natural silent movement",
+      "ears": "Two leaf-shaped ears beside short ossicones",
+      "hair_head": "Short brown mane along back of neck and fur-covered head",
+      "clothes": "No clothes; natural animal surface fully visible",
+      "footwear": "No footwear; natural species-appropriate feet",
+      "accessories": "No accessories, harness, jewelry or human props",
+      "marks_asymmetry": "Stable caramel spot layout and dark tail tuft; no wardrobe or decorative marks",
+      "reference_assets": []
+    },
+    {
+      "id": "tiger",
+      "name": "Tiger",
+      "entity": "Friendly preschool cartoon animal",
+      "species": "Panthera tigris tiger",
+      "age": "Healthy adult animal with gentle behavior",
+      "body_proportions": "Rounded strong feline body, four padded paws and one long tail",
+      "surface": "Muted warm-orange fur, cream muzzle and belly, dark brown stripes",
+      "eyes": "Round amber eyes with dark pupils and soft catchlights",
+      "brows": "No separate human eyebrows; gentle expression through eyelids",
+      "nose_beak": "Small pink triangular feline nose",
+      "mouth": "Species-appropriate mouth with rounded interior; natural silent movement",
+      "ears": "Two rounded dark-backed ears with pale interior",
+      "hair_head": "Fur-covered rounded head, short cream cheek ruff",
+      "clothes": "No clothes; natural animal surface fully visible",
+      "footwear": "No footwear; natural species-appropriate feet",
+      "accessories": "No accessories, harness, jewelry or human props",
+      "marks_asymmetry": "Stable dark stripes across torso and tail; no extra limbs or decorative marks",
+      "reference_assets": []
+    },
+    {
+      "id": "panda",
+      "name": "Panda",
+      "entity": "Friendly preschool cartoon animal",
+      "species": "Ailuropoda melanoleuca giant panda",
+      "age": "Healthy adult animal with gentle behavior",
+      "body_proportions": "Round seated bear body, four broad paws, short tail",
+      "surface": "Soft warm-white fur with black ears, limbs and shoulder band",
+      "eyes": "Dark brown eyes inside stable rounded black eye patches",
+      "brows": "No separate human eyebrows; gentle expression through eyelids",
+      "nose_beak": "Broad small black bear nose",
+      "mouth": "Species-appropriate mouth with rounded interior; natural silent movement",
+      "ears": "Two rounded black fur-covered external ears",
+      "hair_head": "Rounded white fur-covered head without human hair",
+      "clothes": "No clothes; natural animal surface fully visible",
+      "footwear": "No footwear; natural species-appropriate feet",
+      "accessories": "No accessories, harness, jewelry or human props",
+      "marks_asymmetry": "Stable black eye patches and shoulder band; natural paws, no extra markings",
+      "reference_assets": []
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S01",
+      "start": 0,
+      "duration": 10,
+      "characters": [
+        {
+          "id": "alice",
+          "name": "Alice",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Two-year-old toddler girl",
+          "body_proportions": "Small round toddler torso, short limbs and oversized round head",
+          "surface": "Warm peach skin, rosy round cheeks with two tiny white highlights",
+          "eyes": "Very large dark-brown eyes, near-black pupils, white catchlights and short upper lashes",
+          "brows": "Gently arched chestnut eyebrows",
+          "nose_beak": "Tiny peach button nose",
+          "mouth": "Small mouth, red-pink interior and rounded tongue; flexible speech phonemes",
+          "ears": "Small rounded peach ears",
+          "hair_head": "Chestnut short wavy bob, side-swept bangs, high side ponytail on anatomical RIGHT",
+          "clothes": "Rose-pink A-line dress, short puff sleeves, white two-lobed Peter Pan collar, ONE centered white chest heart, lightly pleated skirt, thin white hem line",
+          "footwear": "White frilly ankle socks; rose-pink lace-up sneakers with white laces, white rounded toe caps and white soles",
+          "accessories": "One large rose-pink bow at anatomical RIGHT ponytail anchor; no other accessories",
+          "marks_asymmetry": "Bow and ponytail on anatomical RIGHT, viewer LEFT in front view; no mirroring",
+          "reference_assets": [
+            {
+              "role": "face_front",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical front-view identity; no assertion of unseen side views"
+            },
+            {
+              "role": "wardrobe",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical puff sleeve dress and sneakers"
+            },
+            {
+              "role": "accessories",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical anatomical right bow"
+            },
+            {
+              "role": "gesture_only",
+              "path": "assets/references/alice2.jpg",
+              "status": "available",
+              "scope": "Expression and gestures only; exclude alternative costumes"
+            },
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        },
+        {
+          "id": "mother",
+          "name": "Mother",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Adult woman approximately thirty years old",
+          "body_proportions": "About twice Alice height, softly rounded adult proportions",
+          "surface": "Warm light-peach skin, oval face, softly rounded cheeks",
+          "eyes": "Almond dark-brown eyes with small white catchlights",
+          "brows": "Gently arched brown eyebrows",
+          "nose_beak": "Small rounded peach nose",
+          "mouth": "Small curved mouth with flexible silent smiles",
+          "ears": "Small rounded ears partly covered by hair",
+          "hair_head": "Chestnut shoulder-length hair, left-side part, ends curled inward",
+          "clothes": "Muted dusty-teal short-sleeved blouse, plain round neck, straight cream ankle-length trousers",
+          "footwear": "Simple off-white flat shoes",
+          "accessories": "No glasses, jewelry, hat or handbag",
+          "marks_asymmetry": "Left-side hair part remains anatomical left; no distinctive facial marks",
+          "reference_assets": [
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        },
+        {
+          "id": "father",
+          "name": "Father",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Adult man approximately thirty-two years old",
+          "body_proportions": "Adult softly broad shoulders, slightly taller than Mother",
+          "surface": "Warm light-peach skin, softly rounded rectangular face, clean-shaven",
+          "eyes": "Almond dark-brown eyes with small white catchlights",
+          "brows": "Straight dark-brown eyebrows",
+          "nose_beak": "Small broad rounded peach nose",
+          "mouth": "Small curved mouth with flexible silent smiles",
+          "ears": "Rounded ears visible beside short hair",
+          "hair_head": "Short neat dark-chestnut hair with fixed anatomical left side part",
+          "clothes": "Muted sage-green short-sleeved polo, small folded collar, two cream buttons; straight beige trousers",
+          "footwear": "Simple brown low shoes with rounded toes",
+          "accessories": "No glasses, facial hair, hat, watch or bag",
+          "marks_asymmetry": "Clean-shaven face, fixed anatomical left hair part, no other distinctive marks",
+          "reference_assets": [
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        }
+      ],
+      "setting": "A welcoming cream-and-sage zoo gate beside rounded trees and a warm stone path. No readable text is generated on the gate.",
+      "lighting": "Soft warm daylight, diffuse shadows, restrained pastel storybook palette; no oversaturation.",
+      "camera": "Medium-wide eye-level family shot; gentle rightward tracking with the walking family, no sudden zoom.",
+      "action": "0.000–1.200 seconds: Start already in a friendly living pose. Alice holds Mother's right hand with her left hand and Father's left hand with her right hand. The family takes two small grounded steps toward the zoo entrance. 1.200–3.153 seconds: Alice looks from Mother to Father, then toward the audience, smiling as the first line is spoken. Parents exchange a fond silent glance. 3.153–4.000 seconds: The family stops with planted feet. Parents gently release Alice's hands. 4.000–6.073 seconds: Alice points toward the gate with her right index finger, leans forward with delight and speaks the second line. Both parents follow her gaze. 6.073–9.700 seconds: Alice returns her hand to a relaxed pose, mouth resting. Hold a welcoming repeat-after-me pause with one natural blink and subtle breathing. 9.700–10.000 seconds: The family starts a slow step forward; a nearby leafy branch softly crosses the lens to motivate the next scene.",
+      "dialogue": [
+        {
+          "id": "S01_L1",
+          "speaker": "alice",
+          "text": "Mom, Dad, and me!",
+          "start": 1.2,
+          "end": 3.153,
+          "timing_status": "planned"
+        },
+        {
+          "id": "S01_L2",
+          "speaker": "alice",
+          "text": "Let's go to the zoo!",
+          "start": 4,
+          "end": 6.073,
+          "timing_status": "planned"
+        }
+      ],
+      "music": "Gentle low-volume instrumental, sparse ukulele and bells; no lyrics, duck under speech.",
+      "sfx": [
+        {
+          "at": 0.25,
+          "event": "soft two-note title bell"
+        },
+        {
+          "at": 0.7,
+          "event": "quiet alternating footsteps"
+        },
+        {
+          "at": 9.5,
+          "event": "very soft foliage swish"
+        }
+      ],
+      "subtitle": {
+        "language": "en",
+        "style": "Exact English words, large rounded white type on restrained dark-teal band, lower 18 percent safe."
+      },
+      "repeat_cues": [
+        {
+          "start": 6.073,
+          "end": 9.7,
+          "text": "zoo — Your turn"
+        }
+      ],
+      "transition": {
+        "intent": "Follow family gaze and travel direction into next story location; motivate any foreground occlusion through actual scene foliage.",
+        "camera_continuity": "Carry screen direction, horizon, family spacing and eyelines through the cut; avoid a blanket preset wipe.",
+        "duration": 0.3
+      },
+      "continuity": {
+        "previous_scene_id": "",
+        "setting_layout": "Family together on path or rail; Alice central, Mother left and Father right; animal habitat beyond safe barrier.",
+        "theme": "Gentle English discovery and repetition with family at the zoo.",
+        "action_continuation": "Complete current pointing or walking gesture before moving gaze to next discovery.",
+        "entry_state": "Family arriving at cream-and-sage zoo entrance",
+        "exit_state": "Family settles after this discovery and turns toward the next habitat"
+      },
+      "script_tracking": {
+        "segment_summary": "Off to the zoo: zoo discovery and repeat pause.",
+        "dialogue_ids": [
+          "S01_L1",
+          "S01_L2"
+        ],
+        "status": "ready",
+        "review_notes": "Exact frozen baseline dialogue; intended timing only, conform to accepted new audio."
+      }
+    },
+    {
+      "id": "S02",
+      "start": 10,
+      "duration": 10,
+      "characters": [
+        {
+          "id": "alice",
+          "name": "Alice",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Two-year-old toddler girl",
+          "body_proportions": "Small round toddler torso, short limbs and oversized round head",
+          "surface": "Warm peach skin, rosy round cheeks with two tiny white highlights",
+          "eyes": "Very large dark-brown eyes, near-black pupils, white catchlights and short upper lashes",
+          "brows": "Gently arched chestnut eyebrows",
+          "nose_beak": "Tiny peach button nose",
+          "mouth": "Small mouth, red-pink interior and rounded tongue; flexible speech phonemes",
+          "ears": "Small rounded peach ears",
+          "hair_head": "Chestnut short wavy bob, side-swept bangs, high side ponytail on anatomical RIGHT",
+          "clothes": "Rose-pink A-line dress, short puff sleeves, white two-lobed Peter Pan collar, ONE centered white chest heart, lightly pleated skirt, thin white hem line",
+          "footwear": "White frilly ankle socks; rose-pink lace-up sneakers with white laces, white rounded toe caps and white soles",
+          "accessories": "One large rose-pink bow at anatomical RIGHT ponytail anchor; no other accessories",
+          "marks_asymmetry": "Bow and ponytail on anatomical RIGHT, viewer LEFT in front view; no mirroring",
+          "reference_assets": [
+            {
+              "role": "face_front",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical front-view identity; no assertion of unseen side views"
+            },
+            {
+              "role": "wardrobe",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical puff sleeve dress and sneakers"
+            },
+            {
+              "role": "accessories",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical anatomical right bow"
+            },
+            {
+              "role": "gesture_only",
+              "path": "assets/references/alice2.jpg",
+              "status": "available",
+              "scope": "Expression and gestures only; exclude alternative costumes"
+            },
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        },
+        {
+          "id": "mother",
+          "name": "Mother",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Adult woman approximately thirty years old",
+          "body_proportions": "About twice Alice height, softly rounded adult proportions",
+          "surface": "Warm light-peach skin, oval face, softly rounded cheeks",
+          "eyes": "Almond dark-brown eyes with small white catchlights",
+          "brows": "Gently arched brown eyebrows",
+          "nose_beak": "Small rounded peach nose",
+          "mouth": "Small curved mouth with flexible silent smiles",
+          "ears": "Small rounded ears partly covered by hair",
+          "hair_head": "Chestnut shoulder-length hair, left-side part, ends curled inward",
+          "clothes": "Muted dusty-teal short-sleeved blouse, plain round neck, straight cream ankle-length trousers",
+          "footwear": "Simple off-white flat shoes",
+          "accessories": "No glasses, jewelry, hat or handbag",
+          "marks_asymmetry": "Left-side hair part remains anatomical left; no distinctive facial marks",
+          "reference_assets": [
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        },
+        {
+          "id": "father",
+          "name": "Father",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Adult man approximately thirty-two years old",
+          "body_proportions": "Adult softly broad shoulders, slightly taller than Mother",
+          "surface": "Warm light-peach skin, softly rounded rectangular face, clean-shaven",
+          "eyes": "Almond dark-brown eyes with small white catchlights",
+          "brows": "Straight dark-brown eyebrows",
+          "nose_beak": "Small broad rounded peach nose",
+          "mouth": "Small curved mouth with flexible silent smiles",
+          "ears": "Rounded ears visible beside short hair",
+          "hair_head": "Short neat dark-chestnut hair with fixed anatomical left side part",
+          "clothes": "Muted sage-green short-sleeved polo, small folded collar, two cream buttons; straight beige trousers",
+          "footwear": "Simple brown low shoes with rounded toes",
+          "accessories": "No glasses, facial hair, hat, watch or bag",
+          "marks_asymmetry": "Clean-shaven face, fixed anatomical left hair part, no other distinctive marks",
+          "reference_assets": [
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        },
+        {
+          "id": "bird",
+          "name": "Bird",
+          "entity": "Friendly preschool cartoon animal",
+          "species": "Small songbird",
+          "age": "Healthy adult animal with gentle behavior",
+          "body_proportions": "Small rounded body, two wings, two slender legs and short tail",
+          "surface": "Muted-blue plumage, warm-cream belly",
+          "eyes": "Round dark eyes with tiny white catchlights",
+          "brows": "No separate human eyebrows; gentle expression through eyelids",
+          "nose_beak": "Tiny ochre beak with two halves",
+          "mouth": "Species-appropriate mouth with rounded interior; natural silent movement",
+          "ears": "Small ear openings covered by feathers; no external pinnae",
+          "hair_head": "Rounded feathered head, no human hair",
+          "clothes": "No clothes; natural animal surface fully visible",
+          "footwear": "No footwear; natural species-appropriate feet",
+          "accessories": "No accessories, harness, jewelry or human props",
+          "marks_asymmetry": "Cream belly bounded consistently; blue wings and tail; no asymmetrical marks",
+          "reference_assets": []
+        }
+      ],
+      "setting": "A shaded zoo path with a single sturdy tree on the right. One small muted-blue bird with a warm-cream belly, tiny ochre beak and round dark eyes sits on a low branch.",
+      "lighting": "Soft warm daylight, diffuse shadows, restrained pastel storybook palette; no oversaturation.",
+      "camera": "Family medium-wide three-quarter view. A small deliberate pan reveals the bird while all three people remain visible.",
+      "action": "0.000–1.100 seconds: Matching leaves reveal the family stopped beside the tree. Alice hears a tiny chirp, lifts her chin and shifts her eyes up toward the branch. 1.100–3.256 seconds: Alice raises her right arm with a clear elbow bend and points at the bird while saying the first line. Mother bends slightly to Alice's height; Father follows the pointing direction. 3.256–4.500 seconds: The bird turns its head toward Alice and makes one tiny hop along the branch, with feet landing clearly. 4.500–6.816 seconds: Alice says the second line slowly while maintaining the point, then lowers her hand. Mother's smile responds gently; Father gives a small silent nod. 6.816–9.700 seconds: Alice looks expectantly toward the audience with her mouth at rest. Bird gives one small wing stretch; leave room to repeat. 9.700–10.000 seconds: The bird settles; a broad foreground leaf moves gently across part of the view.",
+      "dialogue": [
+        {
+          "id": "S02_L1",
+          "speaker": "alice",
+          "text": "Look! A little bird.",
+          "start": 1.1,
+          "end": 3.256,
+          "timing_status": "planned"
+        },
+        {
+          "id": "S02_L2",
+          "speaker": "alice",
+          "text": "Bird. A little bird.",
+          "start": 4.5,
+          "end": 6.816,
+          "timing_status": "planned"
+        }
+      ],
+      "music": "Gentle low-volume instrumental, sparse ukulele and bells; no lyrics, duck under speech.",
+      "sfx": [
+        {
+          "at": 0.45,
+          "event": "one soft bird chirp"
+        },
+        {
+          "at": 3.8,
+          "event": "tiny branch tap at bird landing"
+        },
+        {
+          "at": 7.7,
+          "event": "quiet feather flutter"
+        },
+        {
+          "at": 9.6,
+          "event": "soft leaf swish"
+        }
+      ],
+      "subtitle": {
+        "language": "en",
+        "style": "Exact English words, large rounded white type on restrained dark-teal band, lower 18 percent safe."
+      },
+      "repeat_cues": [
+        {
+          "start": 6.816,
+          "end": 9.7,
+          "text": "bird — Your turn"
+        }
+      ],
+      "transition": {
+        "intent": "Follow family gaze and travel direction into next story location; motivate any foreground occlusion through actual scene foliage.",
+        "camera_continuity": "Carry screen direction, horizon, family spacing and eyelines through the cut; avoid a blanket preset wipe.",
+        "duration": 0.3
+      },
+      "continuity": {
+        "previous_scene_id": "S01",
+        "setting_layout": "Family together on path or rail; Alice central, Mother left and Father right; animal habitat beyond safe barrier.",
+        "theme": "Gentle English discovery and repetition with family at the zoo.",
+        "action_continuation": "Complete current pointing or walking gesture before moving gaze to next discovery.",
+        "entry_state": "Family settles after this discovery and turns toward the next habitat",
+        "exit_state": "Family settles after this discovery and turns toward the next habitat"
+      },
+      "script_tracking": {
+        "segment_summary": "A little bird: bird discovery and repeat pause.",
+        "dialogue_ids": [
+          "S02_L1",
+          "S02_L2"
+        ],
+        "status": "ready",
+        "review_notes": "Exact frozen baseline dialogue; intended timing only, conform to accepted new audio."
+      }
+    },
+    {
+      "id": "S03",
+      "start": 20,
+      "duration": 10,
+      "characters": [
+        {
+          "id": "alice",
+          "name": "Alice",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Two-year-old toddler girl",
+          "body_proportions": "Small round toddler torso, short limbs and oversized round head",
+          "surface": "Warm peach skin, rosy round cheeks with two tiny white highlights",
+          "eyes": "Very large dark-brown eyes, near-black pupils, white catchlights and short upper lashes",
+          "brows": "Gently arched chestnut eyebrows",
+          "nose_beak": "Tiny peach button nose",
+          "mouth": "Small mouth, red-pink interior and rounded tongue; flexible speech phonemes",
+          "ears": "Small rounded peach ears",
+          "hair_head": "Chestnut short wavy bob, side-swept bangs, high side ponytail on anatomical RIGHT",
+          "clothes": "Rose-pink A-line dress, short puff sleeves, white two-lobed Peter Pan collar, ONE centered white chest heart, lightly pleated skirt, thin white hem line",
+          "footwear": "White frilly ankle socks; rose-pink lace-up sneakers with white laces, white rounded toe caps and white soles",
+          "accessories": "One large rose-pink bow at anatomical RIGHT ponytail anchor; no other accessories",
+          "marks_asymmetry": "Bow and ponytail on anatomical RIGHT, viewer LEFT in front view; no mirroring",
+          "reference_assets": [
+            {
+              "role": "face_front",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical front-view identity; no assertion of unseen side views"
+            },
+            {
+              "role": "wardrobe",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical puff sleeve dress and sneakers"
+            },
+            {
+              "role": "accessories",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical anatomical right bow"
+            },
+            {
+              "role": "gesture_only",
+              "path": "assets/references/alice2.jpg",
+              "status": "available",
+              "scope": "Expression and gestures only; exclude alternative costumes"
+            },
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        },
+        {
+          "id": "mother",
+          "name": "Mother",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Adult woman approximately thirty years old",
+          "body_proportions": "About twice Alice height, softly rounded adult proportions",
+          "surface": "Warm light-peach skin, oval face, softly rounded cheeks",
+          "eyes": "Almond dark-brown eyes with small white catchlights",
+          "brows": "Gently arched brown eyebrows",
+          "nose_beak": "Small rounded peach nose",
+          "mouth": "Small curved mouth with flexible silent smiles",
+          "ears": "Small rounded ears partly covered by hair",
+          "hair_head": "Chestnut shoulder-length hair, left-side part, ends curled inward",
+          "clothes": "Muted dusty-teal short-sleeved blouse, plain round neck, straight cream ankle-length trousers",
+          "footwear": "Simple off-white flat shoes",
+          "accessories": "No glasses, jewelry, hat or handbag",
+          "marks_asymmetry": "Left-side hair part remains anatomical left; no distinctive facial marks",
+          "reference_assets": [
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        },
+        {
+          "id": "father",
+          "name": "Father",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Adult man approximately thirty-two years old",
+          "body_proportions": "Adult softly broad shoulders, slightly taller than Mother",
+          "surface": "Warm light-peach skin, softly rounded rectangular face, clean-shaven",
+          "eyes": "Almond dark-brown eyes with small white catchlights",
+          "brows": "Straight dark-brown eyebrows",
+          "nose_beak": "Small broad rounded peach nose",
+          "mouth": "Small curved mouth with flexible silent smiles",
+          "ears": "Rounded ears visible beside short hair",
+          "hair_head": "Short neat dark-chestnut hair with fixed anatomical left side part",
+          "clothes": "Muted sage-green short-sleeved polo, small folded collar, two cream buttons; straight beige trousers",
+          "footwear": "Simple brown low shoes with rounded toes",
+          "accessories": "No glasses, facial hair, hat, watch or bag",
+          "marks_asymmetry": "Clean-shaven face, fixed anatomical left hair part, no other distinctive marks",
+          "reference_assets": [
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        },
+        {
+          "id": "giraffe",
+          "name": "Giraffe",
+          "entity": "Friendly preschool cartoon animal",
+          "species": "Giraffa camelopardalis giraffe",
+          "age": "Healthy adult animal with gentle behavior",
+          "body_proportions": "Tall long neck, small head, four long legs, two ossicones and one tufted tail",
+          "surface": "Warm pale ochre coat with rounded caramel patches",
+          "eyes": "Gentle large dark eyes with short lashes",
+          "brows": "No separate human eyebrows; gentle expression through eyelids",
+          "nose_beak": "Broad cream muzzle, two nostrils above mouth",
+          "mouth": "Species-appropriate mouth with rounded interior; natural silent movement",
+          "ears": "Two leaf-shaped ears beside short ossicones",
+          "hair_head": "Short brown mane along back of neck and fur-covered head",
+          "clothes": "No clothes; natural animal surface fully visible",
+          "footwear": "No footwear; natural species-appropriate feet",
+          "accessories": "No accessories, harness, jewelry or human props",
+          "marks_asymmetry": "Stable caramel spot layout and dark tail tuft; no wardrobe or decorative marks",
+          "reference_assets": []
+        }
+      ],
+      "setting": "A spacious giraffe habitat beyond a low timber visitor fence. One friendly giraffe has a warm ochre coat, rounded light-brown patches, short brown ossicones, small ears, a cream muzzle and gentle dark eyes. The family stays on the visitor path.",
+      "lighting": "Soft warm daylight, diffuse shadows, restrained pastel storybook palette; no oversaturation.",
+      "camera": "Wide family shot showing Alice's full body and the giraffe's head. Begin at Alice's eye level, then make a restrained upward reframing without cropping out the family.",
+      "action": "0.000–1.100 seconds: The family stops behind the visitor fence. Alice tips her chin upward; both parents follow her gaze. 1.100–2.829 seconds: Alice says the first line, slowly lifting her right hand to point upward. Her eyes track the giraffe's head. 2.829–4.400 seconds: The giraffe gently bends its neck toward a high leaf on its own side of the fence and flicks one ear. 4.400–6.341 seconds: Alice stretches both arms upward to illustrate tall and says the second line. Mother mirrors a small upward hand gesture; Father silently smiles. 6.341–9.700 seconds: Alice lowers her arms, mouth resting, giving the audience time to repeat. The giraffe chews once and slowly blinks. 9.700–10.000 seconds: A tall narrow foreground tree trunk slides across the view during the camera's gentle sideways move.",
+      "dialogue": [
+        {
+          "id": "S03_L1",
+          "speaker": "alice",
+          "text": "I see a giraffe.",
+          "start": 1.1,
+          "end": 2.829,
+          "timing_status": "planned"
+        },
+        {
+          "id": "S03_L2",
+          "speaker": "alice",
+          "text": "A tall giraffe!",
+          "start": 4.4,
+          "end": 6.341,
+          "timing_status": "planned"
+        }
+      ],
+      "music": "Gentle low-volume instrumental, sparse ukulele and bells; no lyrics, duck under speech.",
+      "sfx": [
+        {
+          "at": 0.4,
+          "event": "quiet footstep stop"
+        },
+        {
+          "at": 3.8,
+          "event": "soft leaf rustle"
+        },
+        {
+          "at": 9.6,
+          "event": "gentle woody transition swish"
+        }
+      ],
+      "subtitle": {
+        "language": "en",
+        "style": "Exact English words, large rounded white type on restrained dark-teal band, lower 18 percent safe."
+      },
+      "repeat_cues": [
+        {
+          "start": 6.341,
+          "end": 9.7,
+          "text": "giraffe — Your turn"
+        }
+      ],
+      "transition": {
+        "intent": "Follow family gaze and travel direction into next story location; motivate any foreground occlusion through actual scene foliage.",
+        "camera_continuity": "Carry screen direction, horizon, family spacing and eyelines through the cut; avoid a blanket preset wipe.",
+        "duration": 0.3
+      },
+      "continuity": {
+        "previous_scene_id": "S02",
+        "setting_layout": "Family together on path or rail; Alice central, Mother left and Father right; animal habitat beyond safe barrier.",
+        "theme": "Gentle English discovery and repetition with family at the zoo.",
+        "action_continuation": "Complete current pointing or walking gesture before moving gaze to next discovery.",
+        "entry_state": "Family settles after this discovery and turns toward the next habitat",
+        "exit_state": "Family settles after this discovery and turns toward the next habitat"
+      },
+      "script_tracking": {
+        "segment_summary": "A tall giraffe: giraffe discovery and repeat pause.",
+        "dialogue_ids": [
+          "S03_L1",
+          "S03_L2"
+        ],
+        "status": "ready",
+        "review_notes": "Exact frozen baseline dialogue; intended timing only, conform to accepted new audio."
+      }
+    },
+    {
+      "id": "S04",
+      "start": 30,
+      "duration": 10,
+      "characters": [
+        {
+          "id": "alice",
+          "name": "Alice",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Two-year-old toddler girl",
+          "body_proportions": "Small round toddler torso, short limbs and oversized round head",
+          "surface": "Warm peach skin, rosy round cheeks with two tiny white highlights",
+          "eyes": "Very large dark-brown eyes, near-black pupils, white catchlights and short upper lashes",
+          "brows": "Gently arched chestnut eyebrows",
+          "nose_beak": "Tiny peach button nose",
+          "mouth": "Small mouth, red-pink interior and rounded tongue; flexible speech phonemes",
+          "ears": "Small rounded peach ears",
+          "hair_head": "Chestnut short wavy bob, side-swept bangs, high side ponytail on anatomical RIGHT",
+          "clothes": "Rose-pink A-line dress, short puff sleeves, white two-lobed Peter Pan collar, ONE centered white chest heart, lightly pleated skirt, thin white hem line",
+          "footwear": "White frilly ankle socks; rose-pink lace-up sneakers with white laces, white rounded toe caps and white soles",
+          "accessories": "One large rose-pink bow at anatomical RIGHT ponytail anchor; no other accessories",
+          "marks_asymmetry": "Bow and ponytail on anatomical RIGHT, viewer LEFT in front view; no mirroring",
+          "reference_assets": [
+            {
+              "role": "face_front",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical front-view identity; no assertion of unseen side views"
+            },
+            {
+              "role": "wardrobe",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical puff sleeve dress and sneakers"
+            },
+            {
+              "role": "accessories",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical anatomical right bow"
+            },
+            {
+              "role": "gesture_only",
+              "path": "assets/references/alice2.jpg",
+              "status": "available",
+              "scope": "Expression and gestures only; exclude alternative costumes"
+            },
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        },
+        {
+          "id": "mother",
+          "name": "Mother",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Adult woman approximately thirty years old",
+          "body_proportions": "About twice Alice height, softly rounded adult proportions",
+          "surface": "Warm light-peach skin, oval face, softly rounded cheeks",
+          "eyes": "Almond dark-brown eyes with small white catchlights",
+          "brows": "Gently arched brown eyebrows",
+          "nose_beak": "Small rounded peach nose",
+          "mouth": "Small curved mouth with flexible silent smiles",
+          "ears": "Small rounded ears partly covered by hair",
+          "hair_head": "Chestnut shoulder-length hair, left-side part, ends curled inward",
+          "clothes": "Muted dusty-teal short-sleeved blouse, plain round neck, straight cream ankle-length trousers",
+          "footwear": "Simple off-white flat shoes",
+          "accessories": "No glasses, jewelry, hat or handbag",
+          "marks_asymmetry": "Left-side hair part remains anatomical left; no distinctive facial marks",
+          "reference_assets": [
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        },
+        {
+          "id": "father",
+          "name": "Father",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Adult man approximately thirty-two years old",
+          "body_proportions": "Adult softly broad shoulders, slightly taller than Mother",
+          "surface": "Warm light-peach skin, softly rounded rectangular face, clean-shaven",
+          "eyes": "Almond dark-brown eyes with small white catchlights",
+          "brows": "Straight dark-brown eyebrows",
+          "nose_beak": "Small broad rounded peach nose",
+          "mouth": "Small curved mouth with flexible silent smiles",
+          "ears": "Rounded ears visible beside short hair",
+          "hair_head": "Short neat dark-chestnut hair with fixed anatomical left side part",
+          "clothes": "Muted sage-green short-sleeved polo, small folded collar, two cream buttons; straight beige trousers",
+          "footwear": "Simple brown low shoes with rounded toes",
+          "accessories": "No glasses, facial hair, hat, watch or bag",
+          "marks_asymmetry": "Clean-shaven face, fixed anatomical left hair part, no other distinctive marks",
+          "reference_assets": [
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        },
+        {
+          "id": "tiger",
+          "name": "Tiger",
+          "entity": "Friendly preschool cartoon animal",
+          "species": "Panthera tigris tiger",
+          "age": "Healthy adult animal with gentle behavior",
+          "body_proportions": "Rounded strong feline body, four padded paws and one long tail",
+          "surface": "Muted warm-orange fur, cream muzzle and belly, dark brown stripes",
+          "eyes": "Round amber eyes with dark pupils and soft catchlights",
+          "brows": "No separate human eyebrows; gentle expression through eyelids",
+          "nose_beak": "Small pink triangular feline nose",
+          "mouth": "Species-appropriate mouth with rounded interior; natural silent movement",
+          "ears": "Two rounded dark-backed ears with pale interior",
+          "hair_head": "Fur-covered rounded head, short cream cheek ruff",
+          "clothes": "No clothes; natural animal surface fully visible",
+          "footwear": "No footwear; natural species-appropriate feet",
+          "accessories": "No accessories, harness, jewelry or human props",
+          "marks_asymmetry": "Stable dark stripes across torso and tail; no extra limbs or decorative marks",
+          "reference_assets": []
+        }
+      ],
+      "setting": "A calm tiger habitat with pale rocks, shaded grass and a visible visitor safety railing. One friendly tiger has a muted warm-orange coat, consistent dark-brown stripes, a cream muzzle and belly, round ears, broad soft paws and gentle amber-brown eyes. The family is safely outside the habitat.",
+      "lighting": "Soft warm daylight, diffuse shadows, restrained pastel storybook palette; no oversaturation.",
+      "camera": "Stable medium-wide shot showing the complete family on the left and tiger on the right; slow subtle push-in of less than ten percent.",
+      "action": "0.000–1.100 seconds: The tiger rests on its own rock and turns its ears toward the family. Alice leans forward slightly with curiosity. 1.100–2.910 seconds: Alice gives a small right-hand wave and says hello. Mother keeps one reassuring hand lightly near Alice's shoulder; Father watches warmly. 2.910–4.400 seconds: The tiger raises its head, makes one slow friendly blink and curls the tip of its tail. 4.400–6.808 seconds: Alice repeats tiger and gives a second slower wave while speaking the second line. Adults remain silent and attentive. 6.808–9.700 seconds: Alice lets her arm rest, glances toward the audience and waits for a response. Tiger relaxes its head and gives one gentle ear twitch. 9.700–10.000 seconds: Foreground leaves softly obscure the edge of the frame as the family prepares to continue.",
+      "dialogue": [
+        {
+          "id": "S04_L1",
+          "speaker": "alice",
+          "text": "Hello, little tiger!",
+          "start": 1.1,
+          "end": 2.91,
+          "timing_status": "planned"
+        },
+        {
+          "id": "S04_L2",
+          "speaker": "alice",
+          "text": "Tiger. Hello, tiger!",
+          "start": 4.4,
+          "end": 6.808,
+          "timing_status": "planned"
+        }
+      ],
+      "music": "Gentle low-volume instrumental, sparse ukulele and bells; no lyrics, duck under speech.",
+      "sfx": [
+        {
+          "at": 3.5,
+          "event": "very soft breathy tiger chuff, never a loud roar"
+        },
+        {
+          "at": 7.6,
+          "event": "faint grass rustle"
+        },
+        {
+          "at": 9.6,
+          "event": "quiet foliage swish"
+        }
+      ],
+      "subtitle": {
+        "language": "en",
+        "style": "Exact English words, large rounded white type on restrained dark-teal band, lower 18 percent safe."
+      },
+      "repeat_cues": [
+        {
+          "start": 6.808,
+          "end": 9.7,
+          "text": "tiger — Your turn"
+        }
+      ],
+      "transition": {
+        "intent": "Follow family gaze and travel direction into next story location; motivate any foreground occlusion through actual scene foliage.",
+        "camera_continuity": "Carry screen direction, horizon, family spacing and eyelines through the cut; avoid a blanket preset wipe.",
+        "duration": 0.3
+      },
+      "continuity": {
+        "previous_scene_id": "S03",
+        "setting_layout": "Family together on path or rail; Alice central, Mother left and Father right; animal habitat beyond safe barrier.",
+        "theme": "Gentle English discovery and repetition with family at the zoo.",
+        "action_continuation": "Complete current pointing or walking gesture before moving gaze to next discovery.",
+        "entry_state": "Family settles after this discovery and turns toward the next habitat",
+        "exit_state": "Family settles after this discovery and turns toward the next habitat"
+      },
+      "script_tracking": {
+        "segment_summary": "Hello, tiger: tiger discovery and repeat pause.",
+        "dialogue_ids": [
+          "S04_L1",
+          "S04_L2"
+        ],
+        "status": "ready",
+        "review_notes": "Exact frozen baseline dialogue; intended timing only, conform to accepted new audio."
+      }
+    },
+    {
+      "id": "S05",
+      "start": 40,
+      "duration": 10,
+      "characters": [
+        {
+          "id": "alice",
+          "name": "Alice",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Two-year-old toddler girl",
+          "body_proportions": "Small round toddler torso, short limbs and oversized round head",
+          "surface": "Warm peach skin, rosy round cheeks with two tiny white highlights",
+          "eyes": "Very large dark-brown eyes, near-black pupils, white catchlights and short upper lashes",
+          "brows": "Gently arched chestnut eyebrows",
+          "nose_beak": "Tiny peach button nose",
+          "mouth": "Small mouth, red-pink interior and rounded tongue; flexible speech phonemes",
+          "ears": "Small rounded peach ears",
+          "hair_head": "Chestnut short wavy bob, side-swept bangs, high side ponytail on anatomical RIGHT",
+          "clothes": "Rose-pink A-line dress, short puff sleeves, white two-lobed Peter Pan collar, ONE centered white chest heart, lightly pleated skirt, thin white hem line",
+          "footwear": "White frilly ankle socks; rose-pink lace-up sneakers with white laces, white rounded toe caps and white soles",
+          "accessories": "One large rose-pink bow at anatomical RIGHT ponytail anchor; no other accessories",
+          "marks_asymmetry": "Bow and ponytail on anatomical RIGHT, viewer LEFT in front view; no mirroring",
+          "reference_assets": [
+            {
+              "role": "face_front",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical front-view identity; no assertion of unseen side views"
+            },
+            {
+              "role": "wardrobe",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical puff sleeve dress and sneakers"
+            },
+            {
+              "role": "accessories",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical anatomical right bow"
+            },
+            {
+              "role": "gesture_only",
+              "path": "assets/references/alice2.jpg",
+              "status": "available",
+              "scope": "Expression and gestures only; exclude alternative costumes"
+            },
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        },
+        {
+          "id": "mother",
+          "name": "Mother",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Adult woman approximately thirty years old",
+          "body_proportions": "About twice Alice height, softly rounded adult proportions",
+          "surface": "Warm light-peach skin, oval face, softly rounded cheeks",
+          "eyes": "Almond dark-brown eyes with small white catchlights",
+          "brows": "Gently arched brown eyebrows",
+          "nose_beak": "Small rounded peach nose",
+          "mouth": "Small curved mouth with flexible silent smiles",
+          "ears": "Small rounded ears partly covered by hair",
+          "hair_head": "Chestnut shoulder-length hair, left-side part, ends curled inward",
+          "clothes": "Muted dusty-teal short-sleeved blouse, plain round neck, straight cream ankle-length trousers",
+          "footwear": "Simple off-white flat shoes",
+          "accessories": "No glasses, jewelry, hat or handbag",
+          "marks_asymmetry": "Left-side hair part remains anatomical left; no distinctive facial marks",
+          "reference_assets": [
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        },
+        {
+          "id": "father",
+          "name": "Father",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Adult man approximately thirty-two years old",
+          "body_proportions": "Adult softly broad shoulders, slightly taller than Mother",
+          "surface": "Warm light-peach skin, softly rounded rectangular face, clean-shaven",
+          "eyes": "Almond dark-brown eyes with small white catchlights",
+          "brows": "Straight dark-brown eyebrows",
+          "nose_beak": "Small broad rounded peach nose",
+          "mouth": "Small curved mouth with flexible silent smiles",
+          "ears": "Rounded ears visible beside short hair",
+          "hair_head": "Short neat dark-chestnut hair with fixed anatomical left side part",
+          "clothes": "Muted sage-green short-sleeved polo, small folded collar, two cream buttons; straight beige trousers",
+          "footwear": "Simple brown low shoes with rounded toes",
+          "accessories": "No glasses, facial hair, hat, watch or bag",
+          "marks_asymmetry": "Clean-shaven face, fixed anatomical left hair part, no other distinctive marks",
+          "reference_assets": [
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        },
+        {
+          "id": "panda",
+          "name": "Panda",
+          "entity": "Friendly preschool cartoon animal",
+          "species": "Ailuropoda melanoleuca giant panda",
+          "age": "Healthy adult animal with gentle behavior",
+          "body_proportions": "Round seated bear body, four broad paws, short tail",
+          "surface": "Soft warm-white fur with black ears, limbs and shoulder band",
+          "eyes": "Dark brown eyes inside stable rounded black eye patches",
+          "brows": "No separate human eyebrows; gentle expression through eyelids",
+          "nose_beak": "Broad small black bear nose",
+          "mouth": "Species-appropriate mouth with rounded interior; natural silent movement",
+          "ears": "Two rounded black fur-covered external ears",
+          "hair_head": "Rounded white fur-covered head without human hair",
+          "clothes": "No clothes; natural animal surface fully visible",
+          "footwear": "No footwear; natural species-appropriate feet",
+          "accessories": "No accessories, harness, jewelry or human props",
+          "marks_asymmetry": "Stable black eye patches and shoulder band; natural paws, no extra markings",
+          "reference_assets": []
+        }
+      ],
+      "setting": "A peaceful panda habitat with sage bamboo and pale warm rocks behind a visitor rail. One round panda has cream-white fur, soft charcoal ears, eye patches, arms and legs, a tiny dark nose, gentle round eyes and a small friendly mouth. It sits with a short bamboo stem.",
+      "lighting": "Soft warm daylight, diffuse shadows, restrained pastel storybook palette; no oversaturation.",
+      "camera": "Stable medium-wide shot with family left and panda right, soft layered depth; no close-up face replacement.",
+      "action": "0.000–1.100 seconds: The family stops at the rail. Alice notices the seated panda and brings her right hand up in a small pointing gesture. 1.100–2.788 seconds: Alice says the first line; Mother bends slightly toward her and Father follows her gaze. 2.788–4.500 seconds: The panda lifts the bamboo to its mouth using independently moving paws and takes one small, readable nibble. 4.500–7.115 seconds: Alice says the second line and touches her own tummy gently with her left palm. Parents respond with silent smiles. 7.115–9.700 seconds: Alice rests both arms and gives the audience time to repeat. Panda slowly chews and blinks, keeping its body consistent. 9.700–10.000 seconds: A foreground bamboo stem sweeps gently across the frame as the camera drifts toward the path.",
+      "dialogue": [
+        {
+          "id": "S05_L1",
+          "speaker": "alice",
+          "text": "Look! A panda.",
+          "start": 1.1,
+          "end": 2.788,
+          "timing_status": "planned"
+        },
+        {
+          "id": "S05_L2",
+          "speaker": "alice",
+          "text": "Panda. A hungry panda.",
+          "start": 4.5,
+          "end": 7.115,
+          "timing_status": "planned"
+        }
+      ],
+      "music": "Gentle low-volume instrumental, sparse ukulele and bells; no lyrics, duck under speech.",
+      "sfx": [
+        {
+          "at": 3.8,
+          "event": "one soft bamboo crunch synchronized to the bite"
+        },
+        {
+          "at": 7.6,
+          "event": "subtle bamboo leaves in a breeze"
+        },
+        {
+          "at": 9.6,
+          "event": "light bamboo swish"
+        }
+      ],
+      "subtitle": {
+        "language": "en",
+        "style": "Exact English words, large rounded white type on restrained dark-teal band, lower 18 percent safe."
+      },
+      "repeat_cues": [
+        {
+          "start": 7.115,
+          "end": 9.7,
+          "text": "panda — Your turn"
+        }
+      ],
+      "transition": {
+        "intent": "Follow family gaze and travel direction into next story location; motivate any foreground occlusion through actual scene foliage.",
+        "camera_continuity": "Carry screen direction, horizon, family spacing and eyelines through the cut; avoid a blanket preset wipe.",
+        "duration": 0.3
+      },
+      "continuity": {
+        "previous_scene_id": "S04",
+        "setting_layout": "Family together on path or rail; Alice central, Mother left and Father right; animal habitat beyond safe barrier.",
+        "theme": "Gentle English discovery and repetition with family at the zoo.",
+        "action_continuation": "Complete current pointing or walking gesture before moving gaze to next discovery.",
+        "entry_state": "Family settles after this discovery and turns toward the next habitat",
+        "exit_state": "Family settles after this discovery and turns toward the next habitat"
+      },
+      "script_tracking": {
+        "segment_summary": "A hungry panda: panda discovery and repeat pause.",
+        "dialogue_ids": [
+          "S05_L1",
+          "S05_L2"
+        ],
+        "status": "ready",
+        "review_notes": "Exact frozen baseline dialogue; intended timing only, conform to accepted new audio."
+      }
+    },
+    {
+      "id": "S06",
+      "start": 50,
+      "duration": 10,
+      "characters": [
+        {
+          "id": "alice",
+          "name": "Alice",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Two-year-old toddler girl",
+          "body_proportions": "Small round toddler torso, short limbs and oversized round head",
+          "surface": "Warm peach skin, rosy round cheeks with two tiny white highlights",
+          "eyes": "Very large dark-brown eyes, near-black pupils, white catchlights and short upper lashes",
+          "brows": "Gently arched chestnut eyebrows",
+          "nose_beak": "Tiny peach button nose",
+          "mouth": "Small mouth, red-pink interior and rounded tongue; flexible speech phonemes",
+          "ears": "Small rounded peach ears",
+          "hair_head": "Chestnut short wavy bob, side-swept bangs, high side ponytail on anatomical RIGHT",
+          "clothes": "Rose-pink A-line dress, short puff sleeves, white two-lobed Peter Pan collar, ONE centered white chest heart, lightly pleated skirt, thin white hem line",
+          "footwear": "White frilly ankle socks; rose-pink lace-up sneakers with white laces, white rounded toe caps and white soles",
+          "accessories": "One large rose-pink bow at anatomical RIGHT ponytail anchor; no other accessories",
+          "marks_asymmetry": "Bow and ponytail on anatomical RIGHT, viewer LEFT in front view; no mirroring",
+          "reference_assets": [
+            {
+              "role": "face_front",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical front-view identity; no assertion of unseen side views"
+            },
+            {
+              "role": "wardrobe",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical puff sleeve dress and sneakers"
+            },
+            {
+              "role": "accessories",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical anatomical right bow"
+            },
+            {
+              "role": "gesture_only",
+              "path": "assets/references/alice2.jpg",
+              "status": "available",
+              "scope": "Expression and gestures only; exclude alternative costumes"
+            },
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        },
+        {
+          "id": "mother",
+          "name": "Mother",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Adult woman approximately thirty years old",
+          "body_proportions": "About twice Alice height, softly rounded adult proportions",
+          "surface": "Warm light-peach skin, oval face, softly rounded cheeks",
+          "eyes": "Almond dark-brown eyes with small white catchlights",
+          "brows": "Gently arched brown eyebrows",
+          "nose_beak": "Small rounded peach nose",
+          "mouth": "Small curved mouth with flexible silent smiles",
+          "ears": "Small rounded ears partly covered by hair",
+          "hair_head": "Chestnut shoulder-length hair, left-side part, ends curled inward",
+          "clothes": "Muted dusty-teal short-sleeved blouse, plain round neck, straight cream ankle-length trousers",
+          "footwear": "Simple off-white flat shoes",
+          "accessories": "No glasses, jewelry, hat or handbag",
+          "marks_asymmetry": "Left-side hair part remains anatomical left; no distinctive facial marks",
+          "reference_assets": [
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        },
+        {
+          "id": "father",
+          "name": "Father",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Adult man approximately thirty-two years old",
+          "body_proportions": "Adult softly broad shoulders, slightly taller than Mother",
+          "surface": "Warm light-peach skin, softly rounded rectangular face, clean-shaven",
+          "eyes": "Almond dark-brown eyes with small white catchlights",
+          "brows": "Straight dark-brown eyebrows",
+          "nose_beak": "Small broad rounded peach nose",
+          "mouth": "Small curved mouth with flexible silent smiles",
+          "ears": "Rounded ears visible beside short hair",
+          "hair_head": "Short neat dark-chestnut hair with fixed anatomical left side part",
+          "clothes": "Muted sage-green short-sleeved polo, small folded collar, two cream buttons; straight beige trousers",
+          "footwear": "Simple brown low shoes with rounded toes",
+          "accessories": "No glasses, facial hair, hat, watch or bag",
+          "marks_asymmetry": "Clean-shaven face, fixed anatomical left hair part, no other distinctive marks",
+          "reference_assets": [
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        },
+        {
+          "id": "bird",
+          "name": "Bird",
+          "entity": "Friendly preschool cartoon animal",
+          "species": "Small songbird",
+          "age": "Healthy adult animal with gentle behavior",
+          "body_proportions": "Small rounded body, two wings, two slender legs and short tail",
+          "surface": "Muted-blue plumage, warm-cream belly",
+          "eyes": "Round dark eyes with tiny white catchlights",
+          "brows": "No separate human eyebrows; gentle expression through eyelids",
+          "nose_beak": "Tiny ochre beak with two halves",
+          "mouth": "Species-appropriate mouth with rounded interior; natural silent movement",
+          "ears": "Small ear openings covered by feathers; no external pinnae",
+          "hair_head": "Rounded feathered head, no human hair",
+          "clothes": "No clothes; natural animal surface fully visible",
+          "footwear": "No footwear; natural species-appropriate feet",
+          "accessories": "No accessories, harness, jewelry or human props",
+          "marks_asymmetry": "Cream belly bounded consistently; blue wings and tail; no asymmetrical marks",
+          "reference_assets": []
+        }
+      ],
+      "setting": "The same cream-and-sage zoo entrance and warm stone path as the opening, now seen from just inside the gate looking out. Soft rounded tree foliage and a small bird perched in the far background connect to the earlier visit.",
+      "lighting": "Soft warm daylight, diffuse shadows, restrained pastel storybook palette; no oversaturation.",
+      "camera": "Medium-wide frontal family shot with a very gentle pull-back; faces remain readable.",
+      "action": "0.000–1.100 seconds: Alice stands between her parents. She turns her head toward the habitats behind them, then back toward the audience. 1.100–2.747 seconds: Alice waves with her right hand and says the first line. Mother and Father each wave slowly with their free outside hand. 2.747–4.400 seconds: Alice looks at Mother, then Father, smiling. Parents share a gentle silent nod. 4.400–6.276 seconds: Alice looks toward the gate and says the second line with a final small wave. 6.276–9.000 seconds: Mouth resting, Alice holds her friendly smile toward the audience for the final repeat interval. The adults settle their arms. 9.000–10.000 seconds: Alice takes her parents' hands again. The family remains visible as a soft storybook iris closes slowly around them, ending on warm cream; the brand end card is added in editing.",
+      "dialogue": [
+        {
+          "id": "S06_L1",
+          "speaker": "alice",
+          "text": "Bye-bye, animals!",
+          "start": 1.1,
+          "end": 2.747,
+          "timing_status": "planned"
+        },
+        {
+          "id": "S06_L2",
+          "speaker": "alice",
+          "text": "Bye-bye, zoo!",
+          "start": 4.4,
+          "end": 6.276,
+          "timing_status": "planned"
+        }
+      ],
+      "music": "Gentle low-volume instrumental, sparse ukulele and bells; no lyrics, duck under speech.",
+      "sfx": [
+        {
+          "at": 0.4,
+          "event": "faint distant bird chirp"
+        },
+        {
+          "at": 8.9,
+          "event": "gentle two-note goodbye bell"
+        }
+      ],
+      "subtitle": {
+        "language": "en",
+        "style": "Exact English words, large rounded white type on restrained dark-teal band, lower 18 percent safe."
+      },
+      "repeat_cues": [
+        {
+          "start": 6.276,
+          "end": 9.0,
+          "text": "bye-bye — Your turn"
+        }
+      ],
+      "transition": {
+        "intent": "Gentle storybook close after family farewell, then editorial brand card.",
+        "camera_continuity": "Carry screen direction, horizon, family spacing and eyelines through the cut; avoid a blanket preset wipe.",
+        "duration": 0.8
+      },
+      "continuity": {
+        "previous_scene_id": "S05",
+        "setting_layout": "Family together on path or rail; Alice central, Mother left and Father right; animal habitat beyond safe barrier.",
+        "theme": "Gentle English discovery and repetition with family at the zoo.",
+        "action_continuation": "Complete current pointing or walking gesture before moving gaze to next discovery.",
+        "entry_state": "Family settles after this discovery and turns toward the next habitat",
+        "exit_state": "Family joins hands at cream-and-sage entrance for goodbye"
+      },
+      "script_tracking": {
+        "segment_summary": "Bye-bye, zoo: bye-bye discovery and repeat pause.",
+        "dialogue_ids": [
+          "S06_L1",
+          "S06_L2"
+        ],
+        "status": "ready",
+        "review_notes": "Exact frozen baseline dialogue; intended timing only, conform to accepted new audio."
+      }
+    }
+  ],
+  "qa": {
+    "checks": [
+      "identity and wardrobe drift",
+      "setting layout and subject continuity",
+      "action continuation and natural motion",
+      "voice identity and full native audio preservation",
+      "English captions against measured speech",
+      "720p user acceptance before 1080p final"
+    ],
+    "benchmark_status": "Model, codec and runtime not benchmarked here; no Little Fox equivalence claim.",
+    "subtitle_safe_fraction": 0.18
+  }
+}

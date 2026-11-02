@@ -1,0 +1,84 @@
+{
+  "schema": "jjv/audio-recipe/v1",
+  "recipe_id": "audio/ntc-mix-cinema-multitrack-v001",
+  "family": "audio-mix",
+  "domain": "newtecons_live_action",
+  "note": "Multitrack mux declared in remux.tracks (Mix default / Dialogue / Music / SFX), executed by engine/audio/remux_multi.py; stems are FLAC so each stem is sample-exact (write the film as .mkv or .mp4). sfx.default_enabled=true by user decision 2026-10-31 (limits.py accepts default_enabled=true only with sfx.default_on_decision); switch off per episode with `jjv audio mix --audio-override` (audio.sfx_enabled=false).",
+  "profile": "cinema",
+  "sample_rate": 48000,
+  "music": {
+    "gain_db": -6.0,
+    "section_gains_db": {
+      "logo_hold": -4.5,
+      "outro_cards": -4.5,
+      "end_plate": -4.5,
+      "ending": -4.5
+    },
+    "loop_crossfade_s": 2.0,
+    "fade_in_s": 0.25,
+    "fade_out_s": 2.0,
+    "after_brand_voice_fade_in_s": 0.5
+  },
+  "duck": {
+    "depth_db": -7.0,
+    "attack_s": 0.15,
+    "release_s": 0.75,
+    "merge_gap_s": 1.5
+  },
+  "sfx": {
+    "duck_db": -4.0,
+    "avoid_speech_s": 0.1,
+    "default_enabled": true,
+    "default_on_decision": "user 2026-10-31 (chat): sfx bat va co the thay doi trong workflow video"
+  },
+  "speech": {
+    "threshold_dbfs": -45.0,
+    "window_ms": 10
+  },
+  "loudness": {
+    "enabled": true,
+    "target_lufs": -17.0,
+    "tolerance_lu": 1.0,
+    "true_peak_max_dbtp": -1.0,
+    "max_section_jump_lu": 2.0,
+    "bed_gain_min_db": -24.0,
+    "bed_gain_max_db": 0.0,
+    "max_bed_step_db": 3.0,
+    "max_iterations": 10,
+    "ramp_s": 1.0,
+    "min_measure_s": 0.5,
+    "bed_only": {
+      "target_lufs": -22.0,
+      "tolerance_lu": 3.0,
+      "below_speech_lu": 3.0,
+      "min_s": 3.0
+    },
+    "brand_voice": {
+      "target_lufs": -16.0,
+      "tolerance_lu": 1.5
+    }
+  },
+  "pumping": {
+    "enabled": true,
+    "max_swing_db": 3.0,
+    "min_window_s": 1.0,
+    "gap_s": 0.5
+  },
+  "speech_buses": {
+    "*": {
+      "mode": "solve",
+      "min_db": -3.0,
+      "max_db": 3.0
+    }
+  },
+  "remux": {
+    "audio_codec": "aac",
+    "audio_bitrate": "192k",
+    "tracks": [
+      {"stem": "final", "title": "Mix", "codec": "flac", "language": "vie", "default": true},
+      {"stem": "dialogue", "title": "Dialogue", "codec": "flac", "language": "vie", "verify_exact": true},
+      {"stem": "music", "title": "Music", "codec": "flac", "language": "zxx", "verify_exact": true},
+      {"stem": "sfx", "title": "SFX", "codec": "flac", "language": "zxx", "verify_exact": true}
+    ]
+  }
+}

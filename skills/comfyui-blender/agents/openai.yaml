@@ -1,0 +1,4 @@
+interface:
+  display_name: "ComfyUI-Blender Studio"
+  short_description: "Asset 3D, bố cục không gian, hoạt hình 3D, previz live-action và AEC"
+  default_prompt: "Dùng $comfyui-blender để tạo hoặc chỉnh asset nhân vật, vật thể hay bối cảnh có thể dùng lại, kiểm tra Blender–ComfyUI, dựng bố cục không gian bằng scripts/scene_layout.py theo đúng domain (jenniejoy_cartoon_3d, newtecons_live_action hoặc aec) và chỉ dựng lại các phần phụ thuộc thay đổi (jenniejoy_cartoon_3d only; no character creation for newtecons_live_action)."

@@ -1,0 +1,9 @@
+{
+  "schema": "jjv/video-resolution-tiers/v1",
+  "source": "BP_Q1_RESOLUTION_TIERS and BP_Q9_FULLHD_FROM_APPROVED, 2026-11-01",
+  "tiers": {
+    "preview": {"target": "864x480", "method": "h3-native"},
+    "fullhd": {"target": "1920x1080", "method": "upscale-approved-source", "requires_approved_tier": "preview"},
+    "2k": {"target": "2560x1440", "method": "upscale-approved-source", "requires_approved_tier": "fullhd"}
+  }
+}

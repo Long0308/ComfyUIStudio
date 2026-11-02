@@ -1,0 +1,15 @@
+{
+  "id": "word-timing-onset-latched-on-breath-burst",
+  "engine": "Word timing (editorial/word-timing-v001, ported as jjv timing words T-E28c)",
+  "environment": "ep04 Milk and Mom review cuts v008-v010 karaoke, 2026-10-27",
+  "observed_at": "2026-10-27",
+  "symptom": "In 6 of 12 dialogue entries (S01_A, S02_A, S03_A, S04_A, S05_A, S06_A) the karaoke highlights the first word at 0.07-0.10 s while the voice is heard at 0.76-1.16 s (S02_A 'Good': startF 392 vs speech ~425, 33 frames early). Critics passed it twice.",
+  "root_cause": "The first-word start was calibrated to the RMS onset, and the onset detector took the first frame above threshold: a ~0.12 s burst (breath/click from TTS, present at 0.08-0.20 s in almost every WAV) followed by 0.6-1.0 s of silence. Whisper raw starts were clamped to 0.0, so the raw-ASR check could not see it either; the calibrated-vs-RMS gate passed by construction.",
+  "root_cause_status": "measured",
+  "fix_or_workaround": "T-V12d: word-timing-v002 re-measures onset as the start of the first RMS run >= 0.15 s (a run < 0.15 s followed by a gap >= 0.5 s is not speech) and moves only the first word's start; review v011 = v010 with only that change. Engine T-E28c round 2 must adopt the same rule.",
+  "prevention": "Onset = first sustained speech run, never first frame over threshold. Word-timing QA must compare the first word against the first sustained run and must contain at least one case where the burst and the speech separate (a gate that only checks calibrated == RMS onset proves nothing). Critics check karaoke on a still at the first-word frame AND at the heard onset, not only on mid-sentence frames.",
+  "verification": "Root RMS scan (10 ms hop, -40 dBFS) of the bound WAVs 2026-10-27 vs review-config-v010.json words[0].startF; independent critic of T-E28c found the same 9/14 rows.",
+  "status": "fix_in_progress",
+  "evidence_paths": ["production-local/JennieJoyKids-Story/04-milk-and-mom/editorial/word-timing-v001/WORD-TIMING-v001.json", "production-local/JennieJoyKids-Story/04-milk-and-mom/editorial/review-hd-v010/config/review-config-v010.json"],
+  "affected_artifacts": ["editorial/review-hd-v008", "editorial/review-hd-v009", "editorial/review-hd-v010"]
+}

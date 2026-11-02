@@ -1,0 +1,18 @@
+{
+  "id": "word-timing-qa-passes-by-construction",
+  "engine": "Editorial word timing (faster-whisper small.en CPU) for karaoke captions / icon pops",
+  "environment": "Episode 04 editorial/word-timing-v001 (T-V12b, DeepSeek V4.1 builder)",
+  "observed_at": "2026-10-27",
+  "symptom": "Builder QA reported first-word start delta 0.000 s and last-word end delta 0.000 s against the RMS speech onset/offset on all 14 shots — a perfect score that proves nothing.",
+  "root_cause": "The builder calibrated the first/last word edges TO the RMS onset/offset and then measured the same edges against the same RMS values, so the gate sits exactly where the two quantities coincide (always green). Raw Whisper starts can differ: S02_A 'Good' raw 0.68 s vs calibrated 0.07 s.",
+  "root_cause_status": "measured_by_root_independent_rerun",
+  "fix_or_workaround": "Root re-ran faster-whisper independently on S01_A, S02_A, S04_B, S06_B: interior word starts agree within <=0.2 s (mostly 0.02-0.1 s); only calibrated edges move (up to 0.61 s). Accepted for karaoke; icon pops use the raw Whisper start when it differs >0.3 s from the calibrated start.",
+  "prevention": "A QA gate must compare quantities that can disagree: compare the raw ASR timestamps (before any calibration) with the RMS measurements, keep raw and calibrated fields separate, and have root/critic re-run the recogniser on at least 3 shots. A gate that has never been red is unproven (cach-lam-viec §3d).",
+  "verification": "Root rerun table in session 2026-10-27; PLAN row T-V12b.",
+  "status": "resolved_root_rerun",
+  "evidence_paths": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/editorial/word-timing-v001/WORD-TIMING-v001.json",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/editorial/word-timing-v001/WORD-TIMING-QA-v001.json"
+  ],
+  "affected_artifacts": []
+}

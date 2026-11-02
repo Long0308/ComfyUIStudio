@@ -1,0 +1,846 @@
+{
+  "schema": "jjv/mouth-boxes/v1",
+  "episode_id": "04-milk-and-mom",
+  "coordinate_space": "864x480 source pixels",
+  "interpolation": "linear",
+  "keyframe_layout": [
+    "frame",
+    "cx",
+    "cy",
+    "half_w",
+    "half_h"
+  ],
+  "note": "Proxy boxes (about 2x the mouth) picked by looking at frames; not a landmark tracker.",
+  "source": "tools/build_av_review_pack_v001.py:BOXES via technical/av-review-pack-v001/AV-MEASUREMENTS.json",
+  "shots": {
+    "S01_A": {
+      "mother": {
+        "role": "speaker",
+        "keyframes": [
+          [
+            0,
+            527,
+            152,
+            38,
+            28
+          ],
+          [
+            60,
+            497,
+            163,
+            38,
+            28
+          ],
+          [
+            119,
+            515,
+            161,
+            38,
+            28
+          ]
+        ],
+        "active_frames": null
+      },
+      "alice": {
+        "role": "listener",
+        "keyframes": [
+          [
+            0,
+            285,
+            298,
+            30,
+            22
+          ],
+          [
+            60,
+            270,
+            299,
+            30,
+            22
+          ],
+          [
+            119,
+            270,
+            305,
+            30,
+            22
+          ]
+        ],
+        "active_frames": null
+      }
+    },
+    "S01_B": {
+      "alice": {
+        "role": "speaker",
+        "keyframes": [
+          [
+            0,
+            286,
+            296,
+            24,
+            18
+          ],
+          [
+            60,
+            300,
+            296,
+            46,
+            34
+          ],
+          [
+            119,
+            170,
+            342,
+            70,
+            44
+          ]
+        ],
+        "active_frames": null
+      },
+      "mother": {
+        "role": "listener",
+        "keyframes": [
+          [
+            0,
+            510,
+            158,
+            38,
+            28
+          ],
+          [
+            6,
+            518,
+            152,
+            38,
+            28
+          ],
+          [
+            12,
+            540,
+            150,
+            38,
+            28
+          ],
+          [
+            18,
+            568,
+            138,
+            38,
+            28
+          ],
+          [
+            24,
+            601,
+            125,
+            38,
+            28
+          ],
+          [
+            30,
+            640,
+            100,
+            38,
+            28
+          ],
+          [
+            36,
+            676,
+            86,
+            38,
+            28
+          ],
+          [
+            42,
+            720,
+            58,
+            38,
+            28
+          ],
+          [
+            48,
+            756,
+            40,
+            38,
+            28
+          ]
+        ],
+        "active_frames": [
+          0,
+          48
+        ]
+      }
+    },
+    "S02_A": {
+      "mother": {
+        "role": "speaker",
+        "keyframes": [
+          [
+            0,
+            281,
+            164,
+            38,
+            28
+          ],
+          [
+            64,
+            260,
+            174,
+            38,
+            28
+          ],
+          [
+            127,
+            285,
+            158,
+            38,
+            28
+          ]
+        ],
+        "active_frames": null
+      },
+      "alice": {
+        "role": "listener",
+        "keyframes": [
+          [
+            0,
+            186,
+            250,
+            30,
+            22
+          ],
+          [
+            64,
+            186,
+            257,
+            30,
+            22
+          ],
+          [
+            127,
+            186,
+            257,
+            30,
+            22
+          ]
+        ],
+        "active_frames": null
+      }
+    },
+    "S02_B": {
+      "alice": {
+        "role": "speaker",
+        "keyframes": [
+          [
+            0,
+            185,
+            248,
+            30,
+            22
+          ],
+          [
+            64,
+            184,
+            257,
+            30,
+            22
+          ],
+          [
+            127,
+            186,
+            258,
+            30,
+            22
+          ]
+        ],
+        "active_frames": null
+      },
+      "mother": {
+        "role": "listener",
+        "keyframes": [
+          [
+            0,
+            279,
+            155,
+            38,
+            28
+          ],
+          [
+            64,
+            275,
+            157,
+            38,
+            28
+          ],
+          [
+            127,
+            278,
+            159,
+            38,
+            28
+          ]
+        ],
+        "active_frames": null
+      }
+    },
+    "S03_A": {
+      "mother": {
+        "role": "speaker",
+        "keyframes": [
+          [
+            0,
+            534,
+            155,
+            38,
+            28
+          ],
+          [
+            70,
+            528,
+            164,
+            38,
+            28
+          ],
+          [
+            139,
+            549,
+            153,
+            38,
+            28
+          ]
+        ],
+        "active_frames": null
+      },
+      "alice": {
+        "role": "listener",
+        "keyframes": [
+          [
+            0,
+            290,
+            292,
+            30,
+            22
+          ],
+          [
+            70,
+            292,
+            292,
+            30,
+            22
+          ],
+          [
+            139,
+            280,
+            292,
+            30,
+            22
+          ]
+        ],
+        "active_frames": null
+      }
+    },
+    "S03_B": {
+      "alice": {
+        "role": "speaker",
+        "keyframes": [
+          [
+            0,
+            290,
+            293,
+            30,
+            22
+          ],
+          [
+            50,
+            281,
+            292,
+            30,
+            22
+          ],
+          [
+            99,
+            276,
+            292,
+            30,
+            22
+          ]
+        ],
+        "active_frames": null
+      },
+      "mother": {
+        "role": "listener",
+        "keyframes": [
+          [
+            0,
+            534,
+            153,
+            38,
+            28
+          ],
+          [
+            50,
+            530,
+            153,
+            38,
+            28
+          ],
+          [
+            99,
+            544,
+            150,
+            38,
+            28
+          ]
+        ],
+        "active_frames": null
+      }
+    },
+    "S04_A": {
+      "mother": {
+        "role": "speaker",
+        "keyframes": [
+          [
+            0,
+            553,
+            156,
+            38,
+            28
+          ],
+          [
+            56,
+            541,
+            165,
+            38,
+            28
+          ],
+          [
+            111,
+            528,
+            163,
+            38,
+            28
+          ]
+        ],
+        "active_frames": null
+      },
+      "alice": {
+        "role": "listener",
+        "keyframes": [
+          [
+            0,
+            276,
+            287,
+            30,
+            22
+          ],
+          [
+            56,
+            253,
+            294,
+            30,
+            22
+          ],
+          [
+            111,
+            238,
+            298,
+            30,
+            22
+          ]
+        ],
+        "active_frames": null
+      }
+    },
+    "S04_B": {
+      "alice": {
+        "role": "speaker",
+        "keyframes": [
+          [
+            0,
+            258,
+            289,
+            30,
+            22
+          ],
+          [
+            64,
+            268,
+            300,
+            30,
+            22
+          ],
+          [
+            127,
+            261,
+            290,
+            30,
+            22
+          ]
+        ],
+        "active_frames": null
+      },
+      "mother": {
+        "role": "listener",
+        "keyframes": [
+          [
+            0,
+            533,
+            176,
+            38,
+            28
+          ],
+          [
+            64,
+            532,
+            175,
+            38,
+            28
+          ],
+          [
+            127,
+            528,
+            180,
+            38,
+            28
+          ]
+        ],
+        "active_frames": null
+      }
+    },
+    "S05_A": {
+      "mother": {
+        "role": "speaker",
+        "keyframes": [
+          [
+            0,
+            534,
+            150,
+            38,
+            28
+          ],
+          [
+            74,
+            529,
+            149,
+            38,
+            28
+          ],
+          [
+            147,
+            537,
+            146,
+            38,
+            28
+          ]
+        ],
+        "active_frames": null
+      },
+      "alice": {
+        "role": "listener",
+        "keyframes": [
+          [
+            0,
+            286,
+            298,
+            30,
+            22
+          ],
+          [
+            74,
+            287,
+            300,
+            30,
+            22
+          ],
+          [
+            147,
+            289,
+            298,
+            30,
+            22
+          ]
+        ],
+        "active_frames": null
+      }
+    },
+    "S05_B": {
+      "alice": {
+        "role": "speaker",
+        "keyframes": [
+          [
+            0,
+            671,
+            218,
+            30,
+            22
+          ],
+          [
+            46,
+            639,
+            224,
+            30,
+            22
+          ],
+          [
+            91,
+            666,
+            217,
+            30,
+            22
+          ]
+        ],
+        "active_frames": null
+      },
+      "mother": {
+        "role": "listener",
+        "keyframes": [
+          [
+            0,
+            497,
+            130,
+            38,
+            28
+          ],
+          [
+            46,
+            493,
+            130,
+            38,
+            28
+          ],
+          [
+            91,
+            488,
+            125,
+            38,
+            28
+          ]
+        ],
+        "active_frames": null
+      }
+    },
+    "S06_A": {
+      "mother": {
+        "role": "speaker",
+        "keyframes": [
+          [
+            0,
+            542,
+            160,
+            38,
+            28
+          ],
+          [
+            70,
+            539,
+            176,
+            38,
+            28
+          ],
+          [
+            139,
+            547,
+            162,
+            38,
+            28
+          ]
+        ],
+        "active_frames": null
+      },
+      "alice": {
+        "role": "listener",
+        "keyframes": [
+          [
+            0,
+            412,
+            267,
+            30,
+            22
+          ],
+          [
+            70,
+            408,
+            270,
+            30,
+            22
+          ],
+          [
+            139,
+            414,
+            264,
+            30,
+            22
+          ]
+        ],
+        "active_frames": null
+      }
+    },
+    "S06_B1": {
+      "alice": {
+        "role": "speaker",
+        "keyframes": [
+          [
+            0,
+            403,
+            260,
+            30,
+            22
+          ],
+          [
+            60,
+            403,
+            274,
+            30,
+            22
+          ],
+          [
+            119,
+            412,
+            267,
+            30,
+            22
+          ]
+        ],
+        "active_frames": null
+      },
+      "mother": {
+        "role": "listener",
+        "keyframes": [
+          [
+            0,
+            545,
+            157,
+            38,
+            28
+          ],
+          [
+            60,
+            529,
+            168,
+            38,
+            28
+          ],
+          [
+            119,
+            533,
+            157,
+            38,
+            28
+          ]
+        ],
+        "active_frames": null
+      }
+    },
+    "S06_B2": {
+      "alice": {
+        "role": "speaker",
+        "keyframes": [
+          [
+            0,
+            406,
+            268,
+            30,
+            22
+          ],
+          [
+            70,
+            419,
+            272,
+            30,
+            22
+          ],
+          [
+            139,
+            414,
+            264,
+            30,
+            22
+          ]
+        ],
+        "active_frames": null
+      },
+      "mother": {
+        "role": "listener",
+        "keyframes": [
+          [
+            0,
+            545,
+            163,
+            38,
+            28
+          ],
+          [
+            70,
+            536,
+            162,
+            38,
+            28
+          ],
+          [
+            139,
+            533,
+            168,
+            38,
+            28
+          ]
+        ],
+        "active_frames": null
+      }
+    },
+    "S06_B3": {
+      "alice": {
+        "role": "speaker",
+        "keyframes": [
+          [
+            0,
+            404,
+            270,
+            30,
+            22
+          ],
+          [
+            20,
+            421,
+            271,
+            30,
+            22
+          ],
+          [
+            39,
+            459,
+            287,
+            30,
+            22
+          ]
+        ],
+        "active_frames": null
+      },
+      "mother": {
+        "role": "listener",
+        "keyframes": [
+          [
+            0,
+            542,
+            159,
+            38,
+            28
+          ],
+          [
+            20,
+            538,
+            171,
+            38,
+            28
+          ],
+          [
+            39,
+            519,
+            167,
+            38,
+            28
+          ]
+        ],
+        "active_frames": null
+      }
+    }
+  }
+}

@@ -1,0 +1,361 @@
+{
+  "schema": "jjv/shots/v1",
+  "episode_id": "04-milk-and-mom",
+  "sources": [
+    "technical/av-review-pack-v001/MANIFEST.json",
+    "technical/gap-audit-r27/G1-GEMINI-GAP-AUDIT.md",
+    "tools/build_av_review_pack_v001.py:ORDER"
+  ],
+  "shots": [
+    {
+      "shot": "S01_A",
+      "logical_shot": "S01_A",
+      "speaker": "mother",
+      "listener": "alice",
+      "receipt_dir": "technical/hybrid-v001",
+      "entry": {
+        "kind": "cut",
+        "evidence": "first shot of the film"
+      },
+      "clip": {
+        "path": "clips/hybrid-v001/S01_A-editorial-5s.mp4",
+        "sha256": "9cfce446d449e58079c9890b8f887a110f1d9e57b974653e1d5642d331f1b993",
+        "sha_source": "technical/seedvr2-production-v003/ELEVEN-NATIVE-PREPARED-INDEX.json",
+        "frames": 120
+      },
+      "wav_binding": {
+        "kind": "job_json_wav_sha256",
+        "path": "audio/voicestudio-batch-v001/editorial/dialogue-S01_A-c5d51236-editorial-48k.wav",
+        "sha256": "5d33ad49807cd680ca28156e13c8863db1e54f788cc3f576957e1b23d93d900f",
+        "receipt_source": "technical/hybrid-v001/job.json:wav_sha256",
+        "offset_s": 0.0
+      }
+    },
+    {
+      "shot": "S01_B",
+      "logical_shot": "S01_B",
+      "speaker": "alice",
+      "listener": "mother",
+      "receipt_dir": "technical/motion-v002/S01_B",
+      "entry": {
+        "kind": "carry",
+        "from_shot": "S01_A",
+        "frame": 119,
+        "evidence": "technical/motion-v002/S01_B/preparation.json names S01_A-last-used-frame119.png"
+      },
+      "clip": {
+        "path": "clips/motion-v002/S01_B-editorial.mp4",
+        "sha256": "0544acc59eb788486b95142da522272b32c30f74ae0a3ea23258e3e25680e7dd",
+        "sha_source": "technical/seedvr2-production-v003/ELEVEN-NATIVE-PREPARED-INDEX.json",
+        "frames": 120
+      },
+      "wav_binding": {
+        "kind": "preparation_json_wav_sha256",
+        "path": "audio/dialogue-trim-v002/dialogue-S01_B-trim-v002-48k.wav",
+        "sha256": "d00c399c39d1b53f87b94176d3ce6753f22929af7e1f41f40c36a3ddaa7cefad",
+        "receipt_source": "technical/motion-v002/S01_B/preparation.json:wav.sha256",
+        "offset_s": 0.0
+      }
+    },
+    {
+      "shot": "S02_A",
+      "logical_shot": "S02_A",
+      "speaker": "mother",
+      "listener": "alice",
+      "receipt_dir": "technical/motion-v004/S02_A",
+      "entry": {
+        "kind": "cut",
+        "evidence": "technical/motion-v004/S02_A/preparation.json names only S02_A-native864.png, no predecessor carry frame"
+      },
+      "clip": {
+        "path": "clips/motion-v004/S02_A-editorial.mp4",
+        "sha256": "e97e08fe3b1d82b9d573eaf1b0f4a508fb11190896bfdf0a31c284936d8bf92a",
+        "sha_source": "technical/motion-v004/S02_A/job.json:outputs.editorial",
+        "frames": 128
+      },
+      "wav_binding": {
+        "kind": "preparation_json_wav_sha256",
+        "path": "audio/dialogue-trim-v002/dialogue-S02_A-trim-v002-48k.wav",
+        "sha256": "938d893a3353ace09ff52c8f25b0b3651032713b10db0711690f9958db70a6b7",
+        "receipt_source": "technical/motion-v004/S02_A/preparation.json:wav.sha256",
+        "offset_s": 0.0
+      }
+    },
+    {
+      "shot": "S02_B",
+      "logical_shot": "S02_B",
+      "speaker": "alice",
+      "listener": "mother",
+      "receipt_dir": "technical/motion-v005/S02_B",
+      "entry": {
+        "kind": "carry",
+        "from_shot": "S02_A",
+        "frame": 127,
+        "evidence": "technical/motion-v005/S02_B/preparation.json names S02_A-last-used-frame127.png"
+      },
+      "clip": {
+        "path": "clips/motion-v005/S02_B-editorial.mp4",
+        "sha256": "ef75780775f4f9e1f8af372403524584bd3fe8f74154004489514f23f1b332d8",
+        "sha_source": "technical/motion-v005/S02_B/job.json:outputs.editorial",
+        "frames": 128
+      },
+      "wav_binding": {
+        "kind": "preparation_json_wav_sha256",
+        "path": "audio/dialogue-trim-v002/dialogue-S02_B-trim-v002-48k.wav",
+        "sha256": "3d03fe6b0f5c39d40c708c5bec04bebf528049b80d14fd8db2d1f461984462da",
+        "receipt_source": "technical/motion-v005/S02_B/preparation.json:wav.sha256",
+        "offset_s": 0.0
+      }
+    },
+    {
+      "shot": "S03_A",
+      "logical_shot": "S03_A",
+      "speaker": "mother",
+      "listener": "alice",
+      "receipt_dir": "technical/motion-v004/S03_A",
+      "entry": {
+        "kind": "cut",
+        "evidence": "technical/motion-v004/S03_A/preparation.json names only S03_A-native864.png, no predecessor carry frame"
+      },
+      "clip": {
+        "path": "clips/motion-v004/S03_A-editorial.mp4",
+        "sha256": "ac51c347ffba226c2d14ce4c1ffa6165b2c486356ac418955bc4a03e143af52d",
+        "sha_source": "technical/motion-v004/S03_A/job.json:outputs.editorial",
+        "frames": 140
+      },
+      "wav_binding": {
+        "kind": "preparation_json_wav_sha256",
+        "path": "audio/dialogue-trim-v002/dialogue-S03_A-trim-v002-48k.wav",
+        "sha256": "be8ee5522c2886aa857ca5f044fd002413f1c1d37bf3d11ecdd73e2496503aea",
+        "receipt_source": "technical/motion-v004/S03_A/preparation.json:wav.sha256",
+        "offset_s": 0.0
+      }
+    },
+    {
+      "shot": "S03_B",
+      "logical_shot": "S03_B",
+      "speaker": "alice",
+      "listener": "mother",
+      "receipt_dir": "technical/motion-v005/S03_B",
+      "entry": {
+        "kind": "carry",
+        "from_shot": "S03_A",
+        "frame": 139,
+        "evidence": "technical/motion-v005/S03_B/preparation.json names S03_A-last-used-frame139.png"
+      },
+      "clip": {
+        "path": "clips/motion-v005/S03_B-editorial.mp4",
+        "sha256": "8cc48409f00e85887409f47a6adf9fed58ba4f81ca8d6de14a8f410e59877c39",
+        "sha_source": "technical/motion-v005/S03_B/job.json:outputs.editorial",
+        "frames": 100
+      },
+      "wav_binding": {
+        "kind": "preparation_json_wav_sha256",
+        "path": "audio/dialogue-trim-v002/dialogue-S03_B-trim-v002-48k.wav",
+        "sha256": "2ef2bc4383cddd2a54939499ee9f32d79b6e25d562dae7d7abb54a3f3eee7477",
+        "receipt_source": "technical/motion-v005/S03_B/preparation.json:wav.sha256",
+        "offset_s": 0.0
+      }
+    },
+    {
+      "shot": "S04_A",
+      "logical_shot": "S04_A",
+      "speaker": "mother",
+      "listener": "alice",
+      "receipt_dir": "technical/motion-v003/S04_A",
+      "entry": {
+        "kind": "cut",
+        "evidence": "technical/motion-v003/S04_A/preparation.json names only S04_A-native864.png, no predecessor carry frame"
+      },
+      "clip": {
+        "path": "clips/motion-v003/S04_A-editorial.mp4",
+        "sha256": "d63a8424d4e80029cf243ca1dff3cc36caca1afb8fd7a47a9604b2dd2d90ed8d",
+        "sha_source": "technical/motion-v003/S04_A/job.json:outputs.editorial",
+        "frames": 112
+      },
+      "wav_binding": {
+        "kind": "preparation_json_wav_sha256",
+        "path": "audio/dialogue-trim-v002/dialogue-S04_A-trim-v002-48k.wav",
+        "sha256": "2ab13e8fff486e3023d7064492cc346102a7e2d31a5dd23b4034a02d94ea38d7",
+        "receipt_source": "technical/motion-v003/S04_A/preparation.json:wav.sha256",
+        "offset_s": 0.0
+      }
+    },
+    {
+      "shot": "S04_B",
+      "logical_shot": "S04_B",
+      "speaker": "alice",
+      "listener": "mother",
+      "receipt_dir": "technical/motion-v004/S04_B",
+      "entry": {
+        "kind": "carry",
+        "from_shot": "S04_A",
+        "frame": 111,
+        "evidence": "technical/motion-v004/S04_B/preparation.json names S04_A-last-used-frame111.png"
+      },
+      "clip": {
+        "path": "clips/motion-v004/S04_B-editorial.mp4",
+        "sha256": "217e440b5bdbd6b01a1dccc921490bbaa23b471dd5ed1513030b76fcbcdee346",
+        "sha_source": "technical/motion-v004/S04_B/job.json:outputs.editorial",
+        "frames": 128
+      },
+      "wav_binding": {
+        "kind": "preparation_json_wav_sha256",
+        "path": "audio/dialogue-trim-v002/dialogue-S04_B-trim-v002-48k.wav",
+        "sha256": "8d5daf9768da13df5ec41320f3d5f26d9d064246b55fba4fd1ef06e5396feb36",
+        "receipt_source": "technical/motion-v004/S04_B/preparation.json:wav.sha256",
+        "offset_s": 0.0
+      }
+    },
+    {
+      "shot": "S05_A",
+      "logical_shot": "S05_A",
+      "speaker": "mother",
+      "listener": "alice",
+      "receipt_dir": "technical/motion-v005/S05_A",
+      "entry": {
+        "kind": "cut",
+        "evidence": "technical/motion-v005/S05_A/preparation.json names only S05_A-native864.png, no predecessor carry frame"
+      },
+      "clip": {
+        "path": "clips/motion-v005/S05_A-editorial.mp4",
+        "sha256": "1d94ed91875cc97203009f225cb4076539564a1e8c890a2279957f5ad8e6634a",
+        "sha_source": "technical/motion-v005/S05_A/job.json:outputs.editorial",
+        "frames": 148
+      },
+      "wav_binding": {
+        "kind": "preparation_json_wav_sha256",
+        "path": "audio/dialogue-trim-v002/dialogue-S05_A-trim-v002-48k.wav",
+        "sha256": "24127ef3f228ffe9c84171596f76354895f4ad6675bd4ea12284bd021614f2c6",
+        "receipt_source": "technical/motion-v005/S05_A/preparation.json:wav.sha256",
+        "offset_s": 0.0
+      }
+    },
+    {
+      "shot": "S05_B",
+      "logical_shot": "S05_B",
+      "speaker": "alice",
+      "listener": "mother",
+      "receipt_dir": "technical/motion-v003/S05_B",
+      "entry": {
+        "kind": "cut",
+        "evidence": "technical/motion-v003/S05_B/preparation.json names only S05_B-native864.png, no predecessor carry frame"
+      },
+      "clip": {
+        "path": "clips/motion-v003/S05_B-editorial.mp4",
+        "sha256": "6dfb9098d005be0eb3268fc07a226643083166986ade5a408c3a50218a9db2f4",
+        "sha_source": "technical/motion-v003/S05_B/job.json:outputs.editorial",
+        "frames": 92
+      },
+      "wav_binding": {
+        "kind": "preparation_json_wav_sha256",
+        "path": "audio/dialogue-trim-v002/dialogue-S05_B-trim-v002-48k.wav",
+        "sha256": "b4d2366d2c27b08e4c2b045286c64da01ac682535f12ab72ca5dfa6498ec8ad4",
+        "receipt_source": "technical/motion-v003/S05_B/preparation.json:wav.sha256",
+        "offset_s": 0.0
+      }
+    },
+    {
+      "shot": "S06_A",
+      "logical_shot": "S06_A",
+      "speaker": "mother",
+      "listener": "alice",
+      "receipt_dir": "technical/motion-v004/S06_A",
+      "entry": {
+        "kind": "cut",
+        "evidence": "technical/motion-v004/S06_A/preparation.json names only S06_A-native864.png, no predecessor carry frame"
+      },
+      "clip": {
+        "path": "clips/motion-v004/S06_A-editorial.mp4",
+        "sha256": "7233da4efbac668dbae1f51beb98fb70c6483e9749aa7fdce234af941896c50c",
+        "sha_source": "technical/motion-v004/S06_A/job.json:outputs.editorial",
+        "frames": 140
+      },
+      "wav_binding": {
+        "kind": "preparation_json_wav_sha256",
+        "path": "audio/dialogue-trim-v002/dialogue-S06_A-trim-v002-48k.wav",
+        "sha256": "5adae82db2ca82ca24496926792446d93e8ca1a99ba206c510a1666c6c1046d7",
+        "receipt_source": "technical/motion-v004/S06_A/preparation.json:wav.sha256",
+        "offset_s": 0.0
+      }
+    },
+    {
+      "shot": "S06_B1",
+      "logical_shot": "S06_B",
+      "speaker": "alice",
+      "listener": "mother",
+      "receipt_dir": "technical/motion-v005/S06_B1",
+      "entry": {
+        "kind": "carry",
+        "from_shot": "S06_A",
+        "frame": 139,
+        "evidence": "technical/motion-v005/S06_B1/preparation.json names S06_A-last-used-frame139.png"
+      },
+      "clip": {
+        "path": "clips/motion-v005/S06_B1-editorial.mp4",
+        "sha256": "e0be87956f333c721546ea283b6bf4c7a0b4dfa20165e7c44ac60596cc8861f8",
+        "sha_source": "technical/motion-v005/S06_B1/job.json:outputs.editorial",
+        "frames": 120
+      },
+      "wav_binding": {
+        "kind": "preparation_json_wav_sha256",
+        "path": "audio/dialogue-trim-v002/dialogue-S06_B-seg1-foodlist-v003-48k.wav",
+        "sha256": "838ebc73e5c1917bdb096ca11ec3bb8b08c0cba5537c28867aa0bd47eb96a3f9",
+        "receipt_source": "technical/motion-v005/S06_B1/preparation.json:wav.sha256",
+        "offset_s": 0.0
+      }
+    },
+    {
+      "shot": "S06_B2",
+      "logical_shot": "S06_B",
+      "speaker": "alice",
+      "listener": "mother",
+      "receipt_dir": "technical/motion-v006/S06_B2",
+      "entry": {
+        "kind": "carry",
+        "from_shot": "S06_B1",
+        "frame": 119,
+        "evidence": "technical/motion-v006/S06_B2/preparation.json names S06_B1-last-used-frame119.png"
+      },
+      "clip": {
+        "path": "clips/motion-v006/S06_B2-editorial.mp4",
+        "sha256": "e1c15952eeba3a0e6017019ee3e0451c7ffcb934176a4e53e374a0d187af72ed",
+        "sha_source": "technical/motion-v006/S06_B2/job.json:outputs.editorial",
+        "frames": 140
+      },
+      "wav_binding": {
+        "kind": "preparation_json_wav_sha256",
+        "path": "audio/dialogue-trim-v002/dialogue-S06_B-seg2-motto-v003-48k.wav",
+        "sha256": "b9d9cff93dbaf17c8665f8b28ce4daa576b3187c457d5ed297e5072761256666",
+        "receipt_source": "technical/motion-v006/S06_B2/preparation.json:wav.sha256",
+        "offset_s": 0.0
+      }
+    },
+    {
+      "shot": "S06_B3",
+      "logical_shot": "S06_B",
+      "speaker": "alice",
+      "listener": "mother",
+      "receipt_dir": "technical/motion-v006/S06_B3",
+      "entry": {
+        "kind": "carry",
+        "from_shot": "S06_B2",
+        "frame": 139,
+        "evidence": "technical/motion-v006/S06_B3/preparation.json names S06_B2-last-used-frame139.png"
+      },
+      "clip": {
+        "path": "clips/motion-v006/S06_B3-editorial.mp4",
+        "sha256": "4c25adc38904b538d44587d900029b1768a8779337ca4d1600e1622a6e4b9747",
+        "sha_source": "technical/motion-v006/S06_B3/job.json:outputs.editorial",
+        "frames": 40
+      },
+      "wav_binding": {
+        "kind": "preparation_json_wav_sha256",
+        "path": "audio/dialogue-trim-v002/dialogue-S06_B-seg3-sleep-v003-48k.wav",
+        "sha256": "4b3ceb49814c3b68ebab97a81c41a34b052c384763a093baba1cb5a9e64fe3be",
+        "receipt_source": "technical/motion-v006/S06_B3/preparation.json:wav.sha256",
+        "offset_s": 0.0
+      }
+    }
+  ]
+}

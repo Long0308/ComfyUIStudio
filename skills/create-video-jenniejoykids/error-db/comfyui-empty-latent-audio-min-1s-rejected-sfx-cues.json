@@ -1,0 +1,18 @@
+{
+  "id": "comfyui-empty-latent-audio-min-1s-rejected-sfx-cues",
+  "engine": "ComfyUI 0.41 EmptyLatentAudio + Stable Audio 3 small-SFX",
+  "environment": "Episode 04 audio/sfx-v003 (T-A10)",
+  "observed_at": "2026-10-27",
+  "symptom": "10 of 21 SFX graphs were refused at POST /prompt validation: 'Value 0.7 smaller than min of 1.0' on EmptyLatentAudio.seconds (cues asked 0.6-0.9 s). The guarded helper wrote submit-rejected.json and the receipt dir could not be reused (dispatch-intent.json exists).",
+  "root_cause": "EmptyLatentAudio declares seconds min 1.0 (comfy_extras/nodes_audio.py); the cue spec used real action lengths.",
+  "root_cause_status": "measured",
+  "fix_or_workaround": "Clamp requested seconds to >= 1.0 in the cue spec (clip trimmed at mix time), rebuild graphs, re-run into receipts/<clip>-r2; finish_sfx prefers the -r2 receipt; old rejected receipts kept as evidence.",
+  "prevention": "Validate every widget against /object_info min/max before submit (the engine's graph builder should assert seconds >= 1.0); keep sub-second cue lengths in the cue sheet as duration_s, not in the latent.",
+  "verification": "audio/sfx-v003/manifest.json first_run_rejected_by_comfy; 10 x receipts/*-r2/job.json COMPLETED.",
+  "status": "resolved",
+  "evidence_paths": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/audio/sfx-v003/manifest.json",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/audio/sfx-v003/receipts/SFX-07-wooden-token-single-place/submit-rejected.json"
+  ],
+  "affected_artifacts": []
+}

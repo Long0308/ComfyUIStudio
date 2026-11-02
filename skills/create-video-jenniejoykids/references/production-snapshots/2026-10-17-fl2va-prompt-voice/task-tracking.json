@@ -1,0 +1,395 @@
+{
+  "schema_version": "1.0",
+  "project_id": "alice-zoo-local-h3-60s",
+  "goal": "Complete60s720pEnglish zoo film plus voiced version, comparisons, SRT and report",
+  "status": "active",
+  "skill_status": "137tests_FL2VA_code_python_PASS_v8_packaging",
+  "comfy_status": "running_v13_FL2VA_prose_projection",
+  "heartbeat_id": "ho-n-th-nh-phim-jenniekidjoys-60s",
+  "delivery": {
+    "duration_seconds": 60,
+    "fps": 24,
+    "draft": [
+      1280,
+      720
+    ],
+    "final": [
+      1920,
+      1080
+    ],
+    "final_approval": "pending",
+    "native": [
+      864,
+      480
+    ]
+  },
+  "rules": [
+    "Last USED frame N becomes next first frame/input; inspect actual forward motion",
+    "Initial family outside looking through open gate; straight inside, no turn-around",
+    "Full cast repeated every segment; canonical saved Alice voice",
+    "Never use rejectedS01_B-entry-v2 in new edit"
+  ],
+  "scenes": [
+    {
+      "id": "S01",
+      "name": "Scene 1 — Entering the Zoo",
+      "script_md": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-01\\SCENE.md",
+      "scene_json": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-01\\SCENE.json",
+      "segments": [
+        "S01_A",
+        "S01_B"
+      ],
+      "status": "A_v9_visualpass_Bv13_prose_running",
+      "native_outputs": [
+        "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\JennieKidJoys\\Scene-01-v9\\S01_A\\native_00001_.mp4",
+        "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\JennieKidJoys\\Scene-01-v9\\S01_B\\native_00001_.mp4"
+      ],
+      "job_ids": [
+        "d1d30ff4-7b1f-4442-aba7-0777beea7ab0",
+        "34e8b8aa-d71b-493d-b2da-1ff9f10e9bc5",
+        "e4a73333-92cc-4a42-9bcd-f5dd85183052",
+        "5d52c76e-33c6-4a91-9996-c9dea6c98e60",
+        "00af6f7c-e581-4ea2-ad77-cc0ea018bb27",
+        "08a1256b-8244-48fe-8c1a-f2ea125ed992",
+        "f0472c3b-1da2-420c-b485-97e37f47728a",
+        "17047713-25b5-4aae-9d64-754401b24b65",
+        "741cd009-e681-4704-b3ce-06df75a535ec"
+      ],
+      "higgsfield_comparison": "pending",
+      "motion_review": "A0..119 rear-forward pass; Bv9ghostflash and v10/v11/v12frontdetour rejected",
+      "audio_review": "pending",
+      "technical_qa": "v12native_editorialPASS_297.863s_pictureREJECTED",
+      "workflow": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\user\\default\\workflows\\Scene 1B - FL2VA Prose v13.json",
+      "rejected_takes": [
+        "S01_B-entry-v2",
+        "S01_A-paired-v3-backward-child",
+        "S01_A-paired-v4-front-turn-backward-child",
+        "v6r2_ui_prompt_truncated_interrupted",
+        "v7A_first53frames_turn",
+        "v7B_initial_frontal_zoom",
+        "v8A_frontal_greeting_midtake",
+        "v8B_frontal_closeup_then_family_turn",
+        "v9B_spatialghost_exposure17framecadence",
+        "v10B_frontal_closeup_then_rear_reset",
+        "v11B_simple20_frontal_closeup_rear_reset",
+        "v12B_FL2VA_front_closeup_then_rear"
+      ],
+      "editorial_outputs": [
+        "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\JennieKidJoys\\Scene-01-v9\\S01_A\\editorial_00001_.mp4",
+        "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\JennieKidJoys\\Scene-01-v9\\S01_B\\editorial_00001_.mp4"
+      ],
+      "boundary_outputs": [
+        "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\JennieKidJoys\\Scene-01-v9\\S01_A\\boundary-start_00001_.png",
+        "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\JennieKidJoys\\Scene-01-v9\\S01_A\\boundary-end_00001_.png",
+        "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\JennieKidJoys\\Scene-01-v9\\S01_B\\boundary-start_00001_.png",
+        "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\JennieKidJoys\\Scene-01-v9\\S01_B\\boundary-end_00001_.png"
+      ],
+      "accepted": false
+    },
+    {
+      "id": "S02",
+      "name": "Scene 2 — A Little Bird",
+      "script_md": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-02\\SCENE.md",
+      "scene_json": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-02\\SCENE.json",
+      "segments": [
+        "S02_A",
+        "S02_B"
+      ],
+      "status": "planned_not_generated",
+      "native_outputs": [],
+      "job_ids": [],
+      "higgsfield_comparison": "pending",
+      "motion_review": "pending",
+      "audio_review": "pending",
+      "technical_qa": "pending"
+    },
+    {
+      "id": "S03",
+      "name": "Scene 3 — A Tall Giraffe",
+      "script_md": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-03\\SCENE.md",
+      "scene_json": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-03\\SCENE.json",
+      "segments": [
+        "S03_A",
+        "S03_B"
+      ],
+      "status": "planned_not_generated",
+      "native_outputs": [],
+      "job_ids": [],
+      "higgsfield_comparison": "pending",
+      "motion_review": "pending",
+      "audio_review": "pending",
+      "technical_qa": "pending"
+    },
+    {
+      "id": "S04",
+      "name": "Scene 4 — Hello, Tiger",
+      "script_md": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-04\\SCENE.md",
+      "scene_json": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-04\\SCENE.json",
+      "segments": [
+        "S04_A",
+        "S04_B"
+      ],
+      "status": "planned_not_generated",
+      "native_outputs": [],
+      "job_ids": [],
+      "higgsfield_comparison": "pending",
+      "motion_review": "pending",
+      "audio_review": "pending",
+      "technical_qa": "pending"
+    },
+    {
+      "id": "S05",
+      "name": "Scene 5 — A Hungry Panda",
+      "script_md": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-05\\SCENE.md",
+      "scene_json": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-05\\SCENE.json",
+      "segments": [
+        "S05_A",
+        "S05_B"
+      ],
+      "status": "planned_not_generated",
+      "native_outputs": [],
+      "job_ids": [],
+      "higgsfield_comparison": "pending",
+      "motion_review": "pending",
+      "audio_review": "pending",
+      "technical_qa": "pending"
+    },
+    {
+      "id": "S06",
+      "name": "Scene 6 — Bye-bye, Zoo",
+      "script_md": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-06\\SCENE.md",
+      "scene_json": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-06\\SCENE.json",
+      "segments": [
+        "S06_A",
+        "S06_B"
+      ],
+      "status": "planned_not_generated",
+      "native_outputs": [],
+      "job_ids": [],
+      "higgsfield_comparison": "pending",
+      "motion_review": "pending",
+      "audio_review": "pending",
+      "technical_qa": "pending"
+    }
+  ],
+  "current_action": "Monitor SAME v13job741cd009-e681-4704-b3ce-06df75a535ec; full used0..119/rear-forward/gate/identity review before acceptance. No unchanged retry.",
+  "report_file": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\OVERNIGHT-REPORT.md",
+  "current_request": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\production-request-v9.json",
+  "current_stages": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\stages-v9",
+  "skill_archive": "D:\\23.JennieHomeSchool\\03 Voice\\JennieJoyKids-Archive\\Create-Video-JennieJoyKids-2026-10-17-v7.zip",
+  "sfx_library": {
+    "path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\audio\\sfx-library-v2\\manifest.json",
+    "assets": 17,
+    "technical_qa": "passed",
+    "independent_review": "approved_for_pending_sources",
+    "listening": "pending",
+    "placement": "pending_measured_motion"
+  },
+  "future_request": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\production-request-v9.json",
+  "future_stages": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\stages-v9",
+  "script_revision": "Current and future intent v9 promoted; completed Scene1 v9 render used frozen production-request-v8.json/stages-v8. Canonical v2 retains original PCM; S05_L2 at 45.35–48.29 seconds.",
+  "updated_at": "2026-10-16T20:19:44.648554+00:00",
+  "skill_archive_sha256": "621060e5f68dadfc06ac4e042fbc40c160938a49b84575ff947bb069d69721cc",
+  "skill_archive_entries": 297,
+  "canonical_future_audio": {
+    "file": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\audio\\canonical-v2\\alice-canonical-60s.wav",
+    "sha256": "348e8d8ca0c1fe60aaf3d827c63289eb246e5c9163fe607096735f977b41b79c",
+    "independent_review": "passed12PCM/zerooverlap/strictdecode; listeningfinalmixpending"
+  },
+  "canonical_audio": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\audio\\canonical-v2\\alice-canonical-60s.wav",
+  "updated_utc": "2026-10-16T21:07:24.139997+00:00",
+  "scene1_v8_review": {
+    "version": "v8",
+    "prompt_id": "5d52c76e-33c6-4a91-9996-c9dea6c98e60",
+    "status": "rejected_full_takes",
+    "elapsed_seconds": 725.589,
+    "evidence": [
+      "qa/S01-paired-v8/A-overview.png",
+      "qa/S01-paired-v8/B-overview.png"
+    ],
+    "visual_estimates": {
+      "A": "Rear walking initially, frontal family greeting aroundframes60-104, thenrear.",
+      "B": "Rear initially; frontal toddlercloseup around12-24, wholefamilyfrontal24-48, rear fromroughly54 onward."
+    },
+    "measured": "History successful decode, bothMP4s preserved; livequeued prompt exact. Exactturnframes still needconsecutiveinspection.",
+    "next_experiment": "Contiguous rear-forward IMAGEbatchguides; notmoreindependentstills; motionacceptancepending."
+  },
+  "captions": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\audio\\canonical-v2\\captions-canonical-v2.srt",
+  "captions_status": "canonical_PCM_clock_aligned_native_lipsync_and_readability_pending",
+  "sound_design": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\SOUND-DESIGN.md",
+  "future_script_sha256": "3dd21650d1a9c3ab247a2aaf1748672c38d80619aa7676ed4aadecbef7ccb643",
+  "baseline_visual_report": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\reference-study\\higgsfield-scenes02-06\\BASELINE.md",
+  "baseline_status": "all6historicalvisualsourcesinspected_newH3comparisonsremainpending",
+  "canonical_audio_music_candidate": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\audio\\music-unducked-v1\\music-unducked-original.wav",
+  "music_candidate_status": "technicalpass_independentreviewpending_listeningpending",
+  "canonical_audio_music_candidate_status": "independent_code_python_and_PCM_bitexact_verified_listeningpending",
+  "audio_bed_preview": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\audio\\bed-preview-v2\\final-mix.wav",
+  "audio_bed_preview_status": "60s48kstereo_-16LUFS_-1dBTP_technicalpass_noeventcues_listeningpending",
+  "current_script_sha256": "3dd21650d1a9c3ab247a2aaf1748672c38d80619aa7676ed4aadecbef7ccb643",
+  "scene1_v9_review": {
+    "version": "v9",
+    "prompt_id": "00af6f7c-e581-4ea2-ad77-cc0ea018bb27",
+    "status": "terminal_success_not_scene_accepted",
+    "elapsed_seconds": 1512.716,
+    "source_request": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\production-request-v8.json",
+    "source_stages": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\stages-v8",
+    "history": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S01-paired-entry-v9\\run\\history.json",
+    "A": "Full used frames 0–119 rear-forward visual pass reported by root.",
+    "B": "Rejected: doubled gate/body19..22 and exposure pulse cadence25/42/59/76/93/110.",
+    "audio_review": "Final Foley placement and listening pending."
+  },
+  "cross_job_boundary_fix": {
+    "status": "runtime_single_continuation_pixel_equal_verified_Scene2_pending",
+    "builder_tests": "121/121 passed",
+    "focused_tests": "7/7 passed",
+    "review": "Actual v10 editorial boundary-start PNG RGB equals incoming A119; verifies exact carry only. New Scene2 runtime remains pending.",
+    "error_record": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\error-db\\Cross-job-first-editorial-frame-softguide-only.json"
+  },
+  "sound_coverage_review": {
+    "status": "all_six_plans_covered_final_foley_and_listening_pending",
+    "source_script_sha256": "3dd21650d1a9c3ab247a2aaf1748672c38d80619aa7676ed4aadecbef7ccb643",
+    "canonical_audio": "audio/canonical-v2/alice-canonical-60s.wav",
+    "tracks": [
+      "canonical_voice",
+      "music",
+      "ambience",
+      "footsteps",
+      "animal",
+      "props"
+    ],
+    "scene5_local_seconds": {
+      "A_speech": [
+        1,
+        2.99
+      ],
+      "A_sip_planned": [
+        3.25,
+        4.35
+      ],
+      "B_speech": [
+        0.35,
+        3.29
+      ],
+      "B_bite_planned": [
+        3.55,
+        3.95
+      ]
+    },
+    "S05_L2_master_seconds": [
+      45.35,
+      48.29
+    ],
+    "next_speech_master_seconds": 51,
+    "mouth_readiness": "Visual verification pending; planned pause is not proof of swallowing."
+  },
+  "milestone_11": {
+    "updated_utc": "2026-10-16T20:19:44.648554+00:00",
+    "summary": "v9 pair rendered; A direction passes, B exposure issue remains; six-scene sound coverage checked against canonical v2; current intent v9 promoted.",
+    "accepted_scene_count": 0,
+    "remaining": "B exposure/ghosting diagnosis, Scene2 asset preflight, scenes2–6, measured Foley, final listening, comparisons and two720p60s variants/SRT/report.",
+    "archive": "Do not package until root completes exposure diagnosis."
+  },
+  "scene1_v10_review": {
+    "job_id": "08a1256b-8244-48fe-8c1a-f2ea125ed992",
+    "elapsed_seconds": 308.825,
+    "status": "rejected_frontal_closeup",
+    "visual_estimate_frames": "frontcloseup20..60,rearreset70..90;exacteventsconsecutivereviewpending",
+    "boundary_png_pixel_equal": true,
+    "measured": "qa/S01-B-v10/measurement.json",
+    "overview": "qa/S01-B-v10/overview.jpg"
+  },
+  "work_preview": {
+    "file": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\A5-preview-v3\\edit\\renders\\JennieKidJoys-A5-workpreview-v3-720p-English.mp4",
+    "duration": 5,
+    "technical_qa": "passed",
+    "caption_clearance": "inspected8frames_top-left",
+    "not_full_film": true,
+    "listening": "pending",
+    "event_foley": "pending"
+  },
+  "latest_handoff": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\handoffs\\milestone-13-fl2va-and-voice-audit.md",
+  "scene1_v11_review": {
+    "schema_version": "1.0",
+    "id": "H3-first-last-only-front-closeup-v11-simple",
+    "status": "confirmed_rejected_scheduler_only_trial",
+    "at_utc": "2026-10-16T20:47:17.227085+00:00",
+    "job_id": "f0472c3b-1da2-420c-b485-97e37f47728a",
+    "measured": {
+      "elapsed_seconds": 304.771,
+      "scheduler": "simple",
+      "seed": 4341,
+      "steps": 20,
+      "literal_prompt_sha256": "b920163be027cdcefba2af171ec9a1ef8841abcffd56c38496ddb254ca14a38e"
+    },
+    "visual_estimates": [
+      "Fronttoddlercloseup20..70;subsequentrearfamilyreset;parentslookback90..110.",
+      "Single schedulerchange did not remedy unsolicitedcut/turn."
+    ],
+    "evidence": [
+      "qa/S01-B-v11-simple/overview.jpg",
+      "shots/S01-B-repair-v11-simple/workflow-patch.json",
+      "shots/S01-B-repair-v11-simple/run/prompt-integrity.json"
+    ],
+    "conclusion": "Betanotisolatedcause;officialsimpleprofilealonedoesnotcertifycontinuity. StoprerollingthisRef2VAfirst-last-onlyconfiguration.",
+    "next_engine": "NativeH3FL2VAcheckpointwithMiniMaxH3ImageToVideo;canonicalAlicepostunchanged;requiresactualruntimepictureacceptance."
+  },
+  "scene1_v12_review": {
+    "schema_version": "1.0",
+    "id": "H3-FL2VA-frontal-detour-v12",
+    "at_utc": "2026-10-16T21:04:21.644375+00:00",
+    "job_id": "17047713-25b5-4aae-9d64-754401b24b65",
+    "status": "rejected_picture_technical_pass",
+    "measured": {
+      "elapsed_seconds": 297.863,
+      "native_frames": 124,
+      "used_frames": 120,
+      "fps": 24,
+      "width": 864,
+      "height": 480,
+      "canonical_first_png_pixel_equal": true,
+      "literal_and_all_configured_inputs_equal": true,
+      "engine": "MiniMaxH3ImageToVideo_FL2VA_INT8",
+      "seed": 4341,
+      "steps": 20,
+      "scheduler": "simple"
+    },
+    "visual_review": {
+      "inspected_native_frames": "0..119 consecutive, plus123 and2fps overview",
+      "parents_start_turning": "frames5..13",
+      "toddler_turns_front": "frames13..20",
+      "closeup": "frames30..68",
+      "turn_back": "frames73..83",
+      "rear_pullback": "frames84..119",
+      "interval_labels": "Visual judgements on individually numbered source frames; no bounding-box or camera calibration measurement claimed."
+    },
+    "conclusion": "Changing task family to native FL2VA alone did not prevent unsolicited rear-to-front shot detour. Technical first/last continuity is not action/camera continuity. Do not accept or reroll unchanged.",
+    "cause_status": "unknown; prompt salience/serialization is an untested hypothesis, not a diagnosed cause",
+    "evidence": [
+      "qa/S01-B-FL2VA-v12/overview.jpg",
+      "qa/S01-B-FL2VA-v12/consecutive-000-029.jpg",
+      "qa/S01-B-FL2VA-v12/consecutive-030-059.jpg",
+      "qa/S01-B-FL2VA-v12/consecutive-060-089.jpg",
+      "qa/S01-B-FL2VA-v12/consecutive-090-119.jpg",
+      "shots/S01-B-FL2VA-v12/queued-integrity.json",
+      "shots/S01-B-FL2VA-v12/history.json"
+    ],
+    "next": "Read-only prompt/native-node diagnosis; one isolated prompt-format experiment if justified. Preserve full descriptions, native AV and canonical Alice."
+  },
+  "audio_asr_audit": {
+    "full_track_cpu_audit": "audio/asr-cpu-audit-v1/audit.json",
+    "canonical_WER": 0.06976744186046512,
+    "bed_WER": 0.046511627906976744,
+    "isolated_no_vad": "audio/asr-cpu-audit-lines-v2/audit.json",
+    "result": "Both initial Look words recognized in original isolated S02_L1/S05_L1 with VAD disabled; source hashes unchanged.",
+    "limits": "ASR is not listening, identity, lipsync or final mix approval; authoritative canonical timing unchanged."
+  },
+  "scene1_v13_review": {
+    "job_id": "741cd009-e681-4704-b3ce-06df75a535ec",
+    "status": "running_not_accepted",
+    "experiment": "Only runtime prompt projection;45appearancevalues retained; same FL2VA/seed4341/simple20/firstlast/AV/voice",
+    "prepared": "shots/S01-B-FL2VA-v13-prose/prompt-projection.json",
+    "actual_queue": "shots/S01-B-FL2VA-v13-prose/queued-integrity.json",
+    "literal_sha256": "a7e09b2581ec4fa23c34c6261b898f4ec9f2137fb438ba17e9e93bb19c37f3a4",
+    "all_configured_inputs_equal": true
+  }
+}

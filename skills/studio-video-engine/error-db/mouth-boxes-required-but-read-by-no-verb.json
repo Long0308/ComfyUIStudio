@@ -1,0 +1,24 @@
+{
+  "id": "mouth-boxes-required-but-read-by-no-verb",
+  "engine": "studio-video-engine config loader / episode schema (resolve_episode, jjv run episode)",
+  "environment": "Windows 11, engine config resolve before voice stage; ep04 fixture and every new episode",
+  "observed_at": "2026-10-28",
+  "symptom": "Every new episode failed resolve_episode before the voice stage because files.mouth_boxes was required by the schema, loader and rules, while no engine verb read the file.",
+  "root_cause": "Measured: the schema listed files.mouth_boxes as required and the loader and rules demanded it, but no verb consumed the boxes. Only the ep04 fixture carried it, so the defect was invisible until a fresh episode was resolved. Pre-fix loader.py mouth_boxes handling is the same resolve path (engine/config/loader.py:153-172); schemas/episode.schema.json:78 declares the property.",
+  "root_cause_status": "measured (M8b-e2 Opus finding; schema/loader contradiction confirmed by reading the current files: loader.py:41 documents mouth_boxes as None when not named, episode.schema.json:78 declares it as an optional string property only)",
+  "fix_or_workaround": "Decision (c): files.mouth_boxes made OPTIONAL everywhere. Design record production-local/engine/M8b-e2-MOUTH.md (plan-recorded hash prefix 44000104). Current sha256 after fix: engine/config/loader.py 655197786270a349d5992d1868c8b7cc012413765071c1a802646a6856cd1a2d; schemas/episode.schema.json be348cdc4d3a82f9d4bff587d94827026e208decc70b668637f5fa653830844d. ep04 config hash does not move because a named file is still hashed into the same body.",
+  "verification": "tests/test_config_mouth_optional.py::test_an_episode_without_mouth_boxes_resolves (episode without the key resolves, mouth_boxes is None); test_a_named_but_missing_mouth_boxes_file_is_still_a_violation; the ep04-hash-unchanged test in the same file; tests/test_config.py::test_mouth_box_errors still runs when the file is named.",
+  "prevention": "Rule to keep: before making any key required in a schema, grep every engine verb for a reader of that key and fail the change when none exists. A key that only a fixture uses is not a required key. Every new-episode path (not only ep04) must be exercised by a resolve test.",
+  "status": "fixed (accepted by root re-run 2026-10-29 ~00:30, plan section 5; 143 passed on the M8 run)",
+  "evidence_paths": [
+    "production-local/engine/M8b-e2-MOUTH.md",
+    "production-local/engine/WAVE-2026-10-28-PLAN.md",
+    ".agents/skills/studio-video-engine/engine/config/loader.py",
+    ".agents/skills/studio-video-engine/schemas/episode.schema.json",
+    ".agents/skills/studio-video-engine/tests/test_config_mouth_optional.py"
+  ],
+  "affected_artifacts": [
+    "every new episode folder (resolve_episode)",
+    "tests/fixtures/ep04-engine/episode.json"
+  ]
+}

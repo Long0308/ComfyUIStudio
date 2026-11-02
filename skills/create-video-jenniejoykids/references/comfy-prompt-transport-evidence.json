@@ -1,0 +1,169 @@
+{
+  "schema_version": "1.0",
+  "reviewed_at_utc": "2026-10-16T19:10:20.949750+00:00",
+  "scope": "Read-only installed source and offline Node VM; no production browser, GPU, network, queue or server mutation",
+  "frontend_version": "1.55.17",
+  "frontend_files": [
+    {
+      "file": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\.venv\\Lib\\site-packages\\comfyui_frontend_package\\static\\assets\\formatUtil-grDslll6.js",
+      "sha256": "980251fe2d62c9ed17bde4c2ebeeb0e49a2b6ee00986b7b7c1eb8e2c66d31b7c"
+    },
+    {
+      "file": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\.venv\\Lib\\site-packages\\comfyui_frontend_package\\static\\assets\\core-xNT6jFNV.js",
+      "sha256": "6233d90157e03bdf67ca7c38074978a18b39971d30260a60e888657a3687c6b6"
+    },
+    {
+      "file": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\.venv\\Lib\\site-packages\\comfyui_frontend_package\\static\\assets\\settingStore-CUTKo1HX.js",
+      "sha256": "d98131ed0d4a16f37b57a2101ebd7bde880d1e692f321c0aed6eac08c2946977"
+    }
+  ],
+  "dynamic_parser": {
+    "function": "processDynamicPrompt",
+    "source_file": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\.venv\\Lib\\site-packages\\comfyui_frontend_package\\static\\assets\\formatUtil-grDslll6.js",
+    "source_offset_characters": [
+      1823,
+      2418
+    ],
+    "extraction": "exact substring from function processDynamicPrompt to next function isValidUrl",
+    "sha256": "1ff08dd2cfdda9fe63ee27c2b4b47213c26bced43f606b53c244898209b7865c",
+    "comment_pattern": "/\\/\\*[\\s\\S]*?\\*\\/|\\/\\/.*/g",
+    "behavior": "Strips // URL suffix as comment before parsing braces as dynamic choices; a single-line serialized JSON body is cut at https:."
+  },
+  "evidence": {
+    "expected_graph": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S01-paired-entry-v6\\workflow-r2\\workflow-gui.json",
+    "expected_graph_file_sha256": "ea8fb711b12d91a9a19cd97c783f9b5186baabaebf8e2347d714235db551a030",
+    "actual_queue": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S01-paired-entry-v6\\run\\queue-submitted.json",
+    "actual_queue_file_sha256": "a3d435a223bee87ac78388d8d6f2f7ce2c2a62aa3cd24f39325e2026469c4f7d",
+    "prompt_id": "34e8b8aa-d71b-493d-b2da-1ff9f10e9bc5",
+    "reproduction": [
+      {
+        "node": "6",
+        "expected_utf16_chars": 11229,
+        "actual_utf16_chars": 2040,
+        "reproduced_utf16_chars": 2040,
+        "expected_utf8_sha256": "b67ef8efcb87b8e970db55e669fe909c2c6fa85c50bac66f934fb1b23dd5d07c",
+        "actual_utf8_sha256": "cc8c37db1674502abfa20f3e68f8fa790000c113e0a42c8ffaa1a29c651d7af7",
+        "reproduced_utf8_sha256": "cc8c37db1674502abfa20f3e68f8fa790000c113e0a42c8ffaa1a29c651d7af7",
+        "exact_utf8_match": true,
+        "actual_has_complete_cast_key": false,
+        "actual_has_action_key": false,
+        "actual_tail": "ing shoes; keep every face above that zone.\", \"image_style_library\": \"repository\": \"https:"
+      },
+      {
+        "node": "1006",
+        "expected_utf16_chars": 11397,
+        "actual_utf16_chars": 2046,
+        "reproduced_utf16_chars": 2046,
+        "expected_utf8_sha256": "ea08cc852fcbccfa8a5088ca1cf1e0366bf123e0cdc33a2c21879a9a4846a2b4",
+        "actual_utf8_sha256": "e20d974c9566c18b671b06ea89cb30f498d3383a19ada4f530447ed08ab71c37",
+        "reproduced_utf8_sha256": "e20d974c9566c18b671b06ea89cb30f498d3383a19ada4f530447ed08ab71c37",
+        "exact_utf8_match": true,
+        "actual_has_complete_cast_key": false,
+        "actual_has_action_key": false,
+        "actual_tail": "ing shoes; keep every face above that zone.\", \"image_style_library\": \"repository\": \"https:"
+      }
+    ]
+  },
+  "literal_transport": {
+    "node": "PrimitiveStringMultiline",
+    "schema": {
+      "input": {
+        "required": {
+          "value": [
+            "STRING",
+            {
+              "multiline": true
+            }
+          ]
+        }
+      },
+      "input_order": {
+        "required": [
+          "value"
+        ]
+      },
+      "is_input_list": false,
+      "output": [
+        "STRING"
+      ],
+      "output_is_list": [
+        false
+      ],
+      "output_name": [
+        "STRING"
+      ],
+      "output_tooltips": [
+        null
+      ],
+      "output_matchtypes": null,
+      "name": "PrimitiveStringMultiline",
+      "display_name": "Text (Multiline)",
+      "description": "",
+      "python_module": "comfy_extras.nodes_primitive",
+      "category": "utilities/primitive",
+      "output_node": false,
+      "deprecated": false,
+      "experimental": false,
+      "dev_only": false,
+      "api_node": false,
+      "price_badge": null,
+      "search_aliases": [
+        "text",
+        "string",
+        "text box",
+        "prompt"
+      ],
+      "essentials_category": "Basics",
+      "has_intermediate_output": false
+    },
+    "source": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\comfy_extras\\nodes_primitive.py",
+    "source_behavior": "StringMultiline.execute returns io.NodeOutput(value) unchanged. Input is io.String.Input(value,multiline=True) without dynamic_prompts.",
+    "frontend_behavior": "useStringWidget only copies dynamicPrompts when explicitly boolean; addMultilineWidget does not set it. Comfy.DynamicPrompts nodeCreated attaches parser only to truthy widget.dynamicPrompts. graphToPrompt resolves connected input links after widget serialization.",
+    "builder_node_ids": [
+      "19",
+      "1019"
+    ],
+    "h3_links": {
+      "6": [
+        "19",
+        0
+      ],
+      "1006": [
+        "1019",
+        0
+      ]
+    },
+    "avoid": "Do not use virtual PrimitiveNode or merely set dynamicPrompts=false after parser serializer has attached. Do not escape source JSON or patch global security/settings."
+  },
+  "verification": {
+    "full_suite": "Ran 106 tests in 9.473s; OK, no skips",
+    "environment": "COMFYUI_ROOT points to actual installed production-local/ComfyUI; offline Node integration exercised actual installed parser/extension and saved widget schema",
+    "runtime_limit": "Actual newly imported GUI/server queue payload still requires exact string/hash verification before treating sampling as valid."
+  },
+  "verdict": "APPROVE literal STRING-link code; prior direct dynamic-widget transport is invalid for structured JSON.",
+  "actual_v7_static_preflight": {
+    "workflow_dir": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S01-paired-entry-v7\\workflow",
+    "nodes": 58,
+    "graph_sha256": "b77e3f030b725a131d6d134e6c9c9a52e689aef416f95dd9a03de2deb2213eea",
+    "current_builder_reproduces_all_execution_inputs": true,
+    "api_gui_equal": true,
+    "installed_schema_pass": true,
+    "all_staged_assets_and_metadata_markdown_exist": true,
+    "literal_prompts": [
+      {
+        "node": "19",
+        "characters": 11229,
+        "sha256": "b67ef8efcb87b8e970db55e669fe909c2c6fa85c50bac66f934fb1b23dd5d07c"
+      },
+      {
+        "node": "1019",
+        "characters": 11397,
+        "sha256": "ea08cc852fcbccfa8a5088ca1cf1e0366bf123e0cdc33a2c21879a9a4846a2b4"
+      }
+    ],
+    "cast": "All three full 18-field descriptions in both runtime prompts",
+    "guides": "A0→60→119; actual usedA119 tensor→B0→60→119; original sampler AV latent retained",
+    "audio": "Both 5.0s canonical WAVs remain editorial only; complete native generated AV retained separately",
+    "verdict": "APPROVE_STATIC_PREFLIGHT; actual GUI submission payload and resulting motion remain pending"
+  }
+}

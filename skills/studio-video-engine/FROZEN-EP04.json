@@ -1,0 +1,41 @@
+{
+  "schema": "jjv/frozen-ep04/v1",
+  "recorded": "2026-10-27",
+  "note": "Files the running ep04 4K job re-verifies on resume. Read-only guard; never edit.",
+  "pid_file": "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/seedvr2-production-v004/full-run-r27.pid",
+  "files": [
+    {
+      "path": "production-local/JennieJoyKids-Story/04-milk-and-mom/tools/prepare_seedvr2_production_v004.py",
+      "sha256": "cc9db39aa8174e6f4eaca44fca6cc595c478705c04790405a9a5b16f89868519",
+      "bytes": 48419
+    },
+    {
+      "path": "production-local/JennieJoyKids-Story/04-milk-and-mom/tools/execute_seedvr2_production_v004.py",
+      "sha256": "b71ae5d47b8879089c91ecace6293ebbc4e1e7bd800cc8a82c83fbd2bea9139d",
+      "bytes": 73779
+    },
+    {
+      "path": "production-local/JennieJoyKids-Story/04-milk-and-mom/tools/upscale_seedvr2_chunked.py",
+      "sha256": "c0e8d89e238f25b7ce77516198c9589017c72f5e124515c35fa2481680eb1050",
+      "bytes": 72907
+    },
+    {
+      "path": "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/seedvr2-production-v004/PRODUCTION-PLAN.json",
+      "sha256": "4d5a7c529a4dec74175d071ff1c32fca1b006163ae9e56b88632b3a3d9ec05a0",
+      "bytes": 895220
+    },
+    {
+      "path": ".agents/skills/comfyui-video-pipeline/scripts/comfy_guarded_submit.py",
+      "sha256": "c5e9dc527d6a37c9fdbfd4568914e732bd4e5c448d50ba856350fdad99b13dae",
+      "bytes": 30228,
+      "repinned": {
+        "date": "2026-10-29",
+        "by": "user decision (drive move D: -> J:)",
+        "reason": "only the two allowed-root constants (lines 56, 61) changed from D:\\23.JennieHomeSchool\\03 Voice\\... to J:\\1.JennieHomeSchool\\03 Voice\\...; no other byte differs",
+        "previous_sha256": "752077d372d0eefa904561a641a2ff060b46b8a17f4e5c65181d9b7b2aa886a7",
+        "previous_bytes": 30230,
+        "previous_copy": "production-local/engine/staging/SKILL-PATHS/backup/.agents/skills/comfyui-video-pipeline/scripts/comfy_guarded_submit.py"
+      }
+    }
+  ]
+}

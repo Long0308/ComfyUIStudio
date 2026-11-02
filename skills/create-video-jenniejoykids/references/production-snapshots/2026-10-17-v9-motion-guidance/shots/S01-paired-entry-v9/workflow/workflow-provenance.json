@@ -1,0 +1,305 @@
+{
+  "schema_version": "1.0",
+  "builder": "continuous_h3",
+  "fps": 24,
+  "segments": [
+    {
+      "schema_version": "1.0",
+      "scene_id": "S01",
+      "segment_id": "S01_A",
+      "logical_seconds": 5,
+      "native_frames": 124,
+      "native_seconds": 5.166666666666667,
+      "native_width": 864,
+      "native_height": 480,
+      "fps": 24,
+      "batch": 1,
+      "text_encoder_device": "default",
+      "dialogue_presentation": "voiceover",
+      "native_speech_conditioning": false,
+      "native_audio_guide_applied": false,
+      "source_dialogue": [
+        {
+          "id": "S01_L1",
+          "speaker": "alice",
+          "text": "Mom, Dad, and me!",
+          "start": 1.0,
+          "end": 3.25,
+          "timing_status": "planned"
+        }
+      ],
+      "source_audio_intent": {
+        "voice": {
+          "provider": "VoiceStudio",
+          "profile_id": "8f1145d7",
+          "performance": "Saved Alice voice: warm clear unhurried English. Scene1 is off-screen voiceover over forward walking. Scenes2-6 use the exact guided Alice lines in natural partial profile toward family while pointing/observing, without a body reversal or camera orbit. Parents reply through attentive gestures, no extra speakers or words. Finish swallowing before speech.",
+          "canonical_audio_path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\audio\\canonical-v2\\alice-canonical-60s.wav",
+          "authority": "Original VoiceStudio Alice native WAV samples, copied byte-for-byte into planned silence placements, no timbre replacement or time-stretch"
+        },
+        "music": "Gentle cheerful original pentatonic plucked/marimba-style instrumental, no lyrics, quiet underneath canonical Alice, duck smoothly during all words, stable modest level through transitions.",
+        "sfx": [
+          {
+            "at": 0.25,
+            "event": "soft two-note title bell"
+          },
+          {
+            "at": 0.7,
+            "event": "quiet alternating footsteps"
+          }
+        ]
+      },
+      "frame_zero_guide_node": "9",
+      "image_guides": [],
+      "clip_guides": [
+        {
+          "video": "JennieKidJoys_S01_v9_A_rear-guide.mkv",
+          "frame_idx": 0,
+          "frames": 124,
+          "video_node": "100",
+          "components_node": "101",
+          "frames_node": "102",
+          "guide_node": "103",
+          "source_preflight": {
+            "status": "pending",
+            "required_fps": 24,
+            "minimum_source_frames": 124,
+            "note": "Probe actual source fps/count; staged filenames do not prove them."
+          },
+          "audio_policy": "Video guide audio is not connected to any conditioning or editorial output."
+        }
+      ],
+      "first_extra_guide_node": "103",
+      "guide_chain": [
+        {
+          "kind": "frame_zero",
+          "frame_idx": 0,
+          "guide_node": "9"
+        },
+        {
+          "kind": "clip",
+          "frame_idx": 0,
+          "guide_node": "103"
+        }
+      ],
+      "runtime_prompt_node": "19",
+      "runtime_prompt_transport": "literal_string_link",
+      "final_positive": [
+        "103",
+        0
+      ],
+      "canonical_audio_guide": "JennieJoyKids_S01_A-guide.wav",
+      "guide_anchored": true,
+      "reference_bindings": [
+        {
+          "path": "JennieKidJoys_S01_v8_A0.png",
+          "role": "rear_view_identity_and_spatial_layout",
+          "character_ids": [
+            "alice",
+            "mother",
+            "father"
+          ],
+          "status": "available",
+          "scope": "Derived from actualv7rear-forward portion only; no frontal image reference. ActualBframe0stillcomesfromnewAused119. v9addscontiguousrearforwardmotionguide;sourcefulltakerejected,usedmotionwindowreviewed."
+        }
+      ],
+      "speaker_ids": [
+        "alice"
+      ],
+      "speaker_names": [
+        "Alice"
+      ],
+      "voice_profile_id": "8f1145d7",
+      "selected_mode": "canonical_voicestudio",
+      "output_policy": "Preserve complete raw native video and audio as immutable source artifacts. Use the verified canonical VoiceStudio WAV for editorial dialogue, avoiding duplicate speech.",
+      "installed_schema_validation": "passed",
+      "runtime_benchmark": "pending",
+      "editorial_frames": 120,
+      "editorial_seconds": 5.0,
+      "last_used_frame_index": 119,
+      "previous_editorial_last_image": null,
+      "editorial_image": [
+        "50",
+        0
+      ],
+      "boundary_last_image": [
+        "51",
+        0
+      ],
+      "native_save_node": "18",
+      "editorial_save_node": "57",
+      "output_prefixes": {
+        "native": "JennieKidJoys/Scene-01-v9/S01_A/native",
+        "editorial": "JennieKidJoys/Scene-01-v9/S01_A/editorial",
+        "boundary-start": "JennieKidJoys/Scene-01-v9/S01_A/boundary-start",
+        "boundary-end": "JennieKidJoys/Scene-01-v9/S01_A/boundary-end"
+      },
+      "editorial_audio_source": "original_guide_wav",
+      "editorial_audio_note": "Trimmed to logical span; listening and complete-word checks still required."
+    },
+    {
+      "schema_version": "1.0",
+      "scene_id": "S01",
+      "segment_id": "S01_B",
+      "logical_seconds": 5,
+      "native_frames": 124,
+      "native_seconds": 5.166666666666667,
+      "native_width": 864,
+      "native_height": 480,
+      "fps": 24,
+      "batch": 1,
+      "text_encoder_device": "default",
+      "dialogue_presentation": "voiceover",
+      "native_speech_conditioning": false,
+      "native_audio_guide_applied": false,
+      "source_dialogue": [
+        {
+          "id": "S01_L2",
+          "speaker": "alice",
+          "text": "Let's go to the zoo!",
+          "start": 1.0,
+          "end": 3.32,
+          "timing_status": "planned"
+        }
+      ],
+      "source_audio_intent": {
+        "voice": {
+          "provider": "VoiceStudio",
+          "profile_id": "8f1145d7",
+          "performance": "Saved Alice voice: warm clear unhurried English. Scene1 is off-screen voiceover over forward walking. Scenes2-6 use the exact guided Alice lines in natural partial profile toward family while pointing/observing, without a body reversal or camera orbit. Parents reply through attentive gestures, no extra speakers or words. Finish swallowing before speech.",
+          "canonical_audio_path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\audio\\canonical-v2\\alice-canonical-60s.wav",
+          "authority": "Original VoiceStudio Alice native WAV samples, copied byte-for-byte into planned silence placements, no timbre replacement or time-stretch"
+        },
+        "music": "Gentle cheerful original pentatonic plucked/marimba-style instrumental, no lyrics, quiet underneath canonical Alice, duck smoothly during all words, stable modest level through transitions.",
+        "sfx": [
+          {
+            "at": 4.5,
+            "event": "very soft foliage swish"
+          }
+        ]
+      },
+      "frame_zero_guide_node": "1009",
+      "image_guides": [
+        {
+          "image": "JennieKidJoys_S01_v8_B8.png",
+          "frame_idx": 8,
+          "image_node": "1100",
+          "guide_node": "1101"
+        },
+        {
+          "image": "JennieKidJoys_S01_v8_B119.png",
+          "frame_idx": 119,
+          "image_node": "1106",
+          "guide_node": "1107"
+        }
+      ],
+      "clip_guides": [
+        {
+          "video": "JennieKidJoys_S01_v9_B_rear-guide.mkv",
+          "frame_idx": 24,
+          "frames": 90,
+          "video_node": "1102",
+          "components_node": "1103",
+          "frames_node": "1104",
+          "guide_node": "1105",
+          "source_preflight": {
+            "status": "pending",
+            "required_fps": 24,
+            "minimum_source_frames": 90,
+            "note": "Probe actual source fps/count; staged filenames do not prove them."
+          },
+          "audio_policy": "Video guide audio is not connected to any conditioning or editorial output."
+        }
+      ],
+      "first_extra_guide_node": "1101",
+      "guide_chain": [
+        {
+          "kind": "frame_zero",
+          "frame_idx": 0,
+          "guide_node": "1009"
+        },
+        {
+          "kind": "image",
+          "frame_idx": 8,
+          "guide_node": "1101"
+        },
+        {
+          "kind": "clip",
+          "frame_idx": 24,
+          "guide_node": "1105"
+        },
+        {
+          "kind": "image",
+          "frame_idx": 119,
+          "guide_node": "1107"
+        }
+      ],
+      "runtime_prompt_node": "1019",
+      "runtime_prompt_transport": "literal_string_link",
+      "final_positive": [
+        "1107",
+        0
+      ],
+      "canonical_audio_guide": "JennieJoyKids_S01_B-guide.wav",
+      "guide_anchored": true,
+      "reference_bindings": [
+        {
+          "path": "JennieKidJoys_S01_v8_B60.png",
+          "role": "rear_view_identity_and_spatial_layout",
+          "character_ids": [
+            "alice",
+            "mother",
+            "father"
+          ],
+          "status": "available",
+          "scope": "Derived from actualv7rear-forward portion only; no frontal image reference. ActualBframe0stillcomesfromnewAused119. v9addscontiguousrearforwardmotionguide;sourcefulltakerejected,usedmotionwindowreviewed."
+        }
+      ],
+      "speaker_ids": [
+        "alice"
+      ],
+      "speaker_names": [
+        "Alice"
+      ],
+      "voice_profile_id": "8f1145d7",
+      "selected_mode": "canonical_voicestudio",
+      "output_policy": "Preserve complete raw native video and audio as immutable source artifacts. Use the verified canonical VoiceStudio WAV for editorial dialogue, avoiding duplicate speech.",
+      "installed_schema_validation": "passed",
+      "runtime_benchmark": "pending",
+      "editorial_frames": 120,
+      "editorial_seconds": 5.0,
+      "last_used_frame_index": 119,
+      "previous_editorial_last_image": [
+        "51",
+        0
+      ],
+      "editorial_image": [
+        "1052",
+        0
+      ],
+      "boundary_last_image": [
+        "1051",
+        0
+      ],
+      "native_save_node": "1018",
+      "editorial_save_node": "1057",
+      "output_prefixes": {
+        "native": "JennieKidJoys/Scene-01-v9/S01_B/native",
+        "editorial": "JennieKidJoys/Scene-01-v9/S01_B/editorial",
+        "boundary-start": "JennieKidJoys/Scene-01-v9/S01_B/boundary-start",
+        "boundary-end": "JennieKidJoys/Scene-01-v9/S01_B/boundary-end"
+      },
+      "editorial_audio_source": "original_guide_wav",
+      "editorial_audio_note": "Trimmed to logical span; listening and complete-word checks still required."
+    }
+  ],
+  "graph_sha256": "a63cd683d5827b91ffefa1ddfdd82222e9b7cc96658a97ad1f42f1fedbbe9779",
+  "installed_schema_validation": "passed",
+  "staged_asset_inventory_validation": "pending; saved dropdown inventories may predate staging",
+  "submission": "not_submitted",
+  "runtime_benchmark": "pending",
+  "boundary_contract": "Last USED editorial image directly guides the next sampler at frame0 and replaces its editorial frame0 before encoding.",
+  "limitations": "Image conditioning is probabilistic. Exact pre-encode seam identity does not prove correct motion, sound, or identity; lossy encoded pixels can differ. Review doorway crossing and consecutive boundary frames.",
+  "native_output_policy": "Preserve complete unmodified native frame batches and generated audio in separate native SaveVideo outputs.",
+  "video_manifest": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\stages-v8\\video.json",
+  "installed_object_info": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\installed-object-info-live-v3.json"
+}

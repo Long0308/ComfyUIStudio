@@ -1,0 +1,24 @@
+{
+  "id": "pytest-basetemp-inside-protected-tree-breaks-seedvr2-cli",
+  "engine": "studio-video-engine seedvr2 plan CLI tests (engine/seedvr2/plan.py refuse_output_inside, tests/test_seedvr2_adopt.py)",
+  "environment": "Windows 11, pytest run with --basetemp inside production-local (protected tree)",
+  "observed_at": "2026-10-28",
+  "symptom": "Three seedvr2 CLI tests failed when pytest --basetemp pointed inside production-local, because the protected-tree guard refused the scratch output.",
+  "root_cause": "Measured by the failing run: refuse_output_inside treats any folder under the repo root or production-local as a protected episode tree. A pytest basetemp placed there is refused by design, so the failure is in the test invocation, not in the seedvr2 code. Current guard: engine/seedvr2/plan.py:268-279 (container_roots; a folder inside the containers is judged by the precise trees, not by location alone) and tests/test_seedvr2_adopt.py:26-40 (scratch under the episodes-root engine/staging is accepted).",
+  "root_cause_status": "measured (3 CLI tests failed with --basetemp inside production-local; passed after the basetemp was moved). Current sha256 engine/seedvr2/plan.py 780f54cdffd8d429692c7ab14dce780f5b917e836a2045ec5b2c75ef89ac430c",
+  "fix_or_workaround": "Run pytest with --basetemp in a scratch folder OUTSIDE production-local (the skill's own test command uses <scratch>/pytest-e15 for this reason, SKILL.md:330). Engine/staging under the episodes root is accepted by the precise check. Accepted: CLI-PATCH-adopt plan 2 and hardening 1 (engine/seedvr2/CLI-PATCH-adopt.md:39-41).",
+  "verification": "tests/test_seedvr2_adopt.py::test_scratch_under_the_episodes_root_engine_staging_is_accepted (:40) plus the refusal cases in the same file. The three CLI tests pass with a basetemp outside production-local. The 'outside production-local' rule itself is enforced only by the command in SKILL.md:330, not by a test.",
+  "prevention": "Rule to keep: never point --basetemp or any scratch folder inside production-local or the repo root. Use <scratch> outside the protected trees, and run the full suite from the engine root with -p no:cacheprovider.",
+  "status": "workaround in the documented test command; the protected-tree guard itself is correct",
+  "evidence_paths": [
+    "production-local/engine/WAVE-2026-10-28-PLAN.md",
+    ".agents/skills/studio-video-engine/engine/seedvr2/plan.py",
+    ".agents/skills/studio-video-engine/engine/seedvr2/CLI-PATCH-adopt.md",
+    ".agents/skills/studio-video-engine/tests/test_seedvr2_adopt.py",
+    ".agents/skills/studio-video-engine/SKILL.md"
+  ],
+  "affected_artifacts": [
+    "tests/test_seedvr2_adopt.py",
+    "engine/seedvr2/plan.py"
+  ]
+}

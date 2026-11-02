@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "id": "H3-beta-vs-official-simple-schedule",
+  "status": "trial_completed_picture_rejected_not_quality_fix",
+  "at_utc": "2026-10-16T20:44:31.258775+00:00",
+  "historical": "res_multistep/beta20",
+  "official_template": "res_multistep/simple20",
+  "official_source_url": "https://github.com/Comfy-Org/workflow_templates/blob/main/templates/video_minimax_h3_r2v.json",
+  "official_json_sha256": "afeea99e9fd5a1456df348e0573e289c1243f2f28546fc95c1c963f808d61ddb",
+  "root_cause_of_previous_camera_cuts": "NOT_PROVEN",
+  "trial_job": "f0472c3b-1da2-420c-b485-97e37f47728a",
+  "only_inference_change": "schedulerbeta→simple,seed4341andallotherinputsunchanged",
+  "evidence": "qa/S01-B-v11-simple/overview.jpg",
+  "motion_acceptance": "pending",
+  "trial_result": "304.771sencodedMP4,stillfrontcloseup/rearreset"
+}

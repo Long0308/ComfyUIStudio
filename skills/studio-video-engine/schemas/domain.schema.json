@@ -1,0 +1,545 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jjv/schemas/domain/v1",
+  "$defs": {
+    "size": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height"],
+      "properties": {
+        "width": { "type": "integer", "minimum": 16 },
+        "height": { "type": "integer", "minimum": 16 }
+      }
+    },
+    "master": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height", "fps"],
+      "properties": {
+        "width": { "type": "integer", "minimum": 16 },
+        "height": { "type": "integer", "minimum": 16 },
+        "fps": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "range": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["min", "max"],
+      "properties": {
+        "min": { "type": "integer", "minimum": 1 },
+        "max": { "type": "integer", "minimum": 1 },
+        "fixed": { "type": "boolean" },
+        "duration_source": { "const": "beat.duration_s" }
+      }
+    }
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "domain_id", "label", "frame_rates", "delivery", "forbidden_node_classes",
+               "forbid_partner_nodes", "allowed_custom_nodes", "allowed_recipes"],
+  "properties": {
+    "schema": { "const": "jjv/domain/v1" },
+    "domain_id": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+    "label": { "type": "string", "minLength": 1 },
+    "frame_rates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["native_fps", "delivery_fps", "mapping"],
+      "properties": {
+        "native_fps": { "type": "integer", "minimum": 1 },
+        "delivery_fps": { "type": "integer", "minimum": 1 },
+        "mapping": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["num", "den"],
+          "properties": {
+            "num": { "type": "integer", "minimum": 1 },
+            "den": { "type": "integer", "minimum": 1 }
+          }
+        }
+      }
+    },
+    "delivery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["master", "review", "length"],
+      "properties": {
+        "master": { "$ref": "#/$defs/master" },
+        "length": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["main_frames_min", "main_frames_max"],
+          "properties": {
+            "main_frames_min": { "type": "integer", "minimum": 1 },
+            "main_frames_max": { "type": "integer", "minimum": 1 }
+          }
+        },
+        "section_kinds": {
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" }
+        },
+        "sections": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "pause_native": { "$ref": "#/$defs/range" },
+            "logo_hold": { "$ref": "#/$defs/range" },
+            "vocab_card": { "$ref": "#/$defs/range" },
+            "broll": { "$ref": "#/$defs/range" },
+            "insert": { "$ref": "#/$defs/range" },
+            "motion_still": { "$ref": "#/$defs/range" },
+            "title": { "$ref": "#/$defs/range" },
+            "end_plate": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["lead_min", "tail_min", "max"],
+              "properties": {
+                "lead_min": { "type": "integer", "minimum": 0 },
+                "tail_min": { "type": "integer", "minimum": 0 },
+                "max": { "type": "integer", "minimum": 1 }
+              }
+            }
+          }
+        },
+        "review": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["width", "height"],
+          "properties": {
+            "width": { "type": "integer", "minimum": 16 },
+            "height": { "type": "integer", "minimum": 16 },
+            "label": { "type": "string", "minLength": 1 }
+          }
+        },
+        "end_card": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["frames_min", "frames_max"],
+          "properties": {
+            "frames_min": { "type": "integer", "minimum": 1 },
+            "frames_max": { "type": "integer", "minimum": 1 }
+          }
+        },
+        "film_2k": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["width", "height", "method", "source"],
+          "properties": {
+            "width": { "type": "integer", "minimum": 16 },
+            "height": { "type": "integer", "minimum": 16 },
+            "method": { "enum": ["lanczos"] },
+            "source": { "const": "master" }
+          }
+        },
+        "assemble": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Master assembler gate (jjv edit assemble). Absent = the verb is disabled for the domain.",
+          "required": [
+            "enabled",
+            "edl_schema",
+            "master",
+            "review",
+            "kinds",
+            "transitions",
+            "fonts",
+            "audio"
+          ],
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "edl_schema": {
+              "type": "string",
+              "minLength": 1
+            },
+            "master": {
+              "$ref": "#/$defs/master"
+            },
+            "review": {
+              "$ref": "#/$defs/size"
+            },
+            "kinds": {
+              "type": "array",
+              "uniqueItems": true,
+              "minItems": 1,
+              "items": {
+                "enum": [
+                  "clip",
+                  "card",
+                  "slate"
+                ]
+              }
+            },
+            "transitions": {
+              "type": "array",
+              "uniqueItems": true,
+              "minItems": 1,
+              "items": {
+                "enum": [
+                  "cut",
+                  "dissolve"
+                ]
+              }
+            },
+            "fonts": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "regular"
+              ],
+              "properties": {
+                "regular": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "bold": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            },
+            "card": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "background": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "logo_height_frac": {
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "maximum": 1
+                },
+                "logo_fade_frames": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 240
+                }
+              }
+            },
+            "audio": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "tracks"
+              ],
+              "properties": {
+                "sample_rate": {
+                  "type": "integer",
+                  "minimum": 8000
+                },
+                "dialogue_ref_dbfs": {
+                  "type": "number",
+                  "minimum": -60,
+                  "maximum": 0
+                },
+                "tracks": {
+                  "type": "array",
+                  "minItems": 4,
+                  "maxItems": 4,
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "stem",
+                      "title",
+                      "codec"
+                    ],
+                    "properties": {
+                      "stem": {
+                        "enum": [
+                          "final",
+                          "dialogue",
+                          "music",
+                          "sfx"
+                        ]
+                      },
+                      "title": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "codec": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "default": {
+                        "type": "boolean"
+                      },
+                      "language": {
+                        "type": "string",
+                        "minLength": 2
+                      },
+                      "verify_exact": {
+                        "type": "boolean"
+                      },
+                      "bitrate": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "easy": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "codec",
+                "bitrate"
+              ],
+              "properties": {
+                "codec": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "bitrate": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            },
+            "review_encode": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "crf",
+                "audio_bitrate"
+              ],
+              "properties": {
+                "crf": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 51
+                },
+                "audio_bitrate": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "forbidden_node_classes": {
+      "type": "array", "uniqueItems": true, "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "forbid_partner_nodes": { "const": true },
+    "allowed_custom_nodes": {
+      "type": "array", "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "allowed_recipes": {
+      "type": "array", "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^[a-z0-9]+/[a-z0-9][a-z0-9._-]*$" }
+    },
+    "final_gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "FINAL steps need a user-approval receipt bound to each shot's media sha256. Absent = no gate.",
+      "required": ["enabled"],
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "rule": { "type": "string", "minLength": 1 },
+        "rule_source": { "type": "string" },
+        "decision_roots": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "shot_kinds": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "identity_guard": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Allow-list (path + sha256) of user-approved identity sources. Absent = no guard.",
+      "required": ["enabled"],
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "roles": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "allowed_refs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "path", "sha256"],
+            "properties": {
+              "name": { "type": "string", "minLength": 1 },
+              "path": { "type": "string", "minLength": 1 },
+              "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+              "tier": { "enum": ["canon", "qa_keep"] },
+              "source": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "model_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Allowed models per role and models banned for anchors. Absent = no policy.",
+      "required": ["enabled"],
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "roles": { "type": "object", "additionalProperties": { "type": "array", "items": { "type": "string" } } },
+        "banned_models": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "notes": { "type": "string" }
+      }
+    },
+    "voice": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "allowed_recipes": {
+          "type": "array", "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^voice/" }
+        },
+        "require_listen_approval": { "type": "boolean" }
+      }
+    },
+    "timing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["allowed_recipes"],
+      "properties": {
+        "allowed_recipes": {
+          "type": "array", "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^timing/[a-z0-9][a-z0-9._-]*$" }
+        }
+      }
+    },
+    "audio": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "allowed_recipes": {
+          "type": "array", "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^audio/" }
+        },
+        "sfx_default_on": {
+          "type": "boolean",
+          "description": "Permission for a cinema mix recipe of this domain to default SFX/ambience ON (sfx.default_enabled=true). Absent = false (default)."
+        }
+      }
+    },
+    "seam_blend": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["policy_version", "window_half_frames", "blend_frames", "low_motion_max",
+                   "excess_trigger", "hf8_sigma", "allow_clipped_tail", "motion_metric",
+                   "excess_metric"],
+      "properties": {
+        "policy_version": { "type": "string", "minLength": 1 },
+        "window_half_frames": { "type": "integer", "minimum": 1, "maximum": 64 },
+        "blend_frames": { "type": "integer", "minimum": 2, "maximum": 128 },
+        "low_motion_max": { "type": "number", "exclusiveMinimum": 0 },
+        "excess_trigger": { "type": "number" },
+        "hf8_sigma": { "type": "number", "exclusiveMinimum": 0 },
+        "allow_clipped_tail": { "type": "boolean" },
+        "motion_metric": { "enum": ["native_mean_absdY", "native_mean_abs_dY"] },
+        "excess_metric": { "const": "mean_excess_peak" }
+      }
+    },
+    "post": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Post steps after the upscale. Absent = every post step is disabled for the domain.",
+      "properties": {
+        "logo_composite": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["enabled", "asset"],
+          "properties": {
+            "enabled": { "type": "boolean" },
+            "asset": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["path", "sha256"],
+              "properties": {
+                "path": { "type": "string", "minLength": 1, "description": "repo-relative path of the logo PNG" },
+                "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+              }
+            },
+            "assets": {
+              "type": "object",
+              "description": "extra logo variants by name (e.g. white); each is sha-pinned like the main asset",
+              "additionalProperties": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["path", "sha256"],
+                "properties": {
+                  "path": { "type": "string", "minLength": 1 },
+                  "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+                }
+              }
+            },
+            "detect": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["search_region", "mark_height_frac", "aspect_tolerance", "mark_rgb", "dark_threshold",
+                           "fill_range", "color_min_similarity", "box_pad_frac", "search_frames", "min_score",
+                           "min_margin", "min_agreement"],
+              "properties": {
+                "search_region": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["x", "y", "w", "h"],
+                  "properties": {
+                    "x": { "type": "number", "minimum": 0, "maximum": 1 },
+                    "y": { "type": "number", "minimum": 0, "maximum": 1 },
+                    "w": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 },
+                    "h": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 }
+                  }
+                },
+                "mark_height_frac": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["min", "max"],
+                  "properties": {
+                    "min": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 },
+                    "max": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 }
+                  }
+                },
+                "aspect_tolerance": { "type": "number", "minimum": 0, "maximum": 1 },
+                "mark_rgb": { "type": "array", "minItems": 3, "maxItems": 3,
+                              "items": { "type": "integer", "minimum": 0, "maximum": 255 } },
+                "dark_threshold": { "type": "integer", "minimum": 1, "maximum": 254 },
+                "fill_range": { "type": "array", "minItems": 2, "maxItems": 2,
+                                "items": { "type": "number", "minimum": 0, "maximum": 1 } },
+                "color_min_similarity": { "type": "number", "minimum": -1, "maximum": 1 },
+                "box_pad_frac": { "type": "number", "minimum": 0, "maximum": 1 },
+                "search_frames": { "type": "integer", "minimum": 1, "maximum": 240 },
+                "min_score": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 },
+                "min_margin": { "type": "number", "minimum": 0, "maximum": 1 },
+                "min_agreement": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 }
+              }
+            }
+          }
+        },
+        "grade": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["enabled", "luts"],
+          "properties": {
+            "enabled": { "type": "boolean" },
+            "luts": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["path", "sha256"],
+                "properties": {
+                  "path": { "type": "string", "minLength": 1 },
+                  "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

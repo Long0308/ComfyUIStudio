@@ -1,0 +1,3023 @@
+{
+"note": "Parity fixture: the recognised (v003) word times of the first episode plus the hand-run v004 result. WAVs are referenced by episode-relative path and sha256 and are read-only; they are NOT copied.",
+"source_files": {
+"v003_sha256": "871c7bd094455ed7da33f786f97d224c343dc7f4abea76e39bf12175d57df718",
+"v004_sha256": "7598ddc0b3cab75344d94bf09f1028c18fc5ba754989efa5f91d0a6f2d68567b"
+},
+"fps": 30,
+"entries": [
+{
+"id": "S01_A",
+"start_frame": 90,
+"end_frame_exclusive": 240,
+"speech_text": "Alice, look! What does milk look like?",
+"audio": {
+"path": "audio/voicestudio-batch-v001/editorial/dialogue-S01_A-c5d51236-editorial-48k.wav",
+"sha256": "5d33ad49807cd680ca28156e13c8863db1e54f788cc3f576957e1b23d93d900f"
+},
+"words": [
+{
+"index": 1,
+"text": "Alice",
+"raw_text": "Alice,",
+"start_s": 0.86,
+"end_s": 1.18,
+"start_frame": 116,
+"end_frame": 125,
+"end_frame_exclusive": 125
+},
+{
+"index": 2,
+"text": "look",
+"raw_text": "look!",
+"start_s": 1.7,
+"end_s": 2.12,
+"start_frame": 141,
+"end_frame": 154,
+"end_frame_exclusive": 154
+},
+{
+"index": 3,
+"text": "What",
+"raw_text": "What",
+"start_s": 2.8,
+"end_s": 2.94,
+"start_frame": 174,
+"end_frame": 178,
+"end_frame_exclusive": 178
+},
+{
+"index": 4,
+"text": "does",
+"raw_text": "does",
+"start_s": 2.94,
+"end_s": 3.2,
+"start_frame": 178,
+"end_frame": 186,
+"end_frame_exclusive": 186
+},
+{
+"index": 5,
+"text": "milk",
+"raw_text": "milk",
+"start_s": 3.2,
+"end_s": 3.48,
+"start_frame": 186,
+"end_frame": 194,
+"end_frame_exclusive": 194
+},
+{
+"index": 6,
+"text": "look",
+"raw_text": "look",
+"start_s": 3.48,
+"end_s": 3.8,
+"start_frame": 194,
+"end_frame": 204,
+"end_frame_exclusive": 204
+},
+{
+"index": 7,
+"text": "like",
+"raw_text": "like?",
+"start_s": 3.8,
+"end_s": 4.42,
+"start_frame": 204,
+"end_frame": 223,
+"end_frame_exclusive": 223
+}
+]
+},
+{
+"id": "S01_B",
+"start_frame": 240,
+"end_frame_exclusive": 390,
+"speech_text": "Milk is white, smooth, and liquid, Mommy!",
+"audio": {
+"path": "audio/dialogue-trim-v002/dialogue-S01_B-trim-v002-48k.wav",
+"sha256": "d00c399c39d1b53f87b94176d3ce6753f22929af7e1f41f40c36a3ddaa7cefad"
+},
+"words": [
+{
+"index": 1,
+"text": "Milk",
+"raw_text": "Milk",
+"start_s": 0.07,
+"end_s": 0.42,
+"start_frame": 242,
+"end_frame": 253,
+"end_frame_exclusive": 253
+},
+{
+"index": 2,
+"text": "is",
+"raw_text": "is",
+"start_s": 0.42,
+"end_s": 0.68,
+"start_frame": 253,
+"end_frame": 260,
+"end_frame_exclusive": 260
+},
+{
+"index": 3,
+"text": "white",
+"raw_text": "white,",
+"start_s": 0.68,
+"end_s": 1.2,
+"start_frame": 260,
+"end_frame": 276,
+"end_frame_exclusive": 276
+},
+{
+"index": 4,
+"text": "smooth",
+"raw_text": "smooth,",
+"start_s": 1.66,
+"end_s": 2.34,
+"start_frame": 290,
+"end_frame": 310,
+"end_frame_exclusive": 310
+},
+{
+"index": 5,
+"text": "and",
+"raw_text": "and",
+"start_s": 3.04,
+"end_s": 3.16,
+"start_frame": 331,
+"end_frame": 335,
+"end_frame_exclusive": 335
+},
+{
+"index": 6,
+"text": "liquid",
+"raw_text": "liquid,",
+"start_s": 3.16,
+"end_s": 3.68,
+"start_frame": 335,
+"end_frame": 350,
+"end_frame_exclusive": 350
+},
+{
+"index": 7,
+"text": "Mommy",
+"raw_text": "Mommy!",
+"start_s": 4.04,
+"end_s": 4.8,
+"start_frame": 361,
+"end_frame": 384,
+"end_frame_exclusive": 384
+}
+]
+},
+{
+"id": "S02_A",
+"start_frame": 390,
+"end_frame_exclusive": 550,
+"speech_text": "Good job! Where does our fresh milk come from?",
+"audio": {
+"path": "audio/dialogue-trim-v002/dialogue-S02_A-trim-v002-48k.wav",
+"sha256": "938d893a3353ace09ff52c8f25b0b3651032713b10db0711690f9958db70a6b7"
+},
+"words": [
+{
+"index": 1,
+"text": "Good",
+"raw_text": "Good",
+"start_s": 1.16,
+"end_s": 1.28,
+"start_frame": 425,
+"end_frame": 428,
+"end_frame_exclusive": 428
+},
+{
+"index": 2,
+"text": "job",
+"raw_text": "job!",
+"start_s": 1.28,
+"end_s": 1.7,
+"start_frame": 428,
+"end_frame": 441,
+"end_frame_exclusive": 441
+},
+{
+"index": 3,
+"text": "Where",
+"raw_text": "Where",
+"start_s": 2.66,
+"end_s": 3.1,
+"start_frame": 470,
+"end_frame": 483,
+"end_frame_exclusive": 483
+},
+{
+"index": 4,
+"text": "does",
+"raw_text": "does",
+"start_s": 3.1,
+"end_s": 3.34,
+"start_frame": 483,
+"end_frame": 490,
+"end_frame_exclusive": 490
+},
+{
+"index": 5,
+"text": "our",
+"raw_text": "our",
+"start_s": 3.34,
+"end_s": 3.56,
+"start_frame": 490,
+"end_frame": 497,
+"end_frame_exclusive": 497
+},
+{
+"index": 6,
+"text": "fresh",
+"raw_text": "fresh",
+"start_s": 3.56,
+"end_s": 3.84,
+"start_frame": 497,
+"end_frame": 505,
+"end_frame_exclusive": 505
+},
+{
+"index": 7,
+"text": "milk",
+"raw_text": "milk",
+"start_s": 3.84,
+"end_s": 4.14,
+"start_frame": 505,
+"end_frame": 514,
+"end_frame_exclusive": 514
+},
+{
+"index": 8,
+"text": "come",
+"raw_text": "come",
+"start_s": 4.14,
+"end_s": 4.48,
+"start_frame": 514,
+"end_frame": 524,
+"end_frame_exclusive": 524
+},
+{
+"index": 9,
+"text": "from",
+"raw_text": "from?",
+"start_s": 4.48,
+"end_s": 4.99,
+"start_frame": 524,
+"end_frame": 540,
+"end_frame_exclusive": 540
+}
+]
+},
+{
+"id": "S02_B",
+"start_frame": 550,
+"end_frame_exclusive": 710,
+"speech_text": "It comes from dairy cows on a green farm!",
+"audio": {
+"path": "audio/dialogue-trim-v002/dialogue-S02_B-trim-v002-48k.wav",
+"sha256": "3d03fe6b0f5c39d40c708c5bec04bebf528049b80d14fd8db2d1f461984462da"
+},
+"words": [
+{
+"index": 1,
+"text": "It",
+"raw_text": "It",
+"start_s": 0.07,
+"end_s": 0.22,
+"start_frame": 552,
+"end_frame": 557,
+"end_frame_exclusive": 557
+},
+{
+"index": 2,
+"text": "comes",
+"raw_text": "comes",
+"start_s": 0.22,
+"end_s": 0.76,
+"start_frame": 557,
+"end_frame": 573,
+"end_frame_exclusive": 573
+},
+{
+"index": 3,
+"text": "from",
+"raw_text": "from",
+"start_s": 0.76,
+"end_s": 1.22,
+"start_frame": 573,
+"end_frame": 587,
+"end_frame_exclusive": 587
+},
+{
+"index": 4,
+"text": "dairy",
+"raw_text": "dairy",
+"start_s": 1.22,
+"end_s": 1.88,
+"start_frame": 587,
+"end_frame": 606,
+"end_frame_exclusive": 606
+},
+{
+"index": 5,
+"text": "cows",
+"raw_text": "cows",
+"start_s": 1.88,
+"end_s": 2.46,
+"start_frame": 606,
+"end_frame": 624,
+"end_frame_exclusive": 624
+},
+{
+"index": 6,
+"text": "on",
+"raw_text": "on",
+"start_s": 2.46,
+"end_s": 3.38,
+"start_frame": 624,
+"end_frame": 651,
+"end_frame_exclusive": 651
+},
+{
+"index": 7,
+"text": "a",
+"raw_text": "a",
+"start_s": 3.38,
+"end_s": 3.62,
+"start_frame": 651,
+"end_frame": 659,
+"end_frame_exclusive": 659
+},
+{
+"index": 8,
+"text": "green",
+"raw_text": "green",
+"start_s": 3.62,
+"end_s": 4.04,
+"start_frame": 659,
+"end_frame": 671,
+"end_frame_exclusive": 671
+},
+{
+"index": 9,
+"text": "farm",
+"raw_text": "farm!",
+"start_s": 4.04,
+"end_s": 4.99,
+"start_frame": 671,
+"end_frame": 700,
+"end_frame_exclusive": 700
+}
+]
+},
+{
+"id": "S03_A",
+"start_frame": 710,
+"end_frame_exclusive": 885,
+"speech_text": "How does the milk taste when you take a sip, sweetie?",
+"audio": {
+"path": "audio/dialogue-trim-v002/dialogue-S03_A-trim-v002-48k.wav",
+"sha256": "be8ee5522c2886aa857ca5f044fd002413f1c1d37bf3d11ecdd73e2496503aea"
+},
+"words": [
+{
+"index": 1,
+"text": "How",
+"raw_text": "How",
+"start_s": 1.15,
+"end_s": 1.32,
+"start_frame": 745,
+"end_frame": 750,
+"end_frame_exclusive": 750
+},
+{
+"index": 2,
+"text": "does",
+"raw_text": "does",
+"start_s": 1.32,
+"end_s": 1.72,
+"start_frame": 750,
+"end_frame": 762,
+"end_frame_exclusive": 762
+},
+{
+"index": 3,
+"text": "the",
+"raw_text": "the",
+"start_s": 1.72,
+"end_s": 1.92,
+"start_frame": 762,
+"end_frame": 768,
+"end_frame_exclusive": 768
+},
+{
+"index": 4,
+"text": "milk",
+"raw_text": "milk",
+"start_s": 1.92,
+"end_s": 2.14,
+"start_frame": 768,
+"end_frame": 774,
+"end_frame_exclusive": 774
+},
+{
+"index": 5,
+"text": "taste",
+"raw_text": "taste",
+"start_s": 2.14,
+"end_s": 2.78,
+"start_frame": 774,
+"end_frame": 793,
+"end_frame_exclusive": 793
+},
+{
+"index": 6,
+"text": "when",
+"raw_text": "when",
+"start_s": 2.78,
+"end_s": 3.3,
+"start_frame": 793,
+"end_frame": 809,
+"end_frame_exclusive": 809
+},
+{
+"index": 7,
+"text": "you",
+"raw_text": "you",
+"start_s": 3.3,
+"end_s": 3.46,
+"start_frame": 809,
+"end_frame": 814,
+"end_frame_exclusive": 814
+},
+{
+"index": 8,
+"text": "take",
+"raw_text": "take",
+"start_s": 3.46,
+"end_s": 3.78,
+"start_frame": 814,
+"end_frame": 823,
+"end_frame_exclusive": 823
+},
+{
+"index": 9,
+"text": "a",
+"raw_text": "a",
+"start_s": 3.78,
+"end_s": 3.94,
+"start_frame": 823,
+"end_frame": 828,
+"end_frame_exclusive": 828
+},
+{
+"index": 10,
+"text": "sip",
+"raw_text": "sip,",
+"start_s": 3.94,
+"end_s": 4.28,
+"start_frame": 828,
+"end_frame": 838,
+"end_frame_exclusive": 838
+},
+{
+"index": 11,
+"text": "sweetie",
+"raw_text": "sweetie?",
+"start_s": 5.02,
+"end_s": 5.65,
+"start_frame": 861,
+"end_frame": 880,
+"end_frame_exclusive": 880
+}
+]
+},
+{
+"id": "S03_B",
+"start_frame": 885,
+"end_frame_exclusive": 1010,
+"speech_text": "It tastes creamy, fresh, and yummy!",
+"audio": {
+"path": "audio/dialogue-trim-v002/dialogue-S03_B-trim-v002-48k.wav",
+"sha256": "2ef2bc4383cddd2a54939499ee9f32d79b6e25d562dae7d7abb54a3f3eee7477"
+},
+"words": [
+{
+"index": 1,
+"text": "It",
+"raw_text": "It",
+"start_s": 0.07,
+"end_s": 0.22,
+"start_frame": 887,
+"end_frame": 892,
+"end_frame_exclusive": 892
+},
+{
+"index": 2,
+"text": "tastes",
+"raw_text": "tastes",
+"start_s": 0.22,
+"end_s": 0.86,
+"start_frame": 892,
+"end_frame": 911,
+"end_frame_exclusive": 911
+},
+{
+"index": 3,
+"text": "creamy",
+"raw_text": "creamy,",
+"start_s": 0.86,
+"end_s": 1.74,
+"start_frame": 911,
+"end_frame": 937,
+"end_frame_exclusive": 937
+},
+{
+"index": 4,
+"text": "fresh",
+"raw_text": "fresh,",
+"start_s": 2.22,
+"end_s": 2.64,
+"start_frame": 952,
+"end_frame": 964,
+"end_frame_exclusive": 964
+},
+{
+"index": 5,
+"text": "and",
+"raw_text": "and",
+"start_s": 3.08,
+"end_s": 3.2,
+"start_frame": 977,
+"end_frame": 981,
+"end_frame_exclusive": 981
+},
+{
+"index": 6,
+"text": "yummy",
+"raw_text": "yummy!",
+"start_s": 3.2,
+"end_s": 3.97,
+"start_frame": 981,
+"end_frame": 1004,
+"end_frame_exclusive": 1004
+}
+]
+},
+{
+"id": "S04_A",
+"start_frame": 1010,
+"end_frame_exclusive": 1150,
+"speech_text": "Can milk be served warm or cold?",
+"audio": {
+"path": "audio/dialogue-trim-v002/dialogue-S04_A-trim-v002-48k.wav",
+"sha256": "2ab13e8fff486e3023d7064492cc346102a7e2d31a5dd23b4034a02d94ea38d7"
+},
+"words": [
+{
+"index": 1,
+"text": "Can",
+"raw_text": "Can",
+"start_s": 0.76,
+"end_s": 0.94,
+"start_frame": 1033,
+"end_frame": 1038,
+"end_frame_exclusive": 1038
+},
+{
+"index": 2,
+"text": "milk",
+"raw_text": "milk",
+"start_s": 0.94,
+"end_s": 1.68,
+"start_frame": 1038,
+"end_frame": 1060,
+"end_frame_exclusive": 1060
+},
+{
+"index": 3,
+"text": "be",
+"raw_text": "be",
+"start_s": 1.68,
+"end_s": 2.1,
+"start_frame": 1060,
+"end_frame": 1073,
+"end_frame_exclusive": 1073
+},
+{
+"index": 4,
+"text": "served",
+"raw_text": "served",
+"start_s": 2.1,
+"end_s": 2.48,
+"start_frame": 1073,
+"end_frame": 1084,
+"end_frame_exclusive": 1084
+},
+{
+"index": 5,
+"text": "warm",
+"raw_text": "warm",
+"start_s": 2.48,
+"end_s": 3.1,
+"start_frame": 1084,
+"end_frame": 1103,
+"end_frame_exclusive": 1103
+},
+{
+"index": 6,
+"text": "or",
+"raw_text": "or",
+"start_s": 3.1,
+"end_s": 3.64,
+"start_frame": 1103,
+"end_frame": 1119,
+"end_frame_exclusive": 1119
+},
+{
+"index": 7,
+"text": "cold",
+"raw_text": "cold?",
+"start_s": 3.64,
+"end_s": 4.39,
+"start_frame": 1119,
+"end_frame": 1142,
+"end_frame_exclusive": 1142
+}
+]
+},
+{
+"id": "S04_B",
+"start_frame": 1150,
+"end_frame_exclusive": 1310,
+"speech_text": "Yes! I enjoy milk both warm and cold, Mommy!",
+"audio": {
+"path": "audio/dialogue-trim-v002/dialogue-S04_B-trim-v002-48k.wav",
+"sha256": "8d5daf9768da13df5ec41320f3d5f26d9d064246b55fba4fd1ef06e5396feb36"
+},
+"words": [
+{
+"index": 1,
+"text": "Yes",
+"raw_text": "Yes!",
+"start_s": 0.24,
+"end_s": 0.5,
+"start_frame": 1157,
+"end_frame": 1165,
+"end_frame_exclusive": 1165
+},
+{
+"index": 2,
+"text": "I",
+"raw_text": "I",
+"start_s": 1.1,
+"end_s": 1.42,
+"start_frame": 1183,
+"end_frame": 1193,
+"end_frame_exclusive": 1193
+},
+{
+"index": 3,
+"text": "enjoy",
+"raw_text": "enjoy",
+"start_s": 1.42,
+"end_s": 1.82,
+"start_frame": 1193,
+"end_frame": 1205,
+"end_frame_exclusive": 1205
+},
+{
+"index": 4,
+"text": "milk",
+"raw_text": "milk",
+"start_s": 1.82,
+"end_s": 2.3,
+"start_frame": 1205,
+"end_frame": 1219,
+"end_frame_exclusive": 1219
+},
+{
+"index": 5,
+"text": "both",
+"raw_text": "both",
+"start_s": 2.3,
+"end_s": 2.64,
+"start_frame": 1219,
+"end_frame": 1229,
+"end_frame_exclusive": 1229
+},
+{
+"index": 6,
+"text": "warm",
+"raw_text": "warm",
+"start_s": 2.64,
+"end_s": 3.3,
+"start_frame": 1229,
+"end_frame": 1249,
+"end_frame_exclusive": 1249
+},
+{
+"index": 7,
+"text": "and",
+"raw_text": "and",
+"start_s": 3.3,
+"end_s": 3.56,
+"start_frame": 1249,
+"end_frame": 1257,
+"end_frame_exclusive": 1257
+},
+{
+"index": 8,
+"text": "cold",
+"raw_text": "cold,",
+"start_s": 3.56,
+"end_s": 4.16,
+"start_frame": 1257,
+"end_frame": 1275,
+"end_frame_exclusive": 1275
+},
+{
+"index": 9,
+"text": "Mommy",
+"raw_text": "Mommy!",
+"start_s": 4.34,
+"end_s": 5.2,
+"start_frame": 1280,
+"end_frame": 1306,
+"end_frame_exclusive": 1306
+}
+]
+},
+{
+"id": "S05_A",
+"start_frame": 1310,
+"end_frame_exclusive": 1495,
+"speech_text": "Milk has calcium to help your bones grow strong and healthy!",
+"audio": {
+"path": "audio/dialogue-trim-v002/dialogue-S05_A-trim-v002-48k.wav",
+"sha256": "24127ef3f228ffe9c84171596f76354895f4ad6675bd4ea12284bd021614f2c6"
+},
+"words": [
+{
+"index": 1,
+"text": "Milk",
+"raw_text": "Milk",
+"start_s": 0.86,
+"end_s": 1.12,
+"start_frame": 1336,
+"end_frame": 1344,
+"end_frame_exclusive": 1344
+},
+{
+"index": 2,
+"text": "has",
+"raw_text": "has",
+"start_s": 1.12,
+"end_s": 1.7,
+"start_frame": 1344,
+"end_frame": 1361,
+"end_frame_exclusive": 1361
+},
+{
+"index": 3,
+"text": "calcium",
+"raw_text": "calcium",
+"start_s": 1.7,
+"end_s": 2.2,
+"start_frame": 1361,
+"end_frame": 1376,
+"end_frame_exclusive": 1376
+},
+{
+"index": 4,
+"text": "to",
+"raw_text": "to",
+"start_s": 2.2,
+"end_s": 2.72,
+"start_frame": 1376,
+"end_frame": 1392,
+"end_frame_exclusive": 1392
+},
+{
+"index": 5,
+"text": "help",
+"raw_text": "help",
+"start_s": 2.72,
+"end_s": 2.98,
+"start_frame": 1392,
+"end_frame": 1399,
+"end_frame_exclusive": 1399
+},
+{
+"index": 6,
+"text": "your",
+"raw_text": "your",
+"start_s": 2.98,
+"end_s": 3.28,
+"start_frame": 1399,
+"end_frame": 1408,
+"end_frame_exclusive": 1408
+},
+{
+"index": 7,
+"text": "bones",
+"raw_text": "bones",
+"start_s": 3.28,
+"end_s": 3.74,
+"start_frame": 1408,
+"end_frame": 1422,
+"end_frame_exclusive": 1422
+},
+{
+"index": 8,
+"text": "grow",
+"raw_text": "grow",
+"start_s": 3.74,
+"end_s": 4.06,
+"start_frame": 1422,
+"end_frame": 1432,
+"end_frame_exclusive": 1432
+},
+{
+"index": 9,
+"text": "strong",
+"raw_text": "strong",
+"start_s": 4.06,
+"end_s": 4.82,
+"start_frame": 1432,
+"end_frame": 1455,
+"end_frame_exclusive": 1455
+},
+{
+"index": 10,
+"text": "and",
+"raw_text": "and",
+"start_s": 4.82,
+"end_s": 5.34,
+"start_frame": 1455,
+"end_frame": 1470,
+"end_frame_exclusive": 1470
+},
+{
+"index": 11,
+"text": "healthy",
+"raw_text": "healthy!",
+"start_s": 5.34,
+"end_s": 6.04,
+"start_frame": 1470,
+"end_frame": 1491,
+"end_frame_exclusive": 1491
+}
+]
+},
+{
+"id": "S05_B",
+"start_frame": 1495,
+"end_frame_exclusive": 1610,
+"speech_text": "Look, Mommy! My bones are growing strong!",
+"audio": {
+"path": "audio/dialogue-trim-v002/dialogue-S05_B-trim-v002-48k.wav",
+"sha256": "b4d2366d2c27b08e4c2b045286c64da01ac682535f12ab72ca5dfa6498ec8ad4"
+},
+"words": [
+{
+"index": 1,
+"text": "Look",
+"raw_text": "Look,",
+"start_s": 0.07,
+"end_s": 0.34,
+"start_frame": 1497,
+"end_frame": 1505,
+"end_frame_exclusive": 1505
+},
+{
+"index": 2,
+"text": "Mommy",
+"raw_text": "Mommy!",
+"start_s": 0.46,
+"end_s": 0.72,
+"start_frame": 1509,
+"end_frame": 1517,
+"end_frame_exclusive": 1517
+},
+{
+"index": 3,
+"text": "My",
+"raw_text": "My",
+"start_s": 1.4,
+"end_s": 1.6,
+"start_frame": 1537,
+"end_frame": 1543,
+"end_frame_exclusive": 1543
+},
+{
+"index": 4,
+"text": "bones",
+"raw_text": "bones",
+"start_s": 1.6,
+"end_s": 2.1,
+"start_frame": 1543,
+"end_frame": 1558,
+"end_frame_exclusive": 1558
+},
+{
+"index": 5,
+"text": "are",
+"raw_text": "are",
+"start_s": 2.1,
+"end_s": 2.36,
+"start_frame": 1558,
+"end_frame": 1566,
+"end_frame_exclusive": 1566
+},
+{
+"index": 6,
+"text": "growing",
+"raw_text": "growing",
+"start_s": 2.36,
+"end_s": 2.72,
+"start_frame": 1566,
+"end_frame": 1577,
+"end_frame_exclusive": 1577
+},
+{
+"index": 7,
+"text": "strong",
+"raw_text": "strong!",
+"start_s": 2.72,
+"end_s": 3.7,
+"start_frame": 1577,
+"end_frame": 1606,
+"end_frame_exclusive": 1606
+}
+]
+},
+{
+"id": "S06_A",
+"start_frame": 1610,
+"end_frame_exclusive": 1785,
+"speech_text": "What yummy foods can we make from milk, Alice?",
+"audio": {
+"path": "audio/dialogue-trim-v002/dialogue-S06_A-trim-v002-48k.wav",
+"sha256": "5adae82db2ca82ca24496926792446d93e8ca1a99ba206c510a1666c6c1046d7"
+},
+"words": [
+{
+"index": 1,
+"text": "What",
+"raw_text": "What",
+"start_s": 1.09,
+"end_s": 1.28,
+"start_frame": 1643,
+"end_frame": 1648,
+"end_frame_exclusive": 1648
+},
+{
+"index": 2,
+"text": "yummy",
+"raw_text": "yummy",
+"start_s": 1.28,
+"end_s": 1.92,
+"start_frame": 1648,
+"end_frame": 1668,
+"end_frame_exclusive": 1668
+},
+{
+"index": 3,
+"text": "foods",
+"raw_text": "foods",
+"start_s": 1.92,
+"end_s": 2.66,
+"start_frame": 1668,
+"end_frame": 1690,
+"end_frame_exclusive": 1690
+},
+{
+"index": 4,
+"text": "can",
+"raw_text": "can",
+"start_s": 2.66,
+"end_s": 3.0,
+"start_frame": 1690,
+"end_frame": 1700,
+"end_frame_exclusive": 1700
+},
+{
+"index": 5,
+"text": "we",
+"raw_text": "we",
+"start_s": 3.0,
+"end_s": 3.18,
+"start_frame": 1700,
+"end_frame": 1705,
+"end_frame_exclusive": 1705
+},
+{
+"index": 6,
+"text": "make",
+"raw_text": "make",
+"start_s": 3.18,
+"end_s": 3.6,
+"start_frame": 1705,
+"end_frame": 1718,
+"end_frame_exclusive": 1718
+},
+{
+"index": 7,
+"text": "from",
+"raw_text": "from",
+"start_s": 3.6,
+"end_s": 3.98,
+"start_frame": 1718,
+"end_frame": 1729,
+"end_frame_exclusive": 1729
+},
+{
+"index": 8,
+"text": "milk",
+"raw_text": "milk,",
+"start_s": 3.98,
+"end_s": 4.46,
+"start_frame": 1729,
+"end_frame": 1744,
+"end_frame_exclusive": 1744
+},
+{
+"index": 9,
+"text": "Alice",
+"raw_text": "Alice?",
+"start_s": 5.0,
+"end_s": 5.64,
+"start_frame": 1760,
+"end_frame": 1779,
+"end_frame_exclusive": 1779
+}
+]
+},
+{
+"id": "S06_B",
+"start_frame": 1785,
+"end_frame_exclusive": 2160,
+"speech_text": "We can make yogurt, cheese, and ice cream! Yummy! Drink milk, grow strong, and stay happy!",
+"audio": {
+"path": "audio/dialogue-trim-v002/dialogue-S06_B-full-12.5s-editorial-v003-48k.wav",
+"sha256": "f6c3665215e3ff64de91c0e9078d99123be3a293ece5fd176ed7b43221dbef89"
+},
+"words": [
+{
+"index": 1,
+"text": "We",
+"raw_text": "We",
+"start_s": 0.08,
+"end_s": 0.26,
+"start_frame": 1787,
+"end_frame": 1793,
+"end_frame_exclusive": 1793
+},
+{
+"index": 2,
+"text": "can",
+"raw_text": "can",
+"start_s": 0.26,
+"end_s": 0.52,
+"start_frame": 1793,
+"end_frame": 1801,
+"end_frame_exclusive": 1801
+},
+{
+"index": 3,
+"text": "make",
+"raw_text": "make",
+"start_s": 0.52,
+"end_s": 0.78,
+"start_frame": 1801,
+"end_frame": 1808,
+"end_frame_exclusive": 1808
+},
+{
+"index": 4,
+"text": "yogurt",
+"raw_text": "yogurt,",
+"start_s": 0.78,
+"end_s": 1.32,
+"start_frame": 1808,
+"end_frame": 1825,
+"end_frame_exclusive": 1825
+},
+{
+"index": 5,
+"text": "cheese",
+"raw_text": "cheese,",
+"start_s": 1.9,
+"end_s": 2.4,
+"start_frame": 1842,
+"end_frame": 1857,
+"end_frame_exclusive": 1857
+},
+{
+"index": 6,
+"text": "and",
+"raw_text": "and",
+"start_s": 2.9,
+"end_s": 3.02,
+"start_frame": 1872,
+"end_frame": 1876,
+"end_frame_exclusive": 1876
+},
+{
+"index": 7,
+"text": "ice",
+"raw_text": "ice",
+"start_s": 3.02,
+"end_s": 3.44,
+"start_frame": 1876,
+"end_frame": 1888,
+"end_frame_exclusive": 1888
+},
+{
+"index": 8,
+"text": "cream",
+"raw_text": "cream!",
+"start_s": 3.44,
+"end_s": 4.27,
+"start_frame": 1888,
+"end_frame": 1913,
+"end_frame_exclusive": 1913
+},
+{
+"index": 9,
+"text": "Yummy",
+"raw_text": "Yummy!",
+"start_s": 5.18,
+"end_s": 5.7,
+"start_frame": 1940,
+"end_frame": 1956,
+"end_frame_exclusive": 1956
+},
+{
+"index": 10,
+"text": "Drink",
+"raw_text": "Drink",
+"start_s": 6.28,
+"end_s": 6.46,
+"start_frame": 1973,
+"end_frame": 1979,
+"end_frame_exclusive": 1979
+},
+{
+"index": 11,
+"text": "milk",
+"raw_text": "milk,",
+"start_s": 6.46,
+"end_s": 6.98,
+"start_frame": 1979,
+"end_frame": 1994,
+"end_frame_exclusive": 1994
+},
+{
+"index": 12,
+"text": "grow",
+"raw_text": "grow",
+"start_s": 7.42,
+"end_s": 7.82,
+"start_frame": 2008,
+"end_frame": 2020,
+"end_frame_exclusive": 2020
+},
+{
+"index": 13,
+"text": "strong",
+"raw_text": "strong,",
+"start_s": 7.82,
+"end_s": 8.38,
+"start_frame": 2020,
+"end_frame": 2036,
+"end_frame_exclusive": 2036
+},
+{
+"index": 14,
+"text": "and",
+"raw_text": "and",
+"start_s": 9.02,
+"end_s": 9.1,
+"start_frame": 2056,
+"end_frame": 2058,
+"end_frame_exclusive": 2058
+},
+{
+"index": 15,
+"text": "stay",
+"raw_text": "stay",
+"start_s": 9.1,
+"end_s": 9.64,
+"start_frame": 2058,
+"end_frame": 2074,
+"end_frame_exclusive": 2074
+},
+{
+"index": 16,
+"text": "happy",
+"raw_text": "happy!",
+"start_s": 9.64,
+"end_s": 10.66,
+"start_frame": 2074,
+"end_frame": 2105,
+"end_frame_exclusive": 2105
+}
+]
+}
+],
+"expected_v004": [
+{
+"entry": "S01_A",
+"index": 1,
+"start_s": 0.86,
+"start_frame": 116,
+"end_s": 1.18,
+"end_frame_exclusive": 125
+},
+{
+"entry": "S01_A",
+"index": 2,
+"start_s": 1.87,
+"start_frame": 146,
+"end_s": 2.12,
+"end_frame_exclusive": 154
+},
+{
+"entry": "S01_A",
+"index": 3,
+"start_s": 2.8,
+"start_frame": 174,
+"end_s": 2.94,
+"end_frame_exclusive": 178
+},
+{
+"entry": "S01_A",
+"index": 4,
+"start_s": 2.94,
+"start_frame": 178,
+"end_s": 3.2,
+"end_frame_exclusive": 186
+},
+{
+"entry": "S01_A",
+"index": 5,
+"start_s": 3.2,
+"start_frame": 186,
+"end_s": 3.48,
+"end_frame_exclusive": 194
+},
+{
+"entry": "S01_A",
+"index": 6,
+"start_s": 3.48,
+"start_frame": 194,
+"end_s": 3.8,
+"end_frame_exclusive": 204
+},
+{
+"entry": "S01_A",
+"index": 7,
+"start_s": 3.8,
+"start_frame": 204,
+"end_s": 4.42,
+"end_frame_exclusive": 223
+},
+{
+"entry": "S01_B",
+"index": 1,
+"start_s": 0.07,
+"start_frame": 242,
+"end_s": 0.42,
+"end_frame_exclusive": 253
+},
+{
+"entry": "S01_B",
+"index": 2,
+"start_s": 0.53,
+"start_frame": 256,
+"end_s": 0.68,
+"end_frame_exclusive": 260
+},
+{
+"entry": "S01_B",
+"index": 3,
+"start_s": 0.68,
+"start_frame": 260,
+"end_s": 1.2,
+"end_frame_exclusive": 276
+},
+{
+"entry": "S01_B",
+"index": 4,
+"start_s": 1.73,
+"start_frame": 292,
+"end_s": 2.34,
+"end_frame_exclusive": 310
+},
+{
+"entry": "S01_B",
+"index": 5,
+"start_s": 3.04,
+"start_frame": 331,
+"end_s": 3.16,
+"end_frame_exclusive": 335
+},
+{
+"entry": "S01_B",
+"index": 6,
+"start_s": 3.16,
+"start_frame": 335,
+"end_s": 3.68,
+"end_frame_exclusive": 350
+},
+{
+"entry": "S01_B",
+"index": 7,
+"start_s": 4.04,
+"start_frame": 361,
+"end_s": 4.8,
+"end_frame_exclusive": 384
+},
+{
+"entry": "S02_A",
+"index": 1,
+"start_s": 1.16,
+"start_frame": 425,
+"end_s": 1.28,
+"end_frame_exclusive": 428
+},
+{
+"entry": "S02_A",
+"index": 2,
+"start_s": 1.28,
+"start_frame": 428,
+"end_s": 1.7,
+"end_frame_exclusive": 441
+},
+{
+"entry": "S02_A",
+"index": 3,
+"start_s": 2.91,
+"start_frame": 477,
+"end_s": 3.1,
+"end_frame_exclusive": 483
+},
+{
+"entry": "S02_A",
+"index": 4,
+"start_s": 3.1,
+"start_frame": 483,
+"end_s": 3.34,
+"end_frame_exclusive": 490
+},
+{
+"entry": "S02_A",
+"index": 5,
+"start_s": 3.34,
+"start_frame": 490,
+"end_s": 3.56,
+"end_frame_exclusive": 497
+},
+{
+"entry": "S02_A",
+"index": 6,
+"start_s": 3.56,
+"start_frame": 497,
+"end_s": 3.84,
+"end_frame_exclusive": 505
+},
+{
+"entry": "S02_A",
+"index": 7,
+"start_s": 3.84,
+"start_frame": 505,
+"end_s": 4.14,
+"end_frame_exclusive": 514
+},
+{
+"entry": "S02_A",
+"index": 8,
+"start_s": 4.14,
+"start_frame": 514,
+"end_s": 4.48,
+"end_frame_exclusive": 524
+},
+{
+"entry": "S02_A",
+"index": 9,
+"start_s": 4.48,
+"start_frame": 524,
+"end_s": 4.99,
+"end_frame_exclusive": 540
+},
+{
+"entry": "S02_B",
+"index": 1,
+"start_s": 0.07,
+"start_frame": 552,
+"end_s": 0.22,
+"end_frame_exclusive": 557
+},
+{
+"entry": "S02_B",
+"index": 2,
+"start_s": 0.39,
+"start_frame": 562,
+"end_s": 0.76,
+"end_frame_exclusive": 573
+},
+{
+"entry": "S02_B",
+"index": 3,
+"start_s": 0.76,
+"start_frame": 573,
+"end_s": 1.22,
+"end_frame_exclusive": 587
+},
+{
+"entry": "S02_B",
+"index": 4,
+"start_s": 1.56,
+"start_frame": 597,
+"end_s": 1.88,
+"end_frame_exclusive": 606
+},
+{
+"entry": "S02_B",
+"index": 5,
+"start_s": 2.09,
+"start_frame": 613,
+"end_s": 2.46,
+"end_frame_exclusive": 624
+},
+{
+"entry": "S02_B",
+"index": 6,
+"start_s": 2.46,
+"start_frame": 624,
+"end_s": 3.38,
+"end_frame_exclusive": 651
+},
+{
+"entry": "S02_B",
+"index": 7,
+"start_s": 3.38,
+"start_frame": 651,
+"end_s": 3.62,
+"end_frame_exclusive": 659
+},
+{
+"entry": "S02_B",
+"index": 8,
+"start_s": 3.75,
+"start_frame": 663,
+"end_s": 4.04,
+"end_frame_exclusive": 671
+},
+{
+"entry": "S02_B",
+"index": 9,
+"start_s": 4.04,
+"start_frame": 671,
+"end_s": 4.99,
+"end_frame_exclusive": 700
+},
+{
+"entry": "S03_A",
+"index": 1,
+"start_s": 1.15,
+"start_frame": 745,
+"end_s": 1.32,
+"end_frame_exclusive": 750
+},
+{
+"entry": "S03_A",
+"index": 2,
+"start_s": 1.32,
+"start_frame": 750,
+"end_s": 1.72,
+"end_frame_exclusive": 762
+},
+{
+"entry": "S03_A",
+"index": 3,
+"start_s": 1.72,
+"start_frame": 762,
+"end_s": 1.92,
+"end_frame_exclusive": 768
+},
+{
+"entry": "S03_A",
+"index": 4,
+"start_s": 1.92,
+"start_frame": 768,
+"end_s": 2.14,
+"end_frame_exclusive": 774
+},
+{
+"entry": "S03_A",
+"index": 5,
+"start_s": 2.14,
+"start_frame": 774,
+"end_s": 2.78,
+"end_frame_exclusive": 793
+},
+{
+"entry": "S03_A",
+"index": 6,
+"start_s": 3.21,
+"start_frame": 806,
+"end_s": 3.3,
+"end_frame_exclusive": 809
+},
+{
+"entry": "S03_A",
+"index": 7,
+"start_s": 3.3,
+"start_frame": 809,
+"end_s": 3.46,
+"end_frame_exclusive": 814
+},
+{
+"entry": "S03_A",
+"index": 8,
+"start_s": 3.46,
+"start_frame": 814,
+"end_s": 3.78,
+"end_frame_exclusive": 823
+},
+{
+"entry": "S03_A",
+"index": 9,
+"start_s": 3.78,
+"start_frame": 823,
+"end_s": 3.94,
+"end_frame_exclusive": 828
+},
+{
+"entry": "S03_A",
+"index": 10,
+"start_s": 3.94,
+"start_frame": 828,
+"end_s": 4.28,
+"end_frame_exclusive": 838
+},
+{
+"entry": "S03_A",
+"index": 11,
+"start_s": 5.02,
+"start_frame": 861,
+"end_s": 5.65,
+"end_frame_exclusive": 880
+},
+{
+"entry": "S03_B",
+"index": 1,
+"start_s": 0.07,
+"start_frame": 887,
+"end_s": 0.22,
+"end_frame_exclusive": 892
+},
+{
+"entry": "S03_B",
+"index": 2,
+"start_s": 0.3,
+"start_frame": 894,
+"end_s": 0.86,
+"end_frame_exclusive": 911
+},
+{
+"entry": "S03_B",
+"index": 3,
+"start_s": 1.26,
+"start_frame": 923,
+"end_s": 1.74,
+"end_frame_exclusive": 937
+},
+{
+"entry": "S03_B",
+"index": 4,
+"start_s": 2.29,
+"start_frame": 954,
+"end_s": 2.64,
+"end_frame_exclusive": 964
+},
+{
+"entry": "S03_B",
+"index": 5,
+"start_s": 3.08,
+"start_frame": 977,
+"end_s": 3.2,
+"end_frame_exclusive": 981
+},
+{
+"entry": "S03_B",
+"index": 6,
+"start_s": 3.2,
+"start_frame": 981,
+"end_s": 3.97,
+"end_frame_exclusive": 1004
+},
+{
+"entry": "S04_A",
+"index": 1,
+"start_s": 0.76,
+"start_frame": 1033,
+"end_s": 0.94,
+"end_frame_exclusive": 1038
+},
+{
+"entry": "S04_A",
+"index": 2,
+"start_s": 0.94,
+"start_frame": 1038,
+"end_s": 1.68,
+"end_frame_exclusive": 1060
+},
+{
+"entry": "S04_A",
+"index": 3,
+"start_s": 1.68,
+"start_frame": 1060,
+"end_s": 2.1,
+"end_frame_exclusive": 1073
+},
+{
+"entry": "S04_A",
+"index": 4,
+"start_s": 2.1,
+"start_frame": 1073,
+"end_s": 2.48,
+"end_frame_exclusive": 1084
+},
+{
+"entry": "S04_A",
+"index": 5,
+"start_s": 2.48,
+"start_frame": 1084,
+"end_s": 3.1,
+"end_frame_exclusive": 1103
+},
+{
+"entry": "S04_A",
+"index": 6,
+"start_s": 3.5,
+"start_frame": 1115,
+"end_s": 3.64,
+"end_frame_exclusive": 1119
+},
+{
+"entry": "S04_A",
+"index": 7,
+"start_s": 3.64,
+"start_frame": 1119,
+"end_s": 4.39,
+"end_frame_exclusive": 1142
+},
+{
+"entry": "S04_B",
+"index": 1,
+"start_s": 0.24,
+"start_frame": 1157,
+"end_s": 0.5,
+"end_frame_exclusive": 1165
+},
+{
+"entry": "S04_B",
+"index": 2,
+"start_s": 1.23,
+"start_frame": 1187,
+"end_s": 1.42,
+"end_frame_exclusive": 1193
+},
+{
+"entry": "S04_B",
+"index": 3,
+"start_s": 1.42,
+"start_frame": 1193,
+"end_s": 1.82,
+"end_frame_exclusive": 1205
+},
+{
+"entry": "S04_B",
+"index": 4,
+"start_s": 1.82,
+"start_frame": 1205,
+"end_s": 2.3,
+"end_frame_exclusive": 1219
+},
+{
+"entry": "S04_B",
+"index": 5,
+"start_s": 2.48,
+"start_frame": 1224,
+"end_s": 2.64,
+"end_frame_exclusive": 1229
+},
+{
+"entry": "S04_B",
+"index": 6,
+"start_s": 2.75,
+"start_frame": 1233,
+"end_s": 3.3,
+"end_frame_exclusive": 1249
+},
+{
+"entry": "S04_B",
+"index": 7,
+"start_s": 3.3,
+"start_frame": 1249,
+"end_s": 3.56,
+"end_frame_exclusive": 1257
+},
+{
+"entry": "S04_B",
+"index": 8,
+"start_s": 3.69,
+"start_frame": 1261,
+"end_s": 4.16,
+"end_frame_exclusive": 1275
+},
+{
+"entry": "S04_B",
+"index": 9,
+"start_s": 4.34,
+"start_frame": 1280,
+"end_s": 5.2,
+"end_frame_exclusive": 1306
+},
+{
+"entry": "S05_A",
+"index": 1,
+"start_s": 0.86,
+"start_frame": 1336,
+"end_s": 1.12,
+"end_frame_exclusive": 1344
+},
+{
+"entry": "S05_A",
+"index": 2,
+"start_s": 1.6,
+"start_frame": 1358,
+"end_s": 1.7,
+"end_frame_exclusive": 1361
+},
+{
+"entry": "S05_A",
+"index": 3,
+"start_s": 1.7,
+"start_frame": 1361,
+"end_s": 2.2,
+"end_frame_exclusive": 1376
+},
+{
+"entry": "S05_A",
+"index": 4,
+"start_s": 2.2,
+"start_frame": 1376,
+"end_s": 2.72,
+"end_frame_exclusive": 1392
+},
+{
+"entry": "S05_A",
+"index": 5,
+"start_s": 2.72,
+"start_frame": 1392,
+"end_s": 2.98,
+"end_frame_exclusive": 1399
+},
+{
+"entry": "S05_A",
+"index": 6,
+"start_s": 2.98,
+"start_frame": 1399,
+"end_s": 3.28,
+"end_frame_exclusive": 1408
+},
+{
+"entry": "S05_A",
+"index": 7,
+"start_s": 3.28,
+"start_frame": 1408,
+"end_s": 3.74,
+"end_frame_exclusive": 1422
+},
+{
+"entry": "S05_A",
+"index": 8,
+"start_s": 3.74,
+"start_frame": 1422,
+"end_s": 4.06,
+"end_frame_exclusive": 1432
+},
+{
+"entry": "S05_A",
+"index": 9,
+"start_s": 4.06,
+"start_frame": 1432,
+"end_s": 4.82,
+"end_frame_exclusive": 1455
+},
+{
+"entry": "S05_A",
+"index": 10,
+"start_s": 4.82,
+"start_frame": 1455,
+"end_s": 5.34,
+"end_frame_exclusive": 1470
+},
+{
+"entry": "S05_A",
+"index": 11,
+"start_s": 5.34,
+"start_frame": 1470,
+"end_s": 6.04,
+"end_frame_exclusive": 1491
+},
+{
+"entry": "S05_B",
+"index": 1,
+"start_s": 0.07,
+"start_frame": 1497,
+"end_s": 0.34,
+"end_frame_exclusive": 1505
+},
+{
+"entry": "S05_B",
+"index": 2,
+"start_s": 0.46,
+"start_frame": 1509,
+"end_s": 0.72,
+"end_frame_exclusive": 1517
+},
+{
+"entry": "S05_B",
+"index": 3,
+"start_s": 1.4,
+"start_frame": 1537,
+"end_s": 1.6,
+"end_frame_exclusive": 1543
+},
+{
+"entry": "S05_B",
+"index": 4,
+"start_s": 1.6,
+"start_frame": 1543,
+"end_s": 2.1,
+"end_frame_exclusive": 1558
+},
+{
+"entry": "S05_B",
+"index": 5,
+"start_s": 2.1,
+"start_frame": 1558,
+"end_s": 2.36,
+"end_frame_exclusive": 1566
+},
+{
+"entry": "S05_B",
+"index": 6,
+"start_s": 2.36,
+"start_frame": 1566,
+"end_s": 2.72,
+"end_frame_exclusive": 1577
+},
+{
+"entry": "S05_B",
+"index": 7,
+"start_s": 2.72,
+"start_frame": 1577,
+"end_s": 3.7,
+"end_frame_exclusive": 1606
+},
+{
+"entry": "S06_A",
+"index": 1,
+"start_s": 1.09,
+"start_frame": 1643,
+"end_s": 1.28,
+"end_frame_exclusive": 1648
+},
+{
+"entry": "S06_A",
+"index": 2,
+"start_s": 1.28,
+"start_frame": 1648,
+"end_s": 1.92,
+"end_frame_exclusive": 1668
+},
+{
+"entry": "S06_A",
+"index": 3,
+"start_s": 1.92,
+"start_frame": 1668,
+"end_s": 2.66,
+"end_frame_exclusive": 1690
+},
+{
+"entry": "S06_A",
+"index": 4,
+"start_s": 2.66,
+"start_frame": 1690,
+"end_s": 3.0,
+"end_frame_exclusive": 1700
+},
+{
+"entry": "S06_A",
+"index": 5,
+"start_s": 3.0,
+"start_frame": 1700,
+"end_s": 3.18,
+"end_frame_exclusive": 1705
+},
+{
+"entry": "S06_A",
+"index": 6,
+"start_s": 3.18,
+"start_frame": 1705,
+"end_s": 3.6,
+"end_frame_exclusive": 1718
+},
+{
+"entry": "S06_A",
+"index": 7,
+"start_s": 3.84,
+"start_frame": 1725,
+"end_s": 3.98,
+"end_frame_exclusive": 1729
+},
+{
+"entry": "S06_A",
+"index": 8,
+"start_s": 3.98,
+"start_frame": 1729,
+"end_s": 4.46,
+"end_frame_exclusive": 1744
+},
+{
+"entry": "S06_A",
+"index": 9,
+"start_s": 5.0,
+"start_frame": 1760,
+"end_s": 5.64,
+"end_frame_exclusive": 1779
+},
+{
+"entry": "S06_B",
+"index": 1,
+"start_s": 0.08,
+"start_frame": 1787,
+"end_s": 0.26,
+"end_frame_exclusive": 1793
+},
+{
+"entry": "S06_B",
+"index": 2,
+"start_s": 0.26,
+"start_frame": 1793,
+"end_s": 0.52,
+"end_frame_exclusive": 1801
+},
+{
+"entry": "S06_B",
+"index": 3,
+"start_s": 0.52,
+"start_frame": 1801,
+"end_s": 0.78,
+"end_frame_exclusive": 1808
+},
+{
+"entry": "S06_B",
+"index": 4,
+"start_s": 0.88,
+"start_frame": 1811,
+"end_s": 1.32,
+"end_frame_exclusive": 1825
+},
+{
+"entry": "S06_B",
+"index": 5,
+"start_s": 2.01,
+"start_frame": 1845,
+"end_s": 2.4,
+"end_frame_exclusive": 1857
+},
+{
+"entry": "S06_B",
+"index": 6,
+"start_s": 2.9,
+"start_frame": 1872,
+"end_s": 3.02,
+"end_frame_exclusive": 1876
+},
+{
+"entry": "S06_B",
+"index": 7,
+"start_s": 3.21,
+"start_frame": 1881,
+"end_s": 3.44,
+"end_frame_exclusive": 1888
+},
+{
+"entry": "S06_B",
+"index": 8,
+"start_s": 3.44,
+"start_frame": 1888,
+"end_s": 4.27,
+"end_frame_exclusive": 1913
+},
+{
+"entry": "S06_B",
+"index": 9,
+"start_s": 5.19,
+"start_frame": 1941,
+"end_s": 5.7,
+"end_frame_exclusive": 1956
+},
+{
+"entry": "S06_B",
+"index": 10,
+"start_s": 6.28,
+"start_frame": 1973,
+"end_s": 6.46,
+"end_frame_exclusive": 1979
+},
+{
+"entry": "S06_B",
+"index": 11,
+"start_s": 6.46,
+"start_frame": 1979,
+"end_s": 6.98,
+"end_frame_exclusive": 1994
+},
+{
+"entry": "S06_B",
+"index": 12,
+"start_s": 7.52,
+"start_frame": 2011,
+"end_s": 7.82,
+"end_frame_exclusive": 2020
+},
+{
+"entry": "S06_B",
+"index": 13,
+"start_s": 7.82,
+"start_frame": 2020,
+"end_s": 8.38,
+"end_frame_exclusive": 2036
+},
+{
+"entry": "S06_B",
+"index": 14,
+"start_s": 9.02,
+"start_frame": 2056,
+"end_s": 9.1,
+"end_frame_exclusive": 2058
+},
+{
+"entry": "S06_B",
+"index": 15,
+"start_s": 9.48,
+"start_frame": 2069,
+"end_s": 9.64,
+"end_frame_exclusive": 2074
+},
+{
+"entry": "S06_B",
+"index": 16,
+"start_s": 9.64,
+"start_frame": 2074,
+"end_s": 10.66,
+"end_frame_exclusive": 2105
+}
+],
+"expected_moved": [
+{
+"entry": "S01_A",
+"word": "look",
+"old_start_frame": 141,
+"new_start_frame": 146
+},
+{
+"entry": "S01_B",
+"word": "is",
+"old_start_frame": 253,
+"new_start_frame": 256
+},
+{
+"entry": "S01_B",
+"word": "smooth",
+"old_start_frame": 290,
+"new_start_frame": 292
+},
+{
+"entry": "S02_A",
+"word": "Where",
+"old_start_frame": 470,
+"new_start_frame": 477
+},
+{
+"entry": "S02_B",
+"word": "comes",
+"old_start_frame": 557,
+"new_start_frame": 562
+},
+{
+"entry": "S02_B",
+"word": "dairy",
+"old_start_frame": 587,
+"new_start_frame": 597
+},
+{
+"entry": "S02_B",
+"word": "cows",
+"old_start_frame": 606,
+"new_start_frame": 613
+},
+{
+"entry": "S02_B",
+"word": "green",
+"old_start_frame": 659,
+"new_start_frame": 663
+},
+{
+"entry": "S03_A",
+"word": "when",
+"old_start_frame": 793,
+"new_start_frame": 806
+},
+{
+"entry": "S03_B",
+"word": "tastes",
+"old_start_frame": 892,
+"new_start_frame": 894
+},
+{
+"entry": "S03_B",
+"word": "creamy",
+"old_start_frame": 911,
+"new_start_frame": 923
+},
+{
+"entry": "S03_B",
+"word": "fresh",
+"old_start_frame": 952,
+"new_start_frame": 954
+},
+{
+"entry": "S04_A",
+"word": "or",
+"old_start_frame": 1103,
+"new_start_frame": 1115
+},
+{
+"entry": "S04_B",
+"word": "I",
+"old_start_frame": 1183,
+"new_start_frame": 1187
+},
+{
+"entry": "S04_B",
+"word": "both",
+"old_start_frame": 1219,
+"new_start_frame": 1224
+},
+{
+"entry": "S04_B",
+"word": "warm",
+"old_start_frame": 1229,
+"new_start_frame": 1233
+},
+{
+"entry": "S04_B",
+"word": "cold",
+"old_start_frame": 1257,
+"new_start_frame": 1261
+},
+{
+"entry": "S05_A",
+"word": "has",
+"old_start_frame": 1344,
+"new_start_frame": 1358
+},
+{
+"entry": "S06_A",
+"word": "from",
+"old_start_frame": 1718,
+"new_start_frame": 1725
+},
+{
+"entry": "S06_B",
+"word": "yogurt",
+"old_start_frame": 1808,
+"new_start_frame": 1811
+},
+{
+"entry": "S06_B",
+"word": "cheese",
+"old_start_frame": 1842,
+"new_start_frame": 1845
+},
+{
+"entry": "S06_B",
+"word": "ice",
+"old_start_frame": 1876,
+"new_start_frame": 1881
+},
+{
+"entry": "S06_B",
+"word": "Yummy",
+"old_start_frame": 1940,
+"new_start_frame": 1941
+},
+{
+"entry": "S06_B",
+"word": "grow",
+"old_start_frame": 2008,
+"new_start_frame": 2011
+},
+{
+"entry": "S06_B",
+"word": "stay",
+"old_start_frame": 2058,
+"new_start_frame": 2069
+}
+],
+"expected_q1": {
+"words_tested": 44,
+"early_words": [
+"S01_B:liquid"
+],
+"late_words": [
+"S01_B:and",
+"S04_A:Can",
+"S04_B:Yes",
+"S06_B:and",
+"S06_B:and"
+],
+"rows": [
+{
+"entry": "S01_A",
+"index": 1,
+"lit_frame": 116,
+"onset_frame": 116,
+"delta_f": 0
+},
+{
+"entry": "S01_A",
+"index": 2,
+"lit_frame": 146,
+"onset_frame": 146,
+"delta_f": 0
+},
+{
+"entry": "S01_A",
+"index": 3,
+"lit_frame": 174,
+"onset_frame": 173,
+"delta_f": 1
+},
+{
+"entry": "S01_A",
+"index": 4,
+"lit_frame": 178,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S01_A",
+"index": 5,
+"lit_frame": 186,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S01_A",
+"index": 6,
+"lit_frame": 194,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S01_A",
+"index": 7,
+"lit_frame": 204,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S01_B",
+"index": 1,
+"lit_frame": 242,
+"onset_frame": 242,
+"delta_f": 0
+},
+{
+"entry": "S01_B",
+"index": 2,
+"lit_frame": 256,
+"onset_frame": 256,
+"delta_f": 0
+},
+{
+"entry": "S01_B",
+"index": 3,
+"lit_frame": 260,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S01_B",
+"index": 4,
+"lit_frame": 292,
+"onset_frame": 292,
+"delta_f": 0
+},
+{
+"entry": "S01_B",
+"index": 5,
+"lit_frame": 331,
+"onset_frame": 328,
+"delta_f": 3
+},
+{
+"entry": "S01_B",
+"index": 6,
+"lit_frame": 335,
+"onset_frame": 346,
+"delta_f": -11
+},
+{
+"entry": "S01_B",
+"index": 7,
+"lit_frame": 361,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S02_A",
+"index": 1,
+"lit_frame": 425,
+"onset_frame": 425,
+"delta_f": 0
+},
+{
+"entry": "S02_A",
+"index": 2,
+"lit_frame": 428,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S02_A",
+"index": 3,
+"lit_frame": 477,
+"onset_frame": 477,
+"delta_f": 0
+},
+{
+"entry": "S02_A",
+"index": 4,
+"lit_frame": 483,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S02_A",
+"index": 5,
+"lit_frame": 490,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S02_A",
+"index": 6,
+"lit_frame": 497,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S02_A",
+"index": 7,
+"lit_frame": 505,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S02_A",
+"index": 8,
+"lit_frame": 514,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S02_A",
+"index": 9,
+"lit_frame": 524,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S02_B",
+"index": 1,
+"lit_frame": 552,
+"onset_frame": 552,
+"delta_f": 0
+},
+{
+"entry": "S02_B",
+"index": 2,
+"lit_frame": 562,
+"onset_frame": 562,
+"delta_f": 0
+},
+{
+"entry": "S02_B",
+"index": 3,
+"lit_frame": 573,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S02_B",
+"index": 4,
+"lit_frame": 597,
+"onset_frame": 597,
+"delta_f": 0
+},
+{
+"entry": "S02_B",
+"index": 5,
+"lit_frame": 613,
+"onset_frame": 613,
+"delta_f": 0
+},
+{
+"entry": "S02_B",
+"index": 6,
+"lit_frame": 624,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S02_B",
+"index": 7,
+"lit_frame": 651,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S02_B",
+"index": 8,
+"lit_frame": 663,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S02_B",
+"index": 9,
+"lit_frame": 671,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S03_A",
+"index": 1,
+"lit_frame": 745,
+"onset_frame": 744,
+"delta_f": 1
+},
+{
+"entry": "S03_A",
+"index": 2,
+"lit_frame": 750,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S03_A",
+"index": 3,
+"lit_frame": 762,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S03_A",
+"index": 4,
+"lit_frame": 768,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S03_A",
+"index": 5,
+"lit_frame": 774,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S03_A",
+"index": 6,
+"lit_frame": 806,
+"onset_frame": 806,
+"delta_f": 0
+},
+{
+"entry": "S03_A",
+"index": 7,
+"lit_frame": 809,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S03_A",
+"index": 8,
+"lit_frame": 814,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S03_A",
+"index": 9,
+"lit_frame": 823,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S03_A",
+"index": 10,
+"lit_frame": 828,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S03_A",
+"index": 11,
+"lit_frame": 861,
+"onset_frame": 861,
+"delta_f": 0
+},
+{
+"entry": "S03_B",
+"index": 1,
+"lit_frame": 887,
+"onset_frame": 887,
+"delta_f": 0
+},
+{
+"entry": "S03_B",
+"index": 2,
+"lit_frame": 894,
+"onset_frame": 894,
+"delta_f": 0
+},
+{
+"entry": "S03_B",
+"index": 3,
+"lit_frame": 923,
+"onset_frame": 923,
+"delta_f": 0
+},
+{
+"entry": "S03_B",
+"index": 4,
+"lit_frame": 954,
+"onset_frame": 954,
+"delta_f": 0
+},
+{
+"entry": "S03_B",
+"index": 5,
+"lit_frame": 977,
+"onset_frame": 975,
+"delta_f": 2
+},
+{
+"entry": "S03_B",
+"index": 6,
+"lit_frame": 981,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S04_A",
+"index": 1,
+"lit_frame": 1033,
+"onset_frame": 1026,
+"delta_f": 7
+},
+{
+"entry": "S04_A",
+"index": 2,
+"lit_frame": 1038,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S04_A",
+"index": 3,
+"lit_frame": 1060,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S04_A",
+"index": 4,
+"lit_frame": 1073,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S04_A",
+"index": 5,
+"lit_frame": 1084,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S04_A",
+"index": 6,
+"lit_frame": 1115,
+"onset_frame": 1115,
+"delta_f": 0
+},
+{
+"entry": "S04_A",
+"index": 7,
+"lit_frame": 1119,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S04_B",
+"index": 1,
+"lit_frame": 1157,
+"onset_frame": 1152,
+"delta_f": 5
+},
+{
+"entry": "S04_B",
+"index": 2,
+"lit_frame": 1187,
+"onset_frame": 1187,
+"delta_f": 0
+},
+{
+"entry": "S04_B",
+"index": 3,
+"lit_frame": 1193,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S04_B",
+"index": 4,
+"lit_frame": 1205,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S04_B",
+"index": 5,
+"lit_frame": 1224,
+"onset_frame": 1224,
+"delta_f": 0
+},
+{
+"entry": "S04_B",
+"index": 6,
+"lit_frame": 1233,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S04_B",
+"index": 7,
+"lit_frame": 1249,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S04_B",
+"index": 8,
+"lit_frame": 1261,
+"onset_frame": 1261,
+"delta_f": 0
+},
+{
+"entry": "S04_B",
+"index": 9,
+"lit_frame": 1280,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S05_A",
+"index": 1,
+"lit_frame": 1336,
+"onset_frame": 1336,
+"delta_f": 0
+},
+{
+"entry": "S05_A",
+"index": 2,
+"lit_frame": 1358,
+"onset_frame": 1358,
+"delta_f": 0
+},
+{
+"entry": "S05_A",
+"index": 3,
+"lit_frame": 1361,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S05_A",
+"index": 4,
+"lit_frame": 1376,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S05_A",
+"index": 5,
+"lit_frame": 1392,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S05_A",
+"index": 6,
+"lit_frame": 1399,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S05_A",
+"index": 7,
+"lit_frame": 1408,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S05_A",
+"index": 8,
+"lit_frame": 1422,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S05_A",
+"index": 9,
+"lit_frame": 1432,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S05_A",
+"index": 10,
+"lit_frame": 1455,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S05_A",
+"index": 11,
+"lit_frame": 1470,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S05_B",
+"index": 1,
+"lit_frame": 1497,
+"onset_frame": 1497,
+"delta_f": 0
+},
+{
+"entry": "S05_B",
+"index": 2,
+"lit_frame": 1509,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S05_B",
+"index": 3,
+"lit_frame": 1537,
+"onset_frame": 1536,
+"delta_f": 1
+},
+{
+"entry": "S05_B",
+"index": 4,
+"lit_frame": 1543,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S05_B",
+"index": 5,
+"lit_frame": 1558,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S05_B",
+"index": 6,
+"lit_frame": 1566,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S05_B",
+"index": 7,
+"lit_frame": 1577,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S06_A",
+"index": 1,
+"lit_frame": 1643,
+"onset_frame": 1643,
+"delta_f": 0
+},
+{
+"entry": "S06_A",
+"index": 2,
+"lit_frame": 1648,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S06_A",
+"index": 3,
+"lit_frame": 1668,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S06_A",
+"index": 4,
+"lit_frame": 1690,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S06_A",
+"index": 5,
+"lit_frame": 1700,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S06_A",
+"index": 6,
+"lit_frame": 1705,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S06_A",
+"index": 7,
+"lit_frame": 1725,
+"onset_frame": 1725,
+"delta_f": 0
+},
+{
+"entry": "S06_A",
+"index": 8,
+"lit_frame": 1729,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S06_A",
+"index": 9,
+"lit_frame": 1760,
+"onset_frame": 1760,
+"delta_f": 0
+},
+{
+"entry": "S06_B",
+"index": 1,
+"lit_frame": 1787,
+"onset_frame": 1787,
+"delta_f": 0
+},
+{
+"entry": "S06_B",
+"index": 2,
+"lit_frame": 1793,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S06_B",
+"index": 3,
+"lit_frame": 1801,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S06_B",
+"index": 4,
+"lit_frame": 1811,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S06_B",
+"index": 5,
+"lit_frame": 1845,
+"onset_frame": 1845,
+"delta_f": 0
+},
+{
+"entry": "S06_B",
+"index": 6,
+"lit_frame": 1872,
+"onset_frame": 1869,
+"delta_f": 3
+},
+{
+"entry": "S06_B",
+"index": 7,
+"lit_frame": 1881,
+"onset_frame": 1881,
+"delta_f": 0
+},
+{
+"entry": "S06_B",
+"index": 8,
+"lit_frame": 1888,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S06_B",
+"index": 9,
+"lit_frame": 1941,
+"onset_frame": 1941,
+"delta_f": 0
+},
+{
+"entry": "S06_B",
+"index": 10,
+"lit_frame": 1973,
+"onset_frame": 1971,
+"delta_f": 2
+},
+{
+"entry": "S06_B",
+"index": 11,
+"lit_frame": 1979,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S06_B",
+"index": 12,
+"lit_frame": 2011,
+"onset_frame": 2010,
+"delta_f": 1
+},
+{
+"entry": "S06_B",
+"index": 13,
+"lit_frame": 2020,
+"onset_frame": null,
+"delta_f": null
+},
+{
+"entry": "S06_B",
+"index": 14,
+"lit_frame": 2056,
+"onset_frame": 2052,
+"delta_f": 4
+},
+{
+"entry": "S06_B",
+"index": 15,
+"lit_frame": 2069,
+"onset_frame": 2069,
+"delta_f": 0
+},
+{
+"entry": "S06_B",
+"index": 16,
+"lit_frame": 2074,
+"onset_frame": null,
+"delta_f": null
+}
+]
+}
+}

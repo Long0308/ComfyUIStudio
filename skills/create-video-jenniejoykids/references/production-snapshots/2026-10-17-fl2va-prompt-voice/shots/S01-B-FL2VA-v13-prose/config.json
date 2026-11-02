@@ -1,0 +1,44 @@
+{
+  "video_manifest": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\stages-v9\\video.json",
+  "installed_object_info": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\installed-object-info-live-v12.json",
+  "carry_in_first_frame": true,
+  "segments": [
+    {
+      "segment_id": "S01_B",
+      "video_manifest": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\stages-v9\\video.json",
+      "reference_images": [
+        "JennieKidJoys_S01_v10_A119.png"
+      ],
+      "reference_bindings": [
+        {
+          "path": "JennieKidJoys_S01_v10_A119.png",
+          "role": "rear_view_identity_and_spatial_layout",
+          "character_ids": [
+            "alice",
+            "mother",
+            "father"
+          ],
+          "status": "available",
+          "scope": "Actualv9A lastUSEDframe119, native864x480 lossless PNG. FullA motion visualpass. Onlyincomingreference;no rejected clipguide."
+        }
+      ],
+      "reference_audio": "JennieJoyKids_alice-voice-reference.wav",
+      "guide_audio": "JennieJoyKids_S01_B-guide.wav",
+      "width": 864,
+      "height": 480,
+      "steps": 20,
+      "seed": 4341,
+      "output_prefix": "JennieKidJoys/Scene-01-B-FL2VA-v13-prose/S01_B",
+      "editorial_frames": 120,
+      "dialogue_presentation": "voiceover",
+      "native_speech_conditioning": false,
+      "guide_frames": [],
+      "guide_clips": [],
+      "first_frame": "JennieKidJoys_S01_v10_A119.png",
+      "scene_label": "Scene 1B - FL2VA First Last Continuation",
+      "script_md": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-01\\SCENE.md",
+      "last_frame": "JennieKidJoys_S01_v10_B119.png",
+      "scheduler": "simple"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "bridge-containment-junction-and-global-heartbeat",
+  "engine": "Hybrid Claude bridge custom node + jenniejoy-comfy MCP (T-E21, staged, not installed)",
+  "environment": "Windows host, account without symlink privilege; ComfyUI Docker shared user folder",
+  "observed_at": "2026-10-27",
+  "symptom": "(1) Path containment was checked against the inbox/outbox sub-folder instead of the claude-bridge root: a junctioned inbox let write_request write outside the root (critic junction probe). The symlink test was silently skipped on this account, so the suite never exercised it. (2) Every MCP tool call refreshed the chat heartbeat, so any unrelated call made 'auto' choose the chat route and wait up to 600 s. (3) INSTALL overwrote a FROZEN file without a backup or sha-verified rollback.",
+  "root_cause": "Containment helper scoped to the wrong base; liveness tied to process activity instead of bridge listening; install doc written without the frozen-file procedure.",
+  "root_cause_status": "measured_by_critic_probe",
+  "fix_or_workaround": "Round 2 sent to the builder: root-level containment + reparse-point refusal + junction test that runs without privilege; heartbeat only from bridge_* tools; INSTALL backs up the frozen helper with sha and restores it on rollback.",
+  "prevention": "A security test that is skipped on the target machine is not coverage: provide a privilege-free variant (junctions on Windows). Liveness signals must come from the component that actually serves the route. Any install step touching a FROZEN file needs backup + sha + rollback + FROZEN-EP04.json update.",
+  "verification": "critic-te21 report + junction_probe.py; pending round-2 re-run.",
+  "status": "fix_in_progress",
+  "evidence_paths": [".agents/skills/comfyui-video-pipeline/custom_nodes/jenniejoy_claude_bridge/bridge_core.py"],
+  "affected_artifacts": []
+}

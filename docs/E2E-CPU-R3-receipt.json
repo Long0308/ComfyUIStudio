@@ -1,0 +1,29 @@
+{
+  "TaskId": "E2E-CPU-R3",
+  "ParentSessionId": "30c5e1c7-1da0-4a7c-9d0b-6b6f93b352aa",
+  "role": "tester",
+  "checks_finished": true,
+  "overall_verdict": "FAIL",
+  "gpu_approval_supplied": false,
+  "gpu_submitted": false,
+  "engine_code_edited": false,
+  "output_confinement": "FAIL: automatic production UI JSON/index refresh by jjv",
+  "pytest": {
+    "exit": 1,
+    "junit_tests": 4005,
+    "passed": 1259,
+    "failures": 2,
+    "errors": 2741,
+    "skipped": 3,
+    "seconds": 667.828,
+    "later_collect_count": 4034,
+    "normal_terminal_summary": false
+  },
+  "runs": {
+    "NT-S02_A": "FAIL",
+    "NT-S07_A": "FAIL",
+    "JJ-S01_A": "FAIL"
+  },
+  "report": "docs/e2e-r3-2026-11-01/E2E-R3-REPORT.md",
+  "finished_utc": "2026-11-01T02:08:45.486741+00:00"
+}

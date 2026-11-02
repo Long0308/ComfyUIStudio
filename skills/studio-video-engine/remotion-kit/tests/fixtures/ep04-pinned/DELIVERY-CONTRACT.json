@@ -1,0 +1,51 @@
+{
+  "film_id": "04-milk-and-mom",
+  "title": "Milk and Mom",
+  "production_domain": "jenniejoy_cartoon_3d",
+  "contract_revision": "2580-end-card-2026-10-27",
+  "supersedes": "DELIVERY-CONTRACT.pre-2580.json",
+  "master": {
+    "width": 3840,
+    "height": 2160,
+    "fps": 30,
+    "duration_s": 86.0,
+    "frames": 2580,
+    "main_film_duration_s": 84,
+    "main_film_frames": 2520,
+    "end_card_frames": 60,
+    "end_card_duration_s": 2.0,
+    "status": "not_rendered"
+  },
+  "end_card": {
+    "kind": "jenniejoy_logo",
+    "frames": 60,
+    "duration_s": 2.0,
+    "starts_at_frame": 2520,
+    "separate_from_main_film": true,
+    "status": "not_rendered"
+  },
+  "film_2k": {
+    "width": 2560,
+    "height": 1440,
+    "fps": 30,
+    "duration_s": 86.0,
+    "frames": 2580,
+    "method": "lanczos",
+    "source": "master",
+    "rule": "downscale of the finished 4K master only; never rendered from review or native clips; actual ffprobe must show 2560x1440 and 2580 frames",
+    "status": "not_rendered"
+  },
+  "review": {
+    "width": 1920,
+    "height": 1080,
+    "label": "REVIEW 1080p · native upscaled",
+    "label_rule": "every review cut carries the label REVIEW 1080p · native upscaled (1920x1080 made from the native clips, not the 4K master); review sizes never fulfil master or film_2k",
+    "optional": true
+  },
+  "native_motion_fps": 24,
+  "restoration_model": "SeedVR2 7B",
+  "delivery_rule": "actual ffprobe4K+fullAVreview; preview dimensions never fulfillMaster",
+  "picture_rule": "reusecanonicalAlice/Mother,new episode04footage only",
+  "source_policy": "authorizedhybridimagegen+localComfyUI H3/restoration",
+  "updated_at": "2026-10-27T13:08:51.695234+07:00"
+}

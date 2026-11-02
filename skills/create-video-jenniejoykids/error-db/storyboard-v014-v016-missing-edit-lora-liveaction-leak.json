@@ -1,0 +1,26 @@
+{
+  "affected_artifacts": [
+    "04-milk-and-mom",
+    "storyboard-layout-v014",
+    "storyboard-layout-v015",
+    "storyboard-layout-v016"
+  ],
+  "engine": "ComfyUI (Krea2 Turbo + EditModelPatch)",
+  "symptom": "v014 produced a dark graybox without foliage/depth; v015 had a black sky void; v016 sky composite was blocked with blocked_missing_required_edit_lora. The failed route also attempted live-action body/head swap nodes in the cartoon pipeline.",
+  "observed_at": "2026-10-26",
+  "status": "resolved",
+  "verification": "S01_A_SKY_COMPOSITE_BLOCKER.json correctly blocked GPU submission, and the live /object_info/LoRA inspection confirmed the bare graph lacked a task-compatible edit LoRA. Resolution scope is graph rejection/domain isolation, not visual acceptance of a replacement cartoon image.",
+  "limitations": "No stylized cartoon background was generated from the bare Krea2 graph. Either Krea2 Identity Edit V2 or General Edit V2 may be correct depending on the task; the alternate hybrid cartoon route remains required until the replacement graph and output are reviewed.",
+  "root_cause": "Krea2EditModelPatch requires a task-compatible V2 edit LoRA immediately after UNETLoader: identity edit for person restaging or general edit for instruction-based scene/attribute changes. The incident graph was bare while photorealistic swap LoRAs were present instead. NEWTECONS live-action nodes were also inappropriately attempted in the stylized cartoon route.",
+  "fix_or_workaround": "Preflight the selected task-compatible LoRA, its upstream binding and installed hash, then withhold graph generation when it is missing or mismatched. Enforce strict domain isolation between jenniejoy_cartoon_3d and newtecons_live_action.",
+  "prevention": "Select and verify the identity-versus-general edit LoRA according to task before queuing. Never require General Edit for every edit and never import photorealistic swap nodes into the cartoon 3D pipeline.",
+  "id": "storyboard-v014-v016-missing-edit-lora-liveaction-leak",
+  "root_cause_status": "confirmed",
+  "evidence_paths": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/storyboard-layout-v014/VISUAL-REVIEW.md",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/storyboard-layout-v015/VISUAL-REVIEW.md",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/storyboard-layout-v016/S01_A_SKY_COMPOSITE_BLOCKER.json",
+    "production-local/ComfyUI/custom_nodes/comfyui-krea2edit/README.md"
+  ],
+  "environment": "Windows, RTX 5080, Docker Comfyui-Studio :8188"
+}

@@ -1,0 +1,61 @@
+{
+  "assets": [
+    {
+      "node": "30",
+      "file": "JennieKidJoys_S01_v8_A0.png",
+      "exists": true,
+      "live_inventory": true
+    },
+    {
+      "node": "7",
+      "file": "JennieJoyKids_S01_A-guide.wav",
+      "exists": true,
+      "live_inventory": true
+    },
+    {
+      "node": "8",
+      "file": "JennieKidJoys_S01_v8_A0.png",
+      "exists": true,
+      "live_inventory": true
+    },
+    {
+      "node": "100",
+      "file": "JennieKidJoys_S01_v9_A_rear-guide.mkv",
+      "exists": true,
+      "live_inventory": true
+    },
+    {
+      "node": "1030",
+      "file": "JennieKidJoys_S01_v8_B60.png",
+      "exists": true,
+      "live_inventory": true
+    },
+    {
+      "node": "1007",
+      "file": "JennieJoyKids_S01_B-guide.wav",
+      "exists": true,
+      "live_inventory": true
+    },
+    {
+      "node": "1100",
+      "file": "JennieKidJoys_S01_v8_B8.png",
+      "exists": true,
+      "live_inventory": true
+    },
+    {
+      "node": "1102",
+      "file": "JennieKidJoys_S01_v9_B_rear-guide.mkv",
+      "exists": true,
+      "live_inventory": true
+    },
+    {
+      "node": "1106",
+      "file": "JennieKidJoys_S01_v8_B119.png",
+      "exists": true,
+      "live_inventory": true
+    }
+  ],
+  "node_count": 62,
+  "status": "passed",
+  "inventory_schema": "LegacylistorCOMBO.options;priorprobeinspectedwrongbranch,notmissingassets"
+}

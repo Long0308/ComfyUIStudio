@@ -1,0 +1,19 @@
+{
+  "schema": "jjv/plan-policy/v1",
+  "version": "v001",
+  "note": "What a node may depend on. A key that is dropped here is declared NOT to change the node's output; keep the lists conservative (a missing drop only costs a re-composite, a wrong drop hides a stale segment).",
+  "video_slice": {
+    "drop_keys": ["audio", "audio_duration_s", "bytes", "method", "motivation", "speech_end_in_window_s", "h3_receipt_checks", "status"],
+    "comment": "pixels depend on captions (words startF/endF/text), icon events, transitions, cards, ending, picture/icon/logo SHA. `path`/`*_path` keys are always dropped: content identity is the sha."
+  },
+  "audio_slice": {
+    "drop_keys": ["bytes", "status", "note", "sections_LUFS", "sections", "mix_peak_dBFS", "task", "schema", "mix", "config", "audio_duration_s"],
+    "include_word_windows": false,
+    "comment": "ep04 ducks under the speech windows measured from the dialogue WAVs (mix-plan-v014.json speech_windows_merged_s), not under caption word timing, so a word-timing fix leaves the mix untouched (review-hd-v015 mux-proof: decoded audio md5 equals v014). The kit's segdeps.cjs audioSlice DOES include word windows; set include_word_windows true for a recipe that ducks from them."
+  },
+  "pins": {
+    "keys": ["compositor_sha256", "remotion_version", "chromium_gl"],
+    "comment": "render_script sha is NOT a pin: ep04 forks the script every version and the pixels do not depend on its file name"
+  },
+  "master": {"scale": 2}
+}

@@ -1,0 +1,18 @@
+{
+  "schema": "jjv/qa-preflight-recipe/v1",
+  "id": "preflight-v001",
+  "comment": "Thresholds of `jjv qa preflight`: every check that needs NO rendered pixels. The pacing floors (logo still, card length) and the icon thresholds are NOT repeated here: they come from review-gates-v001 (one number, one place; a config qa.review block may only tighten them). Only what the review recipe has no key for lives below. same_framing_ncc_min_source is calibrated on six ep04 boundaries measured on SOURCE clip frames: user-rejected same-seat flashes 0.54 and 0.33, accepted layout changes 0.135 / 0.122 / 0.045 / 0.018 (the rendered-frame threshold of Q3 is 0.35; the render adds identical captions to both sides, which raises its NCC, so the source threshold is lower).",
+  "timing": {"recipe_id": "timing/words-onset-v003"},
+  "transitions": {
+    "same_framing_ncc_min_source": 0.25,
+    "flash_renders_as": ["dip_white", "bloom"],
+    "native_frame_policy": "outgoing = frame before the window, incoming = first frame after it, both mapped to the SOURCE clip by native_frames / delivery_frames"
+  },
+  "icons": {
+    "distinct_words_need_distinct_files": true
+  },
+  "audio": {
+    "brand_voice_guard_s": 0.2,
+    "music_vocal_gate_required": "PASS"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "yue2-abc-planner-ends-song-before-max-duration",
+  "engine": "YuE2 3B int8 via ComfyUI 0.41 native nodes (YuE2GenerateABC -> YuE2GenerateMusic -> KSampler)",
+  "environment": "Episode 04 audio/music-yue2-v001 (T-A10), Comfyui-Studio RTX 5080",
+  "observed_at": "2026-10-27",
+  "symptom": "Three instrumental candidates requested with max_duration 150 s came back 57.3, 59.4 and 113.0 s; takes 2 and 3 (empty 8-section lyric skeleton, 'about 2 minutes 30 seconds long' in style) gave 34-108 s. No truncation warning in the log: the model emitted its end token.",
+  "root_cause": "With ABC planning on, the planner writes a score of its own length and the semantic stage stops at the planned end; max_duration is only a cap (budget) and is not a target. Off mode (no ABC) runs to the cap but ends abruptly (pilot 'reached its token budget').",
+  "root_cause_status": "measured_nine_runs",
+  "fix_or_workaround": "Keep the longest natural-ending take per candidate (>= 3 takes, same seed, text variants) and extend to timeline+3 s on CPU with audio/music-yue2-v001/tools/loop_extend.py (bar-aligned envelope-matched loop point, 0.25 s equal-power crossfade, natural ending kept, .loop.json written).",
+  "prevention": "Treat max_duration as an upper bound; plan the take/loop step from the start; record output seconds per take in the manifest; never promise a single-shot >= 115 s bed from YuE2.",
+  "verification": "audio/music-yue2-v001/manifest.json takes[] (9 runs) and receipts/MUSIC-STATUS.json loop_extension.",
+  "status": "resolved_with_workaround",
+  "evidence_paths": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/audio/music-yue2-v001/manifest.json",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/audio/music-yue2-v001/receipts/MUSIC-STATUS.json"
+  ],
+  "affected_artifacts": []
+}

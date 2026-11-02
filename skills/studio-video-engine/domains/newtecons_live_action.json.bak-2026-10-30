@@ -1,0 +1,21 @@
+{
+  "schema": "jjv/domain/v1",
+  "domain_id": "newtecons_live_action",
+  "label": "NEWTECONS live action",
+  "frame_rates": {
+    "native_fps": 24,
+    "delivery_fps": 24,
+    "mapping": { "num": 1, "den": 1 }
+  },
+  "delivery": {
+    "master": { "width": 1920, "height": 1080, "fps": 24 },
+    "length": { "main_frames_min": 240, "main_frames_max": 4320 },
+    "review": { "width": 1280, "height": 720 }
+  },
+  "forbidden_node_classes": ["ClaudeNode", "JJClaudeBridge"],
+  "forbid_partner_nodes": true,
+  "allowed_custom_nodes": ["comfyui-krea2edit", "newtecons_live_preview", "newtecons_branding"],
+  "allowed_recipes": [],
+  "voice": { "allowed_recipes": [], "require_listen_approval": true },
+  "audio": { "allowed_recipes": [] }
+}

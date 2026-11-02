@@ -1,0 +1,23 @@
+{
+  "id": "qa-gate-placed-where-old-and-new-agree-ghost-and-dip-false-pass",
+  "engine": "studio-video-engine qa transitions (T-E34): engine/qa/transitions_run.py",
+  "environment": "Windows 11, full-resolution transition frames for ep04 v005 / v012 / v015",
+  "observed_at": "2026-10-28",
+  "symptom": "Two false PASS results: the T-E34 ghost check was silently skipped when window frames were missing, and a dip with no measured peak returned PASS.",
+  "root_cause": "Measured in the first version of the gate: the ghost check had no UNCERTAIN branch for incomplete windows, and the dip check set status PASS by default when measured peak was None. The first negative controls sat on inputs where the old and new readings coincide (the ghost and dip paths were exercised only on fully readable windows and on a scheduled peak), so the gate was never tested on the case where they differ. Current location: engine/qa/transitions_run.py:111-116 (_ghost_incomplete, UNCERTAIN with missing_frames), :125-126 (proxy None -> UNCERTAIN), :183-185 (dip measured None -> UNCERTAIN, 'the dip peak is unverified' when no schedule either).",
+  "root_cause_status": "measured (plan section 5 entries 2026-10-29 T-E34 and the critic finding 'dip peak None -> PASS'); current sha256 engine/qa/transitions_run.py c742f223c0b1bd3ec8d6eb0ac403e369b78fccbeb174be2d2b486865eae123e0",
+  "fix_or_workaround": "Incomplete window -> ghost UNCERTAIN listing the missing frames; no measured peak and no schedule -> dip UNCERTAIN; no word timing -> dip UNCERTAIN. Accepted: 3 negative controls FAIL for the right reason (v012 same-seat flashes, v005 double exposure, plus the cli exit-1 path) and shipped v015 PASS 28/28 (plan entry 2026-10-29 ~00:30).",
+  "verification": "tests/test_qa_transitions.py::test_incomplete_window_records_an_uncertain_ghost_check_with_the_missing_frames (:237); ::test_dip_with_no_readable_window_and_no_schedule_is_uncertain (:257); ::test_dip_starting_at_frame_zero_does_not_crash_and_is_uncertain (:268); ::test_windows_outside_the_file_are_skipped_and_all_skipped_is_uncertain (:134); negative controls ::test_v012_same_seat_white_flash_windows_fail (:171), ::test_v005_dissolve_double_exposure_fails_with_the_measured_ghost (:180), ::test_cli_writes_a_stamped_receipt_and_exits_1_on_a_negative_control (:189). Positive control ::test_shipped_v015_clip_around_the_dip_passes_with_measured_numbers (:204).",
+  "prevention": "Rule to keep: a gate's test must include a case where the old and new code DISAGREE (for ghost, an incomplete window; for dip, a window with no readable frame and no schedule). A test where both readings agree proves nothing. Missing data must map to UNCERTAIN, never to PASS by default. Before a gate is shipped, check that a negative control turns it red for the right reason.",
+  "status": "fixed (accepted by root 2026-10-29 ~00:30)",
+  "evidence_paths": [
+    "production-local/engine/WAVE-2026-10-28-PLAN.md",
+    ".agents/skills/studio-video-engine/engine/qa/transitions_run.py",
+    ".agents/skills/studio-video-engine/tests/test_qa_transitions.py"
+  ],
+  "affected_artifacts": [
+    "ep04 v005 dissolve",
+    "ep04 v012 white flash",
+    "ep04 v015 positive control"
+  ]
+}

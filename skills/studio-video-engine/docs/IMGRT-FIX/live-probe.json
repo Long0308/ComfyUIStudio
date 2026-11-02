@@ -1,0 +1,87 @@
+{
+  "episode": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\Newtecons-TienDo-KichTinh-30s\\engine\\episode.json",
+  "queue": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\engine\\staging\\newtecons-30s\\image-batches-r005f\\queue-r005f.json",
+  "queue_sha256": "2e707950b74ce0f3f2ef606aa175ca6f653fc29388a491e02382925ab12543a4",
+  "submitted": false,
+  "results": [
+    {
+      "batch": "batch-01-CHAR_08-ACTION.json",
+      "items": 9,
+      "cleared": 9,
+      "blocked": 0
+    },
+    {
+      "batch": "batch-02f-CHAR_01-FACE.json",
+      "items": 10,
+      "cleared": 10,
+      "blocked": 0
+    },
+    {
+      "batch": "batch-03-CHAR_01-ACTION.json",
+      "items": 8,
+      "cleared": 8,
+      "blocked": 0
+    },
+    {
+      "batch": "batch-04f-CHAR_02-FACE.json",
+      "items": 10,
+      "cleared": 10,
+      "blocked": 0
+    },
+    {
+      "batch": "batch-05-CHAR_02-ACTION.json",
+      "items": 6,
+      "cleared": 6,
+      "blocked": 0
+    },
+    {
+      "batch": "batch-06f-CHAR_03-FACE.json",
+      "items": 8,
+      "cleared": 8,
+      "blocked": 0
+    },
+    {
+      "batch": "batch-07-CHAR_03-ACTION.json",
+      "items": 7,
+      "cleared": 7,
+      "blocked": 0
+    },
+    {
+      "batch": "batch-08-CHAR_04-ACTION.json",
+      "items": 1,
+      "cleared": 1,
+      "blocked": 0
+    },
+    {
+      "batch": "batch-09f-CHAR_06-FACE.json",
+      "items": 10,
+      "cleared": 10,
+      "blocked": 0
+    },
+    {
+      "batch": "batch-10-CHAR_06-ACTION.json",
+      "items": 5,
+      "cleared": 5,
+      "blocked": 0
+    },
+    {
+      "batch": "batch-11f-CHAR_07-FACE.json",
+      "items": 10,
+      "cleared": 10,
+      "blocked": 0
+    },
+    {
+      "batch": "batch-12-CHAR_07-ACTION.json",
+      "items": 7,
+      "cleared": 7,
+      "blocked": 0
+    },
+    {
+      "batch": "batch-13-CHAR_05-ACTION.json",
+      "items": 4,
+      "cleared": 4,
+      "blocked": 0
+    }
+  ],
+  "total": 95
+}

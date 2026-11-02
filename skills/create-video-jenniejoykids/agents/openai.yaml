@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Video JennieJoyKids"
+  short_description: "Create consistent narrated films with local H3"
+  default_prompt: "Use $create-video-jenniejoykids to create a consistent character video from a JSON production brief."

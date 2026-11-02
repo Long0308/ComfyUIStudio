@@ -1,0 +1,6 @@
+{
+  "name": "jenniejoy-remotion-kit",
+  "private": true,
+  "description": "Config-driven Remotion compositor shared by review cuts and the 4K master. Remotion packages resolve from the workspace (see README).",
+  "scripts": {"test": "node --test \"tests/*.test.mjs\""}
+}

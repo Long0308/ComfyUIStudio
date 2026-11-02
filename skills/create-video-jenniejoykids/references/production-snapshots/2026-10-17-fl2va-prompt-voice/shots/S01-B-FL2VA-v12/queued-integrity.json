@@ -1,0 +1,177 @@
+{
+  "at_utc": "2026-10-16T20:57:54.459610+00:00",
+  "job_id": "17047713-25b5-4aae-9d64-754401b24b65",
+  "node_count": 27,
+  "all_required_class_and_inputs_equal": true,
+  "literal_prompt_19_equal": true,
+  "checks": [
+    {
+      "node": "1",
+      "class_equal": true,
+      "required_inputs_equal": true
+    },
+    {
+      "node": "2",
+      "class_equal": true,
+      "required_inputs_equal": true
+    },
+    {
+      "node": "3",
+      "class_equal": true,
+      "required_inputs_equal": true
+    },
+    {
+      "node": "4",
+      "class_equal": true,
+      "required_inputs_equal": true
+    },
+    {
+      "node": "19",
+      "class_equal": true,
+      "required_inputs_equal": true
+    },
+    {
+      "node": "6",
+      "class_equal": true,
+      "required_inputs_equal": true
+    },
+    {
+      "node": "7",
+      "class_equal": true,
+      "required_inputs_equal": true
+    },
+    {
+      "node": "8",
+      "class_equal": true,
+      "required_inputs_equal": true
+    },
+    {
+      "node": "10",
+      "class_equal": true,
+      "required_inputs_equal": true
+    },
+    {
+      "node": "11",
+      "class_equal": true,
+      "required_inputs_equal": true
+    },
+    {
+      "node": "12",
+      "class_equal": true,
+      "required_inputs_equal": true
+    },
+    {
+      "node": "13",
+      "class_equal": true,
+      "required_inputs_equal": true
+    },
+    {
+      "node": "14",
+      "class_equal": true,
+      "required_inputs_equal": true
+    },
+    {
+      "node": "15",
+      "class_equal": true,
+      "required_inputs_equal": true
+    },
+    {
+      "node": "16",
+      "class_equal": true,
+      "required_inputs_equal": true
+    },
+    {
+      "node": "17",
+      "class_equal": true,
+      "required_inputs_equal": true
+    },
+    {
+      "node": "18",
+      "class_equal": true,
+      "required_inputs_equal": true
+    },
+    {
+      "node": "50",
+      "class_equal": true,
+      "required_inputs_equal": true
+    },
+    {
+      "node": "52",
+      "class_equal": true,
+      "required_inputs_equal": true
+    },
+    {
+      "node": "51",
+      "class_equal": true,
+      "required_inputs_equal": true
+    },
+    {
+      "node": "53",
+      "class_equal": true,
+      "required_inputs_equal": true
+    },
+    {
+      "node": "54",
+      "class_equal": true,
+      "required_inputs_equal": true
+    },
+    {
+      "node": "55",
+      "class_equal": true,
+      "required_inputs_equal": true
+    },
+    {
+      "node": "58",
+      "class_equal": true,
+      "required_inputs_equal": true
+    },
+    {
+      "node": "56",
+      "class_equal": true,
+      "required_inputs_equal": true
+    },
+    {
+      "node": "57",
+      "class_equal": true,
+      "required_inputs_equal": true
+    },
+    {
+      "node": "20",
+      "class_equal": true,
+      "required_inputs_equal": true
+    }
+  ],
+  "frontend_additions": [
+    {
+      "node": "17",
+      "frontend_added_optional_defaults": {
+        "bit_depth": "auto",
+        "color_space": "sRGB",
+        "codec": "none"
+      }
+    },
+    {
+      "node": "18",
+      "frontend_added_optional_defaults": {
+        "format.codec": "auto"
+      }
+    },
+    {
+      "node": "56",
+      "frontend_added_optional_defaults": {
+        "bit_depth": "auto",
+        "color_space": "sRGB",
+        "codec": "none"
+      }
+    },
+    {
+      "node": "57",
+      "frontend_added_optional_defaults": {
+        "format.codec": "auto"
+      }
+    }
+  ],
+  "runtime_status": "queued_via_visible_Chrome_Run",
+  "artistic_acceptance": "pending",
+  "note": "Extra frontend CreateVideo/SaveVideo default fields recorded separately; every configured input checked."
+}

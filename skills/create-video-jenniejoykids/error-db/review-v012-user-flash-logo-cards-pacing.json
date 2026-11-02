@@ -1,0 +1,15 @@
+{
+  "id": "review-v012-user-flash-logo-cards-pacing",
+  "engine": "Review cut editorial (jenniejoy-remotion / review-hd-v012)",
+  "environment": "ep04 Milk and Mom, user review of v012, 2026-10-27",
+  "observed_at": "2026-10-27",
+  "symptom": "User: white flash at ~44 s with no scene change (T1310; T1010 same class); logo at 1:11-1:12 too fast to see (full logo 13 f); outro vocabulary cards too fast (24-47 f each, wanted >=3 s). s49-50 (motivated pan) OK.",
+  "root_cause": "The dip-to-white was chosen as the safe class for ANY pair with moved props (to avoid double exposure), without checking whether the camera angle/location changed; the ending timings were squeezed to keep the old 2580 f contract.",
+  "root_cause_status": "measured",
+  "fix_or_workaround": "v013: T1010/T1310 hard cut + gentle push-in (user option B), T1610 dip kept (location change); logo still >=60 f; 12 cards >=90 f; music bed extended; film length derived from the cards.",
+  "prevention": "Transition class follows what changes: same seat/angle + prop change -> cut (+ push-in); angle/scene change -> flash/pan. Pacing minimums: logo >=2 s still, vocab card >=3 s. Never squeeze content to an old frame count. Rules written into jenniejoy-remotion SKILL.",
+  "verification": "Root luma scan of v012: only bright frames f1310-1312 (43.67-43.73 s); frame stills of T1010/T1310/T1610; config ending: iris f2116-2140, full logo f2147-2159, cards f2160-2520.",
+  "status": "fix_in_progress",
+  "evidence_paths": ["production-local/JennieJoyKids-Story/04-milk-and-mom/editorial/review-hd-v012/config/review-config-v012.json"],
+  "affected_artifacts": ["editorial/review-hd-v008", "editorial/review-hd-v009", "editorial/review-hd-v010", "editorial/review-hd-v011", "editorial/review-hd-v012"]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "comfyui-cuda-illegal-instruction-lost-prompt-executor-hang",
+  "engine": "SeedVR2 7B 4K production (ComfyUI Docker Comfyui-Studio, RTX 5080) + frozen v004 executor",
+  "environment": "Episode 04 4K run (134 chunks), chunk S05_B/chunk-0006, 2026-10-27 13:58–14:52 local",
+  "observed_at": "2026-10-27",
+  "symptom": "ComfyUI aborted mid-chunk with `CUDA error: an illegal instruction was encountered` (cudaErrorIllegalInstruction, sticky) inside comfy/ldm/seedvr/color_fix.py lab_color_transfer → `Fatal Python error: Aborted`; the container restarted (restart: unless-stopped, RestartCount 1, ExitCode 0). The executor kept waiting ~50 min for prompt 2ffb356d…, which no longer existed (history empty, queue empty). Root then briefly started a second executor while the first (log-less) one was still alive — stopped before any dispatch.",
+  "root_cause": "GPU fault of unknown origin (sporadic illegal instruction on Blackwell during the colour-transfer step; not reproduced yet) + the executor has no lost-prompt detection: after a ComfyUI restart a durable prompt_id that is absent from /history and /queue is never classified, and automatic resubmission is (correctly) forbidden, so the run hangs instead of failing loudly. Operator slip: relaunch logged to a non-existent folder and the old process looked dead but was alive.",
+  "root_cause_status": "measured_crash_cause_unknown_gpu",
+  "fix_or_workaround": "Root stopped the stuck executor, archived chunk-0006 state with INCIDENT.json (runs/S05_B/chunk-0006/abandoned-cuda-crash-<ts>/), verified no partial outputs, queue empty, no lock, then ran a single executor with --execute --resume (logged to technical/seedvr2-production-v004/full-run-r27-resume2.log).",
+  "prevention": "Engine (T-E30): classify a dispatched prompt as LOST only when ALL hold — container StartedAt is later than the dispatch time, the prompt is absent from /history and /queue, and no output with the chunk prefix exists — then write a LOST receipt and allow exactly one automatic re-dispatch per chunk (configurable max_lost_retries in machine/recipe config), else stop loudly; add a stall watchdog (no job.json progress for N × expected seconds → alert); record GPU fault signatures from container logs into the receipt; single-executor guard (PID file + lock) so a second executor refuses to start. Operator: verify a process is dead (Get-Process by PID) and the log folder exists before relaunching.",
+  "verification": "docker logs 06:58–07:03Z (CUDA illegal instruction trace); docker inspect StartedAt 07:02:57Z; /history/<id> empty; resumed run monitored. | T-E30 built: engine/comfy/lost.py (LOST proof: container StartedAt > dispatch + absent from history/queue twice + no output), bounded re-dispatch (max_lost_retries default 1, counter = archive folders), stall watchdog, single-executor RUN-LOCK; fake-restart demo: LOST → re-dispatch → COMPLETED; 43 new tests.",
+  "status": "workaround_applied_engine_fix_built_pending_critic",
+  "evidence_paths": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/seedvr2-production-v004/runs/S05_B/chunk-0006"
+  ],
+  "affected_artifacts": []
+}

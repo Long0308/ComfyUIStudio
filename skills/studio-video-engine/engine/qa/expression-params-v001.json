@@ -1,0 +1,26 @@
+{
+  "schema": "jjv/qa-expression-params/v1",
+  "status": "đề xuất, chưa hiệu chỉnh",
+  "analysis_fps": 8.0,
+  "max_analysis_side": 640,
+  "frozen_face": {
+    "energy_floor": 0.004,
+    "frozen_pair_fraction_fail": 0.8,
+    "minimum_pairs": 6
+  },
+  "blink": {
+    "ear_closed_max": 0.18,
+    "luminance_dip_fraction": 0.1,
+    "min_blink_duration_s": 0.08,
+    "max_blink_duration_s": 0.45,
+    "minimum_observation_s": 2.0
+  },
+  "mouth_audio": {
+    "rms_window_s": 0.18,
+    "min_speech_rms": 0.015,
+    "min_active_fraction": 0.2,
+    "minimum_samples": 8,
+    "pass_at_or_above_correlation": 0.15,
+    "fail_below_correlation": -0.15
+  }
+}

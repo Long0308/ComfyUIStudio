@@ -1,0 +1,15 @@
+{
+  "id": "brand-intro-join-blank-white-frame-at-title-film-seam",
+  "engine": "_brand/intro-v001 join_intro_v001.py ([intro][title][film] lossless concat)",
+  "observed_at": "2026-10-27",
+  "symptom": "First joined CANDIDATE of ep04 with the brand intro had frame 527 (last title frame before the film) as a blank white frame — a 1-frame white flash at the seam; root caught it on a contact sheet before the user saw it.",
+  "root_cause": "Title card composition ended on an empty white frame (fade/clear on its last frame) before the hard cut to the film.",
+  "root_cause_status": "measured (per-frame luma: r3 f505–527 = 238–239 with the title visible, f528 = 145 film start)",
+  "fix_or_workaround": "Title card holds its last visible frame to the cut; seam_luma.py --from 505 --to 535 --seam 528 gate added in _brand/intro-v001/tools; r3 published.",
+  "prevention": "Every segment join must run a seam luma/still check (no blank or pure-white frame unless the boundary is a designed flash at a real framing change — Q3 rule); look at a still strip of seam-3..seam+3 before showing the user.",
+  "status": "fixed",
+  "evidence_paths": [
+    "production-local/JennieJoyKids-Story/_brand/intro-v001/stills/seams/",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/editorial/master-4k-v005-with-intro/milk-and-mom-4K-2160p30-v005-with-intro-CANDIDATE-r3.JOIN-RECEIPT.json"
+  ]
+}

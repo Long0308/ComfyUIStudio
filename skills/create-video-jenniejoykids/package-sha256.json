@@ -1,0 +1,1716 @@
+{
+  "schema_version": "1.0",
+  "root": "create-video-jenniejoykids",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 8314,
+      "sha256": "a4c868b273b3d455d442de9e3d5da1559af79a08f78cebc5e0a59b3d8b27d027"
+    },
+    {
+      "path": "agents/openai.yaml",
+      "bytes": 251,
+      "sha256": "f7436cf50f89c702110d2c3352c9dc388e1cc8b654e79d39cf6752e43feaf2e8"
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/PROVENANCE.md",
+      "bytes": 2794,
+      "sha256": "eb44d89678e89ab2874af4fe040fc3e5589cc372648079481000b35120e8d4fb"
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/fonts/georgia-bold.ttf",
+      "bytes": 207476,
+      "sha256": "72a6cd94fab6c179392075d3fb361e269cdddfad41bb7ab385fa22a37e49a900"
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/fonts/trebuchet.ttf",
+      "bytes": 254396,
+      "sha256": "fe3e8bdd64c1c9f3b9cf5189d06510c80d72cec28e03d04bffc560f77eec58d1"
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/hyperframes.json",
+      "bytes": 60,
+      "sha256": "834bf11fb6658fc43114bfa87587833bfc7b7ae38ea44c7ef33947a55bafdc63"
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/index.html",
+      "bytes": 3157,
+      "sha256": "ff6a99fa6cf41bc620fbb7ba667a040a56496fb9fdeb52ba4e9018ca9d152b06"
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/index.motion.json",
+      "bytes": 192,
+      "sha256": "aa51cbc91e78621f08ed2792019136a569a8c046bc99d88c09fd47178b477dee"
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/qa/brand-sting-preview.png",
+      "bytes": 91022,
+      "sha256": "faf8d7287d39292136601e3e1d88b3b332455d0eaf3e534d74ecac82855d70df"
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/qa/check.json",
+      "bytes": 2577,
+      "sha256": "01c0da8f26950eab084c9a42172de2dfe31fa8d6f473c6d77592d9ddf96a9860"
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/qa/ffprobe.json",
+      "bytes": 3080,
+      "sha256": "107ffef1cc7751d2516c1157e5e14401d8512d2c5c8a18f5e99764286ba6f77f"
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/qa/render.log",
+      "bytes": 11114,
+      "sha256": "251e850be3c3e5d96d82fea08fe029cf551d5c3e6ee9c6269ebbf3c4b2b666ad"
+    },
+    {
+      "path": "assets/baseline-remotion/hyperframes/vendor/gsap.min.js",
+      "bytes": 72927,
+      "sha256": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb"
+    },
+    {
+      "path": "assets/baseline-remotion/package.json",
+      "bytes": 638,
+      "sha256": "e469c1121a96a017686ec2cf80f9534911251ee354878d45c795adf8adef923a"
+    },
+    {
+      "path": "assets/baseline-remotion/remotion.config.ts",
+      "bytes": 185,
+      "sha256": "38d33761182042194846d4fcd412ce7bfad9b797340a42e883497f41e897aca2"
+    },
+    {
+      "path": "assets/baseline-remotion/src/ZooFilm.tsx",
+      "bytes": 6296,
+      "sha256": "2a025cb24fdc3ecbce8c749b5b79f0a744db160422706690a2cdd9150f3ab70d"
+    },
+    {
+      "path": "assets/baseline-remotion/src/dialogue.json",
+      "bytes": 4507,
+      "sha256": "17d55222bf1d2261851e1395d46efe73025ac67961e9433adeeac8e81c535c6a"
+    },
+    {
+      "path": "assets/baseline-remotion/src/index.tsx",
+      "bytes": 480,
+      "sha256": "5ec8c2790c9e7c22e9a2ec9ba9abeb52e4539eadb098970d094c1a9612b0463e"
+    },
+    {
+      "path": "assets/baseline-remotion/tsconfig.json",
+      "bytes": 311,
+      "sha256": "a7383330882791b82798e4182ee011dd97ac6df3c8f721c45da8dc1440a0d549"
+    },
+    {
+      "path": "assets/comfyui/JennieJoyKids-H3-Video-Ready.json",
+      "bytes": 56937,
+      "sha256": "5f0b9da9e67531473fd0a47483a2250f07429af39f9f994fd50716a723a940fd"
+    },
+    {
+      "path": "assets/comfyui/JennieKidJoys-Zoo-Scenes-01-02.json",
+      "bytes": 121170,
+      "sha256": "925ab345fff4b3966426c4f3a2aff7055c2a2738e9cde93d6f7eba36e7325a1d"
+    },
+    {
+      "path": "assets/comfyui/Scene-1-Paired-v4-API-import.json",
+      "bytes": 52285,
+      "sha256": "9fa9516fdf847cb30a4b930cf22dc9ec9c615352202f1db75154aa07a099cd7d"
+    },
+    {
+      "path": "assets/comfyui/WORKFLOW-STATUS.md",
+      "bytes": 536,
+      "sha256": "48a852795c83b260f8a656f002aa481f9f20712582180ca1d7441529898cac8d"
+    },
+    {
+      "path": "assets/comfyui/h3-cpu-vae-device-routing.patch",
+      "bytes": 4533,
+      "sha256": "39795003a68567ae5cb5fc2a1f7e964de7a6aad5b2e0a5dbf72a1b66cb6a2e93"
+    },
+    {
+      "path": "assets/comfyui/upstream/LICENSE-ComfyUI.txt",
+      "bytes": 35823,
+      "sha256": "230184f60bae2feaf244f10a8bac053c8ff33a183bcc365b4d8b876d2b7f4809"
+    },
+    {
+      "path": "assets/comfyui/upstream/h3-r2v-template.json",
+      "bytes": 45323,
+      "sha256": "afeea99e9fd5a1456df348e0573e289c1243f2f28546fc95c1c963f808d61ddb"
+    },
+    {
+      "path": "assets/comfyui/upstream/nodes_minimax_h3.py",
+      "bytes": 30934,
+      "sha256": "108ceff11e5a5c9a34a57bbc380447cf9941beb673a1bd421abc818de54ccd5c"
+    },
+    {
+      "path": "assets/hyperframes-opening/brand-opening-v2.mp4",
+      "bytes": 72189,
+      "sha256": "e97a0c8b8e3750c1c109e86bdc96a3dcde8682f3b8251799c2f7329735503671"
+    },
+    {
+      "path": "assets/hyperframes-opening/fonts/georgia-bold.ttf",
+      "bytes": 207476,
+      "sha256": "72a6cd94fab6c179392075d3fb361e269cdddfad41bb7ab385fa22a37e49a900"
+    },
+    {
+      "path": "assets/hyperframes-opening/fonts/trebuchet.ttf",
+      "bytes": 254396,
+      "sha256": "fe3e8bdd64c1c9f3b9cf5189d06510c80d72cec28e03d04bffc560f77eec58d1"
+    },
+    {
+      "path": "assets/hyperframes-opening/hyperframes.json",
+      "bytes": 57,
+      "sha256": "253b146f99e58e1713f40a9d88c7296aff09b5d94765aa2cc0639e19fc545f13"
+    },
+    {
+      "path": "assets/hyperframes-opening/index.html",
+      "bytes": 2493,
+      "sha256": "50e550bd50e257f0ab95d94ab33eae6e992d942198188702001a777cc899eb5c"
+    },
+    {
+      "path": "assets/hyperframes-opening/index.motion.json",
+      "bytes": 195,
+      "sha256": "915d0320fd741894ce6f61b114fda78fab6c84114e81a22815f00432f90bd4ff"
+    },
+    {
+      "path": "assets/hyperframes-opening/render-inputs.json",
+      "bytes": 501,
+      "sha256": "11172251e46ac948ee16af3b371a9046a1498543c09bb4203ce2156e6660d87c"
+    },
+    {
+      "path": "assets/hyperframes-opening/render-receipt.json",
+      "bytes": 843,
+      "sha256": "4ff2120b1c3d312c561db5ebfd61d456e44c5633c9339054ac0872ecde4bbbd1"
+    },
+    {
+      "path": "assets/hyperframes-opening/vendor/gsap.min.js",
+      "bytes": 72927,
+      "sha256": "92bb9a96476f983d212a2bc4f54c889039c1696dd4461d40a736860938570fbb"
+    },
+    {
+      "path": "assets/production-brief/BRIEF.template.md",
+      "bytes": 2665,
+      "sha256": "2b96606a05c07358572833905a51e6c560142009394f499ecc4d23f482d4130d"
+    },
+    {
+      "path": "assets/production-brief/REFERENCE.template.md",
+      "bytes": 2203,
+      "sha256": "973688693951bf212faae8e22639155659a72833d807af883c0d0a6e6a773d3a"
+    },
+    {
+      "path": "assets/production-brief/zoo-current/BRIEF.md",
+      "bytes": 6088,
+      "sha256": "389ff8f71e048ad363f2d5521ccd3faff272fb8302a1ae0732db1e5034f96820"
+    },
+    {
+      "path": "assets/production-brief/zoo-current/REFERENCE.md",
+      "bytes": 3833,
+      "sha256": "aea3feff5325af370914ebb4c9854763007e90ef7e711116d40bbc438bbd880f"
+    },
+    {
+      "path": "assets/production-brief/zoo-current/production-request-v5.json",
+      "bytes": 231395,
+      "sha256": "f694d724fe10dc08bc6424efb570db186554e4d60edfa7c313d607da0baa0af7"
+    },
+    {
+      "path": "assets/production-brief/zoo-current/scenes/scene-01/SCENE.json",
+      "bytes": 32632,
+      "sha256": "b10a67eb91bf05cc661a70fa938e4f790a6922011536ed75fcb8de8381d1b291"
+    },
+    {
+      "path": "assets/production-brief/zoo-current/scenes/scene-01/SCENE.md",
+      "bytes": 33228,
+      "sha256": "2606f2fbd90751f1e9d66aee40bf3e8723a1647b2d25d9a50eb8914e73d9e618"
+    },
+    {
+      "path": "assets/production-brief/zoo-current/scenes/scene-01/SOUND-PLAN.json",
+      "bytes": 2045,
+      "sha256": "dea7fe04c2c998ed4aaf17e022b4c3a749d688855137a0e2ccbc0a913cc240f3"
+    },
+    {
+      "path": "assets/production-brief/zoo-current/scenes/scene-01/SOUND-PLAN.md",
+      "bytes": 1359,
+      "sha256": "9408a69b5e39c3e728463ed171434271d2a58e7bac8baec65b1638faabf1780f"
+    },
+    {
+      "path": "assets/production-brief/zoo-current/scenes/scene-02/SCENE.json",
+      "bytes": 33689,
+      "sha256": "fc18e6049fde1dc0bee7675c340bbb3f349bc56ea68c44d6cb702e2fcdd14342"
+    },
+    {
+      "path": "assets/production-brief/zoo-current/scenes/scene-02/SCENE.md",
+      "bytes": 34285,
+      "sha256": "54d93d7c6e677a7b78143ff686f6aac36c60125e7440cb7a98c7d31eaaf0c345"
+    },
+    {
+      "path": "assets/production-brief/zoo-current/scenes/scene-02/SOUND-PLAN.json",
+      "bytes": 1955,
+      "sha256": "f182a7b72903bf6f9420acbc327b32aae8080eee1bf30acf55a2663a4d69c68f"
+    },
+    {
+      "path": "assets/production-brief/zoo-current/scenes/scene-02/SOUND-PLAN.md",
+      "bytes": 1269,
+      "sha256": "a1be7c33d8f961553f00584b346aec72e56be39b9cfdcdf384e4b8449b45df7a"
+    },
+    {
+      "path": "assets/production-brief/zoo-current/scenes/scene-03/SCENE.json",
+      "bytes": 34036,
+      "sha256": "af7c3dc6d91987f8f148e19573f042ac5bcc8a9f39369c61883f63d2b73daaa2"
+    },
+    {
+      "path": "assets/production-brief/zoo-current/scenes/scene-03/SCENE.md",
+      "bytes": 34632,
+      "sha256": "fbf3276f5c3b41687c5bc5998372e4f89406373101895d8359141ad1d1398f9f"
+    },
+    {
+      "path": "assets/production-brief/zoo-current/scenes/scene-03/SOUND-PLAN.json",
+      "bytes": 1936,
+      "sha256": "eebd76149f3131b57b91e022a785306ea8d81ba313eebe777254da557711479f"
+    },
+    {
+      "path": "assets/production-brief/zoo-current/scenes/scene-03/SOUND-PLAN.md",
+      "bytes": 1253,
+      "sha256": "634e5becd3ae45003347878bf5d59203d907e452a802fc2225bf522a33d9d34f"
+    },
+    {
+      "path": "assets/production-brief/zoo-current/scenes/scene-04/SCENE.json",
+      "bytes": 34232,
+      "sha256": "412cc0fbc892d29e98219969d51b7433852d19b1aec32bab22a07ff97f5f5597"
+    },
+    {
+      "path": "assets/production-brief/zoo-current/scenes/scene-04/SCENE.md",
+      "bytes": 34828,
+      "sha256": "e0994f2443870c81a6855dabe9a42f3305938d819db4d6242dd363d394612390"
+    },
+    {
+      "path": "assets/production-brief/zoo-current/scenes/scene-04/SOUND-PLAN.json",
+      "bytes": 1977,
+      "sha256": "2a4f438fa1f480d454300f63e2450888c808fa3a2df4d3af9483cf9e7912e502"
+    },
+    {
+      "path": "assets/production-brief/zoo-current/scenes/scene-04/SOUND-PLAN.md",
+      "bytes": 1293,
+      "sha256": "68147394f9cf79d7a6cfc87d037611cdd28e0204514e9ee943a092aeb3cdbd27"
+    },
+    {
+      "path": "assets/production-brief/zoo-current/scenes/scene-05/SCENE.json",
+      "bytes": 34894,
+      "sha256": "ac40fe337fb7c90c736f21b1bfb59a0bf7cff56bbc3a0975d5eb910d8639513c"
+    },
+    {
+      "path": "assets/production-brief/zoo-current/scenes/scene-05/SCENE.md",
+      "bytes": 35490,
+      "sha256": "e9c2307421ed7dd204809ccd701acae7d4d5897dd1e21b990912125abc7c923d"
+    },
+    {
+      "path": "assets/production-brief/zoo-current/scenes/scene-05/SOUND-PLAN.json",
+      "bytes": 1995,
+      "sha256": "32f4e22a000ed68231bf8a13db3b567b1bbbe3fc28422f81992378b289a1e55e"
+    },
+    {
+      "path": "assets/production-brief/zoo-current/scenes/scene-05/SOUND-PLAN.md",
+      "bytes": 1313,
+      "sha256": "c0d7c3d594a62132e35b060531340e0f7f956d7dca8b8918adca8dd885740788"
+    },
+    {
+      "path": "assets/production-brief/zoo-current/scenes/scene-06/SCENE.json",
+      "bytes": 33467,
+      "sha256": "c7e9e4d42e01432d997ba6289a60f38249bb20caa29b56cde248fe2c75052b4a"
+    },
+    {
+      "path": "assets/production-brief/zoo-current/scenes/scene-06/SCENE.md",
+      "bytes": 34063,
+      "sha256": "00147188b98a6e98b501da198940e88f337515ea732df2258a4a5fa6cd3ed74a"
+    },
+    {
+      "path": "assets/production-brief/zoo-current/scenes/scene-06/SOUND-PLAN.json",
+      "bytes": 1947,
+      "sha256": "d9dca186cf71ffa4a6e905c306b4eacc59956336fdb77ba2b999fc2bba5a9d69"
+    },
+    {
+      "path": "assets/production-brief/zoo-current/scenes/scene-06/SOUND-PLAN.md",
+      "bytes": 1269,
+      "sha256": "1fc2693af6592fbd0c211da4c87fcf4ac3b1d88a69b91dcee58f43f7837b3175"
+    },
+    {
+      "path": "assets/references/alice-character-sheet-v1.png",
+      "bytes": 1983879,
+      "sha256": "e92e3e792179db49efba5fde7c0599e8a142048567808fa6f8ef347ec2f61075"
+    },
+    {
+      "path": "assets/references/alice1.jpg",
+      "bytes": 271870,
+      "sha256": "63b93c6f34f66f5b64e198513b42130bef17307925f8932fc114ca40f12f7db8"
+    },
+    {
+      "path": "assets/references/alice2.jpg",
+      "bytes": 429186,
+      "sha256": "34e637e44d13baab055a7cf04ea150aad861136f9b24858c235c15b9bdce9d60"
+    },
+    {
+      "path": "assets/references/entry-outside-gate-v3.png",
+      "bytes": 2474716,
+      "sha256": "a5b3a3e268d6e001866fac648c37281fac97b718469417cea48735555e34f987"
+    },
+    {
+      "path": "assets/references/family-reference-higgsfield.png",
+      "bytes": 3343246,
+      "sha256": "88ae818f0a84b9f4aef8ef7d218afb0dad20f554f1c7ac1a7969ec9dfa95428f"
+    },
+    {
+      "path": "assets/references/rc-trang-02.mp3.wav",
+      "bytes": 416684,
+      "sha256": "ce1767dade2208915817bb826285d6a1c992eb492ef84d4fe3dd1103cd497478"
+    },
+    {
+      "path": "assets/remotion-template/eslint.config.mjs",
+      "bytes": 369,
+      "sha256": "cd07cf782b82e9dbb7aa6ad87e51823dd846db8ed899a66a03d75fb2da1c4e18"
+    },
+    {
+      "path": "assets/remotion-template/package-lock.json",
+      "bytes": 188791,
+      "sha256": "9764e9efb051316f8fccf31ab209975e3663bce23b005b050bc13b2c5d6ad911"
+    },
+    {
+      "path": "assets/remotion-template/package.json",
+      "bytes": 967,
+      "sha256": "448ab4382a0e375f900bf14440eb5f4da462ad101baac417d98c38abcd2d99cb"
+    },
+    {
+      "path": "assets/remotion-template/remotion.config.ts",
+      "bytes": 186,
+      "sha256": "63db3fcbe795fc49d0602b25798140e896806c8868719ea8bad269cbe7cc1f0a"
+    },
+    {
+      "path": "assets/remotion-template/src/Film.tsx",
+      "bytes": 2938,
+      "sha256": "0ab7fef9713d6bfe890cf93adbab8f1696c708b0d0c257c20ab8ac9ad19d9f88"
+    },
+    {
+      "path": "assets/remotion-template/src/config.ts",
+      "bytes": 5005,
+      "sha256": "03e0ec8e2881595aa40dfb9110377f0532b4356888a1328456c7c01adc724518"
+    },
+    {
+      "path": "assets/remotion-template/src/film.json",
+      "bytes": 251,
+      "sha256": "fbf9eff8cde57a9dfe534f9cbd879fa81bb9c9301498478c98ebc0f1b72b0a3e"
+    },
+    {
+      "path": "assets/remotion-template/src/index.tsx",
+      "bytes": 1027,
+      "sha256": "2929f10329864d40360cd0d9514c19d0ad6136f3152c087b59b57606128bafce"
+    },
+    {
+      "path": "assets/remotion-template/test-config.cjs",
+      "bytes": 4546,
+      "sha256": "80c5e85e6ec77cc52a9afebd6d5e282f473c7c00819442976383fea8ca521f9c"
+    },
+    {
+      "path": "assets/remotion-template/tsconfig.json",
+      "bytes": 254,
+      "sha256": "0bd5eb9b89bb9ea6ca41d54759eb8859533868c75b8825eeaeaf2ca99ab483f4"
+    },
+    {
+      "path": "assets/sfx-library-v2/USAGE.md",
+      "bytes": 621,
+      "sha256": "12292d1a1c842bb0aec8d65bd3a71b83b1d7e3cc157dca2c6f23a2fa7e4d4e41"
+    },
+    {
+      "path": "assets/sfx-library-v2/assets/adult-shoe-a.wav",
+      "bytes": 46124,
+      "sha256": "f27018aa8c79dec15044b3ba4361b6e42990bb020166e392f86415c646a5088a"
+    },
+    {
+      "path": "assets/sfx-library-v2/assets/adult-shoe-b.wav",
+      "bytes": 46124,
+      "sha256": "97ec48c0fadd3ae2faa8db4bb17139c53b641185c4347ac4ffec3fa8e01800f9"
+    },
+    {
+      "path": "assets/sfx-library-v2/assets/banana-tiny-bite.wav",
+      "bytes": 51884,
+      "sha256": "f7c61e754719f1fbe7093bacdd3aad84d387351ed97aa08129e5a5aefa7ec787"
+    },
+    {
+      "path": "assets/sfx-library-v2/assets/bird-chirp-pair.wav",
+      "bytes": 99884,
+      "sha256": "99c0fa5f681c4d47386817bbc72cde0fec197f0ddc8794757ecc4bf2aa568fdb"
+    },
+    {
+      "path": "assets/sfx-library-v2/assets/bird-flutter.wav",
+      "bytes": 92204,
+      "sha256": "aebe2ead9233353fddec5b63272945431d02cb4132bee28d7e169e18d8136e7e"
+    },
+    {
+      "path": "assets/sfx-library-v2/assets/bottle-cap-click.wav",
+      "bytes": 42284,
+      "sha256": "6f99f3e1346bac1c3aeb23accf89da90a887331a9a54da7533d09853f4ce7b75"
+    },
+    {
+      "path": "assets/sfx-library-v2/assets/foliage-rustle.wav",
+      "bytes": 144044,
+      "sha256": "dbea4bc603e75b3b9d72a7ccd00f67d338fabb4cd97dc57d5a4ce5ab84b4d6ae"
+    },
+    {
+      "path": "assets/sfx-library-v2/assets/leaf-pluck.wav",
+      "bytes": 63404,
+      "sha256": "1534e349711db88af72e6d318a23b8a6798c42bf3ab31a21d58a7e7fa81b480a"
+    },
+    {
+      "path": "assets/sfx-library-v2/assets/panda-bamboo-nibble.wav",
+      "bytes": 76844,
+      "sha256": "833eb8d59dca2f6d40c6a340098ca5f36581bcff12231c2ef10adb7dd4a12119"
+    },
+    {
+      "path": "assets/sfx-library-v2/assets/snack-box-rustle.wav",
+      "bytes": 71084,
+      "sha256": "0e37334089c42cbad474548d0449c351f7528e8cff78ea7574085578a51ef206"
+    },
+    {
+      "path": "assets/sfx-library-v2/assets/tiger-purr-gentle-growl.wav",
+      "bytes": 182444,
+      "sha256": "48c715fd03c128758bb45c9e1c57c51274d5774186ef9d92ac9cd7f205b07568"
+    },
+    {
+      "path": "assets/sfx-library-v2/assets/tiger-soft-chuff.wav",
+      "bytes": 115244,
+      "sha256": "867e42f7a0e2d60c36d0ea20bf21824b1152cc941e929897e97224aaffab9e44"
+    },
+    {
+      "path": "assets/sfx-library-v2/assets/tiny-sip.wav",
+      "bytes": 119084,
+      "sha256": "92c04e149e69aa8bdb004272fb8ce02d1e5b506ca1a70d039a9e16f06ccb570a"
+    },
+    {
+      "path": "assets/sfx-library-v2/assets/toddler-step-a.wav",
+      "bytes": 34604,
+      "sha256": "7dbcb0eea46c10e2a99304a00059a55168c75c8da92145671e323412d14bad23"
+    },
+    {
+      "path": "assets/sfx-library-v2/assets/toddler-step-b.wav",
+      "bytes": 34604,
+      "sha256": "c7998be125db819a36b2b6be3fa551d9ae2aa4c998b775278fd0c896719b9190"
+    },
+    {
+      "path": "assets/sfx-library-v2/assets/wave-cloth.wav",
+      "bytes": 65324,
+      "sha256": "97d86bd924c1b77ede59d61687e1873bb822cd6843068b638506f658f105711b"
+    },
+    {
+      "path": "assets/sfx-library-v2/assets/zoo-leafy-air-12s.wav",
+      "bytes": 2304044,
+      "sha256": "3d988d130485ca6c750256306662a790fff71db3338ebb9ea03d5987cdbe103c"
+    },
+    {
+      "path": "assets/sfx-library-v2/manifest.json",
+      "bytes": 16184,
+      "sha256": "1d534a682e0a045c4891023fbf7f0564c8685bda21dbea5f3829c2c253ac6914"
+    },
+    {
+      "path": "assets/voice/native/S01_L1.wav",
+      "bytes": 108044,
+      "sha256": "ae49e101ea554e02e155e1aa739c90651b089b18b9df203e309920f90b5443a5"
+    },
+    {
+      "path": "assets/voice/native/S01_L2.wav",
+      "bytes": 111404,
+      "sha256": "9e81aa62a751695cc757b02f554d67c4988369d9a6ce3d7819262b0cc7ea5ff4"
+    },
+    {
+      "path": "assets/voice/native/S02_L1.wav",
+      "bytes": 118604,
+      "sha256": "cbe7709bc5270ff14a8ca05e7368f2be5a36abca2c64c678585a06379a16e37e"
+    },
+    {
+      "path": "assets/voice/native/S02_L2.wav",
+      "bytes": 126284,
+      "sha256": "a945787f6cb403752ceef2e0713fd8e8ecb3d9834df10dbd4efe4ad83d9f6ba5"
+    },
+    {
+      "path": "assets/voice/native/S03_L1.wav",
+      "bytes": 97964,
+      "sha256": "f8d49063f2ecc9ddd4519c563c5ce8982c693c23458b4268e55af13bdac7d5fe"
+    },
+    {
+      "path": "assets/voice/native/S03_L2.wav",
+      "bytes": 106124,
+      "sha256": "5dfe03dc219a32e05d8a6c0fbe888a99dd3ece21224b22baa163cfdff13c9202"
+    },
+    {
+      "path": "assets/voice/native/S04_L1.wav",
+      "bytes": 101804,
+      "sha256": "a0c82be23f9d2e920bc7e72fb0de3cf63112ca9003c272fc42330e752e66cb51"
+    },
+    {
+      "path": "assets/voice/native/S04_L2.wav",
+      "bytes": 130604,
+      "sha256": "0a39f6739a042f97d9f69e3d2af89703ced2ea089dfba155f66c75215c5a48d2"
+    },
+    {
+      "path": "assets/voice/native/S05_L1.wav",
+      "bytes": 95564,
+      "sha256": "1f7f0894b7243931dc748382aade8d3f5685f230ed210715b3b4350018809528"
+    },
+    {
+      "path": "assets/voice/native/S05_L2.wav",
+      "bytes": 141164,
+      "sha256": "eba082320b753bda89a5b0076d919591766939f54dcd64f50d361943e4804fff"
+    },
+    {
+      "path": "assets/voice/native/S06_L1.wav",
+      "bytes": 94124,
+      "sha256": "d5dc08c64aa8bc3bb287ef948b0a501559bd8b53c75c2710b2a9afb0ab275cf0"
+    },
+    {
+      "path": "assets/voice/native/S06_L2.wav",
+      "bytes": 101324,
+      "sha256": "faf1a9380d965668b48ca9eaa44edaf752cdabee4a284c0c35b56c0cb606df02"
+    },
+    {
+      "path": "assets/voice/scenes/canonical_S01-alice-10s.wav",
+      "bytes": 480044,
+      "sha256": "72c8a8f00132a3d5c732e2214c2052cf87713de0d1556a718b2adbd232818136"
+    },
+    {
+      "path": "assets/voice/scenes/canonical_S02-alice-10s.wav",
+      "bytes": 480044,
+      "sha256": "767e7086d573859b22e72d61ecb8d1cd915f4d8216a0f75209cb7808789ea978"
+    },
+    {
+      "path": "assets/voice/scenes/canonical_S03-alice-10s.wav",
+      "bytes": 480044,
+      "sha256": "60c83cc54819faf89d02215250e09c3554944b7a7aa53baa0cec0986adea4a9b"
+    },
+    {
+      "path": "assets/voice/scenes/canonical_S04-alice-10s.wav",
+      "bytes": 480044,
+      "sha256": "fc13e7c9f2f39dcf611d326a4421f68d92ef636c01a07475f73f383fff34a37f"
+    },
+    {
+      "path": "assets/voice/scenes/canonical_S05-alice-10s.wav",
+      "bytes": 480044,
+      "sha256": "813ff97eac0d78ce7b23aab073902ac5df5c2403d02fe936ef4d237109b9217e"
+    },
+    {
+      "path": "assets/voice/scenes/canonical_S06-alice-10s.wav",
+      "bytes": 480044,
+      "sha256": "d75477639b1932bcfb428566d22f47a2a8a3d8f93d4cdb1b5d7369a1d38d5aa8"
+    },
+    {
+      "path": "error-db/ASR-VAD-initial-word-omission-v1.json",
+      "bytes": 1001,
+      "sha256": "5a4101474457ca5a257d891bf9871204c06284417f80301710ad7a5d0cc1e3a4"
+    },
+    {
+      "path": "error-db/Alice-native-speech-unclear.json",
+      "bytes": 1280,
+      "sha256": "35b14a3860650324f1372bc7dcf3ce0225c1eac336e8a6cc122625af4b57ca0f"
+    },
+    {
+      "path": "error-db/Chrome-canvas-import-shortcut.json",
+      "bytes": 1076,
+      "sha256": "526b7cd8a0a64f33e72e7db5ee37d5c3de3dad2f985beb1ac90d033e19b07adb"
+    },
+    {
+      "path": "error-db/Comfy-UI-dynamic-prompt-JSON-truncation.json",
+      "bytes": 2072,
+      "sha256": "09ee2fa57a07b59e2a96af9ccd11b4976a659d86663fd63b5345187968793d9a"
+    },
+    {
+      "path": "error-db/Cross-job-first-editorial-frame-softguide-only.json",
+      "bytes": 1063,
+      "sha256": "6669d31d9125ceac54096be43a1f5eafab4d1342872442d0dfc0ac192a836624"
+    },
+    {
+      "path": "error-db/H3-FL2VA-frontal-detour-v12.json",
+      "bytes": 1900,
+      "sha256": "6cf0818767e2f1db64cf223f2102ebd062a6af1e3319c4ac6497876fa1de0b25"
+    },
+    {
+      "path": "error-db/H3-FL2VA-prose-still-front-v13.json",
+      "bytes": 1254,
+      "sha256": "9828fd533fa5a7f0c6b6a322abb51f8599fc00ef083e57554aef2a5c2290d455"
+    },
+    {
+      "path": "error-db/H3-FL2VA-seed4303-still-front-v14.json",
+      "bytes": 980,
+      "sha256": "65dd587a28470e196ed74dcbb562892c10d87f8ce6a9392ff2e144ba9a27c0d4"
+    },
+    {
+      "path": "error-db/H3-INT8-CPU-VAE-device.json",
+      "bytes": 1238,
+      "sha256": "3ada38aa84f793b7e6bee1b63ea33756ef5476575d248bb3fc2b82631ad33080"
+    },
+    {
+      "path": "error-db/H3-WIN1450-offload.json",
+      "bytes": 1129,
+      "sha256": "9da8266e9c1bcc228935bccf131dfd071ba994e369a1d8a40770bbc02e32a0c8"
+    },
+    {
+      "path": "error-db/H3-base-builder-explicit-scheduler-ignored.json",
+      "bytes": 807,
+      "sha256": "f52e4e9ab0cc8897cb286474e646d53f74157b36cb018dd9fc946d4d6f144e49"
+    },
+    {
+      "path": "error-db/H3-beta-vs-official-simple-schedule.json",
+      "bytes": 859,
+      "sha256": "07fb6dbbf97d897d0782ec801bd1a6a48b597709e3f74fc8209eef4f619add93"
+    },
+    {
+      "path": "error-db/H3-continuous-turnaround-neck-twist-second-12.json",
+      "bytes": 2273,
+      "sha256": "dd6e5c4160b0e13f3b256390b003bca3d40c207b74449e11c4befc55cddc6711"
+    },
+    {
+      "path": "error-db/H3-first-last-only-front-closeup-v10.json",
+      "bytes": 1165,
+      "sha256": "00982542da88f4d310054b07775b4cafd14a9cc2b6667764fe80526a742dee84"
+    },
+    {
+      "path": "error-db/H3-first-last-only-front-closeup-v11-simple.json",
+      "bytes": 1115,
+      "sha256": "01bc9d521621e30684bbbde9305c5e57171ce27621c8d016e513674e03f4bf8e"
+    },
+    {
+      "path": "error-db/H3-partial-clipguide-exposure-ghost-v9.json",
+      "bytes": 2515,
+      "sha256": "1472b3dcc5eb0354782c0267ade68702abd8c6905eccc767cc35dd4a1b85957a"
+    },
+    {
+      "path": "error-db/H3-rear-voice-body-reversal-v3.json",
+      "bytes": 5069,
+      "sha256": "2c2d1c7cb1ce092edf4bfa343d7a572e5819a31c0a42ee42f1fb501fe67cea85"
+    },
+    {
+      "path": "error-db/Image-guides-frontal-bias-and-back-heart.json",
+      "bytes": 1396,
+      "sha256": "7c39161996b7a757840aef32c97632914551ff78851b3e588bdf39951f6437b2"
+    },
+    {
+      "path": "error-db/Optical-guide-gap-reconstruction-ghost-v11.json",
+      "bytes": 421,
+      "sha256": "3d6d2c15c57fdad63c8d34bc5a89c0ce16642c98b303f342a465d396a6a3d85d"
+    },
+    {
+      "path": "error-db/Remotion-caption-over-toddler-feet-A5-v1.json",
+      "bytes": 2250,
+      "sha256": "ae6e2e700678646e73fa9f438aa3055f0202167ee1cdb69a9626a97ca070a5a4"
+    },
+    {
+      "path": "error-db/S01-B-direction-rejected.json",
+      "bytes": 1220,
+      "sha256": "5e46ec057472227395958b986c67086f7cdc056026ed05c2f46b91f1f65984bc"
+    },
+    {
+      "path": "error-db/Windows-Comfy-operator-path-and-inventory-preflight.json",
+      "bytes": 905,
+      "sha256": "7e06f772ec7b8c8f03cb61d2eb6a8fbfe7e133ad12ab7645a0074e6d7f6a1d19"
+    },
+    {
+      "path": "error-db/audio-one-sample-edge-fade.json",
+      "bytes": 809,
+      "sha256": "cf1222d1927f969440a0bc677aea83608c1eae28d337b4e5a1a2ed0d20b66a82"
+    },
+    {
+      "path": "error-db/ffmpeg-tiny-duration-scientific.json",
+      "bytes": 857,
+      "sha256": "7f052ae2042676eb29e0ef5c80a71b6b14d05c6a577dcb6895944533632609d8"
+    },
+    {
+      "path": "examples/expanded-education.json",
+      "bytes": 8726,
+      "sha256": "f3b69ffad96d812713ecf75f11c2f7e628d03eb79e15c505ed5dd349b9af0f7f"
+    },
+    {
+      "path": "examples/motion-zoo-entry.json",
+      "bytes": 8432,
+      "sha256": "6f639121caac0e86ca13fe2c088531a75f2cf77e672ef9f78fdcd6f429b0b783"
+    },
+    {
+      "path": "examples/zoo-60s.json",
+      "bytes": 79495,
+      "sha256": "38fb5c5f72e91a2800671e40c639ce41ed65fe5de7d17337f57c242918954b01"
+    },
+    {
+      "path": "references/H3-guide-timing-diagnosis.md",
+      "bytes": 12323,
+      "sha256": "d13f3439a2220917dac0e89df9808c56a4aa6ff02288bd42d2fe3ad3b2bec637"
+    },
+    {
+      "path": "references/LICENSE-awesome-gpt-image-2.txt",
+      "bytes": 1069,
+      "sha256": "27a75c48bac29eb78f43c19f75c4e175974c8f1046d848d5562eae1ead2f1176"
+    },
+    {
+      "path": "references/S01_A-voice-clarity.json",
+      "bytes": 1990,
+      "sha256": "c74c90081d4dc29c01605e303067a646178eb0a16ac1ae7fdd6a66c3fa0a2273"
+    },
+    {
+      "path": "references/audio-mixer.md",
+      "bytes": 9751,
+      "sha256": "ff40dcc0fede83532b94527a2cd10d2f6ccfd1f445b81ffd449c98872fa99c38"
+    },
+    {
+      "path": "references/baseline/actual-dialogue-clock.json",
+      "bytes": 4507,
+      "sha256": "17d55222bf1d2261851e1395d46efe73025ac67961e9433adeeac8e81c535c6a"
+    },
+    {
+      "path": "references/baseline/final-delivery.json",
+      "bytes": 5040,
+      "sha256": "7b24d6e56d0ae0cebb3c3949769260ab0f2d89952472e96a5b73b8ded373fdc4"
+    },
+    {
+      "path": "references/baseline/keyvisual-prompts.json",
+      "bytes": 17529,
+      "sha256": "a2c51d2781ec366cddec8b2028a6e44bbd924f98eb8db8fef0295f4b2d546fbd"
+    },
+    {
+      "path": "references/baseline/legacy-audio-reference-manifest.json",
+      "bytes": 8362,
+      "sha256": "2f0624160122ae9f44f6046364b90a23a35b350c167ae023021c3e0b730f45ef"
+    },
+    {
+      "path": "references/baseline/native-video-results.json",
+      "bytes": 2082,
+      "sha256": "a5d2dd9b94386f66ced8b72263322a1899738551981d5d6da7f5dc7338cbe60a"
+    },
+    {
+      "path": "references/baseline/production-state.json",
+      "bytes": 3641,
+      "sha256": "41c08b7aaa37944108c3a7ffac8ca251a38ea6ff8e6bb4b0ea6ecb8dd99ddda2"
+    },
+    {
+      "path": "references/baseline/scene-prompts.md",
+      "bytes": 39841,
+      "sha256": "5314497dd65043f4847a5bac936465d5c0e6b9fa40befbebb3f2e52f39f09f2d"
+    },
+    {
+      "path": "references/baseline/script.json",
+      "bytes": 68088,
+      "sha256": "4d620c8bef45721dd24b75c032e36e3ecfdc2b18af554776db905295ecf56e94"
+    },
+    {
+      "path": "references/baseline/script.md",
+      "bytes": 11938,
+      "sha256": "1aba782c4e746eaec4f0e235231ab325638af5669836025951c687bc1a48a965"
+    },
+    {
+      "path": "references/baseline/submitted-video-requests.json",
+      "bytes": 39570,
+      "sha256": "eb3d64710321e32122d98a45d8d507329969149c4123d2d9d28ede61db7a6d0a"
+    },
+    {
+      "path": "references/baseline/voice-provenance.json",
+      "bytes": 40852,
+      "sha256": "c8582f91e3dbf580cfa49d97bf873a9c8d989130d8d3cf6a0aba751ec08fdb31"
+    },
+    {
+      "path": "references/blender-local-ai.md",
+      "bytes": 4262,
+      "sha256": "65a9a53724c11dc8694c5a5bf99b00fec130619e637529f526357c80c7751447"
+    },
+    {
+      "path": "references/blender-storyboard-control.md",
+      "bytes": 3604,
+      "sha256": "6d099b524b8206d3aacaa3cbf48fc4e6502605669dc9b94d1a3b726df16401b7"
+    },
+    {
+      "path": "references/character-bible.md",
+      "bytes": 8817,
+      "sha256": "7738a8d0dac5f366059146c222f1a2be6ce7aa31d24bd07f02340670320ded16"
+    },
+    {
+      "path": "references/comfy-fl2va.md",
+      "bytes": 5223,
+      "sha256": "cadd2fa11ea69b56dc862d70100e88aa74b676bb0ac2940ee08edd063c44b362"
+    },
+    {
+      "path": "references/comfy-h3.md",
+      "bytes": 10586,
+      "sha256": "469630c2229ce889a90d4837169cf4b9cb1be709bdc5da36630eb46717600991"
+    },
+    {
+      "path": "references/comfy-prompt-transport-evidence.json",
+      "bytes": 7699,
+      "sha256": "5b45da40fedd086f7905cfa96980b8327dd2633acef24ace42b24303d7f41e3f"
+    },
+    {
+      "path": "references/comfy-prompt-transport-evidence.md",
+      "bytes": 4163,
+      "sha256": "44c04f287e89858740e4782eadfac506ba252ba95e8b000b6006907d6a461fa8"
+    },
+    {
+      "path": "references/comfy-prompt-transport.md",
+      "bytes": 2554,
+      "sha256": "9954083a1362569202c5fb1100b1302859d9312fb14ec0602cdf7e647691abae"
+    },
+    {
+      "path": "references/context-memory-before-motionguide-v9.md",
+      "bytes": 8247,
+      "sha256": "b16ae9288661d2999c49d4001e7edae8850de228095dddeb8b38d3a40037f37a"
+    },
+    {
+      "path": "references/context-memory.md",
+      "bytes": 12302,
+      "sha256": "cec3fbf596a8df6d4306422517e3cc735f57e9138a3cba98eb825fe88fd5b97e"
+    },
+    {
+      "path": "references/continuous-shots.md",
+      "bytes": 8697,
+      "sha256": "5e048d31844460c9f6e0907de5cac1455ac62b5ea3ec704689ff18146d99dd30"
+    },
+    {
+      "path": "references/engine-orchestration.md",
+      "bytes": 5603,
+      "sha256": "a97d07340ec6bb940c58fa4696d7be4b8e83a4a9fa18abf8fba899c795bb69b0"
+    },
+    {
+      "path": "references/gpu-handoff.md",
+      "bytes": 1815,
+      "sha256": "af6f8f3e396c27489b31b5d2be0fa73fd8b0398b06cad642588602cb5d4f4fe2"
+    },
+    {
+      "path": "references/h3-decoder-fix.md",
+      "bytes": 2296,
+      "sha256": "6000618a0678a011255cb688b9820c95d66931961521822f4e9bc06af451fcac"
+    },
+    {
+      "path": "references/h3-decoder-recovery.json",
+      "bytes": 1487,
+      "sha256": "0b0635eb9f6617660cf446edd51bbc073674335e34048be94b2a206b9222c47a"
+    },
+    {
+      "path": "references/h3-model-selection.json",
+      "bytes": 1729,
+      "sha256": "377a1e418b00f87056a262a4967b9c143994f94ff6cfec12d00c52f346a621e1"
+    },
+    {
+      "path": "references/h3-tuning.md",
+      "bytes": 5224,
+      "sha256": "a02af8b5af9cec7bc2ed4c1b4a10b0e86524f823c623c65669f32ea6bfcffea7"
+    },
+    {
+      "path": "references/higgsfield-baseline.md",
+      "bytes": 1403,
+      "sha256": "b6ef59f31fab7db960275cd571bba02225b0144dcae288af145c56925c0d9517"
+    },
+    {
+      "path": "references/image-style-library.json",
+      "bytes": 55788,
+      "sha256": "9bddd05ca318213384506e2e804ad854bfa7fb3c0b8502de9285a39d74efdec4"
+    },
+    {
+      "path": "references/image-style-library.md",
+      "bytes": 1210,
+      "sha256": "1e8c7e7465a5586c2dbb4e59d5be4ef83c5b938071b8b5c610065f80a97acc72"
+    },
+    {
+      "path": "references/milestones-and-errors.md",
+      "bytes": 1774,
+      "sha256": "00b10f1818619bdc8288c2beb249bf4681f2fb6ab7385700cfdabb5c93249987"
+    },
+    {
+      "path": "references/motion-direction.md",
+      "bytes": 7195,
+      "sha256": "6522116a5cc03cc306f82fefb208676f2e5597c9b69ff1c5a72910dff09179c2"
+    },
+    {
+      "path": "references/postproduction-qa.md",
+      "bytes": 6446,
+      "sha256": "8fa08914f68d12b9ee0e7930e06180e68473edfac49ee715f4cd50b54231fdb1"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/A5-preview-v3/technical-qa.json",
+      "bytes": 307982,
+      "sha256": "6b2d2950666e6a0ffb3da55e0c5f60f31db8e68848a40079d68b30f63182619c"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/A5-preview-v3/visual-review.json",
+      "bytes": 1019,
+      "sha256": "9120433f32ecee600b204b51b61746e58917a1a53b8e0212ad9de3759e58ea2b"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/FL2VA-code-review.md",
+      "bytes": 3981,
+      "sha256": "8e40aed98012a32abaea1814c34cccc9dff396da68d9ca7d2f46ef964dde7e57"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/FL2VA-prompt-diagnosis.md",
+      "bytes": 13608,
+      "sha256": "cb6dda25519bb426e54e710652ddfaf1ac92863dd46dcc663a309b13b8488e55"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/FL2VA-python-review.md",
+      "bytes": 6702,
+      "sha256": "52020f59835054d29c6f687eb6e8e9549fe0d1c10c0b21650bfb431820f838bb"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/OVERNIGHT-REPORT.md",
+      "bytes": 8749,
+      "sha256": "c42a1026e42f1df5e17b82436cec3bf45f42ca6781a53458d886cb0b7d356379"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/TASK-TRACKING.md",
+      "bytes": 8749,
+      "sha256": "244b56f537098cff4df6cdc2381a418c234ebfa05dd7d7a65f0652f526e7602a"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/audio/asr-cpu-audit-lines-v2/audit.json",
+      "bytes": 2198,
+      "sha256": "3890cfbf4a3c392cd2675407e90cdf9016dbac76e855f84d8d27e63ae62211e7"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/audio/asr-cpu-audit-v1/audit.json",
+      "bytes": 24224,
+      "sha256": "3e7b70f5947f6e83c508cf99b3cf13d9637311bffa2e695fd177f7c326acc097"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/audio/asr-cpu-audit-v1/config.json",
+      "bytes": 531,
+      "sha256": "a9502d1e826efe2e63f4c013666fd10ca6c6f2c90cbc48cf2d554429421bd2ff"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/handoffs/milestone-13-fl2va-and-voice-audit.md",
+      "bytes": 2693,
+      "sha256": "ffa6a1c39d244d91d4c31f13b4e22b504b4fe3a40dbd1ff2991e91113331e870"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/observations/H3-official-native-research-v11/fl2va-download-receipt.json",
+      "bytes": 474,
+      "sha256": "21213ea2cf5fa370f1cd42491eaf3ecf245a13c8d296d12ba65a846a3e73e014"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/qa/S01-B-FL2VA-v12/editorial-qa.json",
+      "bytes": 352206,
+      "sha256": "d70cec7aebd62422a1abff6bf7209c73bc2d2305aab3f86ac2201034f7a4a52e"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/qa/S01-B-FL2VA-v12/native-qa.json",
+      "bytes": 370500,
+      "sha256": "332c03303c366b6846417995feb3e02575421d8265550f43229014ebe4a405e5"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/qa/S01-B-FL2VA-v12/review.json",
+      "bytes": 1900,
+      "sha256": "6cf0818767e2f1db64cf223f2102ebd062a6af1e3319c4ac6497876fa1de0b25"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/shots/S01-B-FL2VA-v12/actual-queue.json",
+      "bytes": 91754,
+      "sha256": "bb6b7e63955b1806ee182834f0d5189050743d6c96cdfe40507d515f370aa82c"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/shots/S01-B-FL2VA-v12/config.json",
+      "bytes": 1736,
+      "sha256": "07a5a36d57b36d62566f138bab6a4d51f69b994f16e60920e76f9738094fe40f"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/shots/S01-B-FL2VA-v12/history.json",
+      "bytes": 94853,
+      "sha256": "e469e038a43bdfe8c7b096ad3bef2071b7c54eb2a5dc663eba5cf643da41baf2"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/shots/S01-B-FL2VA-v12/preflight.json",
+      "bytes": 1544,
+      "sha256": "60a05f5cd47835fbd10f47d19edf67fea764f0a39579bb31192e305995a55158"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/shots/S01-B-FL2VA-v12/queued-integrity.json",
+      "bytes": 3790,
+      "sha256": "3d513d6460fb2fb449109d6e574cf99997eff08248edb2cfb26699f3187debdf"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/shots/S01-B-FL2VA-v12/workflow/workflow-api.json",
+      "bytes": 22110,
+      "sha256": "42c941339efc867d153fa52cb71b5830263808fbd1983d7752741b30bf7fb757"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/shots/S01-B-FL2VA-v12/workflow/workflow-gui.json",
+      "bytes": 21410,
+      "sha256": "d90598b2c350f590c59141e1e14b98addf316dc0a53dcbd3582adef77d7c102f"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/shots/S01-B-FL2VA-v12/workflow/workflow-provenance.json",
+      "bytes": 8197,
+      "sha256": "2f4be7f12881b89ad6cf9d635443fa57281e748b097887aba9ab091a39e8ca65"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/shots/S01-B-FL2VA-v13-prose/actual-queue.json",
+      "bytes": 64083,
+      "sha256": "da5f7a0c8076c72825fc09611b3ce3d35d4b5df9097e044b87377f2989796060"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/shots/S01-B-FL2VA-v13-prose/config.json",
+      "bytes": 1742,
+      "sha256": "679f9490dbdbd0fa8cc243fd5f0b23042043dfb2593d39ac12e572e14206e6ba"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/shots/S01-B-FL2VA-v13-prose/prompt-projection.json",
+      "bytes": 6086,
+      "sha256": "02c1ab654cecba26feddc53087f4e17dd78a62690d81b7dbb438e494975052ad"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/shots/S01-B-FL2VA-v13-prose/queued-integrity.json",
+      "bytes": 2421,
+      "sha256": "6cc1fe2b4b14e430a18683742f04b01677ff0138d1561f148d2e6155d46d403c"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/shots/S01-B-FL2VA-v13-prose/runtime-prompt.txt",
+      "bytes": 4597,
+      "sha256": "9b547628de14429a3ae8aa4ccd0b92694896aa6f5f3647806e9fb6df94d425e3"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/shots/S01-B-FL2VA-v13-prose/workflow/workflow-api.json",
+      "bytes": 12887,
+      "sha256": "a5ea7dde30e518a73110d5092ee416dd5b9840e6460a3d036665b8054dbf32ac"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/shots/S01-B-FL2VA-v13-prose/workflow/workflow-gui.json",
+      "bytes": 12187,
+      "sha256": "2a0373559e0d5f7a6312c0e38ab93e4d37091321e8a2e78fe3a32ce80f13b69e"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/snapshot.json",
+      "bytes": 5662,
+      "sha256": "baae96ac8ad946ea61ae11e5c8e2a76bfe93a7719d9c48c897efe4374e1e1810"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-fl2va-prompt-voice/task-tracking.json",
+      "bytes": 18877,
+      "sha256": "b6a694c295d4a374b77ca392bbb6b51f3aeb5fca55aa0fdcf82e7c8aec60b0c6"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/A5-preview-v3/edit-settings.json",
+      "bytes": 1722,
+      "sha256": "d583389681b4ede1a43312cf18a3a734a5a7a3e99c5f9f495e894f9382c80569"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/A5-preview-v3/frames/f024.png",
+      "bytes": 1024500,
+      "sha256": "c495c7c5a6025729e61d20eee09a54bb61c3a0cb2b371e9b4b16dffcc9eb718a"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/A5-preview-v3/preservation.json",
+      "bytes": 293,
+      "sha256": "9ad4fa616a01cb20b9e6bad096e7002079321f7a32e579c723ddd17ebe7ec31c"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/A5-preview-v3/technical-qa.json",
+      "bytes": 307982,
+      "sha256": "6b2d2950666e6a0ffb3da55e0c5f60f31db8e68848a40079d68b30f63182619c"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/A5-preview-v3/visual-review.json",
+      "bytes": 1019,
+      "sha256": "9120433f32ecee600b204b51b61746e58917a1a53b8e0212ad9de3759e58ea2b"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/SNAPSHOT.json",
+      "bytes": 8777,
+      "sha256": "95a826b8ae0fc5f88afec8345314221803cdfe32d0ebb27314f60ade7041dcd5"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/SOUND-DESIGN.md",
+      "bytes": 4220,
+      "sha256": "6acf0926cfa2a170b044675a548571638cba8274daabebf15d9cea625ce2504e"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/TASK-TRACKING.md",
+      "bytes": 6723,
+      "sha256": "78f936e15ec76b0c20e1fc49ea4f8753e203e7c1427ba457af20b8888c9ca284"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/caption-position-review/top-left-code-review.md",
+      "bytes": 2685,
+      "sha256": "8a40f24094ae882e45d18cb7ba5bb9959c60fee57bba7898f93727fb9d5c69ac"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/caption-position-review/top-left-python-review.md",
+      "bytes": 3095,
+      "sha256": "6ea5786632bf1c37b357d12c7d04679bb1a5c9acc1e14392fcbca1dada56a42a"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/handoffs/milestone-12-caption-and-sampler-trial.md",
+      "bytes": 1732,
+      "sha256": "116fc09f343bb2be1a7b338b95fcfb9936390c0e10937d2f1787e3005ed6b5a6"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/observations/H3-official-native-research-v11/model-metadata.json",
+      "bytes": 892,
+      "sha256": "8d37c3e3da754b9b7116822c53457c09c4f03b913eec5a611d78772bbe6fd745"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/observations/H3-official-native-research-v11/video_minimax_h3_r2v.json",
+      "bytes": 45323,
+      "sha256": "afeea99e9fd5a1456df348e0573e289c1243f2f28546fc95c1c963f808d61ddb"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/production-request-v9.json",
+      "bytes": 256491,
+      "sha256": "3dd21650d1a9c3ab247a2aaf1748672c38d80619aa7676ed4aadecbef7ccb643"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/qa/S01-B-v10/editorial-technical-qa.json",
+      "bytes": 354318,
+      "sha256": "904901ddd99b1141f400e8af63329f1a3a2d9b0e28aae1e16764a508d3e9dde5"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/qa/S01-B-v10/measurement.json",
+      "bytes": 8136,
+      "sha256": "d8caf8792c52bd315cc457b687f1382be6fc4ddc850b80aeb7f8fa095fc2e29f"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/qa/S01-B-v10/native-technical-qa.json",
+      "bytes": 372641,
+      "sha256": "042e9f7b11e222f5299ac7e9dcbb45dfdc1d7bfbaec6d2c2f0b888feab401ed0"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/qa/caption-placement-top-left-react-review.md",
+      "bytes": 2371,
+      "sha256": "5e8c7314287721d7936f5e375bfbfde226154052a264202950a0d3bc876a499b"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/qa/caption-placement-top-left-typescript-review.md",
+      "bytes": 2699,
+      "sha256": "c62cae8318dc2c2d9361afe1a23216964488611ffac54751fe7b1642dc751ddc"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/scenes/scene-01/SCENE.json",
+      "bytes": 33660,
+      "sha256": "37acb0848ba05249502cee75f4ab6d744c87628f8eb3d224dec253941af0433f"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/scenes/scene-01/SCENE.md",
+      "bytes": 34316,
+      "sha256": "20977beecc20c19fcf6fa784cc672bc2a7ce787bc93b2a740262aff1b8fa44c6"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/scenes/scene-01/SOUND-PLAN.json",
+      "bytes": 3954,
+      "sha256": "479ec28c6b6ae91190dc9e23ea7a2d77cf368ef0989aa2528bc552f02068f90c"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/scenes/scene-01/SOUND-PLAN.md",
+      "bytes": 4449,
+      "sha256": "be23c61b4d3d095211e7feb45b93df1d1543d0f87d88665170a21b2191ad418c"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/scenes/scene-02/SCENE.json",
+      "bytes": 38535,
+      "sha256": "419b4ffc6891a66177905b038b8af83c8dc8c3375bd2a9ac4ba383b49c037867"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/scenes/scene-02/SCENE.md",
+      "bytes": 39198,
+      "sha256": "cc24090d7d5caa45e1d91d1aaf21f047e68a5177466273c2eb488a06e38ca3d0"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/scenes/scene-02/SOUND-PLAN.json",
+      "bytes": 3827,
+      "sha256": "9366f521cf815f8d05f3d45fddc96e6df4ebdeefdb8073882d65ccc1e249194a"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/scenes/scene-02/SOUND-PLAN.md",
+      "bytes": 4285,
+      "sha256": "9cb919ced6e7b48604b29d7d31d85432ce42cd43df4b3b137d3866d0069fa215"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/scenes/scene-03/SCENE.json",
+      "bytes": 39779,
+      "sha256": "8038215e3a5a1a75f4d001610dd9ca528d2219676e1384e52ebe9182097e7933"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/scenes/scene-03/SCENE.md",
+      "bytes": 40433,
+      "sha256": "381c303e6eeff41fe75edd0f50418b45471fb7ef7b6a3c48c9e91dd57b818cd5"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/scenes/scene-03/SOUND-PLAN.json",
+      "bytes": 3771,
+      "sha256": "d941cb8cc60cf03f4d15352813d82de31dabdf361e3ba9c3bb2fd404f9d27091"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/scenes/scene-03/SOUND-PLAN.md",
+      "bytes": 4192,
+      "sha256": "2637097f17ceb0826b0f63bfa019b1bddc516141bbdab980cb02cd53c9375d5c"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/scenes/scene-04/SCENE.json",
+      "bytes": 40638,
+      "sha256": "fce89131881a5bdf5faf4fc73fd84d588d49998c9e9451d44a9d0524bafe8ea3"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/scenes/scene-04/SCENE.md",
+      "bytes": 41301,
+      "sha256": "659eca0843d5bd95871f1e921a96582501366e4d0bea22920e31194ae8dd4a42"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/scenes/scene-04/SOUND-PLAN.json",
+      "bytes": 3876,
+      "sha256": "1e4c01eea8a9a896dd40236c4f5c8b6961bd6b6ef928b2ac1eee6a66c2371407"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/scenes/scene-04/SOUND-PLAN.md",
+      "bytes": 4361,
+      "sha256": "1481c92c7c6bb9f507b2e9aa72d01678f5c11e95d6be6443ee465aaa8be05e11"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/scenes/scene-05/SCENE.json",
+      "bytes": 38696,
+      "sha256": "82e65e76aeac94e02758d7bb2c93842ee8a1d5a5f353f8f1f125d9d511101551"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/scenes/scene-05/SCENE.md",
+      "bytes": 39355,
+      "sha256": "5532de0d74f978582311d688cc35f71d1e0cbb5e1a319c70121738b10630727f"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/scenes/scene-05/SOUND-PLAN.json",
+      "bytes": 4975,
+      "sha256": "10085b037412b5edecda70b7bb0d2e94a051e589f3de9bf7f1037b747a54a28a"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/scenes/scene-05/SOUND-PLAN.md",
+      "bytes": 5562,
+      "sha256": "fa1afee5eb1ac7a21e347adbac1803071f21a13120d69ec9e14d9e7729e56fa0"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/scenes/scene-06/SCENE.json",
+      "bytes": 36326,
+      "sha256": "4db17a4f78737b46a6316555692b45285ce872c46c92270f26c498ec6031a256"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/scenes/scene-06/SCENE.md",
+      "bytes": 36979,
+      "sha256": "ebd4b1fc7e1aa1198fc472f8b08c2d904b4b62a346aefc1878777b7fb44a6716"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/scenes/scene-06/SOUND-PLAN.json",
+      "bytes": 3933,
+      "sha256": "2251b931aefa680e1ef065d89440507a82fa27e70dad1bba8d628c4201a06a1b"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/scenes/scene-06/SOUND-PLAN.md",
+      "bytes": 4505,
+      "sha256": "f8f3e8394ba63c7c776f70e3018bdf9b9d6d3f5ad59ccfeee068a79c60057e68"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/shots/S01-B-repair-v10/workflow/code-review.md",
+      "bytes": 3199,
+      "sha256": "09b781a2b4add4f12bdec10b67b2d7c00e1bbf579e8b9342d4ae93ea7279d5f5"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/shots/S01-B-repair-v10/workflow/python-review.md",
+      "bytes": 4956,
+      "sha256": "39f75a25f43d20a325d145595e2ae4083e82df00b55eef6e8c62b1b105d00d18"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/shots/S01-B-repair-v11-simple/run/prompt-integrity.json",
+      "bytes": 350,
+      "sha256": "2daf965044448e0af26703865a84c458025d8e8bc147d24456f68b723f41d1ac"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/shots/S01-B-repair-v11-simple/workflow-patch.json",
+      "bytes": 1503,
+      "sha256": "b5588da04ecd226fa1ddd961610674daeb0c169edb6a884c86217262cb5f4c4b"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/shots/S01-B-repair-v11-simple/workflow/workflow-api.json",
+      "bytes": 22427,
+      "sha256": "1facae6299a32c0126a548401650c329ecc1c41b9354894b8a5b39dfdceaee9a"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/shots/S01-B-repair-v11-simple/workflow/workflow-provenance.json",
+      "bytes": 8417,
+      "sha256": "3e7d305e697fe828b5b7c2ae56d5125740eb86b3dce484307a75bf688d881ba6"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v11-sampler-caption/task-tracking.json",
+      "bytes": 14375,
+      "sha256": "0f8ccb35bc0ad7fbf6670188fbdff23aea12e1c0362591b0852274f4016f33a7"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/OVERNIGHT-REPORT.md",
+      "bytes": 2737,
+      "sha256": "08592b569b336209864ae3842f0704125ea01a0705919c47ac56d676119466d0"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/SNAPSHOT.json",
+      "bytes": 6742,
+      "sha256": "14fb20b3067d9e06a0638dd82c93ff45c1cf8c06fdd49fad809142faf016a9e1"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/SOUND-DESIGN.md",
+      "bytes": 3617,
+      "sha256": "bd7d8bcdbe164d13dbdc5ab97dc0bea273f80488a2aa57d105d606be1a0270c9"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/TASK-TRACKING.md",
+      "bytes": 2737,
+      "sha256": "a7f9fe86e01d68c8fd7df2c07c5a65ce861f9378197b1cfaa032688c62488042"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/astra-image-audit-v9/IMAGE-AUDIT.md",
+      "bytes": 3357,
+      "sha256": "55277a8ae8b6920f420ad6feb06bbab4aa89d9f3560bd1956b7e748a6e32a9eb"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/astra-image-audit-v9/production-request-v9-proposed.json",
+      "bytes": 256460,
+      "sha256": "150bb30aa3e4dac8cefd534806cb62306f1c2b8d6061e7f6a614e8e1897af179"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/audio/canonical-v2/captions-canonical-v2.srt",
+      "bytes": 671,
+      "sha256": "fac735ceb5e54e5ae50ecd5ec87dca76483f9a8fa687934c00963e0d7319032a"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/audio/canonical-v2/captions-clock-v2.json",
+      "bytes": 1659,
+      "sha256": "534e9ebe26586196ee8234386d56014c05f46a9f9b45dcaa990098383becccd2"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/audio/canonical-v2/independent-review.json",
+      "bytes": 16071,
+      "sha256": "3ba13336c81f26e904ab81d9342eaea50cd40de7cb116d4ca5c9b9960be7b262"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/future-keyframe-plan-v8.json",
+      "bytes": 337530,
+      "sha256": "70cf7853bf92746def4e7b4189787e39133b2303911a6bd578c8b76924f9a26f"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/guide-clips-independent-review.md",
+      "bytes": 3750,
+      "sha256": "a8fb7d73b5dc91effccac8eff58cbff35d7ed9bd50f89c8bc0d278fd2e37c4c8"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/guide-clips-python-review.md",
+      "bytes": 3577,
+      "sha256": "ff4ac4b10bea4122d177802b2cdca0af3942853292588fe22a8cc6bd52bc8464"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/production-request-v8.json",
+      "bytes": 253054,
+      "sha256": "7f05ccbc0d5af2e69b3b4b66e3398e1ea2fa19ba84d5fd05010736c5a556c68e"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/qa/S01-paired-v8/motion-review.json",
+      "bytes": 745,
+      "sha256": "51049da0a9a6dac3b9ce48eb832326cafdb41b9ff85b833ac958efd9a6eea430"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/scenes/scene-01/SCENE.json",
+      "bytes": 33660,
+      "sha256": "37acb0848ba05249502cee75f4ab6d744c87628f8eb3d224dec253941af0433f"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/scenes/scene-01/SCENE.md",
+      "bytes": 33941,
+      "sha256": "1c5be5f6d7de528b88257d8fa044a6418f03df8dd7c94d6269d263e080dd07e8"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/scenes/scene-01/SOUND-PLAN.json",
+      "bytes": 3978,
+      "sha256": "212fcfe5c47d93d461be70f5eb8d84f193b7b48dcbe89584be030ba805ef999c"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/scenes/scene-01/SOUND-PLAN.md",
+      "bytes": 4737,
+      "sha256": "d7ece0c5b89574c709cd583ef58afb7c3fd215a93a705a7cdcf859f70efb82ec"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/scenes/scene-02/SCENE.json",
+      "bytes": 36991,
+      "sha256": "d555634be1240e593131a5b9b851c3d94c6b0b1da7a8497016ee4d5a8969b3e8"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/scenes/scene-02/SCENE.md",
+      "bytes": 37263,
+      "sha256": "9d7dcdbcb33f354f95d047a3858573d093a0eb034d4934ae949ec18b9c809183"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/scenes/scene-02/SOUND-PLAN.json",
+      "bytes": 3851,
+      "sha256": "fa08cb06a0b5a239033755cbf0a7144b2231502eb33e52494c12c4e727b250e6"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/scenes/scene-02/SOUND-PLAN.md",
+      "bytes": 4573,
+      "sha256": "3e114ddc39d2564ff53813d38881471cdef1b9a3fd75a35b7138550d93ee838d"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/scenes/scene-03/SCENE.json",
+      "bytes": 37915,
+      "sha256": "9b380d0e622e99294837959760eebfdf50b55e9e28de649d44bd5b62a834af29"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/scenes/scene-03/SCENE.md",
+      "bytes": 38187,
+      "sha256": "de5f5cb7eb46d87f0442aed69cd4b86a7c4eaa88bda75a68ab2bd27d53e43093"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/scenes/scene-03/SOUND-PLAN.json",
+      "bytes": 3795,
+      "sha256": "6461f0b8745e310b436b35225036a7af40ca549cf41e31d5cd5514e84cd70e9f"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/scenes/scene-03/SOUND-PLAN.md",
+      "bytes": 4480,
+      "sha256": "3c7a15e3a7e5f6a64d2461295bfffdd5a083fa943b96b2bf574621e1a2e16fb6"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/scenes/scene-04/SCENE.json",
+      "bytes": 40638,
+      "sha256": "fce89131881a5bdf5faf4fc73fd84d588d49998c9e9451d44a9d0524bafe8ea3"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/scenes/scene-04/SCENE.md",
+      "bytes": 40910,
+      "sha256": "5168aa9536a336443163422e077971016213a7ddd935639bafe3445a482f3edf"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/scenes/scene-04/SOUND-PLAN.json",
+      "bytes": 3900,
+      "sha256": "b7245e710a56563879a88c2b29f7dc94d190e9863b065a133578b49e5d052594"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/scenes/scene-04/SOUND-PLAN.md",
+      "bytes": 4649,
+      "sha256": "200abcdc9f2dd7e6e6c2abbb91f727e3ecc9bbd4b7299dcb06b9820563eb3dd3"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/scenes/scene-05/SCENE.json",
+      "bytes": 38696,
+      "sha256": "82e65e76aeac94e02758d7bb2c93842ee8a1d5a5f353f8f1f125d9d511101551"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/scenes/scene-05/SCENE.md",
+      "bytes": 38968,
+      "sha256": "33bfb2d9dfc0a4f1e0d07094490cd526b896b5fc313d58b9af4a0132546f9720"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/scenes/scene-05/SOUND-PLAN.json",
+      "bytes": 4999,
+      "sha256": "7741605d05c98242e55bb5f57a7d574c39a217156c0c6d10f02654a055e4c6bf"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/scenes/scene-05/SOUND-PLAN.md",
+      "bytes": 5850,
+      "sha256": "8f3ead42b0e5cf4214209d57ff85a6275e2320e65059c33b9bb9dc306d2592ca"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/scenes/scene-06/SCENE.json",
+      "bytes": 36326,
+      "sha256": "4db17a4f78737b46a6316555692b45285ce872c46c92270f26c498ec6031a256"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/scenes/scene-06/SCENE.md",
+      "bytes": 36598,
+      "sha256": "b7a16f74d5eac225be2e3ea840cd5621e68200c601272a63926acb9e7b071d70"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/scenes/scene-06/SOUND-PLAN.json",
+      "bytes": 3957,
+      "sha256": "56fe839afd2ecd1b30538df738ad819b25709d556fe7d6331ca587fe3bf43b70"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/scenes/scene-06/SOUND-PLAN.md",
+      "bytes": 4793,
+      "sha256": "574abf836c16303aab6c5ffc82af22940cc62f3dcaa67e52311b46efdb0f09df"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/shots/S01-paired-entry-v9/asset-preflight.json",
+      "bytes": 1420,
+      "sha256": "f70ca7487686094f61774f4536663010a2dd0355e83a161d341d70647bafe5b8"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/shots/S01-paired-entry-v9/config.json",
+      "bytes": 3217,
+      "sha256": "8f0ce0de9beac33cd629a2f0bce51f2dffe714cc788f2a46d2ffd6b5d1380240"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/shots/S01-paired-entry-v9/motion-guides/manifest.json",
+      "bytes": 5366,
+      "sha256": "3ed2e63947cc8847a12767615fbb3bb844daf847869a48ac662ae1ae7db7b3de"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/shots/S01-paired-entry-v9/run/prompt-integrity.json",
+      "bytes": 1917,
+      "sha256": "4b78bd5b0adc8a98a6d753fb8bdb91ad26882ffb113ae882fde18dce98e7c345"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/shots/S01-paired-entry-v9/workflow/workflow-provenance.json",
+      "bytes": 11873,
+      "sha256": "08d7a6aacce36981b47af949e975f967735f11549b0da0950cd61911b7b37c24"
+    },
+    {
+      "path": "references/production-snapshots/2026-10-17-v9-motion-guidance/task-tracking.json",
+      "bytes": 8314,
+      "sha256": "aa67bd95a5d5ba585b25cbf0480ce900233ba4635f9f52b30c57d8be6075fe69"
+    },
+    {
+      "path": "references/quickstart.md",
+      "bytes": 9633,
+      "sha256": "837840a3e8ab4ff37e94bb58a2ef0ef0ed70a9538fd21adb62cd3212439e04cf"
+    },
+    {
+      "path": "references/resource-provenance.json",
+      "bytes": 25622,
+      "sha256": "f3476bdd9d2d7d04ff4627bd5c4fbc37e5622d2bd01cad8de3754fd49b7067a2"
+    },
+    {
+      "path": "references/seedvr2-upscaler.md",
+      "bytes": 2822,
+      "sha256": "2e01a973d204ae5cf7d52802dd668fd07f5dc34264870078f89b5a8ef785e7f4"
+    },
+    {
+      "path": "references/sfx-source-lessons.md",
+      "bytes": 1214,
+      "sha256": "18daf8d73ed8be2112735a25dcc9f0b9ab08972c414e393afe258704fac154b6"
+    },
+    {
+      "path": "references/voice-clarity.md",
+      "bytes": 3865,
+      "sha256": "8c1b58ea29ef357512719cc1b7ff44e7c28c3a21292978487534fd7badb013d9"
+    },
+    {
+      "path": "references/zoo-sound-design.md",
+      "bytes": 3617,
+      "sha256": "bd7d8bcdbe164d13dbdc5ab97dc0bea273f80488a2aa57d105d606be1a0270c9"
+    },
+    {
+      "path": "schemas/motion-plan.schema.json",
+      "bytes": 17259,
+      "sha256": "320840adf421bc96ddd1fc4b9d0636eb6e448052c14f7ddddaf62c007544ff27"
+    },
+    {
+      "path": "schemas/project.schema.json",
+      "bytes": 24498,
+      "sha256": "7997153ee2f3b766bc117f4d880b9d49c8af79e4c2531bd16e233b7139b12247"
+    },
+    {
+      "path": "scripts/analyze_reference.py",
+      "bytes": 8355,
+      "sha256": "7f0cb0eb5fc6636f41507cc278dab22254308be9764c78e23e75267224e8b5e2"
+    },
+    {
+      "path": "scripts/build_comfy_workflow.py",
+      "bytes": 23859,
+      "sha256": "34f98d35e56b7b2669c104b9e819b9b8194eea6dd90f7a0ae72a0a57a9ea7101"
+    },
+    {
+      "path": "scripts/build_continuous_workflow.py",
+      "bytes": 21904,
+      "sha256": "ba590c8cbad4ca543dacca26f2d9e5242bc3613a7909ccafaea8cf2e38721149"
+    },
+    {
+      "path": "scripts/build_fl2va_workflow.py",
+      "bytes": 11268,
+      "sha256": "3a7397296d2e6a7dfc67ba4947d19537ed22544ede0b815386c56a169a1b6944"
+    },
+    {
+      "path": "scripts/compile_prompts.py",
+      "bytes": 6674,
+      "sha256": "0b134e8d77b984a25d0edab0297a762ce09f3ed5e420eb03b6e5301c87bc679e"
+    },
+    {
+      "path": "scripts/finish_ui.py",
+      "bytes": 17396,
+      "sha256": "e645ab43d387426309f31d4db7eacc33f7461bce3fe25a49be2be2442b7aa214"
+    },
+    {
+      "path": "scripts/media_qa.py",
+      "bytes": 10906,
+      "sha256": "c0b74d277516473b5540fc91da4233a7a8946ae4c6ae3653606cb3b5f6836b5a"
+    },
+    {
+      "path": "scripts/mix_audio.py",
+      "bytes": 22046,
+      "sha256": "9ef50a8531c90b22f293eb373d41381fb3e6e34a0ecf3e9d24f8646b7704d880"
+    },
+    {
+      "path": "scripts/prepare_edit.py",
+      "bytes": 8126,
+      "sha256": "0ac4553d66b390706f3e790d83fcb24517b5e758fae3e007c27170b4f3fe458c"
+    },
+    {
+      "path": "scripts/validate_motion_plan.py",
+      "bytes": 12658,
+      "sha256": "290cb81a30da2ae01b0e9e47a9cd3b6244b6aab17f85cf40c0556c714a4d01c9"
+    },
+    {
+      "path": "scripts/validate_request.py",
+      "bytes": 30797,
+      "sha256": "d5ebfad70c0ba1dabc3025725abeb60a645d6269803d52fcb6a3423025ee7fa7"
+    },
+    {
+      "path": "tests/fixtures/motion-graphics.json",
+      "bytes": 8786,
+      "sha256": "1b8634ddd969413257a5e0d64b171636f76e5e59dff6d2de3cd033b540e70d65"
+    },
+    {
+      "path": "tests/test_audio_mixer.py",
+      "bytes": 8484,
+      "sha256": "8d11a38efeaa70534a6483de5acc7f862824f276f3a43e800cd1f91e903ad251"
+    },
+    {
+      "path": "tests/test_caption_positions.py",
+      "bytes": 4840,
+      "sha256": "781934a4df9956e3c9c01872506b2d288d787fe373fa69fabece9704e134c99f"
+    },
+    {
+      "path": "tests/test_continuous_builder.py",
+      "bytes": 17208,
+      "sha256": "2fe33642c821ee985d7552cf04f9357becc2f5889471ab7f1d0d843a15f1ec34"
+    },
+    {
+      "path": "tests/test_core.py",
+      "bytes": 25543,
+      "sha256": "a611b09fa7e1be431d9915f977ddc0cc2cde548f4b7d31a8675e5b4001c30577"
+    },
+    {
+      "path": "tests/test_cross_job_carry.py",
+      "bytes": 8278,
+      "sha256": "d3d842e965307919f27ba98268d407a6283f684dd32fdf0bd47e82fadc2a684b"
+    },
+    {
+      "path": "tests/test_finishing.py",
+      "bytes": 13650,
+      "sha256": "fd714423652f0144e1b6773904f44f8d967a720eb174eceb39f88144cba97f4b"
+    },
+    {
+      "path": "tests/test_fl2va_builder.py",
+      "bytes": 12375,
+      "sha256": "6dfd7f97af926eb57b98b72d1e4cff900de58ed4095a3241f4f2d326ded45645"
+    },
+    {
+      "path": "tests/test_media_qa.py",
+      "bytes": 11344,
+      "sha256": "08fda105f0d3283bf9e8fae818ce14d20b7c181ab1c20867474abcf16f098231"
+    },
+    {
+      "path": "tests/test_motion_tools.py",
+      "bytes": 8588,
+      "sha256": "9937b2e8f16ce77b306a5cd903ce1f999d11558b0ebc3f05c9ef8920ad846784"
+    },
+    {
+      "path": "tests/test_native_builder.py",
+      "bytes": 22795,
+      "sha256": "e42f00530533b55b635ca7050e5b9c9267fa7d470ef38e7e7371293c3772f9d2"
+    },
+    {
+      "path": "tests/test_prompt_literal_transport.py",
+      "bytes": 6752,
+      "sha256": "8856f914fbd23e8e8bc80447d54f9558c859ab9ae64ef5d5a7a0cb296efb69a9"
+    },
+    {
+      "path": "tests/test_scene_metadata.py",
+      "bytes": 3818,
+      "sha256": "ffdca519e9fa697861e503fdbe9374aff4cd84cb59e438f94a451274ead886f2"
+    },
+    {
+      "path": "tests/test_video_guides.py",
+      "bytes": 10017,
+      "sha256": "95f1a2171834fd7c43407962ab37bff67f79f1a89c3db07c51f0a90aec5b903d"
+    }
+  ]
+}

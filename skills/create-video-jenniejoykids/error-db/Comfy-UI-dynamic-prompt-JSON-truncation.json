@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "id": "Comfy-UI-dynamic-prompt-JSON-truncation",
+  "observed_at": "2026-10-16T19:14:05.208099+00:00",
+  "status": "resolved",
+  "engine": "ComfyUI frontend prompt serialization",
+  "environment": "Visible ChromeRun, nativeMiniMaxH3ReferenceToVideo dynamic STRING widget",
+  "symptom": "UI queued prompt loses JSON braces and is truncated at first https:// on a compact JSON line; full cast/action following image_style_library URL never reachesmodel. v6A canceled early; no acceptedoutput.",
+  "evidence_paths": [
+    "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S01-paired-entry-v6\\run\\queue-submitted.json",
+    "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S01-paired-entry-v6\\workflow-r2\\workflow-api.json",
+    "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S01-paired-entry-v4\\run\\history.json",
+    "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ui-prompt-transport-review.md",
+    "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S01-paired-entry-v7\\run\\prompt-integrity.json"
+  ],
+  "root_cause_status": "confirmed_actual_installed_parser_reproduction",
+  "root_cause": "Sourceprompt included dynamicprompt syntax. v4/v6compactJSON mutated by frontend beforequeue; v3prettyJSON retainedcast/action butbraces changed.",
+  "fix_or_workaround": "Concrete PrimitiveStringMultiline19/1019 links exact native prompt into H3; no dynamic text widget. Reviewed106tests; no source patch/restart/global setting.",
+  "verification": "Livev7job e4a73333-92cc-4a42-9bcd-f5dd85183052 queued19/1019 text/hash exactly matches11229/11397char source; model promptlinks and all expected executioninputs unchanged.",
+  "limitations": "Transport defect resolved only. Rendered gait, identity, continuity and sound remain pending.",
+  "prevention": "Inspect actualqueueprompt after visibleRun, not only sourceworkflow; retain graph/defaultdifferences and allcast/actionchecks.",
+  "affected_artifacts": [
+    "S01pairedv4",
+    "S01pairedv6interrupted"
+  ]
+}

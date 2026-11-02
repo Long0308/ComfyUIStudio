@@ -1,0 +1,22 @@
+{
+  "id": "receipt-glob-and-approval-without-sha-accept-stale-files",
+  "engine": "studio-video-engine run orchestrator (jjv run episode), run/gates.py, run/ledger.py",
+  "environment": "Windows 11, CR-M8 critic (Gemini) review of the M8 orchestrator",
+  "observed_at": "2026-10-28",
+  "symptom": "A stage could pass on a receipt left over from an earlier run, and a human approval could be recorded without a sha256, so it was not bound to the reviewed file.",
+  "root_cause": "Measured by CR-M8: the receipt check accepted any file matching the glob with no freshness or sha binding, and record_approval allowed sha256=None for accept/change. Current code shows the fix points: engine/run/ledger.py:70 (a receipt counts only if its mtime >= since - MTIME_SLACK, or it is named, or its sha is in the expected set) and engine/run/gates.py:78-80 (--sha256 required for accept/change, 64-hex validated), gates.py:8 docstring (CR-M8).",
+  "root_cause_status": "measured (critic CR-M8 + root confirmation; current sha256 engine/run/ledger.py and engine/run/gates.py are NOT pinned in this entry because they changed again after the fix — recheck before relying on a hash)",
+  "fix_or_workaround": "Receipts: a file older than the run start (beyond 2 s FAT slack) no longer proves the run unless it is named or its sha is expected; the orchestrator stops with first_stop receipt-missing and names the stale file. Approvals: sha256 is required for accept and change, and the record binds to the reviewed file's CURRENT sha. Accepted in the M8 run (143 passed).",
+  "verification": "tests/run/test_run_episode_m8f1.py::test_a_stale_receipt_from_an_earlier_run_does_not_prove_this_run (:248, asserts receipt-missing and that the reason names the stale file); ::test_accept_and_change_records_must_carry_the_subject_sha (:215, asserts Refused on sha256=None for accept and change).",
+  "prevention": "Rule to keep: a receipt proves THIS run only when it is named, sha-bound, or newer than the run start. A glob of *.json under a stage folder is not evidence. Every human approval must carry the sha256 of the reviewed file; a record without sha is refused, not stored.",
+  "status": "fixed (accepted in M8 run, plan section 5)",
+  "evidence_paths": [
+    "production-local/engine/WAVE-2026-10-28-PLAN.md",
+    ".agents/skills/studio-video-engine/engine/run/ledger.py",
+    ".agents/skills/studio-video-engine/engine/run/gates.py",
+    ".agents/skills/studio-video-engine/tests/run/test_run_episode_m8f1.py"
+  ],
+  "affected_artifacts": [
+    "jjv run episode stages: script, voice, h3, edit, publish gates"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "at_utc": "2026-10-16T20:37:11.630107+00:00",
+  "repo": "Comfy-Org/MiniMax-H3",
+  "commit": "e5eb578a89295337b8ff433a035929ce0279e0b6",
+  "files": [
+    {
+      "rfilename": "diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+      "blobId": "552dd33920a833fa613c73f0ca2335bb6ff0e4d1",
+      "size": 20970379616,
+      "lfs": {
+        "sha256": "e889202c41dafb67b10d67b97f0d8541508036a6090af23425a5c2615d03c47a",
+        "size": 20970379616,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+      "blobId": "7d456c7b17fc9ba27722ddc4971bfb6e46bf831a",
+      "size": 20970379616,
+      "lfs": {
+        "sha256": "9255f52b6677845ad238f20dfaafa94727053694127ab7f255c048f0f9365779",
+        "size": 20970379616,
+        "pointerSize": 136
+      }
+    }
+  ]
+}

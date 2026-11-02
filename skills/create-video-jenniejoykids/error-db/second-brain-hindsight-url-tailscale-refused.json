@@ -1,0 +1,17 @@
+{
+  "id": "second-brain-hindsight-url-tailscale-refused",
+  "engine": "Memory pipeline (Second Brain MCP / brain_bridge -> local Hindsight)",
+  "environment": "BIM02 Windows host, container sa-memory-hindsight-local (healthy) published on 127.0.0.1:8890 only",
+  "observed_at": "2026-10-27",
+  "symptom": "second-brain MCP failed at session start with WinError 10061 (connection refused); brain_bridge recall returned URLError although http://127.0.0.1:8890/health answered 200. Production lessons could not be retained.",
+  "root_cause": "User/process environment variable HINDSIGHT_LOCAL_URL=http://100.78.215.48:8890 (Tailscale IP) overrides the brain_bridge default; the Hindsight container binds 127.0.0.1:8890 only, so the Tailscale address refuses.",
+  "root_cause_status": "measured",
+  "fix_or_workaround": "For local retains run the helper with HINDSIGHT_LOCAL_URL=http://127.0.0.1:8890 set for that process only (technical/memory-retain-r27/retain_errordb.py does this). The global variable and the container port binding were NOT changed (user decision pending: either point the variable to 127.0.0.1 or publish the container on the Tailscale interface).",
+  "prevention": "Before claiming memory is down: compare $env:HINDSIGHT_LOCAL_URL with `docker ps` port bindings and probe /health on the exact URL the helper uses. User rule 2026-10-27: production lessons are saved on the LOCAL machine (127.0.0.1:8890, bank may-23-jenniehomeschool).",
+  "verification": "127.0.0.1:8890/health = 200; recall via 100.78.215.48:8890 = WinError 10061; recall via 127.0.0.1 = ok (bank empty before the R27 retain).",
+  "status": "workaround_local_override",
+  "evidence_paths": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/memory-retain-r27/RETAIN-RECEIPT-errordb-20261027.json"
+  ],
+  "affected_artifacts": []
+}

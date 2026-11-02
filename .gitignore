@@ -1,0 +1,48 @@
+# Bi mat / khoa
+.env
+.env.*
+auth.json
+*secret*
+!skills/studio-video-engine/engine/bridge/secret.py
+*token*
+chatgpt-accounts*
+machine.json
+engine/bridge/state/
+*.pem
+*.key
+production-local/
+Newtecons-TienDo-KichTinh-30s/scratch/
+**/scratch/
+# Trong so model (chi dung manifest + DOWNLOAD-MODELS.ps1)
+*.safetensors
+*.ckpt
+*.pth
+*.gguf
+*.bin
+*.onnx
+*.pt
+# Media render (anh nho can cho workflow thi git add -f)
+*.mp4
+*.mov
+*.mkv
+*.webm
+*.wav
+*.mp3
+*.flac
+*.m4a
+*.gif
+*.webp
+*.png
+*.jpg
+*.jpeg
+!**/key-graphs/*.png
+# Rac
+__pycache__/
+*.pyc
+*.bak
+*.part
+.venv/
+venv/
+node_modules/
+.pytest_cache/
+Thumbs.db

@@ -1,0 +1,75 @@
+{
+  "template": true,
+  "schema_version": 1,
+  "production_domain": null,
+  "production_domain_allowed": [
+    "jenniejoy_cartoon_3d",
+    "newtecons_live_action",
+    "aec"
+  ],
+  "domain_note": "production_domain is the ONLY domain taxonomy; this manifest is jenniejoy_cartoon_3d only (props/sets/character assets). Game is not a domain (out of scope until a user decision).",
+  "asset_id": null,
+  "asset_type": null,
+  "version": null,
+  "full_description": null,
+  "style": null,
+  "reference_bindings": [],
+  "source_scene": null,
+  "units_and_orientation": {
+    "units": null,
+    "scale": null,
+    "up_axis": null,
+    "forward_axis": null,
+    "pivot": null
+  },
+  "preservation": {
+    "source_immutable": true,
+    "identity_or_design_locks": [],
+    "allowed_changes": []
+  },
+  "stages": [],
+  "modules": [],
+  "rig": {
+    "required": null,
+    "status": "not_assessed",
+    "skeleton_version": null,
+    "weights_evidence": [],
+    "shape_keys": [],
+    "controls": []
+  },
+  "actions": [],
+  "game": {
+    "requested": false,
+    "engine": null,
+    "engine_version": null,
+    "platform": null,
+    "budgets": null,
+    "lods": [],
+    "colliders": [],
+    "runtime_evidence": [],
+    "status": "out_of_scope_until_user_decision"
+  },
+  "scene_instances": [],
+  "comfyui_handoff": {
+    "render_images": [],
+    "actual_3d_assets": [],
+    "script_runner": null,
+    "execution_location": null,
+    "network_dependencies": []
+  },
+  "vocabulary_bindings": [],
+  "parameter_recipe": null,
+  "deliverables": [],
+  "qa": {
+    "geometry": "not_assessed",
+    "likeness_or_design": "not_assessed",
+    "uv_materials": "not_assessed",
+    "module_swap": "not_assessed",
+    "deformation": "not_assessed",
+    "contact": "not_assessed",
+    "saved_reopen": "not_assessed",
+    "export_reimport": "not_assessed"
+  },
+  "errors_and_repairs": [],
+  "status": "planned"
+}

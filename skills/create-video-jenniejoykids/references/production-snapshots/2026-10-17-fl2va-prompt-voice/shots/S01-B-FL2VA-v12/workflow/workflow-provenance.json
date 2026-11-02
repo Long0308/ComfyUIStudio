@@ -1,0 +1,179 @@
+{
+  "carry_in_first_frame": true,
+  "schema_version": "1.0",
+  "builder": "fl2va_single_continuation_h3",
+  "fps": 24,
+  "segments": [
+    {
+      "scene_label": "Scene 1B - FL2VA First Last Continuation",
+      "script_md": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\scenes\\scene-01\\SCENE.md",
+      "schema_version": "1.0",
+      "scene_id": "S01",
+      "segment_id": "S01_B",
+      "logical_seconds": 5,
+      "native_frames": 124,
+      "native_seconds": 5.166666666666667,
+      "native_width": 864,
+      "native_height": 480,
+      "fps": 24,
+      "batch": 1,
+      "text_encoder_device": "default",
+      "dialogue_presentation": "voiceover",
+      "native_speech_conditioning": false,
+      "native_audio_guide_applied": false,
+      "source_dialogue": [
+        {
+          "id": "S01_L2",
+          "speaker": "alice",
+          "text": "Let's go to the zoo!",
+          "start": 1.0,
+          "end": 3.32,
+          "timing_status": "planned"
+        }
+      ],
+      "source_audio_intent": {
+        "voice": {
+          "provider": "VoiceStudio",
+          "profile_id": "8f1145d7",
+          "performance": "Saved Alice voice: warm clear unhurried English. Scene1 is off-screen voiceover over forward walking. Scenes2-6 use the exact guided Alice lines in natural partial profile toward family while pointing/observing, without a body reversal or camera orbit. Parents reply through attentive gestures, no extra speakers or words. Finish swallowing before speech.",
+          "canonical_audio_path": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\audio\\canonical-v2\\alice-canonical-60s.wav",
+          "authority": "Original VoiceStudio Alice native WAV samples, copied byte-for-byte into planned silence placements, no timbre replacement or time-stretch"
+        },
+        "music": "Gentle cheerful original pentatonic plucked/marimba-style instrumental, no lyrics, quiet underneath canonical Alice, duck smoothly during all words, stable modest level through transitions.",
+        "sfx": [
+          {
+            "at": 4.5,
+            "event": "very soft foliage swish"
+          }
+        ]
+      },
+      "frame_zero_guide_node": null,
+      "image_guides": [],
+      "clip_guides": [],
+      "first_extra_guide_node": null,
+      "guide_chain": [],
+      "runtime_prompt_node": "19",
+      "runtime_prompt_transport": "literal_string_link",
+      "final_positive": [
+        "6",
+        0
+      ],
+      "canonical_audio_guide": "JennieJoyKids_S01_B-guide.wav",
+      "guide_anchored": true,
+      "reference_bindings": [
+        {
+          "path": "JennieKidJoys_S01_v10_A119.png",
+          "role": "first_frame",
+          "character_ids": [
+            "alice",
+            "mother",
+            "father"
+          ],
+          "status": "available",
+          "scope": "Native I2V first/last keyframe, not an extra identity reference. Actualv9A lastUSEDframe119, native864x480 lossless PNG. FullA motion visualpass. Onlyincomingreference;no rejected clipguide."
+        },
+        {
+          "path": "JennieKidJoys_S01_v10_B119.png",
+          "role": "last_frame",
+          "character_ids": [
+            "alice",
+            "mother",
+            "father"
+          ],
+          "status": "unverified",
+          "scope": "Native I2V first/last keyframe, not an extra identity reference. Actual PNG dimensions and source approval require review."
+        }
+      ],
+      "speaker_ids": [
+        "alice"
+      ],
+      "speaker_names": [
+        "Alice"
+      ],
+      "voice_profile_id": "8f1145d7",
+      "selected_mode": "canonical_voicestudio",
+      "output_policy": "Preserve complete raw native video and audio as immutable source artifacts. Use the verified canonical VoiceStudio WAV for editorial dialogue, avoiding duplicate speech.",
+      "installed_schema_validation": "passed",
+      "runtime_benchmark": "pending",
+      "carry_in_first_frame": true,
+      "carry_in_source": {
+        "image": [
+          "8",
+          0
+        ],
+        "staged_asset": "JennieKidJoys_S01_v10_A119.png",
+        "source_requirement": "Lossless PNG of the accepted actual predecessor last USED frame.",
+        "expected_native_width": 864,
+        "expected_native_height": 480,
+        "actual_dimension_check": "pending_before_Run",
+        "dimension_requirement": "Probe actual PNG dimensions before Run: exact native width/height; no resize or crop permitted.",
+        "pixel_contract": "Initial editorial frame0 equals the loaded boundary tensor before encoding; native AV remains untouched. Lossy exports may differ."
+      },
+      "editorial_frames": 120,
+      "editorial_seconds": 5.0,
+      "last_used_frame_index": 119,
+      "previous_editorial_last_image": null,
+      "editorial_image": [
+        "52",
+        0
+      ],
+      "boundary_last_image": [
+        "51",
+        0
+      ],
+      "native_save_node": "18",
+      "editorial_save_node": "57",
+      "output_prefixes": {
+        "native": "JennieKidJoys/Scene-01-B-FL2VA-v12/S01_B/native",
+        "editorial": "JennieKidJoys/Scene-01-B-FL2VA-v12/S01_B/editorial",
+        "boundary-start": "JennieKidJoys/Scene-01-B-FL2VA-v12/S01_B/boundary-start",
+        "boundary-end": "JennieKidJoys/Scene-01-B-FL2VA-v12/S01_B/boundary-end"
+      },
+      "editorial_audio_source": "original_guide_wav",
+      "editorial_audio_note": "Trimmed to logical span; listening and complete-word checks still required.",
+      "engine_task": "fl2va",
+      "scheduler": "simple",
+      "steps": 20,
+      "seed": 4341,
+      "keyframe_conditioning": [
+        {
+          "role": "first_frame",
+          "image": [
+            "8",
+            0
+          ],
+          "staged_asset": "JennieKidJoys_S01_v10_A119.png",
+          "native_frame_index": 0
+        },
+        {
+          "role": "last_frame",
+          "image": [
+            "20",
+            0
+          ],
+          "staged_asset": "JennieKidJoys_S01_v10_B119.png",
+          "native_frame_index": 123
+        }
+      ],
+      "last_frame_actual_dimension_check": "pending_before_Run",
+      "last_frame_dimension_requirement": "Probe actual PNG: exact native dimensions; native I2V cover-crops mismatched last-frame geometry.",
+      "last_frame_editorial_note": "The supplied last keyframe conditions native frame123; editorial ends at actual generated frame119. Never substitute the supplied last PNG for that used boundary. The saved actual boundary-end PNG is the next continuation input."
+    }
+  ],
+  "graph_sha256": "4dd2421785d3907c34a78814a14506eeac3cd660d02f0b4e2fa85ab6379cc8e1",
+  "installed_schema_validation": "passed",
+  "staged_asset_inventory_validation": "pending; saved dropdown inventories may predate staging",
+  "submission": "not_submitted",
+  "runtime_benchmark": "pending",
+  "boundary_contract": "Loaded accepted predecessor last USED PNG replaces editorial frame0 exactly before encoding; the actual current last USED frame is saved for the next continuation.",
+  "limitations": "Image conditioning is probabilistic. Exact pre-encode seam identity does not prove correct motion, sound, or identity; lossy encoded pixels can differ. Review doorway crossing and consecutive boundary frames. FL2VA last-keyframe conditioning targets the native tail, not the shorter editorial endpoint. First/last image conditioning does not certify motion between them.",
+  "native_output_policy": "Preserve complete unmodified native frame batches and generated audio in separate native SaveVideo outputs.",
+  "model_checkpoint": {
+    "filename": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+    "expected_bytes": 20970379616,
+    "expected_sha256": "e889202c41dafb67b10d67b97f0d8541508036a6090af23425a5c2615d03c47a",
+    "artifact_verification": "pending_external_size_and_SHA256_check"
+  },
+  "video_manifest": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\stages-v9\\video.json",
+  "installed_object_info": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\installed-object-info-live-v12.json"
+}

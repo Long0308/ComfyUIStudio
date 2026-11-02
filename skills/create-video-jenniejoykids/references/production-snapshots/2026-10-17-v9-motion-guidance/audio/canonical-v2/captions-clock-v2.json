@@ -1,0 +1,80 @@
+{
+  "authority": "exact_original_canonical_v2_PCM_placement",
+  "native_lipsync_review": "pending",
+  "readability_playback_review": "pending",
+  "canonical_sha256": "348e8d8ca0c1fe60aaf3d827c63289eb246e5c9163fe607096735f977b41b79c",
+  "lines": [
+    {
+      "id": "S01_L1",
+      "text": "Mom, Dad, and me!",
+      "start": 1.0,
+      "end": 3.25
+    },
+    {
+      "id": "S01_L2",
+      "text": "Let's go to the zoo!",
+      "start": 6.0,
+      "end": 8.32
+    },
+    {
+      "id": "S02_L1",
+      "text": "Look! A little bird.",
+      "start": 11.0,
+      "end": 13.47
+    },
+    {
+      "id": "S02_L2",
+      "text": "Bird. A little bird.",
+      "start": 16.0,
+      "end": 18.63
+    },
+    {
+      "id": "S03_L1",
+      "text": "I see a giraffe.",
+      "start": 21.0,
+      "end": 23.04
+    },
+    {
+      "id": "S03_L2",
+      "text": "A tall giraffe!",
+      "start": 26.0,
+      "end": 28.21
+    },
+    {
+      "id": "S04_L1",
+      "text": "Hello, little tiger!",
+      "start": 31.0,
+      "end": 33.12
+    },
+    {
+      "id": "S04_L2",
+      "text": "Tiger. Hello, tiger!",
+      "start": 36.0,
+      "end": 38.72
+    },
+    {
+      "id": "S05_L1",
+      "text": "Look! A panda.",
+      "start": 41.0,
+      "end": 42.99
+    },
+    {
+      "id": "S05_L2",
+      "text": "Panda. A hungry panda.",
+      "start": 45.35,
+      "end": 48.29
+    },
+    {
+      "id": "S06_L1",
+      "text": "Bye-bye, animals!",
+      "start": 51.0,
+      "end": 52.96
+    },
+    {
+      "id": "S06_L2",
+      "text": "Bye-bye, zoo!",
+      "start": 56.0,
+      "end": 58.11
+    }
+  ]
+}

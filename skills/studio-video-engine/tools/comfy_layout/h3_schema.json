@@ -1,0 +1,523 @@
+{
+  "provenance": {
+    "ui_schema_source": "production-local\\ComfyUI\\user\\default\\workflows\\JennieJoyKids-H3-Video-Ready.json",
+    "ui_schema_sha256": "a81be8ffb2fd13cc94c670cb0196e402b3f18438f40be583b0af54cc02244cd6",
+    "note": "Only port names/types, sizes and optional shapes extracted; widget order checked against local INPUT_TYPES/define_schema. PrimitiveStringMultiline size is an explicit layout estimate. No template widget values, paths, prompts, links or properties copied."
+  },
+  "nodes": {
+    "UNETLoader": {
+      "size": [
+        320,
+        100
+      ],
+      "inputs": [],
+      "widgets": [
+        {
+          "name": "unet_name",
+          "type": "COMBO"
+        },
+        {
+          "name": "weight_dtype",
+          "type": "COMBO"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL"
+        }
+      ]
+    },
+    "CLIPLoader": {
+      "size": [
+        320,
+        130
+      ],
+      "inputs": [],
+      "widgets": [
+        {
+          "name": "clip_name",
+          "type": "COMBO"
+        },
+        {
+          "name": "type",
+          "type": "COMBO"
+        },
+        {
+          "name": "device",
+          "type": "COMBO"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP"
+        }
+      ]
+    },
+    "VAELoader": {
+      "size": [
+        320,
+        100
+      ],
+      "inputs": [],
+      "widgets": [
+        {
+          "name": "vae_name",
+          "type": "COMBO"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE"
+        }
+      ]
+    },
+    "LoadAudio": {
+      "size": [
+        340,
+        160
+      ],
+      "inputs": [],
+      "widgets": [
+        {
+          "name": "audio",
+          "type": "COMBO"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO"
+        }
+      ]
+    },
+    "MiniMaxH3ReferenceToVideo": {
+      "size": [
+        520,
+        700
+      ],
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP"
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE"
+        },
+        {
+          "name": "audio_vae",
+          "shape": 7,
+          "type": "VAE"
+        }
+      ],
+      "widgets": [
+        {
+          "name": "prompt",
+          "type": "STRING"
+        },
+        {
+          "name": "width",
+          "type": "INT"
+        },
+        {
+          "name": "height",
+          "type": "INT"
+        },
+        {
+          "name": "length",
+          "type": "INT"
+        },
+        {
+          "name": "ref_image_size",
+          "type": "COMBO"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING"
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT"
+        }
+      ],
+      "autogrow": [
+        {
+          "prefix": "ref_images.ref_image_",
+          "type": "IMAGE",
+          "max": 9
+        },
+        {
+          "prefix": "ref_videos.ref_video_",
+          "type": "IMAGE",
+          "max": 3
+        },
+        {
+          "prefix": "ref_video_audios.ref_video_audio_",
+          "type": "AUDIO",
+          "max": 3
+        },
+        {
+          "prefix": "ref_audios.ref_audio_",
+          "type": "AUDIO",
+          "max": 3
+        }
+      ]
+    },
+    "MiniMaxH3AddGuide": {
+      "size": [
+        320,
+        190
+      ],
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING"
+        },
+        {
+          "name": "latent",
+          "type": "LATENT"
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE"
+        },
+        {
+          "name": "audio_vae",
+          "shape": 7,
+          "type": "VAE"
+        },
+        {
+          "name": "image",
+          "shape": 7,
+          "type": "IMAGE"
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO"
+        }
+      ],
+      "widgets": [
+        {
+          "name": "frame_idx",
+          "type": "INT"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING"
+        }
+      ]
+    },
+    "BasicGuider": {
+      "size": [
+        220,
+        80
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL"
+        },
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING"
+        }
+      ],
+      "widgets": [],
+      "outputs": [
+        {
+          "name": "GUIDER",
+          "type": "GUIDER"
+        }
+      ]
+    },
+    "RandomNoise": {
+      "size": [
+        320,
+        100
+      ],
+      "inputs": [],
+      "widgets": [
+        {
+          "name": "noise_seed",
+          "type": "INT",
+          "control_after_generate": "fixed"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "NOISE",
+          "type": "NOISE"
+        }
+      ]
+    },
+    "KSamplerSelect": {
+      "size": [
+        320,
+        100
+      ],
+      "inputs": [],
+      "widgets": [
+        {
+          "name": "sampler_name",
+          "type": "COMBO"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER"
+        }
+      ]
+    },
+    "BasicScheduler": {
+      "size": [
+        320,
+        150
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL"
+        }
+      ],
+      "widgets": [
+        {
+          "name": "scheduler",
+          "type": "COMBO"
+        },
+        {
+          "name": "steps",
+          "type": "INT"
+        },
+        {
+          "name": "denoise",
+          "type": "FLOAT"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS"
+        }
+      ]
+    },
+    "SamplerCustomAdvanced": {
+      "size": [
+        320,
+        200
+      ],
+      "inputs": [
+        {
+          "name": "noise",
+          "type": "NOISE"
+        },
+        {
+          "name": "guider",
+          "type": "GUIDER"
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER"
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS"
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT"
+        }
+      ],
+      "widgets": [],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT"
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT"
+        }
+      ]
+    },
+    "VAEDecode": {
+      "size": [
+        220,
+        100
+      ],
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT"
+        },
+        {
+          "name": "vae",
+          "type": "VAE"
+        }
+      ],
+      "widgets": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE"
+        }
+      ]
+    },
+    "VAEDecodeAudio": {
+      "size": [
+        240,
+        100
+      ],
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT"
+        },
+        {
+          "name": "vae",
+          "type": "VAE"
+        }
+      ],
+      "widgets": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO"
+        }
+      ]
+    },
+    "CreateVideo": {
+      "size": [
+        320,
+        220
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE"
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO"
+        }
+      ],
+      "widgets": [
+        {
+          "name": "fps",
+          "type": "FLOAT"
+        },
+        {
+          "name": "bit_depth",
+          "type": "COMBO"
+        },
+        {
+          "name": "color_space",
+          "type": "COMBO"
+        },
+        {
+          "name": "codec",
+          "type": "COMBO"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO"
+        }
+      ]
+    },
+    "SaveVideo": {
+      "size": [
+        580,
+        430
+      ],
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO"
+        }
+      ],
+      "widgets": [
+        {
+          "name": "filename_prefix",
+          "type": "STRING"
+        },
+        {
+          "name": "format",
+          "type": "COMFY_DYNAMICCOMBO_V3"
+        },
+        {
+          "name": "format.codec",
+          "type": "COMFY_DYNAMICCOMBO_V3"
+        },
+        {
+          "name": "format.codec.encoding",
+          "type": "COMFY_DYNAMICCOMBO_V3"
+        },
+        {
+          "name": "codec",
+          "type": "COMFY_DYNAMICCOMBO_V3"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO"
+        }
+      ]
+    },
+    "LoadImage": {
+      "size": [
+        340,
+        340
+      ],
+      "inputs": [],
+      "widgets": [
+        {
+          "name": "image",
+          "type": "COMBO"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK"
+        }
+      ]
+    },
+    "PrimitiveStringMultiline": {
+      "size": [
+        520,
+        320
+      ],
+      "inputs": [],
+      "widgets": [
+        {
+          "name": "value",
+          "type": "STRING"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING"
+        }
+      ]
+    }
+  }
+}

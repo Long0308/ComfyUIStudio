@@ -1,0 +1,12 @@
+{
+  "schema": "jjv/images-codex-exec-recipe/v1",
+  "id": "codex-exec-v001",
+  "comment": "GPT OAuth route through the Codex CLI (`codex exec`), one account per CODEX_HOME. The engine never reads, copies, hashes or prints a token: it only checks that <codex_home>/auth.json EXISTS. Codex's built-in image_gen tool writes <codex_home>/generated_images/<session>/exec-<id>.png (how the shipped anchors were made). Quota/usage messages and the 1 h default cooling are POLICY (GUESS).",
+  "requested_model": "GPT Image Gen 2",
+  "timeout_seconds": 900,
+  "default_cooling_seconds": 3600,
+  "generated_images_dir": "generated_images",
+  "quota_patterns": ["usage limit", "rate limit", "rate-limit", "quota", "too many requests", "429", "hit your limit", "limit reached"],
+  "auth_patterns": ["not logged in", "log in", "login required", "unauthorized", "401", "token expired", "sign in"],
+  "prompt_template": "Use your built-in image generation tool (image_gen) to create exactly ONE image. Do not run shell commands and do not write any file yourself.\nThe attached input images, in order, are:\n{roles}\nBrief:\n{brief}\nWhen the image has been generated, print only the absolute path of the generated image file and nothing else."
+}

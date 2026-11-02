@@ -1,0 +1,305 @@
+{
+ "schema": "jjv/audio-recipe/v1",
+ "recipe_id": "audio/music-yue2-int8-v001",
+ "family": "audio-music",
+ "domain": "jenniejoy_cartoon_3d",
+ "note": "YuE2 3B int8, two-stage (ABC plan then music), the method of the take the user liked on the first episode (NHAC-2): fixed structural/safety wording, per-episode tempo/key/instruments, lyrics = empty section skeleton, cap 150 s (YuE2 ends when the planned song ends: 34-113 s measured), then CPU loop-extend to the film length + 3 s.",
+ "engine": "yue2",
+ "models": [
+  {
+   "role": "checkpoint (LM + DiT + VAE)",
+   "path": "models/checkpoints/yue2_3b_int8_convrot.safetensors",
+   "bytes": 3960938800,
+   "sha256": "96fe199377309001ed8cd26a944baeee8cc31a20ba7c36d1d3c0a7e1f4149db6",
+   "licence_id": "yue2-cc-by-nc-4.0-creator",
+   "graph_binding": {
+    "node": "1",
+    "input": "ckpt_name",
+    "value": "yue2_3b_int8_convrot.safetensors"
+   }
+  }
+ ],
+ "licences": {
+  "yue2-cc-by-nc-4.0-creator": {
+   "name": "YuE2 model weights: CC BY-NC 4.0 with additional creator permission (MODEL_LICENSE)",
+   "url": "https://github.com/multimodal-art-projection/YuE/blob/main/MODEL_LICENSE",
+   "text_sha256": "c7a0e99360555513ff56815b5dbbc8f0b27a3ad762ceaeeab6838baea9743b3a",
+   "relied_on": "Personal users, content creators, and musicians: free to use YuE2 and monetize generated outputs, with no fees or royalties payable to the YuE2 authors. Commercial use by companies needs a separate commercial licence for the weights. Responsible use: no illegal, harmful, deceptive or unethical use.",
+   "note": "text_sha256 is the sha256 of the MODEL_LICENSE copy saved by the first episode audio lane (audio/music-yue2-v001/licenses); attribution (#YuE2) is encouraged, not required."
+  }
+ },
+ "graph": {
+  "1": {
+   "class_type": "CheckpointLoaderSimple",
+   "inputs": {
+    "ckpt_name": "yue2_3b_int8_convrot.safetensors"
+   }
+  },
+  "2": {
+   "class_type": "YuE2GenerateABC",
+   "inputs": {
+    "clip": [
+     "1",
+     1
+    ],
+    "style": "",
+    "lyrics": "",
+    "seed": 0,
+    "mode": "full",
+    "max_abc_tokens": 8192,
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "top_k": 30,
+    "repetition_penalty": 1.005,
+    "penalty_window": 100
+   }
+  },
+  "3": {
+   "class_type": "YuE2GenerateMusic",
+   "inputs": {
+    "clip": [
+     "1",
+     1
+    ],
+    "style": "",
+    "lyrics": "",
+    "abc": [
+     "2",
+     0
+    ],
+    "seed": 0,
+    "mode": "full",
+    "max_duration": 30.0,
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 100,
+    "repetition_penalty": 1.2
+   }
+  },
+  "4": {
+   "class_type": "ConditioningZeroOut",
+   "inputs": {
+    "conditioning": [
+     "3",
+     0
+    ]
+   }
+  },
+  "5": {
+   "class_type": "EmptyYuE2LatentAudio",
+   "inputs": {
+    "seconds": [
+     "3",
+     1
+    ],
+    "batch_size": 1
+   }
+  },
+  "6": {
+   "class_type": "KSampler",
+   "inputs": {
+    "model": [
+     "1",
+     0
+    ],
+    "seed": 0,
+    "steps": 32,
+    "cfg": 1.0,
+    "sampler_name": "dpm_2",
+    "scheduler": "sgm_uniform",
+    "positive": [
+     "3",
+     0
+    ],
+    "negative": [
+     "4",
+     0
+    ],
+    "latent_image": [
+     "5",
+     0
+    ],
+    "denoise": 1.0
+   }
+  },
+  "7": {
+   "class_type": "VAEDecodeAudioTiled",
+   "inputs": {
+    "samples": [
+     "6",
+     0
+    ],
+    "vae": [
+     "1",
+     2
+    ],
+    "tile_size": 512,
+    "overlap": 64
+   }
+  },
+  "8": {
+   "class_type": "SaveAudio",
+   "inputs": {
+    "audio": [
+     "7",
+     0
+    ],
+    "filename_prefix": "audio/placeholder"
+   }
+  }
+ },
+ "slots": {
+  "style": [
+   [
+    "3",
+    "style"
+   ],
+   [
+    "2",
+    "style"
+   ]
+  ],
+  "lyrics": [
+   [
+    "3",
+    "lyrics"
+   ],
+   [
+    "2",
+    "lyrics"
+   ]
+  ],
+  "seed": [
+   [
+    "2",
+    "seed"
+   ],
+   [
+    "3",
+    "seed"
+   ],
+   [
+    "6",
+    "seed"
+   ]
+  ],
+  "seconds": [
+   [
+    "3",
+    "max_duration"
+   ]
+  ],
+  "filename_prefix": [
+   [
+    "8",
+    "filename_prefix"
+   ]
+  ]
+ },
+ "output": {
+  "node": "8"
+ },
+ "sample_rate": 48000,
+ "seed_base": 20261102,
+ "style_template": "English, long-form extended instrumental, about 2 minutes 30 seconds long, eight sections with intro, repeated themes and outro, instrumental only, no vocals, no singing, gentle cheerful preschool cartoon background music, major key, warm and bright, playful but calm, steady soft groove, no sudden loud hits, no drops, clean mix, {bpm:g} BPM, {key}, {instruments}",
+ "lyrics": "[Intro]\n\n[Verse]\n\n[Chorus]\n\n[Verse]\n\n[Chorus]\n\n[Bridge]\n\n[Chorus]\n\n[Outro]",
+ "max_duration_s": 150.0,
+ "vocal_gate": {
+  "limit_db": -35.0,
+  "vocals_file": "vocals.wav",
+  "timeout_s": 3600.0,
+  "window_limit_dbfs": -40.0
+ },
+ "loop_extend": {
+  "beats_per_bar": 4,
+  "intro_bars": 2,
+  "window_bars": 4,
+  "crossfade_s": 0.25,
+  "target_extra_s": 3.0
+ },
+ "derivation": {
+  "energy": {
+   "calm_max_wps": 1.8,
+   "lively_min_wps": 2.8,
+   "default_by_section": {
+    "intro": "gentle",
+    "logo_hold": "gentle",
+    "outro_cards": "lively",
+    "end_plate": "lively",
+    "ending": "gentle",
+    "*": "gentle"
+   }
+  },
+  "tempo": {
+   "min": 90,
+   "max": 112,
+   "by_energy": {
+    "calm": 96,
+    "gentle": 100,
+    "lively": 108
+   }
+  },
+  "keys": [
+   "C major",
+   "G major",
+   "D major",
+   "F major"
+  ],
+  "instrument_palettes": [
+   {
+    "id": "lullaby",
+    "instruments": "soft felt piano, music box and celesta melody, warm upright bass, brushed light percussion, lullaby-like",
+    "keywords": [
+     "sleep",
+     "nap",
+     "bed",
+     "night",
+     "lullaby",
+     "quiet"
+    ],
+    "energy": [
+     "calm"
+    ]
+   },
+   {
+    "id": "pastoral",
+    "instruments": "ukulele, glockenspiel, soft piano, light hand percussion",
+    "keywords": [
+     "farm",
+     "garden",
+     "cow",
+     "cows",
+     "meadow",
+     "pasture",
+     "picnic",
+     "tree",
+     "orchard"
+    ],
+    "energy": [
+     "gentle"
+    ]
+   },
+   {
+    "id": "playful",
+    "instruments": "pizzicato strings, marimba, xylophone, light shaker, bouncy upright bass",
+    "keywords": [
+     "play",
+     "playground",
+     "dance",
+     "jump",
+     "race",
+     "game"
+    ],
+    "energy": [
+     "lively"
+    ]
+   }
+  ],
+  "default_palette": "pastoral"
+ },
+ "default_brief": {
+  "bpm": 96,
+  "key": "G major",
+  "instruments": "soft felt piano, music box and celesta melody, warm upright bass, brushed light percussion, lullaby-like"
+ }
+}

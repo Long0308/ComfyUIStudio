@@ -1,0 +1,109 @@
+{
+  "platform": "Higgsfield",
+  "required_video_model": "seedance_2_5",
+  "scene_duration_seconds": 10,
+  "total_target_seconds": 60,
+  "resolution": "1080p",
+  "aspect_ratio": "16:9",
+  "native_generated_audio": true,
+  "video_jobs": [
+    {
+      "index": 1,
+      "job_id": "6cfbe0b6-6f71-4680-a6e3-54dc417ef42b"
+    },
+    {
+      "index": 2,
+      "job_id": "518b3034-4d81-4ba3-adef-d821934a8b79"
+    },
+    {
+      "index": 3,
+      "job_id": "264eb485-3aa5-4286-92ee-64a99ced62a7"
+    },
+    {
+      "index": 4,
+      "job_id": "a7ec680c-899c-40da-ac14-be9a2d5b89f0"
+    },
+    {
+      "index": 5,
+      "job_id": "46568b26-b135-4f27-a829-b128f6d6a409"
+    },
+    {
+      "index": 6,
+      "job_id": "ae7eabd5-076c-412e-bd4e-6a359b686550"
+    }
+  ],
+  "ad_jobs": [
+    {
+      "index": 1,
+      "job_id": "74a078ff-2a55-438e-9ac6-d4b570a195a2"
+    },
+    {
+      "index": 2,
+      "job_id": "292917e8-cf36-4895-882e-e5941d171c5c"
+    },
+    {
+      "index": 3,
+      "job_id": "6910446c-0b20-47af-8a0b-246570264325"
+    },
+    {
+      "index": 4,
+      "job_id": "95746f95-02af-4e66-b471-a5bef8fa59ec"
+    }
+  ],
+  "family_reference": {
+    "job_id": "2e11ed9a-a189-4548-b99d-c2ebf4c5e4d6",
+    "model": "gpt_image_2",
+    "source_files": [
+      "C:/Users/Admin/Downloads/alice1.jpg",
+      "C:/Users/Admin/Downloads/alice2.jpg"
+    ],
+    "file": "assets/family-reference-higgsfield.png",
+    "sha256": "88AE818F0A84B9F4AEF8EF7D218AFB0DAD20F554F1C7AC1A7969EC9DFA95428F"
+  },
+  "audio_references": {
+    "S01": "860399a6-854a-446e-9411-1eedd74337b7",
+    "S02": "05712780-60e7-40d5-a0d2-f85f58c446b7",
+    "S03": "3e84b37c-5307-475c-a505-e42b6fb473ee",
+    "S04": "7f40001c-9e4c-4a3e-8f78-6e46fb524623",
+    "S05": "83e2ce04-01e9-45fe-99e8-47fadbca1747",
+    "S06": "dac793b9-6d5f-4aba-8f99-d5f076b4be6b"
+  },
+  "notes": [
+    "VoiceStudio WAVs are reference conditioning only; final dialogue/music/SFX are generated natively by Higgsfield.",
+    "The previously generated non-Higgsfield family image is not used in the production.",
+    "Six full repeated character prompts are stored in docs/script.json; connector request prompts are stored separately."
+  ],
+  "finishing": {
+    "status": "completed",
+    "frameworks": {
+      "scene_generation": "Higgsfield seedance_2_5",
+      "brand_animation": "Hyperframes 0.8.164",
+      "final_compositor": "Remotion 4.0.536"
+    },
+    "width": 1920,
+    "height": 1080,
+    "fps": 24,
+    "video_duration_seconds": 60.0,
+    "frames": 1440,
+    "native_audio_identical_between_versions": true,
+    "native_audio_envelope_correlation": 0.9998677525461916,
+    "outputs": [
+      {
+        "type": "english-read-along",
+        "file": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\renders\\JennieJoy-Kids-Zoo-English-60s.mp4",
+        "sha256": "9c4574af616d5117cee08f1f64c9720488cca78f7f4b8a58206cd70dc75a081c",
+        "bytes": 48865172
+      },
+      {
+        "type": "voiced-no-dialogue-subtitles",
+        "file": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\renders\\JennieJoy-Kids-Zoo-Voiced-60s.mp4",
+        "sha256": "1cb12a052578241a8f07ec238cd9eeed1ffac53d34ec7bbf154678de03270432",
+        "bytes": 49389943
+      }
+    ],
+    "srt": "D:\\23.JennieHomeSchool\\03 Voice\\alice-zoo-higgsfield-60s\\edit\\renders\\JennieJoy-Kids-Zoo-English.srt",
+    "subtitle_lines": 12,
+    "strict_decode": "passed-both",
+    "visual_review": "encoded samples inspected: bird,tiger,panda,goodbye,end; all faces clear of captions"
+  }
+}

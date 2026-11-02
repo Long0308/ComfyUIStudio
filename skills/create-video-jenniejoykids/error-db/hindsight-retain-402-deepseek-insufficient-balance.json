@@ -1,0 +1,17 @@
+{
+  "id": "hindsight-retain-402-deepseek-insufficient-balance",
+  "engine": "Memory pipeline: local Hindsight (container sa-memory-hindsight-local, compose D:\\21.Setupagent\\setupagent\\docker-compose.yml service memory-hindsight-local)",
+  "environment": "BIM home machine, Hindsight 127.0.0.1:8890, bank may-23-jenniehomeschool, fact-extraction LLM HINDSIGHT_API_LLM_BASE_URL=https://api.deepseek.com/v1 model deepseek-chat",
+  "observed_at": "2026-10-27",
+  "symptom": "All 41 error-db retains (82 operations incl. batch parents) were accepted with HTTP 202 but every operation ended `failed`; bank stats total_nodes 0; the retain helper waited on readback for ~1.5 h because 202 only means queued.",
+  "root_cause": "Hindsight's retain fact extraction calls the DeepSeek API directly and DeepSeek returned HTTP 402 `Insufficient Balance` (4 attempts, retry_count 3). This bypasses the user's New-API/9Router quota routing.",
+  "root_cause_status": "measured",
+  "fix_or_workaround": "Error knowledge stays in the error-db JSON files (source of truth). Retain is re-run with technical/memory-retain-r27/retain_errordb.py once the extraction LLM works (top up DeepSeek, or route HINDSIGHT_API_LLM_BASE_URL through local New-API :3300 with a role token — user decision).",
+  "prevention": "After any retain, check bank `operations?status=failed` and `stats.failed_operations` within a few minutes instead of waiting on readback; a 202 is not a stored fact. Retain helper should poll operations and abort on failed status.",
+  "verification": "GET /v1/default/banks/may-23-jenniehomeschool/stats → failed_operations 82, total_nodes 0; operations error_message shows 402 insufficient_balance_error; container log 05:09:49Z.",
+  "status": "open_waiting_user_llm_route",
+  "evidence_paths": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/memory-retain-r27/retain_errordb.py"
+  ],
+  "affected_artifacts": []
+}

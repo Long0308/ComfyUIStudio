@@ -1,0 +1,24 @@
+{
+  "affected_artifacts": [
+    "04-milk-and-mom",
+    "S01_A",
+    "workflows/hybrid-v001"
+  ],
+  "engine": "Orchestration / ComfyUI MiniMax H3",
+  "symptom": "The orchestration audit observed a planning/record gap after S01_A's approved opening anchor SHA 2113acd0... and final WAV SHA 5d33ad49... were ready. It did not establish a sustained stall duration or identify which prerequisites actually blocked dispatch.",
+  "observed_at": "2026-10-27",
+  "status": "resolved",
+  "verification": "Job 71eacbde-2fdb-48c2-b2e9-0b03d0241dd2 completed H3 motion in 305.8s, producing 124 native frames at 864x480 (SHA 9f05671f...). This proves the eventual rendered candidate exists; it does not prove the claimed multi-hour chronology.",
+  "limitations": "Dispatch timestamps are still required before asserting a measured duration or confirmed causal sequence. The candidate video also requires visual lip and acting review.",
+  "root_cause": "The board/contract coupled ready H3 work to independent work such as an alternate Branch B comparator, a full expression library, a passive coordinator ledger and final music/mix. This coupling is an inferred release risk; the cited audit does not prove each item blocked execution for a measured period.",
+  "fix_or_workaround": "Single-shot release rule: first QA-accepted complete image anchor unlocks H3 motion immediately once that shot's receipt WAV is ready (the WAV named in its H3 preparation receipt: preparation.json wav.sha256; S01_A technical/hybrid-v001/job.json wav_sha256 = untrimmed 5d33ad49...). Corrected 2026-10-27 R27: previously said 'final trimmed WAV', which is wrong for S01_A.",
+  "prevention": "Never wait for alternate hybrid comparator, subsequent scene storyboards, full expression packs, or music/mix before submitting ready H3 shot.",
+  "id": "h3-stalled-waiting-unnecessary-prerequisites-s01a",
+  "root_cause_status": "inferred_not_dispatch_timestamp_verified",
+  "evidence_paths": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/storyboard/gpt-opening-v001/ACCEPTANCE.json",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/hybrid-v001/PREPARATION-RECEIPT.json",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/engine-orchestration-audit-v001/AUDIT.md"
+  ],
+  "environment": "Local Windows orchestration, RTX 5080, ComfyUI :8188"
+}

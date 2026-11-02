@@ -1,0 +1,92 @@
+{
+  "video_manifest": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\stages-v8\\video.json",
+  "installed_object_info": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\installed-object-info-live-v3.json",
+  "segments": [
+    {
+      "segment_id": "S01_A",
+      "video_manifest": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\stages-v8\\video.json",
+      "reference_images": [
+        "JennieKidJoys_S01_v8_A0.png"
+      ],
+      "reference_bindings": [
+        {
+          "path": "JennieKidJoys_S01_v8_A0.png",
+          "role": "rear_view_identity_and_spatial_layout",
+          "character_ids": [
+            "alice",
+            "mother",
+            "father"
+          ],
+          "status": "available",
+          "scope": "Derived from actualv7rear-forward portion only; no frontal image reference. ActualBframe0stillcomesfromnewAused119. v9addscontiguousrearforwardmotionguide;sourcefulltakerejected,usedmotionwindowreviewed."
+        }
+      ],
+      "reference_audio": "JennieJoyKids_alice-voice-reference.wav",
+      "guide_audio": "JennieJoyKids_S01_A-guide.wav",
+      "width": 864,
+      "height": 480,
+      "steps": 20,
+      "seed": 4303,
+      "output_prefix": "JennieKidJoys/Scene-01-v9/S01_A",
+      "editorial_frames": 120,
+      "first_frame": "JennieKidJoys_S01_v8_A0.png",
+      "dialogue_presentation": "voiceover",
+      "native_speech_conditioning": false,
+      "guide_frames": [],
+      "guide_clips": [
+        {
+          "video": "JennieKidJoys_S01_v9_A_rear-guide.mkv",
+          "frame_idx": 0,
+          "frames": 124
+        }
+      ]
+    },
+    {
+      "segment_id": "S01_B",
+      "video_manifest": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\stages-v8\\video.json",
+      "reference_images": [
+        "JennieKidJoys_S01_v8_B60.png"
+      ],
+      "reference_bindings": [
+        {
+          "path": "JennieKidJoys_S01_v8_B60.png",
+          "role": "rear_view_identity_and_spatial_layout",
+          "character_ids": [
+            "alice",
+            "mother",
+            "father"
+          ],
+          "status": "available",
+          "scope": "Derived from actualv7rear-forward portion only; no frontal image reference. ActualBframe0stillcomesfromnewAused119. v9addscontiguousrearforwardmotionguide;sourcefulltakerejected,usedmotionwindowreviewed."
+        }
+      ],
+      "reference_audio": "JennieJoyKids_alice-voice-reference.wav",
+      "guide_audio": "JennieJoyKids_S01_B-guide.wav",
+      "width": 864,
+      "height": 480,
+      "steps": 20,
+      "seed": 4304,
+      "output_prefix": "JennieKidJoys/Scene-01-v9/S01_B",
+      "editorial_frames": 120,
+      "dialogue_presentation": "voiceover",
+      "native_speech_conditioning": false,
+      "guide_frames": [
+        {
+          "image": "JennieKidJoys_S01_v8_B8.png",
+          "frame_idx": 8
+        },
+        {
+          "image": "JennieKidJoys_S01_v8_B119.png",
+          "frame_idx": 119
+        }
+      ],
+      "guide_clips": [
+        {
+          "video": "JennieKidJoys_S01_v9_B_rear-guide.mkv",
+          "frame_idx": 24,
+          "frames": 90
+        }
+      ]
+    }
+  ]
+}

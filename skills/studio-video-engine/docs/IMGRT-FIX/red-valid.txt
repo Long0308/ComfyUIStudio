@@ -1,0 +1,133 @@
+python -I -B -c pytest.main ['J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\tests\\test_images_codex_imgrt.py', '-q', '--tb=short', '-p', 'no:cacheprovider', '--basetemp', '.pytest_work_tmp/IMGRT-FIX'] candidate= False
+FFF.FF..FFFFFFFFFFFFF....                                                [100%]
+================================== FAILURES ===================================
+____________ test_gap1_unowned_or_wrong_domain_refused[None-codex] ____________
+..\..\..\tests\test_images_codex_imgrt.py:42: in test_gap1_unowned_or_wrong_domain_refused
+    with pytest.raises(Refused, match="domain"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE Refused
+____________ test_gap1_unowned_or_wrong_domain_refused[None-comfy] ____________
+..\..\..\tests\test_images_codex_imgrt.py:42: in test_gap1_unowned_or_wrong_domain_refused
+    with pytest.raises(Refused, match="domain"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE Refused
+____ test_gap1_unowned_or_wrong_domain_refused[jenniejoy_cartoon_3d-codex] ____
+..\..\..\tests\test_images_codex_imgrt.py:42: in test_gap1_unowned_or_wrong_domain_refused
+    with pytest.raises(Refused, match="domain"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE Refused
+_____________ test_gap1_queue_document_can_declare_domain[codex] ______________
+..\..\..\tests\test_images_codex_imgrt.py:49: in test_gap1_queue_document_can_declare_domain
+    gate(ctx, queue_batch(tmp_path / "declared", file_domain=NEWT), provider)
+..\..\..\tests\test_images_codex_imgrt.py:30: in gate
+    codex.submit_library_batch(ctx, batch.parent / "out", batch, [], codex_cmd=["unused"],
+..\..\..\engine\images\codex.py:216: in submit_library_batch
+    items = load_batch(batch_file, allowed=allowed, forbidden=forbidden, library=True)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\engine\images\codex_queue.py:149: in load_batch
+    queue, queue_present = _queue_rows(path)
+                           ^^^^^^^^^^^^^^^^^
+..\..\..\engine\images\codex_queue.py:63: in _queue_rows
+    raise Refused(f"queue file {queue.name} must be a JSON array")
+E   engine.core.errors.Refused: queue file queue-test.json must be a JSON array
+_____________ test_gap1_queue_document_can_declare_domain[comfy] ______________
+..\..\..\tests\test_images_codex_imgrt.py:49: in test_gap1_queue_document_can_declare_domain
+    gate(ctx, queue_batch(tmp_path / "declared", file_domain=NEWT), provider)
+..\..\..\tests\test_images_codex_imgrt.py:25: in gate
+    item, _ = prompt_route.comfy_item(ctx, batch, batch.parent / "out")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\engine\images\prompt_route.py:203: in comfy_item
+    items = codex_queue.load_batch(Path(batch), allowed=allowed, forbidden=forbidden)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\engine\images\codex_queue.py:149: in load_batch
+    queue, queue_present = _queue_rows(path)
+                           ^^^^^^^^^^^^^^^^^
+..\..\..\engine\images\codex_queue.py:63: in _queue_rows
+    raise Refused(f"queue file {queue.name} must be a JSON array")
+E   engine.core.errors.Refused: queue file queue-test.json must be a JSON array
+___________ test_gap1_legacy_r005_requires_own_staging[False-codex] ___________
+..\..\..\tests\test_images_codex_imgrt.py:61: in test_gap1_legacy_r005_requires_own_staging
+    with pytest.raises(Refused, match="domain"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE Refused
+___________ test_gap1_legacy_r005_requires_own_staging[False-comfy] ___________
+..\..\..\tests\test_images_codex_imgrt.py:61: in test_gap1_legacy_r005_requires_own_staging
+    with pytest.raises(Refused, match="domain"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE Refused
+________________________ test_gap2_new_rows_are_marked ________________________
+..\..\..\tests\test_images_codex_imgrt.py:67: in test_gap2_new_rows_are_marked
+    assert json.loads(Path(made["queue"]).read_text("utf-8"))[0]["source"] == "prompt_route"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'source'
+_________ test_gap2_manual_dispatch_toggle_needs_confirmation[codex] __________
+..\..\..\tests\test_images_codex_imgrt.py:77: in test_gap2_manual_dispatch_toggle_needs_confirmation
+    with pytest.raises(Refused, match="confirmation"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE Refused
+_________ test_gap2_manual_dispatch_toggle_needs_confirmation[comfy] __________
+..\..\..\tests\test_images_codex_imgrt.py:77: in test_gap2_manual_dispatch_toggle_needs_confirmation
+    with pytest.raises(Refused, match="confirmation"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE Refused
+_________________ test_gap2_receipt_must_match[prompt_sha256] _________________
+..\..\..\tests\test_images_codex_imgrt.py:88: in test_gap2_receipt_must_match
+    with pytest.raises(Refused, match="confirmation"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE Refused
+___________________ test_gap2_receipt_must_match[prompt_id] ___________________
+..\..\..\tests\test_images_codex_imgrt.py:88: in test_gap2_receipt_must_match
+    with pytest.raises(Refused, match="confirmation"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE Refused
+_____________________ test_gap2_receipt_must_match[queue] _____________________
+..\..\..\tests\test_images_codex_imgrt.py:88: in test_gap2_receipt_must_match
+    with pytest.raises(Refused, match="confirmation"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE Refused
+____________________ test_gap2_receipt_must_match[schema] _____________________
+..\..\..\tests\test_images_codex_imgrt.py:88: in test_gap2_receipt_must_match
+    with pytest.raises(Refused, match="confirmation"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE Refused
+_____________________ test_gap3_no_lock_is_explicit[SHOT] _____________________
+..\..\..\tests\test_images_codex_imgrt.py:96: in test_gap3_no_lock_is_explicit
+    assert row["canvas_check"] == f"no canvas lock for kind {kind}"
+           ^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'canvas_check'
+____________________ test_gap3_no_lock_is_explicit[ASSET] _____________________
+..\..\..\tests\test_images_codex_imgrt.py:96: in test_gap3_no_lock_is_explicit
+    assert row["canvas_check"] == f"no canvas lock for kind {kind}"
+           ^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'canvas_check'
+_____________________ test_gap3_no_lock_is_explicit[SET] ______________________
+..\..\..\tests\test_images_codex_imgrt.py:96: in test_gap3_no_lock_is_explicit
+    assert row["canvas_check"] == f"no canvas lock for kind {kind}"
+           ^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'canvas_check'
+_____________________ test_gap3_no_lock_is_explicit[FIX] ______________________
+..\..\..\tests\test_images_codex_imgrt.py:96: in test_gap3_no_lock_is_explicit
+    assert row["canvas_check"] == f"no canvas lock for kind {kind}"
+           ^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'canvas_check'
+=========================== short test summary info ===========================
+FAILED ..\..\..\tests\test_images_codex_imgrt.py::test_gap1_unowned_or_wrong_domain_refused[None-codex]
+FAILED ..\..\..\tests\test_images_codex_imgrt.py::test_gap1_unowned_or_wrong_domain_refused[None-comfy]
+FAILED ..\..\..\tests\test_images_codex_imgrt.py::test_gap1_unowned_or_wrong_domain_refused[jenniejoy_cartoon_3d-codex]
+FAILED ..\..\..\tests\test_images_codex_imgrt.py::test_gap1_queue_document_can_declare_domain[codex]
+FAILED ..\..\..\tests\test_images_codex_imgrt.py::test_gap1_queue_document_can_declare_domain[comfy]
+FAILED ..\..\..\tests\test_images_codex_imgrt.py::test_gap1_legacy_r005_requires_own_staging[False-codex]
+FAILED ..\..\..\tests\test_images_codex_imgrt.py::test_gap1_legacy_r005_requires_own_staging[False-comfy]
+FAILED ..\..\..\tests\test_images_codex_imgrt.py::test_gap2_new_rows_are_marked
+FAILED ..\..\..\tests\test_images_codex_imgrt.py::test_gap2_manual_dispatch_toggle_needs_confirmation[codex]
+FAILED ..\..\..\tests\test_images_codex_imgrt.py::test_gap2_manual_dispatch_toggle_needs_confirmation[comfy]
+FAILED ..\..\..\tests\test_images_codex_imgrt.py::test_gap2_receipt_must_match[prompt_sha256]
+FAILED ..\..\..\tests\test_images_codex_imgrt.py::test_gap2_receipt_must_match[prompt_id]
+FAILED ..\..\..\tests\test_images_codex_imgrt.py::test_gap2_receipt_must_match[queue]
+FAILED ..\..\..\tests\test_images_codex_imgrt.py::test_gap2_receipt_must_match[schema]
+FAILED ..\..\..\tests\test_images_codex_imgrt.py::test_gap3_no_lock_is_explicit[SHOT]
+FAILED ..\..\..\tests\test_images_codex_imgrt.py::test_gap3_no_lock_is_explicit[ASSET]
+FAILED ..\..\..\tests\test_images_codex_imgrt.py::test_gap3_no_lock_is_explicit[SET]
+FAILED ..\..\..\tests\test_images_codex_imgrt.py::test_gap3_no_lock_is_explicit[FIX]
+18 failed, 7 passed in 2.47s
+EXIT_CODE 1

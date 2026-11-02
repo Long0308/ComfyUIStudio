@@ -1,0 +1,20 @@
+{
+  "id": "word-timing-inner-word-starts-at-gap-start-lights-early",
+  "engine": "word timing (WORD-TIMING-v003 → review config captions + keyword icon pops); engine target jjv timing words (T-E33)",
+  "environment": "ep04 review v013/v014, faster-whisper small.en word timestamps",
+  "observed_at": "2026-10-27",
+  "symptom": "Independent Q1 on v014: karaoke words that follow a pause light up before the sound — S02_A 'Where' lit at 2.66 s, voiced at 2.90 s (≈7 f early); S01_A 'look' 1.70 vs 1.86; S04_B 'I' 1.10 vs 1.22; also 'comes', 'cheese,', 'grow'. The user had approved v013 with the same timing; the v011 onset fix only moved the FIRST word of each line.",
+  "root_cause": "Whisper word timestamps fill silence: a word after a pause gets a start at (or near) the end of the previous word, i.e. the gap start. The onset rule was applied only to line-first words, so inner words after pauses kept the gap-start time.",
+  "root_cause_status": "measured (root RMS 20 ms windows on the receipt WAVs: < -65 dBFS until 2.88 s, voiced 2.90 s for 'Where')",
+  "fix_or_workaround": "word-timing-v004: apply the onset rule to EVERY word — if the RMS at the word start is below the silence floor, move the start to the first sustained voiced window inside the word; never earlier, never past end-2 f; ends unchanged. v015 = v014 with only captions/icon-pop frames changed; same mix WAV remuxed, no audio change.",
+  "prevention": "Q1 must measure every word (not samples, not only line-first) against an independent audible-onset detector, with a negative control. Engine T-E33 `jjv timing words` applies the onset rule per word. A user OK on an earlier cut does not prove word sync; the automatic gate does.",
+  "status": "fix_in_progress",
+  "evidence_paths": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/editorial/word-timing-v003/WORD-TIMING-v003.json",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/audio/dialogue-trim-v002/dialogue-S02_A-trim-v002-48k.wav"
+  ],
+  "affected_artifacts": [
+    "editorial/review-hd-v013",
+    "editorial/review-hd-v014"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "schema": "jjv/icons-recipe/v1",
+  "id": "icons-v001",
+  "comment": "Thresholds of the icon registry (T-E44, `jjv icons`). The colour/hue values are the SAME numbers as recipes/qa/review-gates-v001.json q2_icons (a test pins them equal, so the registry gate and the review gate Q2 cannot drift apart). max_silhouette_iou is the shape half of the G-ICON-ART rule 'opposite pairs look opposite in colour AND shape' (measured on the 64x64 alpha masks); its value is calibrated in the tests on the real ep04 warm/cold pair.",
+  "alpha_min": 128,
+  "decode_side": 128,
+  "silhouette_side": 64,
+  "min_side_px": 512,
+  "min_delta_e_file": 15.0,
+  "min_hue_distance_deg": 40.0,
+  "hue_min_saturation": 0.10,
+  "max_silhouette_iou": 0.95,
+  "palette_drift_tolerance": 0.2,
+  "attribute_required_for_pairs": true,
+  "compound_separators": [" and ", " & ", "/"],
+  "statuses": ["approved", "candidate"],
+  "opposite_pairs": [["warm", "cold"], ["hot", "cold"], ["big", "small"], ["tall", "short"], ["day", "night"], ["up", "down"], ["fast", "slow"], ["wet", "dry"], ["happy", "sad"], ["light", "dark"], ["open", "closed"], ["full", "empty"]]
+}

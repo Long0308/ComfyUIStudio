@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "segment_id": "S01_A",
+  "voice_profile_id": "8f1145d7",
+  "exact_text": "Mom, Dad, and me!",
+  "full_character_description_source": "production-local/stages/video.json: S01_A",
+  "performance_note": "Slow natural English for a two-year-old; complete initial and final consonants; warm steady voice; natural word stress; response pause; no added speech.",
+  "native_h3_voice_review": "user_reported_unclear",
+  "native_h3_file": "D:/23.JennieHomeSchool/03 Voice/production-local/ComfyUI/output/JennieJoyKids/S01_A_00001_.mp4",
+  "native_h3_sha256": "6c9ca14b7cd4a6abd65f4d133a3306ec6df1af92bf8e835892b44a3d80eb5cac",
+  "editorial_voice_source": "canonical_voicestudio",
+  "canonical_source": "D:/23.JennieHomeSchool/03 Voice/production-local/ComfyUI/input/JennieJoyKids_S01_A-guide.wav",
+  "canonical_source_sha256": "7f8d020a996e41a9b1e15818b26e8eb3b75c692b22f569af956eb53289860e91",
+  "preview": "D:/23.JennieHomeSchool/03 Voice/production-local/qa/Alice-S01-A-720p-VoiceStudio-clarity.mp4",
+  "preview_sha256": "3f09d7d9f7aeedbb7ee82fa1f9067aa867c90c6500fe707456176de34bbe33cb",
+  "preview_purpose": "Voice clarity comparison; original VoiceStudio guide replaces H3-generated soundtrack explicitly; no BGM/SFX in this diagnostic comparison",
+  "native_dimensions": [
+    864,
+    480
+  ],
+  "delivery_dimensions": [
+    1280,
+    720
+  ],
+  "delivery_note": "Upscaled native 480p; no new 1080p export",
+  "audio_processing": "loudnorm I=-16 TP=-1.5 LRA=7; 48kHz stereo AAC192k delivery; unprocessed source WAV preserved",
+  "canonical_clarity_review": "pending_user_listening",
+  "exact_words_review": "Source WAV previously SHA-bound ASR-verified",
+  "lip_sync_review": "pending_normal_speed_review",
+  "subtitle_timing_review": "Bound to original WAV placement1.0-3.25s; response cue3.4-4.85s",
+  "full_av_decode_exit_code": 0,
+  "accepted": false,
+  "regeneration_required": null,
+  "final_1080_approval": "pending"
+}

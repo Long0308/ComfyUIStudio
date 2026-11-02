@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "status": "caption_obstruction_fixed_in_5s_workpreview",
+  "source": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\A5-preview-v3\\edit\\renders\\JennieKidJoys-A5-workpreview-v3-720p-English.mp4",
+  "reviewed_frames": [
+    0,
+    22,
+    24,
+    60,
+    77,
+    78,
+    96,
+    119
+  ],
+  "visual_estimates": [
+    "Top-leftlineboxclearsallthreeheadsandshoesinspectedframes24/60/77.",
+    "Brandtext0legible;22nativepicture;78captionremoved;96Yourturnclear."
+  ],
+  "measured": {
+    "width": 1280,
+    "height": 720,
+    "fps": 24,
+    "frames": 120,
+    "duration": 5,
+    "position_mapping": {
+      "S01_L1": "top-left"
+    },
+    "same_unchanged_audio_bytes_as_v1": true
+  },
+  "technical_report": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\A5-preview-v3\\technical-qa.json",
+  "limitations": [
+    "5sonly_not60sfilm",
+    "NofinalcontactFoley/listeningreview",
+    "Native864x480upscaled"
+  ],
+  "1080_approval": "pending"
+}

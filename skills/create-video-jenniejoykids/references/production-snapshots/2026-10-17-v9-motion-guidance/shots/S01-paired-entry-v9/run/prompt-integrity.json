@@ -1,0 +1,100 @@
+{
+  "prompt_id": "00af6f7c-e581-4ea2-ad77-cc0ea018bb27",
+  "checks": [
+    {
+      "node": "19",
+      "length": 12712,
+      "sha256": "8f6c2d9b75aafc44c32dc23fd83fb29e5d637179c2c4a9bf820418f43718495d",
+      "exact": true
+    },
+    {
+      "node": "1019",
+      "length": 13032,
+      "sha256": "294636ac2ee20761f984385637354442b86fc26be68aca66dc593870b4cd382a",
+      "exact": true
+    }
+  ],
+  "all_required_node_inputs_match": true,
+  "frontend_defaults": [
+    {
+      "node": "17",
+      "input": "bit_depth",
+      "value": "auto"
+    },
+    {
+      "node": "17",
+      "input": "color_space",
+      "value": "sRGB"
+    },
+    {
+      "node": "17",
+      "input": "codec",
+      "value": "none"
+    },
+    {
+      "node": "18",
+      "input": "format.codec",
+      "value": "auto"
+    },
+    {
+      "node": "56",
+      "input": "bit_depth",
+      "value": "auto"
+    },
+    {
+      "node": "56",
+      "input": "color_space",
+      "value": "sRGB"
+    },
+    {
+      "node": "56",
+      "input": "codec",
+      "value": "none"
+    },
+    {
+      "node": "57",
+      "input": "format.codec",
+      "value": "auto"
+    },
+    {
+      "node": "1017",
+      "input": "bit_depth",
+      "value": "auto"
+    },
+    {
+      "node": "1017",
+      "input": "color_space",
+      "value": "sRGB"
+    },
+    {
+      "node": "1017",
+      "input": "codec",
+      "value": "none"
+    },
+    {
+      "node": "1018",
+      "input": "format.codec",
+      "value": "auto"
+    },
+    {
+      "node": "1056",
+      "input": "bit_depth",
+      "value": "auto"
+    },
+    {
+      "node": "1056",
+      "input": "color_space",
+      "value": "sRGB"
+    },
+    {
+      "node": "1056",
+      "input": "codec",
+      "value": "none"
+    },
+    {
+      "node": "1057",
+      "input": "format.codec",
+      "value": "auto"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "legacy-voice-open-to-all-episodes-and-rejections-scoped-per-out",
+  "engine": "studio-video-engine H3 (engine/h3/prepare.py, engine/h3/inputs.py, engine/h3/accept.py, engine/h3/ledger.py)",
+  "environment": "Windows 11, CR-M7 critic (Gemini 4.17M tokens) on the M7 H3 prepare/submit/adopt verbs",
+  "observed_at": "2026-10-28",
+  "symptom": "A manifest with legacy_voice: true was accepted for ANY episode, bypassing the voice_dir listen-approval rule. A take rejected in one --out folder could be picked in another folder of the same episode.",
+  "root_cause": "Measured by CR-M7 and confirmed by root: prepare.py had no episode restriction on legacy_voice (originally around :145), and accept.py kept rejection state per --out folder. Current code: engine/h3/prepare.py:83-88 (legacy_voice refused unless the episode is listed in recipes/h3/routes-v001.json legacy_voice_episodes), :166-169 (manifest needs voice_dir or explicit legacy_voice); engine/h3/accept.py:33-38 (a sha rejected anywhere in the episode is reject), engine/h3/ledger.py:70-72 (rejected_shas reads the episode ledger, not one folder).",
+  "root_cause_status": "measured (CR-M7 MAJOR x2, root confirmed by reading the code); current sha256 engine/h3/prepare.py f86e77e11e4538884ed351f8021ca35096cd006b92e35884f220369c6088af83, engine/h3/accept.py 12002e1a5737dfefcfcdac2915e37487b8b4907129a02c258f1a8ac805ebb516",
+  "fix_or_workaround": "M7-f1 (Sonnet #2): legacy_voice is allowed only for episodes listed in the routes data, and only against a real H3 preparation receipt (test_h3_m7 checks both). Rejections read from the episode-wide ledger. Accepted: CR-M7f1 PASS (Gemini 1.3M tokens).",
+  "verification": "tests/h3/test_h3_m7.py::test_legacy_voice_is_refused_for_an_episode_not_listed_in_data (:159); ::test_legacy_voice_needs_a_real_preparation_receipt (:169); ::test_legacy_voice_needs_an_explicit_flag_and_a_receipt (:126); ::test_legacy_voice_passes_for_a_listed_episode_with_a_real_receipt (:182) as the positive control. Rejection scope: tests/h3/test_h3_m7.py::test_rejection_is_episode_wide_not_scoped_to_the_out_folder (also forged-pick case); tests/h3/test_h3_rejection_episode_wide.py::test_reject_in_out_a_then_fresh_out_b_refuses_pick_and_lists_nothing (clean copy, no forgery, accepted_takes(B) empty) and ::test_cli_pick_in_fresh_out_b_is_refused_with_no_acceptance_written. The new tests fail when the ledger is ignored (mutation check: rejected_shas forced to set()).",
+  "prevention": "Rule to keep: a bypass flag (legacy_voice) must be restricted by data (an allowlist of episodes) and must still require a real receipt; the flag alone is never proof. Rejection state is per episode, never per output folder: a take rejected anywhere stays rejected everywhere.",
+  "status": "fixed (CR-M7f1 PASS); rejection-scope test still to be added",
+  "evidence_paths": [
+    "production-local/engine/WAVE-2026-10-28-PLAN.md",
+    ".agents/skills/studio-video-engine/engine/h3/prepare.py",
+    ".agents/skills/studio-video-engine/engine/h3/accept.py",
+    ".agents/skills/studio-video-engine/engine/h3/ledger.py",
+    ".agents/skills/studio-video-engine/tests/h3/test_h3_m7.py"
+  ],
+  "affected_artifacts": [
+    "recipes/h3/routes-v001.json",
+    "H3 shot acceptance records"
+  ]
+}

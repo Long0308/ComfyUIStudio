@@ -1,0 +1,24 @@
+{
+  "symptom": "Full pipeline render gate could unlock with 11 dialogue shots missing real video (rendering H3 PENDING placeholder slots); composition dimensions and coordinate space hardcoded to 1920x1080 with no 4K 3840x2160 route; dialogue WAVs truncated by rounded endAt; hooks linter missing.",
+  "verification": "Independent code review technical/finishing-review-v001/REVIEW.md confirmed findings H1-H4 and M1-M2 at the reviewed source hashes and placed BLOCK on full-film delivery. No current builder fix has independent verification, and no 4K Master or affected full-film export exists.",
+  "prevention": "Validate all real clips, hashes, WAV bindings, finite duration and exact frame count at render entry. Never rely on a boolean timing flag or reported code change alone.",
+  "id": "finishing-pipeline-placeholder-unlock-and-1080p-hardcode",
+  "status": "open",
+  "evidence_paths": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/technical/finishing-review-v001/REVIEW.md",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/editorial/finishing-v001/src/index.jsx",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/editorial/finishing-v001/render.cjs",
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/tools/prepare_finishing_v001.py"
+  ],
+  "affected_artifacts": [
+    "04-milk-and-mom/editorial/finishing-v001",
+    "04-milk-and-mom/tools/prepare_finishing_v001.py"
+  ],
+  "limitations": "The existing 15-second intro/outro preview is a candidate only. Full-film Master stays blocked until builder changes pass a fresh independent review plus runtime/decoded-output checks. A 2K review may be produced but is optional; the 3840x2160 Master is mandatory.",
+  "fix_or_workaround": "Proposed builder fix: require all 12 real clips and conditioning bindings in the source manifest before full render unlocks; introduce a 3840x2160 delivery profile with scaled coordinate space; play WAVs at source offset zero without endAt truncation; add scoped ESLint react-hooks rules. Preserve the existing candidate and do not claim these changes verified.",
+  "engine": "Remotion Finishing (editorial/finishing-v001)",
+  "observed_at": "2026-10-27",
+  "environment": "Windows, Remotion :3000, Node.js, React",
+  "root_cause_status": "confirmed",
+  "root_cause": "full_timeline_ready evaluated 4 timing/source flags but did not verify actual existence/hash of all 12 video clips; dimensions and layout coordinates hardcoded to 1920x1080; audio endAt used rounded frame count truncating audio by up to 13ms."
+}

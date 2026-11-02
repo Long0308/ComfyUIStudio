@@ -1,0 +1,590 @@
+# Scene 6 / S06 — kịch bản phim
+
+Nguồn production-request-v9.json, SHA2563dd21650d1a9c3ab247a2aaf1748672c38d80619aa7676ed4aadecbef7ccb643. Chưa có phân cảnh mới đạt hình. Scene1enginev9 đang chạy từ sourcev8; Scene1 giữ nguyên. Chuyển động, nối cảnh và góc nói phải xem render thực tế.
+
+| Master giây | English dialogue |
+| --- | --- |
+| 51.00–52.96 | Bye-bye, animals! |
+| 56.00–58.11 | Bye-bye, zoo! |
+
+Xem SOUND-PLAN.md cho nhạc, không gian, bước chân, con vật và đồ vật. Full cast và toàn bộ action/camera bên dưới luôn được giữ trong prompt.
+
+```json
+{
+  "id": "S06",
+  "start": 50,
+  "duration": 10,
+  "characters": [
+    {
+      "id": "alice",
+      "name": "Alice",
+      "entity": "Human preschool cartoon character",
+      "species": "Homo sapiens human",
+      "age": "Two-year-old toddler girl",
+      "body_proportions": "Small round toddler torso, short limbs and oversized round head",
+      "surface": "Warm peach skin, rosy round cheeks with two tiny white highlights",
+      "eyes": "Very large dark-brown eyes, near-black pupils, white catchlights and short upper lashes",
+      "brows": "Gently arched chestnut eyebrows",
+      "nose_beak": "Tiny peach button nose",
+      "mouth": "Small mouth, red-pink interior and rounded tongue; flexible speech phonemes",
+      "ears": "Small rounded peach ears",
+      "hair_head": "Chestnut short wavy bob, side-swept bangs, high side ponytail on anatomical RIGHT",
+      "clothes": "Rose-pink A-line dress, short puff sleeves, white two-lobed Peter Pan collar, ONE centered white chest heart, lightly pleated skirt, thin white hem line",
+      "footwear": "White frilly ankle socks; rose-pink lace-up sneakers with white laces, white rounded toe caps and white soles",
+      "accessories": "One large rose-pink bow at anatomical RIGHT ponytail anchor; no other accessories",
+      "marks_asymmetry": "Bow and ponytail on anatomical RIGHT, viewer LEFT in front view; no mirroring",
+      "reference_assets": [
+        {
+          "role": "face_front",
+          "path": "assets/references/alice1.jpg",
+          "status": "available",
+          "scope": "Canonical front-view identity; no assertion of unseen side views"
+        },
+        {
+          "role": "wardrobe",
+          "path": "assets/references/alice1.jpg",
+          "status": "available",
+          "scope": "Canonical puff sleeve dress and sneakers"
+        },
+        {
+          "role": "accessories",
+          "path": "assets/references/alice1.jpg",
+          "status": "available",
+          "scope": "Canonical anatomical right bow"
+        },
+        {
+          "role": "gesture_only",
+          "path": "assets/references/alice2.jpg",
+          "status": "available",
+          "scope": "Expression and gestures only; exclude alternative costumes"
+        },
+        {
+          "role": "family_lineup",
+          "path": "assets/references/family-reference-higgsfield.png",
+          "status": "available",
+          "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+        }
+      ]
+    },
+    {
+      "id": "mother",
+      "name": "Mother",
+      "entity": "Human preschool cartoon character",
+      "species": "Homo sapiens human",
+      "age": "Adult woman approximately thirty years old",
+      "body_proportions": "About twice Alice height, softly rounded adult proportions",
+      "surface": "Warm light-peach skin, oval face, softly rounded cheeks",
+      "eyes": "Almond dark-brown eyes with small white catchlights",
+      "brows": "Gently arched brown eyebrows",
+      "nose_beak": "Small rounded peach nose",
+      "mouth": "Small curved mouth with flexible silent smiles",
+      "ears": "Small rounded ears partly covered by hair",
+      "hair_head": "Chestnut shoulder-length hair, left-side part, ends curled inward",
+      "clothes": "Muted dusty-teal short-sleeved blouse, plain round neck, straight cream ankle-length trousers",
+      "footwear": "Simple off-white flat shoes",
+      "accessories": "No glasses, jewelry, hat or handbag",
+      "marks_asymmetry": "Left-side hair part remains anatomical left; no distinctive facial marks",
+      "reference_assets": [
+        {
+          "role": "family_lineup",
+          "path": "assets/references/family-reference-higgsfield.png",
+          "status": "available",
+          "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+        }
+      ]
+    },
+    {
+      "id": "father",
+      "name": "Father",
+      "entity": "Human preschool cartoon character",
+      "species": "Homo sapiens human",
+      "age": "Adult man approximately thirty-two years old",
+      "body_proportions": "Adult softly broad shoulders, slightly taller than Mother",
+      "surface": "Warm light-peach skin, softly rounded rectangular face, clean-shaven",
+      "eyes": "Almond dark-brown eyes with small white catchlights",
+      "brows": "Straight dark-brown eyebrows",
+      "nose_beak": "Small broad rounded peach nose",
+      "mouth": "Small curved mouth with flexible silent smiles",
+      "ears": "Rounded ears visible beside short hair",
+      "hair_head": "Short neat dark-chestnut hair with fixed anatomical left side part",
+      "clothes": "Muted sage-green short-sleeved polo, small folded collar, two cream buttons; straight beige trousers",
+      "footwear": "Simple brown low shoes with rounded toes",
+      "accessories": "No glasses, facial hair, hat, watch or bag",
+      "marks_asymmetry": "Clean-shaven face, fixed anatomical left hair part, no other distinctive marks",
+      "reference_assets": [
+        {
+          "role": "family_lineup",
+          "path": "assets/references/family-reference-higgsfield.png",
+          "status": "available",
+          "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+        }
+      ]
+    },
+    {
+      "id": "panda",
+      "name": "Panda",
+      "entity": "Friendly preschool cartoon animal",
+      "species": "Ailuropoda melanoleuca giant panda",
+      "age": "Healthy adult animal with gentle behavior",
+      "body_proportions": "Round seated bear body, four broad paws, short tail",
+      "surface": "Soft warm-white fur with black ears, limbs and shoulder band",
+      "eyes": "Dark brown eyes inside stable rounded black eye patches",
+      "brows": "No separate human eyebrows; gentle expression through eyelids",
+      "nose_beak": "Broad small black bear nose",
+      "mouth": "Species-appropriate mouth with rounded interior; natural silent movement",
+      "ears": "Two rounded black fur-covered external ears",
+      "hair_head": "Rounded white fur-covered head without human hair",
+      "clothes": "No clothes; natural animal surface fully visible",
+      "footwear": "No footwear; natural species-appropriate feet",
+      "accessories": "No accessories, harness, jewelry or human props",
+      "marks_asymmetry": "Stable black eye patches and shoulder band; natural paws, no extra markings",
+      "reference_assets": []
+    }
+  ],
+  "setting": "First half: Same outdoor visitor path beside bamboo recess, continuing to an open cream-and-sage garden arch already visible ahead. It is a nearby garden exit, not a teleport to the original distant entry gate. Second half: Continuous garden exit path with nearby open cream-and-sage arch ahead; bamboo habitat behind. Outdoor daylight and same stone paving remain stable.",
+  "lighting": "Soft warm morning daylight; broad key from upper screen-left, gentle cream bounce fill, no hard rim or colored neon light. Stable white balance and exposure on peach skin and muted rose/dusty-teal/sage clothes; pale sky and restrained greens. Same light direction across cuts.",
+  "camera": "First half: Same side three-quarter view. Gentle track only after speech. Modest sideways goodbye gaze addresses panda without reversing body or looking back toward original entrance. Second half: Same path-left side with tiny pullback only. Toddler modest LEFT profile addresses mother; no viewer-facing prompt, no reverse angle, no forced frontal pose.",
+  "action": "First half: Carry calm closed-mouth chewing at identical planted pose. Local0–0.8 allows unhurried settling before original speech at1.00; actual mouth readiness must be reviewed, never assume swallow or accelerate chewing. With mouth clear, toddler says exact goodbye-animals line toward panda using only a modest sideways head/eye glance and small RIGHT hand wave, torso/feet path-aligned. Parents smile or nod silently. After speech one slow forward step toward nearby garden arch. Mother LEFT hand retains capped bottle, father RIGHT hand retains box. Parent free inner hands may give one small wave but must not simultaneously hold child hands; toddler hands stay free for this shot. Second half: Carry incoming stride into gentle stop near nearby garden arch. Speak exact goodbye-zoo line with modest LEFT head glance toward mother, torso/feet path-aligned; toddler gives small RIGHT hand farewell. Parents smile silently or wave once with free inner hands. Mother LEFT hand retains bottle, father RIGHT hand retains box; no simultaneous child handholding. Hold warm closing pose after words without viewer-facing body turn or new travel. Original end branding is editorial overlay only.",
+  "dialogue": [
+    {
+      "id": "S06_L1",
+      "speaker": "alice",
+      "text": "Bye-bye, animals!",
+      "start": 1.0,
+      "end": 2.96,
+      "timing_status": "planned"
+    },
+    {
+      "id": "S06_L2",
+      "speaker": "alice",
+      "text": "Bye-bye, zoo!",
+      "start": 6.0,
+      "end": 8.11,
+      "timing_status": "planned"
+    }
+  ],
+  "music": "Gentle cheerful original pentatonic plucked/marimba-style instrumental, no lyrics, quiet underneath canonical Alice, duck smoothly during all words, stable modest level through transitions.",
+  "sfx": [
+    {
+      "at": 0.4,
+      "event": "faint distant bird chirp"
+    },
+    {
+      "at": 8.9,
+      "event": "gentle two-note goodbye bell"
+    }
+  ],
+  "subtitle": {
+    "language": "en",
+    "style": "Exact English words, large rounded white type on restrained dark-teal band, lower 18 percent safe."
+  },
+  "repeat_cues": [
+    {
+      "start": 3.11,
+      "end": 4.85,
+      "text": "Your turn"
+    },
+    {
+      "start": 8.26,
+      "end": 9.85,
+      "text": "Your turn"
+    }
+  ],
+  "transition": {
+    "intent": "Gentle storybook close after family farewell, then editorial brand card.",
+    "camera_continuity": "Carry screen direction, horizon, family spacing and eyelines through the cut; avoid a blanket preset wipe.",
+    "duration": 0.8
+  },
+  "continuity": {
+    "previous_scene_id": "S05",
+    "setting_layout": "Family together on path or rail; Alice central, Mother left and Father right; animal habitat beyond safe barrier.",
+    "theme": "Gentle English discovery and repetition with family at the zoo.",
+    "action_continuation": "Complete current pointing or walking gesture before moving gaze to next discovery.",
+    "entry_state": "Family remains planted at bamboo recess; toddler calmly chewing tiny bite with lips closed, both hands free. Mother LEFT hand holds capped bottle, RIGHT hand free. Father RIGHT hand holds snack box, LEFT hand withdraws from bite toward box. Panda remains visible; nearby garden arch is ahead.",
+    "exit_state": "Family calmly stopped near garden arch, toddler hands free and mouth resting; mother LEFT hand retains capped bottle, father RIGHT hand retains cream snack box; parents free inner hands relaxed after farewell. Panda remains described if visible."
+  },
+  "script_tracking": {
+    "segment_summary": "First half: Carry calm closed-mouth chewing at identical planted pose. Local0–0.8 allows unhurried settling before original speech at1.00; actual mouth readiness must be reviewed, never assume swallow or accelerate chewing. With mouth clear, toddler says exact goodbye-animals line toward panda using only a modest sideways head/eye glance and small RIGHT hand wave, torso/feet path-aligned. Parents smile or nod silently. After speech one slow forward step toward nearby garden arch. Mother LEFT hand retains capped bottle, father RIGHT hand retains box. Parent free inner hands may give one small wave but must not simultaneously hold child hands; toddler hands stay free for this shot. Second half: Carry incoming stride into gentle stop near nearby garden arch. Speak exact goodbye-zoo line with modest LEFT head glance toward mother, torso/feet path-aligned; toddler gives small RIGHT hand farewell. Parents smile silently or wave once with free inner hands. Mother LEFT hand retains bottle, father RIGHT hand retains box; no simultaneous child handholding. Hold warm closing pose after words without viewer-facing body turn or new travel. Original end branding is editorial overlay only.",
+    "dialogue_ids": [
+      "S06_L1",
+      "S06_L2"
+    ],
+    "status": "ready",
+    "review_notes": "Future v8 proposal; source PCM immutable. Only S05_L2 placement changes. No current job edits. Rendering checks pending."
+  },
+  "subshots": [
+    {
+      "id": "S06_A",
+      "start": 0,
+      "duration": 5,
+      "characters": [
+        {
+          "id": "alice",
+          "name": "Alice",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Two-year-old toddler girl",
+          "body_proportions": "Small round toddler torso, short limbs and oversized round head",
+          "surface": "Warm peach skin, rosy round cheeks with two tiny white highlights",
+          "eyes": "Very large dark-brown eyes, near-black pupils, white catchlights and short upper lashes",
+          "brows": "Gently arched chestnut eyebrows",
+          "nose_beak": "Tiny peach button nose",
+          "mouth": "Small mouth, red-pink interior and rounded tongue; flexible speech phonemes",
+          "ears": "Small rounded peach ears",
+          "hair_head": "Chestnut short wavy bob, side-swept bangs, high side ponytail on anatomical RIGHT",
+          "clothes": "Rose-pink A-line dress, short puff sleeves, white two-lobed Peter Pan collar, ONE centered white chest heart, lightly pleated skirt, thin white hem line",
+          "footwear": "White frilly ankle socks; rose-pink lace-up sneakers with white laces, white rounded toe caps and white soles",
+          "accessories": "One large rose-pink bow at anatomical RIGHT ponytail anchor; no other accessories",
+          "marks_asymmetry": "Bow and ponytail on anatomical RIGHT, viewer LEFT in front view; no mirroring",
+          "reference_assets": [
+            {
+              "role": "face_front",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical front-view identity; no assertion of unseen side views"
+            },
+            {
+              "role": "wardrobe",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical puff sleeve dress and sneakers"
+            },
+            {
+              "role": "accessories",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical anatomical right bow"
+            },
+            {
+              "role": "gesture_only",
+              "path": "assets/references/alice2.jpg",
+              "status": "available",
+              "scope": "Expression and gestures only; exclude alternative costumes"
+            },
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        },
+        {
+          "id": "mother",
+          "name": "Mother",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Adult woman approximately thirty years old",
+          "body_proportions": "About twice Alice height, softly rounded adult proportions",
+          "surface": "Warm light-peach skin, oval face, softly rounded cheeks",
+          "eyes": "Almond dark-brown eyes with small white catchlights",
+          "brows": "Gently arched brown eyebrows",
+          "nose_beak": "Small rounded peach nose",
+          "mouth": "Small curved mouth with flexible silent smiles",
+          "ears": "Small rounded ears partly covered by hair",
+          "hair_head": "Chestnut shoulder-length hair, left-side part, ends curled inward",
+          "clothes": "Muted dusty-teal short-sleeved blouse, plain round neck, straight cream ankle-length trousers",
+          "footwear": "Simple off-white flat shoes",
+          "accessories": "No glasses, jewelry, hat or handbag",
+          "marks_asymmetry": "Left-side hair part remains anatomical left; no distinctive facial marks",
+          "reference_assets": [
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        },
+        {
+          "id": "father",
+          "name": "Father",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Adult man approximately thirty-two years old",
+          "body_proportions": "Adult softly broad shoulders, slightly taller than Mother",
+          "surface": "Warm light-peach skin, softly rounded rectangular face, clean-shaven",
+          "eyes": "Almond dark-brown eyes with small white catchlights",
+          "brows": "Straight dark-brown eyebrows",
+          "nose_beak": "Small broad rounded peach nose",
+          "mouth": "Small curved mouth with flexible silent smiles",
+          "ears": "Rounded ears visible beside short hair",
+          "hair_head": "Short neat dark-chestnut hair with fixed anatomical left side part",
+          "clothes": "Muted sage-green short-sleeved polo, small folded collar, two cream buttons; straight beige trousers",
+          "footwear": "Simple brown low shoes with rounded toes",
+          "accessories": "No glasses, facial hair, hat, watch or bag",
+          "marks_asymmetry": "Clean-shaven face, fixed anatomical left hair part, no other distinctive marks",
+          "reference_assets": [
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        },
+        {
+          "id": "panda",
+          "name": "Panda",
+          "entity": "Friendly preschool cartoon animal",
+          "species": "Ailuropoda melanoleuca giant panda",
+          "age": "Healthy adult animal with gentle behavior",
+          "body_proportions": "Round seated bear body, four broad paws, short tail",
+          "surface": "Soft warm-white fur with black ears, limbs and shoulder band",
+          "eyes": "Dark brown eyes inside stable rounded black eye patches",
+          "brows": "No separate human eyebrows; gentle expression through eyelids",
+          "nose_beak": "Broad small black bear nose",
+          "mouth": "Species-appropriate mouth with rounded interior; natural silent movement",
+          "ears": "Two rounded black fur-covered external ears",
+          "hair_head": "Rounded white fur-covered head without human hair",
+          "clothes": "No clothes; natural animal surface fully visible",
+          "footwear": "No footwear; natural species-appropriate feet",
+          "accessories": "No accessories, harness, jewelry or human props",
+          "marks_asymmetry": "Stable black eye patches and shoulder band; natural paws, no extra markings",
+          "reference_assets": []
+        }
+      ],
+      "setting": "Same outdoor visitor path beside bamboo recess, continuing to an open cream-and-sage garden arch already visible ahead. It is a nearby garden exit, not a teleport to the original distant entry gate.",
+      "lighting": "Soft warm morning daylight; broad key from upper screen-left, gentle cream bounce fill, no hard rim or colored neon light. Stable white balance and exposure on peach skin and muted rose/dusty-teal/sage clothes; pale sky and restrained greens. Same light direction across cuts.",
+      "camera": "Same side three-quarter view. Gentle track only after speech. Modest sideways goodbye gaze addresses panda without reversing body or looking back toward original entrance.",
+      "action": "Carry calm closed-mouth chewing at identical planted pose. Local0–0.8 allows unhurried settling before original speech at1.00; actual mouth readiness must be reviewed, never assume swallow or accelerate chewing. With mouth clear, toddler says exact goodbye-animals line toward panda using only a modest sideways head/eye glance and small RIGHT hand wave, torso/feet path-aligned. Parents smile or nod silently. After speech one slow forward step toward nearby garden arch. Mother LEFT hand retains capped bottle, father RIGHT hand retains box. Parent free inner hands may give one small wave but must not simultaneously hold child hands; toddler hands stay free for this shot.",
+      "dialogue": [
+        {
+          "id": "S06_L1",
+          "speaker": "alice",
+          "text": "Bye-bye, animals!",
+          "start": 1.0,
+          "end": 2.96,
+          "timing_status": "planned"
+        }
+      ],
+      "music": "Gentle cheerful original pentatonic plucked/marimba-style instrumental, no lyrics, quiet underneath canonical Alice, duck smoothly during all words, stable modest level through transitions.",
+      "sfx": [
+        {
+          "at": 0.4,
+          "event": "faint distant bird chirp"
+        }
+      ],
+      "subtitle": {
+        "language": "en",
+        "style": "Exact English words, large rounded white type on restrained dark-teal band, lower 18 percent safe."
+      },
+      "repeat_cues": [
+        {
+          "start": 3.11,
+          "end": 4.85,
+          "text": "Your turn"
+        }
+      ],
+      "transition": {
+        "intent": "Gentle storybook close after family farewell, then editorial brand card.",
+        "camera_continuity": "Carry screen direction, horizon, family spacing and eyelines through the cut; avoid a blanket preset wipe.",
+        "duration": 0.8,
+        "kind": "match_on_action"
+      },
+      "continuity": {
+        "previous_scene_id": "S05",
+        "setting_layout": "Family together on path or rail; Alice central, Mother left and Father right; animal habitat beyond safe barrier.",
+        "theme": "Gentle English discovery and repetition with family at the zoo.",
+        "action_continuation": "Use predecessor actual used frame119 as this clip frame0; carry camera, gait, anatomy, environment and props. Proposed exit is a target, not evidence of achieved render.",
+        "entry_state": "Family remains planted at bamboo recess; toddler calmly chewing tiny bite with lips closed, both hands free. Mother LEFT hand holds capped bottle, RIGHT hand free. Father RIGHT hand holds snack box, LEFT hand withdraws from bite toward box. Panda remains visible; nearby garden arch is ahead.",
+        "exit_state": "Family one slow stride along outdoor exit path; panda recedes behind rail, toddler RIGHT hand wave finishing and hands unlinked. Mother LEFT hand holds capped bottle, RIGHT free; father RIGHT hand holds snack box, LEFT free. Garden arch ahead."
+      },
+      "script_tracking": {
+        "segment_summary": "Carry calm closed-mouth chewing at identical planted pose. Local0–0.8 allows unhurried settling before original speech at1.00; actual mouth readiness must be reviewed, never assume swallow or accelerate chewing. With mouth clear, toddler says exact goodbye-animals line toward panda using only a modest sideways head/eye glance and small RIGHT hand wave, torso/feet path-aligned. Parents smile or nod silently. After speech one slow forward step toward nearby garden arch. Mother LEFT hand retains capped bottle, father RIGHT hand retains box. Parent free inner hands may give one small wave but must not simultaneously hold child hands; toddler hands stay free for this shot.",
+        "dialogue_ids": [
+          "S06_L1"
+        ],
+        "status": "ready",
+        "review_notes": "Future v8 proposal; exact source words. S05_L2 retimed without PCM alteration; guide/canonical timeline rebuild REQUIRED before Scene5 submission. Actual mouth readiness, hands, camera and occlusion remain unverified."
+      }
+    },
+    {
+      "id": "S06_B",
+      "start": 5,
+      "duration": 5,
+      "characters": [
+        {
+          "id": "alice",
+          "name": "Alice",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Two-year-old toddler girl",
+          "body_proportions": "Small round toddler torso, short limbs and oversized round head",
+          "surface": "Warm peach skin, rosy round cheeks with two tiny white highlights",
+          "eyes": "Very large dark-brown eyes, near-black pupils, white catchlights and short upper lashes",
+          "brows": "Gently arched chestnut eyebrows",
+          "nose_beak": "Tiny peach button nose",
+          "mouth": "Small mouth, red-pink interior and rounded tongue; flexible speech phonemes",
+          "ears": "Small rounded peach ears",
+          "hair_head": "Chestnut short wavy bob, side-swept bangs, high side ponytail on anatomical RIGHT",
+          "clothes": "Rose-pink A-line dress, short puff sleeves, white two-lobed Peter Pan collar, ONE centered white chest heart, lightly pleated skirt, thin white hem line",
+          "footwear": "White frilly ankle socks; rose-pink lace-up sneakers with white laces, white rounded toe caps and white soles",
+          "accessories": "One large rose-pink bow at anatomical RIGHT ponytail anchor; no other accessories",
+          "marks_asymmetry": "Bow and ponytail on anatomical RIGHT, viewer LEFT in front view; no mirroring",
+          "reference_assets": [
+            {
+              "role": "face_front",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical front-view identity; no assertion of unseen side views"
+            },
+            {
+              "role": "wardrobe",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical puff sleeve dress and sneakers"
+            },
+            {
+              "role": "accessories",
+              "path": "assets/references/alice1.jpg",
+              "status": "available",
+              "scope": "Canonical anatomical right bow"
+            },
+            {
+              "role": "gesture_only",
+              "path": "assets/references/alice2.jpg",
+              "status": "available",
+              "scope": "Expression and gestures only; exclude alternative costumes"
+            },
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        },
+        {
+          "id": "mother",
+          "name": "Mother",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Adult woman approximately thirty years old",
+          "body_proportions": "About twice Alice height, softly rounded adult proportions",
+          "surface": "Warm light-peach skin, oval face, softly rounded cheeks",
+          "eyes": "Almond dark-brown eyes with small white catchlights",
+          "brows": "Gently arched brown eyebrows",
+          "nose_beak": "Small rounded peach nose",
+          "mouth": "Small curved mouth with flexible silent smiles",
+          "ears": "Small rounded ears partly covered by hair",
+          "hair_head": "Chestnut shoulder-length hair, left-side part, ends curled inward",
+          "clothes": "Muted dusty-teal short-sleeved blouse, plain round neck, straight cream ankle-length trousers",
+          "footwear": "Simple off-white flat shoes",
+          "accessories": "No glasses, jewelry, hat or handbag",
+          "marks_asymmetry": "Left-side hair part remains anatomical left; no distinctive facial marks",
+          "reference_assets": [
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        },
+        {
+          "id": "father",
+          "name": "Father",
+          "entity": "Human preschool cartoon character",
+          "species": "Homo sapiens human",
+          "age": "Adult man approximately thirty-two years old",
+          "body_proportions": "Adult softly broad shoulders, slightly taller than Mother",
+          "surface": "Warm light-peach skin, softly rounded rectangular face, clean-shaven",
+          "eyes": "Almond dark-brown eyes with small white catchlights",
+          "brows": "Straight dark-brown eyebrows",
+          "nose_beak": "Small broad rounded peach nose",
+          "mouth": "Small curved mouth with flexible silent smiles",
+          "ears": "Rounded ears visible beside short hair",
+          "hair_head": "Short neat dark-chestnut hair with fixed anatomical left side part",
+          "clothes": "Muted sage-green short-sleeved polo, small folded collar, two cream buttons; straight beige trousers",
+          "footwear": "Simple brown low shoes with rounded toes",
+          "accessories": "No glasses, facial hair, hat, watch or bag",
+          "marks_asymmetry": "Clean-shaven face, fixed anatomical left hair part, no other distinctive marks",
+          "reference_assets": [
+            {
+              "role": "family_lineup",
+              "path": "assets/references/family-reference-higgsfield.png",
+              "status": "available",
+              "scope": "Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation."
+            }
+          ]
+        },
+        {
+          "id": "panda",
+          "name": "Panda",
+          "entity": "Friendly preschool cartoon animal",
+          "species": "Ailuropoda melanoleuca giant panda",
+          "age": "Healthy adult animal with gentle behavior",
+          "body_proportions": "Round seated bear body, four broad paws, short tail",
+          "surface": "Soft warm-white fur with black ears, limbs and shoulder band",
+          "eyes": "Dark brown eyes inside stable rounded black eye patches",
+          "brows": "No separate human eyebrows; gentle expression through eyelids",
+          "nose_beak": "Broad small black bear nose",
+          "mouth": "Species-appropriate mouth with rounded interior; natural silent movement",
+          "ears": "Two rounded black fur-covered external ears",
+          "hair_head": "Rounded white fur-covered head without human hair",
+          "clothes": "No clothes; natural animal surface fully visible",
+          "footwear": "No footwear; natural species-appropriate feet",
+          "accessories": "No accessories, harness, jewelry or human props",
+          "marks_asymmetry": "Stable black eye patches and shoulder band; natural paws, no extra markings",
+          "reference_assets": []
+        }
+      ],
+      "setting": "Continuous garden exit path with nearby open cream-and-sage arch ahead; bamboo habitat behind. Outdoor daylight and same stone paving remain stable.",
+      "lighting": "Soft warm morning daylight; broad key from upper screen-left, gentle cream bounce fill, no hard rim or colored neon light. Stable white balance and exposure on peach skin and muted rose/dusty-teal/sage clothes; pale sky and restrained greens. Same light direction across cuts.",
+      "camera": "Same path-left side with tiny pullback only. Toddler modest LEFT profile addresses mother; no viewer-facing prompt, no reverse angle, no forced frontal pose.",
+      "action": "Carry incoming stride into gentle stop near nearby garden arch. Speak exact goodbye-zoo line with modest LEFT head glance toward mother, torso/feet path-aligned; toddler gives small RIGHT hand farewell. Parents smile silently or wave once with free inner hands. Mother LEFT hand retains bottle, father RIGHT hand retains box; no simultaneous child handholding. Hold warm closing pose after words without viewer-facing body turn or new travel. Original end branding is editorial overlay only.",
+      "dialogue": [
+        {
+          "id": "S06_L2",
+          "speaker": "alice",
+          "text": "Bye-bye, zoo!",
+          "start": 1.0,
+          "end": 3.11,
+          "timing_status": "planned"
+        }
+      ],
+      "music": "Gentle cheerful original pentatonic plucked/marimba-style instrumental, no lyrics, quiet underneath canonical Alice, duck smoothly during all words, stable modest level through transitions.",
+      "sfx": [
+        {
+          "at": 3.9000000000000004,
+          "event": "gentle two-note goodbye bell"
+        }
+      ],
+      "subtitle": {
+        "language": "en",
+        "style": "Exact English words, large rounded white type on restrained dark-teal band, lower 18 percent safe."
+      },
+      "repeat_cues": [
+        {
+          "start": 3.26,
+          "end": 4.85,
+          "text": "Your turn"
+        }
+      ],
+      "transition": {
+        "intent": "Gentle storybook close after family farewell, then editorial brand card.",
+        "camera_continuity": "Carry screen direction, horizon, family spacing and eyelines through the cut; avoid a blanket preset wipe.",
+        "duration": 0.8,
+        "kind": "motivated_cut"
+      },
+      "continuity": {
+        "previous_scene_id": "S05",
+        "setting_layout": "Family together on path or rail; Alice central, Mother left and Father right; animal habitat beyond safe barrier.",
+        "theme": "Gentle English discovery and repetition with family at the zoo.",
+        "action_continuation": "Use predecessor actual used frame119 as this clip frame0; carry camera, gait, anatomy, environment and props. Proposed exit is a target, not evidence of achieved render.",
+        "entry_state": "Family one slow stride along outdoor exit path; panda recedes behind rail, toddler RIGHT hand wave finishing and hands unlinked. Mother LEFT hand holds capped bottle, RIGHT free; father RIGHT hand holds snack box, LEFT free. Garden arch ahead.",
+        "exit_state": "Family calmly stopped near garden arch, toddler hands free and mouth resting; mother LEFT hand retains capped bottle, father RIGHT hand retains cream snack box; parents free inner hands relaxed after farewell. Panda remains described if visible."
+      },
+      "script_tracking": {
+        "segment_summary": "Carry incoming stride into gentle stop near nearby garden arch. Speak exact goodbye-zoo line with modest LEFT head glance toward mother, torso/feet path-aligned; toddler gives small RIGHT hand farewell. Parents smile silently or wave once with free inner hands. Mother LEFT hand retains bottle, father RIGHT hand retains box; no simultaneous child handholding. Hold warm closing pose after words without viewer-facing body turn or new travel. Original end branding is editorial overlay only.",
+        "dialogue_ids": [
+          "S06_L2"
+        ],
+        "status": "ready",
+        "review_notes": "Future v8 proposal; exact source words. S05_L2 retimed without PCM alteration; guide/canonical timeline rebuild REQUIRED before Scene5 submission. Actual mouth readiness, hands, camera and occlusion remain unverified."
+      }
+    }
+  ]
+}
+```

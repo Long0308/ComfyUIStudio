@@ -1,0 +1,429 @@
+{
+ "schema": "jjv/audio-recipe/v1",
+ "recipe_id": "audio/sfx-stable-audio-3-small-v001",
+ "family": "audio-sfx",
+ "domain": "jenniejoy_cartoon_3d",
+ "note": "Stable Audio 3 small-SFX, 8-step LCM; native 44.1 kHz FLAC resampled to 48 kHz by ffmpeg. Cue classes are data: keywords match shot-action text (a negation word in the 40 characters before a match drops it); icon, card, transition and anchor events come from the review config.",
+ "engine": "stable-audio-3-small-sfx",
+ "models": [
+  {
+   "role": "checkpoint (DiT + VAE)",
+   "path": "models/checkpoints/stable_audio_3_small_sfx.safetensors",
+   "bytes": 2270384940,
+   "sha256": "ed9cf1b6172f1a8c2921a9560c21109ff3239524563ced9dce6dcdef41e2f515",
+   "licence_id": "stability-community-2024-07-05",
+   "graph_binding": {
+    "node": "1",
+    "input": "ckpt_name",
+    "value": "stable_audio_3_small_sfx.safetensors"
+   }
+  },
+  {
+   "role": "text encoder",
+   "path": "models/text_encoders/t5gemma_b_b_ul2.safetensors",
+   "bytes": 1187264003,
+   "sha256": "1e1eba25be8872edb0d3c6335c6658fd6388e7b14b60da6e454e404cfcd8150e",
+   "licence_id": "stability-community-2024-07-05",
+   "graph_binding": {
+    "node": "2",
+    "input": "clip_name",
+    "value": "t5gemma_b_b_ul2.safetensors"
+   }
+  }
+ ],
+ "licences": {
+  "stability-community-2024-07-05": {
+   "name": "Stability AI Community License (2024-07-05)",
+   "url": "https://huggingface.co/stabilityai/stable-audio-open-1.0/blob/main/LICENSE.md",
+   "text_sha256": "d6f6b1a4dce5c852bd6d7d9482d002baf0ccdb71e662250b73be9eec8764ee8d",
+   "relied_on": "Free for individuals and organisations below US$1M annual revenue; attribution 'Powered by Stability AI'.",
+   "note": "text_sha256 is the sha256 of the licence copy saved by the first episode audio lane (audio/sfx-v003/licenses)."
+  }
+ },
+ "graph": {
+  "1": {
+   "class_type": "CheckpointLoaderSimple",
+   "inputs": {
+    "ckpt_name": "stable_audio_3_small_sfx.safetensors"
+   }
+  },
+  "2": {
+   "class_type": "CLIPLoader",
+   "inputs": {
+    "clip_name": "t5gemma_b_b_ul2.safetensors",
+    "type": "stable_audio"
+   }
+  },
+  "3": {
+   "class_type": "CLIPTextEncode",
+   "inputs": {
+    "clip": [
+     "2",
+     0
+    ],
+    "text": ""
+   }
+  },
+  "4": {
+   "class_type": "CLIPTextEncode",
+   "inputs": {
+    "clip": [
+     "2",
+     0
+    ],
+    "text": ""
+   }
+  },
+  "5": {
+   "class_type": "EmptyLatentAudio",
+   "inputs": {
+    "seconds": 1.0,
+    "batch_size": 1
+   }
+  },
+  "6": {
+   "class_type": "KSampler",
+   "inputs": {
+    "model": [
+     "1",
+     0
+    ],
+    "seed": 0,
+    "steps": 8,
+    "cfg": 1.0,
+    "sampler_name": "lcm",
+    "scheduler": "simple",
+    "positive": [
+     "3",
+     0
+    ],
+    "negative": [
+     "4",
+     0
+    ],
+    "latent_image": [
+     "5",
+     0
+    ],
+    "denoise": 1.0
+   }
+  },
+  "7": {
+   "class_type": "VAEDecodeAudio",
+   "inputs": {
+    "samples": [
+     "6",
+     0
+    ],
+    "vae": [
+     "1",
+     2
+    ]
+   }
+  },
+  "8": {
+   "class_type": "SaveAudio",
+   "inputs": {
+    "audio": [
+     "7",
+     0
+    ],
+    "filename_prefix": "audio/placeholder"
+   }
+  }
+ },
+ "slots": {
+  "prompt": [
+   [
+    "3",
+    "text"
+   ]
+  ],
+  "negative": [
+   [
+    "4",
+    "text"
+   ]
+  ],
+  "seed": [
+   [
+    "6",
+    "seed"
+   ]
+  ],
+  "seconds": [
+   [
+    "5",
+    "seconds"
+   ]
+  ],
+  "filename_prefix": [
+   [
+    "8",
+    "filename_prefix"
+   ]
+  ]
+ },
+ "output": {
+  "node": "8"
+ },
+ "sample_rate": 48000,
+ "seed_base": 20261101,
+ "negative_prompt": "speech, voice, singing, music, melody, reverb tail, distortion, noise floor, harsh",
+ "negation_words": [
+  "no",
+  "never",
+  "without",
+  "not",
+  "nor",
+  "avoid",
+  "forbid",
+  "forbidden"
+ ],
+ "cue_classes": {
+  "pour": {
+   "prompt": "Milk being poured from a bottle into a glass cup, smooth liquid glug and rising pitch as the cup fills, close, clean, quiet kitchen, no music",
+   "seconds": 3.0,
+   "gain_db": -18.0,
+   "event": "keyword",
+   "keywords": [
+    "pour(?:s|ed|ing)?"
+   ],
+   "offset_s": 0.5
+  },
+  "clink": {
+   "prompt": "A tiny soft ceramic cup clink, single light tap, delicate, quiet, close, no music",
+   "seconds": 1.0,
+   "gain_db": -24.0,
+   "event": "keyword",
+   "keywords": [
+    "clink(?:s|ed|ing)?",
+    "cups? (?:touch|tap)",
+    "glasses? (?:touch|tap)",
+    "cheers"
+   ],
+   "offset_s": 0.3,
+   "pan": 0.2
+  },
+  "moo": {
+   "prompt": "A single gentle cow moo, distant, calm dairy cow in a green pasture, soft, no music",
+   "seconds": 2.5,
+   "gain_db": -26.0,
+   "event": "keyword",
+   "keywords": [
+    "moo(?:s|ed|ing)?"
+   ],
+   "offset_s": 0.5,
+   "pan": 0.4
+  },
+  "hand_milking": {
+   "prompt": "Hand milking a cow: rhythmic thin milk streams squirting into an empty metal pail, alternating left-right, soft metallic ring, barn, distant, no music",
+   "seconds": 6.0,
+   "gain_db": -22.0,
+   "event": "keyword",
+   "keywords": [
+    "squeeze-and-release",
+    "hand-milking",
+    "milking cycle"
+   ],
+   "offset_s": 0.3,
+   "pan": 0.35,
+   "loop": true,
+   "span": "shot"
+  },
+  "bottle_rotate": {
+   "prompt": "A glass milk bottle gently rotated a quarter turn on a wooden tray, soft glass-on-wood scrape, quiet, close, no music",
+   "seconds": 1.0,
+   "gain_db": -20.0,
+   "event": "keyword",
+   "keywords": [
+    "rotates? (?:it|the [a-z ]{0,20}bottle)"
+   ],
+   "offset_s": 0.5,
+   "pan": 0.25
+  },
+  "liquid_slosh": {
+   "prompt": "Milk sloshing softly inside a sealed glass bottle tilted a few degrees, one small liquid wave settling, close, quiet, no music",
+   "seconds": 1.2,
+   "gain_db": -20.0,
+   "event": "keyword",
+   "keywords": [
+    "tips the sealed bottle",
+    "wave moves inside",
+    "slosh\\w*"
+   ],
+   "offset_s": 0.1,
+   "pan": -0.25
+  },
+  "wood_token_set": {
+   "prompt": "Three smooth wooden tokens placed one after another on a wooden picnic table, soft light knocks, quiet, close, no music",
+   "seconds": 1.6,
+   "gain_db": -18.0,
+   "event": "keyword",
+   "keywords": [
+    "sets? three[^.]{0,40}tokens"
+   ],
+   "offset_s": 0.4,
+   "pan": 0.2
+  },
+  "wood_token_place": {
+   "prompt": "A single small wooden heart token set down on a wooden table, one soft knock, quiet, close, no music",
+   "seconds": 1.0,
+   "gain_db": -18.0,
+   "event": "keyword",
+   "keywords": [
+    "places one[^.]{0,40}token"
+   ],
+   "offset_s": 0.4,
+   "pan": -0.2
+  },
+  "wood_token_slide": {
+   "prompt": "A small wooden token sliding across a wooden table and stopping, soft wood-on-wood slide, quiet, close, no music",
+   "seconds": 1.0,
+   "gain_db": -19.0,
+   "event": "keyword",
+   "keywords": [
+    "token to the [a-z-]+ cup"
+   ],
+   "offset_s": 0.5,
+   "pan": -0.2,
+   "repeat": true
+  },
+  "fabric_sleeve": {
+   "prompt": "A knitted fabric sleeve slid onto a ceramic cup, soft cloth friction, short, quiet, close, no music",
+   "seconds": 1.0,
+   "gain_db": -20.0,
+   "event": "keyword",
+   "keywords": [
+    "fabric sleeve onto"
+   ],
+   "offset_s": 0.4,
+   "pan": 0.2,
+   "repeat": true
+  },
+  "wood_hinge": {
+   "prompt": "A wooden toy arm model with a single hinged elbow bending and straightening, soft wooden hinge creak, two gentle movements, quiet, close, no music",
+   "seconds": 1.0,
+   "gain_db": -20.0,
+   "event": "keyword",
+   "keywords": [
+    "hinged elbow"
+   ],
+   "offset_s": 0.4,
+   "pan": 0.2
+  },
+  "ribbon_tension": {
+   "prompt": "A fabric measuring tape ribbon pulled taut and held, light cloth tension with a faint snap, quiet, close, no music",
+   "seconds": 1.0,
+   "gain_db": -21.0,
+   "event": "keyword",
+   "keywords": [
+    "measuring ribbon"
+   ],
+   "offset_s": 0.3
+  },
+  "page_turn": {
+   "prompt": "A small three-panel cardboard picture book unfolding, soft paper and card flaps opening, quiet, close, no music",
+   "seconds": 1.0,
+   "gain_db": -18.0,
+   "event": "keyword",
+   "keywords": [
+    "page(?:s)? (?:turn|flip)\\w*",
+    "turns? (?:a |the )?page",
+    "book (?:opens?|unfold\\w*)",
+    "unfolds?[^.]{0,30}book"
+   ],
+   "offset_s": 0.3,
+   "pan": 0.1
+  },
+  "height_tick": {
+   "prompt": "Two tiny soft ticks with a light sparkle, like marks appearing on a ruler, very short, gentle, no music",
+   "seconds": 1.0,
+   "gain_db": -24.0,
+   "event": "keyword",
+   "keywords": [
+    "height ticks"
+   ],
+   "offset_s": 1.0,
+   "optional": true
+  },
+  "footsteps": {
+   "prompt": "A small child light footsteps on soft grass, four slow steps, quiet, outdoors, no music",
+   "seconds": 2.0,
+   "gain_db": -24.0,
+   "event": "keyword",
+   "keywords": [
+    "footsteps?",
+    "walks? (?:across|along|toward|towards|to)",
+    "walking"
+   ],
+   "offset_s": 0.2,
+   "optional": true
+  },
+  "leaves": {
+   "prompt": "Gentle leaves rustling in a light breeze, garden trees, soft, natural, no birds, no music",
+   "seconds": 1.5,
+   "gain_db": -26.0,
+   "event": "keyword",
+   "keywords": [
+    "leaves rustl\\w*",
+    "rustling leaves",
+    "light breeze"
+   ],
+   "offset_s": 0.0,
+   "optional": true
+  },
+  "ambience": {
+   "prompt": "Quiet sunny morning garden ambience, soft breeze through leaves, a few distant small birds, calm, no music, no voices",
+   "seconds": 12.0,
+   "gain_db": -30.0,
+   "event": "bed",
+   "optional": true,
+   "loop": true
+  },
+  "sparkle": {
+   "prompt": "A tiny magical sparkle pop for a cartoon icon appearing, soft glitter shimmer, very short, bright but gentle, no music",
+   "seconds": 1.0,
+   "gain_db": -22.0,
+   "event": "icon"
+  },
+  "card_sparkle": {
+   "prompt": "A soft gentle sparkle swish for a flashcard sliding in, light glitter, short, warm, no music",
+   "seconds": 1.0,
+   "gain_db": -22.0,
+   "event": "card"
+  },
+  "whoosh": {
+   "prompt": "A soft gentle air whoosh for a quick camera pan, short, smooth, airy, no music, no impact",
+   "seconds": 1.0,
+   "gain_db": -16.0,
+   "event": "transition",
+   "types": [
+    "whip"
+   ],
+   "lead_frames": 1
+  },
+  "logo_chime": {
+   "prompt": "A gentle warm two-note chime for a children channel logo reveal, soft bell, short decay, no music",
+   "seconds": 2.0,
+   "gain_db": -16.0,
+   "event": "anchor",
+   "anchors": [
+    {
+     "path": "motion.ending.logo_disc.in",
+     "offset_frames": 5
+    },
+    {
+     "path": "motion.ending.end_logo.from_frame",
+     "offset_frames": 4
+    }
+   ]
+  }
+ },
+ "postprocess": {
+  "trim_threshold_dbfs": -50.0,
+  "peak_dbfs": -3.0,
+  "fade_in_s": 0.01,
+  "fade_out_s": 0.05
+ }
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "jjv/grade-look/v1",
+  "name": "newtecons_film_v001",
+  "domain_id": "newtecons_live_action",
+  "status": "PROPOSED - pending before/after approval by user",
+  "source": "proposal: natural skin, slightly warm highlights, cool shadows, gentle contrast (brand blue/red must stay within dE 3)",
+  "lift": [0.01, 0.01, 0.012],
+  "gamma": [1.0, 1.0, 1.0],
+  "gain": [0.98, 0.98, 0.98],
+  "warmth": 0.005,
+  "saturation": 0.98,
+  "contrast": 1.03,
+  "split": {"shadow_cool": 0.01, "highlight_warm": 0.01},
+  "brand": [
+    {"name": "brand_blue", "hex": "#0B4FD9"},
+    {"name": "brand_red", "hex": "#E4302C"}
+  ],
+  "brand_de_max": 3.0,
+  "post_defaults": {"grain": 0, "halation": 0, "soften": 0}
+}

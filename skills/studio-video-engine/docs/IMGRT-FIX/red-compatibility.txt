@@ -1,0 +1,28 @@
+python -I -B -c pytest.main ['J:\\1.JennieHomeSchool\\03 Voice\\.agents\\skills\\studio-video-engine\\tests\\test_images_codex_imgrt.py', '-q', '--tb=short', '-p', 'no:cacheprovider', '--basetemp', '.pytest_work_tmp/IMGRT-FIX'] candidate= True
+.........................F.F......                                       [100%]
+================================== FAILURES ===================================
+_______ test_gap1_known_legacy_external_staging_is_episode_bound[True] ________
+..\..\..\tests\test_images_codex_imgrt.py:119: in test_gap1_known_legacy_external_staging_is_episode_bound
+    gate(ctx, batch, "codex")
+..\..\..\tests\test_images_codex_imgrt.py:30: in gate
+    codex.submit_library_batch(ctx, batch.parent / "out", batch, [], codex_cmd=["unused"],
+..\candidate\codex.py:217: in submit_library_batch
+    return _run_items(ctx, library_out, items[0]["batch_id"], items, accounts, library_out=Path(library_out), **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\candidate\codex.py:226: in _run_items
+    _refuse_blocked(item, provenance, ctx=ctx)
+..\candidate\codex_queue.py:161: in _refuse_blocked
+    _refuse_domain(item, True, ctx)
+..\candidate\codex_queue.py:114: in _refuse_domain
+    raise Refused(f"queue row of {item.get('prompt_id')} has no domain ownership for this episode")
+E   engine.core.errors.Refused: queue row of P1 has no domain ownership for this episode
+_______________ test_document_queue_duplicate_prompt_is_refused _______________
+..\..\..\tests\test_images_codex_imgrt.py:128: in test_document_queue_duplicate_prompt_is_refused
+    with pytest.raises(Refused, match="already has a row"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE Refused
+=========================== short test summary info ===========================
+FAILED ..\..\..\tests\test_images_codex_imgrt.py::test_gap1_known_legacy_external_staging_is_episode_bound[True]
+FAILED ..\..\..\tests\test_images_codex_imgrt.py::test_document_queue_duplicate_prompt_is_refused
+2 failed, 32 passed in 21.22s
+EXIT_CODE 1

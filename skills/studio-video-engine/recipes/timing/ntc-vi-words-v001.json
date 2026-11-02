@@ -1,0 +1,83 @@
+{
+  "schema": "jjv/timing-recipe/v1",
+  "recipe_id": "timing/ntc-vi-words-v001",
+  "family": "timing",
+  "domain": "newtecons_live_action",
+  "language": "vi",
+  "document_schema": "newtecons-word-timing/v001",
+  "note": "NEWTECONS Vietnamese word timing v001 (user approved 2026-10-31: phu de/karaoke vao engine). Values are Sol's draft (docs/specs/2026-10-31-newtecons-audio-timing-recipes-v001.md section 7) except two measured deviations by lane KARAOKE-REVIEW-NTC on the S02_A pilot WAV (sha eddc741b...): (1) model_label 'small' = Systran/faster-whisper-small, the only Vietnamese-capable model installed (machine.timing.model_dir); Sol proposed large-v3, which is NOT installed, and the engine never downloads; (2) accept_similarity 0.45 (the cartoon's proven value) because faster-whisper-small hears 'gap' as 'thap' (similarity 0.571) and Sol's 0.8 would refuse a correctly spoken line. Vietnamese words are whitespace tokens with diacritics kept (NFC). Not NEWTECONS-qualified by a listening pilot yet; thresholds remain proposed calibration inputs at 24 fps (early > 1 f FAIL, late <= 2 f PASS, 3-4 f WARN, > 4 f FAIL).",
+  "default_for_domain": true,
+  "recognition": {
+    "engine": "faster-whisper",
+    "model_label": "small",
+    "device": "cpu",
+    "compute_type": "int8",
+    "beam_size": 5,
+    "best_of": 5,
+    "patience": 1.0,
+    "temperature": 0.0,
+    "vad_filter": false,
+    "condition_on_previous_text": false,
+    "prompt_from": "speech_text",
+    "accept_similarity": 0.45,
+    "timeout_seconds": 1800
+  },
+  "first_word": {
+    "hop_s": 0.01,
+    "threshold_dbfs": -42.0,
+    "merge_gap_s": 0.03,
+    "sustained_run_s": 0.12,
+    "isolated_gap_s": 0.4,
+    "move_min_s": 0.04,
+    "unvoiced_preroll_s": 0.06,
+    "calibrate_last_end": true,
+    "voiced": {
+      "window_s": 0.03,
+      "hop_s": 0.01,
+      "loud_dbfs": -32.0,
+      "autocorr_min": 0.6,
+      "pitch_min_hz": 65,
+      "pitch_max_hz": 450,
+      "centroid_max_hz": 4500,
+      "fft_size": 2048,
+      "search_s": 0.8,
+      "lead_back_s": 0.02
+    }
+  },
+  "all_words": {
+    "window_s": 0.02,
+    "hop_s": 0.01,
+    "floor_dbfs": -52.0,
+    "floor_window_s": 0.01,
+    "voiced_dbfs": -37.0,
+    "sustain_s": 0.05,
+    "edge_dbfs": -45.0,
+    "end_margin_frames": 1,
+    "search_past_end_s": 0.1,
+    "pause": {
+      "near_s": 0.18,
+      "mid_s": 0.35,
+      "near_min_s": 0.06,
+      "far_min_s": 0.1,
+      "max_shift_s": 0.4,
+      "search_extra_s": 0.15
+    }
+  },
+  "q1": {
+    "window_s": 0.01,
+    "silence_dbfs": -55.0,
+    "edge_dbfs": -45.0,
+    "pause_min_s": 0.1,
+    "pause_start_max_s": 0.35,
+    "lookback_s": 0.12,
+    "word_end_margin_s": 0.04,
+    "search_after_start_s": 0.4,
+    "max_early_frames": 1,
+    "max_late_frames": 2,
+    "control_shift_frames": 5,
+    "extra_control_shift_frames": [2],
+    "onset_voiced_dbfs": -42.0,
+    "onset_sustain_s": 0.03,
+    "warn_late_frames": 4
+  }
+}

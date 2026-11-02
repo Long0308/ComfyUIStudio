@@ -1,0 +1,17 @@
+{
+  "id": "loop-extend-slice-length-off-by-one-hang",
+  "engine": "audio/music-yue2-v001/tools/loop_extend.py (CPU loop search)",
+  "environment": "Episode 04 T-A10, NHAC-3 take1 113 s at 108 BPM",
+  "observed_at": "2026-10-27",
+  "symptom": "loop_extend hung for minutes on one file (two others finished in < 1 s).",
+  "root_cause": "Envelope slices were taken with integer-divided start/end indices so the candidate slice was one frame shorter than the reference; the search broke on its first iteration, returned t == a, and the extension loop appended an empty segment forever. Killing it by matching 'loop_extend' in Win32_Process command lines also killed the sibling bash wrappers whose command text contained the word.",
+  "root_cause_status": "measured_and_fixed",
+  "fix_or_workaround": "Fixed-length slices (length = w // hop) and a guard that raises when no loop point lies after the intro; rerun finished in 0.5 s (loop point 94.094 s, score 0.747). Kill by python PID only.",
+  "prevention": "Compare arrays by a fixed element count, never by two independent integer divisions; every search loop must raise instead of returning its initial sentinel; process kills must match the executable, not a substring of the command line.",
+  "verification": "scratch loop.json for NHAC-3 and receipts/MUSIC-STATUS.json NHAC-3 loop_extension.",
+  "status": "resolved",
+  "evidence_paths": [
+    "production-local/JennieJoyKids-Story/04-milk-and-mom/audio/music-yue2-v001/tools/loop_extend.py"
+  ],
+  "affected_artifacts": []
+}

@@ -1,0 +1,37 @@
+{
+  "schema": "jjv/voice-recipe/v1",
+  "recipe_id": "voice/omnivoice-en-broadcast-v001",
+  "family": "voice",
+  "domain": "jenniejoy_cartoon_3d",
+  "note": "Request contract of the first produced voice batch (engine omnivoice, English, broadcast preset, 16-bit). Trim parameters equal the dialogue-trim-v002 tool; the onset rule adds the word-timing-v003 step-2 burst filter.",
+  "engine": "omnivoice",
+  "language": "English",
+  "effect_preset": "broadcast",
+  "wav_bits": "16",
+  "editorial": {
+    "sample_rate": 48000,
+    "channels": 2,
+    "sample_width_bytes": 2
+  },
+  "transform": {
+    "method": "rubberband",
+    "formant": "preserved",
+    "pitchq": "quality",
+    "channels": "together"
+  },
+  "trim": {
+    "threshold_dbfs": -40.0,
+    "window_ms": 10,
+    "pre_roll_s": 0.08,
+    "post_roll_s": 0.1,
+    "onset": {
+      "merge_gap_s": 0.03,
+      "min_run_s": 0.15,
+      "isolated_gap_s": 0.5
+    }
+  },
+  "clipped_samples_max": 0,
+  "requires_ffmpeg_filters": [
+    "rubberband"
+  ]
+}

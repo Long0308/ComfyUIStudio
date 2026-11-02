@@ -1,0 +1,31 @@
+--- a/.agents/skills/comfyui-video-pipeline/scripts/comfy_guarded_submit.py
++++ b/.agents/skills/comfyui-video-pipeline/scripts/comfy_guarded_submit.py
+@@ -20,7 +20,8 @@
+ with a one-line ``pid=.. acquired_unix=.. token=..`` body); release is
+ token-checked (the executor unlinks unconditionally). Receipt-dir exclusivity
+ is enforced INSIDE the lock by creating ``dispatch-intent.json`` with O_EXCL.
+-Class ``ClaudeNode`` is a hard refusal that ``--partner-ok`` cannot override.
++Classes ``ClaudeNode`` and ``JJClaudeBridge`` are hard refusals that ``--partner-ok``
++cannot override (the latter is the authoring-only Claude bridge custom node).
+ 
+ Lock release choice: ``submit`` keeps the lock until the new prompt has left
+ ``/queue`` (running -> history) or an error occurs, so no second dispatcher can
+@@ -65,7 +66,7 @@
+ HTTP_TIMEOUT = 30.0
+ 
+ # Class names that are always partner/cloud nodes, even if object_info lies.
+-PARTNER_DENY_LIST = frozenset({"claudenode"})
++PARTNER_DENY_LIST = frozenset({"claudenode", "jjclaudebridge"})
+ 
+ EXIT_OK, EXIT_REFUSED, EXIT_ERROR, EXIT_TIMEOUT, EXIT_FAILED = 0, 1, 2, 3, 4
+ 
+@@ -384,7 +385,8 @@
+     if denied:
+         raise Refused(
+             f"node class(es) {', '.join(denied)} are never allowed in a render graph "
+-            "(cloud call, non-deterministic, breaks hash-bound graphs); "
++            "(cloud/chat call, non-deterministic, breaks hash-bound graphs; JJClaudeBridge "
++            "is authoring-only); "
+             "--partner-ok does not override this"
+         )
+     reasons = partner_reasons(settings, classes)

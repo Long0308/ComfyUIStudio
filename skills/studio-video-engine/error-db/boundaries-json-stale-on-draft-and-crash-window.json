@@ -1,0 +1,24 @@
+{
+  "id": "boundaries-json-stale-on-draft-and-crash-window",
+  "engine": "studio-video-engine editorial boundaries (engine/editorial/boundaries_write.py, engine/editorial/boundaries_current.py)",
+  "environment": "Windows 11, CR-M8bc and CR-M8bcf2 critics; jjv editorial boundaries write",
+  "observed_at": "2026-10-28",
+  "symptom": "(a) A draft run left a stale boundaries.json in place as if it were final. (b) A crash between writing boundaries.json and writing its receipt left the folder unreadable or read as a legacy folder.",
+  "root_cause": "Measured by CR-M8bc: draft writes could touch the current files, and the publish order had no marker, so a crash between boundaries.json and boundaries.current.json was indistinguishable from an old folder. CR-M8bcf2 found the same window at the receipt-to-swap-log step. Current code: engine/editorial/boundaries_write.py:160-162 (a draft never touches boundaries.json or the receipt; it reports current_is_stale), engine/editorial/boundaries_current.py:68-80 (marker -> boundaries.json -> receipt, then the marker is removed), :103-112 (refuse when boundaries.json does not match its receipt).",
+  "root_cause_status": "measured (CR-M8bc and CR-M8bcf2 findings; M8b(c)-f2 root accepted 2026-10-29 ~00:30). Current sha256 engine/editorial/boundaries_current.py 4b54987f17fc1984880172fc2aab9e5e1210f7cbd7256a1763788d0725c9874b, engine/editorial/boundaries_write.py be50090fbcf487359ee226a0a73bfb0a4b5eeaa9a29af3b5e33ba2394df03c3d",
+  "fix_or_workaround": "Write order is marker -> boundaries.json -> boundaries.current.json (receipt) -> marker removed. The marker carries the target version and sha, so an interrupted publish is recognised and completed by an identical retry. Drafts go to versions/boundaries-draft-vNNN.json and report staleness; they never replace the final files. Accepted: M8b(c)-f2 boundaries.current receipt (root re-run).",
+  "verification": "tests/test_editorial_boundaries_current.py::test_a_draft_run_leaves_the_current_files_alone_and_reports_the_stale_final (:57); ::test_a_crash_between_boundaries_json_and_the_first_receipt_is_not_read_as_legacy (:115); ::test_a_draft_with_no_receipt_reports_staleness_as_unknown (:129); ::test_a_crash_between_the_receipt_and_the_swap_log_is_repaired_by_an_identical_retry (:142); ::test_the_marker_of_an_interrupted_publish_carries_the_engine_tree (:195); tests/test_editorial_boundaries_write.py::test_pending_writes_a_draft_and_never_boundaries_json (:140).",
+  "prevention": "Rule to keep: a draft never writes the final file or its receipt. Any multi-file publish writes a marker first, and the reader treats a marker as 'interrupted', never as legacy. Test every crash point between the files, not only the happy path.",
+  "status": "fixed (accepted in M8b(c)-f2)",
+  "evidence_paths": [
+    "production-local/engine/WAVE-2026-10-28-PLAN.md",
+    ".agents/skills/studio-video-engine/engine/editorial/boundaries_write.py",
+    ".agents/skills/studio-video-engine/engine/editorial/boundaries_current.py",
+    ".agents/skills/studio-video-engine/tests/test_editorial_boundaries_current.py"
+  ],
+  "affected_artifacts": [
+    "episode editorial folder boundaries.json",
+    "boundaries.current.json",
+    "versions/boundaries-draft-vNNN.json"
+  ]
+}

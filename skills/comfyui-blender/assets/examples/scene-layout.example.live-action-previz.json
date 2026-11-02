@@ -1,0 +1,236 @@
+{
+  "schema_version": 1,
+  "brief_id": "nt-previz-meeting-room-example",
+  "domain": "newtecons_live_action",
+  "status": "previz_only",
+  "purpose": "Minimal live-action previz example: meeting-room set, blocking and camera framing only.",
+  "units": "meters",
+  "notes": [
+    "Blocking proxies only. No character is generated, bound, dressed or styled here.",
+    "Output is a camera/blocking reference for the live-action unit; it is not an approved frame or wardrobe reference.",
+    "POLICY/GUESS, NOT MEASURED: room size, proxy positions, facings and the camera are an invented illustration tuned until validate passed; not a real location."
+  ],
+  "ground": {
+    "zones": [
+      {
+        "id": "room",
+        "kind": "interior",
+        "x": [
+          0,
+          7
+        ],
+        "y": [
+          0,
+          5
+        ]
+      }
+    ]
+  },
+  "props": [
+    {
+      "id": "TABLE",
+      "kind": "box",
+      "position": [
+        3.5,
+        2.9,
+        0.72
+      ],
+      "size": [
+        2.4,
+        1.0,
+        0.06
+      ],
+      "color": [
+        0.55,
+        0.45,
+        0.35
+      ]
+    },
+    {
+      "id": "CHAIR_01",
+      "kind": "box",
+      "position": [
+        2.9,
+        1.9,
+        0.23
+      ],
+      "size": [
+        0.5,
+        0.5,
+        0.46
+      ],
+      "color": [
+        0.35,
+        0.35,
+        0.4
+      ]
+    },
+    {
+      "id": "CHAIR_02",
+      "kind": "box",
+      "position": [
+        4.1,
+        1.9,
+        0.23
+      ],
+      "size": [
+        0.5,
+        0.5,
+        0.46
+      ],
+      "color": [
+        0.35,
+        0.35,
+        0.4
+      ]
+    },
+    {
+      "id": "WHITEBOARD",
+      "kind": "box",
+      "position": [
+        5.9,
+        4.95,
+        1.5
+      ],
+      "size": [
+        1.6,
+        0.05,
+        1.0
+      ],
+      "color": [
+        0.92,
+        0.92,
+        0.92
+      ]
+    },
+    {
+      "id": "DOOR_MARKER",
+      "kind": "box",
+      "position": [
+        0.05,
+        2.0,
+        1.0
+      ],
+      "size": [
+        0.1,
+        0.9,
+        2.0
+      ],
+      "color": [
+        0.45,
+        0.3,
+        0.18
+      ]
+    }
+  ],
+  "actors": [
+    {
+      "id": "PROXY_01",
+      "label": "seated proxy, near side left",
+      "role": "proxy",
+      "pose": "seated",
+      "position": [
+        2.9,
+        1.9
+      ],
+      "facing_deg": 90,
+      "head_top_z": 1.3,
+      "zone": "room",
+      "support": {
+        "kind": "chair",
+        "top_z": 0.46,
+        "prop_id": "CHAIR_01"
+      },
+      "proxy": "blocking_proxy"
+    },
+    {
+      "id": "PROXY_02",
+      "label": "seated proxy, near side right",
+      "role": "proxy",
+      "pose": "seated",
+      "position": [
+        4.1,
+        1.9
+      ],
+      "facing_deg": 90,
+      "head_top_z": 1.3,
+      "zone": "room",
+      "support": {
+        "kind": "chair",
+        "top_z": 0.46,
+        "prop_id": "CHAIR_02"
+      },
+      "proxy": "blocking_proxy"
+    },
+    {
+      "id": "PROXY_03",
+      "label": "standing proxy at whiteboard",
+      "role": "proxy",
+      "pose": "standing",
+      "position": [
+        5.4,
+        4.5
+      ],
+      "facing_deg": 90,
+      "head_top_z": 1.75,
+      "zone": "room",
+      "proxy": "blocking_proxy"
+    },
+    {
+      "id": "PROXY_04",
+      "label": "standing proxy near door side",
+      "role": "proxy",
+      "pose": "standing",
+      "position": [
+        1.5,
+        2.6
+      ],
+      "facing_deg": 0,
+      "head_top_z": 1.75,
+      "zone": "room",
+      "proxy": "blocking_proxy"
+    }
+  ],
+  "camera": {
+    "position_xy": [
+      3.5,
+      -1.8
+    ],
+    "height_m": 1.5,
+    "target": [
+      3.5,
+      3.0,
+      1.0
+    ],
+    "lens_mm": 24,
+    "sensor_width_mm": 36
+  },
+  "output": {
+    "width": 1280,
+    "height": 720,
+    "basename": "meeting-room-previz"
+  },
+  "rules": [
+    {
+      "id": "proxies_inside_room",
+      "type": "inside_zone",
+      "subjects": [
+        "actors"
+      ],
+      "zone": "room"
+    },
+    {
+      "id": "camera_frames_all_proxies",
+      "type": "camera_frames",
+      "subjects": [
+        "actors"
+      ],
+      "margin": 0.05
+    }
+  ],
+  "provenance": {
+    "unmeasured": [
+      "every number in this example"
+    ]
+  }
+}

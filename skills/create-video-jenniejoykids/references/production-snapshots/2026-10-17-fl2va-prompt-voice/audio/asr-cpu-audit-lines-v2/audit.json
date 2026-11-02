@@ -1,0 +1,75 @@
+{
+  "at_utc": "2026-10-16T20:59:01.585938+00:00",
+  "device": "cpu",
+  "compute_type": "int8",
+  "local_files_only": true,
+  "model_path": "C:\\Users\\Admin\\AppData\\Local\\OmniVoice\\hf_cache\\models--Systran--faster-whisper-large-v3\\snapshots\\edaa852ec7e145841d8ffdb056a99866b5f0a478",
+  "purpose": "Check initial Look omissions in full-track VAD audit; no resynthesis/no timing or source changes",
+  "lines": [
+    {
+      "line_id": "S02_L1",
+      "expected": "Look! A little bird.",
+      "recognized": "Look! A little bird.",
+      "vad_filter": false,
+      "elapsed_seconds": 9.789,
+      "source_sha256": "cbe7709bc5270ff14a8ca05e7368f2be5a36abca2c64c678585a06379a16e37e",
+      "source_unchanged": true,
+      "words": [
+        {
+          "start": 0.0,
+          "end": 0.4,
+          "word": " Look!",
+          "probability": 0.9001490473747253
+        },
+        {
+          "start": 0.62,
+          "end": 1.06,
+          "word": " A",
+          "probability": 0.9789735674858093
+        },
+        {
+          "start": 1.06,
+          "end": 1.44,
+          "word": " little",
+          "probability": 0.9933510422706604
+        },
+        {
+          "start": 1.44,
+          "end": 1.84,
+          "word": " bird.",
+          "probability": 0.9985235333442688
+        }
+      ]
+    },
+    {
+      "line_id": "S05_L1",
+      "expected": "Look! A panda.",
+      "recognized": "Look! A panda!",
+      "vad_filter": false,
+      "elapsed_seconds": 8.178,
+      "source_sha256": "1f7f0894b7243931dc748382aade8d3f5685f230ed210715b3b4350018809528",
+      "source_unchanged": true,
+      "words": [
+        {
+          "start": 0.0,
+          "end": 0.4,
+          "word": " Look!",
+          "probability": 0.8435330390930176
+        },
+        {
+          "start": 0.6,
+          "end": 0.92,
+          "word": " A",
+          "probability": 0.9696894884109497
+        },
+        {
+          "start": 0.92,
+          "end": 1.3,
+          "word": " panda!",
+          "probability": 0.8431711196899414
+        }
+      ]
+    }
+  ],
+  "listening_and_identity_review": "pending_ASR_is_not_listening_approval"
+}

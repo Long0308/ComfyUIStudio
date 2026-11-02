@@ -1,0 +1,351 @@
+"""Config layer: real ep04 validates, precedence, no-loosening, domain separation, schema errors."""
+
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+import pytest
+
+import conftest
+from config_fixtures import REAL_EPISODE_ENGINE, make_live_action_world, make_world
+from engine.config import loader, rules
+from engine.core.errors import Refused
+
+CARTOON = "jenniejoy_cartoon_3d"
+LIVE = "newtecons_live_action"
+V003 = "seedvr2/v003-7b-int8-tile768-int17-raw21"
+
+
+def _build(world):
+    return loader.build_config(world.episode_file, skill_root=world.skill_root,
+                               machine_path=world.machine_path)
+
+
+def _resolve(world):
+    return loader.resolve_episode(str(world.episode_file), skill_root=world.skill_root,
+                                  machine_path=world.machine_path)
+
+
+def _overrides(world, **pairs):
+    world.edit_episode(lambda d: d["overrides"].update(pairs))
+
+
+# ---- the real episode -------------------------------------------------------------------
+def test_real_ep04_config_validates_and_is_stable() -> None:
+    first = loader.build_config(REAL_EPISODE_ENGINE / "episode.json")
+    second = loader.build_config(REAL_EPISODE_ENGINE / "episode.json")
+    assert first.violations == () and first.config is not None
+    assert first.config.config_sha256 == second.config.config_sha256
+    config = first.config
+    assert config.domain["domain_id"] == CARTOON
+    assert config.recipes["seedvr2"]["recipe_id"] == V003
+    assert len(config.shots) == 14
+    assert sum(shot["clip"]["frames"] for shot in config.shots) == 1656
+    assert set(config.sources) >= {"machine", "episode", "shots", "mouth-boxes"}
+
+
+def test_real_machine_keeps_the_adr2_lock_path_and_known_endpoints() -> None:
+    machine = loader.resolve_episode("04-milk-and-mom").machine
+    assert machine["gpu_lock_path"] == conftest.REAL_LOCK
+    assert machine["comfy"]["url"] == "http://127.0.0.1:8188"
+    assert machine["comfy"]["container"] == "Comfyui-Studio"
+    assert machine["studio"]["url"] == "http://127.0.0.1:5050"
+    assert machine["node_modules"].endswith("jenniejoy-zoo-film\\node_modules")
+    assert conftest.ATTEMPTS == []
+
+
+def test_real_ep04_shot_facts() -> None:
+    shots = {s["shot"]: s for s in loader.resolve_episode("04-milk-and-mom").shots}
+    assert shots["S01_A"]["wav_binding"]["kind"] == "job_json_wav_sha256"
+    assert shots["S02_A"]["wav_binding"]["kind"] == "preparation_json_wav_sha256"
+    assert shots["S01_A"]["clip"]["frames"] == 120 and shots["S06_B3"]["clip"]["frames"] == 40
+    assert shots["S06_B2"]["entry"] == {
+        "kind": "carry", "from_shot": "S06_B1", "frame": 119,
+        "evidence": shots["S06_B2"]["entry"]["evidence"]}
+    assert shots["S02_A"]["entry"]["kind"] == "cut"
+    assert {s["logical_shot"] for s in shots.values()} == {f"S0{i}_{c}" for i in range(1, 7) for c in "AB"}
+
+
+def test_slug_path_and_root_all_find_the_same_file() -> None:
+    by_slug = loader.find_episode_file("04-milk-and-mom")
+    assert by_slug == REAL_EPISODE_ENGINE / "episode.json"
+    assert loader.find_episode_file(str(REAL_EPISODE_ENGINE)) == by_slug
+    assert loader.find_episode_file(str(REAL_EPISODE_ENGINE.parent)) == by_slug
+    assert loader.find_episode_file(str(by_slug)) == by_slug
+
+
+def test_unknown_and_ambiguous_slugs_are_refused(tmp_path: Path) -> None:
+    with pytest.raises(Refused):
+        loader.find_episode_file("no-such-episode")
+    with pytest.raises(Refused):
+        loader.find_episode_file("../escape")
+    for parent in ("a", "b"):
+        target = tmp_path / "production-local" / parent / "dup" / "engine"
+        target.mkdir(parents=True)
+        (target / "episode.json").write_text("{}", encoding="utf-8")
+    with pytest.raises(Refused, match="ambiguous"):
+        loader.find_episode_file("dup", repo_root=tmp_path)
+
+
+# ---- precedence and no-loosening --------------------------------------------------------
+def test_layers_resolve_machine_domain_recipe_episode(tmp_path: Path) -> None:
+    world = make_world(tmp_path)
+    config = _resolve(world)
+    assert config.machine["comfy"]["container"] == "Comfyui-Studio"
+    assert config.domain["delivery"]["master"]["frames"] == 2520
+    assert config.recipes["seedvr2"]["geometry"]["tile_size"] == 768
+    assert config.episode["episode_id"] == "04-milk-and-mom"
+
+
+def test_episode_may_restate_locked_values(tmp_path: Path) -> None:
+    world = make_world(tmp_path)
+    _overrides(world, **{
+        "domain.delivery.master.width": 3840, "domain.frame_rates.delivery_fps": 30,
+        "recipe.seedvr2.geometry.tile_size": 768, "machine.comfy.container": "Comfyui-Studio",
+        "domain.forbid_partner_nodes": True,
+    })
+    assert _build(world).violations == ()
+
+
+@pytest.mark.parametrize("key,value", [
+    ("domain.delivery.master.width", 1920),
+    ("domain.delivery.master.height", 1080),
+    ("domain.frame_rates.delivery_fps", 24),
+    ("domain.frame_rates.native_fps", 30),
+    ("domain.delivery.master.frames", 1080),
+    ("domain.forbid_partner_nodes", False),
+    ("domain.forbidden_node_classes", ["ClaudeNode"]),
+    ("domain.forbidden_node_classes", ["bfs_body_swap", "bfs_head_swap"]),
+    # critic probe 10: a lower-case spelling must not replace (and so remove) "ClaudeNode"
+    ("domain.forbidden_node_classes", ["claudenode", "bfs_body_swap", "bfs_head_swap"]),
+    ("domain.allowed_custom_nodes", ["comfyui-krea2edit", "newtecons_branding"]),
+    ("domain.allowed_recipes", [V003, "seedvr2/other"]),
+    ("recipe.seedvr2.geometry.tile_size", 1024),
+    ("recipe.seedvr2.geometry.final_width", 1920),
+    ("recipe.seedvr2.geometry.core_frames", 17),
+    ("recipe.seedvr2.graph_recipe.sampler_steps", 4),
+    ("recipe.seedvr2.graph_recipe.sampler_seed", 1),
+    ("recipe.seedvr2.models.diffusion.sha256", "0" * 64),
+    ("machine.gpu_lock_path", "C:\\elsewhere\\episode-own.lock"),
+    ("machine.comfy.url", "http://127.0.0.1:9999"),
+    ("domain.not_a_key", 1),
+])
+def test_episode_cannot_loosen_a_locked_rule(tmp_path: Path, key: str, value) -> None:
+    world = make_world(tmp_path)
+    _overrides(world, **{key: value})
+    report = _build(world)
+    assert any(f"override {key!r}" in problem for problem in report.violations), report.violations
+    assert report.config is None
+    with pytest.raises(loader.ConfigViolation) as caught:
+        _resolve(world)
+    assert caught.value.exit_code == 1  # refused, nothing sent
+    assert isinstance(caught.value, Refused)
+
+
+def test_true_is_not_one_and_ints_equal_floats() -> None:
+    assert rules.same_value(24, 24.0) and not rules.same_value(1, True) and not rules.same_value(True, 1)
+
+
+def test_episode_top_level_cannot_smuggle_domain_values(tmp_path: Path) -> None:
+    world = make_world(tmp_path)
+    world.edit_episode(lambda d: d.update(fps=30, delivery={"width": 1280, "height": 720}))
+    errors = _build(world).violations
+    assert any("unexpected property 'fps'" in e for e in errors)
+    assert any("unexpected property 'delivery'" in e for e in errors)
+
+
+# ---- domain separation ------------------------------------------------------------------
+def test_domain_files_carry_the_stated_facts() -> None:
+    def read(name):
+        return json.loads((loader.SKILL_ROOT / "domains" / f"{name}.json").read_text("utf-8"))
+    cartoon, live = read(CARTOON), read(LIVE)
+    assert cartoon["frame_rates"] == {"native_fps": 24, "delivery_fps": 30, "mapping": {"num": 5, "den": 4}}
+    assert cartoon["delivery"]["master"] == {"width": 3840, "height": 2160, "fps": 30, "duration_s": 84, "frames": 2520}
+    assert cartoon["delivery"]["review"] == {
+        "width": 1920, "height": 1080, "label": "REVIEW 1080p · native upscaled"}
+    assert live["frame_rates"] == {"native_fps": 24, "delivery_fps": 24, "mapping": {"num": 1, "den": 1}}
+    assert live["delivery"]["master"]["duration_s"] == 45 and live["delivery"]["master"]["frames"] == 1080
+    assert {"ClaudeNode", "bfs_body_swap", "bfs_head_swap"} <= set(cartoon["forbidden_node_classes"])
+    assert "ClaudeNode" in live["forbidden_node_classes"]
+    assert "newtecons_branding" in live["allowed_custom_nodes"]
+    assert not {n for n in cartoon["allowed_custom_nodes"] if n.startswith("newtecons")}
+    assert cartoon["allowed_recipes"] == [V003] and live["allowed_recipes"] == []
+    assert cartoon["forbid_partner_nodes"] is True and live["forbid_partner_nodes"] is True
+
+
+def test_live_action_episode_without_recipe_resolves_but_plan_refuses(tmp_path: Path) -> None:
+    world = make_live_action_world(tmp_path)
+    report = _build(world)
+    assert report.violations == (), report.violations
+    config = report.config
+    assert config.domain["domain_id"] == LIVE and config.recipes == {}
+    with pytest.raises(Refused, match="no qualified seedvr2 recipe"):
+        loader.require_recipe(config, "seedvr2")
+
+
+def test_live_action_with_the_cartoon_recipe_is_refused_at_config_level(tmp_path: Path) -> None:
+    world = make_live_action_world(tmp_path)
+    world.edit_episode(lambda d: d["recipes"].update(seedvr2=V003))
+    report = _build(world)
+    joined = "\n".join(report.violations)
+    assert report.config is None
+    assert f"recipe {V003} is qualified for domain '{CARTOON}', not '{LIVE}'" in joined
+    assert "is not in domain 'newtecons_live_action' allowed_recipes []" in joined
+    with pytest.raises(loader.ConfigViolation):
+        _resolve(world)
+
+
+def test_editing_the_live_domain_allow_list_still_cannot_borrow_the_cartoon_recipe(tmp_path: Path) -> None:
+    world = make_live_action_world(tmp_path)
+    world.edit(world.data(f"domains/{LIVE}.json"), lambda d: d["allowed_recipes"].append(V003))
+    world.edit_episode(lambda d: d["recipes"].update(seedvr2=V003))
+    joined = "\n".join(_build(world).violations)
+    assert "is qualified for domain" in joined  # recipe.domain still pins it to the cartoon domain
+    assert "declared fps" not in joined  # no unrelated noise
+
+
+def test_cartoon_episode_with_a_recipe_from_another_family_is_refused(tmp_path: Path) -> None:
+    world = make_world(tmp_path)
+    world.edit_episode(lambda d: d["recipes"].update(h3="seedvr2/other"))
+    assert any("belongs to another family" in v for v in _build(world).violations)
+
+
+# ---- schema and cross-field errors ------------------------------------------------------
+def _expect(world, text: str) -> None:
+    report = _build(world)
+    assert any(text in problem for problem in report.violations), report.violations
+    assert report.config is None
+
+
+def test_missing_required_episode_key(tmp_path: Path) -> None:
+    world = make_world(tmp_path)
+    world.edit_episode(lambda d: d.pop("timeline"))
+    _expect(world, "missing required property 'timeline'")
+
+
+def test_wrong_types_and_bad_patterns(tmp_path: Path) -> None:
+    world = make_world(tmp_path)
+    world.edit_episode(lambda d: d.update(domain="Bad Domain!", engine_tree_sha256="xyz"))
+    errors = "\n".join(_build(world).violations)
+    assert "episode.domain" in errors and "engine_tree_sha256" in errors
+
+
+def test_unknown_domain_is_reported(tmp_path: Path) -> None:
+    world = make_world(tmp_path)
+    world.edit_episode(lambda d: d.update(domain="no_such_domain"))
+    _expect(world, "domain[no_such_domain]: file not found")
+
+
+def test_domain_with_extra_property_and_bad_arithmetic(tmp_path: Path) -> None:
+    world = make_world(tmp_path)
+    path = world.data(f"domains/{CARTOON}.json")
+    world.edit(path, lambda d: d.update(surprise=1))
+    _expect(world, "unexpected property 'surprise'")
+    world.edit(path, lambda d: (d.pop("surprise"), d["delivery"]["master"].update(frames=2000)))
+    _expect(world, "master frames 2000 != fps*duration")
+
+
+def test_domain_mapping_and_hard_forbidden_class(tmp_path: Path) -> None:
+    world = make_world(tmp_path)
+    path = world.data(f"domains/{CARTOON}.json")
+    world.edit(path, lambda d: d["frame_rates"]["mapping"].update(num=1, den=1))
+    _expect(world, "does not turn 24 fps into 30 fps")
+    world.edit(path, lambda d: (d["frame_rates"]["mapping"].update(num=5, den=4),
+                                d.update(forbidden_node_classes=["bfs_body_swap"])))
+    _expect(world, "must contain ClaudeNode")
+
+
+def test_domain_cannot_turn_partner_forbid_off(tmp_path: Path) -> None:
+    world = make_world(tmp_path)
+    world.edit(world.data(f"domains/{CARTOON}.json"), lambda d: d.update(forbid_partner_nodes=False))
+    _expect(world, "forbid_partner_nodes")
+
+
+def test_recipe_sha_and_geometry_errors(tmp_path: Path) -> None:
+    world = make_world(tmp_path)
+    path = world.data(f"recipes/{V003}.json")
+    world.edit(path, lambda d: d["models"]["vae"].update(sha256="nope"))
+    _expect(world, "models.vae.sha256")
+    world.edit(path, lambda d: d["models"]["vae"].update(sha256="0" * 64))
+    world.edit(path, lambda d: d["geometry"].update(core_frames=12))
+    _expect(world, "core + 2*context != max_raw_segment_frames")
+    world.edit(path, lambda d: d["geometry"].update(core_frames=13, tile_overlap=900))
+    _expect(world, "tile_overlap must be smaller than tile_size")
+
+
+def test_recipe_graph_and_geometry_must_agree(tmp_path: Path) -> None:
+    world = make_world(tmp_path)
+    world.edit(world.data(f"recipes/{V003}.json"), lambda d: d["graph_recipe"].update(tile_size=1024))
+    _expect(world, "graph_recipe.tile_size 1024 != geometry.tile_size")
+
+
+def test_machine_schema_errors(tmp_path: Path) -> None:
+    world = make_world(tmp_path)
+    world.edit(world.machine_path, lambda d: d["comfy"].update(url="https://x/"))
+    _expect(world, "machine.comfy.url")
+    world.edit(world.machine_path, lambda d: (d["comfy"].update(url="http://127.0.0.1:8188"),
+                                              d.pop("gpu_lock_path")))
+    _expect(world, "missing required property 'gpu_lock_path'")
+
+
+def test_shot_and_box_consistency_errors(tmp_path: Path) -> None:
+    world = make_world(tmp_path)
+    shots = world.engine_dir / "shots.json"
+    world.edit(shots, lambda d: d["shots"][3]["clip"].update(frames=127))
+    _expect(world, "clip frames sum 1655")
+    world.edit(shots, lambda d: d["shots"][3]["clip"].update(frames=128))
+    world.edit(shots, lambda d: d["shots"][1]["entry"].update(from_shot="S02_A"))
+    _expect(world, "is not an earlier shot")
+    world.edit(shots, lambda d: d["shots"][1]["entry"].update(from_shot="S01_A", frame=500))
+    _expect(world, "beyond S01_A clip length")
+    world.edit(shots, lambda d: d["shots"][1]["entry"].update(frame=119))
+    world.edit(shots, lambda d: d["shots"][0].update(listener="mother"))
+    _expect(world, "speaker and listener are the same")
+
+
+def test_mouth_box_errors(tmp_path: Path) -> None:
+    world = make_world(tmp_path)
+    boxes = world.engine_dir / "mouth-boxes.json"
+    world.edit(boxes, lambda d: d["shots"]["S01_A"].update(bob=d["shots"]["S01_A"].pop("alice")))
+    _expect(world, "no listener track for 'alice'")
+    world.edit(boxes, lambda d: d["shots"]["S01_A"].pop("bob"))
+    _expect(world, "needs at least 2 propert(ies)")  # schema layer also rejects a one-track shot
+    world = make_world(tmp_path / "second")
+    world.edit(world.engine_dir / "mouth-boxes.json",
+               lambda d: d["shots"]["S01_A"]["mother"]["keyframes"].append([5, 1, 1, 1, 1]))
+    _expect(world, "key frames must be increasing")
+
+
+def test_timeline_and_episode_id_mismatch(tmp_path: Path) -> None:
+    world = make_world(tmp_path)
+    world.edit_episode(lambda d: d["timeline"].update(outro_s=11.0))
+    _expect(world, "episode.timeline sums to a length other than the domain master")
+    world.edit_episode(lambda d: d["timeline"].update(outro_s=12.0))
+    world.edit(world.engine_dir / "shots.json", lambda d: d.update(episode_id="other"))
+    _expect(world, "shots.json: episode_id 'other'")
+
+
+def test_episode_must_live_in_an_engine_folder(tmp_path: Path) -> None:
+    world = make_world(tmp_path)
+    moved = world.engine_dir.parent / "elsewhere"
+    world.engine_dir.rename(moved)
+    report = loader.build_config(moved / "episode.json", skill_root=world.skill_root,
+                                 machine_path=world.machine_path)
+    assert any("must live in <episode root>/engine/" in p for p in report.violations)
+
+
+def test_malformed_json_is_uncertain_not_refused(tmp_path: Path) -> None:
+    from engine.core.errors import Uncertain
+    world = make_world(tmp_path)
+    world.episode_file.write_text("{not json", encoding="utf-8")
+    with pytest.raises(Uncertain):
+        _build(world)
+
+
+def test_every_allowed_recipe_exists_and_is_owned_by_its_domain() -> None:
+    for domain_file in (loader.SKILL_ROOT / "domains").glob("*.json"):
+        domain = json.loads(domain_file.read_text("utf-8"))
+        for rid in domain["allowed_recipes"]:
+            recipe = json.loads((loader.SKILL_ROOT / "recipes" / f"{rid}.json").read_text("utf-8"))
+            assert recipe["domain"] == domain["domain_id"]

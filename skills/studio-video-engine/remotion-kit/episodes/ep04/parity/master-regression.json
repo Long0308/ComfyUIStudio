@@ -1,0 +1,18 @@
+{
+ "note": "NO-REFERENCE CHANGE DETECTORS, not parity: decoded-RGB md5 of kit master stills, bound to the source hashes below",
+ "bound_to": {
+  "pixel_hash": "md5 of decoded RGBA",
+  "master_config_sha256": "29191ddfdc9d51be43ca38397400d9e59b01bcc61352595054f6a7627e909d18",
+  "tail_sha256": {
+   "T1010": "6132bf23c128ff9c2254a4cbeca1016ca28bbbf8b2e6b704ec78a178f55811f0",
+   "T1310": "222c3dcf21300d2f87b20d5c94d6a1802dae004924e2c34437ee7f90f142b850",
+   "T1610": "c26301438403ab150c8bc14e047e38f4cb12bf091a74160134f0fac4743f256b"
+  }
+ },
+ "frames": {
+  "1011": "7aa5b574e71de88ae08585c378d69940",
+  "1012": "7e421cbf537eb404b9746421b5a7736c",
+  "1311": "9945a7dd1035f4085f51089e0868ff2b",
+  "1611": "163d032c7f101fd8bd22227d4271ed30"
+ }
+}

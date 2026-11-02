@@ -1,0 +1,29 @@
+{
+  "schema": "jjv/episode/v1",
+  "episode_id": "04-milk-and-mom",
+  "film_id": "04-milk-and-mom",
+  "title": "Milk and Mom",
+  "domain": "jenniejoy_cartoon_3d",
+  "recipes": {
+    "seedvr2": "seedvr2/v003-7b-int8-tile768-int17-raw21"
+  },
+  "seedvr2": {
+    "production_version": "seedvr2-production-v004",
+    "input_name_template": "seedvr2-prod-v004-{src_sha16}-{shot}-{chunk}-f{start:06d}-{end:06d}-{seg_sha12}.mp4",
+    "output_prefix_template": "episodes/04-milk-and-mom/seedvr2-production-v004/{shot}/{chunk}"
+  },
+  "files": {
+    "shots": "shots.json",
+    "mouth_boxes": "mouth-boxes.json"
+  },
+  "delivery_contract": "DELIVERY-CONTRACT.json",
+  "timeline": {
+    "intro_s": 3.0,
+    "dialogue_s": 69.0,
+    "outro_s": 12.0,
+    "end_card_s": 2.0,
+    "end_card_frames": 60
+  },
+  "engine_tree_sha256": null,
+  "overrides": {}
+}

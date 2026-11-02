@@ -1,0 +1,22 @@
+{
+  "id": "hyperframes-native-startup-20261018",
+  "status": "open",
+  "engine": ".NET 9 + WebView2 custom host",
+  "symptom": "Ignored timeout and swallowed startup errors could leave a blank/unreachable webview.",
+  "root_cause": "WaitForPortAsync return value ignored; Process.Start exception swallowed.",
+  "fix_or_workaround": "Source now validates workspace/Node/CLI, starts Node directly and throws visible startup/timeout errors. Fixed binary staged.",
+  "verification": "dotnet build succeeded with 0 warnings and 0 errors. Existing installed binary/shortcuts/process verified.",
+  "limitations": "Do not label staged source fix deployed. Native window/cold-start acceptance pending after installed app closes.",
+  "evidence_paths": [
+    "uat/2026-10-18/hyperframes-native-fixed",
+    "uat/2026-10-18/hyperframes-Form1-before.cs"
+  ],
+  "observed_at": "2026-10-18",
+  "environment": "Windows, RTX 5070, local Studio 5050 / ComfyUI 8188 / VoiceStudio 8080",
+  "root_cause_status": "confirmed",
+  "prevention": "Inspect real outputs, source hashes and pending reviews; never certify from a button response.",
+  "affected_artifacts": [
+    "production-local/studio-app",
+    "03-drinking-milk"
+  ]
+}

@@ -1,0 +1,250 @@
+{
+  "at_utc": "2026-10-16T21:06:24.299433+00:00",
+  "source": "../S01-B-FL2VA-v12",
+  "literal_source": "../../FL2VA-prompt-diagnosis.md proposed text block",
+  "change": "Only runtime literal19 prose-projection retaining45 full physical identity values, plus unique SaveVideo/SaveImage prefixes. Original JSON preserved. Reproduce with explicit literal patch after base builder; config alone does not reproduce projected prompt.",
+  "hypothesis": "Planning metadata may compete in raw multimodal conditioning; cause and efficacy unproven.",
+  "runtime_prompt_sha256": "a7e09b2581ec4fa23c34c6261b898f4ec9f2137fb438ba17e9e93bb19c37f3a4",
+  "chars": 4573,
+  "words_whitespace": 660,
+  "appearance_audit": [
+    {
+      "character": "alice",
+      "field": "entity",
+      "exact_value_retained": true
+    },
+    {
+      "character": "alice",
+      "field": "species",
+      "exact_value_retained": true
+    },
+    {
+      "character": "alice",
+      "field": "age",
+      "exact_value_retained": true
+    },
+    {
+      "character": "alice",
+      "field": "body_proportions",
+      "exact_value_retained": true
+    },
+    {
+      "character": "alice",
+      "field": "surface",
+      "exact_value_retained": true
+    },
+    {
+      "character": "alice",
+      "field": "eyes",
+      "exact_value_retained": true
+    },
+    {
+      "character": "alice",
+      "field": "brows",
+      "exact_value_retained": true
+    },
+    {
+      "character": "alice",
+      "field": "nose_beak",
+      "exact_value_retained": true
+    },
+    {
+      "character": "alice",
+      "field": "mouth",
+      "exact_value_retained": true
+    },
+    {
+      "character": "alice",
+      "field": "ears",
+      "exact_value_retained": true
+    },
+    {
+      "character": "alice",
+      "field": "hair_head",
+      "exact_value_retained": true
+    },
+    {
+      "character": "alice",
+      "field": "clothes",
+      "exact_value_retained": true
+    },
+    {
+      "character": "alice",
+      "field": "footwear",
+      "exact_value_retained": true
+    },
+    {
+      "character": "alice",
+      "field": "accessories",
+      "exact_value_retained": true
+    },
+    {
+      "character": "alice",
+      "field": "marks_asymmetry",
+      "exact_value_retained": true
+    },
+    {
+      "character": "mother",
+      "field": "entity",
+      "exact_value_retained": true
+    },
+    {
+      "character": "mother",
+      "field": "species",
+      "exact_value_retained": true
+    },
+    {
+      "character": "mother",
+      "field": "age",
+      "exact_value_retained": true
+    },
+    {
+      "character": "mother",
+      "field": "body_proportions",
+      "exact_value_retained": true
+    },
+    {
+      "character": "mother",
+      "field": "surface",
+      "exact_value_retained": true
+    },
+    {
+      "character": "mother",
+      "field": "eyes",
+      "exact_value_retained": true
+    },
+    {
+      "character": "mother",
+      "field": "brows",
+      "exact_value_retained": true
+    },
+    {
+      "character": "mother",
+      "field": "nose_beak",
+      "exact_value_retained": true
+    },
+    {
+      "character": "mother",
+      "field": "mouth",
+      "exact_value_retained": true
+    },
+    {
+      "character": "mother",
+      "field": "ears",
+      "exact_value_retained": true
+    },
+    {
+      "character": "mother",
+      "field": "hair_head",
+      "exact_value_retained": true
+    },
+    {
+      "character": "mother",
+      "field": "clothes",
+      "exact_value_retained": true
+    },
+    {
+      "character": "mother",
+      "field": "footwear",
+      "exact_value_retained": true
+    },
+    {
+      "character": "mother",
+      "field": "accessories",
+      "exact_value_retained": true
+    },
+    {
+      "character": "mother",
+      "field": "marks_asymmetry",
+      "exact_value_retained": true
+    },
+    {
+      "character": "father",
+      "field": "entity",
+      "exact_value_retained": true
+    },
+    {
+      "character": "father",
+      "field": "species",
+      "exact_value_retained": true
+    },
+    {
+      "character": "father",
+      "field": "age",
+      "exact_value_retained": true
+    },
+    {
+      "character": "father",
+      "field": "body_proportions",
+      "exact_value_retained": true
+    },
+    {
+      "character": "father",
+      "field": "surface",
+      "exact_value_retained": true
+    },
+    {
+      "character": "father",
+      "field": "eyes",
+      "exact_value_retained": true
+    },
+    {
+      "character": "father",
+      "field": "brows",
+      "exact_value_retained": true
+    },
+    {
+      "character": "father",
+      "field": "nose_beak",
+      "exact_value_retained": true
+    },
+    {
+      "character": "father",
+      "field": "mouth",
+      "exact_value_retained": true
+    },
+    {
+      "character": "father",
+      "field": "ears",
+      "exact_value_retained": true
+    },
+    {
+      "character": "father",
+      "field": "hair_head",
+      "exact_value_retained": true
+    },
+    {
+      "character": "father",
+      "field": "clothes",
+      "exact_value_retained": true
+    },
+    {
+      "character": "father",
+      "field": "footwear",
+      "exact_value_retained": true
+    },
+    {
+      "character": "father",
+      "field": "accessories",
+      "exact_value_retained": true
+    },
+    {
+      "character": "father",
+      "field": "marks_asymmetry",
+      "exact_value_retained": true
+    }
+  ],
+  "unchanged": "NativeFL2VA/firstlastPNGs/seed4341/simple20/fullAV/canonicalguide7/carry119/geometry/24fps",
+  "changed_nodes": [
+    "19",
+    "18",
+    "54",
+    "55",
+    "57"
+  ],
+  "source_graph_sha256": "63550929cb128c7130e0387b76992cc5913b35df8b966708d83826899371bd56",
+  "new_graph_sha256": "e09dcc8ec259659233af472ae87d1faf5391945d84e1d59fd5cafcd01b4eb91e",
+  "status": "prepared_not_submitted",
+  "native_last_condition": 123,
+  "actual_used_next_boundary": 119
+}

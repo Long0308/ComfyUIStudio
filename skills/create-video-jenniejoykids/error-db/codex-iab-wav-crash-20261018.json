@@ -1,0 +1,23 @@
+{
+  "id": "codex-iab-wav-crash-20261018",
+  "status": "open",
+  "engine": "Codex in-app browser host",
+  "symptom": "Tab crashes on starting canonical WAV playback twice.",
+  "root_cause": "Unconfirmed host-specific decoder/playback failure; same HTTP WAV completes in Chrome.",
+  "fix_or_workaround": "Use Chrome for playback UAT; preserve original WAVs.",
+  "verification": "Chrome readyState 4 and ended true at full duration for S01_A, S03_A, S06_B.",
+  "limitations": "Host not repaired; technical playback is not listening acceptance.",
+  "evidence_paths": [
+    "uat/2026-10-18/audio-chrome-playback.json",
+    "uat/2026-10-18/audio-chrome-S03A.json",
+    "uat/2026-10-18/audio-chrome-S06B.json"
+  ],
+  "observed_at": "2026-10-18",
+  "environment": "Windows, RTX 5070, local Studio 5050 / ComfyUI 8188 / VoiceStudio 8080",
+  "root_cause_status": "hypothesis",
+  "prevention": "Inspect real outputs, source hashes and pending reviews; never certify from a button response.",
+  "affected_artifacts": [
+    "production-local/studio-app",
+    "03-drinking-milk"
+  ]
+}

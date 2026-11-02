@@ -1,0 +1,48 @@
+{
+  "at_utc": "2026-10-16T20:38:57.624469+00:00",
+  "changes": [
+    {
+      "node": "13",
+      "input": "scheduler",
+      "from": "beta",
+      "to": "simple",
+      "kind": "only_inference_change"
+    },
+    {
+      "node": "18",
+      "input": "filename_prefix",
+      "from": "JennieKidJoys/Scene-01-B-v10/S01_B/native",
+      "to": "JennieKidJoys/Scene-01-B-v11-simple/S01_B/native",
+      "kind": "output_version_only"
+    },
+    {
+      "node": "54",
+      "input": "filename_prefix",
+      "from": "JennieKidJoys/Scene-01-B-v10/S01_B/boundary-start",
+      "to": "JennieKidJoys/Scene-01-B-v11-simple/S01_B/boundary-start",
+      "kind": "output_version_only"
+    },
+    {
+      "node": "55",
+      "input": "filename_prefix",
+      "from": "JennieKidJoys/Scene-01-B-v10/S01_B/boundary-end",
+      "to": "JennieKidJoys/Scene-01-B-v11-simple/S01_B/boundary-end",
+      "kind": "output_version_only"
+    },
+    {
+      "node": "57",
+      "input": "filename_prefix",
+      "from": "JennieKidJoys/Scene-01-B-v10/S01_B/editorial",
+      "to": "JennieKidJoys/Scene-01-B-v11-simple/S01_B/editorial",
+      "kind": "output_version_only"
+    }
+  ],
+  "all_other_inference_inputs_exact": true,
+  "installed_schema": "passed",
+  "nativeAV_and_canonical_original": "preserved",
+  "rootcarry": "actualA119native864x480PNG dimensions/hash verifiedbyv10preflight",
+  "seed": 4341,
+  "steps": 20,
+  "scheduler": "simple",
+  "status": "ready_no_job_submitted"
+}
