@@ -171,8 +171,15 @@ export function createDesignerUI({controller, v13 = false, locale = 'en', compat
   const header = element('div', 'h3-intro'), intro = element('span'), count = element('span', 'h3-count'); header.append(intro, count);
   const versionBadge = element('span', 'h3-node-version', nodeVersion); header.prepend(versionBadge);
   const cards = element('div', 'h3-cards'), cardMap = new Map();
-  const headRow = element('div', 'h3-card-row h3-head-row'), bodyRow = element('div', 'h3-card-row h3-body-row'), ppeRow = element('div', 'h3-card-row h3-ppe-row');
-  cards.append(headRow, bodyRow, ppeRow);
+  const headTitle = element('div', 'h3-row-title', 'Đầu & Khuôn mặt (Head & Face)');
+  const headRow = element('div', 'h3-card-row h3-head-row');
+  const bodyTitle = element('div', 'h3-row-title', 'Dáng toàn thân & Chi tiết (Body & Details)');
+  const bodyRow = element('div', 'h3-card-row h3-body-row');
+  const helmetTitle = element('div', 'h3-row-title', 'Mũ bảo hộ NEWTECONS (3D Helmet)');
+  const helmetRow = element('div', 'h3-card-row h3-helmet-row');
+  const vestTitle = element('div', 'h3-row-title', 'Áo phản quang NEWTECONS (3D Vest)');
+  const vestRow = element('div', 'h3-card-row h3-vest-row');
+  cards.append(headTitle, headRow, bodyTitle, bodyRow, helmetTitle, helmetRow, vestTitle, vestRow);
   for (const view of viewIds) {
     const card = button('h3-card'); card.dataset.view = view;
     const figure = element('span', 'h3-card-figure'); figure.append(createArtwork(view, `${id}-card-${view}`, {mirror: multiReference && MULTI_MIRRORED_VIEWS.includes(view), garment: v13}));
@@ -180,7 +187,8 @@ export function createDesignerUI({controller, v13 = false, locale = 'en', compat
     const label = element('span', 'h3-card-label'); card.append(figure, check, label);
     listen(card, 'click', () => act(() => controller.toggle(view)));
     if (view.startsWith('face_')) headRow.append(card);
-    else if (view.startsWith('helmet_') || view.startsWith('vest_')) ppeRow.append(card);
+    else if (view.startsWith('helmet_')) helmetRow.append(card);
+    else if (view.startsWith('vest_')) vestRow.append(card);
     else bodyRow.append(card);
     cardMap.set(view, {card, label});
   }
