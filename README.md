@@ -203,6 +203,28 @@ Repo đã tích hợp sẵn 2 skill quản trị ký ức dài hạn để đồ
 * [skills/cognee-hindsight-mesh](skills/cognee-hindsight-mesh/SKILL.md): Semantic Knowledge Graph kết hợp Vector Memory để tra cứu chéo ngữ cảnh giữa các phiên làm việc.
 * **Nguyên tắc bảo mật**: Chỉ lưu facts, code patterns và kinh nghiệm kiến trúc; không bao giờ lưu token, cookie hay dữ liệu cá nhân lên Git.
 
+### 3.7 Quy trình chuẩn 2 bước: Sinh Native ⟶ Upscale chuyên dụng
+
+Quy trình tối ưu hóa hiệu năng render phim AI, tránh nghẽn VRAM và tăng tốc gấp 5 lần:
+
+```mermaid
+flowchart LR
+    A["BƯỚC 1: SINH NATIVE (GỐC)<br>Panel Height: 672 hoặc 896<br><i>Thời gian: 1 - 2 phút</i>"] -->|Ảnh/Video chuẩn tỉ lệ| B["BƯỚC 2: SIÊU PHÂN GIẢI (UPSCALE)<br>RealESRGAN (Ảnh) / SeedVR2 7B (Video)<br><i>Thời gian: 15 - 30 giây</i>"]
+    B --> C["THÀNH PHẨM 2K / 4K<br>Sắc nét từng thớ vải & logo NEWTECONS!"]
+```
+
+#### Tại sao không sinh trực tiếp ở 4K (4320x1280)?
+1. **Quá tải Receptive Field của Diffusion**: Mô hình Video DiT (như MiniMax H3) được huấn luyện chuẩn ở cạnh ngắn 768p. Khi ép sinh trực tiếp ở độ phân giải $4320 \times 1280$ (> 5.5 Megapixels), lượng token tăng gấp 6 lần khiến thời gian sinh kéo dài từ 2 phút lên hơn 15 phút, đồng thời dễ sinh dị tật hình ảnh.
+2. **Nghẽn VRAM và Swap bộ nhớ**: Trên GPU 16 GB, chạy đồng thời mô hình Qwen 2.1 (16 GB) và MiniMax H3 (38 GB) sẽ làm tràn VRAM và cgroup memory limit, kích hoạt paging swap trên ổ đĩa khiến hệ thống bị chậm.
+
+#### Thao tác chuẩn:
+* **Bước 1 (Native Generation)**:
+  - Trên node `H3 Character Sheet Designer`, mục **Output size**: đặt `Panel height` ở mức **`672`** hoặc **`896`** (tự động điều chỉnh kích thước về khoảng $2240 \times 768$ hoặc $2560 \times 896$).
+  - Thời gian sinh giảm xuống chỉ còn **1–2 phút/shot**, hình dạng nhân vật, mũ bảo hộ và áo phản quang giữ nguyên độ chuẩn xác của mô hình 3D Blender.
+* **Bước 2 (Chuyên dụng Upscale)**:
+  - **Với Character Sheet (Ảnh tĩnh)**: Sử dụng node `RealESRGAN_x4plus` phóng to 4 lần lên 4K/8K trong **10–15 giây**.
+  - **Với Video chuyển động**: Sử dụng pipeline siêu phân giải **`SeedVR2 7B`** (`seedvr2_7b_int8_convrot.safetensors`) với cấu hình tile 768 / overlap 64 phóng video lên 2K (1440p) hoặc 4K (2160p) mượt mà, khử nhiễu và làm sắc nét logo.
+
 ## 4. Bắt đầu nhanh theo phim (giữ hai domain tách biệt)
 
 Mọi lệnh chạy từ `skills/studio-video-engine`, dạng `python -I bin/jjv.py <verb> ...` (đầy đủ verb: [SKILL.md](skills/studio-video-engine/SKILL.md), `references/verbs-detail.md`). Luôn chạy preflight (`jjv qa preflight` / `qa gate`) trước render; không render lại toàn bộ khi chỉ sửa cục bộ (`jjv plan explain --old --new` trước).
