@@ -1,7 +1,7 @@
 {
   "version": 0.4,
-  "last_node_id": 36,
-  "last_link_id": 29,
+  "last_node_id": 37,
+  "last_link_id": 33,
   "extra": {
     "flow": "image",
     "newtecons_flow": "image",
@@ -406,22 +406,32 @@
       ],
       "outputs": [
         {
-          "name": "CONDITIONING",
+          "name": "positive",
           "type": "CONDITIONING",
           "links": [
             10
           ],
           "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            31
+          ],
+          "slot_index": 1
         }
       ],
       "properties": {
         "Node name for S&R": "TextEncodeQwenImage21"
       },
       "widgets_values": [
-        "Master character photograph: full body portrait of an engineer featuring the exact face from input 1, standing in the exact full body pose from input 2, wearing the costume from input 3 and NEWTECONS white safety helmet. Clean white studio background, photorealistic 8k, sharp detailed textures."
+        "Master character photograph: full body portrait of an engineer featuring the exact face from input 1, standing in the exact full body pose from input 2, wearing the costume from input 3 and NEWTECONS white safety helmet. Clean white studio background, photorealistic 8k, sharp detailed textures.",
+        "low quality, blurry, distorted, deformed"
       ],
       "widgets_values_named": {
-        "prompt": "Master character photograph: full body portrait of an engineer featuring the exact face from input 1, standing in the exact full body pose from input 2, wearing the costume from input 3 and NEWTECONS white safety helmet. Clean white studio background, photorealistic 8k, sharp detailed textures."
+        "prompt": "Master character photograph: full body portrait of an engineer featuring the exact face from input 1, standing in the exact full body pose from input 2, wearing the costume from input 3 and NEWTECONS white safety helmet. Clean white studio background, photorealistic 8k, sharp detailed textures.",
+        "negative_prompt": "low quality, blurry, distorted, deformed"
       }
     },
     {
@@ -493,7 +503,7 @@
         {
           "name": "negative",
           "type": "CONDITIONING",
-          "link": 10
+          "link": 31
         },
         {
           "name": "latent_image",
@@ -894,7 +904,8 @@
           "name": "positive",
           "type": "CONDITIONING",
           "links": [
-            26
+            26,
+            32
           ],
           "slot_index": 0
         },
@@ -916,6 +927,42 @@
       ]
     },
     {
+      "id": 37,
+      "type": "ConditioningZeroOut",
+      "title": "ZeroOut Negative Conditioning (H3)",
+      "pos": [
+        820,
+        20
+      ],
+      "size": [
+        340,
+        50
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 32
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            33
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ConditioningZeroOut"
+      }
+    },
+    {
       "id": 34,
       "type": "KSampler",
       "title": "⚡ [04 H3] KSampler Quay Video H3",
@@ -928,7 +975,7 @@
         310
       ],
       "flags": {},
-      "order": 17,
+      "order": 18,
       "mode": 0,
       "inputs": [
         {
@@ -944,7 +991,7 @@
         {
           "name": "negative",
           "type": "CONDITIONING",
-          "link": 26
+          "link": 33
         },
         {
           "name": "latent_image",
@@ -988,7 +1035,7 @@
         60
       ],
       "flags": {},
-      "order": 18,
+      "order": 19,
       "mode": 0,
       "inputs": [
         {
@@ -1029,7 +1076,7 @@
         270
       ],
       "flags": {},
-      "order": 19,
+      "order": 20,
       "mode": 0,
       "inputs": [
         {
@@ -1126,6 +1173,14 @@
       0,
       15,
       1,
+      "CONDITIONING"
+    ],
+    [
+      31,
+      13,
+      1,
+      15,
+      2,
       "CONDITIONING"
     ],
     [
@@ -1254,6 +1309,22 @@
       0,
       34,
       1,
+      "CONDITIONING"
+    ],
+    [
+      32,
+      33,
+      0,
+      37,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      33,
+      37,
+      0,
+      34,
+      2,
       "CONDITIONING"
     ],
     [
