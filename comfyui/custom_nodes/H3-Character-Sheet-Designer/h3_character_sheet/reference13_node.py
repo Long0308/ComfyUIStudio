@@ -42,10 +42,10 @@ class H3CharacterSheetDesignerReference13:
 
     def compile(self, state_json, character_image, reference_image_1=None,
                 reference_image_2=None, use_layout_image=False, style='none', reference_image_3=None):
-        validate_reference_image(character_image, 'character_image', required=True)
-        validate_reference_image(reference_image_1, 'reference_image_1')
-        validate_reference_image(reference_image_2, 'reference_image_2')
-        validate_reference_image(reference_image_3, 'reference_image_3')
+        character_image = validate_reference_image(character_image, 'character_image', required=True)
+        reference_image_1 = validate_reference_image(reference_image_1, 'reference_image_1')
+        reference_image_2 = validate_reference_image(reference_image_2, 'reference_image_2')
+        reference_image_3 = validate_reference_image(reference_image_3, 'reference_image_3')
         result = compile_reference13_state(state_json, use_layout_image=use_layout_image,
                                           style=style, max_resolution=runtime_max_resolution(),
                                           reference_presence={'reference_image_1': reference_image_1 is not None,

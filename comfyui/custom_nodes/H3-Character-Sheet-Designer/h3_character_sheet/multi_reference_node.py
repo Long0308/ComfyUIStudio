@@ -18,13 +18,16 @@ def validate_reference_image(image, name, *, required=False):
     if image is None:
         if required:
             raise StateValidationError(f"Connect {name}.", "missing_character")
-        return
+        return None
     if not isinstance(image, torch.Tensor) or image.ndim != 4:
         raise StateValidationError(f"{name} must be an IMAGE tensor [1,H,W,3].", "invalid_image")
     if image.shape[0] != 1:
         raise StateValidationError(f"{name} accepts one image; connect separate LoadImage nodes instead of ImageBatch.", "image_batch")
+    if image.shape[-1] == 4:
+        image = image[:, :, :, :3]
     if image.shape[-1] != 3 or min(image.shape[1:3]) < 1 or not image.is_floating_point():
         raise StateValidationError(f"{name} must be a nonempty floating-point RGB IMAGE.", "invalid_image")
+    return image
 
 
 class H3CharacterSheetDesignerMultiReference:
@@ -71,9 +74,9 @@ class H3CharacterSheetDesignerMultiReference:
         validated = compile_multi_state(state_json, use_layout_image=use_layout_image,
                                         style=style, max_resolution=runtime_max_resolution())
         state = parse_multi_state(validated["state_json"], max_resolution=runtime_max_resolution())
-        validate_reference_image(character_image, "character_image", required=True)
-        validate_reference_image(reference_image_1, "reference_image_1")
-        validate_reference_image(reference_image_2, "reference_image_2")
+        character_image = validate_reference_image(character_image, "character_image", required=True)
+        reference_image_1 = validate_reference_image(reference_image_1, "reference_image_1")
+        reference_image_2 = validate_reference_image(reference_image_2, "reference_image_2")
         layout_image = None
         if use_layout_image:
             image = render_layout_image(validated["layout"], multi_reference=True,
