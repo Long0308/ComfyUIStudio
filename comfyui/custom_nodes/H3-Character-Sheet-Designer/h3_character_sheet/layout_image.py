@@ -17,6 +17,8 @@ ATLAS_CROPS = {
 EXTRA_VIEWS = {
     "face_right", "face_3q_left", "face_3q_right", "face_back",
     "clothing_front", "clothing_back",
+    "helmet_front", "helmet_3q_left", "helmet_3q_right", "helmet_side",
+    "vest_front", "vest_back", "vest_3q",
 }
 
 

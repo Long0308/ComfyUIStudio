@@ -5,7 +5,7 @@ from .compiler import PART_RULES
 from .appearance_policy_13 import applicable_references, reference_sources
 from .reference_compiler import STYLE_PROMPTS
 from .state_13 import applicable_settings, part_views
-from .view_catalog_13 import BODY_IDS, CLOTHING_IDS, PORTRAIT_IDS, VIEW_DETAILS
+from .view_catalog_13 import BODY_IDS, CLOTHING_IDS, PORTRAIT_IDS, VIEW_DETAILS, HELMET_IDS, VEST_IDS
 
 
 CAMERAS = {
@@ -61,7 +61,8 @@ def view_manifest(state):
     """Count selected depictions, not identities, hands or individual feet."""
     views = state['views']
     groups = [(PORTRAIT_IDS, 'head-and-chest views'), (BODY_IDS, 'full-body views'),
-              (CLOTHING_IDS, 'clothing-detail views'), (('hands',), 'paired-hands detail'),
+              (CLOTHING_IDS, 'clothing-detail views'), (HELMET_IDS, 'NEWTECONS safety helmet views'),
+              (VEST_IDS, 'NEWTECONS reflective vest views'), (('hands',), 'paired-hands detail'),
               (('feet',), 'paired-feet/footwear detail')]
     counts = [f'{sum(view in ids for view in views)} {label}' for ids, label in groups
               if any(view in ids for view in views)]
@@ -76,7 +77,8 @@ def view_manifest(state):
 def region_groups(layout):
     """Keep the existing allocation; each view is described in one region record."""
     groups = [(PORTRAIT_IDS, 'Head views'), (BODY_IDS, 'Full-body views'),
-              (CLOTHING_IDS, 'Clothing details'), (('hands', 'feet'), 'Isolated details')]
+              (CLOTHING_IDS, 'Clothing details'), (HELMET_IDS, 'Safety helmet views'),
+              (VEST_IDS, 'Reflective vest views'), (('hands', 'feet'), 'Isolated details')]
     for ids, label in groups:
         panels = [p for p in layout['panels'] if p['id'] in ids]
         if not panels:

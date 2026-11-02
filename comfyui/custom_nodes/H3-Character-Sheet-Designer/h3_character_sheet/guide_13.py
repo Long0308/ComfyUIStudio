@@ -8,7 +8,11 @@ from .view_catalog_13 import CLOTHING_IDS, LEGACY_VIEW_IDS
 
 EXTRA_SIZES = {'face_right': (325, 487), 'face_3q_left': (398, 490),
                'face_3q_right': (406, 490), 'face_back': (461, 483),
-               'clothing_front': (329, 499), 'clothing_back': (334, 500)}
+               'clothing_front': (329, 499), 'clothing_back': (334, 500),
+               'helmet_front': (1024, 1024), 'helmet_3q_left': (1024, 1024),
+               'helmet_3q_right': (1024, 1024), 'helmet_side': (1024, 1024),
+               'vest_front': (1024, 1024), 'vest_back': (1024, 1024),
+               'vest_3q': (1024, 1024)}
 
 
 def _contained_size(source, bounds):

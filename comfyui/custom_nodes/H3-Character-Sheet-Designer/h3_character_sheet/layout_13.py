@@ -3,7 +3,7 @@ from fractions import Fraction
 
 from .compiler import DEFAULT_MAX_RESOLUTION, _ceil_32, _round_coordinate, _size_value, compute_layout
 from .state_13 import legacy_state
-from .view_catalog_13 import BODY_IDS, CLOTHING_IDS, LEGACY_VIEW_IDS, PORTRAIT_IDS, VIEW_DETAILS
+from .view_catalog_13 import BODY_IDS, CLOTHING_IDS, LEGACY_VIEW_IDS, PORTRAIT_IDS, VIEW_DETAILS, HELMET_IDS, VEST_IDS, PPE_IDS
 
 
 def compute_semantic_layout(state, *, max_resolution=DEFAULT_MAX_RESOLUTION, separate_details=False):
@@ -15,6 +15,8 @@ def compute_semantic_layout(state, *, max_resolution=DEFAULT_MAX_RESOLUTION, sep
     portraits = [view for view in PORTRAIT_IDS if view in views]
     bodies = [view for view in BODY_IDS if view in views]
     clothes = [view for view in CLOTHING_IDS if view in views]
+    helmets = [view for view in HELMET_IDS if view in views]
+    vests = [view for view in VEST_IDS if view in views]
     details = [view for view in ('hands', 'feet') if view in views]
     groups = []
     if portraits:
@@ -24,7 +26,14 @@ def compute_semantic_layout(state, *, max_resolution=DEFAULT_MAX_RESOLUTION, sep
         groups.append((cols * aux_w + (cols - 1) * gap,
                        {view: (i % cols * (aux_w + gap), i // cols * (cell_h + gap), aux_w, cell_h)
                         for i, view in enumerate(portraits)}))
-    for view in (*bodies, *clothes):
+    if helmets:
+        cols = min(2, len(helmets))
+        rows = (len(helmets) + cols - 1) // cols
+        cell_h = (h - (rows - 1) * gap) / rows
+        groups.append((cols * aux_w + (cols - 1) * gap,
+                       {view: (i % cols * (aux_w + gap), i // cols * (cell_h + gap), aux_w, cell_h)
+                        for i, view in enumerate(helmets)}))
+    for view in (*bodies, *clothes, *vests):
         groups.append((body_w, {view: (Fraction(0), Fraction(0), body_w, h)}))
     if details:
         cell_h = (h - (len(details) - 1) * gap) / len(details)

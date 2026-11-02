@@ -17,7 +17,11 @@ export const ARTWORK_RECTS = Object.freeze({
   feet: Object.freeze([860, 820, 380, 340]),
 });
 let artworkSequence = 0;
-const EXTRA_VIEWS = new Set(['face_right', 'face_3q_left', 'face_3q_right', 'face_back', 'clothing_front', 'clothing_back']);
+const EXTRA_VIEWS = new Set([
+  'face_right', 'face_3q_left', 'face_3q_right', 'face_back', 'clothing_front', 'clothing_back',
+  'helmet_front', 'helmet_3q_left', 'helmet_3q_right', 'helmet_side',
+  'vest_front', 'vest_back', 'vest_3q'
+]);
 export const ATLAS_URL = new URL('./assets/mannequin-atlas.png', import.meta.url).href;
 
 export function artworkRect(view) {

@@ -4,11 +4,40 @@ import {
   validatePartPrompt, PART_IDS, VIEW_IDS as LEGACY_VIEWS,
 } from './state.js';
 export {PART_IDS, PART_PROMPT_MAX_LENGTH, StateError} from './state.js';
-export const MULTI_VIEW_IDS = Object.freeze(['face_front', 'face_left', 'face_right', 'face_3q_left', 'face_3q_right', 'face_back', 'body_front', 'body_left', 'body_back', 'clothing_front', 'clothing_back', 'hands', 'feet']);
+export const PPE_VIEW_IDS = Object.freeze([
+  'helmet_front', 'helmet_3q_left', 'helmet_3q_right', 'helmet_side',
+  'vest_front', 'vest_back', 'vest_3q'
+]);
+export const MULTI_VIEW_IDS = Object.freeze([
+  'face_front', 'face_left', 'face_right', 'face_3q_left', 'face_3q_right', 'face_back',
+  'body_front', 'body_left', 'body_back',
+  'clothing_front', 'clothing_back',
+  'hands', 'feet',
+  ...PPE_VIEW_IDS
+]);
 export const VIEW_IDS = MULTI_VIEW_IDS;
-export const MULTI_PRESETS = Object.freeze({five: ['face_front', 'face_left', 'body_front', 'body_left', 'body_back'], basic: ['face_front', 'body_front', 'body_left', 'body_back'], turnaround: ['body_front', 'body_left', 'body_back'], single: ['body_front'], head: MULTI_VIEW_IDS.slice(0, 6), clothing: ['clothing_front', 'clothing_back'], detail: [...MULTI_VIEW_IDS]});
+export const MULTI_PRESETS = Object.freeze({
+  five: ['face_front', 'face_left', 'body_front', 'body_left', 'body_back'],
+  basic: ['face_front', 'body_front', 'body_left', 'body_back'],
+  turnaround: ['body_front', 'body_left', 'body_back'],
+  single: ['body_front'],
+  head: MULTI_VIEW_IDS.slice(0, 6),
+  clothing: ['clothing_front', 'clothing_back'],
+  newtecons_ppe: ['face_front', 'body_front', 'helmet_front', 'vest_front', 'vest_back'],
+  detail: [...MULTI_VIEW_IDS]
+});
 export const PRESETS = MULTI_PRESETS;
-export const V13_PRESETS = Object.freeze({five: PRESETS.five, basic: PRESETS.basic, turnaround: PRESETS.turnaround, single: PRESETS.single, seven: [...PRESETS.five, 'hands', 'feet'], head: PRESETS.head, clothing: PRESETS.clothing, detail: PRESETS.detail});
+export const V13_PRESETS = Object.freeze({
+  five: PRESETS.five,
+  basic: PRESETS.basic,
+  turnaround: PRESETS.turnaround,
+  single: PRESETS.single,
+  seven: ['face_front', 'face_left', 'body_front', 'body_left', 'body_back', 'hands', 'feet'],
+  head: PRESETS.head,
+  clothing: PRESETS.clothing,
+  newtecons_ppe: PRESETS.newtecons_ppe,
+  detail: PRESETS.detail
+});
 export const REFERENCE_INPUTS = ['reference_image_1', 'reference_image_2', 'reference_image_3'];
 export const REFERENCE_ROLES = ['same_character', 'face', 'head', 'clothing', 'clothing_front', 'clothing_back', 'hands', 'footwear'];
 export const SETTINGS = Object.freeze({hand_state: ['reference', 'bare', 'gloved'], clothing_mode: ['worn', 'garment'], clothing_type: ['reference', 'pants', 'skirt_robe'], footwear_state: ['reference', 'shod', 'unshod']});

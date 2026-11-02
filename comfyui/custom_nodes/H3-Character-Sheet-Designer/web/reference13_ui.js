@@ -6,7 +6,18 @@ export const HEIGHT_PRESETS = [672, 896, 1120, 1344, 1792];
 export const STYLE_IDS = ['none', 'anime', 'photo', 'realistic_painting', 'semi_realistic_anime', 'oil_painting', 'watercolor', 'gouache', 'colored_pencil', '3d'];
 const EN = {
   intro: 'Choose the views for your character sheet', selected: 'selected',
-  face_front: 'Portrait', face_left: 'Left portrait', body_front: 'Front', body_left: 'Left side', body_back: 'Back', hands: 'Hands', feet: 'Footwear',
+  face_front: 'Portrait', face_left: 'Left portrait', face_right: 'Right portrait', face_3q_left: 'Left 3/4', face_3q_right: 'Right 3/4', face_back: 'Rear portrait',
+  body_front: 'Front', body_left: 'Left side', body_back: 'Back', clothing_front: 'Clothing front', clothing_back: 'Clothing back', hands: 'Hands', feet: 'Footwear',
+  helmet_front: 'Mũ trước', helmet_3q_left: 'Mũ 3/4 T', helmet_3q_right: 'Mũ 3/4 P', helmet_side: 'Mũ ngang',
+  vest_front: 'Áo trước', vest_back: 'Áo sau', vest_3q: 'Áo 3/4',
+  helmet_front_tip: 'Mũ bảo hộ NEWTECONS mặt trước có logo chữ N',
+  helmet_3q_left_tip: 'Mũ bảo hộ NEWTECONS góc nghiêng trái 45°',
+  helmet_3q_right_tip: 'Mũ bảo hộ NEWTECONS góc nghiêng phải 45°',
+  helmet_side_tip: 'Mũ bảo hộ NEWTECONS góc nhìn ngang',
+  vest_front_tip: 'Áo gile phản quang kỹ sư NEWTECONS mặt trước có logo',
+  vest_back_tip: 'Áo gile phản quang kỹ sư NEWTECONS mặt sau có chữ',
+  vest_3q_tip: 'Áo gile phản quang kỹ sư NEWTECONS góc nghiêng 3/4',
+  newtecons_ppe: 'NEWTECONS · Full PPE',
   face_front_tip: 'Front-facing face to chest', face_left_tip: 'Head to chest, camera facing the subject’s anatomical left side', body_front_tip: 'Full body, head to soles', body_left_tip: "Camera looks directly at the subject’s anatomical left side", body_back_tip: 'Direct rear view, full body', hands_tip: 'Both hands; retain gloves from the reference', feet_tip: 'Separate close-up of both feet in reference footwear; visible boot shafts retained',
   preset: 'Preset', five: 'Standard · 5 views', basic: 'Basic · 4 views', detail: 'Detail · 7 views', turnaround: 'Turnaround · 3', single: 'Single view', seven: '7 views · hands and feet', custom: 'Custom',
   auto: 'Auto', manual: 'Manual', size: 'Output size', bodyHeight: 'Panel height', width: 'Width', height: 'Height', returnAuto: 'Back to Auto', updating: 'Updating dimensions…',
@@ -34,7 +45,13 @@ const EN = {
 };
 const JA = {
   intro: 'キャラクターシートに使うビューを選択', selected: '選択中',
-  face_front: '顔・胸', face_left: '横顔・左', body_front: '全身正面', body_left: '左側面', body_back: '全身背面', hands: '両手', feet: '足・履物',
+  face_front: '顔・胸', face_left: '横顔・左', face_right: '横顔・右', face_3q_left: '斜め・左', face_3q_right: '斜め・右', face_back: '後頭部',
+  body_front: '全身正面', body_left: '左側面', body_back: '全身背面', clothing_front: '衣装前面', clothing_back: '衣装背面', hands: '両手', feet: '足・履物',
+  helmet_front: 'ヘルメット正面', helmet_3q_left: 'ヘルメット斜め左', helmet_3q_right: 'ヘルメット斜め右', helmet_side: 'ヘルメット側面',
+  vest_front: 'ベスト前面', vest_back: 'ベスト背面', vest_3q: 'ベスト斜め',
+  helmet_front_tip: 'NEWTECONS安全ヘルメット正面', helmet_3q_left_tip: 'NEWTECONS安全ヘルメット左3/4', helmet_3q_right_tip: 'NEWTECONS安全ヘルメット右3/4', helmet_side_tip: 'NEWTECONS安全ヘルメット側面',
+  vest_front_tip: 'NEWTECONS反射ベスト前面', vest_back_tip: 'NEWTECONS反射ベスト背面', vest_3q_tip: 'NEWTECONS反射ベスト斜め3/4',
+  newtecons_ppe: 'NEWTECONSフル装備',
   face_front_tip: '正面の顔から胸まで', face_left_tip: '人物の解剖学的左側から見た横顔。髪全体から胸まで', body_front_tip: '頭頂から靴底までの全身正面', body_left_tip: 'カメラが人物の解剖学的左側を正面から見る', body_back_tip: '真後ろから見た全身', hands_tip: '左右の手。参照にある手袋を保持', feet_tip: '両足の独立した拡大図。参照の履物と見えているブーツの筒を保持',
   preset: 'プリセット', five: '標準5ビュー', basic: '基本4面', detail: '7面・ディテール', turnaround: '三面図のみ', single: '1カット', seven: '7ビュー・手と足', custom: 'カスタム',
   auto: 'Auto', manual: 'Manual', size: '出力サイズ', bodyHeight: '基準高', width: '幅', height: '高さ', returnAuto: 'Autoに戻す', updating: '寸法更新中…',
@@ -154,15 +171,18 @@ export function createDesignerUI({controller, v13 = false, locale = 'en', compat
   const header = element('div', 'h3-intro'), intro = element('span'), count = element('span', 'h3-count'); header.append(intro, count);
   const versionBadge = element('span', 'h3-node-version', nodeVersion); header.prepend(versionBadge);
   const cards = element('div', 'h3-cards'), cardMap = new Map();
-  const headRow = element('div', 'h3-card-row h3-head-row'), bodyRow = element('div', 'h3-card-row h3-body-row');
-  if (multiReference) cards.append(headRow, bodyRow);
+  const headRow = element('div', 'h3-card-row h3-head-row'), bodyRow = element('div', 'h3-card-row h3-body-row'), ppeRow = element('div', 'h3-card-row h3-ppe-row');
+  cards.append(headRow, bodyRow, ppeRow);
   for (const view of viewIds) {
     const card = button('h3-card'); card.dataset.view = view;
     const figure = element('span', 'h3-card-figure'); figure.append(createArtwork(view, `${id}-card-${view}`, {mirror: multiReference && MULTI_MIRRORED_VIEWS.includes(view), garment: v13}));
     const check = element('span', 'h3-check', '✓'); check.setAttribute('aria-hidden', 'true');
     const label = element('span', 'h3-card-label'); card.append(figure, check, label);
     listen(card, 'click', () => act(() => controller.toggle(view)));
-    (multiReference ? (viewIds.indexOf(view) < 6 ? headRow : bodyRow) : cards).append(card); cardMap.set(view, {card, label});
+    if (view.startsWith('face_')) headRow.append(card);
+    else if (view.startsWith('helmet_') || view.startsWith('vest_')) ppeRow.append(card);
+    else bodyRow.append(card);
+    cardMap.set(view, {card, label});
   }
   const clothingGroup = element('div', 'h3r13-clothing-group');
   const clothingCards = element('div', 'h3r13-clothing-cards');
