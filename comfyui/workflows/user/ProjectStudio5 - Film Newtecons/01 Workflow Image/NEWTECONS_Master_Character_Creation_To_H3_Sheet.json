@@ -1,6 +1,6 @@
 {
-  "id": "2e4555c2-3009-44de-ad89-0b807580cce2",
-  "revision": 1,
+  "id": "e0f1a2b3-newtecons-master-h3-character-v13",
+  "revision": 2,
   "last_node_id": 36,
   "last_link_id": 137,
   "extra": {
@@ -9,18 +9,75 @@
     "media_kind": "image",
     "title": "NEWTECONS Master Character Creation & H3 Turnaround Sheet"
   },
+  "groups": [
+    {
+      "title": "1. 4 CỔNG INPUT RÕ RÀNG (BÊN TRÁI)",
+      "bounding": [
+        -1220,
+        20,
+        390,
+        1960
+      ],
+      "color": "#2a52be",
+      "font_size": 24
+    },
+    {
+      "title": "2. HỘP NHẬP PROMPT LỚN (RÕ RÀNG)",
+      "bounding": [
+        -800,
+        20,
+        420,
+        800
+      ],
+      "color": "#d35400",
+      "font_size": 24
+    },
+    {
+      "title": "3. NOCT-Q UNCENSORED QWEN 2.1 (TẠO ẢNH NHÂN VẬT GỐC)",
+      "bounding": [
+        -800,
+        840,
+        420,
+        1140
+      ],
+      "color": "#8e44ad",
+      "font_size": 24
+    },
+    {
+      "title": "4. H3 CHARACTER SHEET DESIGNER (4 HÀNG RIÊNG BIỆT)",
+      "bounding": [
+        -350,
+        20,
+        720,
+        1960
+      ],
+      "color": "#27ae60",
+      "font_size": 24
+    },
+    {
+      "title": "5. AI QUAY VIDEO & XUẤT SHEET HOÀN THIỆN",
+      "bounding": [
+        400,
+        20,
+        780,
+        1960
+      ],
+      "color": "#f39c12",
+      "font_size": 24
+    }
+  ],
   "nodes": [
     {
       "id": 1,
       "type": "LoadImage",
       "title": "🖼️ [01 INPUT] Mặt (Face Image)",
       "pos": [
-        -1100,
+        -1200,
         100
       ],
       "size": [
-        340,
-        420
+        350,
+        430
       ],
       "flags": {},
       "order": 0,
@@ -57,12 +114,12 @@
       "type": "LoadImage",
       "title": "🧍 [01 INPUT] Dáng (Pose / OpenPose)",
       "pos": [
-        -1100,
-        560
+        -1200,
+        580
       ],
       "size": [
-        340,
-        420
+        350,
+        430
       ],
       "flags": {},
       "order": 1,
@@ -99,12 +156,12 @@
       "type": "LoadImage",
       "title": "🦺 [01 INPUT] Trang Phục (Costume / PPE)",
       "pos": [
-        -1100,
-        1020
+        -1200,
+        1060
       ],
       "size": [
-        340,
-        420
+        350,
+        430
       ],
       "flags": {},
       "order": 2,
@@ -142,12 +199,12 @@
       "type": "LoadImage",
       "title": "⛑️ [01 INPUT] Mũ bảo hộ NEWTECONS (3D Helmet)",
       "pos": [
-        -1100,
-        1480
+        -1200,
+        1540
       ],
       "size": [
-        340,
-        420
+        350,
+        430
       ],
       "flags": {},
       "order": 3,
@@ -184,11 +241,11 @@
       "type": "UNETLoader",
       "title": "🤖 [02 MODEL] Noct-Q V4 Uncensored (Qwen 2.1)",
       "pos": [
-        -720,
+        -780,
         100
       ],
       "size": [
-        360,
+        380,
         90
       ],
       "flags": {},
@@ -221,11 +278,11 @@
       "type": "CLIPLoader",
       "title": "🧠 [02 TEXT] Qwen3VL 8B Multimodal Encoder",
       "pos": [
-        -720,
+        -780,
         220
       ],
       "size": [
-        360,
+        380,
         90
       ],
       "flags": {},
@@ -260,11 +317,11 @@
       "type": "VAELoader",
       "title": "🎨 [02 VAE] Qwen Image 2.1 VAE",
       "pos": [
-        -720,
+        -780,
         340
       ],
       "size": [
-        360,
+        380,
         60
       ],
       "flags": {},
@@ -294,14 +351,14 @@
     {
       "id": 13,
       "type": "TextEncodeQwenImage21",
-      "title": "📝 [02 PROMPT] Nhập Prompt & Ghép 3 Ảnh Đầu Vào",
+      "title": "📝 [02 PROMPT] HỘP NHẬP PROMPT LỚN (RÕ RÀNG)",
       "pos": [
-        -720,
+        -780,
         430
       ],
       "size": [
-        360,
-        360
+        380,
+        370
       ],
       "flags": {},
       "order": 7,
@@ -357,11 +414,11 @@
       "type": "EmptyLatentImage",
       "title": "📐 Kích Thước Nhân Vật (1024x1536)",
       "pos": [
-        -720,
-        820
+        -780,
+        920
       ],
       "size": [
-        360,
+        380,
         110
       ],
       "flags": {},
@@ -394,13 +451,13 @@
     {
       "id": 15,
       "type": "KSampler",
-      "title": "⚡ [02 RUN] KSampler Sinh Ảnh Nhân Vật Gốc",
+      "title": "⚡ KSampler Sinh Ảnh Nhân Vật Gốc (Noct-Q)",
       "pos": [
-        -720,
-        960
+        -780,
+        1060
       ],
       "size": [
-        360,
+        380,
         310
       ],
       "flags": {},
@@ -464,11 +521,11 @@
       "type": "VAEDecode",
       "title": "🖼️ Ảnh Nhân Vật Đã Phối Hợp",
       "pos": [
-        -720,
-        1300
+        -780,
+        1400
       ],
       "size": [
-        360,
+        380,
         60
       ],
       "flags": {},
@@ -505,12 +562,12 @@
       "type": "PreviewImage",
       "title": "👁️ Xem Trước Nhân Vật Fused",
       "pos": [
-        -720,
-        1390
+        -780,
+        1490
       ],
       "size": [
-        360,
-        420
+        380,
+        460
       ],
       "flags": {},
       "order": 11,
@@ -530,14 +587,14 @@
     {
       "id": 20,
       "type": "H3CharacterSheetDesignerReferenceV13",
-      "title": "🎛️ [03 DESIGN] H3 Character Sheet Designer (4 Hàng Phân Khu)",
+      "title": "🎛️ [03 DESIGN] H3 Sheet Designer (4 Hàng Riêng Biệt)",
       "pos": [
         -320,
         100
       ],
       "size": [
-        640,
-        920
+        660,
+        940
       ],
       "flags": {},
       "order": 12,
@@ -634,7 +691,7 @@
       "type": "UNETLoader",
       "title": "🎬 [04 H3] MiniMax H3 Ref2VA Model",
       "pos": [
-        360,
+        430,
         100
       ],
       "size": [
@@ -671,7 +728,7 @@
       "type": "CLIPLoader",
       "title": "🎬 [04 H3] Qwen3VL 32B NVFP4 Text Encoder",
       "pos": [
-        360,
+        430,
         220
       ],
       "size": [
@@ -710,7 +767,7 @@
       "type": "VAELoader",
       "title": "🎬 [04 H3] MiniMax H3 Video VAE",
       "pos": [
-        360,
+        430,
         340
       ],
       "size": [
@@ -746,7 +803,7 @@
       "type": "MiniMaxH3ReferenceToVideo",
       "title": "📹 [04 H3] MiniMax H3 Reference To Video",
       "pos": [
-        360,
+        430,
         430
       ],
       "size": [
@@ -832,7 +889,7 @@
       "type": "KSampler",
       "title": "⚡ [04 H3] KSampler Quay Video H3",
       "pos": [
-        750,
+        820,
         100
       ],
       "size": [
@@ -891,7 +948,7 @@
       "type": "VAEDecode",
       "title": "🖼️ Decode Video / Sheet Hoàn Thiện",
       "pos": [
-        750,
+        820,
         440
       ],
       "size": [
@@ -931,7 +988,7 @@
       "type": "SaveImage",
       "title": "💾 Lưu Character Turnaround Sheet 13-20 Góc",
       "pos": [
-        750,
+        820,
         530
       ],
       "size": [

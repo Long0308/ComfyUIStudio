@@ -139,8 +139,52 @@ Khi về máy nhà, để đồng bộ các cập nhật mới nhất từ công
    cd /d "<Thư mục Models>\ComfyUI\diffusion_models"
    if not exist minimax mkdir minimax
    mklink /H "minimax\DasiwaMinimaxH3_dasiwaHybridV2_int8.safetensors" "minimax_h3_ref2va_pruned_int8_convrot.safetensors"
+   mklink /H "minimax\DasiwaMinimaxH3_dasiwaHybridV4_int8.safetensors" "minimax_h3_ref2va_pruned_int8_convrot.safetensors"
    ```
 5. Khởi động lại ComfyUI và tải lại trang web `http://127.0.0.1:8188` (Ctrl + F5).
+
+### 3.5 Sơ đồ Master Workflow: Tạo nhân vật 3-in-1 (Mặt + Dáng + Trang Phục) -> H3 Character Sheet
+
+```mermaid
+flowchart LR
+    subgraph IN ["1. 4 CỔNG INPUT RÕ RÀNG (BÊN TRÁI)"]
+        A["[01 INPUT] Mặt (Face Image)<br>f06fe4f6b36.webp"]
+        B["[01 INPUT] Dáng (Pose / OpenPose)<br>full_P002_front.png"]
+        C["[01 INPUT] Trang Phục (Costume / PPE)<br>SPR-0004.png / Áo phản quang"]
+        D["[01 INPUT] Mũ bảo hộ NEWTECONS<br>helmet_front.png (3D Blender)"]
+    end
+
+    subgraph PROMPT_BOX ["2. HỘP NHẬP PROMPT LỚN (RÕ RÀNG)"]
+        P["[02 PROMPT] Nhập Prompt & Ghép 3 Ảnh<br><i>Hộp gõ text to, rộng, dễ chỉnh sửa</i>"]
+    end
+
+    subgraph GEN ["3. NOCT-Q UNCENSORED QWEN 2.1"]
+        K["KSampler Sinh Ảnh Nhân Vật Gốc"]
+        V["Ảnh Nhân Vật Đã Phối Hợp"]
+    end
+
+    subgraph SHEET ["4. H3 CHARACTER SHEET DESIGNER"]
+        H3D["[03 DESIGN] H3 Sheet Designer<br>(4 hàng riêng biệt: Mặt, Dáng, Mũ 3D, Áo 3D)"]
+    end
+
+    subgraph VIDEO ["5. AI QUAY VIDEO"]
+        H3V["MiniMax H3 ReferenceToVideo<br>Xuất bảng xoay 13-20 góc"]
+    end
+
+    A -->|Dây nối 1| P
+    B -->|Dây nối 2| P
+    C -->|Dây nối 3| P
+    P --> K
+    K --> V
+    V -->|Dây nối nhân vật| H3D
+    C -->|Dây nối áo| H3D
+    D -->|Dây nối mũ| H3D
+    H3D --> H3V
+```
+
+* File workflow chuẩn: `H3_Character_Sheet_Designer_v1.3.json` và `NEWTECONS_Master_Character_Creation_To_H3_Sheet.json`
+* Tự động hiển thị `IMAGE ENGINE` trên thanh điều hướng.
+* Đã chia 5 nhóm Group màu sắc rõ ràng kèm tiêu đề kích thước lớn trực quan.
 
 ## 4. Bắt đầu nhanh theo phim (giữ hai domain tách biệt)
 
