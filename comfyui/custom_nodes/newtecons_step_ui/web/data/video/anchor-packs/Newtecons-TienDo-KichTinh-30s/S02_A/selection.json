@@ -1,0 +1,12 @@
+{
+  "schema": "jjv/shot-anchor-selection/v1",
+  "episode_id": "Newtecons-TienDo-KichTinh-30s",
+  "shot": "S02_A",
+  "context": "cong_truong",
+  "chosen_by": "user 31/10: FACE 04_04_DECISIVE_COMMAND (2f01be018cab) + ACTION 05_02_THREE_QUARTER_FULL_BODY (5e0d548a93a8); worker Fable added ACTION 06_07_SITE_DIRECTION (4a883f13abe0) as the pointing/site-direction pose for the schedule-board beat (not user-confirmed)",
+  "comment": "Storyboard anchor PENDING: another worker generates the S02_A first frame through the Codex lane from this pack's refs; nothing from casting/ or storyboard/ is substituted.",
+  "characters": [
+    {"character": "CHAR_02", "role": "speaker", "face": ["2f01be018cab"], "body": ["5e0d548a93a8", "4a883f13abe0"]}
+  ],
+  "storyboard": "PENDING"
+}

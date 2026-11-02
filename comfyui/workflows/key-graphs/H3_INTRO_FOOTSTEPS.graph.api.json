@@ -1,0 +1,354 @@
+{
+  "1": {
+    "_meta": {
+      "title": "Model MiniMax H3 R2V"
+    },
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    }
+  },
+  "10": {
+    "_meta": {
+      "title": "Guider H3"
+    },
+    "class_type": "BasicGuider",
+    "inputs": {
+      "conditioning": [
+        "9",
+        0
+      ],
+      "model": [
+        "21",
+        0
+      ]
+    }
+  },
+  "11": {
+    "_meta": {
+      "title": "Seed"
+    },
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 20261102
+    }
+  },
+  "12": {
+    "_meta": {
+      "title": "Sampler"
+    },
+    "class_type": "KSamplerSelect",
+    "inputs": {
+      "sampler_name": "res_multistep"
+    }
+  },
+  "13": {
+    "_meta": {
+      "title": "Scheduler"
+    },
+    "class_type": "BasicScheduler",
+    "inputs": {
+      "denoise": 1.0,
+      "model": [
+        "21",
+        0
+      ],
+      "scheduler": "simple",
+      "steps": 8
+    }
+  },
+  "14": {
+    "_meta": {
+      "title": "Lấy mẫu H3 video + audio"
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "guider": [
+        "10",
+        0
+      ],
+      "latent_image": [
+        "6",
+        1
+      ],
+      "noise": [
+        "11",
+        0
+      ],
+      "sampler": [
+        "12",
+        0
+      ],
+      "sigmas": [
+        "13",
+        0
+      ]
+    }
+  },
+  "15": {
+    "_meta": {
+      "title": "Giải mã hình H3"
+    },
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "14",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    }
+  },
+  "16": {
+    "_meta": {
+      "title": "Giải mã audio H3"
+    },
+    "class_type": "VAEDecodeAudio",
+    "inputs": {
+      "samples": [
+        "14",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    }
+  },
+  "17": {
+    "_meta": {
+      "title": "Ghép video H3 24 fps"
+    },
+    "class_type": "CreateVideo",
+    "inputs": {
+      "audio": [
+        "16",
+        0
+      ],
+      "fps": 24.0,
+      "images": [
+        "15",
+        0
+      ]
+    }
+  },
+  "18": {
+    "_meta": {
+      "title": "Lưu video NEWTECONS MP4 H.264"
+    },
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "NEWTECONS/H3/intro-scene01-v001/INTRO_FOOTSTEPS_s20261102",
+      "format": "mp4",
+      "format.codec": "h264",
+      "video": [
+        "17",
+        0
+      ]
+    }
+  },
+  "19": {
+    "_meta": {
+      "title": "Prompt người thật — bổ sung hành động và camera của shot"
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "inputs": {
+      "value": "Photorealistic live-action NEWTECONS site footage. Preserve the approved still as the exact opening composition, real adult body proportions, natural skin and fabric, and all existing branding. Very low ground-level tracking camera follows the engineer's boots as he takes two deliberate steps toward the open door of the site container; the feet move forward toward the doorway, the threshold and container entrance grow nearer, natural walking cadence and restrained handheld tracking, no face reveal, no sudden camera jump. Maintain the same construction-site light, floor, container door and wardrobe from the anchor. No dialogue, no mouth movement, no laughing, no voice, no subtitles, no logos or lettering invented, no cartoon style, no scene change."
+    }
+  },
+  "2": {
+    "_meta": {
+      "title": "Text encoder MiniMax H3"
+    },
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "device": "default",
+      "type": "minimax"
+    }
+  },
+  "20": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "lora_name": "pika_h3_flex_turbo_8step_hd_ref2va.safetensors",
+      "model": [
+        "1",
+        0
+      ],
+      "strength_model": 1.0
+    }
+  },
+  "21": {
+    "class_type": "MiniMaxH3SigmaShift",
+    "inputs": {
+      "model": [
+        "20",
+        0
+      ],
+      "shift_audio": 3.0,
+      "shift_video": 12.0
+    }
+  },
+  "3": {
+    "_meta": {
+      "title": "Video VAE"
+    },
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors"
+    }
+  },
+  "31": {
+    "_meta": {
+      "title": "ref_image_1 body"
+    },
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "ntc_intro_footsteps_anchor_c29550944c3d.png"
+    }
+  },
+  "32": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "ntc_intro_footsteps_anchor_c29550944c3d.png"
+    }
+  },
+  "33": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "ntc_intro_footsteps_anchor_c29550944c3d.png"
+    }
+  },
+  "34": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "ntc_intro_footsteps_anchor_c29550944c3d.png"
+    }
+  },
+  "35": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "ntc_intro_footsteps_anchor_c29550944c3d.png"
+    }
+  },
+  "4": {
+    "_meta": {
+      "title": "Audio VAE"
+    },
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+    }
+  },
+  "5": {
+    "_meta": {
+      "title": "ĐIỀN: ảnh nhân vật NEWTECONS đã duyệt — ref Picture 1"
+    },
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "ntc_intro_footsteps_anchor_c29550944c3d.png"
+    }
+  },
+  "6": {
+    "_meta": {
+      "title": "H3 R2V — ảnh nhân vật tham chiếu"
+    },
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "height": 704,
+      "length": 73,
+      "prompt": [
+        "19",
+        0
+      ],
+      "ref_image_size": "match",
+      "ref_images.ref_image_0": [
+        "5",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "31",
+        0
+      ],
+      "ref_images.ref_image_2": [
+        "32",
+        0
+      ],
+      "ref_images.ref_image_3": [
+        "33",
+        0
+      ],
+      "ref_images.ref_image_4": [
+        "34",
+        0
+      ],
+      "ref_images.ref_image_5": [
+        "35",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "width": 1280
+    }
+  },
+  "7": {
+    "_meta": {
+      "title": "ĐIỀN: WAV thoại đã duyệt — theo preparation.json wav.sha256"
+    },
+    "class_type": "LoadAudio",
+    "inputs": {
+      "audio": "ntc_intro_footsteps_silent_73f_48k_stereo_v001.wav"
+    }
+  },
+  "8": {
+    "_meta": {
+      "title": "ĐIỀN: ảnh cảnh đã duyệt — neo frame 0"
+    },
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "ntc_intro_footsteps_anchor_c29550944c3d.png"
+    }
+  },
+  "9": {
+    "_meta": {
+      "title": "Neo cảnh và WAV thoại từ frame 0"
+    },
+    "class_type": "MiniMaxH3AddGuide",
+    "inputs": {
+      "audio": [
+        "7",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "frame_idx": 0,
+      "image": [
+        "8",
+        0
+      ],
+      "latent": [
+        "6",
+        1
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    }
+  }
+}

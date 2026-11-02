@@ -1,0 +1,860 @@
+// NEWTECONS Step UI — numbered step tabs + VÀO/RA panel for NEWTECONS ComfyUI workflows.
+// GET /history, GET /view, GET the static engine manifest. Never queues a prompt and never POSTs.
+// v004: tabs 00 (route) and 09 (source/target) apply graph.extra.newtecons_route_plan to the CANVAS graph
+// (node modes + ComfySwitchNode values, like Ctrl+M); tab 09 copies the engine approve command.
+import { app } from "../../scripts/app.js";
+import { api } from "../../scripts/api.js";
+import { activeWorkflowContext } from "./workflow_context.js";
+import {
+  approveCommand, codexMultiPromptEdits, codexMultiPromptSupport, currentChoice, engineFilter, fitBounds,
+  groupSignature, hexOf, inputsForStep, latestOutput, maxPromptNumber, MAX_PROMPTS, outputNodesForStep, parsePromptList,
+  parseSteps, planChanges, PROMPT_LIST_KEY, promptListProgress, queuePromptsSequential, routePlan, switchProblems,
+  characterStatus, presetFiles, presetMatches, TARGET_HEIGHTS, targetSize, viewPath, wardrobeStatus, workflowKind,
+} from "./step_ui_logic.js";
+
+const EXT = "Newtecons.StepUI";
+const POLL_MS = 1000;
+const HISTORY_ITEMS = 64;
+const COLLAPSE_KEY = "newtecons.stepui.collapsed";
+const MANIFEST_URL = new URL("./engine_library_r005f.json", import.meta.url).href;
+const ROUTE_TEXT = {
+  image: "Ảnh tạo bằng LAN GPT (Codex OAuth) chạy ngoài ComfyUI qua jjv; ComfyUI chỉ chạy model local "
+    + "(Flux2/Krea2/H3 trên RTX 5080).",
+  video: "Video H3 R2V chạy local trên RTX 5080 trong ComfyUI. Ảnh nhân vật / cảnh đầu vào tạo bằng LAN GPT "
+    + "(Codex OAuth) chạy ngoài ComfyUI qua jjv; ComfyUI chỉ chạy model local (Flux2/Krea2/H3 trên RTX 5080).",
+};
+const CSS = `
+#nt-step-bar,#nt-step-panel{--ink:#07111F;--ink2:#0A2540;--line:rgba(91,155,245,.38);--blue:#0B4FD9;--sky:#5B9BF5;
+ --violet:#9D9BF5;--ok:#96E072;--bad:#D00000;--paper:#F7FAFD;--mute:#A9B8D8;
+ font-family:"Bahnschrift SemiBold Condensed","Bahnschrift Condensed","Bahnschrift","Roboto Condensed","Arial Narrow",Inter,sans-serif;
+ font-stretch:condensed;color:var(--paper);box-sizing:border-box}
+#nt-step-bar *,#nt-step-panel *{box-sizing:border-box}
+#nt-step-bar{position:fixed;z-index:1001;display:flex;flex-wrap:wrap;gap:4px;align-items:stretch;padding:5px;
+ background:rgba(7,17,31,.94);border:1px solid var(--line);max-width:calc(100vw - 32px)}
+#nt-step-bar .nt-brand{display:flex;align-items:center;padding:0 10px 0 6px;font-size:12px;letter-spacing:.16em;color:var(--sky);
+ font-weight:700;white-space:nowrap;text-transform:uppercase}
+.nt-tab{all:unset;cursor:pointer;display:flex;align-items:center;gap:6px;padding:6px 10px;border:1px solid rgba(255,255,255,.16);
+ color:#D7E2F5;font-size:14px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;position:relative}
+.nt-tab:hover{border-color:var(--sky);color:#fff}
+.nt-tab b{font-size:16px;color:var(--sky)}
+.nt-tab.on{background:#FFFFFF;color:var(--ink2);border-color:#FFFFFF}
+.nt-tab.on b{color:var(--blue)}
+.nt-tab .nt-dot{width:6px;height:6px;border-radius:50%;background:transparent;border:1px solid rgba(255,255,255,.3)}
+.nt-tab .nt-dot.has{background:var(--ok);border-color:var(--ok)}
+.nt-tab.off-all{opacity:.55}
+.nt-tool{all:unset;cursor:pointer;padding:0 10px;color:var(--mute);font-size:13px;letter-spacing:.1em;border-left:1px solid var(--line)}
+.nt-tool:hover{color:#fff}
+#nt-step-panel{position:fixed;z-index:1000;width:min(620px,44vw);background:var(--ink);border:1px solid var(--line);
+ padding:20px 22px 16px;overflow:auto;box-shadow:0 18px 50px rgba(0,0,0,.45)}
+.nt-frame{position:relative}
+.nt-frame>.nt-c{position:absolute;width:16px;height:16px;border-color:var(--sky);border-style:solid;pointer-events:none}
+.nt-c.tl{top:-1px;left:-1px;border-width:2px 0 0 2px}.nt-c.tr{top:-1px;right:-1px;border-width:2px 2px 0 0}
+.nt-c.bl{bottom:-1px;left:-1px;border-width:0 0 2px 2px}.nt-c.br{bottom:-1px;right:-1px;border-width:0 2px 2px 0}
+.nt-head{display:flex;align-items:baseline;gap:14px;text-transform:uppercase;line-height:.9;margin-bottom:6px}
+.nt-head .nt-num{font-size:64px;font-weight:800;color:#fff}
+.nt-head .nt-name{font-size:40px;font-weight:800;letter-spacing:.02em;color:#fff}
+.nt-head .nt-x{all:unset;cursor:pointer;margin-left:auto;font-size:22px;color:var(--mute);padding:0 4px}
+.nt-sub{font-size:13px;letter-spacing:.12em;color:var(--mute);text-transform:uppercase;margin-bottom:14px}
+.nt-banner{border-left:3px solid var(--sky);background:rgba(11,79,217,.20);padding:10px 12px;font-size:15px;line-height:1.35;
+ margin-bottom:16px;font-family:Inter,sans-serif;font-stretch:normal}
+.nt-banner b{color:#fff}
+.nt-row{display:grid;grid-template-columns:1fr 44px 1fr;align-items:stretch;gap:0}
+.nt-slot{border:1px solid rgba(255,255,255,.14);padding:10px;min-height:330px;display:flex;flex-direction:column;gap:8px}
+.nt-slot .nt-lbl{font-size:14px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#fff}
+.nt-slot .nt-lbl i{font-style:normal;color:var(--mute);font-weight:600}
+.nt-media{flex:1;min-height:250px;background:#0A1A30;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.nt-media img,.nt-media video{max-width:100%;max-height:300px;object-fit:contain;display:block}
+.nt-media pre{white-space:pre-wrap;font:12px/1.4 Inter,sans-serif;color:#D7E2F5;padding:10px;margin:0;max-height:300px;overflow:auto}
+.nt-empty{font:13px/1.45 Inter,sans-serif;color:var(--mute);padding:14px;text-align:center}
+.nt-cap{font:11px/1.4 Inter,sans-serif;color:var(--mute);word-break:break-all}
+.nt-cap .ok{color:var(--ok)}.nt-cap .weak{color:var(--violet)}
+.nt-chips{display:flex;flex-wrap:wrap;gap:4px}
+.nt-chip{all:unset;cursor:pointer;font-size:11px;letter-spacing:.06em;padding:2px 7px;border:1px solid rgba(255,255,255,.2);color:#D7E2F5;text-transform:uppercase}
+.nt-chip.on{background:#fff;color:var(--ink2)}
+.nt-chip.muted{border-style:dashed;color:var(--violet)}
+.nt-arrow{display:flex;align-items:center;justify-content:center}
+.nt-foot{margin-top:14px;font:11px/1.4 Inter,sans-serif;color:var(--mute);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.nt-btn{all:unset;cursor:pointer;padding:7px 12px;border:1px solid var(--sky);color:#fff;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.nt-btn:hover{background:var(--blue);border-color:var(--blue)}
+.nt-eng{margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
+.nt-eng select{background:var(--ink2);color:#fff;border:1px solid var(--line);font:13px Inter,sans-serif;padding:3px 6px;margin-right:6px}
+.nt-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:10px}
+.nt-grid a{display:block;background:#0A1A30;text-decoration:none}
+.nt-grid img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
+.nt-grid span{display:block;font:10px/1.3 Inter,sans-serif;color:var(--mute);padding:3px 4px;word-break:break-all}
+.nt-routes{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:4px 0 14px}
+.nt-route{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:8px;padding:18px 16px;min-height:150px;
+ border:1px solid rgba(255,255,255,.22);background:#0A1A30}
+.nt-route:hover{border-color:var(--sky)}
+.nt-route b{font-size:26px;font-weight:800;letter-spacing:.04em;color:#fff;text-transform:uppercase;line-height:1}
+.nt-route span{font:13px/1.4 Inter,sans-serif;color:#D7E2F5}
+.nt-route em{font-style:normal;font-size:12px;letter-spacing:.14em;color:var(--mute);text-transform:uppercase}
+.nt-route.on{background:#FFFFFF;border-color:#FFFFFF}
+.nt-route.on b,.nt-route.on span{color:var(--ink2)}.nt-route.on em{color:var(--blue)}
+.nt-pick{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:0 0 10px;font-size:13px;letter-spacing:.12em;
+ text-transform:uppercase;color:var(--mute)}
+.nt-pick .nt-chip{font-size:13px;padding:4px 10px}
+.nt-warn{border-left:3px solid var(--bad);background:rgba(208,0,0,.16);padding:8px 10px;font:13px/1.4 Inter,sans-serif;margin-bottom:10px}
+.nt-cmd{margin-top:12px;border-top:1px solid var(--line);padding-top:10px}
+.nt-plist{margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
+.nt-plist textarea{width:100%;min-height:150px;background:#0A1A30;color:#fff;border:1px solid var(--line);font:12px/1.5 Consolas,monospace;
+ padding:8px;resize:vertical}
+.nt-plist .nt-row2{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:8px;font:12px/1.4 Inter,sans-serif;color:var(--mute)}
+.nt-btn[disabled]{opacity:.45;cursor:not-allowed}
+.nt-wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;overflow:auto;max-height:300px}
+.nt-wslot{background:#0A1A30;border:1px solid rgba(255,255,255,.14)}
+.nt-wslot.off{opacity:.45;border-style:dashed}
+.nt-wslot img{width:100%;aspect-ratio:1/1;object-fit:contain;display:block;background:#fff}
+.nt-wslot .nt-empty{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:4px}
+.nt-wslot span{display:block;font:10px/1.3 Inter,sans-serif;color:var(--mute);padding:3px 4px}
+.nt-cmd pre{white-space:pre-wrap;word-break:break-all;font:12px/1.45 Consolas,monospace;color:#fff;background:#0A1A30;
+ padding:10px;margin:8px 0 0;border:1px solid var(--line)}
+`;
+
+const state = { kind: null, steps: [], sig: "", active: null, collapsed: localStorage.getItem(COLLAPSE_KEY) === "1",
+  history: null, historyAt: 0, chosenInput: new Map(), engine: null, engineOpen: false, engineChar: "CHAR_01",
+  engineKind: "", panelSig: "", graph: null, promptText: "", promptRun: null, promptMsg: "", lanes: null,
+  presets: undefined };
+let bar = null;
+let panel = null;
+
+function el(tag, attrs = {}, ...kids) {
+  const node = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === "class") node.className = v;
+    else if (k === "text") node.textContent = v;
+    else if (k.startsWith("on")) node.addEventListener(k.slice(2), v);
+    else node.setAttribute(k, v);
+  }
+  for (const kid of kids.flat()) if (kid != null) node.append(kid);
+  return node;
+}
+
+function corners(node) {
+  node.classList.add("nt-frame");
+  for (const c of ["tl", "tr", "bl", "br"]) node.append(el("span", { class: "nt-c " + c }));
+  return node;
+}
+
+function snapshot() {
+  const g = app.graph;
+  if (!g) return null;
+  const groups = (g._groups || g.groups || []).map((gr) => {
+    const b = gr._bounding || gr.boundingRect || gr.bounding || [gr.pos?.[0], gr.pos?.[1], gr.size?.[0], gr.size?.[1]];
+    return { title: gr.title, bounding: Array.from(b, Number) };
+  });
+  const nodes = (g._nodes || g.nodes || []).map((n) => ({
+    id: n.id, type: n.type, title: n.title, mode: n.mode || 0, pos: [n.pos[0], n.pos[1]],
+    widgets: Object.fromEntries((n.widgets || []).map((w) => [w.name, w.value])),
+    properties: { ...(n.properties || {}) },
+    inputs: (n.inputs || []).map((p) => ({ name: p.name, link: p.link ?? null })),
+  }));
+  const raw = g.links instanceof Map ? [...g.links.values()] : Object.values(g.links || {});
+  const links = raw.filter(Boolean).map((l) => ({ id: l.id, origin_id: l.origin_id, target_id: l.target_id }));
+  return { extra: g.extra || {}, groups, nodes, links };
+}
+
+function canvasRect() {
+  const c = app.canvas?.canvas;
+  return c ? c.getBoundingClientRect() : { top: 0, left: 0, width: innerWidth, height: innerHeight, right: innerWidth };
+}
+
+// ComfyUI 1.55 draws its menus OVER the full-window canvas: workflow tab strip on top, tool
+// sidebar on the left, "Graph" breadcrumb under the tabs, optional right side panel. Measured
+// (2026-10-31): tabs .workflow-tabs-container [0,0,1680,38], nav.side-tool-bar-container right 56,
+// breadcrumb group [64,50,208,90], right .p-splitterpanel from x 1357. Anchor to them, ignoring ours.
+function foreignAt(x, y) {
+  return document.elementsFromPoint(x, y).find((e) => !e.closest("#nt-step-bar,#nt-step-panel")
+    && !e.matches("canvas") && !e.classList.contains("graph-canvas-container")) || null;
+}
+
+function anchors() {
+  const r = canvasRect();
+  const tabs = document.querySelector(".workflow-tabs-container")?.getBoundingClientRect();
+  const nav = document.querySelector(".side-tool-bar-container")?.getBoundingClientRect();
+  const top = Math.max(r.top, tabs ? tabs.bottom : r.top) + 8;
+  const navRight = nav && nav.width < 200 ? nav.right : r.left;
+  const crumb = foreignAt(navRight + 24, top + 22)?.closest(".pointer-events-auto")?.getBoundingClientRect();
+  const left = (crumb && crumb.width < 420 && crumb.left >= navRight - 2 ? crumb.right : navRight) + 8;
+  const side = foreignAt(r.right - 6, Math.min(r.bottom - 40, top + 260))?.closest(".p-splitterpanel")
+    ?.getBoundingClientRect();
+  const rightEdge = side && side.left > r.left + r.width / 2 ? side.left : r.right;
+  // Never cover the Run/queue action bar (.actionbar-container, measured [1026,46,1345,94]).
+  const act = document.querySelector(".actionbar-container")?.parentElement?.getBoundingClientRect();
+  let barTop = top;
+  let barRight = rightEdge;
+  if (act && act.width > 0 && act.top < top + 50 && act.bottom > top - 4 && act.right > left) {
+    if (act.left - left >= 520) barRight = act.left;
+    else barTop = act.bottom + 8;
+  }
+  return { r, top: barTop, left, navRight, rightEdge, barRight };
+}
+
+function place() {
+  const a = anchors();
+  if (bar) {
+    bar.style.top = Math.round(a.top) + "px";
+    bar.style.left = Math.round(a.left) + "px";
+    bar.style.maxWidth = Math.max(240, Math.round(a.barRight - a.left - 8)) + "px";
+  }
+  if (panel && bar) {
+    const b = bar.getBoundingClientRect();
+    panel.style.top = Math.round(b.bottom + 10) + "px";
+    panel.style.right = Math.round(innerWidth - a.rightEdge + 12) + "px";
+    panel.style.maxHeight = Math.round(a.r.bottom - b.bottom - 22) + "px";
+  }
+}
+
+function zoomTo(step) {
+  const canvas = app.canvas;
+  if (!canvas?.ds) return;
+  place();
+  const a = anchors();
+  const r = a.r;
+  const top = bar ? bar.getBoundingClientRect().bottom - r.top + 4 : 0;
+  const right = panel && !panel.hidden ? r.right - panel.getBoundingClientRect().left + 8 : r.right - a.rightEdge;
+  const left = Math.max(0, a.navRight - r.left);
+  const target = fitBounds(step.bounding, { width: r.width, height: r.height }, { top, right, left, margin: 20 });
+  const ds = canvas.ds;
+  const from = { scale: ds.scale, offset: [ds.offset[0], ds.offset[1]] };
+  const t0 = performance.now();
+  const frame = (now) => {
+    const k = Math.min(1, (now - t0) / 260);
+    const e = 1 - (1 - k) ** 3;
+    ds.scale = from.scale + (target.scale - from.scale) * e;
+    ds.offset[0] = from.offset[0] + (target.offset[0] - from.offset[0]) * e;
+    ds.offset[1] = from.offset[1] + (target.offset[1] - from.offset[1]) * e;
+    canvas.setDirty(true, true);
+    if (k < 1) requestAnimationFrame(frame);
+  };
+  requestAnimationFrame(frame);
+}
+
+async function loadHistory(force = false) {
+  if (!force && state.history && performance.now() - state.historyAt < 4000) return state.history;
+  try {
+    const res = await api.fetchApi(`/history?max_items=${HISTORY_ITEMS}`);
+    state.history = res.ok ? await res.json() : {};
+  } catch (err) {
+    console.warn(`[${EXT}] /history failed`, err);
+    state.history = state.history || {};
+  }
+  state.historyAt = performance.now();
+  return state.history;
+}
+
+function sessionOutput(outs) {
+  for (const o of outs) {
+    const out = app.nodeOutputs?.[String(o.nodeId)];
+    const media = (out?.images || out?.gifs || []).filter((m) => m?.filename);
+    if (media.length) return { promptId: "phiên này", nodeId: o.nodeId, nodeTitle: o.title, match: "session",
+      media: media.map((m) => ({ filename: m.filename, subfolder: m.subfolder || "", type: m.type || "output",
+        kind: /\.(mp4|webm|mov)$/i.test(m.filename) ? "video" : "image" })) };
+  }
+  return null;
+}
+
+function stepOutput(step) {
+  const outs = outputNodesForStep(state.graph, step);
+  return sessionOutput(outs) || latestOutput(state.history, outs, groupSignature(state.graph.groups));
+}
+
+function mediaNode(ref, kind) {
+  const src = api.apiURL(viewPath(ref));
+  if (kind === "video") return el("video", { src, controls: "", muted: "", loop: "", preload: "metadata" });
+  if (kind === "audio") return el("audio", { src, controls: "", preload: "metadata" });
+  return el("img", { src, alt: ref.filename, loading: "lazy" });
+}
+
+function renderInput(step) {
+  const inputs = inputsForStep(state.graph, step, state.steps);
+  const slot = corners(el("div", { class: "nt-slot" }, el("div", { class: "nt-lbl" }, "VÀO ", el("i", { text: "— Trước" }))));
+  const box = el("div", { class: "nt-media" });
+  if (!inputs.length) {
+    box.append(el("div", { class: "nt-empty", text: "Bước này không có ảnh/âm thanh/prompt đầu vào trong nhóm và không tìm được nguồn phía trước." }));
+    slot.append(box);
+    return slot;
+  }
+  const chosenId = state.chosenInput.get(step.code);
+  const cur = inputs.find((i) => i.nodeId === chosenId) || inputs.find((i) => i.value) || inputs[0];
+  if (inputs.length > 1) {
+    slot.append(el("div", { class: "nt-chips" }, inputs.map((i) => el("button", {
+      class: "nt-chip" + (i === cur ? " on" : "") + (i.mode ? " muted" : ""), title: i.title,
+      text: (i.kind === "text" ? "PROMPT " : i.kind === "audio" ? "WAV " : "ẢNH ") + "#" + i.nodeId + (i.mode ? " TẮT" : ""),
+      onclick: () => { state.chosenInput.set(step.code, i.nodeId); state.panelSig = ""; render(); },
+    }))));
+  }
+  if (cur.kind === "text") box.append(el("pre", { text: cur.value.slice(0, 1200) || "(prompt trống)" }));
+  else if (!cur.value) box.append(el("div", { class: "nt-empty", text: "ĐIỀN: chưa chọn file cho node này (" + cur.title + ")." }));
+  else box.append(mediaNode(cur.ref, cur.kind));
+  slot.append(box, el("div", { class: "nt-cap" }, `#${cur.nodeId} ${cur.title}`, cur.value && cur.kind !== "text" ? ` · ${cur.value}` : "",
+    cur.upstream ? ` · nguồn phía trước: bước ${cur.step || "?"}` : "", cur.mode ? el("span", { class: "weak", text: " · node đang TẮT" }) : null));
+  return slot;
+}
+
+function renderOutput(step) {
+  const slot = corners(el("div", { class: "nt-slot" }, el("div", { class: "nt-lbl" }, "RA ", el("i", { text: "— Sau" }))));
+  const box = el("div", { class: "nt-media" });
+  const outs = outputNodesForStep(state.graph, step);
+  const hit = outs.length ? stepOutput(step) : null;
+  if (!outs.length) box.append(el("div", { class: "nt-empty", text: "Nhóm này không có node lưu/xem ảnh (SaveImage / PreviewImage / SaveVideo)." }));
+  else if (!hit) box.append(el("div", { class: "nt-empty", text: `Chưa có ảnh RA trong ${HISTORY_ITEMS} lượt chạy gần nhất (/history). Bảng này chỉ đọc — không gửi /prompt.` }));
+  else box.append(mediaNode(hit.media[0], hit.media[0].kind));
+  slot.append(box);
+  if (hit) {
+    const tag = hit.match === "strong" ? ["ok", "khớp: cùng workflow + node + loại"]
+      : hit.match === "session" ? ["ok", "khớp: phiên này"] : ["weak", "khớp yếu: node id + loại + filename_prefix"];
+    slot.append(el("div", { class: "nt-cap" }, el("span", { class: tag[0], text: tag[1] }),
+      ` · #${hit.nodeId} ${hit.nodeTitle} · ${hit.media[0].subfolder ? hit.media[0].subfolder + "/" : ""}${hit.media[0].filename}`
+      + ` · prompt ${String(hit.promptId).slice(0, 8)}` + (hit.media.length > 1 ? ` · +${hit.media.length - 1} file` : "")));
+  }
+  return slot;
+}
+
+function arrow() {
+  const ns = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(ns, "svg");
+  svg.setAttribute("width", "36"); svg.setAttribute("height", "24"); svg.setAttribute("viewBox", "0 0 36 24");
+  const p = document.createElementNS(ns, "path");
+  p.setAttribute("d", "M2 12H32M22 3L33 12L22 21"); p.setAttribute("fill", "none");
+  p.setAttribute("stroke", "#5B9BF5"); p.setAttribute("stroke-width", "2.5");
+  svg.append(p);
+  return el("div", { class: "nt-arrow" }, svg);
+}
+
+async function renderEngine(host) {
+  if (!state.engine) {
+    try {
+      const res = await fetch(MANIFEST_URL, { cache: "no-store" });
+      state.engine = res.ok ? await res.json() : { items: [], error: "HTTP " + res.status };
+    } catch (err) {
+      state.engine = { items: [], error: String(err) };
+    }
+  }
+  const m = state.engine;
+  const chars = [...new Set((m.items || []).map((i) => i.char))];
+  const pick = (opts, value, onchange) => el("select", { onchange }, opts.map(([v, t]) => {
+    const o = el("option", { value: v, text: t });
+    if (v === value) o.selected = true;
+    return o;
+  }));
+  const items = engineFilter(m, state.engineChar, state.engineKind);
+  host.replaceChildren(
+    el("div", { class: "nt-banner" }, el("b", { text: "ẢNH LAN GPT (Codex OAuth) — " }),
+      `${m.count ?? 0} ảnh r005f, provider ${(m.providers || []).join(", ") || "?"}, chạy NGOÀI ComfyUI qua jjv. `
+      + "Thumbnail 512 px để so sánh; ứng viên, chưa phải canon." + (m.error ? " Lỗi đọc manifest: " + m.error : "")),
+    el("div", {},
+      pick(chars.map((c) => [c, c]), state.engineChar, (e) => { state.engineChar = e.target.value; renderEngine(host); }),
+      pick([["", "FACE + ACTION"], ["FACE", "FACE"], ["ACTION", "ACTION"]], state.engineKind,
+        (e) => { state.engineKind = e.target.value; renderEngine(host); })),
+    el("div", { class: "nt-grid" }, items.map((i) => {
+      const ref = { filename: i.filename, subfolder: i.subfolder, type: "input" };
+      return el("a", { href: api.apiURL(viewPath(ref)), target: "_blank", title: `${i.source_file}\nsha256 ${i.source_sha256}` },
+        el("img", { src: api.apiURL(viewPath(ref)), loading: "lazy", alt: i.label }),
+        el("span", { text: `${i.kind} ${i.label} · ${i.rev || ""}` }));
+    })));
+}
+
+// ---- v004: plans from graph.extra.newtecons_route_plan (data written by image_8step_build_v004.py) ----
+// Applying a plan edits node modes / switch widgets in the CANVAS graph only (like Ctrl+M); nothing is queued.
+function applyPlan(dimension, option) {
+  const g = app.graph;
+  const changes = planChanges(g.extra, state.graph.nodes, dimension, option);
+  const live = new Map((g._nodes || g.nodes || []).map((n) => [String(n.id), n]));
+  for (const m of changes.modes) {
+    const n = live.get(String(m.id));
+    n.properties = n.properties || {};
+    if (m.saved === null) delete n.properties.nt_mode_saved;
+    else if (m.saved !== undefined) n.properties.nt_mode_saved = m.saved;
+    n.mode = m.mode;
+  }
+  for (const s of changes.switches) {
+    const w = live.get(String(s.id))?.widgets?.find((x) => x.name === "switch");
+    if (w) { w.value = s.value; w.callback?.(s.value); }
+  }
+  for (const e of changes.widgets || []) {
+    for (const [name, value] of Object.entries(e.values)) {
+      const w = live.get(String(e.id))?.widgets?.find((x) => x.name === name);
+      if (w) { w.value = value; w.callback?.(value); }
+    }
+  }
+  Object.assign(g.extra, changes.extra);
+  g.change?.();
+  g.afterChange?.();
+  app.canvas?.setDirty(true, true);
+  state.panelSig = "";
+  tick();
+  render();
+}
+
+function routeLabel(plan, key) {
+  return plan?.route?.options?.[key]?.label || key || "?";
+}
+
+function renderRoute(step) {
+  const plan = routePlan(state.graph.extra);
+  if (!plan) return [el("div", { class: "nt-banner", text: "Workflow này không có extra.newtecons_route_plan (cần v004)." })];
+  const cur = currentChoice(state.graph.extra, state.graph.nodes, "route");
+  const desc = {
+    local: ["Chạy trên RTX 5080 trong ComfyUI", "Bước 02 / 02B / 06 chạy; nhánh Codex TẮT. Ảnh 07 = bước 06."],
+    codex: ["Cloud GPT qua Codex OAuth — KHÔNG phải GPU local", "Node Codex chạy; node tạo ảnh local (02, 02B, 03, 05, 06) TẮT. Ảnh 07 = Codex."],
+  };
+  const buttons = Object.entries(plan.route.options).map(([key, opt]) => el("button", {
+    class: "nt-route" + (key === cur ? " on" : ""), "data-route": key, onclick: () => applyPlan("route", key) },
+    el("em", { text: key === cur ? "ĐANG CHỌN" : "BẤM ĐỂ CHỌN" }), el("b", { text: opt.label.split(" — ")[0] }),
+    el("span", { text: (opt.label.split(" — ")[1] || "") + ". " + (desc[key] || ["", ""]).join(" · ") }),
+    el("em", { text: `tắt ${opt.mute.length} node · bật lại ${Object.keys(opt.restore).length} node` })));
+  const codexKind = state.graph.extra?.newtecons_image_8step?.codex_branch || "";
+  const out = [el("div", { class: "nt-routes" }, buttons)];
+  if (codexKind.startsWith("placeholder")) {
+    out.push(el("div", { class: "nt-banner" }, el("b", { text: "CODEX: " }),
+      "node “Codex OAuth Image Lane (cloud GPT — not local GPU)” (pack codex_lane_bridge) chưa có trên server — "
+      + "đang dùng LoadImage giữ chỗ đọc input/codex-lane/<job_id>/."));
+  }
+  const bad = switchProblems(state.graph);
+  if (bad.length) out.push(el("div", { class: "nt-warn", text: "Switch chọn nhánh đang TẮT (ra None): " + bad.map((b) => `#${b.id} ${b.title}`).join(" · ") }));
+  out.push(el("div", { class: "nt-foot" }, el("span", { text: `Lưu vào workflow: extra.newtecons_route = "${cur}". Chỉ đổi mute/switch trên canvas, không gửi /prompt. Lưu workflow (Ctrl+S) để giữ.` })));
+  return out;
+}
+
+function chips(label, plan, dimension, cur, attr) {
+  return el("div", { class: "nt-pick" }, el("span", { text: label }),
+    Object.entries(plan[dimension].options).map(([key, opt]) => el("button", {
+      class: "nt-chip" + (key === cur ? " on" : ""), [attr]: key, text: opt.label, onclick: () => applyPlan(dimension, key) })));
+}
+
+function upstreamVao(step) {
+  const plan = routePlan(state.graph.extra);
+  const src = plan ? currentChoice(state.graph.extra, state.graph.nodes, "source09") : null;
+  if (src !== "08" && src !== "07") return null;
+  const from = state.steps.find((s) => s.code === src);
+  const hit = from ? stepOutput(from) : null;
+  const slot = corners(el("div", { class: "nt-slot" }, el("div", { class: "nt-lbl" }, "VÀO ", el("i", { text: `— Trước (bước ${src})` }))));
+  const box = el("div", { class: "nt-media" });
+  if (hit) box.append(mediaNode(hit.media[0], hit.media[0].kind));
+  else box.append(el("div", { class: "nt-empty", text: `Chưa có ảnh RA của bước ${src} trong lịch sử. Chạy bước ${src} trước, hoặc chọn NGUỒN = FILE ĐÃ DUYỆT.` }));
+  slot.append(box, el("div", { class: "nt-cap", text: hit ? `ảnh RA bước ${src} · #${hit.nodeId} ${hit.nodeTitle} · ${hit.media[0].filename}` : `nguồn: bước ${src}` }));
+  slot.dataset.ref = hit ? JSON.stringify(hit.media[0]) : "";
+  return slot;
+}
+
+function targetOutput(step) {
+  const plan = routePlan(state.graph.extra);
+  const tgt = plan ? currentChoice(state.graph.extra, state.graph.nodes, "target09") : null;
+  const prefix = plan?.target09?.options?.[tgt]?.prefix;
+  const outs = outputNodesForStep(state.graph, step).filter((o) => o.type === "SaveImage" && (!prefix || o.prefix === prefix));
+  const hit = outs.length ? (sessionOutput(outs) || latestOutput(state.history, outs, groupSignature(state.graph.groups))) : null;
+  const slot = corners(el("div", { class: "nt-slot" }, el("div", { class: "nt-lbl" }, "RA ", el("i", { text: `— Sau (${tgt || "?"})` }))));
+  const box = el("div", { class: "nt-media" });
+  if (hit) box.append(mediaNode(hit.media[0], hit.media[0].kind));
+  else box.append(el("div", { class: "nt-empty", text: `Chưa có ảnh upscale ${tgt || ""} trong ${HISTORY_ITEMS} lượt chạy gần nhất (/history).` }));
+  slot.append(box);
+  if (hit) {
+    const ref = hit.media[0];
+    const cap = el("div", { class: "nt-cap" }, el("span", { class: hit.match === "weak" ? "weak" : "ok", text: hit.match === "weak" ? "khớp yếu" : "khớp" }),
+      ` · #${hit.nodeId} ${hit.nodeTitle} · ${ref.subfolder ? ref.subfolder + "/" : ""}${ref.filename}`);
+    slot.append(cap);
+    const img = box.querySelector("img");
+    if (img) img.addEventListener("load", () => cap.append(` · ${img.naturalWidth}×${img.naturalHeight}`), { once: true });
+  }
+  return slot;
+}
+
+async function shaOfRef(ref) {
+  const res = await fetch(api.apiURL(viewPath(ref)), { cache: "no-store" });
+  if (!res.ok) throw new Error("GET /view HTTP " + res.status);
+  if (!globalThis.crypto?.subtle) throw new Error("trình duyệt không có crypto.subtle (cần http://127.0.0.1 hoặc https)");
+  return hexOf(await crypto.subtle.digest("SHA-256", await res.arrayBuffer()));
+}
+
+function approveBox(vaoSlot, step) {
+  const box = el("div", { class: "nt-cmd" });
+  const out = el("pre", { text: "Bấm “Ghi duyệt (engine)”: tính sha256 của ảnh VÀO rồi hiện + chép lệnh. Bridge (engine/bridge) 31/10 KHÔNG có endpoint approve ⇒ chỉ chép lệnh, không gửi gì." });
+  const btn = el("button", { class: "nt-btn", "data-act": "approve", text: "Ghi duyệt (engine)", onclick: async () => {
+    try {
+      let ref = vaoSlot.dataset.ref ? JSON.parse(vaoSlot.dataset.ref) : null;
+      if (!ref) {
+        const own = inputsForStep(state.graph, step, state.steps).find((i) => i.kind === "image" && i.value && !i.mode);
+        ref = own ? own.ref : null;
+      }
+      if (!ref) throw new Error("chưa có ảnh VÀO (ĐIỀN file ở node NGUỒN FILE, hoặc chạy bước 08/07)");
+      out.textContent = "Đang tính sha256 …";
+      const sha = await shaOfRef(ref);
+      const cmd = approveCommand({ sha });
+      let copied = false;
+      try { await navigator.clipboard.writeText(cmd); copied = true; } catch (err) { console.warn(`[${EXT}] clipboard`, err); }
+      out.textContent = `${cmd}\n\n(jjv = python -I .agents/skills/studio-video-engine/bin/jjv.py) · ảnh: ${ref.subfolder ? ref.subfolder + "/" : ""}${ref.filename} · `
+        + (copied ? "ĐÃ CHÉP vào clipboard." : "chưa chép được (clipboard bị chặn) — bôi đen để chép.")
+        + "\nEngine chỉ duyệt ảnh có receipt (take trong library) và khi checklist `jjv images compare` đã pass.";
+    } catch (err) {
+      out.textContent = "Không tạo được lệnh: " + (err?.message || err);
+    }
+  } });
+  box.append(btn, out);
+  return box;
+}
+
+function renderApprove(step) {
+  const plan = routePlan(state.graph.extra);
+  if (!plan) return [el("div", { class: "nt-row" }, renderInput(step), arrow(), renderOutput(step))];
+  const src = currentChoice(state.graph.extra, state.graph.nodes, "source09");
+  const tgt = currentChoice(state.graph.extra, state.graph.nodes, "target09");
+  const vao = upstreamVao(step) || renderInput(step);
+  const out = [chips("NGUỒN", plan, "source09", src, "data-src"), chips("ĐÍCH", plan, "target09", tgt, "data-tgt")];
+  const heights = TARGET_HEIGHTS;
+  const img = vao.querySelector(".nt-media img");
+  const sizeCap = el("div", { class: "nt-cap", "data-act": "size", text: "ĐÍCH tính theo chiều cao (width 0 = giữ tỉ lệ ảnh VÀO)." });
+  vao.append(sizeCap);
+  if (img && heights[tgt]) {
+    img.addEventListener("load", () => {
+      const t = targetSize(img.naturalWidth, img.naturalHeight, heights[tgt]);
+      sizeCap.textContent = `VÀO ${img.naturalWidth}×${img.naturalHeight} → ĐÍCH ${tgt} ${t.width}×${t.height}`
+        + (t.is34 ? " (3:4 dọc)" : " — ẢNH KHÔNG PHẢI 3:4: kích thước khác số ghi trên nút");
+      if (!t.is34) sizeCap.classList.add("nt-warn");
+    }, { once: true });
+  }
+  const bad = switchProblems(state.graph);
+  if (bad.length) out.push(el("div", { class: "nt-warn", text: "Switch chọn nhánh đang TẮT (ra None): " + bad.map((b) => `#${b.id} ${b.title}`).join(" · ") }));
+  out.push(el("div", { class: "nt-row" }, vao, arrow(), targetOutput(step)), approveBox(vao, step));
+  return out;
+}
+
+// ---- v004 tab 01: "10 PROMPT" list. Nothing runs until the user presses the button. ----
+async function loadLanes() {
+  if (state.lanes) return state.lanes;
+  try {
+    const res = await api.fetchApi("/codex_lane/health");
+    const body = res.ok ? await res.json() : null;
+    state.lanes = { ok: Boolean(body?.ok), accounts: Array.isArray(body?.accounts) ? body.accounts : [] };
+  } catch (err) {
+    state.lanes = { ok: false, accounts: [], error: String(err?.message || err) };
+  }
+  return state.lanes;
+}
+
+function graphNode(pred) {
+  return (app.graph._nodes || app.graph.nodes || []).find(pred) || null;
+}
+
+function promptNode() {
+  const s01 = state.steps.find((s) => s.code === "01");
+  return graphNode((n) => n.type === "PrimitiveStringMultiline" && s01 && n.pos[0] >= s01.bounding[0]
+    && n.pos[0] < s01.bounding[0] + s01.bounding[2]);
+}
+
+async function pollPromptRun() {
+  const run = state.promptRun;
+  if (!run || run.finished) return;
+  try {
+    const res = await api.fetchApi("/history?max_items=200");
+    const hist = res.ok ? await res.json() : {};
+    run.progress = promptListProgress(hist, run.prompts, run.since, run.textNodeId);
+    if (run.queuedAll && run.progress.done + run.progress.failed >= run.queued) run.finished = true;
+  } catch (err) {
+    console.warn(`[${EXT}] prompt-list poll`, err);
+  }
+  state.panelSig = "";
+  render();
+  if (!run.finished) run.timer = setTimeout(pollPromptRun, 2500);
+}
+
+async function runPromptList(route) {
+  let prompts;
+  try { prompts = parsePromptList(state.promptText); } catch (err) { state.promptMsg = String(err.message || err); render(); return; }
+  if (!prompts.length) { state.promptMsg = "Danh sách trống: Run thường dùng 1 prompt ở node PROMPT."; render(); return; }
+  if (route === "codex") {
+    const node = graphNode((n) => n.type === "CodexOAuthImageLane");
+    for (const [name, value] of Object.entries(codexMultiPromptEdits(prompts))) {
+      const w = node?.widgets?.find((x) => x.name === name);
+      if (w) w.value = value;
+    }
+    app.canvas?.setDirty(true, true);
+    state.promptMsg = `CODEX: đã điền ${prompts.length} prompt vào node Codex (count=${prompts.length}). Bấm Run để gửi — tốn quota ChatGPT.`;
+    render();
+    return;
+  }
+  const node = promptNode();
+  const w = node?.widgets?.find((x) => x.name === "value");
+  if (!w) { state.promptMsg = "Không thấy node PROMPT (PrimitiveStringMultiline) trong nhóm 01."; render(); return; }
+  const original = w.value;
+  let since = -1;
+  try {
+    const [h, q] = await Promise.all([api.fetchApi("/history?max_items=200"), api.fetchApi("/queue")]);
+    since = maxPromptNumber(h.ok ? await h.json() : {}, q.ok ? await q.json() : {});
+  } catch (err) { console.warn(`[${EXT}] prompt-list since`, err); }
+  const run = { prompts, since, textNodeId: node.id, queued: 0, queuedAll: false, finished: false, progress: null, results: [] };
+  state.promptRun = run;
+  state.promptMsg = "";
+  render();
+  run.results = await queuePromptsSequential({
+    prompts,
+    setPrompt: (text) => { w.value = text; },
+    queue: () => app.queuePrompt(0, 1),
+    restore: () => { w.value = original; app.canvas?.setDirty(true, true); },
+    onQueued: (k) => { run.queued = k; state.panelSig = ""; render(); },
+  });
+  run.queuedAll = true;
+  const bad = run.results.find((r) => !r.ok);
+  if (bad) state.promptMsg = `Dừng ở prompt ${bad.index + 1}: ${bad.error}. Đã xếp ${run.queued} / ${prompts.length}.`;
+  pollPromptRun();
+}
+
+function renderPromptList() {
+  const plan = routePlan(state.graph.extra);
+  const route = plan ? currentChoice(state.graph.extra, state.graph.nodes, "route") : "local";
+  let count = 0;
+  let err = "";
+  try { count = parsePromptList(state.promptText).length; } catch (e) { err = String(e.message || e); }
+  const codex = state.graph.nodes.find((n) => n.type === "CodexOAuthImageLane");
+  const codexOk = codexMultiPromptSupport(codex);
+  const lanes = state.lanes;
+  const counter = el("span", { "data-act": "count", text: err || `N = ${count}` });
+  const area = el("textarea", { "data-act": "prompt-list",
+    placeholder: `Mỗi dòng 1 prompt, 1..${MAX_PROMPTS}. Để trống = Run thường với 1 prompt ở node PROMPT.`,
+    oninput: (e) => {
+      state.promptText = e.target.value;
+      app.graph.extra[PROMPT_LIST_KEY] = e.target.value;
+      app.graph.change?.();
+      let n = -1;
+      try { n = parsePromptList(e.target.value).length; } catch { n = -1; }
+      counter.textContent = n < 0 ? `quá ${MAX_PROMPTS} dòng` : `N = ${n}`;
+    } });
+  area.value = state.promptText || "";
+  const busy = Boolean(state.promptRun && !state.promptRun.finished);
+  const btn = el("button", { class: "nt-btn", "data-act": "run-n", text: "CHẠY N PROMPT",
+    title: route === "codex" && !codexOk ? "chờ cầu nối hỗ trợ nhiều prompt"
+      : (route === "codex" ? "điền N prompt vào node Codex (rồi bấm Run)" : "xếp N job ComfyUI lần lượt"),
+    onclick: () => runPromptList(route) });
+  if ((route === "codex" && !codexOk) || busy) btn.setAttribute("disabled", "");
+  const run = state.promptRun;
+  const prog = run ? `Đã xếp ${run.queued} / ${run.prompts.length} · xong ${run.progress?.done ?? 0} / ${run.prompts.length}`
+    + (run.progress?.failed ? ` · lỗi ${run.progress.failed}` : "") + (run.finished ? " · HẾT" : "") : "";
+  const laneText = lanes ? (lanes.ok ? `${lanes.accounts.length}: ${lanes.accounts.join(", ")}` : "bridge không trả lời")
+    : "đang hỏi /codex_lane/health …";
+  if (!lanes) loadLanes().then(() => { state.panelSig = ""; render(); });
+  return el("div", { class: "nt-plist" },
+    el("div", { class: "nt-lbl", text: `${MAX_PROMPTS} PROMPT — N ảnh từ N prompt` }), area,
+    el("div", { class: "nt-row2" }, btn, counter, el("span", { "data-act": "progress", text: prog })),
+    state.promptMsg ? el("div", { class: "nt-warn", text: state.promptMsg }) : null,
+    el("div", { class: "nt-banner", "data-act": "lanes" }, el("b", { text: route === "codex" ? "CODEX: " : "LOCAL: " }),
+      route === "codex"
+        ? `chạy SONG SONG theo lane — số lane CODEX song song = số tài khoản trong allow-list (hiện ${laneText}). `
+          + (codexOk ? "Node Codex nhận nhiều prompt." : "Node Codex chưa có input `prompts` ⇒ nút tắt (chờ cầu nối hỗ trợ nhiều prompt).")
+        : `từng ảnh một trên RTX 5080 — N job ComfyUI xếp lần lượt (server chạy 1 job GPU một lúc). `
+          + `Số lane CODEX song song = số tài khoản trong allow-list (hiện ${laneText}).`));
+}
+
+// ---- v005 tab 02A: NEO TRANG PHỤC. Context buttons fill NEO 1..N from the plan (built from the presets JSON). ----
+const PRESETS_URL = new URL("./data/wardrobe/newtecons_live_action.json", import.meta.url).href;
+
+async function loadPresets() {
+  if (state.presets !== undefined) return state.presets;
+  try {
+    const res = await fetch(PRESETS_URL, { cache: "no-store" });
+    state.presets = res.ok ? await res.json() : null;
+  } catch (err) {
+    console.warn(`[${EXT}] wardrobe presets`, err);
+    state.presets = null;
+  }
+  return state.presets;
+}
+
+function slotThumb(s) {
+  const box = el("div", { class: "nt-wslot" + (s.live ? "" : " off") });
+  const ref = s.value ? { filename: s.value.split("/").pop(), subfolder: s.value.includes("/") ? s.value.slice(0, s.value.lastIndexOf("/")) : "", type: "input" } : null;
+  box.append(ref && s.live ? el("img", { src: api.apiURL(viewPath(ref)), loading: "lazy", alt: s.title }) : el("div", { class: "nt-empty", text: s.live ? "TRỐNG" : "TẮT" }));
+  box.append(el("span", { text: `#${s.id} ${s.kind === "required" ? "BẮT BUỘC" : s.kind === "optional" ? s.title.split(" — ")[0] : "NEO"}` }));
+  return box;
+}
+
+function renderWardrobe(step) {
+  const plan = routePlan(state.graph.extra);
+  const ws = wardrobeStatus(state.graph);
+  const out = [chips("BỐI CẢNH", plan, "wardrobe", ws?.context, "data-ctx"),
+    el("div", { class: "nt-pick" }, chips("UPLOAD", plan, "upload", currentChoice(state.graph.extra, state.graph.nodes, "upload"), "data-up"),
+      chips("BỐI CẢNH THAM CHIẾU", plan, "boicanh", currentChoice(state.graph.extra, state.graph.nodes, "boicanh"), "data-bc"))];
+  if (state.presets === undefined) loadPresets().then(() => { state.panelSig = ""; render(); });
+  const presets = state.presets;
+  if (presets === null || ws?.blocked) {
+    out.push(el("div", { class: "nt-warn", "data-act": "blocked", text: "CHƯA CÓ BỘ NEO — NEO 1 trống ⇒ server từ chối Run ở cả 2 luồng. "
+      + (presets === null ? "Thiếu data/wardrobe/newtecons_live_action.json." : "Bộ neo của bối cảnh này không có ảnh.") }));
+  } else if (presets && ws) {
+    const want = presetFiles(presets, ws.context);
+    const have = ws.slots.filter((s) => s.value).map((s) => s.value);
+    if (want.length > ws.slots.length) out.push(el("div", { class: "nt-warn", text: `Bộ neo có ${want.length} ảnh, workflow chỉ có ${ws.slots.length} ô — build lại v005.` }));
+    else if (!presetMatches(presets, ws.context, have)) out.push(el("div", { class: "nt-warn", text: "Ô NEO khác bộ neo hiện tại — bấm lại nút bối cảnh hoặc build lại v005." }));
+  }
+  if (ws?.emptyLive?.length) out.push(el("div", { class: "nt-warn", text: `Ô đang BẬT nhưng trống: ${ws.emptyLive.map((i) => "#" + i).join(", ")} — ĐIỀN file hoặc TẮT.` }));
+  const vao = corners(el("div", { class: "nt-slot" }, el("div", { class: "nt-lbl" }, "VÀO ", el("i", { text: `— bối cảnh ${plan.wardrobe.options[ws?.context]?.label || "?"}` })),
+    el("div", { class: "nt-wgrid" }, [...(ws?.slots || []), ...(ws?.optional || [])].map(slotThumb))));
+  const ra = renderOutput(step);
+  ra.querySelector(".nt-lbl i").textContent = `— Sau · đính kèm ${ws?.attached ?? 0} ref`;
+  ra.dataset.attached = String(ws?.attached ?? 0);
+  out.push(el("div", { class: "nt-row" }, vao, arrow(), ra));
+  out.push(el("div", { class: "nt-banner" }, el("b", { text: "ĐÍNH KÈM: " }),
+    "tấm tham chiếu (ghép các ô đang BẬT) → CODEX: refs của node Codex · LOCAL: ReferenceLatent trước guider bước 02 và 06."));
+  return out;
+}
+
+// ---- v005 tab 02B: the SELECTED character's own FACE / ACTION images; reference-library only via MẪU MỚI. ----
+function renderCharacter(step) {
+  const plan = routePlan(state.graph.extra);
+  const cs = characterStatus(state.graph);
+  const found = state.graph.extra?.newtecons_characters?.found;
+  const out = [chips("NHÂN VẬT", plan, "character", cs?.context, "data-char"),
+    chips("MẪU TẠO NHÂN VẬT MỚI (reference-library)", plan, "mau_moi", currentChoice(state.graph.extra, state.graph.nodes, "mau_moi"), "data-mau")];
+  if (!found || cs?.blocked) {
+    out.push(el("div", { class: "nt-warn", "data-act": "char-blocked", text: "CHƯA CÓ ẢNH NHÂN VẬT — MẶT 1 / DÁNG 1 trống ⇒ server từ chối Run luồng LOCAL. "
+      + "Không tự lấy ảnh reference-library." }));
+  }
+  if (currentChoice(state.graph.extra, state.graph.nodes, "mau_moi") === "on") {
+    out.push(el("div", { class: "nt-warn", text: "MẪU TẠO NHÂN VẬT MỚI đang BẬT: mặt/dáng lấy từ reference-library thay cho ảnh nhân vật — chỉ dùng khi tạo nhân vật MỚI." }));
+  }
+  const opt = plan.character.options[cs?.context] || {};
+  const vao = corners(el("div", { class: "nt-slot" }, el("div", { class: "nt-lbl" }, "VÀO ", el("i", { text: `— ${opt.label || "?"} · dùng ${(opt.used || []).join(" MẶT + ")} DÁNG / có ${opt.faces ?? "?"}+${opt.poses ?? "?"}` })),
+    el("div", { class: "nt-wgrid" }, (cs?.slots || []).map(slotThumb))));
+  const ra = renderOutput(step);
+  ra.querySelector(".nt-lbl i").textContent = `— Sau · đính kèm ${cs?.attached ?? 0} ảnh nhân vật`;
+  out.push(el("div", { class: "nt-row" }, vao, arrow(), ra));
+  out.push(el("div", { class: "nt-banner" }, el("b", { text: "LUỒNG: " }),
+    "LOCAL — MẶT/DÁNG ghép thành tham chiếu → ReferenceLatent trước guider bước 02. CODEX — hợp đồng node: refs THAY bộ neo trang phục, nên ảnh nhân vật không gửi sang Codex."));
+  return out;
+}
+
+function render() {
+  if (!panel) return;
+  const step = state.steps.find((s) => s.code === state.active);
+  if (!step || !state.graph) { panel.hidden = true; return; }
+  const members = state.graph.nodes.filter((n) => n.pos[0] >= step.bounding[0] && n.pos[0] < step.bounding[0] + step.bounding[2]
+    && n.pos[1] >= step.bounding[1] && n.pos[1] < step.bounding[1] + step.bounding[3]);
+  const off = members.filter((n) => n.mode === 2 || n.mode === 4).length;
+  const body = [
+    el("div", { class: "nt-head" }, el("span", { class: "nt-num", text: step.code }), el("span", { class: "nt-name", text: step.label }),
+      el("button", { class: "nt-x", title: "Đóng", text: "×", onclick: () => { state.active = null; panel.hidden = true; paintTabs(); } })),
+    el("div", { class: "nt-sub", text: `${members.length} node trong nhóm · ${off} đang tắt · ${state.kind === "video" ? "video H3" : "ảnh"} NEWTECONS live-action` }),
+  ];
+  const plan = state.kind === "image" ? routePlan(state.graph.extra) : null;
+  if (step.num === 1 && plan) {
+    const cur = currentChoice(state.graph.extra, state.graph.nodes, "route");
+    body.push(el("div", { class: "nt-banner", "data-route": cur }, el("b", { text: "LUỒNG ĐANG CHỌN: " }), routeLabel(plan, cur),
+      " · đổi ở tab 00 CHỌN LUỒNG."));
+  } else if (step.num === 1 && ROUTE_TEXT[state.kind]) {
+    body.push(el("div", { class: "nt-banner" }, el("b", { text: "ĐƯỜNG CHẠY: " }), ROUTE_TEXT[state.kind]));
+  }
+  if (plan && step.code === "01") body.push(el("div", { class: "nt-row" }, renderInput(step), arrow(), renderOutput(step)), renderPromptList());
+  else if (plan && step.code === "00") body.push(...renderRoute(step));
+  else if (plan && step.code === "02A" && plan.wardrobe) body.push(...renderWardrobe(step));
+  else if (plan && step.code === "02B" && plan.character) body.push(...renderCharacter(step));
+  else if (plan && step.code === "08" && plan.fix08) {
+    const cur = currentChoice(state.graph.extra, state.graph.nodes, "fix08");
+    body.push(chips("SỬA GÓC (Krea2, GPU local)", plan, "fix08", cur, "data-fix08"),
+      el("div", { class: "nt-banner", text: "Mặc định TẮT ở cả 2 luồng (Run ở CODEX không nạp Krea2). BẬT khi đã chọn ảnh cần sửa + mask. "
+        + "Tắt lại thì nguồn nối dây của bước 09 tự về bước 07." }),
+      el("div", { class: "nt-row" }, renderInput(step), arrow(), renderOutput(step)));
+  }
+  else if (plan && step.code === "09") body.push(...renderApprove(step));
+  else body.push(el("div", { class: "nt-row" }, renderInput(step), arrow(), renderOutput(step)));
+  const foot = el("div", { class: "nt-foot" }, el("span", { text: "GET /history + /view. Không gửi /prompt từ bảng này; tab 00/09 chỉ đổi mute/switch trên canvas." }));
+  const eng = el("div", { class: "nt-eng" });
+  if (state.kind === "image" && step.code === "07") {
+    foot.prepend(el("button", { class: "nt-btn", text: state.engineOpen ? "Ẩn ảnh LAN GPT" : "So với ảnh LAN GPT (r005f)",
+      onclick: () => { state.engineOpen = !state.engineOpen; state.panelSig = ""; render(); } }));
+  }
+  body.push(foot);
+  if (state.engineOpen && state.kind === "image" && step.code === "07") { body.push(eng); renderEngine(eng); }
+  panel.replaceChildren(...body);
+  panel.hidden = false;
+  place();
+}
+
+function paintTabs() {
+  if (!bar) return;
+  for (const t of bar.querySelectorAll(".nt-tab")) t.classList.toggle("on", t.dataset.code === state.active);
+}
+
+function paintDots() {
+  if (!bar || !state.graph) return;
+  for (const t of bar.querySelectorAll(".nt-tab")) {
+    const step = state.steps.find((s) => s.code === t.dataset.code);
+    t.querySelector(".nt-dot")?.classList.toggle("has", Boolean(step && stepOutput(step)));
+  }
+}
+
+async function selectStep(code) {
+  state.active = state.active === code && !panel.hidden ? null : code;
+  paintTabs();
+  if (!state.active) { panel.hidden = true; return; }
+  await loadHistory(true);
+  state.panelSig = "";
+  render();
+  paintDots();
+  zoomTo(state.steps.find((s) => s.code === code));
+}
+
+function buildBar() {
+  bar.replaceChildren(el("span", { class: "nt-brand", text: state.kind === "video" ? "NEWTECONS · VIDEO H3" : "NEWTECONS · ẢNH" }));
+  if (!state.collapsed) {
+    for (const s of state.steps) {
+      bar.append(el("button", { class: "nt-tab", "data-code": s.code, title: s.title, onclick: () => selectStep(s.code) },
+        el("b", { text: s.code }), el("span", { text: s.label }), el("span", { class: "nt-dot" })));
+    }
+  }
+  bar.append(el("button", { class: "nt-tool", title: state.collapsed ? "Hiện các bước" : "Thu gọn", text: state.collapsed ? "HIỆN BƯỚC ▸" : "◂",
+    onclick: () => { state.collapsed = !state.collapsed; localStorage.setItem(COLLAPSE_KEY, state.collapsed ? "1" : "0"); buildBar(); place(); } }));
+  paintTabs();
+  paintDots();
+}
+
+function tick() {
+  if (!bar || !panel) return; // afterConfigureGraph can fire before setup() built the DOM
+  const snap = snapshot();
+  const kind = snap ? workflowKind(snap.extra, snap.groups, activeWorkflowContext(app)) : null;
+  const steps = kind ? parseSteps(snap.groups) : [];
+  if (!kind || steps.length < 3) {
+    if (bar) bar.hidden = true;
+    if (panel) panel.hidden = true;
+    state.kind = null; state.sig = "";
+    return;
+  }
+  state.graph = snap;
+  const sig = kind + "|" + JSON.stringify(steps.map((s) => [s.code, s.label, s.bounding]));
+  if (sig !== state.sig) {
+    state.kind = kind; state.steps = steps; state.sig = sig; state.engineOpen = false;
+    state.promptText = String(snap.extra?.[PROMPT_LIST_KEY] ?? "");
+    if (!steps.some((s) => s.code === state.active)) state.active = null;
+    buildBar();
+    loadHistory().then(paintDots);
+  }
+  bar.hidden = false;
+  if (state.active && !panel.hidden) {
+    const step = steps.find((s) => s.code === state.active);
+    const psig = JSON.stringify([inputsForStep(snap, step, steps).map((i) => [i.nodeId, i.value, i.mode]),
+      outputNodesForStep(snap, step).map((o) => [o.nodeId, o.prefix, o.mode]), state.historyAt,
+      snap.extra?.newtecons_route || null, snap.extra?.newtecons_wardrobe_context || null,
+      snap.nodes.filter((n) => n.type === "LoadImage").map((n) => [n.id, n.widgets.image, n.mode]),
+      snap.nodes.filter((n) => n.widgets && "switch" in n.widgets).map((n) => [n.id, n.widgets.switch, n.mode])]);
+    if (psig !== state.panelSig) { state.panelSig = psig; render(); }
+  }
+  place();
+}
+
+function init() {
+  if (document.getElementById("nt-step-bar")) return;
+  document.head.append(el("style", { id: "nt-step-ui-css", text: CSS }));
+  bar = el("div", { id: "nt-step-bar", role: "tablist", "aria-label": "Các bước NEWTECONS" });
+  panel = el("div", { id: "nt-step-panel" });
+  bar.hidden = true; panel.hidden = true;
+  document.body.append(bar, panel);
+  addEventListener("resize", place);
+  for (const evt of ["executed", "execution_success"]) {
+    api.addEventListener(evt, () => loadHistory(true).then(() => { state.panelSig = ""; paintDots(); }));
+  }
+  setInterval(() => { try { tick(); } catch (err) { console.warn(`[${EXT}] tick`, err); } }, POLL_MS);
+  tick();
+}
+
+app.registerExtension({
+  name: EXT,
+  async setup() { init(); },
+  async afterConfigureGraph() { state.sig = ""; tick(); },
+});

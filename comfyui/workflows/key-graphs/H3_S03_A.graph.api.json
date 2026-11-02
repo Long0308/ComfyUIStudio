@@ -1,0 +1,354 @@
+{
+  "1": {
+    "_meta": {
+      "title": "Model MiniMax H3 R2V"
+    },
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    }
+  },
+  "10": {
+    "_meta": {
+      "title": "Guider H3"
+    },
+    "class_type": "BasicGuider",
+    "inputs": {
+      "conditioning": [
+        "9",
+        0
+      ],
+      "model": [
+        "21",
+        0
+      ]
+    }
+  },
+  "11": {
+    "_meta": {
+      "title": "Seed"
+    },
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 20261031
+    }
+  },
+  "12": {
+    "_meta": {
+      "title": "Sampler"
+    },
+    "class_type": "KSamplerSelect",
+    "inputs": {
+      "sampler_name": "res_multistep"
+    }
+  },
+  "13": {
+    "_meta": {
+      "title": "Scheduler"
+    },
+    "class_type": "BasicScheduler",
+    "inputs": {
+      "denoise": 1.0,
+      "model": [
+        "21",
+        0
+      ],
+      "scheduler": "simple",
+      "steps": 8
+    }
+  },
+  "14": {
+    "_meta": {
+      "title": "Lấy mẫu H3 video + audio"
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "guider": [
+        "10",
+        0
+      ],
+      "latent_image": [
+        "6",
+        1
+      ],
+      "noise": [
+        "11",
+        0
+      ],
+      "sampler": [
+        "12",
+        0
+      ],
+      "sigmas": [
+        "13",
+        0
+      ]
+    }
+  },
+  "15": {
+    "_meta": {
+      "title": "Giải mã hình H3"
+    },
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "14",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    }
+  },
+  "16": {
+    "_meta": {
+      "title": "Giải mã audio H3"
+    },
+    "class_type": "VAEDecodeAudio",
+    "inputs": {
+      "samples": [
+        "14",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    }
+  },
+  "17": {
+    "_meta": {
+      "title": "Ghép video H3 24 fps"
+    },
+    "class_type": "CreateVideo",
+    "inputs": {
+      "audio": [
+        "16",
+        0
+      ],
+      "fps": 24.0,
+      "images": [
+        "15",
+        0
+      ]
+    }
+  },
+  "18": {
+    "_meta": {
+      "title": "Lưu video NEWTECONS MP4 H.264"
+    },
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "NEWTECONS/H3/OVERNIGHT-V008/S03_A_V008VOICE_s20261031",
+      "format": "mp4",
+      "format.codec": "h264",
+      "video": [
+        "17",
+        0
+      ]
+    }
+  },
+  "19": {
+    "_meta": {
+      "title": "Prompt người thật — bổ sung hành động và camera của shot"
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "inputs": {
+      "value": "Photorealistic live-action NEWTECONS corporate footage. Use <Picture 1> as the approved adult character identity and wardrobe reference. Preserve the character's facial identity, age, hair and body proportions. Clothing and protective equipment follow the Wardrobe rule line of this prompt, not the reference photos. Photorealistic live-action footage as if shot on a full-frame cinema camera with a 35mm lens: natural skin texture with visible pores and fine lines, no airbrushing, no plastic or waxy skin, no glossy AI sheen, true-to-life fabric weave, natural hand anatomy with five fingers, realistic motion blur and lighting. Animate the approved scene anchor with natural adult movement, realistic skin and fabric, coherent lighting and camera, and performance timed to the supplied dialogue audio. Keep existing approved logos and lettering unchanged; do not invent or alter them. No cartoon styling or exaggerated facial features.\n\nSHOT S03_A (SCENE_03, 4 s, camera CAM_SPLIT_50_50, setting SET_SPLIT_SITE_OFFICE).\n<Picture 1> = Lê Văn Thọ (CHAR_KKT_TB, CHAR_03).\nAlso in frame (no reference picture bound): CHAR_GDDA.\nWardrobe rule (CHAR_GDDA): Wardrobe (cong_truong, outdoors on site): full PPE over the company shirt; the white safety helmet with the company logo is worn on the head, chin strap fastened, never carried; reflective safety vest on.\nWardrobe rule (CHAR_KKT_TB): Wardrobe (van_phong, office or site container office): the company fine blue-white grid shirt with the small collar logo only; no helmet, no safety vest, nothing reflective.\nSubject: cinematic split-screen diptych: left side shows CHAR_GDDA speaking urgently on smartphone with towering yellow crane background; right side shows CHAR_KKT_TB in modern office listening attentively on phone while writing in logbook.\nStyle: dual-frame narrative thriller aesthetic, crisp 8k cinematic realism, razor-sharp focus on both actors.\nComposition: perfect vertical 50/50 split-screen composition, balanced symmetrical portraits facing inward.\nLighting: left frame harsh daylight outdoor construction lighting; right frame sleek architectural LED studio lighting.\nMaterial: brushed smartphone glass, crisp collared fabric with NEWTECONS branding, leather notebook.\nDialogue (vi, spoken by CHAR_KKT_TB): \"Mai em xuống công trường, cùng anh rà soát, chốt ngay phương án nhé.\" - performance timed to the supplied dialogue audio.\nNegative: uneven split, comic borders, blurry edges, inconsistent faces, morphing artifacts.\n"
+    }
+  },
+  "2": {
+    "_meta": {
+      "title": "Text encoder MiniMax H3"
+    },
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "device": "default",
+      "type": "minimax"
+    }
+  },
+  "20": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "lora_name": "pika_h3_flex_turbo_8step_hd_ref2va.safetensors",
+      "model": [
+        "1",
+        0
+      ],
+      "strength_model": 1.0
+    }
+  },
+  "21": {
+    "class_type": "MiniMaxH3SigmaShift",
+    "inputs": {
+      "model": [
+        "20",
+        0
+      ],
+      "shift_audio": 3.0,
+      "shift_video": 12.0
+    }
+  },
+  "3": {
+    "_meta": {
+      "title": "Video VAE"
+    },
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors"
+    }
+  },
+  "31": {
+    "_meta": {
+      "title": "ref_image_1 body"
+    },
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "newtecons_anc_Newtecons-TienDo-KichTinh-30s_S03_A_ref_image_1_ec26c53bf39b.png"
+    }
+  },
+  "32": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "newtecons_anc_Newtecons-TienDo-KichTinh-30s_S03_A_ref_image_2_0029ad055563.png"
+    }
+  },
+  "33": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "newtecons_anc_Newtecons-TienDo-KichTinh-30s_S03_A_ref_image_3_f6713daed100.png"
+    }
+  },
+  "34": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "newtecons_anc_Newtecons-TienDo-KichTinh-30s_S03_A_ref_image_4_55f0a34b4777.png"
+    }
+  },
+  "35": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "newtecons_anc_Newtecons-TienDo-KichTinh-30s_S03_A_ref_image_5_deae83d60abb.png"
+    }
+  },
+  "4": {
+    "_meta": {
+      "title": "Audio VAE"
+    },
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+    }
+  },
+  "5": {
+    "_meta": {
+      "title": "ĐIỀN: ảnh nhân vật NEWTECONS đã duyệt — ref Picture 1"
+    },
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "newtecons_anc_Newtecons-TienDo-KichTinh-30s_S03_A_ref_image_0_ea103ff0b67a.png"
+    }
+  },
+  "6": {
+    "_meta": {
+      "title": "H3 R2V — ảnh nhân vật tham chiếu"
+    },
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "height": 704,
+      "length": 107,
+      "prompt": [
+        "19",
+        0
+      ],
+      "ref_image_size": "match",
+      "ref_images.ref_image_0": [
+        "5",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "31",
+        0
+      ],
+      "ref_images.ref_image_2": [
+        "32",
+        0
+      ],
+      "ref_images.ref_image_3": [
+        "33",
+        0
+      ],
+      "ref_images.ref_image_4": [
+        "34",
+        0
+      ],
+      "ref_images.ref_image_5": [
+        "35",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "width": 1280
+    }
+  },
+  "7": {
+    "_meta": {
+      "title": "ĐIỀN: WAV thoại đã duyệt — theo preparation.json wav.sha256"
+    },
+    "class_type": "LoadAudio",
+    "inputs": {
+      "audio": "v008-h3-56f86208f94a08926c3dbee630e3415f368e36e5b92cfd40af0f8557a9583233.wav"
+    }
+  },
+  "8": {
+    "_meta": {
+      "title": "ĐIỀN: ảnh cảnh đã duyệt — neo frame 0"
+    },
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "newtecons_anc_Newtecons-TienDo-KichTinh-30s_S03_A_guide_image_a0ebf8ba1b17.png"
+    }
+  },
+  "9": {
+    "_meta": {
+      "title": "Neo cảnh và WAV thoại từ frame 0"
+    },
+    "class_type": "MiniMaxH3AddGuide",
+    "inputs": {
+      "audio": [
+        "7",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "frame_idx": 0,
+      "image": [
+        "8",
+        0
+      ],
+      "latent": [
+        "6",
+        1
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    }
+  }
+}

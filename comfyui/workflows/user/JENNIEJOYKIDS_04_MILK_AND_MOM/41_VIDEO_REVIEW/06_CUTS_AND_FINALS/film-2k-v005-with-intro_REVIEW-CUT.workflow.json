@@ -1,0 +1,99 @@
+{
+  "id": "8d63c19a-6736-5fe5-9e86-b0ddb66502cd",
+  "revision": 0,
+  "last_node_id": 2,
+  "last_link_id": 0,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LoadVideo",
+      "title": "KET QUA VIDEO | film-2k-v005-with-intro | SHA fa7aac12a66e",
+      "pos": [
+        0,
+        40
+      ],
+      "size": [
+        960,
+        600
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadVideo"
+      },
+      "widgets_values": [
+        "ep04review-FINAL-FILM-2K-v005-with-intro.mp4"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "Note",
+      "title": "GHI CHU VIDEO | film-2k-v005-with-intro | accepted",
+      "pos": [
+        0,
+        680
+      ],
+      "size": [
+        960,
+        300
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "VIDEO KET QUA (chi hien thi, KHONG co graph sinh) - film-2k-v005-with-intro\nTrang thai: accepted (handover §1 FINAL 2K with brand intro; publication receipt master v005)\nHien thi: FINAL 2K 2560x1440 30 fps, 132.4 s co brand intro + title\nNguon: D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\editorial\\master-4k-v005-with-intro\\milk-and-mom-FILM-2K-1440p30-v005-with-intro-FINAL.mp4\nsha256: fa7aac12a66ed68910805cdfc7cf91b0cfb882417da29001937ff437b2a4363b\nVideo: 2560x1440 @ 30/1, 3972 frames, 132.40 s; 230,704,331 bytes; audio aac 48000 Hz\nComfyUI/input/ep04review-FINAL-FILM-2K-v005-with-intro.mp4 (hard link toi file nguon, cung inode)"
+      ]
+    }
+  ],
+  "links": [],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "title": "Milk and Mom ep04 - xem lai: film-2k-v005-with-intro",
+    "film_id": "04-milk-and-mom",
+    "task": "T-W06",
+    "review_cut": {
+      "label": "film-2k-v005-with-intro",
+      "video": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\editorial\\master-4k-v005-with-intro\\milk-and-mom-FILM-2K-1440p30-v005-with-intro-FINAL.mp4",
+      "video_sha256": "fa7aac12a66ed68910805cdfc7cf91b0cfb882417da29001937ff437b2a4363b",
+      "input_file": "ep04review-FINAL-FILM-2K-v005-with-intro.mp4",
+      "status": "accepted",
+      "status_basis": "handover §1 FINAL 2K with brand intro; publication receipt master v005",
+      "shows": "FINAL 2K 2560x1440 30 fps, 132.4 s co brand intro + title",
+      "load_video_node_id": 1,
+      "note_node_id": 2,
+      "probe": {
+        "width": 2560,
+        "height": 1440,
+        "fps": "30/1",
+        "frames": 3972,
+        "duration_s": 132.4,
+        "audio_codec": "aac",
+        "sample_rate": 48000,
+        "channels": 2
+      },
+      "built_by": "tools/publish_review_pins_t_w06.py"
+    },
+    "ds": {
+      "scale": 0.7,
+      "offset": [
+        60,
+        20
+      ]
+    }
+  },
+  "version": 0.4
+}

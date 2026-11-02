@@ -1,0 +1,924 @@
+{
+ "id": "0a026e36-0000-4000-8000-efb40942134a",
+ "revision": 0,
+ "last_node_id": 9,
+ "last_link_id": 12,
+ "nodes": [
+  {
+   "id": 1,
+   "type": "CheckpointLoaderSimple",
+   "pos": [
+    40,
+    40
+   ],
+   "size": [
+    430,
+    150
+   ],
+   "flags": {},
+   "order": 0,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "ckpt_name",
+     "name": "ckpt_name",
+     "type": "COMBO",
+     "widget": {
+      "name": "ckpt_name"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "MODEL",
+     "name": "MODEL",
+     "type": "MODEL",
+     "links": [
+      6
+     ]
+    },
+    {
+     "localized_name": "CLIP",
+     "name": "CLIP",
+     "type": "CLIP",
+     "links": [
+      1,
+      2
+     ]
+    },
+    {
+     "localized_name": "VAE",
+     "name": "VAE",
+     "type": "VAE",
+     "links": [
+      11
+     ]
+    }
+   ],
+   "title": "1. YuE2 3B int8 (AIO: LM + DiT + VAE)",
+   "properties": {
+    "Node name for S&R": "CheckpointLoaderSimple"
+   },
+   "widgets_values": [
+    "yue2_3b_int8_convrot.safetensors"
+   ],
+   "widgets_values_named": {
+    "ckpt_name": "yue2_3b_int8_convrot.safetensors"
+   }
+  },
+  {
+   "id": 2,
+   "type": "YuE2GenerateABC",
+   "pos": [
+    510,
+    40
+   ],
+   "size": [
+    430,
+    260
+   ],
+   "flags": {},
+   "order": 1,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "clip",
+     "name": "clip",
+     "type": "CLIP",
+     "link": 1
+    },
+    {
+     "localized_name": "style",
+     "name": "style",
+     "type": "STRING",
+     "widget": {
+      "name": "style"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "lyrics",
+     "name": "lyrics",
+     "type": "STRING",
+     "widget": {
+      "name": "lyrics"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "seed",
+     "name": "seed",
+     "type": "INT",
+     "widget": {
+      "name": "seed"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "mode",
+     "name": "mode",
+     "type": "COMBO",
+     "widget": {
+      "name": "mode"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "max_abc_tokens",
+     "name": "max_abc_tokens",
+     "type": "INT",
+     "widget": {
+      "name": "max_abc_tokens"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "temperature",
+     "name": "temperature",
+     "type": "FLOAT",
+     "widget": {
+      "name": "temperature"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "top_p",
+     "name": "top_p",
+     "type": "FLOAT",
+     "widget": {
+      "name": "top_p"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "top_k",
+     "name": "top_k",
+     "type": "INT",
+     "widget": {
+      "name": "top_k"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "repetition_penalty",
+     "name": "repetition_penalty",
+     "type": "FLOAT",
+     "widget": {
+      "name": "repetition_penalty"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "penalty_window",
+     "name": "penalty_window",
+     "type": "INT",
+     "widget": {
+      "name": "penalty_window"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "abc",
+     "name": "abc",
+     "type": "STRING",
+     "links": [
+      3
+     ]
+    }
+   ],
+   "title": "2. ABC score planning (melody + chords)",
+   "properties": {
+    "Node name for S&R": "YuE2GenerateABC"
+   },
+   "widgets_values": [
+    "English, instrumental only, no vocals, no singing, no humming, no choir, no human voice, gentle cheerful preschool cartoon background music, major key, warm and bright, playful but calm, steady soft groove, no sudden loud hits, no drops, clean mix, 108 BPM, F major, nylon acoustic guitar, marimba and toy xylophone, light bongo and shaker, sunny garden morning",
+    "[Intro]\n\n[Verse]\n\n[Chorus]\n\n[Verse]\n\n[Chorus]\n\n[Bridge]\n\n[Chorus]\n\n[Outro]",
+    20261103,
+    "fixed",
+    "full",
+    8192,
+    0.7,
+    0.9,
+    30,
+    1.005,
+    100
+   ],
+   "widgets_values_named": {
+    "style": "English, instrumental only, no vocals, no singing, no humming, no choir, no human voice, gentle cheerful preschool cartoon background music, major key, warm and bright, playful but calm, steady soft groove, no sudden loud hits, no drops, clean mix, 108 BPM, F major, nylon acoustic guitar, marimba and toy xylophone, light bongo and shaker, sunny garden morning",
+    "lyrics": "[Intro]\n\n[Verse]\n\n[Chorus]\n\n[Verse]\n\n[Chorus]\n\n[Bridge]\n\n[Chorus]\n\n[Outro]",
+    "seed": 20261103,
+    "mode": "full",
+    "max_abc_tokens": 8192,
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "top_k": 30,
+    "repetition_penalty": 1.005,
+    "penalty_window": 100
+   }
+  },
+  {
+   "id": 3,
+   "type": "YuE2GenerateMusic",
+   "pos": [
+    980,
+    40
+   ],
+   "size": [
+    430,
+    260
+   ],
+   "flags": {},
+   "order": 2,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "clip",
+     "name": "clip",
+     "type": "CLIP",
+     "link": 2
+    },
+    {
+     "localized_name": "style",
+     "name": "style",
+     "type": "STRING",
+     "widget": {
+      "name": "style"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "lyrics",
+     "name": "lyrics",
+     "type": "STRING",
+     "widget": {
+      "name": "lyrics"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "abc",
+     "name": "abc",
+     "type": "STRING",
+     "link": 3,
+     "widget": {
+      "name": "abc"
+     }
+    },
+    {
+     "localized_name": "seed",
+     "name": "seed",
+     "type": "INT",
+     "widget": {
+      "name": "seed"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "mode",
+     "name": "mode",
+     "type": "COMBO",
+     "widget": {
+      "name": "mode"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "max_duration",
+     "name": "max_duration",
+     "type": "FLOAT",
+     "widget": {
+      "name": "max_duration"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "temperature",
+     "name": "temperature",
+     "type": "FLOAT",
+     "widget": {
+      "name": "temperature"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "top_p",
+     "name": "top_p",
+     "type": "FLOAT",
+     "widget": {
+      "name": "top_p"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "top_k",
+     "name": "top_k",
+     "type": "INT",
+     "widget": {
+      "name": "top_k"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "repetition_penalty",
+     "name": "repetition_penalty",
+     "type": "FLOAT",
+     "widget": {
+      "name": "repetition_penalty"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "cfg_scale",
+     "name": "cfg_scale",
+     "type": "FLOAT",
+     "widget": {
+      "name": "cfg_scale"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "CONDITIONING",
+     "name": "CONDITIONING",
+     "type": "CONDITIONING",
+     "links": [
+      4,
+      7
+     ]
+    },
+    {
+     "localized_name": "seconds",
+     "name": "seconds",
+     "type": "FLOAT",
+     "links": [
+      5
+     ]
+    }
+   ],
+   "title": "3. Semantic tokens + acoustic conditioning",
+   "properties": {
+    "Node name for S&R": "YuE2GenerateMusic"
+   },
+   "widgets_values": [
+    "English, instrumental only, no vocals, no singing, no humming, no choir, no human voice, gentle cheerful preschool cartoon background music, major key, warm and bright, playful but calm, steady soft groove, no sudden loud hits, no drops, clean mix, 108 BPM, F major, nylon acoustic guitar, marimba and toy xylophone, light bongo and shaker, sunny garden morning",
+    "[Intro]\n\n[Verse]\n\n[Chorus]\n\n[Verse]\n\n[Chorus]\n\n[Bridge]\n\n[Chorus]\n\n[Outro]",
+    "",
+    20261103,
+    "fixed",
+    "full",
+    150.0,
+    1.0,
+    0.95,
+    100,
+    1.2,
+    null
+   ],
+   "widgets_values_named": {
+    "style": "English, instrumental only, no vocals, no singing, no humming, no choir, no human voice, gentle cheerful preschool cartoon background music, major key, warm and bright, playful but calm, steady soft groove, no sudden loud hits, no drops, clean mix, 108 BPM, F major, nylon acoustic guitar, marimba and toy xylophone, light bongo and shaker, sunny garden morning",
+    "lyrics": "[Intro]\n\n[Verse]\n\n[Chorus]\n\n[Verse]\n\n[Chorus]\n\n[Bridge]\n\n[Chorus]\n\n[Outro]",
+    "abc": "",
+    "seed": 20261103,
+    "mode": "full",
+    "max_duration": 150.0,
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 100,
+    "repetition_penalty": 1.2,
+    "cfg_scale": null
+   }
+  },
+  {
+   "id": 4,
+   "type": "ConditioningZeroOut",
+   "pos": [
+    1450,
+    40
+   ],
+   "size": [
+    430,
+    150
+   ],
+   "flags": {},
+   "order": 3,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "conditioning",
+     "name": "conditioning",
+     "type": "CONDITIONING",
+     "link": 4
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "CONDITIONING",
+     "name": "CONDITIONING",
+     "type": "CONDITIONING",
+     "links": [
+      8
+     ]
+    }
+   ],
+   "title": "4. Negative = zero",
+   "properties": {
+    "Node name for S&R": "ConditioningZeroOut"
+   },
+   "widgets_values": [],
+   "widgets_values_named": {}
+  },
+  {
+   "id": 5,
+   "type": "EmptyYuE2LatentAudio",
+   "pos": [
+    40,
+    370
+   ],
+   "size": [
+    430,
+    150
+   ],
+   "flags": {},
+   "order": 4,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "seconds",
+     "name": "seconds",
+     "type": "FLOAT",
+     "link": 5,
+     "widget": {
+      "name": "seconds"
+     }
+    },
+    {
+     "localized_name": "batch_size",
+     "name": "batch_size",
+     "type": "INT",
+     "widget": {
+      "name": "batch_size"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "LATENT",
+     "name": "LATENT",
+     "type": "LATENT",
+     "links": [
+      9
+     ]
+    }
+   ],
+   "title": "5. Latent length = generated seconds",
+   "properties": {
+    "Node name for S&R": "EmptyYuE2LatentAudio"
+   },
+   "widgets_values": [
+    120.0,
+    1
+   ],
+   "widgets_values_named": {
+    "seconds": 120.0,
+    "batch_size": 1
+   }
+  },
+  {
+   "id": 6,
+   "type": "KSampler",
+   "pos": [
+    510,
+    370
+   ],
+   "size": [
+    430,
+    260
+   ],
+   "flags": {},
+   "order": 5,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "model",
+     "name": "model",
+     "type": "MODEL",
+     "link": 6
+    },
+    {
+     "localized_name": "seed",
+     "name": "seed",
+     "type": "INT",
+     "widget": {
+      "name": "seed"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "steps",
+     "name": "steps",
+     "type": "INT",
+     "widget": {
+      "name": "steps"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "cfg",
+     "name": "cfg",
+     "type": "FLOAT",
+     "widget": {
+      "name": "cfg"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "sampler_name",
+     "name": "sampler_name",
+     "type": "COMBO",
+     "widget": {
+      "name": "sampler_name"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "scheduler",
+     "name": "scheduler",
+     "type": "COMBO",
+     "widget": {
+      "name": "scheduler"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "positive",
+     "name": "positive",
+     "type": "CONDITIONING",
+     "link": 7
+    },
+    {
+     "localized_name": "negative",
+     "name": "negative",
+     "type": "CONDITIONING",
+     "link": 8
+    },
+    {
+     "localized_name": "latent_image",
+     "name": "latent_image",
+     "type": "LATENT",
+     "link": 9
+    },
+    {
+     "localized_name": "denoise",
+     "name": "denoise",
+     "type": "FLOAT",
+     "widget": {
+      "name": "denoise"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "LATENT",
+     "name": "LATENT",
+     "type": "LATENT",
+     "links": [
+      10
+     ]
+    }
+   ],
+   "title": "6. Flow-matching DiT sampler",
+   "properties": {
+    "Node name for S&R": "KSampler"
+   },
+   "widgets_values": [
+    20261103,
+    "fixed",
+    32,
+    1.0,
+    "dpm_2",
+    "sgm_uniform",
+    1.0
+   ],
+   "widgets_values_named": {
+    "seed": 20261103,
+    "steps": 32,
+    "cfg": 1.0,
+    "sampler_name": "dpm_2",
+    "scheduler": "sgm_uniform",
+    "denoise": 1.0
+   }
+  },
+  {
+   "id": 7,
+   "type": "VAEDecodeAudioTiled",
+   "pos": [
+    980,
+    370
+   ],
+   "size": [
+    430,
+    150
+   ],
+   "flags": {},
+   "order": 6,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "samples",
+     "name": "samples",
+     "type": "LATENT",
+     "link": 10
+    },
+    {
+     "localized_name": "vae",
+     "name": "vae",
+     "type": "VAE",
+     "link": 11
+    },
+    {
+     "localized_name": "tile_size",
+     "name": "tile_size",
+     "type": "INT",
+     "widget": {
+      "name": "tile_size"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "overlap",
+     "name": "overlap",
+     "type": "INT",
+     "widget": {
+      "name": "overlap"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "AUDIO",
+     "name": "AUDIO",
+     "type": "AUDIO",
+     "links": [
+      12
+     ]
+    }
+   ],
+   "title": "7. VAE decode (tiled, 48 kHz stereo)",
+   "properties": {
+    "Node name for S&R": "VAEDecodeAudioTiled"
+   },
+   "widgets_values": [
+    512,
+    64
+   ],
+   "widgets_values_named": {
+    "tile_size": 512,
+    "overlap": 64
+   }
+  },
+  {
+   "id": 8,
+   "type": "SaveAudio",
+   "pos": [
+    1450,
+    370
+   ],
+   "size": [
+    430,
+    150
+   ],
+   "flags": {},
+   "order": 7,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "audio",
+     "name": "audio",
+     "type": "AUDIO",
+     "link": 12
+    },
+    {
+     "localized_name": "filename_prefix",
+     "name": "filename_prefix",
+     "type": "STRING",
+     "widget": {
+      "name": "filename_prefix"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "audioUI",
+     "name": "audioUI",
+     "type": "AUDIO_UI",
+     "widget": {
+      "name": "audioUI"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "audio",
+     "name": "audio",
+     "type": "AUDIO",
+     "links": []
+    }
+   ],
+   "title": "8. Save FLAC",
+   "properties": {
+    "Node name for S&R": "SaveAudio"
+   },
+   "widgets_values": [
+    "episodes/04-milk-and-mom/music-yue2-v002/V2A-guitar-marimba-inst/V2A-guitar-marimba-inst"
+   ],
+   "widgets_values_named": {
+    "filename_prefix": "episodes/04-milk-and-mom/music-yue2-v002/V2A-guitar-marimba-inst/V2A-guitar-marimba-inst"
+   }
+  },
+  {
+   "id": 9,
+   "type": "LoadAudio",
+   "pos": [
+    1970.0,
+    40
+   ],
+   "size": [
+    430,
+    180
+   ],
+   "flags": {},
+   "order": 8,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "audio",
+     "name": "audio",
+     "type": "COMBO",
+     "widget": {
+      "name": "audio"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "audioUI",
+     "name": "audioUI",
+     "type": "AUDIO_UI",
+     "widget": {
+      "name": "audioUI"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "upload",
+     "name": "upload",
+     "type": "AUDIOUPLOAD",
+     "widget": {
+      "name": "upload"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "AUDIO",
+     "name": "AUDIO",
+     "type": "AUDIO",
+     "links": []
+    }
+   ],
+   "title": "KET QUA TAKE-SINGS-SEE-GATE | job 4cfabe92 | SHA 408d74b3b40c",
+   "properties": {
+    "Node name for S&R": "LoadAudio"
+   },
+   "widgets_values": [
+    "04-milk-and-mom-T-A11-V2A-guitar-marimba-inst-408d74b3b40c.wav",
+    ""
+   ],
+   "widgets_values_named": {
+    "audio": "04-milk-and-mom-T-A11-V2A-guitar-marimba-inst-408d74b3b40c.wav",
+    "upload": ""
+   },
+   "color": "#114f5a",
+   "bgcolor": "#09292f"
+  }
+ ],
+ "links": [
+  [
+   1,
+   1,
+   1,
+   2,
+   0,
+   "CLIP"
+  ],
+  [
+   2,
+   1,
+   1,
+   3,
+   0,
+   "CLIP"
+  ],
+  [
+   3,
+   2,
+   0,
+   3,
+   1,
+   "STRING"
+  ],
+  [
+   4,
+   3,
+   0,
+   4,
+   0,
+   "CONDITIONING"
+  ],
+  [
+   5,
+   3,
+   1,
+   5,
+   0,
+   "FLOAT"
+  ],
+  [
+   6,
+   1,
+   0,
+   6,
+   0,
+   "MODEL"
+  ],
+  [
+   7,
+   3,
+   0,
+   6,
+   1,
+   "CONDITIONING"
+  ],
+  [
+   8,
+   4,
+   0,
+   6,
+   2,
+   "CONDITIONING"
+  ],
+  [
+   9,
+   5,
+   0,
+   6,
+   3,
+   "LATENT"
+  ],
+  [
+   10,
+   6,
+   0,
+   7,
+   0,
+   "LATENT"
+  ],
+  [
+   11,
+   1,
+   2,
+   7,
+   1,
+   "VAE"
+  ],
+  [
+   12,
+   7,
+   0,
+   8,
+   0,
+   "AUDIO"
+  ]
+ ],
+ "groups": [],
+ "config": {},
+ "extra": {
+  "title": "Milk and Mom T-A11 YuE2 V2A-guitar-marimba-inst",
+  "film_id": "04-milk-and-mom",
+  "task": "T-A11",
+  "status": "take-sings-see-gate",
+  "api_graph_sha256": "506333b4ed52fb134330a8ca7712d1c9f17ae2f47c7e65a4ff8dd706eb4017ed",
+  "seed": 20261103,
+  "route": "inst",
+  "review_only": true,
+  "result_sha256": "408d74b3b40c5457c18a69e9a0bee96614c7cf5a878a27c998fda75ce0f72f4c",
+  "prompt_id": "4cfabe92-f773-467f-bdd3-ee1b5e58bd79"
+ },
+ "version": 0.4
+}

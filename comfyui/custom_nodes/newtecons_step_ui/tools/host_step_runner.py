@@ -1,0 +1,179 @@
+"""Host-side worker for requests written by the ComfyUI step UI.
+
+Run on Windows from the checked-out workspace. The engine is not mounted inside the
+container, so this worker is the only process that invokes jjv.
+"""
+from __future__ import annotations
+
+import json
+import os
+import shutil
+import subprocess
+import sys
+import tempfile
+import time
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+from step_job_contract import RequestError, build_argv, validate_stored_request  # noqa: E402
+
+REPO_ROOT = Path(__file__).resolve().parents[5]
+JJV = REPO_ROOT / ".agents" / "skills" / "studio-video-engine" / "bin" / "jjv.py"
+QUEUE = Path(__file__).resolve().parents[3] / "input" / "newtecons-step-jobs"
+TIMEOUT_SECONDS = 1800
+POLL_SECONDS = 1
+
+
+def _write(path: Path, value: dict) -> None:
+    tmp = path.with_name(path.name + ".tmp")
+    tmp.write_text(json.dumps(value, ensure_ascii=False, indent=2), encoding="utf-8")
+    os.replace(tmp, path)
+
+
+def _tail(path: Path, limit: int = 12000) -> str:
+    try:
+        return path.read_text(encoding="utf-8", errors="replace")[-limit:]
+    except OSError:
+        return ""
+
+
+def _within(path_value: str, root: Path) -> Path:
+    path = Path(path_value)
+    if not path.is_absolute():
+        path = REPO_ROOT / path  # container sends repo-relative paths; do not depend on the runner's cwd
+    path = path.resolve()
+    if not path.is_relative_to(root.resolve()):
+        raise RequestError(f"path escapes allowed root: {path_value}")
+    return path
+
+
+def _check_paths(request: dict) -> None:
+    episode_root = (REPO_ROOT / "production-local" / "JennieJoyKids-Story" /
+                    "Newtecons-TienDo-KichTinh-30s").resolve()
+    args, verb = request["args"], request["verb"]
+    output_keys = {"seedvr2.plan": {"out"}, "seedvr2.execute": set(), "post.logo": {"out"},
+                   "timing.words": {"out"}, "captions.burn": {"out"},
+                   "edit.assemble": {"out_dir"}}[verb]
+    for key in (set(args) - output_keys) & {"segments_root", "reads", "tail_map", "plan", "video", "dialogue",
+                                                   "timing", "timing_receipt", "subtitles", "font", "wav", "edl", "base"}:
+        _within(args[key], REPO_ROOT)
+    # Write-once outputs for production stages remain inside this NEWTECONS episode folder.
+    for key in output_keys - {"out"}:
+        _within(args[key], episode_root)
+    if "out" in output_keys and verb != "seedvr2.plan":
+        _within(args["out"], episode_root)
+    if verb == "seedvr2.plan":
+        # jjv seedvr2 plan explicitly refuses scratch folders anywhere under the repository.
+        out = Path(args["out"]).resolve()  # AUTO was already replaced by an absolute scratch path
+        scratch_root = (Path(tempfile.gettempdir()) / "newtecons-step-jobs").resolve()
+        if not out.is_relative_to(scratch_root):
+            raise RequestError("seedvr2 plan output must use the runner-managed temp scratch folder")
+
+
+def _receipt_and_outputs(stdout: str) -> tuple[str | None, list[str]]:
+    # jjv emits a JSON summary; accept only path-shaped values from that summary.
+    decoder = json.JSONDecoder()
+    documents = []
+    for index, char in enumerate(stdout):
+        if char != "{":
+            continue
+        try:
+            value, _end = decoder.raw_decode(stdout[index:])
+        except json.JSONDecodeError:
+            continue
+        if isinstance(value, dict):
+            documents.append(value)
+    data = next((item for item in reversed(documents) if "ok" in item or "receipt" in item or "outputs" in item), {})
+    receipt = data.get("receipt") if isinstance(data, dict) else None
+    outputs = []
+    def walk(value):
+        if isinstance(value, dict):
+            p = value.get("path")
+            if isinstance(p, str) and Path(p).suffix.lower() in {".mp4", ".json", ".ass", ".srt", ".wav"}:
+                outputs.append(p)
+            for child in value.values(): walk(child)
+        elif isinstance(value, list):
+            for child in value: walk(child)
+    walk(data)
+    return receipt if isinstance(receipt, str) else None, sorted(set(outputs))
+
+
+def load_request(record: object, job_id: str) -> dict:
+    """Envelope + request validation (shared with tests)."""
+    if not isinstance(record, dict) or record.get("job_id") != job_id or record.get("schema") != "newtecons/step-job/v1":
+        raise RequestError("job envelope mismatch")
+    return validate_stored_request(record.get("request"))
+
+
+def process(request_file: Path) -> None:
+    job_id = request_file.name.removesuffix(".running.json").removesuffix(".request.json")
+    log = QUEUE / f"{job_id}.log"
+    result_path = QUEUE / f"{job_id}.result.json"
+    try:
+        record = json.loads(request_file.read_text(encoding="utf-8"))
+        request = load_request(record, job_id)
+        if request["verb"] == "seedvr2.plan" and request["args"].get("out") == "AUTO":
+            scratch = Path(tempfile.gettempdir()) / "newtecons-step-jobs" / job_id
+            request["args"]["out"] = str(scratch)
+        _check_paths(request)
+        argv = build_argv(request, jjv=JJV, repo_root=REPO_ROOT)
+        if argv is None:
+            _write(result_path, {"ok": True, "job_id": job_id, "status": "SKIPPED", "exit_code": 0,
+                                 "receipt": None, "outputs": [], "log_tail": "logo disabled by operator"})
+            return
+        argv[0] = sys.executable
+        _write(result_path, {"ok": True, "job_id": job_id, "status": "RUNNING", "exit_code": None,
+                             "receipt": None, "outputs": [], "log_tail": ""})
+        try:
+            done = subprocess.run(argv, cwd=REPO_ROOT, shell=False, capture_output=True, text=True,
+                                  encoding="utf-8", errors="replace", timeout=TIMEOUT_SECONDS,
+                                  check=False)
+            log.write_text(done.stdout + "\n--- STDERR ---\n" + done.stderr, encoding="utf-8")
+            receipt, outputs = _receipt_and_outputs(done.stdout)
+            preview = None
+            video = next((Path(p) for p in outputs if Path(p).suffix.lower() == ".mp4" and Path(p).is_file()), None)
+            if video is not None:
+                preview_path = QUEUE / f"{job_id}.preview.mp4"
+                shutil.copyfile(video, preview_path)
+                preview = f"/newtecons/step/artifact/{job_id}/0"
+            _write(result_path, {"ok": done.returncode == 0, "job_id": job_id,
+                                 "status": "COMPLETE" if done.returncode == 0 else "FAILED",
+                                 "exit_code": done.returncode, "receipt": receipt, "outputs": outputs,
+                                 "preview_url": preview,
+                                 "log_tail": _tail(log)})
+        except subprocess.TimeoutExpired as exc:
+            log.write_text(str(exc.stdout or "") + "\nHOST RUNNER TIMEOUT\n", encoding="utf-8")
+            _write(result_path, {"ok": False, "job_id": job_id, "status": "UNCERTAIN", "exit_code": 3,
+                                 "receipt": None, "outputs": [], "log_tail": _tail(log),
+                                 "error": "timeout; inspect engine receipts before retrying"})
+    except Exception as exc:  # persist a visible error rather than losing the UI job
+        log.write_text(f"{type(exc).__name__}: {exc}\n", encoding="utf-8")
+        _write(result_path, {"ok": False, "job_id": job_id, "status": "REJECTED", "exit_code": 1,
+                             "receipt": None, "outputs": [], "log_tail": _tail(log), "error": str(exc)})
+    finally:
+        request_file.unlink(missing_ok=True)
+
+
+def main() -> None:
+    if not JJv_exists():
+        raise SystemExit(f"jjv missing at fixed path: {JJV}")
+    QUEUE.mkdir(parents=True, exist_ok=True)
+    print(f"NEWTECONS step runner: {QUEUE}; cwd={REPO_ROOT}; shell=False", flush=True)
+    while True:
+        for candidate in sorted(QUEUE.glob("*.request.json")):
+            claimed = candidate.with_name(candidate.name.replace(".request.json", ".running.json"))
+            try:
+                os.replace(candidate, claimed)
+            except OSError:
+                continue
+            process(claimed)
+        time.sleep(POLL_SECONDS)
+
+
+def JJv_exists() -> bool:
+    return JJV.is_file()
+
+
+if __name__ == "__main__":
+    main()

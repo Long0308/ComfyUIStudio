@@ -1,0 +1,542 @@
+{
+ "schema": "jjv/image-results-index/v1",
+ "generated_at": "2026-11-01T00:03:06Z",
+ "root": "output/NEWTECONS",
+ "folders": {
+  "NEWTECONS/CHAR08/V007": {
+   "count": 24,
+   "files": [
+    {
+     "name": "CHAR_08_FACE_01_NEUTRAL_FOCUS_V007R5_COLLAR_REMOVAL_MASK_QA_00002_.png",
+     "mtime": 1793006267,
+     "size": 22968
+    },
+    {
+     "name": "CHAR_08_FACE_01_NEUTRAL_FOCUS_V007R5_FULLBODY_CANDIDATE_00002_.png",
+     "mtime": 1793006267,
+     "size": 3338374
+    },
+    {
+     "name": "CHAR_08_FACE_01_NEUTRAL_FOCUS_V007R5_PORTRAIT_CANDIDATE_00002_.png",
+     "mtime": 1793006267,
+     "size": 1120218
+    },
+    {
+     "name": "CHAR_08_FACE_01_NEUTRAL_FOCUS_V007R5_MOUTH_MASK_QA_00002_.png",
+     "mtime": 1793006264,
+     "size": 19116
+    },
+    {
+     "name": "ZOOM_R5_COLLAR.png",
+     "mtime": 1792984604,
+     "size": 16001
+    },
+    {
+     "name": "ZOOM_R5_MOUTH.png",
+     "mtime": 1792984604,
+     "size": 33307
+    },
+    {
+     "name": "CHAR_08_FACE_01_NEUTRAL_FOCUS_V007R5_COLLAR_REMOVAL_MASK_QA_00001_.png",
+     "mtime": 1792983576,
+     "size": 21834
+    },
+    {
+     "name": "CHAR_08_FACE_01_NEUTRAL_FOCUS_V007R5_FULLBODY_CANDIDATE_00001_.png",
+     "mtime": 1792983576,
+     "size": 3337240
+    },
+    {
+     "name": "CHAR_08_FACE_01_NEUTRAL_FOCUS_V007R5_PORTRAIT_CANDIDATE_00001_.png",
+     "mtime": 1792983576,
+     "size": 1119084
+    },
+    {
+     "name": "CHAR_08_FACE_01_NEUTRAL_FOCUS_V007R5_MOUTH_MASK_QA_00001_.png",
+     "mtime": 1792983574,
+     "size": 17982
+    },
+    {
+     "name": "CHAR_08_FACE_01_NEUTRAL_FOCUS_V007R4_PORTRAIT_CANDIDATE_00001_.png",
+     "mtime": 1792981978,
+     "size": 1128338
+    },
+    {
+     "name": "CHAR_08_FACE_01_NEUTRAL_FOCUS_V007R4_FULLBODY_CANDIDATE_00001_.png",
+     "mtime": 1792981977,
+     "size": 3346236
+    },
+    {
+     "name": "CHAR_08_FACE_01_NEUTRAL_FOCUS_V007R4_RAW_MOUTH_CROP_QA_00001_.png",
+     "mtime": 1792981977,
+     "size": 486240
+    },
+    {
+     "name": "CHAR_08_FACE_01_NEUTRAL_FOCUS_V007R4_MASK_QA_00001_.png",
+     "mtime": 1792981925,
+     "size": 28962
+    },
+    {
+     "name": "CHAR_08_FACE_01_NEUTRAL_FOCUS_V007R3_FULLBODY_CANDIDATE_00001_.png",
+     "mtime": 1792981150,
+     "size": 3346878
+    },
+    {
+     "name": "CHAR_08_FACE_01_NEUTRAL_FOCUS_V007R3_PORTRAIT_CANDIDATE_00001_.png",
+     "mtime": 1792981150,
+     "size": 1128808
+    },
+    {
+     "name": "CHAR_08_FACE_01_NEUTRAL_FOCUS_V007R3_RAW_MOUTH_CROP_QA_00001_.png",
+     "mtime": 1792981149,
+     "size": 486467
+    },
+    {
+     "name": "CHAR_08_FACE_01_NEUTRAL_FOCUS_V007R3_MASK_QA_00001_.png",
+     "mtime": 1792981104,
+     "size": 28329
+    },
+    {
+     "name": "CHAR_08_FACE_01_NEUTRAL_FOCUS_V007R2_FULLBODY_CANDIDATE_00001_.png",
+     "mtime": 1792980576,
+     "size": 3346145
+    },
+    {
+     "name": "CHAR_08_FACE_01_NEUTRAL_FOCUS_V007R2_PORTRAIT_CANDIDATE_00001_.png",
+     "mtime": 1792980576,
+     "size": 1128134
+    },
+    {
+     "name": "CHAR_08_FACE_01_NEUTRAL_FOCUS_V007R2_RAW_MOUTH_CROP_QA_00001_.png",
+     "mtime": 1792980575,
+     "size": 485722
+    },
+    {
+     "name": "CHAR_08_FACE_01_NEUTRAL_FOCUS_V007R2_MASK_QA_00001_.png",
+     "mtime": 1792980532,
+     "size": 27685
+    },
+    {
+     "name": "CHAR_08_FACE_01_NEUTRAL_FOCUS_V007R1_FULLBODY_CANDIDATE_00001_.png",
+     "mtime": 1792979193,
+     "size": 3346315
+    },
+    {
+     "name": "CHAR_08_FACE_01_NEUTRAL_FOCUS_V007R1_PORTRAIT_CANDIDATE_00001_.png",
+     "mtime": 1792979193,
+     "size": 1128060
+    }
+   ]
+  },
+  "NEWTECONS/SCENE01": {
+   "count": 74,
+   "files": [
+    {
+     "name": "scene01_video_v001_frames_00064_.png",
+     "mtime": 1793444571,
+     "size": 639946
+    },
+    {
+     "name": "scene01_video_v001_frames_00065_.png",
+     "mtime": 1793444571,
+     "size": 639089
+    },
+    {
+     "name": "scene01_video_v001_frames_00066_.png",
+     "mtime": 1793444571,
+     "size": 643944
+    },
+    {
+     "name": "scene01_video_v001_frames_00067_.png",
+     "mtime": 1793444571,
+     "size": 642819
+    },
+    {
+     "name": "scene01_video_v001_frames_00068_.png",
+     "mtime": 1793444571,
+     "size": 639514
+    },
+    {
+     "name": "scene01_video_v001_frames_00069_.png",
+     "mtime": 1793444571,
+     "size": 634839
+    },
+    {
+     "name": "scene01_video_v001_frames_00070_.png",
+     "mtime": 1793444571,
+     "size": 641428
+    },
+    {
+     "name": "scene01_video_v001_frames_00071_.png",
+     "mtime": 1793444571,
+     "size": 643136
+    },
+    {
+     "name": "scene01_video_v001_frames_00072_.png",
+     "mtime": 1793444571,
+     "size": 647242
+    },
+    {
+     "name": "scene01_video_v001_frames_00073_.png",
+     "mtime": 1793444571,
+     "size": 648406
+    },
+    {
+     "name": "scene01_video_v001_frames_00050_.png",
+     "mtime": 1793444570,
+     "size": 601792
+    },
+    {
+     "name": "scene01_video_v001_frames_00051_.png",
+     "mtime": 1793444570,
+     "size": 581889
+    },
+    {
+     "name": "scene01_video_v001_frames_00052_.png",
+     "mtime": 1793444570,
+     "size": 572050
+    },
+    {
+     "name": "scene01_video_v001_frames_00053_.png",
+     "mtime": 1793444570,
+     "size": 575021
+    },
+    {
+     "name": "scene01_video_v001_frames_00054_.png",
+     "mtime": 1793444570,
+     "size": 605773
+    },
+    {
+     "name": "scene01_video_v001_frames_00055_.png",
+     "mtime": 1793444570,
+     "size": 621706
+    },
+    {
+     "name": "scene01_video_v001_frames_00056_.png",
+     "mtime": 1793444570,
+     "size": 625934
+    },
+    {
+     "name": "scene01_video_v001_frames_00057_.png",
+     "mtime": 1793444570,
+     "size": 623884
+    },
+    {
+     "name": "scene01_video_v001_frames_00058_.png",
+     "mtime": 1793444570,
+     "size": 632163
+    },
+    {
+     "name": "scene01_video_v001_frames_00059_.png",
+     "mtime": 1793444570,
+     "size": 633618
+    },
+    {
+     "name": "scene01_video_v001_frames_00060_.png",
+     "mtime": 1793444570,
+     "size": 630864
+    },
+    {
+     "name": "scene01_video_v001_frames_00061_.png",
+     "mtime": 1793444570,
+     "size": 624821
+    },
+    {
+     "name": "scene01_video_v001_frames_00062_.png",
+     "mtime": 1793444570,
+     "size": 634009
+    },
+    {
+     "name": "scene01_video_v001_frames_00063_.png",
+     "mtime": 1793444570,
+     "size": 636162
+    },
+    {
+     "name": "scene01_video_v001_frames_00046_.png",
+     "mtime": 1793444569,
+     "size": 648067
+    },
+    {
+     "name": "scene01_video_v001_frames_00047_.png",
+     "mtime": 1793444569,
+     "size": 649128
+    },
+    {
+     "name": "scene01_video_v001_frames_00048_.png",
+     "mtime": 1793444569,
+     "size": 649775
+    },
+    {
+     "name": "scene01_video_v001_frames_00049_.png",
+     "mtime": 1793444569,
+     "size": 625171
+    },
+    {
+     "name": "scene01_video_v001_frames_00029_.png",
+     "mtime": 1793444568,
+     "size": 581097
+    },
+    {
+     "name": "scene01_video_v001_frames_00030_.png",
+     "mtime": 1793444568,
+     "size": 612461
+    },
+    {
+     "name": "scene01_video_v001_frames_00031_.png",
+     "mtime": 1793444568,
+     "size": 630066
+    },
+    {
+     "name": "scene01_video_v001_frames_00032_.png",
+     "mtime": 1793444568,
+     "size": 630436
+    },
+    {
+     "name": "scene01_video_v001_frames_00033_.png",
+     "mtime": 1793444568,
+     "size": 625659
+    },
+    {
+     "name": "scene01_video_v001_frames_00034_.png",
+     "mtime": 1793444568,
+     "size": 636135
+    },
+    {
+     "name": "scene01_video_v001_frames_00035_.png",
+     "mtime": 1793444568,
+     "size": 638055
+    },
+    {
+     "name": "scene01_video_v001_frames_00036_.png",
+     "mtime": 1793444568,
+     "size": 638168
+    },
+    {
+     "name": "scene01_video_v001_frames_00037_.png",
+     "mtime": 1793444568,
+     "size": 635949
+    },
+    {
+     "name": "scene01_video_v001_frames_00038_.png",
+     "mtime": 1793444568,
+     "size": 642869
+    },
+    {
+     "name": "scene01_video_v001_frames_00039_.png",
+     "mtime": 1793444568,
+     "size": 645943
+    },
+    {
+     "name": "scene01_video_v001_frames_00040_.png",
+     "mtime": 1793444568,
+     "size": 645589
+    },
+    {
+     "name": "scene01_video_v001_frames_00041_.png",
+     "mtime": 1793444568,
+     "size": 641973
+    },
+    {
+     "name": "scene01_video_v001_frames_00042_.png",
+     "mtime": 1793444568,
+     "size": 645926
+    },
+    {
+     "name": "scene01_video_v001_frames_00043_.png",
+     "mtime": 1793444568,
+     "size": 646569
+    },
+    {
+     "name": "scene01_video_v001_frames_00044_.png",
+     "mtime": 1793444568,
+     "size": 647904
+    },
+    {
+     "name": "scene01_video_v001_frames_00045_.png",
+     "mtime": 1793444568,
+     "size": 645376
+    },
+    {
+     "name": "scene01_video_v001_frames_00017_.png",
+     "mtime": 1793444567,
+     "size": 665155
+    },
+    {
+     "name": "scene01_video_v001_frames_00018_.png",
+     "mtime": 1793444567,
+     "size": 666379
+    },
+    {
+     "name": "scene01_video_v001_frames_00019_.png",
+     "mtime": 1793444567,
+     "size": 664350
+    },
+    {
+     "name": "scene01_video_v001_frames_00020_.png",
+     "mtime": 1793444567,
+     "size": 665819
+    },
+    {
+     "name": "scene01_video_v001_frames_00021_.png",
+     "mtime": 1793444567,
+     "size": 663984
+    },
+    {
+     "name": "scene01_video_v001_frames_00022_.png",
+     "mtime": 1793444567,
+     "size": 663907
+    },
+    {
+     "name": "scene01_video_v001_frames_00023_.png",
+     "mtime": 1793444567,
+     "size": 662990
+    },
+    {
+     "name": "scene01_video_v001_frames_00024_.png",
+     "mtime": 1793444567,
+     "size": 664025
+    },
+    {
+     "name": "scene01_video_v001_frames_00025_.png",
+     "mtime": 1793444567,
+     "size": 638737
+    },
+    {
+     "name": "scene01_video_v001_frames_00026_.png",
+     "mtime": 1793444567,
+     "size": 614113
+    },
+    {
+     "name": "scene01_video_v001_frames_00027_.png",
+     "mtime": 1793444567,
+     "size": 589575
+    },
+    {
+     "name": "scene01_video_v001_frames_00028_.png",
+     "mtime": 1793444567,
+     "size": 577896
+    },
+    {
+     "name": "scene01_video_v001_frames_00004_.png",
+     "mtime": 1793444566,
+     "size": 657537
+    },
+    {
+     "name": "scene01_video_v001_frames_00005_.png",
+     "mtime": 1793444566,
+     "size": 656885
+    },
+    {
+     "name": "scene01_video_v001_frames_00006_.png",
+     "mtime": 1793444566,
+     "size": 659529
+    }
+   ]
+  },
+  "NEWTECONS/s02a-shirt-v001": {
+   "count": 4,
+   "files": [
+    {
+     "name": "D_00001_.png",
+     "mtime": 1793464934,
+     "size": 2190064
+    },
+    {
+     "name": "C_00001_.png",
+     "mtime": 1793464808,
+     "size": 2199298
+    },
+    {
+     "name": "B_00001_.png",
+     "mtime": 1793464709,
+     "size": 2206524
+    },
+    {
+     "name": "A_00001_.png",
+     "mtime": 1793464583,
+     "size": 2147095
+    }
+   ]
+  },
+  "NEWTECONS/s04a-phone-v001": {
+   "count": 3,
+   "files": [
+    {
+     "name": "C_00001_.png",
+     "mtime": 1793465372,
+     "size": 1983830
+    },
+    {
+     "name": "B_00001_.png",
+     "mtime": 1793465261,
+     "size": 1981795
+    },
+    {
+     "name": "A_00001_.png",
+     "mtime": 1793465105,
+     "size": 1978368
+    }
+   ]
+  },
+  "NEWTECONS/s04a-phone-v002": {
+   "count": 4,
+   "files": [
+    {
+     "name": "D_00001_.png",
+     "mtime": 1793467550,
+     "size": 1790610
+    },
+    {
+     "name": "C_00001_.png",
+     "mtime": 1793467448,
+     "size": 1775074
+    },
+    {
+     "name": "B_00001_.png",
+     "mtime": 1793467343,
+     "size": 1809077
+    },
+    {
+     "name": "A_00001_.png",
+     "mtime": 1793467242,
+     "size": 1807383
+    }
+   ]
+  },
+  "NEWTECONS/storyboard-up": {
+   "count": 4,
+   "files": [
+    {
+     "name": "SCENE_01_v002_3840x2160_00001_.png",
+     "mtime": 1793454480,
+     "size": 9589403
+    },
+    {
+     "name": "SCENE_01_3840x2160_00001_.png",
+     "mtime": 1793453450,
+     "size": 9564272
+    },
+    {
+     "name": "S03_A_3840x2160_00001_.png",
+     "mtime": 1793453443,
+     "size": 13065842
+    },
+    {
+     "name": "S02_A_2560x1440_00001_.png",
+     "mtime": 1793453436,
+     "size": 5191833
+    }
+   ]
+  },
+  "NEWTECONS/upscale": {
+   "count": 1,
+   "files": [
+    {
+     "name": "1080_00001_.png",
+     "mtime": 1793446078,
+     "size": 2266351
+    }
+   ]
+  }
+ }
+}

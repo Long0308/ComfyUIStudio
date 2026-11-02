@@ -1,0 +1,889 @@
+{
+  "1": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    },
+    "_meta": {
+      "title": "Model MiniMax H3 R2V"
+    }
+  },
+  "2": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "type": "minimax",
+      "device": "default"
+    },
+    "_meta": {
+      "title": "Text encoder MiniMax H3"
+    }
+  },
+  "3": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors"
+    },
+    "_meta": {
+      "title": "Video VAE"
+    }
+  },
+  "4": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+    },
+    "_meta": {
+      "title": "Audio VAE"
+    }
+  },
+  "5": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": ""
+    },
+    "_meta": {
+      "title": "ĐIỀN: ảnh nhân vật NEWTECONS đã duyệt — ref Picture 1"
+    }
+  },
+  "7": {
+    "class_type": "LoadAudio",
+    "inputs": {
+      "audio": ""
+    },
+    "_meta": {
+      "title": "ĐIỀN: WAV thoại đã duyệt — theo preparation.json wav.sha256"
+    }
+  },
+  "8": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": ""
+    },
+    "_meta": {
+      "title": "ĐIỀN: ảnh cảnh đã duyệt — neo frame 0"
+    }
+  },
+  "19": {
+    "class_type": "PrimitiveStringMultiline",
+    "inputs": {
+      "value": "Photorealistic live-action NEWTECONS corporate footage. Use <Picture 1> as the approved adult character identity and wardrobe reference. Preserve the character's facial identity, age, hair and body proportions. Clothing and protective equipment follow the Wardrobe rule line of this prompt, not the reference photos. Photorealistic live-action footage as if shot on a full-frame cinema camera with a 35mm lens: natural skin texture with visible pores and fine lines, no airbrushing, no plastic or waxy skin, no glossy AI sheen, true-to-life fabric weave, natural hand anatomy with five fingers, realistic motion blur and lighting. Animate the approved scene anchor with natural adult movement, realistic skin and fabric, coherent lighting and camera, and performance timed to the supplied dialogue audio. Keep existing approved logos and lettering unchanged; do not invent or alter them. No cartoon styling or exaggerated facial features."
+    },
+    "_meta": {
+      "title": "Window 0 prompt = GLOBAL block + window-0 block (engine fills)"
+    }
+  },
+  "6": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "prompt": [
+        "19",
+        0
+      ],
+      "width": 1280,
+      "height": 704,
+      "length": 481,
+      "ref_image_size": "match",
+      "ref_images.ref_image_0": [
+        "5",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "31",
+        0
+      ],
+      "ref_images.ref_image_2": [
+        "32",
+        0
+      ],
+      "ref_images.ref_image_3": [
+        "33",
+        0
+      ],
+      "ref_images.ref_image_4": [
+        "34",
+        0
+      ],
+      "ref_images.ref_image_5": [
+        "35",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "H3 R2V window 0 (latent + refs)"
+    }
+  },
+  "9": {
+    "class_type": "MiniMaxH3AddGuide",
+    "inputs": {
+      "positive": [
+        "67",
+        0
+      ],
+      "latent": [
+        "6",
+        1
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "image": [
+        "8",
+        0
+      ],
+      "audio": [
+        "7",
+        0
+      ],
+      "frame_idx": 0
+    },
+    "_meta": {
+      "title": "Neo cảnh và WAV thoại từ frame 0"
+    }
+  },
+  "10": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "22",
+        0
+      ],
+      "conditioning": [
+        "9",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Guider H3"
+    }
+  },
+  "11": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 20261030
+    },
+    "_meta": {
+      "title": "Seed"
+    }
+  },
+  "12": {
+    "class_type": "KSamplerSelect",
+    "inputs": {
+      "sampler_name": "res_multistep"
+    },
+    "_meta": {
+      "title": "Sampler"
+    }
+  },
+  "13": {
+    "class_type": "BasicScheduler",
+    "inputs": {
+      "model": [
+        "22",
+        0
+      ],
+      "scheduler": "simple",
+      "steps": 8,
+      "denoise": 1.0
+    },
+    "_meta": {
+      "title": "Scheduler"
+    }
+  },
+  "14": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "11",
+        0
+      ],
+      "guider": [
+        "10",
+        0
+      ],
+      "sampler": [
+        "12",
+        0
+      ],
+      "sigmas": [
+        "13",
+        0
+      ],
+      "latent_image": [
+        "6",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Lấy mẫu H3 video + audio"
+    }
+  },
+  "15": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "14",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Giải mã hình H3"
+    }
+  },
+  "16": {
+    "class_type": "VAEDecodeAudio",
+    "inputs": {
+      "samples": [
+        "14",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Giải mã audio H3"
+    }
+  },
+  "17": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "images": [
+        "15",
+        0
+      ],
+      "audio": [
+        "16",
+        0
+      ],
+      "fps": 24.0
+    },
+    "_meta": {
+      "title": "Ghép video H3 24 fps"
+    }
+  },
+  "18": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "video": [
+        "17",
+        0
+      ],
+      "filename_prefix": "NEWTECONS/H3/LongTake",
+      "format": "mp4",
+      "format.codec": "h264"
+    },
+    "_meta": {
+      "title": "Lưu video NEWTECONS MP4 H.264"
+    }
+  },
+  "20": {
+    "inputs": {
+      "lora_name": "pika_h3_flex_turbo_8step_hd_ref2va.safetensors",
+      "strength_model": 1.0,
+      "model": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly"
+  },
+  "21": {
+    "inputs": {
+      "model": [
+        "20",
+        0
+      ],
+      "shift_video": 12.0,
+      "shift_audio": 3.0
+    },
+    "class_type": "MiniMaxH3SigmaShift"
+  },
+  "31": {
+    "inputs": {
+      "image": ""
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "ref_image_1 body"
+    }
+  },
+  "32": {
+    "inputs": {
+      "image": ""
+    },
+    "class_type": "LoadImage"
+  },
+  "33": {
+    "inputs": {
+      "image": ""
+    },
+    "class_type": "LoadImage"
+  },
+  "34": {
+    "inputs": {
+      "image": ""
+    },
+    "class_type": "LoadImage"
+  },
+  "35": {
+    "inputs": {
+      "image": ""
+    },
+    "class_type": "LoadImage"
+  },
+  "41": {
+    "class_type": "PrimitiveStringMultiline",
+    "inputs": {
+      "value": "Photorealistic live-action NEWTECONS corporate footage. Use <Picture 1> as the approved adult character identity and wardrobe reference. Preserve the character's facial identity, age, hair and body proportions. Clothing and protective equipment follow the Wardrobe rule line of this prompt, not the reference photos. Photorealistic live-action footage as if shot on a full-frame cinema camera with a 35mm lens: natural skin texture with visible pores and fine lines, no airbrushing, no plastic or waxy skin, no glossy AI sheen, true-to-life fabric weave, natural hand anatomy with five fingers, realistic motion blur and lighting. Animate the approved scene anchor with natural adult movement, realistic skin and fabric, coherent lighting and camera, and performance timed to the supplied dialogue audio. Keep existing approved logos and lettering unchanged; do not invent or alter them. No cartoon styling or exaggerated facial features."
+    },
+    "_meta": {
+      "title": "Window 1 prompt = GLOBAL block + window-1 block (engine fills; node removed when fewer windows)"
+    }
+  },
+  "51": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "prompt": [
+        "41",
+        0
+      ],
+      "width": 1280,
+      "height": 704,
+      "length": 481,
+      "ref_image_size": "match",
+      "ref_images.ref_image_0": [
+        "5",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "31",
+        0
+      ],
+      "ref_images.ref_image_2": [
+        "32",
+        0
+      ],
+      "ref_images.ref_image_3": [
+        "33",
+        0
+      ],
+      "ref_images.ref_image_4": [
+        "34",
+        0
+      ],
+      "ref_images.ref_image_5": [
+        "35",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "H3 R2V window 1 (only its conditioning is used; its latent is ignored)"
+    }
+  },
+  "61": {
+    "class_type": "ConditioningCombine",
+    "inputs": {
+      "conditioning_1": [
+        "6",
+        0
+      ],
+      "conditioning_2": [
+        "51",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Combine windows 0..1"
+    }
+  },
+  "42": {
+    "class_type": "PrimitiveStringMultiline",
+    "inputs": {
+      "value": "Photorealistic live-action NEWTECONS corporate footage. Use <Picture 1> as the approved adult character identity and wardrobe reference. Preserve the character's facial identity, age, hair and body proportions. Clothing and protective equipment follow the Wardrobe rule line of this prompt, not the reference photos. Photorealistic live-action footage as if shot on a full-frame cinema camera with a 35mm lens: natural skin texture with visible pores and fine lines, no airbrushing, no plastic or waxy skin, no glossy AI sheen, true-to-life fabric weave, natural hand anatomy with five fingers, realistic motion blur and lighting. Animate the approved scene anchor with natural adult movement, realistic skin and fabric, coherent lighting and camera, and performance timed to the supplied dialogue audio. Keep existing approved logos and lettering unchanged; do not invent or alter them. No cartoon styling or exaggerated facial features."
+    },
+    "_meta": {
+      "title": "Window 2 prompt = GLOBAL block + window-2 block (engine fills; node removed when fewer windows)"
+    }
+  },
+  "52": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "prompt": [
+        "42",
+        0
+      ],
+      "width": 1280,
+      "height": 704,
+      "length": 481,
+      "ref_image_size": "match",
+      "ref_images.ref_image_0": [
+        "5",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "31",
+        0
+      ],
+      "ref_images.ref_image_2": [
+        "32",
+        0
+      ],
+      "ref_images.ref_image_3": [
+        "33",
+        0
+      ],
+      "ref_images.ref_image_4": [
+        "34",
+        0
+      ],
+      "ref_images.ref_image_5": [
+        "35",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "H3 R2V window 2 (only its conditioning is used; its latent is ignored)"
+    }
+  },
+  "62": {
+    "class_type": "ConditioningCombine",
+    "inputs": {
+      "conditioning_1": [
+        "61",
+        0
+      ],
+      "conditioning_2": [
+        "52",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Combine windows 0..2"
+    }
+  },
+  "43": {
+    "class_type": "PrimitiveStringMultiline",
+    "inputs": {
+      "value": "Photorealistic live-action NEWTECONS corporate footage. Use <Picture 1> as the approved adult character identity and wardrobe reference. Preserve the character's facial identity, age, hair and body proportions. Clothing and protective equipment follow the Wardrobe rule line of this prompt, not the reference photos. Photorealistic live-action footage as if shot on a full-frame cinema camera with a 35mm lens: natural skin texture with visible pores and fine lines, no airbrushing, no plastic or waxy skin, no glossy AI sheen, true-to-life fabric weave, natural hand anatomy with five fingers, realistic motion blur and lighting. Animate the approved scene anchor with natural adult movement, realistic skin and fabric, coherent lighting and camera, and performance timed to the supplied dialogue audio. Keep existing approved logos and lettering unchanged; do not invent or alter them. No cartoon styling or exaggerated facial features."
+    },
+    "_meta": {
+      "title": "Window 3 prompt = GLOBAL block + window-3 block (engine fills; node removed when fewer windows)"
+    }
+  },
+  "53": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "prompt": [
+        "43",
+        0
+      ],
+      "width": 1280,
+      "height": 704,
+      "length": 481,
+      "ref_image_size": "match",
+      "ref_images.ref_image_0": [
+        "5",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "31",
+        0
+      ],
+      "ref_images.ref_image_2": [
+        "32",
+        0
+      ],
+      "ref_images.ref_image_3": [
+        "33",
+        0
+      ],
+      "ref_images.ref_image_4": [
+        "34",
+        0
+      ],
+      "ref_images.ref_image_5": [
+        "35",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "H3 R2V window 3 (only its conditioning is used; its latent is ignored)"
+    }
+  },
+  "63": {
+    "class_type": "ConditioningCombine",
+    "inputs": {
+      "conditioning_1": [
+        "62",
+        0
+      ],
+      "conditioning_2": [
+        "53",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Combine windows 0..3"
+    }
+  },
+  "44": {
+    "class_type": "PrimitiveStringMultiline",
+    "inputs": {
+      "value": "Photorealistic live-action NEWTECONS corporate footage. Use <Picture 1> as the approved adult character identity and wardrobe reference. Preserve the character's facial identity, age, hair and body proportions. Clothing and protective equipment follow the Wardrobe rule line of this prompt, not the reference photos. Photorealistic live-action footage as if shot on a full-frame cinema camera with a 35mm lens: natural skin texture with visible pores and fine lines, no airbrushing, no plastic or waxy skin, no glossy AI sheen, true-to-life fabric weave, natural hand anatomy with five fingers, realistic motion blur and lighting. Animate the approved scene anchor with natural adult movement, realistic skin and fabric, coherent lighting and camera, and performance timed to the supplied dialogue audio. Keep existing approved logos and lettering unchanged; do not invent or alter them. No cartoon styling or exaggerated facial features."
+    },
+    "_meta": {
+      "title": "Window 4 prompt = GLOBAL block + window-4 block (engine fills; node removed when fewer windows)"
+    }
+  },
+  "54": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "prompt": [
+        "44",
+        0
+      ],
+      "width": 1280,
+      "height": 704,
+      "length": 481,
+      "ref_image_size": "match",
+      "ref_images.ref_image_0": [
+        "5",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "31",
+        0
+      ],
+      "ref_images.ref_image_2": [
+        "32",
+        0
+      ],
+      "ref_images.ref_image_3": [
+        "33",
+        0
+      ],
+      "ref_images.ref_image_4": [
+        "34",
+        0
+      ],
+      "ref_images.ref_image_5": [
+        "35",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "H3 R2V window 4 (only its conditioning is used; its latent is ignored)"
+    }
+  },
+  "64": {
+    "class_type": "ConditioningCombine",
+    "inputs": {
+      "conditioning_1": [
+        "63",
+        0
+      ],
+      "conditioning_2": [
+        "54",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Combine windows 0..4"
+    }
+  },
+  "45": {
+    "class_type": "PrimitiveStringMultiline",
+    "inputs": {
+      "value": "Photorealistic live-action NEWTECONS corporate footage. Use <Picture 1> as the approved adult character identity and wardrobe reference. Preserve the character's facial identity, age, hair and body proportions. Clothing and protective equipment follow the Wardrobe rule line of this prompt, not the reference photos. Photorealistic live-action footage as if shot on a full-frame cinema camera with a 35mm lens: natural skin texture with visible pores and fine lines, no airbrushing, no plastic or waxy skin, no glossy AI sheen, true-to-life fabric weave, natural hand anatomy with five fingers, realistic motion blur and lighting. Animate the approved scene anchor with natural adult movement, realistic skin and fabric, coherent lighting and camera, and performance timed to the supplied dialogue audio. Keep existing approved logos and lettering unchanged; do not invent or alter them. No cartoon styling or exaggerated facial features."
+    },
+    "_meta": {
+      "title": "Window 5 prompt = GLOBAL block + window-5 block (engine fills; node removed when fewer windows)"
+    }
+  },
+  "55": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "prompt": [
+        "45",
+        0
+      ],
+      "width": 1280,
+      "height": 704,
+      "length": 481,
+      "ref_image_size": "match",
+      "ref_images.ref_image_0": [
+        "5",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "31",
+        0
+      ],
+      "ref_images.ref_image_2": [
+        "32",
+        0
+      ],
+      "ref_images.ref_image_3": [
+        "33",
+        0
+      ],
+      "ref_images.ref_image_4": [
+        "34",
+        0
+      ],
+      "ref_images.ref_image_5": [
+        "35",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "H3 R2V window 5 (only its conditioning is used; its latent is ignored)"
+    }
+  },
+  "65": {
+    "class_type": "ConditioningCombine",
+    "inputs": {
+      "conditioning_1": [
+        "64",
+        0
+      ],
+      "conditioning_2": [
+        "55",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Combine windows 0..5"
+    }
+  },
+  "46": {
+    "class_type": "PrimitiveStringMultiline",
+    "inputs": {
+      "value": "Photorealistic live-action NEWTECONS corporate footage. Use <Picture 1> as the approved adult character identity and wardrobe reference. Preserve the character's facial identity, age, hair and body proportions. Clothing and protective equipment follow the Wardrobe rule line of this prompt, not the reference photos. Photorealistic live-action footage as if shot on a full-frame cinema camera with a 35mm lens: natural skin texture with visible pores and fine lines, no airbrushing, no plastic or waxy skin, no glossy AI sheen, true-to-life fabric weave, natural hand anatomy with five fingers, realistic motion blur and lighting. Animate the approved scene anchor with natural adult movement, realistic skin and fabric, coherent lighting and camera, and performance timed to the supplied dialogue audio. Keep existing approved logos and lettering unchanged; do not invent or alter them. No cartoon styling or exaggerated facial features."
+    },
+    "_meta": {
+      "title": "Window 6 prompt = GLOBAL block + window-6 block (engine fills; node removed when fewer windows)"
+    }
+  },
+  "56": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "prompt": [
+        "46",
+        0
+      ],
+      "width": 1280,
+      "height": 704,
+      "length": 481,
+      "ref_image_size": "match",
+      "ref_images.ref_image_0": [
+        "5",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "31",
+        0
+      ],
+      "ref_images.ref_image_2": [
+        "32",
+        0
+      ],
+      "ref_images.ref_image_3": [
+        "33",
+        0
+      ],
+      "ref_images.ref_image_4": [
+        "34",
+        0
+      ],
+      "ref_images.ref_image_5": [
+        "35",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "H3 R2V window 6 (only its conditioning is used; its latent is ignored)"
+    }
+  },
+  "66": {
+    "class_type": "ConditioningCombine",
+    "inputs": {
+      "conditioning_1": [
+        "65",
+        0
+      ],
+      "conditioning_2": [
+        "56",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Combine windows 0..6"
+    }
+  },
+  "47": {
+    "class_type": "PrimitiveStringMultiline",
+    "inputs": {
+      "value": "Photorealistic live-action NEWTECONS corporate footage. Use <Picture 1> as the approved adult character identity and wardrobe reference. Preserve the character's facial identity, age, hair and body proportions. Clothing and protective equipment follow the Wardrobe rule line of this prompt, not the reference photos. Photorealistic live-action footage as if shot on a full-frame cinema camera with a 35mm lens: natural skin texture with visible pores and fine lines, no airbrushing, no plastic or waxy skin, no glossy AI sheen, true-to-life fabric weave, natural hand anatomy with five fingers, realistic motion blur and lighting. Animate the approved scene anchor with natural adult movement, realistic skin and fabric, coherent lighting and camera, and performance timed to the supplied dialogue audio. Keep existing approved logos and lettering unchanged; do not invent or alter them. No cartoon styling or exaggerated facial features."
+    },
+    "_meta": {
+      "title": "Window 7 prompt = GLOBAL block + window-7 block (engine fills; node removed when fewer windows)"
+    }
+  },
+  "57": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "prompt": [
+        "47",
+        0
+      ],
+      "width": 1280,
+      "height": 704,
+      "length": 481,
+      "ref_image_size": "match",
+      "ref_images.ref_image_0": [
+        "5",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "31",
+        0
+      ],
+      "ref_images.ref_image_2": [
+        "32",
+        0
+      ],
+      "ref_images.ref_image_3": [
+        "33",
+        0
+      ],
+      "ref_images.ref_image_4": [
+        "34",
+        0
+      ],
+      "ref_images.ref_image_5": [
+        "35",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "H3 R2V window 7 (only its conditioning is used; its latent is ignored)"
+    }
+  },
+  "67": {
+    "class_type": "ConditioningCombine",
+    "inputs": {
+      "conditioning_1": [
+        "66",
+        0
+      ],
+      "conditioning_2": [
+        "57",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Combine windows 0..7"
+    }
+  },
+  "22": {
+    "class_type": "ContextWindowsManual",
+    "inputs": {
+      "model": [
+        "21",
+        0
+      ],
+      "context_length": 24,
+      "context_overlap": 6,
+      "context_schedule": "standard_static",
+      "context_stride": 1,
+      "closed_loop": false,
+      "fuse_method": "pyramid",
+      "dim": 2,
+      "freenoise": false,
+      "cond_retain_index_list": "",
+      "split_conds_to_windows": true,
+      "latent_retain_index_list": "",
+      "causal_window_fix": true
+    },
+    "_meta": {
+      "title": "Context windows (GUESS values: context_length/overlap are in LATENT units, dim=2 assumed time axis; to measure in the UAT)"
+    }
+  }
+}

@@ -1,0 +1,349 @@
+// Shared dockable step-panel layout for the NEWTECONS VIDEO (theme "gold") and IMAGE (theme "blue") panels.
+// Lives only inside ComfyUI's graph-canvas region (measured; follows sidebars via ResizeObserver).
+// Modes TRÊN / PHẢI / THU GỌN + drag handle, remembered in localStorage. No graph writes, no prompts here.
+import { app } from "../../scripts/app.js";
+import * as D from "./step_dock_logic.js";
+
+const CSS_ID = "ntd-css";
+const CSS = `
+.ntd-root{font-family:"Bahnschrift SemiBold Condensed","Bahnschrift Condensed","Bahnschrift","Roboto Condensed","Arial Narrow",Inter,sans-serif;
+ font-stretch:condensed;color:var(--text);box-sizing:border-box}
+.ntd-root *{box-sizing:border-box}
+body.ntd-on-video #nt-step-bar,body.ntd-on-video #nt-step-panel,body.ntd-on-image #nt-step-bar,body.ntd-on-image #nt-step-panel{display:none!important}
+.ntd-root[hidden]{display:none!important}
+.ntd-bar{position:fixed;z-index:${D.Z.bar};display:flex;align-items:center;padding:6px 8px;background:var(--ink);border:1px solid var(--accl);overflow:hidden}
+.ntd-brand{display:flex;flex-direction:column;justify-content:center;padding-right:10px;margin-right:8px;border-right:1px solid var(--accl);white-space:nowrap;line-height:1.05;min-width:0}
+.ntd-brand b{font-size:14px;letter-spacing:.16em;color:var(--acc)}
+.ntd-brand span{font-size:10px;letter-spacing:.06em;color:var(--mute);text-transform:uppercase;overflow:hidden;text-overflow:ellipsis;max-width:220px}
+.ntd-tabs{display:flex;align-items:center;flex:1;min-width:0;overflow-x:auto;scrollbar-width:none}
+.ntd-link{flex:1 1 10px;min-width:6px;height:1px;background:var(--acc)}
+.ntd-tab{all:unset;cursor:pointer;display:flex;align-items:center;gap:6px;padding:5px 9px;border:1px solid var(--acc);background:var(--ink);
+ color:var(--text);font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;flex:none}
+.ntd-tab b{font-size:15px;color:var(--acc)}
+.ntd-tab:hover{background:var(--accf)}
+.ntd-tab.on{background:var(--accs);border-color:var(--accs);color:var(--on);clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%)}
+.ntd-tab.on b{color:var(--on)}
+.ntd-tab.off{opacity:.55}
+.ntd-tabs.compact .ntd-tab:not(.on) span{display:none}
+.ntd-tabs.compact .ntd-tab{padding:5px 7px}
+.ntd-tools{display:flex;align-items:center;gap:4px;margin-left:8px;flex:none}
+.ntd-tool{all:unset;cursor:pointer;padding:4px 7px;border:1px solid var(--accl);color:var(--acc);font-size:11px;letter-spacing:.08em;white-space:nowrap}
+.ntd-tool:hover{background:var(--accf)}
+.ntd-tool.on{background:var(--accs);border-color:var(--accs);color:var(--on)}
+.ntd-panel{position:fixed;z-index:${D.Z.panel};background:var(--ink);border:1px solid var(--accl);box-shadow:0 14px 40px rgba(0,0,0,.5);
+ display:grid;gap:12px;padding:10px 12px 12px;overflow:auto}
+.ntd-panel.m-top.card-on{grid-template-columns:320px minmax(0,1fr)}
+.ntd-panel.m-top:not(.card-on),.ntd-panel.m-right{grid-template-columns:minmax(0,1fr)}
+.ntd-handle{position:fixed;z-index:${D.Z.handle};background:transparent}
+.ntd-handle.h-top{height:10px;cursor:ns-resize}
+.ntd-handle.h-right{width:10px;cursor:ew-resize}
+.ntd-handle:hover:after,.ntd-handle.drag:after{content:"";position:absolute;background:var(--acc)}
+.ntd-handle.h-top:hover:after,.ntd-handle.h-top.drag:after{left:0;right:0;top:4px;height:2px}
+.ntd-handle.h-right:hover:after,.ntd-handle.h-right.drag:after{top:0;bottom:0;left:4px;width:2px}
+.ntd-handle .grip{position:absolute;background:var(--acc);opacity:.8}
+.ntd-handle.h-top .grip{left:50%;top:3px;width:46px;height:4px;margin-left:-23px}
+.ntd-handle.h-right .grip{top:50%;left:3px;height:46px;width:4px;margin-top:-23px}
+.ntd-hl{position:fixed;z-index:${D.Z.highlight};pointer-events:none;border:3px solid var(--acc);box-shadow:0 0 0 3px var(--accf),0 0 28px var(--acc);transition:opacity .6s}
+.ntd-card{background:var(--card);border:1px solid var(--accl);padding:10px 10px 8px;align-self:start;min-width:0}
+.ntd-card h3{margin:0 0 6px;font-size:15px;letter-spacing:.2em;color:var(--acc);border-bottom:1px solid var(--accl);padding-bottom:5px;display:flex;justify-content:space-between}
+.ntd-sec{border-bottom:1px solid var(--line);padding:7px 0}
+.ntd-sec:last-of-type{border-bottom:0}
+.ntd-sec h4{margin:0 0 5px;font-size:12px;letter-spacing:.12em;color:var(--text);display:flex;gap:8px;align-items:center}
+.ntd-sec h4 i{font-style:normal;display:inline-grid;place-items:center;width:19px;height:19px;background:var(--accs);color:var(--on);font-size:11px}
+.ntd-f{display:grid;grid-template-columns:86px minmax(0,1fr);gap:6px;align-items:center;margin:4px 0;font:12px/1.3 Inter,sans-serif;color:var(--mute)}
+.ntd-f input,.ntd-f select{width:100%;background:var(--ink);color:var(--text);border:1px solid var(--accl);font:12px Inter,sans-serif;padding:4px 6px;outline:0}
+.ntd-f input[type=file]{padding:2px;font-size:11px}
+.ntd-f input:focus,.ntd-f select:focus{border-color:var(--acc)}
+.ntd-f output{color:var(--text);font:12px Inter,sans-serif;min-width:0}
+.ntd-chip{display:inline-block;white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis;vertical-align:middle;padding:1px 6px;border:1px solid var(--acc);color:var(--acc);font-size:10px;letter-spacing:.04em;text-transform:uppercase}
+.ntd-chip.solid{background:var(--accs);border-color:var(--accs);color:var(--on)}
+.ntd-chips{display:flex;flex-wrap:wrap;gap:4px}
+.ntd-chips button{all:unset;cursor:pointer;padding:3px 7px;border:1px solid var(--accl);color:var(--text);font:11px Inter,sans-serif}
+.ntd-chips button.on{background:var(--accs);border-color:var(--accs);color:var(--on)}
+.ntd-btn{all:unset;cursor:pointer;display:block;text-align:center;margin-top:8px;padding:7px 10px;background:var(--accs);color:var(--on);font-size:13px;font-weight:800;letter-spacing:.14em}
+.ntd-btn:hover{filter:brightness(1.12)}
+.ntd-btn[disabled]{opacity:.45;cursor:not-allowed}
+.ntd-msg{font:11px/1.4 Inter,sans-serif;color:var(--mute);margin-top:6px}
+.ntd-msg .bad{color:var(--bad)}.ntd-msg .ok{color:var(--ok)}
+.ntd-body{min-width:0}
+.ntd-title{display:flex;align-items:baseline;gap:12px;text-transform:uppercase;line-height:.95;padding-bottom:6px;margin-bottom:8px;border-bottom:1px solid var(--acc);position:relative}
+.ntd-title:after{content:"";position:absolute;left:0;bottom:-3px;width:110px;height:3px;background:var(--acc)}
+.ntd-title .n{font-size:34px;font-weight:800;color:var(--acc)}
+.ntd-title .t{font-size:26px;font-weight:800;color:var(--text);letter-spacing:.02em}
+.ntd-title .x{all:unset;cursor:pointer;margin-left:auto;font-size:11px;letter-spacing:.1em;color:var(--acc);border:1px solid var(--accl);padding:3px 7px;white-space:nowrap}
+.ntd-title .x:hover{background:var(--accf)}
+.m-right .ntd-title .n{font-size:28px}.m-right .ntd-title .t{font-size:20px}
+.ntd-banner{border-left:3px solid var(--acc);background:var(--accf);padding:6px 10px;margin-bottom:8px;font:12px/1.4 Inter,sans-serif}
+.ntd-banner b{color:var(--acc)}
+.ntd-banner.bad{border-color:var(--bad);background:rgba(208,0,0,.12)}
+.ntd-banner.bad b{color:var(--bad)}
+.ntd-row{display:grid;grid-template-columns:minmax(0,1fr) 46px minmax(0,1fr);align-items:stretch}
+.m-right .ntd-row{grid-template-columns:minmax(0,1fr);gap:4px}
+.m-right .ntd-arrow{transform:rotate(90deg);height:30px}
+.ntd-slot{border:1px solid var(--accl);background:var(--card);padding:9px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.ntd-lbl{display:flex;align-items:center;gap:8px;font:12px/1.3 Inter,sans-serif;color:var(--mute)}
+.ntd-badge{font-family:inherit;font-size:14px;font-weight:800;letter-spacing:.16em;padding:2px 10px;border:1.5px solid var(--acc);color:var(--acc)}
+.ntd-badge.ra{background:var(--accs);border-color:var(--accs);color:var(--on)}
+.ntd-arrow{display:flex;align-items:center;justify-content:center}
+.ntd-table{width:100%;border-collapse:collapse;font:12px/1.3 Inter,sans-serif}
+.ntd-table th{text-align:left;font:700 11px "Bahnschrift Condensed",sans-serif;letter-spacing:.12em;color:var(--acc);border-bottom:1px solid var(--acc);padding:4px 6px;position:sticky;top:0;background:var(--card)}
+.ntd-table td{padding:4px 6px;border-bottom:1px solid var(--line);color:var(--text)}
+.ntd-table tr{cursor:pointer}
+.ntd-table tbody tr:hover td{background:var(--accf)}
+.ntd-table tr.sel td,.ntd-table tbody tr.sel:hover td{background:var(--accs);color:var(--on);font-weight:700}
+.ntd-table tr.sel .ntd-dots span{border-color:var(--on)}.ntd-table tr.sel .ntd-dots span.has{background:var(--on)}
+.ntd-scroll{max-height:var(--media-h,300px);overflow:auto}
+.ntd-dots{display:flex;gap:3px}
+.ntd-dots span{width:13px;height:9px;border:1px solid var(--acc)}
+.ntd-dots span.has{background:var(--acc)}
+.ntd-shot .id{font-size:30px;font-weight:800;color:var(--acc);line-height:1}
+.ntd-shot .cap{font-size:16px;letter-spacing:.04em;margin:4px 0 2px}
+.ntd-shot .meta{font:11px/1.4 Inter,sans-serif;color:var(--mute)}
+.ntd-refs{display:grid;grid-template-columns:repeat(auto-fill,minmax(70px,1fr));gap:6px}
+.ntd-ref{aspect-ratio:3/4;max-height:var(--media-h,300px);border:1px solid var(--accl);background:var(--ink);display:flex;align-items:center;justify-content:center;overflow:hidden;
+ font:10px/1.3 Inter,sans-serif;color:var(--mute);text-align:center;padding:4px;position:relative}
+.ntd-ref img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.ntd-ref.wide{aspect-ratio:auto;height:min(var(--media-h,300px),220px)}
+.ntd-ref.wide img{object-fit:contain}
+.ntd-ref .cap{position:absolute;left:0;right:0;bottom:0;background:rgba(0,0,0,.65);color:var(--text);font-size:10px;padding:2px 3px;z-index:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ntd-prompt{background:var(--ink);border:1px solid var(--accl);padding:8px;font:12px/1.45 Inter,sans-serif;white-space:pre-wrap;max-height:min(var(--media-h,300px),200px);overflow:auto}
+.ntd-media{position:relative;width:100%;max-height:var(--media-h,300px);background:var(--ink);border:1px solid var(--accl);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.ntd-media video,.ntd-media img{width:100%;height:100%;object-fit:contain;display:block}
+.ntd-empty{font:12px/1.45 Inter,sans-serif;color:var(--mute);text-align:center;padding:10px}
+.ntd-empty b{display:block;font:800 16px "Bahnschrift Condensed",sans-serif;letter-spacing:.12em;color:var(--acc);margin-bottom:3px}
+.ntd-zoom{display:flex;flex-direction:column;width:42%;border:2px solid var(--acc);background:var(--ink)}
+.ntd-zoom.over{position:absolute;right:8px;bottom:8px}
+.ntd-zoom.below{margin:6px 0 0 auto}
+.ntd-zoom .tag{flex:none;background:var(--accs);color:var(--on);font:800 10px "Bahnschrift Condensed",sans-serif;letter-spacing:.12em;padding:2px 6px}
+.ntd-zoom .win{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;max-height:calc(var(--media-h,300px) * .45)}
+.ntd-zoom .win video,.ntd-zoom .win img{width:100%;height:100%;object-fit:contain;transform:scale(3);transform-origin:50% 50%}
+.ntd-zoom .win .ntd-empty{padding:4px;font-size:11px}
+.ntd-frame{position:absolute;left:31%;top:31%;width:33.4%;height:33.4%;border:1px dashed var(--acc);pointer-events:none}
+.ntd-count{display:grid;grid-template-columns:110px auto 1fr;align-items:center;gap:10px;margin:3px 0}
+.ntd-count .k{font:700 12px "Bahnschrift Condensed",sans-serif;letter-spacing:.1em;color:var(--text);text-transform:uppercase}
+.ntd-count .v{font-size:30px;font-weight:800;color:var(--acc);line-height:1;white-space:nowrap}
+.ntd-count.acc .v{color:var(--ok)}.ntd-count.acc .ntd-pbar{border-color:var(--ok)}.ntd-count.acc .ntd-pbar i{background:var(--ok)}
+.ntd-pbar{height:9px;border:1px solid var(--acc)}
+.ntd-pbar i{display:block;height:100%;background:var(--acc)}
+.ntd-gate{border:1px solid var(--acc);padding:5px 8px;margin:6px 0;font:12px/1.4 Inter,sans-serif}
+.ntd-gate b{font:800 12px "Bahnschrift Condensed",sans-serif;letter-spacing:.1em;color:var(--acc);text-transform:uppercase}
+.ntd-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(52px,1fr));gap:5px}
+.ntd-cell{all:unset;cursor:pointer;aspect-ratio:16/9;border:1px solid var(--accl);display:flex;align-items:flex-end;position:relative;overflow:hidden}
+.ntd-cell span{position:relative;z-index:1;font:10px/1.2 Inter,sans-serif;color:var(--mute);padding:1px 3px}
+.ntd-cell.done{background:var(--accs);border-color:var(--accs)}
+.ntd-cell.done span{color:var(--on);font-weight:700}
+.ntd-cell img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ntd-cell.sel{outline:2px solid var(--text);outline-offset:1px}
+.ntd-cell.acc{border:2px solid var(--ok)}.ntd-cell.acc:not(.done) span{color:var(--ok)}
+.ntd-warn{border-left:3px solid var(--bad);background:rgba(208,0,0,.12);padding:5px 9px;margin:6px 0;font:12px/1.4 Inter,sans-serif;color:var(--text)}
+.ntd-pick{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 6px}
+.ntd-pick>span{font:700 11px "Bahnschrift Condensed",sans-serif;letter-spacing:.12em;color:var(--mute);text-transform:uppercase}
+.ntd-text{width:100%;min-height:92px;max-height:var(--media-h,300px);background:var(--ink);color:var(--text);border:1px solid var(--accl);font:12px/1.45 Inter,sans-serif;padding:7px;resize:vertical;outline:0}
+.ntd-text:focus{border-color:var(--acc)}
+.ntd-row2{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font:12px Inter,sans-serif;color:var(--mute)}
+.ntd-row2 .ntd-btn{margin-top:0}
+.ntd-pre{background:var(--ink);border:1px solid var(--accl);padding:7px;font:11px/1.45 Consolas,monospace;white-space:pre-wrap;word-break:break-all;color:var(--text);max-height:160px;overflow:auto}
+.ntd-wgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:5px}
+.ntd-wslot{position:relative;aspect-ratio:3/4;max-height:var(--media-h,300px);border:1px solid var(--accl);background:var(--ink);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.ntd-wslot.off{opacity:.45;border-style:dashed}
+.ntd-wslot.req{border-color:var(--acc)}
+.ntd-wslot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ntd-wslot span{position:absolute;left:0;right:0;bottom:0;background:rgba(0,0,0,.7);color:var(--text);font:10px/1.2 Inter,sans-serif;padding:2px 3px;z-index:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ntd-wslot .ntd-empty{padding:2px;font-size:10px}
+.ntd-foot{margin-top:8px;font:11px/1.4 Inter,sans-serif;color:var(--mute);display:flex;gap:12px;flex-wrap:wrap}
+.ntd-foot b{color:var(--acc)}
+`;
+
+export function el(tag, attrs = {}, ...kids) {
+  const node = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (v == null || v === false) continue;
+    if (k === "class") node.className = v;
+    else if (k === "text") node.textContent = v;
+    else if (k.startsWith("on")) node.addEventListener(k.slice(2), v);
+    else node.setAttribute(k, v === true ? "" : v);
+  }
+  for (const kid of kids.flat()) if (kid != null && kid !== false) node.append(kid);
+  return node;
+}
+
+export function arrowSvg(color) {
+  const ns = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(ns, "svg");
+  svg.setAttribute("width", "40"); svg.setAttribute("height", "24"); svg.setAttribute("viewBox", "0 0 40 24");
+  const p = document.createElementNS(ns, "path");
+  p.setAttribute("d", "M2 12H36M25 3L37 12L25 21"); p.setAttribute("fill", "none");
+  p.setAttribute("stroke", color); p.setAttribute("stroke-width", "3");
+  svg.append(p);
+  return el("div", { class: "ntd-arrow" }, svg);
+}
+
+function rectOf(sel, pick) {
+  const els = [...document.querySelectorAll(sel)];
+  const e = pick ? els.find(pick) : els[0];
+  if (!e) return null;
+  const r = e.getBoundingClientRect();
+  return { left: r.left, top: r.top, right: r.right, bottom: r.bottom, el: e };
+}
+
+function measure() {
+  const vw = innerWidth;
+  const vh = innerHeight;
+  const sidePanel = rectOf(".side-bar-panel", (e) => e.getBoundingClientRect().width > 4);
+  const rightPanel = rectOf(".p-splitterpanel", (e) => {
+    const r = e.getBoundingClientRect();
+    return r.width > 60 && r.left > vw * 0.55 && !e.classList.contains("p-splitterpanel-nested") && !e.querySelector("canvas")
+      && !e.classList.contains("graph-canvas-panel");
+  });
+  // ComfyUI 1.55: the job/queue popover is a sibling of the Run bar row inside the same right-aligned column.
+  const col = document.querySelector(".actionbar-container")?.closest(".items-end");
+  const overlays = col ? [...col.children].filter((c) => !c.querySelector(".actionbar-container") && !c.classList.contains("actionbar-container"))
+    .map((c) => c.getBoundingClientRect()).filter((r) => r.width > 4 && r.height > 4)
+    .map((r) => ({ left: r.left, top: r.top, right: r.right, bottom: r.bottom })) : [];
+  return {
+    overlays,
+    vw, vh, tabs: rectOf(".workflow-tabs-container"), action: rectOf(".actionbar-container"),
+    nested: rectOf(".p-splitterpanel-nested"), sideTool: rectOf(".side-tool-bar-container", (e) => e.getBoundingClientRect().width < 200),
+    sidePanel, rightPanel,
+  };
+}
+
+function storeGet(k) {
+  try { return localStorage.getItem(k); } catch { return null; }
+}
+
+function storeSet(k, v) {
+  try { localStorage.setItem(k, v); } catch { /* storage blocked: keep in memory */ }
+}
+
+// createDock({key:"video"|"image", theme:"gold"|"blue", barId, panelId, onChange})
+export function createDock({ key, theme, barId, panelId, onChange }) {
+  if (!document.getElementById(CSS_ID)) document.head.append(el("style", { id: CSS_ID, text: CSS }));
+  const storeKey = `newtecons.dock.${key}`;
+  const themeClass = `ntd-root ntd-theme-${theme}`;
+  const vars = D.themeVars(theme);
+  const bar = el("div", { id: barId, class: themeClass + " ntd-bar", style: vars, role: "tablist" });
+  const panel = el("div", { id: panelId, class: themeClass + " ntd-panel", style: vars });
+  const handle = el("div", { class: themeClass + " ntd-handle", style: vars }, el("span", { class: "grip" }));
+  bar.hidden = true; panel.hidden = true; handle.hidden = true;
+  document.body.append(bar, panel, handle);
+  const dock = { key, theme, bar, panel, handle, prefs: D.parsePrefs(storeGet(storeKey)), on: false, layout: null, region: null };
+
+  dock.setPrefs = (patch) => {
+    dock.prefs = D.withPrefs(dock.prefs, patch);
+    storeSet(storeKey, JSON.stringify(dock.prefs));
+    onChange?.();
+  };
+
+  dock.show = (on) => {
+    dock.on = on;
+    document.body.classList.toggle(`ntd-on-${key}`, on);
+    bar.hidden = !on;
+    if (!on) { panel.hidden = true; handle.hidden = true; }
+  };
+
+  dock.toolsNode = (extra = []) => el("div", { class: "ntd-tools" },
+    el("button", { class: "ntd-tool" + (dock.prefs.card ? " on" : ""), title: "Hiện / ẩn thẻ INPUT", text: "INPUT",
+      onclick: () => dock.setPrefs({ card: !dock.prefs.card, mode: dock.prefs.mode === "collapsed" ? "top" : dock.prefs.mode }) }),
+    D.MODES.map((m) => el("button", { class: "ntd-tool" + (dock.prefs.mode === m ? " on" : ""), "data-mode": m, text: D.MODE_LABEL[m],
+      title: m === "top" ? "Bảng nằm trên, graph ở dưới" : m === "right" ? "Bảng ở cạnh phải" : "Chỉ giữ thanh bước",
+      onclick: () => dock.setPrefs({ mode: m }) })),
+    extra);
+
+  dock.setBar = ({ title, sub, tabs, tools }) => {
+    bar.replaceChildren(
+      el("div", { class: "ntd-brand" }, el("b", { text: title }), el("span", { text: sub || "", title: sub || "" })),
+      el("div", { class: "ntd-tabs" }, tabs.flatMap((t, i) => [i ? el("span", { class: "ntd-link" }) : null,
+        el("button", { class: "ntd-tab" + (t.on ? " on" : "") + (t.off ? " off" : ""), role: "tab", "aria-selected": String(Boolean(t.on)),
+          title: t.title || `${t.code} ${t.label}`, "data-code": t.code, onclick: t.onClick }, el("b", { text: t.code }), el("span", { text: t.label }))])),
+      dock.toolsNode(tools || []));
+    dock.fitTabs();
+  };
+
+  // Too many tabs for the width: inactive tabs collapse to their code (full label stays in the tooltip).
+  dock.fitTabs = () => {
+    const strip = bar.querySelector(".ntd-tabs");
+    if (!strip) return;
+    strip.classList.remove("compact");
+    if (strip.scrollWidth > strip.clientWidth + 2) strip.classList.add("compact");
+  };
+
+  dock.setPanel = (card, body) => {
+    const mode = dock.prefs.mode;
+    panel.className = `${themeClass} ntd-panel m-${mode}${dock.prefs.card && card ? " card-on" : ""}`;
+    panel.replaceChildren(...(dock.prefs.card && card ? [card, body] : [body]));
+    dock.place();
+  };
+
+  dock.place = () => {
+    if (!dock.on) return;
+    const region = D.canvasRegion(measure());
+    dock.region = region;
+    bar.style.left = region.left + "px";
+    bar.style.top = region.top + "px";
+    bar.style.width = Math.max(200, region.right - region.left) + "px";
+    dock.fitTabs();
+    const barH = bar.getBoundingClientRect().height || 44;
+    const mode = dock.prefs.mode;
+    const lay = D.dockLayout(mode, region, barH, dock.prefs);
+    dock.layout = lay;
+    if (!lay.panel) { panel.hidden = true; handle.hidden = true; return; }
+    panel.hidden = false;
+    Object.assign(panel.style, { left: lay.panel.left + "px", top: lay.panel.top + "px",
+      width: lay.panel.right - lay.panel.left + "px", height: lay.panel.bottom - lay.panel.top + "px" });
+    panel.style.setProperty("--media-h", D.mediaHeight(mode, lay.panel) + "px");
+    handle.hidden = false;
+    handle.className = `${themeClass} ntd-handle h-${mode}`;
+    if (mode === "top") Object.assign(handle.style, { left: lay.panel.left + "px", top: lay.panel.bottom - 5 + "px", width: lay.panel.right - lay.panel.left + "px", height: "" });
+    else Object.assign(handle.style, { left: lay.panel.left - 5 + "px", top: lay.panel.top + "px", height: lay.panel.bottom - lay.panel.top + "px", width: "" });
+  };
+
+  handle.addEventListener("pointerdown", (ev) => {
+    const mode = dock.prefs.mode;
+    if (mode === "collapsed" || !dock.region) return;
+    ev.preventDefault();
+    handle.setPointerCapture(ev.pointerId);
+    handle.classList.add("drag");
+    const move = (e) => {
+      const f = D.fracFromDrag(mode, dock.region, { x: e.clientX, y: e.clientY });
+      if (f == null) return;
+      dock.prefs = D.withPrefs(dock.prefs, mode === "top" ? { topFrac: f } : { rightFrac: f });
+      dock.place();
+    };
+    const up = () => {
+      handle.classList.remove("drag");
+      handle.removeEventListener("pointermove", move);
+      storeSet(storeKey, JSON.stringify(dock.prefs));
+    };
+    handle.addEventListener("pointermove", move);
+    handle.addEventListener("pointerup", up, { once: true });
+  });
+
+  // Pan/zoom the canvas so `bounding` fills the free graph area, then flash a highlight frame over it.
+  dock.zoomTo = (bounding) => {
+    const ds = app.canvas?.ds;
+    const c = app.canvas?.canvas?.getBoundingClientRect();
+    if (!ds || !c || !dock.layout || !Array.isArray(bounding) || bounding.length < 4) return false;
+    const t = D.fitInto(bounding, c, dock.layout.free);
+    ds.scale = t.scale; ds.offset[0] = t.offset[0]; ds.offset[1] = t.offset[1];
+    app.canvas.setDirty(true, true);
+    const r = D.screenRect(bounding, c, ds);
+    const hl = el("div", { class: themeClass + " ntd-hl", style: `${vars};left:${r.left - 4}px;top:${r.top - 4}px;width:${r.right - r.left + 8}px;height:${r.bottom - r.top + 8}px` });
+    document.body.append(hl);
+    setTimeout(() => { hl.style.opacity = "0"; }, 2200);
+    setTimeout(() => hl.remove(), 2900);
+    return true;
+  };
+
+  // Follow ComfyUI's sidebars / panels: re-place whenever they resize or appear.
+  const ro = typeof ResizeObserver === "function" ? new ResizeObserver(() => dock.place()) : null;
+  const watched = new WeakSet();
+  dock.watch = () => {
+    if (!ro) return;
+    for (const sel of [".p-splitterpanel-nested", ".side-bar-panel", ".actionbar-container", ".workflow-tabs-container", ".p-splitterpanel"]) {
+      for (const e of document.querySelectorAll(sel)) if (!watched.has(e)) { watched.add(e); ro.observe(e); }
+    }
+  };
+  addEventListener("resize", () => dock.place());
+  return dock;
+}

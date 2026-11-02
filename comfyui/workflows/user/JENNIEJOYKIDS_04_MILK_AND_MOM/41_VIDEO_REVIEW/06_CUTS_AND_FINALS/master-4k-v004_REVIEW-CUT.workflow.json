@@ -1,0 +1,99 @@
+{
+  "id": "9993f8f7-05eb-526f-856b-1d38ad8c2c80",
+  "revision": 0,
+  "last_node_id": 2,
+  "last_link_id": 0,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LoadVideo",
+      "title": "KET QUA VIDEO | master-4k-v004 | SHA 0946b625bc24",
+      "pos": [
+        0,
+        40
+      ],
+      "size": [
+        960,
+        600
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadVideo"
+      },
+      "widgets_values": [
+        "ep04review-FINAL-MASTER-4K-v004.mp4"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "Note",
+      "title": "GHI CHU VIDEO | master-4k-v004 | accepted",
+      "pos": [
+        0,
+        680
+      ],
+      "size": [
+        960,
+        300
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "VIDEO KET QUA (chi hien thi, KHONG co graph sinh) - master-4k-v004\nTrang thai: accepted (user: 'video ok roi do' (handover 2026-10-27 §1); MASTER-RECEIPT.json + verify-evidence-v004.json)\nHien thi: FINAL 4K 3840x2160 30 fps, 114.8 s, film mot minh (giong thuong hieu o dau, khong intro)\nNguon: D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\editorial\\master-4k-v004\\milk-and-mom-MASTER-4K-2160p30-v004.mp4\nsha256: 0946b625bc24ac3d1637ca0064a5c1ad56fa19a5c4edbfd6a278afb434804f28\nVideo: 3840x2160 @ 30/1, 3444 frames, 114.80 s; 487,345,797 bytes; audio aac 48000 Hz\nComfyUI/input/ep04review-FINAL-MASTER-4K-v004.mp4 (hard link toi file nguon, cung inode)"
+      ]
+    }
+  ],
+  "links": [],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "title": "Milk and Mom ep04 - xem lai: master-4k-v004",
+    "film_id": "04-milk-and-mom",
+    "task": "T-W06",
+    "review_cut": {
+      "label": "master-4k-v004",
+      "video": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\editorial\\master-4k-v004\\milk-and-mom-MASTER-4K-2160p30-v004.mp4",
+      "video_sha256": "0946b625bc24ac3d1637ca0064a5c1ad56fa19a5c4edbfd6a278afb434804f28",
+      "input_file": "ep04review-FINAL-MASTER-4K-v004.mp4",
+      "status": "accepted",
+      "status_basis": "user: 'video ok roi do' (handover 2026-10-27 §1); MASTER-RECEIPT.json + verify-evidence-v004.json",
+      "shows": "FINAL 4K 3840x2160 30 fps, 114.8 s, film mot minh (giong thuong hieu o dau, khong intro)",
+      "load_video_node_id": 1,
+      "note_node_id": 2,
+      "probe": {
+        "width": 3840,
+        "height": 2160,
+        "fps": "30/1",
+        "frames": 3444,
+        "duration_s": 114.8,
+        "audio_codec": "aac",
+        "sample_rate": 48000,
+        "channels": 2
+      },
+      "built_by": "tools/publish_review_pins_t_w06.py"
+    },
+    "ds": {
+      "scale": 0.7,
+      "offset": [
+        60,
+        20
+      ]
+    }
+  },
+  "version": 0.4
+}

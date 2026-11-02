@@ -1,0 +1,14 @@
+﻿scene,shot,duration,prompt,refs,guide
+SCENE_02,S02_A,4.458333333333333,"Photorealistic live-action NEWTECONS corporate footage. Use <Picture 1> as the approved adult character identity and wardrobe reference. Preserve the character's facial identity, age, hair and body proportions. Clothing and protective equipment follow the Wardrobe rule line of this prompt, not the reference photos. Photorealistic live-action footage as if shot on a full-frame cinema camera with a 35mm lens: natural skin texture with visible pores and fine lines, no airbrushing, no plastic or waxy skin, no glossy AI sheen, true-to-life fabric weave, natural hand anatomy with five fingers, realistic motion blur and lighting. Animate the approved scene anchor with natural adult movement, realistic skin and fabric, coherent lighting and camera, and performance timed to the supplied dialogue audio. Keep existing approved logos and lettering unchanged; do not invent or alter them. No cartoon styling or exaggerated facial features.
+
+SHOT S02_A (SCENE_02, 4 s, camera CAM_LOW_ANGLE_MEDIUM, setting SET_SITE_CONTAINER_MEETING).
+<Picture 1> = Trần Đình Tuấn (CHAR_GDDA, CHAR_02).
+Wardrobe rule: Wardrobe (van_phong, office or site container office): the company fine blue-white grid shirt with the small collar logo only; no helmet, no safety vest, nothing reflective.
+Subject: CHAR_GDDA standing decisively and shouting with commanding authority at 10 tense site engineers seated around a cluttered conference table in a site container office.
+Style: tense corporate construction drama, cinematic 50mm film lens, atmospheric haze, movie still.
+Composition: dynamic medium-wide low-angle shot, leading lines of the long wooden table toward the charismatic project director.
+Lighting: overhead fluorescent office strip light mixed with warm afternoon golden hour sunlight slashing through container windows.
+Material: crisp paper blueprints, steel thermos cups, rugged concrete background.
+Dialogue (vi, spoken by CHAR_GDDA): ""Tiến độ đang gấp, lực lượng nhân công chưa đủ theo kế hoạch."" - performance timed to the supplied dialogue audio.
+Negative: cartoon, smiling, relaxed, extra hands, distorted faces, oversaturated.
+","[""S02_A_ref_0.png"", ""S02_A_ref_1.png"", ""S02_A_ref_2.png""]",S02_A_guide.png

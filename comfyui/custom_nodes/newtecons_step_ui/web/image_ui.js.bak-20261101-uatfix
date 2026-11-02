@@ -1,0 +1,679 @@
+// NEWTECONS IMAGE step panel — same layout as the VIDEO panel (step_dock.js) in the BLUE theme (Blue Web,
+// no orange/yellow). ONE surface on image graphs: the lane's blue step bar is hidden, and its features live here:
+// route/plan chips per step, 01 "CHẠY N PROMPT", 02A wardrobe slot status, 02B character slots, 09 source/target
+// picker + approve command. Pure plan/prompt logic is the lane's (step_ui_logic.js, read-only namespace import).
+// Queue actions require pressing CHẠY N PROMPT or Chạy tự động 9 ô.
+import { app } from "../../scripts/app.js";
+import { api } from "../../scripts/api.js";
+import { activeWorkflowContext } from "./workflow_context.js";
+import * as L from "./image_ui_logic.js";
+import * as S from "./step_ui_logic.js";
+import { arrowSvg as arrowBase, createDock, el } from "./step_dock.js";
+import { THEMES } from "./step_dock_logic.js";
+
+import { nodeParameters, panelIsEditing, markGraphDirty } from "./widget_panel.js";
+import { imageStepForNode } from "./widget_panel_logic.js";
+import { CELL_IDS, poseSnapshot, poseSource, assertLocalEndpoint, assertLocalGraph, runPoseBatch } from "./auto_run_logic.js";
+
+const EXT = "Newtecons.ImageUI";
+const POLL_MS = 1000;
+const HISTORY_ITEMS = 400; // máy chủ chỉ giữ ~200 job; phần còn lại do chỉ mục đĩa (data/image/results-index.json) bù
+const DATA_BASE = new URL("./data/", import.meta.url).href;
+const UPLOAD_SUBFOLDER = "newtecons-uploads";
+const MAX_PROMPTS = S.MAX_PROMPTS ?? 10;
+const PROMPT_LIST_KEY = S.PROMPT_LIST_KEY ?? "newtecons_prompt_list";
+
+const state = { active: false, sig: "", step: null, steps: [], graph: null, history: null, historyAt: 0,
+  chars: null, wardrobe: null, index: null, presets: undefined, settings: null, saved: null, uploadMsg: null,
+  promptText: null, promptRun: null, promptMsg: "", lanes: null, approveText: "" };
+let dock = null;
+let poseRun = null;
+
+async function autoRequest(path, options = {}) {
+  assertLocalEndpoint(api.apiURL(path), location.href);
+  const response = await api.fetchApi(path, { cache: "no-store", ...options,
+    headers: { "Content-Type": "application/json", ...options.headers } });
+  if (!response.ok) throw new Error(`${path}: HTTP ${response.status}`);
+  // /queue DELETE replies with an empty body on some ComfyUI versions.
+  const body = await response.text();
+  return body ? JSON.parse(body) : {};
+}
+
+async function runNineCells() {
+  if (poseRun?.busy) return;
+  const run = { busy: true, cancelled: false, jobs: [], message: "Đang kiểm tra graph local…", graph: app.graph };
+  poseRun = run; render();
+  try {
+    if (currentRoute() !== "local") throw new Error("Chọn luồng LOCAL trước khi chạy 9 ô.");
+    if ((run.graph._nodes || []).some((n) => n.widgets?.some((w) =>
+      w.name === "control_after_generate" && w.value !== "fixed"))) throw new Error("Auto cần seed ở chế độ fixed.");
+    const frozen = structuredClone(await app.graphToPrompt());
+    const fingerprint = () => {
+      const snap = snapshot();
+      return JSON.stringify([snap.nodes, snap.links, snap.extra]);
+    };
+    const initialFingerprint = fingerprint();
+    const signature = JSON.stringify(frozen.output);
+    const sources = structuredClone(run.graph.extra?.newtecons_auto_pose_sources || {});
+    const sourceSignature = JSON.stringify(sources);
+    const sourceData = await getJson(new URL("./pose_cells.json", import.meta.url).href);
+    const info = await autoRequest("/object_info");
+    assertLocalGraph(frozen.output, info);
+    if (frozen.output[65]?.class_type !== "SaveImage") throw new Error("Cần SaveImage #65 của bước 07 để nhận ảnh RA.");
+    run.jobs = CELL_IDS.map((cell) => ({ label: cell, outputIds: ["65"],
+      ...poseSnapshot(frozen, cell, poseSource(frozen.output, sourceData.cells.find((c) => c.cell_id === cell), sources[cell])) }));
+    const validate = async () => {
+      if (app.graph !== run.graph) throw new Error("Graph đã đổi — Auto dừng trước ô kế tiếp.");
+      const latest = await app.graphToPrompt();
+      if (app.graph !== run.graph || JSON.stringify(run.graph.extra?.newtecons_auto_pose_sources || {}) !== sourceSignature ||
+          JSON.stringify(latest.output) !== signature) {
+        throw new Error("Graph/cài đặt đã đổi — Auto dừng trước ô kế tiếp.");
+      }
+    };
+    await runPoseBatch({ jobs: run.jobs, run, request: autoRequest, validate,
+      isCurrent: () => app.graph === run.graph && fingerprint() === initialFingerprint,
+      submit: (job) => autoRequest("/prompt", { method: "POST", body: JSON.stringify({
+        prompt: job.output, client_id: api.clientId,
+        extra_data: { extra_pnginfo: { workflow: job.workflow },
+          newtecons_auto: { engine: "image", cell: job.label, label: `07 · ${job.label}` } },
+      }) }),
+      onChange: () => render() });
+  } catch (error) {
+    run.message = `Auto dừng: ${error.message}`;
+    run.error = true;
+    for (const job of run.jobs) if (!job.state) job.state = "cancelled";
+  } finally { run.busy = false; render(); }
+}
+
+function autoPoseView() {
+  const run = poseRun?.graph === app.graph ? poseRun : null;
+  const busy = Boolean(poseRun?.busy);
+  return el("div", { class: "ntd-slot", "data-auto": "pose-nine" },
+    el("button", { class: "ntd-btn", type: "button", text: "Chạy tự động 9 ô", disabled: busy,
+      onclick: runNineCells }),
+    el("button", { class: "ntd-btn", type: "button", text: "Stop — dừng các ô còn lại", disabled: !busy,
+      onclick: () => { if (poseRun) { poseRun.cancelled = true; poseRun.message = "Đang dừng Auto; giữ job đang chạy."; render(); } } }),
+    el("div", { role: "status", "aria-live": "polite", class: run?.error ? "ntd-warn" : "ntd-msg",
+      text: run ? `${run.jobs.filter((j) => j.state === "done").length}/9 xong · ${run.message}`
+        : "LOCAL · từng ô một · chỉ gửi khi pending < 4 · ảnh RA chờ duyệt." }),
+    el("div", { class: "ntd-refs" }, (run?.jobs || []).map((job) =>
+      el("div", { class: "ntd-slot" }, el("div", { text: `${job.label} · ${job.state || "chờ"}` }),
+        ...(job.images || []).map((ref) => thumb(ref, `RA · ${job.label}`))))));
+}
+
+function snapshot() {
+  const g = app.graph;
+  if (!g) return null;
+  const groups = (g._groups || g.groups || []).map((gr) => {
+    const b = gr._bounding || gr.boundingRect || gr.bounding || [gr.pos?.[0], gr.pos?.[1], gr.size?.[0], gr.size?.[1]];
+    return { title: gr.title, bounding: Array.from(b || [], Number) };
+  });
+  const nodes = (g._nodes || g.nodes || []).map((n) => ({
+    id: n.id, type: n.type, title: n.title, mode: n.mode || 0, pos: [n.pos[0], n.pos[1]], properties: { ...(n.properties || {}) },
+    widgets: Object.fromEntries((n.widgets || []).map((w) => [w.name, w.value])),
+    inputs: (n.inputs || []).map((p) => ({ name: p.name, link: p.link ?? null })),
+  }));
+  const raw = g.links instanceof Map ? [...g.links.values()] : Object.values(g.links || {});
+  const links = raw.filter(Boolean).map((l) => ({ id: l.id, origin_id: l.origin_id, target_id: l.target_id }));
+  return { g, extra: g.extra || {}, groups, nodes, links };
+}
+
+async function getJson(url) {
+  const res = await fetch(url, { cache: "no-store" });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return JSON.parse((await res.text()).replace(/^﻿/u, ""));
+}
+
+async function loadData() {
+  let chars = null;
+  let ward = null;
+  try { chars = await getJson(DATA_BASE + "characters/newtecons_live_action.json"); } catch { chars = null; }
+  try { ward = await getJson(DATA_BASE + "wardrobe/newtecons_live_action.json"); } catch { ward = null; }
+  try { state.index = await getJson(DATA_BASE + "image/results-index.json"); } catch { state.index = null; }
+  state.chars = L.parseCharacters(chars);
+  state.wardrobe = L.parseWardrobe(ward);
+  state.presets = ward;
+}
+
+async function loadHistory(force = false) {
+  if (!force && state.history && performance.now() - state.historyAt < 4000) return;
+  try {
+    const res = await api.fetchApi(`/history?max_items=${HISTORY_ITEMS}`);
+    state.history = res.ok ? await res.json() : {};
+  } catch (err) {
+    console.warn(`[${EXT}] /history`, err);
+    state.history = state.history || {};
+  }
+  state.historyAt = performance.now();
+}
+
+const plan = () => (S.routePlan ? S.routePlan(state.graph.extra) : null);
+const choice = (dim) => (plan()?.[dim] && S.currentChoice ? S.currentChoice(state.graph.extra, state.graph.nodes, dim) : null);
+const view = (ref) => api.apiURL(L.viewPath(ref));
+
+function empty(title, sub) {
+  return el("div", { class: "ntd-empty" }, el("b", { text: title }), sub || "");
+}
+
+function thumb(ref, caption, wide = false) {
+  return el("div", { class: "ntd-ref" + (wide ? " wide" : ""), title: caption },
+    ref ? el("img", { src: view(ref), alt: caption, loading: "lazy" }) : null,
+    el("span", { class: "cap", text: caption }), ref ? null : "chưa chọn file");
+}
+
+function slot(kind, caption, ...kids) {
+  const badge = el("span", { class: "ntd-badge" + (kind === "out" ? " ra" : ""), text: kind === "out" ? "RA" : "VÀO" });
+  return el("div", { class: "ntd-slot" }, el("div", { class: "ntd-lbl" }, badge, el("span", { text: caption })), ...kids);
+}
+
+function row(vao, ra) {
+  return el("div", { class: "ntd-row" }, vao, arrowBase(THEMES.blue.acc), ra);
+}
+
+// ---------- plan edits (same mutation as the lane's applyPlan; the change list comes from S.planChanges) ----------
+function applyPlan(dimension, option) {
+  const g = app.graph;
+  let changes;
+  try { changes = S.planChanges(g.extra, snapshot().nodes, dimension, option); } catch (err) {
+    state.saved = { ok: false, errors: [String(err.message || err)] }; render(); return;
+  }
+  const live = new Map((g._nodes || g.nodes || []).map((n) => [String(n.id), n]));
+  for (const m of changes.modes) {
+    const n = live.get(String(m.id));
+    n.properties = n.properties || {};
+    if (m.saved === null) delete n.properties.nt_mode_saved;
+    else if (m.saved !== undefined) n.properties.nt_mode_saved = m.saved;
+    n.mode = m.mode;
+  }
+  for (const s of changes.switches) {
+    const w = live.get(String(s.id))?.widgets?.find((x) => x.name === "switch");
+    if (w) { w.value = s.value; w.callback?.(s.value); }
+  }
+  for (const e of changes.widgets || []) {
+    for (const [name, value] of Object.entries(e.values)) {
+      const w = live.get(String(e.id))?.widgets?.find((x) => x.name === name);
+      if (w) { w.value = value; w.callback?.(value); }
+    }
+  }
+  Object.assign(g.extra, changes.extra);
+  g.change?.(); g.afterChange?.();
+  markGraphDirty();
+  state.sig = "~";
+}
+
+function planChips(dimension) {
+  const opts = L.planOptions(plan(), dimension);
+  if (!opts.length) return null;
+  const cur = choice(dimension);
+  return el("div", { class: "ntd-pick", "data-dim": dimension }, el("span", { text: L.DIMENSION_LABEL[dimension] || dimension }),
+    el("div", { class: "ntd-chips" }, opts.map((o) => el("button", { class: o.value === cur ? "on" : null, text: o.label, "data-value": o.value,
+      onclick: () => applyPlan(dimension, o.value) }))));
+}
+
+function routeOptions() {
+  const p = L.planOptions(plan(), "route");
+  return p.length ? p.map((o) => ({ ...o, plan: true })) : L.ROUTES.map((r) => ({ ...r, plan: false }));
+}
+
+function currentRoute() {
+  return plan()?.route ? choice("route") : state.settings.route;
+}
+
+function contextOptions() {
+  const p = L.planOptions(plan(), "wardrobe");
+  return p.length ? p.map((o) => ({ ...o, plan: true })) : state.wardrobe.contexts.map((c) => ({ value: c.key, label: c.label, plan: false }));
+}
+
+function currentContext() {
+  return plan()?.wardrobe ? choice("wardrobe") : state.settings.context;
+}
+
+function currentChar() {
+  return plan()?.character ? choice("character") : state.settings.char;
+}
+
+// ---------- upload (explicit user action: POST /upload/image into input/newtecons-uploads) ----------
+async function upload(kind, file) {
+  if (!L.acceptsUpload(file)) { state.uploadMsg = { ok: false, text: "Chỉ nhận PNG/JPG/WEBP ≤ 25 MB" }; render(); return; }
+  const body = new FormData();
+  body.append("image", new File([file], L.uploadName(file, currentChar(), kind), { type: file.type }));
+  body.append("subfolder", UPLOAD_SUBFOLDER);
+  body.append("type", "input");
+  try {
+    const res = await api.fetchApi("/upload/image", { method: "POST", body });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const r = await res.json();
+    const value = r.subfolder ? `${r.subfolder}/${r.name}` : r.name;
+    const target = L.uploadTarget(snapshot(), kind);
+    let where = "chỉ ghi vào cài đặt (graph chưa có node LoadImage cho mục này)";
+    if (target) {
+      const w = app.graph.getNodeById(target.id)?.widgets?.find((x) => x.name === "image");
+      if (w) { w.value = value; w.callback?.(value); where = `đã gán vào node #${target.id} ${target.title}`; }
+    }
+    state.settings = { ...state.settings, [kind === "scene" ? "scene_upload" : "wardrobe_upload"]: value };
+    state.uploadMsg = { ok: true, text: `Đã tải lên input/${value} · ${where}` };
+    markGraphDirty();
+  } catch (err) {
+    state.uploadMsg = { ok: false, text: "Tải lên lỗi: " + (err.message || err) };
+  }
+  state.sig = "~";
+  render();
+}
+
+function writeSettings() {
+  const v = L.validateImageSettings({ ...state.settings, char: currentChar() || state.settings.char, route: currentRoute() || state.settings.route,
+    context: currentContext() || state.settings.context }, state.chars, state.wardrobe);
+  if (!v.ok) { state.saved = { ok: false, errors: v.errors }; render(); return; }
+  const g = app.graph;
+  g.extra = { ...(g.extra || {}), [L.EXTRA_KEY]: { ...v.value, written_at: new Date().toISOString() } };
+  g.change?.();
+  markGraphDirty();
+  state.saved = { ok: true, at: new Date() };
+  render();
+}
+
+// ---------- outputs ----------
+function sessionOutput(outs) {
+  for (const o of outs) {
+    const out = app.nodeOutputs?.[String(o.nodeId)];
+    const media = (out?.images || []).filter((m) => m?.filename);
+    if (media.length) return { nodeId: o.nodeId, nodeTitle: o.title, match: "session", promptId: "phiên này",
+      media: media.map((m) => ({ filename: m.filename, subfolder: m.subfolder || "", type: m.type || "output" })) };
+  }
+  return null;
+}
+
+function outputHit(step, filter = () => true) {
+  const outs = L.outputNodesForStep(state.graph, step).filter(filter);
+  if (!outs.length) return { outs, hit: null };
+  const live = sessionOutput(outs) || L.latestOutput(state.history, outs, L.groupSignature(state.graph.groups));
+  // Khớp yếu của /history chỉ thắng khi đĩa không có ảnh cùng prefix.
+  return { outs, hit: live && live.match !== "weak" ? live : (L.indexOutput(state.index, outs) || live) };
+}
+
+function outputView(step, filter, emptyText) {
+  const { outs, hit } = outputHit(step, filter);
+  if (!outs.length) return [empty("BƯỚC TRUNG GIAN", "Nhóm này không có node lưu ảnh (SaveImage / PreviewImage): kết quả chảy thẳng sang bước kế, nên không có ảnh RA riêng. Xem ảnh ở bước có node lưu (02, 07, 08, 09).")];
+  if (!hit) return [empty("CHƯA CÓ", emptyText || L.emptyOutputText(state.index, outs, HISTORY_ITEMS))];
+  return [el("div", { class: "ntd-refs" }, hit.media.slice(0, 6).map((m) => thumb(m, m.filename, hit.media.length === 1))),
+    el("div", { class: "ntd-lbl", text: `${hit.match === "disk" ? "từ đĩa (output, khớp prefix)" : hit.match === "weak" ? "khớp yếu (node+loại+prefix)" : hit.match === "session" ? "phiên này" : "khớp: cùng workflow"} · #${hit.nodeId} ${hit.nodeTitle}${hit.media.length > 6 ? ` · +${hit.media.length - 6} ảnh` : ""}` })];
+}
+
+function inputView(step) {
+  const io = L.stepInputs(state.graph, step);
+  const kids = [];
+  if (io.images.length) kids.push(el("div", { class: "ntd-refs" }, io.images.map((i) => thumb(i.ref, `#${i.nodeId} ${i.title}${i.upstream ? ` · từ bước ${i.step || "ngoài nhóm"}` : ""}${i.mode ? " · TẮT" : ""}`))));
+  const missing = io.images.filter((i) => !i.upstream && !i.mode && !i.ref);
+  if (missing.length) kids.push(el("div", { class: "ntd-warn", text: `Thiếu ảnh tại ${missing.map((i) => "#" + i.nodeId).join(", ")}. Ảnh từ bước khác được ghi nguồn riêng; không thay thế ô đang trống.` }));
+  for (const p of io.prompts.slice(0, 2)) kids.push(el("div", { class: "ntd-prompt", title: `#${p.nodeId} ${p.title}`, text: p.text.slice(0, 900) }));
+  if (!kids.length) kids.push(empty("CHƯA CÓ", "Nhóm này không có ảnh LoadImage hay prompt chữ."));
+  kids.push(el("div", { class: "ntd-lbl", text: `Luồng: ${routeOptions().find((o) => o.value === currentRoute())?.label || L.MISSING} · ${io.nodes} node · ${io.muted} đang tắt` }));
+  return kids;
+}
+
+// ---------- 02A / 02B: anchor slots (lane's wardrobeStatus / characterStatus) ----------
+function slotThumb(s, prefix) {
+  const ref = s.value ? L.splitAnnotated(s.value) : null;
+  return el("div", { class: "ntd-wslot" + (s.live ? "" : " off") + (s.kind === "required" ? " req" : ""), title: `#${s.id} ${s.title}\n${s.value || "trống"}` },
+    ref && s.live ? el("img", { src: view(ref), loading: "lazy", alt: s.title }) : el("div", { class: "ntd-empty", text: s.live ? "TRỐNG" : "TẮT" }),
+    el("span", { text: `#${s.id} ${s.kind === "required" ? "BẮT BUỘC" : s.kind === "optional" ? (s.title || "").split(" — ")[0] : prefix}` }));
+}
+
+function wardrobeView(step) {
+  const ws = S.wardrobeStatus ? S.wardrobeStatus(state.graph) : null;
+  if (!ws) return null;
+  const out = [];
+  if (ws.context && !contextOptions().some((o) => o.value === ws.context)) {
+    out.push(el("div", { class: "ntd-warn", text: `Graph đang ở bối cảnh "${ws.context}" — bối cảnh này đã bị gỡ (lộ mặt CHAR_04). Chọn CÔNG TRƯỜNG hoặc VĂN PHÒNG.` }));
+  }
+  if (state.presets === null || ws.blocked) {
+    out.push(el("div", { class: "ntd-warn", "data-act": "blocked", text: "CHƯA CÓ BỘ NEO — NEO 1 trống ⇒ server từ chối Run ở cả 2 luồng. "
+      + (state.presets === null ? "Thiếu data/wardrobe/newtecons_live_action.json." : "Bộ neo của bối cảnh này không có ảnh.") }));
+  } else if (state.presets && S.presetFiles) {
+    const want = S.presetFiles(state.presets, ws.context);
+    const have = ws.slots.filter((s) => s.value).map((s) => s.value);
+    if (want.length > ws.slots.length) out.push(el("div", { class: "ntd-warn", text: `Bộ neo có ${want.length} ảnh, workflow chỉ có ${ws.slots.length} ô — build lại workflow.` }));
+    else if (want.join("|") !== have.join("|")) out.push(el("div", { class: "ntd-warn", text: "Ô NEO khác bộ neo hiện tại — bấm lại nút bối cảnh hoặc build lại workflow." }));
+  }
+  if (ws.emptyLive?.length) out.push(el("div", { class: "ntd-warn", text: `Ô đang BẬT nhưng trống: ${ws.emptyLive.map((i) => "#" + i).join(", ")} — ĐIỀN file hoặc TẮT.` }));
+  const label = contextOptions().find((o) => o.value === ws.context)?.label || ws.context || "?";
+  out.push(row(slot("in", `Bộ neo · ${label}`, el("div", { class: "ntd-wgrid", "data-act": "wslots" }, [...ws.slots, ...ws.optional].map((s) => slotThumb(s, "NEO")))),
+    slot("out", `Ảnh ra · đính kèm ${ws.attached} ref`, ...outputView(step))));
+  out.push(el("div", { class: "ntd-banner" }, el("b", { text: "ĐÍNH KÈM: " }),
+    "tấm tham chiếu (ghép các ô đang BẬT) → CODEX: refs của node Codex · LOCAL: ReferenceLatent trước guider bước 02 và 06."));
+  return out;
+}
+
+function characterView(step) {
+  const cs = S.characterStatus ? S.characterStatus(state.graph) : null;
+  if (!cs) return null;
+  const out = [];
+  const found = state.graph.extra?.newtecons_characters?.found;
+  if (!found || cs.blocked) out.push(el("div", { class: "ntd-warn", text: "CHƯA CÓ ẢNH NHÂN VẬT — MẶT 1 / DÁNG 1 trống ⇒ server từ chối Run luồng LOCAL. Không tự lấy ảnh reference-library." }));
+  if (choice("mau_moi") === "on") out.push(el("div", { class: "ntd-warn", text: "MẪU TẠO NHÂN VẬT MỚI đang BẬT: mặt/dáng lấy từ reference-library thay cho ảnh nhân vật — chỉ dùng khi tạo nhân vật MỚI." }));
+  const opt = plan()?.character?.options?.[cs.context] || {};
+  out.push(row(slot("in", `${opt.label || cs.context || "?"} · mặt + dáng`, el("div", { class: "ntd-wgrid" }, cs.slots.map((s) => slotThumb(s, "ẢNH")))),
+    slot("out", `Ảnh ra · đính kèm ${cs.attached} ảnh nhân vật`, ...outputView(step))));
+  out.push(el("div", { class: "ntd-banner" }, el("b", { text: "LUỒNG: " }),
+    "LOCAL — MẶT/DÁNG ghép thành tham chiếu → ReferenceLatent trước guider bước 02. CODEX — refs THAY bộ neo trang phục, nên ảnh nhân vật không gửi sang Codex."));
+  return out;
+}
+
+// ---------- 09: source / target / approve ----------
+async function shaOfRef(ref) {
+  const res = await fetch(api.apiURL(L.viewPath(ref)), { cache: "no-store" });
+  if (!res.ok) throw new Error("GET /view HTTP " + res.status);
+  if (!globalThis.crypto?.subtle) throw new Error("trình duyệt không có crypto.subtle (cần http://127.0.0.1 hoặc https)");
+  return S.hexOf(await crypto.subtle.digest("SHA-256", await res.arrayBuffer()));
+}
+
+function approveView(srcRef) {
+  if (!S.approveCommand || !S.hexOf) return el("div", { class: "ntd-warn", text: "step_ui_logic.js không còn export approveCommand/hexOf." });
+  const pre = el("pre", { class: "ntd-pre", "data-act": "approve-out", text: state.approveText
+    || "Bấm “GHI DUYỆT (ENGINE)”: tính sha256 của ảnh VÀO rồi hiện + chép lệnh. Bridge không có endpoint approve ⇒ chỉ chép lệnh, không gửi gì." });
+  const btn = el("button", { class: "ntd-btn", "data-act": "approve", text: "GHI DUYỆT (ENGINE)", onclick: async () => {
+    try {
+      if (!srcRef) throw new Error("chưa có ảnh VÀO (ĐIỀN file ở node NGUỒN FILE, hoặc chạy bước 08/07)");
+      pre.textContent = "Đang tính sha256 …";
+      const cmd = S.approveCommand({ sha: await shaOfRef(srcRef) });
+      let copied = false;
+      try { await navigator.clipboard.writeText(cmd); copied = true; } catch (err) { console.warn(`[${EXT}] clipboard`, err); }
+      state.approveText = `${cmd}\n\n(jjv = python -I .agents/skills/studio-video-engine/bin/jjv.py) · ảnh: ${srcRef.subfolder ? srcRef.subfolder + "/" : ""}${srcRef.filename} · `
+        + (copied ? "ĐÃ CHÉP vào clipboard." : "chưa chép được (clipboard bị chặn) — bôi đen để chép.")
+        + "\nEngine chỉ duyệt ảnh có receipt (take trong library) và khi checklist `jjv images compare` đã pass.";
+      pre.textContent = state.approveText;
+    } catch (err) {
+      pre.textContent = "Không tạo được lệnh: " + (err?.message || err);
+    }
+  } });
+  return el("div", { class: "ntd-slot", style: "margin-top:8px" }, el("div", { class: "ntd-lbl" }, el("span", { class: "ntd-badge", text: "DUYỆT" }), el("span", { text: "lệnh engine (không gửi gì)" })), btn, pre);
+}
+
+function finalView(step) {
+  const p = plan();
+  if (!p?.source09 || !p?.target09) return null;
+  const src = choice("source09");
+  const tgt = choice("target09");
+  const out = [];
+  let srcRef = null;
+  let vao;
+  if (src === "07" || src === "08") {
+    const from = state.steps.find((s) => s.code === src);
+    const { hit } = from ? outputHit(from) : { hit: null };
+    srcRef = hit ? hit.media[0] : null;
+    vao = slot("in", `Ảnh RA bước ${src}`, hit ? el("div", { class: "ntd-refs" }, thumb(srcRef, srcRef.filename, true))
+      : empty("CHƯA CÓ", `Chưa có ảnh RA của bước ${src} trong lịch sử. Chạy bước ${src} trước, hoặc chọn NGUỒN = FILE ĐÃ DUYỆT.`));
+  } else {
+    const own = L.stepInputs(state.graph, step).images.find((i) => i.ref && !i.mode);
+    srcRef = own ? own.ref : null;
+    vao = slot("in", "File đã duyệt", ...inputView(step));
+  }
+  vao.append(el("div", { class: "ntd-lbl", "data-act": "size", text: `ĐÍCH ${tgt || "?"} tính theo chiều cao (width 0 = giữ tỉ lệ ảnh VÀO).` }));
+  const prefix = p.target09.options?.[tgt]?.prefix;
+  const bad = S.switchProblems ? S.switchProblems(state.graph) : [];
+  if (bad.length) out.push(el("div", { class: "ntd-warn", text: "Switch chọn nhánh đang TẮT (ra None): " + bad.map((b) => `#${b.id} ${b.title}`).join(" · ") }));
+  out.push(row(vao, slot("out", `Upscale ${tgt || "?"}`, ...outputView(step, (o) => o.type === "SaveImage" && (!prefix || o.prefix === prefix),
+    null))));
+  out.push(approveView(srcRef));
+  return out;
+}
+
+// ---------- 01: N prompts (button = the only GPU action, user-pressed) ----------
+async function loadLanes() {
+  if (state.lanes) return;
+  try {
+    const res = await api.fetchApi("/codex_lane/health");
+    const body = res.ok ? await res.json() : null;
+    state.lanes = { ok: Boolean(body?.ok), accounts: Array.isArray(body?.accounts) ? body.accounts : [] };
+  } catch (err) {
+    state.lanes = { ok: false, accounts: [], error: String(err?.message || err) };
+  }
+  render();
+}
+
+async function pollPromptRun() {
+  const run = state.promptRun;
+  if (!run || run.finished) return;
+  try {
+    const res = await api.fetchApi("/history?max_items=200");
+    run.progress = S.promptListProgress(res.ok ? await res.json() : {}, run.prompts, run.since, run.textNodeId);
+    if (run.queuedAll && run.progress.done + run.progress.failed >= run.queued) run.finished = true;
+  } catch (err) {
+    console.warn(`[${EXT}] prompt-list poll`, err);
+  }
+  render();
+  if (!run.finished) run.timer = setTimeout(pollPromptRun, 2500);
+}
+
+async function runPromptList(route) {
+  let prompts;
+  try { prompts = S.parsePromptList(state.promptText); } catch (err) { state.promptMsg = String(err.message || err); render(); return; }
+  if (!prompts.length) { state.promptMsg = "Danh sách trống: Run thường dùng 1 prompt ở node PROMPT."; render(); return; }
+  if (route === "codex") {
+    const node = (app.graph._nodes || app.graph.nodes || []).find((n) => n.type === "CodexOAuthImageLane");
+    for (const [name, value] of Object.entries(S.codexMultiPromptEdits(prompts))) {
+      const w = node?.widgets?.find((x) => x.name === name);
+      if (w) w.value = value;
+    }
+    markGraphDirty();
+    state.promptMsg = `CODEX: đã điền ${prompts.length} prompt vào node Codex (count=${prompts.length}). Bấm Run để gửi — tốn quota ChatGPT.`;
+    render();
+    return;
+  }
+  const id = L.promptNodeId(state.graph, state.steps);
+  const w = id != null ? app.graph.getNodeById(id)?.widgets?.find((x) => x.name === "value") : null;
+  if (!w) { state.promptMsg = "Không thấy node PROMPT (PrimitiveStringMultiline) trong nhóm PROMPT."; render(); return; }
+  const original = w.value;
+  let since = -1;
+  try {
+    const [h, q] = await Promise.all([api.fetchApi("/history?max_items=200"), api.fetchApi("/queue")]);
+    since = S.maxPromptNumber(h.ok ? await h.json() : {}, q.ok ? await q.json() : {});
+  } catch (err) { console.warn(`[${EXT}] prompt-list since`, err); }
+  const run = { prompts, since, textNodeId: id, queued: 0, queuedAll: false, finished: false, progress: null, results: [] };
+  state.promptRun = run;
+  state.promptMsg = "";
+  render();
+  run.results = await S.queuePromptsSequential({
+    prompts,
+    setPrompt: (text) => { w.value = text; },
+    queue: () => app.queuePrompt(0, 1),
+    restore: () => { w.value = original; markGraphDirty(); },
+    onQueued: (k) => { run.queued = k; render(); },
+  });
+  run.queuedAll = true;
+  const bad = run.results.find((r) => !r.ok);
+  if (bad) state.promptMsg = `Dừng ở prompt ${bad.index + 1}: ${bad.error}. Đã xếp ${run.queued} / ${prompts.length}.`;
+  pollPromptRun();
+}
+
+function promptListView() {
+  const needed = ["parsePromptList", "queuePromptsSequential", "promptListProgress", "maxPromptNumber", "codexMultiPromptSupport", "codexMultiPromptEdits"];
+  const missing = needed.filter((k) => typeof S[k] !== "function");
+  if (missing.length) return el("div", { class: "ntd-warn", text: "step_ui_logic.js thiếu export: " + missing.join(", ") });
+  if (state.promptText == null) state.promptText = String(state.graph.extra?.[PROMPT_LIST_KEY] || "");
+  const route = currentRoute() || "local";
+  let count = 0;
+  let err = "";
+  try { count = S.parsePromptList(state.promptText).length; } catch (e) { err = String(e.message || e); }
+  const codex = state.graph.nodes.find((n) => n.type === "CodexOAuthImageLane");
+  const codexOk = S.codexMultiPromptSupport(codex);
+  const counter = el("span", { "data-act": "count", text: err || `N = ${count}` });
+  const area = el("textarea", { class: "ntd-text", "data-act": "prompt-list",
+    placeholder: `Mỗi dòng 1 prompt, 1..${MAX_PROMPTS}. Để trống = Run thường với 1 prompt ở node PROMPT.`,
+    oninput: (e) => {
+      state.promptText = e.target.value;
+      app.graph.extra[PROMPT_LIST_KEY] = e.target.value;
+      app.graph.change?.();
+      let n = -1;
+      try { n = S.parsePromptList(e.target.value).length; } catch { n = -1; }
+      counter.textContent = n < 0 ? `quá ${MAX_PROMPTS} dòng` : `N = ${n}`;
+    } });
+  area.value = state.promptText;
+  const run = state.promptRun;
+  const busy = Boolean(run && !run.finished);
+  const btn = el("button", { class: "ntd-btn", "data-act": "run-n", text: "CHẠY N PROMPT",
+    title: route === "codex" && !codexOk ? "chờ cầu nối hỗ trợ nhiều prompt" : route === "codex" ? "điền N prompt vào node Codex (rồi bấm Run)" : "xếp N job ComfyUI lần lượt",
+    onclick: () => runPromptList(route) });
+  if ((route === "codex" && !codexOk) || busy) btn.setAttribute("disabled", "");
+  const prog = run ? `Đã xếp ${run.queued} / ${run.prompts.length} · xong ${run.progress?.done ?? 0} / ${run.prompts.length}`
+    + (run.progress?.failed ? ` · lỗi ${run.progress.failed}` : "") + (run.finished ? " · HẾT" : "") : "";
+  if (!state.lanes) loadLanes();
+  const lanes = state.lanes;
+  const laneText = lanes ? (lanes.ok ? `${lanes.accounts.length}: ${lanes.accounts.join(", ")}` : "bridge không trả lời") : "đang hỏi /codex_lane/health …";
+  return el("div", { class: "ntd-slot", style: "margin-bottom:8px" },
+    el("div", { class: "ntd-lbl" }, el("span", { class: "ntd-badge", text: `${MAX_PROMPTS} PROMPT` }), el("span", { text: "N ảnh từ N prompt — chỉ chạy khi bấm nút" })),
+    area, el("div", { class: "ntd-row2" }, btn, counter, el("span", { "data-act": "progress", text: prog })),
+    state.promptMsg ? el("div", { class: "ntd-warn", text: state.promptMsg }) : null,
+    el("div", { class: "ntd-banner", "data-act": "lanes" }, el("b", { text: route === "codex" ? "CODEX: " : "LOCAL: " }),
+      route === "codex"
+        ? `chạy SONG SONG theo lane — số lane = số tài khoản trong allow-list (hiện ${laneText}). ` + (codexOk ? "Node Codex nhận nhiều prompt." : "Node Codex chưa có input `prompts` ⇒ nút tắt.")
+        : `từng ảnh một trên RTX 5080 — N job xếp lần lượt (server chạy 1 job GPU một lúc). Lane CODEX hiện ${laneText}.`));
+}
+
+// ---------- card ----------
+function field(label, control) {
+  return el("label", { class: "ntd-f" }, el("span", { text: label }), control);
+}
+
+function select_(options, value, onchange) {
+  return el("select", { onchange: (e) => onchange(e.target.value) }, options.map(([v, t]) => {
+    const o = el("option", { value: v, text: t });
+    if (v === value) o.selected = true;
+    return o;
+  }));
+}
+
+function chips(options, cur, onpick) {
+  return el("div", { class: "ntd-chips" }, options.map((o) => el("button", { class: o.value === cur ? "on" : null, text: o.label,
+    "data-value": o.value, onclick: () => onpick(o) })));
+}
+
+function setS(patch) {
+  state.settings = { ...state.settings, ...patch };
+  state.saved = null;
+  render();
+}
+
+function settingsCard() {
+  const s = state.settings;
+  const charNow = currentChar();
+  const ch = state.chars.list.find((c) => c.id === charNow);
+  const ctx = currentContext();
+  const ward = state.wardrobe.contexts.find((c) => c.key === ctx);
+  const v = L.validateImageSettings({ ...s, char: charNow || s.char, route: currentRoute() || s.route, context: ctx || s.context }, state.chars, state.wardrobe);
+  const sec = (n, title, ...kids) => el("div", { class: "ntd-sec" }, el("h4", {}, el("i", { text: String(n) }), title), ...kids);
+  const file = (kind) => el("input", { type: "file", accept: "image/png,image/jpeg,image/webp",
+    onchange: (e) => { const f = e.target.files?.[0]; if (f) upload(kind, f); } });
+  const charPlan = Boolean(plan()?.character);
+  const msg = state.saved?.ok ? el("span", { class: "ok", text: `Đã ghi graph.extra.${L.EXTRA_KEY} lúc ${state.saved.at.toLocaleTimeString()}. Lưu workflow (Ctrl+S) để giữ.` })
+    : state.saved ? el("span", { class: "bad", text: state.saved.errors.join(" · ") })
+      : v.ok ? el("span", { text: "Chưa ghi. Ghi chỉ đổi graph, không gửi /prompt." }) : el("span", { class: "bad", text: v.errors.join(" · ") });
+  return el("div", { class: "ntd-card" },
+    el("h3", {}, "INPUT", el("span", { class: "ntd-chip", text: "NEWTECONS · LIVE-ACTION" })),
+    sec(1, "NHÂN VẬT",
+      field("Nhân vật", select_(state.chars.list.map((c) => [c.id, `${c.id}${c.name ? " · " + c.name : ""}`]), charNow,
+        (x) => (charPlan ? applyPlan("character", x) : setS({ char: x })))),
+      state.chars.ok ? null : field("Dữ liệu", el("output", { text: state.chars.errors.join(" · ") || "chưa có data/characters" })),
+      ch?.refs.length ? el("div", { class: "ntd-refs" }, ch.refs.slice(0, 4).map((r) => thumb(r.ref, `${r.kind} ${r.name}`))) : null),
+    sec(2, "BỐI CẢNH · TRANG PHỤC",
+      chips(contextOptions(), ctx, (o) => (o.plan ? applyPlan("wardrobe", o.value) : setS({ context: o.value }))),
+      ward?.files.length ? el("div", { class: "ntd-refs", style: "margin-top:6px" }, ward.files.slice(0, 4).map((f) => thumb(f.ref, f.name))) : null),
+    sec(3, "LUỒNG",
+      chips(routeOptions(), currentRoute(), (o) => (o.plan ? applyPlan("route", o.value) : setS({ route: o.value }))),
+      el("div", { class: "ntd-msg", text: plan() ? "Đổi luồng = áp route plan của workflow (mute/switch), không chạy." : "Workflow không có route plan: chỉ ghi vào cài đặt." })),
+    sec(4, "SỐ ẢNH",
+      field("Số ảnh N", el("input", { type: "number", min: "1", max: "10", step: "1", value: s.count == null ? "" : String(s.count), placeholder: "chưa có (1..10)",
+        onchange: (e) => setS({ count: e.target.value.trim() === "" ? null : Number(e.target.value) }) }))),
+    sec(5, "TRANG PHỤC CÔNG TY", field("Tải lên", file("wardrobe")), field("Đang dùng", el("output", { text: s.wardrobe_upload || L.MISSING }))),
+    sec(6, "BỐI CẢNH THAM CHIẾU", field("Tải lên", file("scene")), field("Đang dùng", el("output", { text: s.scene_upload || L.MISSING }))),
+    state.uploadMsg ? el("div", { class: "ntd-msg" }, el("span", { class: state.uploadMsg.ok ? "ok" : "bad", text: state.uploadMsg.text })) : null,
+    el("button", { class: "ntd-btn", disabled: !v.ok, onclick: writeSettings, text: "GHI CÀI ĐẶT VÀO GRAPH" }),
+    el("div", { class: "ntd-msg" }, msg));
+}
+
+// ---------- body ----------
+function stepContent(step) {
+  if (step.label === "NEO TRANG PHỤC") return wardrobeView(step);
+  if (step.label === "THAM CHIẾU NHÂN VẬT" || step.label === "THAM CHIẾU FACE/POSE") return characterView(step);
+  if (step.label === "DUYỆT & UPSCALE") return finalView(step);
+  return null;
+}
+
+function bodyView() {
+  const step = state.steps.find((s) => s.code === state.step) || state.steps[0];
+  const kids = [el("div", { class: "ntd-title" }, el("span", { class: "n", text: step.code }), el("span", { class: "t", text: step.label }),
+    el("button", { class: "x", text: "XEM NHÓM TRÊN GRAPH", onclick: () => dock.zoomTo(step.bounding) }))];
+  for (const d of L.stepDimensions(step, plan())) kids.push(planChips(d));
+  if (step.label === "PROMPT") kids.push(promptListView());
+  if (step.code === "07") kids.push(autoPoseView());
+  const special = stepContent(step);
+  if (special) kids.push(...special);
+  else kids.push(row(slot("in", "Đầu vào của nhóm", ...inputView(step)), slot("out", "Ảnh ra gần nhất", ...outputView(step))));
+  const members = state.graph.nodes.filter((n) => imageStepForNode(n, state.steps) === step.code);
+  kids.push(nodeParameters(members.map((n) => [n.id, n.type]), { panelId: "nti-panel" }));
+  kids.push(el("div", { class: "ntd-foot" }, el("span", { text: "Đọc /history + /view; ghi cài đặt / plan vào graph. Nút CHẠY N PROMPT hoặc Chạy tự động 9 ô gửi job khi bấm." })));
+  return el("div", { class: "ntd-body" }, kids);
+}
+
+function render() {
+  if (!dock) return;
+  dock.show(state.active);
+  if (!state.active || !state.settings) return;
+  const focused = panelIsEditing("nti-panel");
+  if (focused) { state.sig = "~"; return; } // never rebuild under the user's typing; a later tick re-renders
+  dock.setBar({
+    title: "IMAGE ENGINE", sub: `NEWTECONS · ${state.steps.length} bước · ${String(currentRoute() || "?").toUpperCase()}`,
+    tabs: state.steps.map((s) => {
+      const io = L.stepInputs(state.graph, s);
+      return { code: s.code, label: s.label, title: s.title, on: s.code === state.step, off: io.nodes > 0 && io.muted === io.nodes,
+        onClick: () => {
+          state.step = s.code;
+          if (dock.prefs.mode === "collapsed") dock.setPrefs({ mode: "top" }); else render();
+          loadHistory(true).then(() => { state.sig = "~"; }); // refresh RA after the switch, never before it
+        } };
+    }),
+  });
+  dock.setPanel(settingsCard(), bodyView());
+}
+
+async function tick() {
+  const snap = snapshot();
+  const on = Boolean(snap && L.isImageFlow(snap.extra, snap.groups, activeWorkflowContext(app)));
+  if (!on) { if (state.active) { state.active = false; render(); } return; }
+  state.graph = snap;
+  const steps = L.parseSteps(snap.groups);
+  const sig = JSON.stringify([snap.g.id, steps.map((s) => [s.code, s.label]), snap.extra.newtecons_route,
+    snap.nodes.map((n) => [n.id, n.type, n.pos, n.mode, Object.entries(n.widgets).filter(([, v]) => v == null || ["string", "number", "boolean"].includes(typeof v)), n.inputs]), state.historyAt]);
+  if (!state.active || sig !== state.sig) {
+    const first = !state.active;
+    state.active = true; state.sig = sig; state.steps = steps;
+    if (!steps.some((s) => s.code === state.step)) state.step = steps[0]?.code || null;
+    if (first || !state.chars) {
+      await loadData(); await loadHistory(true);
+      state.settings = L.defaultImageSettings(snap.extra, state.chars, state.wardrobe);
+      state.promptText = null;
+    }
+    render();
+    return;
+  }
+  dock.watch();
+  dock.place();
+}
+
+function init() {
+  if (dock) return;
+  dock = createDock({ key: "image", theme: "blue", barId: "nti-bar", panelId: "nti-panel", onChange: () => render() });
+  for (const evt of ["executed", "execution_success"]) api.addEventListener(evt, () => loadHistory(true).then(() => { state.sig = "~"; }));
+  let busy = false;
+  setInterval(async () => {
+    if (busy) return;
+    busy = true;
+    try { await tick(); } catch (err) { console.warn(`[${EXT}] tick`, err); } finally { busy = false; }
+  }, POLL_MS);
+}
+
+app.registerExtension({
+  name: EXT,
+  async setup() { init(); },
+  async afterConfigureGraph() { state.sig = "~"; },
+});

@@ -1,0 +1,855 @@
+{
+  "1": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    }
+  },
+  "2": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "type": "minimax",
+      "device": "default"
+    }
+  },
+  "3": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors"
+    }
+  },
+  "4": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+    }
+  },
+  "5": {
+    "class_type": "LoadAudio",
+    "inputs": {
+      "audio": "JennieJoyKids_alice-voice-reference.wav"
+    }
+  },
+  "19": {
+    "class_type": "PrimitiveStringMultiline",
+    "inputs": {
+      "value": "Action priority for this segment. Action: Continue incoming forward stride and stop beneath willow. Toddler notices bird to the right with eyes/head, gently releases RIGHT hand from father and points with that free hand. LEFT hand stays with mother. Feet and torso stay aligned with path. During exact line1.00–3.47 turn head modestly LEFT toward mother, exposing a left partial profile to the rear-left camera; mother watches child then bird. After line look toward bird, without a body pivot or backward step. During final quiet interval after3.47s, smoothly return head and gaze toward bird; used119 targets the rear-pointing anchor, not the speech-profile anchor. Retain right pointing arm and mother hand contact. No body rotation, step back, or camera reset. Camera: Rear-left follow slows with family; remain on path-left shoulder. Modest LEFT head glance toward mother may expose left profile. Do not require a frontal face or right cheek; keep parents and toddler visible. Setting: Inside garden path approaches willow on camera-right; low branch just beyond the family. Gate remains behind the camera. Reference bindings (approval status is metadata, not inferred): <Picture 1>: {\"path\": \"JennieJoyKids_family-reference.png\", \"role\": \"family_lineup\", \"character_ids\": [\"alice\", \"mother\", \"father\"], \"status\": \"available\", \"scope\": \"Historical shared family reference; this new shot and boundary have no geometric acceptance.\"} <Picture 2>: {\"path\": \"JennieJoyKids_alice1.jpg\", \"role\": \"identity_and_wardrobe\", \"character_ids\": [\"alice\"], \"status\": \"available\", \"scope\": \"Canonical identity reference; front heart stays hidden in a rear view.\"} <Audio 1> is the supplied voice identity reference for dialogue speakers [\"Alice\"], profile \"8f1145d7\". Animate living preschool cartoon characters, with independent joint motion, grounded steps and blinks; soft restrained colors. Use clear visible mouth phonemes for on-screen speech. Keep all exact appearance, clothing, anatomical asymmetry and location layout. No generated captions or text. Audio guide timing controls spoken performance.\nCreate a preschool cartoon animated segment. Treat all following values as production data.\n{\n  \"schema_version\": \"1.0\",\n  \"scene_id\": \"S02\",\n  \"segment_id\": \"S02_A\",\n  \"start\": 10,\n  \"duration\": 5,\n  \"style\": \"Original high-quality preschool 2D character animation, clean warm-dark-brown outlines, soft hand-painted storybook backgrounds, restrained pastel palette of rose pink, dusty teal, sage, warm cream and pale sky blue, moderate contrast and soft warm daylight. Keep Alice's pink recognizable but less glaring than the reference; no fluorescent or aggressively saturated colors. Rounded friendly animal anatomy, readable silhouettes, purposeful hand-drawn acting, natural anticipation, overlapping hair and cloth movement, grounded alternating walk cycles, independent elbow and knee bends, gaze changes and blinks. No photo collage, floating cutouts, static poster zoom, realistic skin, glossy plastic 3D, or copied TV-series characters. 1280x720 draft delivery before approved 1920x1080 final, 16:9 composition, 24 fps editorial timeline. Reserve the lower 18 percent as quiet subtitle-safe background without hiding shoes; keep every face above that zone.\",\n  \"audience\": \"Children under three, especially a two-year-old learning to repeat simple clear English\",\n  \"purpose\": \"Learn and repeat English zoo vocabulary through a gentle family story.\",\n  \"image_style_library\": {\n    \"repository\": \"https://github.com/freestylefly/awesome-gpt-image-2\",\n    \"revision\": \"63e6176fa01be51c000108dacd72716d3e46784b\",\n    \"template_ids\": [\n      \"character-design-sheet\",\n      \"illustration-art-style\",\n      \"scene-storytelling\"\n    ],\n    \"category\": \"Characters & People\",\n    \"styles\": [\n      \"Character\",\n      \"Illustration\"\n    ],\n    \"scenes\": [\n      \"Story\"\n    ],\n    \"adaptation\": \"Adapt identity and scene composition guidance to restrained preschool cartoon artwork, with no corporate photorealism or unprovided logos.\"\n  },\n  \"characters\": [\n    {\n      \"id\": \"alice\",\n      \"name\": \"Alice\",\n      \"entity\": \"Human preschool cartoon character\",\n      \"species\": \"Homo sapiens human\",\n      \"age\": \"Two-year-old toddler girl\",\n      \"body_proportions\": \"Small round toddler torso, short limbs and oversized round head\",\n      \"surface\": \"Warm peach skin, rosy round cheeks with two tiny white highlights\",\n      \"eyes\": \"Very large dark-brown eyes, near-black pupils, white catchlights and short upper lashes\",\n      \"brows\": \"Gently arched chestnut eyebrows\",\n      \"nose_beak\": \"Tiny peach button nose\",\n      \"mouth\": \"Small mouth, red-pink interior and rounded tongue; flexible speech phonemes\",\n      \"ears\": \"Small rounded peach ears\",\n      \"hair_head\": \"Chestnut short wavy bob, side-swept bangs, high side ponytail on anatomical RIGHT\",\n      \"clothes\": \"Rose-pink A-line dress, short puff sleeves, white two-lobed Peter Pan collar, ONE centered white chest heart, lightly pleated skirt, thin white hem line\",\n      \"footwear\": \"White frilly ankle socks; rose-pink lace-up sneakers with white laces, white rounded toe caps and white soles\",\n      \"accessories\": \"One large rose-pink bow at anatomical RIGHT ponytail anchor; no other accessories\",\n      \"marks_asymmetry\": \"Bow and ponytail on anatomical RIGHT, viewer LEFT in front view; no mirroring\",\n      \"reference_assets\": [\n        {\n          \"role\": \"face_front\",\n          \"path\": \"assets/references/alice1.jpg\",\n          \"status\": \"available\",\n          \"scope\": \"Canonical front-view identity; no assertion of unseen side views\"\n        },\n        {\n          \"role\": \"wardrobe\",\n          \"path\": \"assets/references/alice1.jpg\",\n          \"status\": \"available\",\n          \"scope\": \"Canonical puff sleeve dress and sneakers\"\n        },\n        {\n          \"role\": \"accessories\",\n          \"path\": \"assets/references/alice1.jpg\",\n          \"status\": \"available\",\n          \"scope\": \"Canonical anatomical right bow\"\n        },\n        {\n          \"role\": \"gesture_only\",\n          \"path\": \"assets/references/alice2.jpg\",\n          \"status\": \"available\",\n          \"scope\": \"Expression and gestures only; exclude alternative costumes\"\n        },\n        {\n          \"role\": \"family_lineup\",\n          \"path\": \"assets/references/family-reference-higgsfield.png\",\n          \"status\": \"available\",\n          \"scope\": \"Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation.\"\n        }\n      ]\n    },\n    {\n      \"id\": \"mother\",\n      \"name\": \"Mother\",\n      \"entity\": \"Human preschool cartoon character\",\n      \"species\": \"Homo sapiens human\",\n      \"age\": \"Adult woman approximately thirty years old\",\n      \"body_proportions\": \"About twice Alice height, softly rounded adult proportions\",\n      \"surface\": \"Warm light-peach skin, oval face, softly rounded cheeks\",\n      \"eyes\": \"Almond dark-brown eyes with small white catchlights\",\n      \"brows\": \"Gently arched brown eyebrows\",\n      \"nose_beak\": \"Small rounded peach nose\",\n      \"mouth\": \"Small curved mouth with flexible silent smiles\",\n      \"ears\": \"Small rounded ears partly covered by hair\",\n      \"hair_head\": \"Chestnut shoulder-length hair, left-side part, ends curled inward\",\n      \"clothes\": \"Muted dusty-teal short-sleeved blouse, plain round neck, straight cream ankle-length trousers\",\n      \"footwear\": \"Simple off-white flat shoes\",\n      \"accessories\": \"No glasses, jewelry, hat or handbag\",\n      \"marks_asymmetry\": \"Left-side hair part remains anatomical left; no distinctive facial marks\",\n      \"reference_assets\": [\n        {\n          \"role\": \"family_lineup\",\n          \"path\": \"assets/references/family-reference-higgsfield.png\",\n          \"status\": \"available\",\n          \"scope\": \"Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation.\"\n        }\n      ]\n    },\n    {\n      \"id\": \"father\",\n      \"name\": \"Father\",\n      \"entity\": \"Human preschool cartoon character\",\n      \"species\": \"Homo sapiens human\",\n      \"age\": \"Adult man approximately thirty-two years old\",\n      \"body_proportions\": \"Adult softly broad shoulders, slightly taller than Mother\",\n      \"surface\": \"Warm light-peach skin, softly rounded rectangular face, clean-shaven\",\n      \"eyes\": \"Almond dark-brown eyes with small white catchlights\",\n      \"brows\": \"Straight dark-brown eyebrows\",\n      \"nose_beak\": \"Small broad rounded peach nose\",\n      \"mouth\": \"Small curved mouth with flexible silent smiles\",\n      \"ears\": \"Rounded ears visible beside short hair\",\n      \"hair_head\": \"Short neat dark-chestnut hair with fixed anatomical left side part\",\n      \"clothes\": \"Muted sage-green short-sleeved polo, small folded collar, two cream buttons; straight beige trousers\",\n      \"footwear\": \"Simple brown low shoes with rounded toes\",\n      \"accessories\": \"No glasses, facial hair, hat, watch or bag\",\n      \"marks_asymmetry\": \"Clean-shaven face, fixed anatomical left hair part, no other distinctive marks\",\n      \"reference_assets\": [\n        {\n          \"role\": \"family_lineup\",\n          \"path\": \"assets/references/family-reference-higgsfield.png\",\n          \"status\": \"available\",\n          \"scope\": \"Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation.\"\n        }\n      ]\n    },\n    {\n      \"id\": \"bird\",\n      \"name\": \"Bird\",\n      \"entity\": \"Friendly preschool cartoon animal\",\n      \"species\": \"Small songbird\",\n      \"age\": \"Healthy adult animal with gentle behavior\",\n      \"body_proportions\": \"Small rounded body, two wings, two slender legs and short tail\",\n      \"surface\": \"Muted-blue plumage, warm-cream belly\",\n      \"eyes\": \"Round dark eyes with tiny white catchlights\",\n      \"brows\": \"No separate human eyebrows; gentle expression through eyelids\",\n      \"nose_beak\": \"Tiny ochre beak with two halves\",\n      \"mouth\": \"Species-appropriate mouth with rounded interior; natural silent movement\",\n      \"ears\": \"Small ear openings covered by feathers; no external pinnae\",\n      \"hair_head\": \"Rounded feathered head, no human hair\",\n      \"clothes\": \"No clothes; natural animal surface fully visible\",\n      \"footwear\": \"No footwear; natural species-appropriate feet\",\n      \"accessories\": \"No accessories, harness, jewelry or human props\",\n      \"marks_asymmetry\": \"Cream belly bounded consistently; blue wings and tail; no asymmetrical marks\",\n      \"reference_assets\": []\n    }\n  ],\n  \"setting\": \"Inside garden path approaches willow on camera-right; low branch just beyond the family. Gate remains behind the camera.\",\n  \"lighting\": \"Soft warm morning daylight; broad key from upper screen-left, gentle cream bounce fill, no hard rim or colored neon light. Stable white balance and exposure on peach skin and muted rose/dusty-teal/sage clothes; pale sky and restrained greens. Same light direction across cuts.\",\n  \"camera\": \"Rear-left follow slows with family; remain on path-left shoulder. Modest LEFT head glance toward mother may expose left profile. Do not require a frontal face or right cheek; keep parents and toddler visible.\",\n  \"action\": \"Continue incoming forward stride and stop beneath willow. Toddler notices bird to the right with eyes/head, gently releases RIGHT hand from father and points with that free hand. LEFT hand stays with mother. Feet and torso stay aligned with path. During exact line1.00–3.47 turn head modestly LEFT toward mother, exposing a left partial profile to the rear-left camera; mother watches child then bird. After line look toward bird, without a body pivot or backward step. During final quiet interval after3.47s, smoothly return head and gaze toward bird; used119 targets the rear-pointing anchor, not the speech-profile anchor. Retain right pointing arm and mother hand contact. No body rotation, step back, or camera reset.\",\n  \"dialogue\": [\n    {\n      \"id\": \"S02_L1\",\n      \"speaker\": \"alice\",\n      \"text\": \"Look! A little bird.\",\n      \"start\": 1.0,\n      \"end\": 3.47,\n      \"timing_status\": \"planned\"\n    }\n  ],\n  \"audio_intent\": {\n    \"voice\": {\n      \"provider\": \"VoiceStudio\",\n      \"profile_id\": \"8f1145d7\",\n      \"performance\": \"Saved Alice voice: warm clear unhurried English. Scene1 is off-screen voiceover over forward walking. Scenes2-6 use the exact guided Alice lines in natural partial profile toward family while pointing/observing, without a body reversal or camera orbit. Parents reply through attentive gestures, no extra speakers or words. Finish swallowing before speech.\",\n      \"canonical_audio_path\": \"D:\\\\23.JennieHomeSchool\\\\03 Voice\\\\production-local\\\\audio\\\\canonical-v2\\\\alice-canonical-60s.wav\",\n      \"authority\": \"Original VoiceStudio Alice native WAV samples, copied byte-for-byte into planned silence placements, no timbre replacement or time-stretch\"\n    },\n    \"music\": \"Gentle cheerful original pentatonic plucked/marimba-style instrumental, no lyrics, quiet underneath canonical Alice, duck smoothly during all words, stable modest level through transitions.\",\n    \"sfx\": [\n      {\n        \"at\": 0.45,\n        \"event\": \"one soft bird chirp\"\n      },\n      {\n        \"at\": 3.8,\n        \"event\": \"tiny branch tap at bird landing\"\n      }\n    ]\n  },\n  \"continuity\": {\n    \"previous_scene_id\": \"S01\",\n    \"setting_layout\": \"Family together on path or rail; Alice central, Mother left and Father right; animal habitat beyond safe barrier.\",\n    \"theme\": \"Gentle English discovery and repetition with family at the zoo.\",\n    \"action_continuation\": \"Use predecessor actual used frame119 as this clip frame0; carry camera, gait, anatomy, environment and props. Proposed exit is a target, not evidence of achieved render.\",\n    \"entry_state\": \"Family entirely inside on garden path, still facing forward away from same following camera; gate behind, willow tree ahead, hands connected\",\n    \"exit_state\": \"Family stopped beneath willow in rear view, toddler RIGHT arm still pointing toward bird and LEFT hand held by mother. After speech toddler head/gaze has returned forward-right toward bird; mother also looks toward bird, father remains rear-facing. Plain dress back visible, no chest heart on back; same camera, planted feet and parent spacing.\"\n  },\n  \"transition\": {\n    \"intent\": \"Follow family gaze and travel direction into next story location; motivate any foreground occlusion through actual scene foliage.\",\n    \"camera_continuity\": \"Carry screen direction, horizon, family spacing and eyelines through the cut; avoid a blanket preset wipe.\",\n    \"duration\": 0.3,\n    \"kind\": \"match_on_action\"\n  },\n  \"script_tracking\": {\n    \"segment_summary\": \"Continue incoming forward stride and stop beneath willow. Toddler notices bird to the right with eyes/head, gently releases RIGHT hand from father and points with that free hand. LEFT hand stays with mother. Feet and torso stay aligned with path. During exact line1.00–3.47 turn head modestly LEFT toward mother, exposing a left partial profile to the rear-left camera; mother watches child then bird. After line look toward bird, without a body pivot or backward step. During final quiet interval after3.47s, smoothly return head and gaze toward bird; used119 targets the rear-pointing anchor, not the speech-profile anchor. Retain right pointing arm and mother hand contact. No body rotation, step back, or camera reset.\",\n    \"dialogue_ids\": [\n      \"S02_L1\"\n    ],\n    \"status\": \"ready\",\n    \"review_notes\": \"Future v8 proposal; exact source words. S05_L2 retimed without PCM alteration; guide/canonical timeline rebuild REQUIRED before Scene5 submission. Actual mouth readiness, hands, camera and occlusion remain unverified.\"\n  },\n  \"reference_policy\": {\n    \"immutable_sources\": true,\n    \"identity_lock\": \"Preserve face geometry, silhouette, wardrobe, marks and anatomical asymmetry in cartoon rendering. Never delete original files.\",\n    \"allowed_performance\": [\n      \"purposeful expressions\",\n      \"blinks\",\n      \"mouth phonemes\",\n      \"body poses\"\n    ],\n    \"sheet_requirements\": {\n      \"turnaround\": [\n        \"front\",\n        \"left\",\n        \"right\"\n      ],\n      \"expressions\": [\n        \"happy\",\n        \"sad\",\n        \"angry\",\n        \"surprised\",\n        \"afraid\",\n        \"neutral\"\n      ],\n      \"poses\": [\n        \"run\",\n        \"jump\",\n        \"laugh\",\n        \"cry\"\n      ]\n    },\n    \"original_on_sheet_canvas\": false\n  },\n  \"performance_policy\": \"Preserve geometry, wardrobe, marks and anatomical asymmetry. Allow purposeful expressions, blinks, mouth phonemes and body poses.\",\n  \"render_text\": false\n}"
+    },
+    "_meta": {
+      "title": "Scene 2A / S02_A — Script and literal prompt",
+      "description": "SCENE.md: D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S02-bird-v1-prep\\SCENE.md"
+    }
+  },
+  "30": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "JennieJoyKids_family-reference.png"
+    }
+  },
+  "31": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "JennieJoyKids_alice1.jpg"
+    }
+  },
+  "6": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "prompt": [
+        "19",
+        0
+      ],
+      "width": 864,
+      "height": 480,
+      "length": 124,
+      "ref_image_size": "match",
+      "ref_audios.ref_audio_0": [
+        "5",
+        0
+      ],
+      "ref_images.ref_image_0": [
+        "30",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "31",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Scene 2A / S02_A — H3 reference conditioning",
+      "description": "SCENE.md: D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S02-bird-v1-prep\\SCENE.md"
+    }
+  },
+  "7": {
+    "class_type": "LoadAudio",
+    "inputs": {
+      "audio": "JennieJoyKids_S02_A-guide.wav"
+    }
+  },
+  "8": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "JennieKidJoys_S01v9_B119_for_S02.png"
+    }
+  },
+  "9": {
+    "class_type": "MiniMaxH3AddGuide",
+    "inputs": {
+      "positive": [
+        "6",
+        0
+      ],
+      "latent": [
+        "6",
+        1
+      ],
+      "frame_idx": 0,
+      "vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "audio": [
+        "7",
+        0
+      ],
+      "image": [
+        "8",
+        0
+      ]
+    }
+  },
+  "100": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "JennieKidJoys_S02_A060-left-profile.png"
+    }
+  },
+  "101": {
+    "class_type": "MiniMaxH3AddGuide",
+    "inputs": {
+      "positive": [
+        "9",
+        0
+      ],
+      "latent": [
+        "6",
+        1
+      ],
+      "frame_idx": 60,
+      "vae": [
+        "3",
+        0
+      ],
+      "image": [
+        "100",
+        0
+      ]
+    }
+  },
+  "102": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "JennieKidJoys_S02_A119-rear-point.png"
+    }
+  },
+  "103": {
+    "class_type": "MiniMaxH3AddGuide",
+    "inputs": {
+      "positive": [
+        "101",
+        0
+      ],
+      "latent": [
+        "6",
+        1
+      ],
+      "frame_idx": 119,
+      "vae": [
+        "3",
+        0
+      ],
+      "image": [
+        "102",
+        0
+      ]
+    }
+  },
+  "10": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "conditioning": [
+        "103",
+        0
+      ]
+    }
+  },
+  "11": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 4310
+    }
+  },
+  "12": {
+    "class_type": "KSamplerSelect",
+    "inputs": {
+      "sampler_name": "res_multistep"
+    }
+  },
+  "13": {
+    "class_type": "BasicScheduler",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "scheduler": "beta",
+      "steps": 20,
+      "denoise": 1.0
+    },
+    "_meta": {
+      "title": "Scene 2A / S02_A — Sampling schedule",
+      "description": "SCENE.md: D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S02-bird-v1-prep\\SCENE.md"
+    }
+  },
+  "14": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "11",
+        0
+      ],
+      "guider": [
+        "10",
+        0
+      ],
+      "sampler": [
+        "12",
+        0
+      ],
+      "sigmas": [
+        "13",
+        0
+      ],
+      "latent_image": [
+        "6",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Scene 2A / S02_A — Native sampler",
+      "description": "SCENE.md: D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S02-bird-v1-prep\\SCENE.md"
+    }
+  },
+  "15": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "14",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    }
+  },
+  "16": {
+    "class_type": "VAEDecodeAudio",
+    "inputs": {
+      "samples": [
+        "14",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    }
+  },
+  "17": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "images": [
+        "15",
+        0
+      ],
+      "audio": [
+        "16",
+        0
+      ],
+      "fps": 24.0
+    },
+    "_meta": {
+      "title": "Scene 2A / S02_A — Native AV assembly",
+      "description": "SCENE.md: D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S02-bird-v1-prep\\SCENE.md"
+    }
+  },
+  "18": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "video": [
+        "17",
+        0
+      ],
+      "filename_prefix": "JennieKidJoys/S02-bird-v1-prep/A/native",
+      "format": "auto",
+      "codec": "auto"
+    },
+    "_meta": {
+      "title": "Scene 2A / S02_A — Native AV output",
+      "description": "SCENE.md: D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S02-bird-v1-prep\\SCENE.md"
+    }
+  },
+  "50": {
+    "class_type": "ImageFromBatch",
+    "inputs": {
+      "image": [
+        "15",
+        0
+      ],
+      "batch_index": 1,
+      "length": 119
+    }
+  },
+  "52": {
+    "class_type": "ImageBatch",
+    "inputs": {
+      "image1": [
+        "8",
+        0
+      ],
+      "image2": [
+        "50",
+        0
+      ]
+    }
+  },
+  "51": {
+    "class_type": "ImageFromBatch",
+    "inputs": {
+      "image": [
+        "52",
+        0
+      ],
+      "batch_index": 119,
+      "length": 1
+    }
+  },
+  "53": {
+    "class_type": "ImageFromBatch",
+    "inputs": {
+      "image": [
+        "52",
+        0
+      ],
+      "batch_index": 0,
+      "length": 1
+    }
+  },
+  "54": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "53",
+        0
+      ],
+      "filename_prefix": "JennieKidJoys/S02-bird-v1-prep/A/boundary-start"
+    },
+    "_meta": {
+      "title": "Scene 2A / S02_A — Boundary first frame",
+      "description": "SCENE.md: D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S02-bird-v1-prep\\SCENE.md"
+    }
+  },
+  "55": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "51",
+        0
+      ],
+      "filename_prefix": "JennieKidJoys/S02-bird-v1-prep/A/boundary-end"
+    },
+    "_meta": {
+      "title": "Scene 2A / S02_A — Boundary last used frame",
+      "description": "SCENE.md: D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S02-bird-v1-prep\\SCENE.md"
+    }
+  },
+  "58": {
+    "class_type": "TrimAudioDuration",
+    "inputs": {
+      "audio": [
+        "7",
+        0
+      ],
+      "start_index": 0.0,
+      "duration": 5.0
+    }
+  },
+  "56": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "images": [
+        "52",
+        0
+      ],
+      "audio": [
+        "58",
+        0
+      ],
+      "fps": 24.0
+    },
+    "_meta": {
+      "title": "Scene 2A / S02_A — Editorial AV assembly",
+      "description": "SCENE.md: D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S02-bird-v1-prep\\SCENE.md"
+    }
+  },
+  "57": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "video": [
+        "56",
+        0
+      ],
+      "filename_prefix": "JennieKidJoys/S02-bird-v1-prep/A/editorial",
+      "format": "auto",
+      "codec": "auto"
+    },
+    "_meta": {
+      "title": "Scene 2A / S02_A — Editorial AV output",
+      "description": "SCENE.md: D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S02-bird-v1-prep\\SCENE.md"
+    }
+  },
+  "1005": {
+    "class_type": "LoadAudio",
+    "inputs": {
+      "audio": "JennieJoyKids_alice-voice-reference.wav"
+    }
+  },
+  "1019": {
+    "class_type": "PrimitiveStringMultiline",
+    "inputs": {
+      "value": "Action priority for this segment. Action: Start from actual Aused119 rear-pointing state, head aimed toward bird. During local0–1s turn only head gently LEFT toward mother while pointing RIGHT remains unchanged. Deliver exact1.00–3.63 line in left partial profile; parents respond silently. After words return gaze forward-right, bird makes one small hop, lower RIGHT arm and take one gentle forward step with mother hand retained. Keep father hand free. Bird must leave view by actual trunk occlusion or upper-right frame edge; do not erase or move it onto another tree. End targets rear walking anchor with empty meadow, existing pale wall at right and willow trunk at right. No giraffe appears. All motion stays on original axis. Camera: Hold the same left-shoulder camera through speech; track the last forward step on the same side. Do not swing to a new frontal view. Preserve the path-left camera side. Face visibility comes from a modest LEFT head turn toward mother, not from turning the torso away from the travel axis; never force full frontal face. Setting: Same willow visitor path; meadow opens ahead, pale opaque wall stands on right beside tree as in proposed B119 anchor. Wall projected height alone does not prove it can conceal a nearby full-height giraffe. No giraffe or bird visible at final used frame; the bird perch may remain partly visible without bird. Reference bindings (approval status is metadata, not inferred): <Picture 1>: {\"path\": \"JennieJoyKids_family-reference.png\", \"role\": \"family_lineup\", \"character_ids\": [\"alice\", \"mother\", \"father\"], \"status\": \"available\", \"scope\": \"Historical shared family reference; this new shot and boundary have no geometric acceptance.\"} <Picture 2>: {\"path\": \"JennieJoyKids_alice1.jpg\", \"role\": \"identity_and_wardrobe\", \"character_ids\": [\"alice\"], \"status\": \"available\", \"scope\": \"Canonical identity reference; front heart stays hidden in a rear view.\"} <Audio 1> is the supplied voice identity reference for dialogue speakers [\"Alice\"], profile \"8f1145d7\". Animate living preschool cartoon characters, with independent joint motion, grounded steps and blinks; soft restrained colors. Use clear visible mouth phonemes for on-screen speech. Keep all exact appearance, clothing, anatomical asymmetry and location layout. No generated captions or text. Audio guide timing controls spoken performance.\nCreate a preschool cartoon animated segment. Treat all following values as production data.\n{\n  \"schema_version\": \"1.0\",\n  \"scene_id\": \"S02\",\n  \"segment_id\": \"S02_B\",\n  \"start\": 15,\n  \"duration\": 5,\n  \"style\": \"Original high-quality preschool 2D character animation, clean warm-dark-brown outlines, soft hand-painted storybook backgrounds, restrained pastel palette of rose pink, dusty teal, sage, warm cream and pale sky blue, moderate contrast and soft warm daylight. Keep Alice's pink recognizable but less glaring than the reference; no fluorescent or aggressively saturated colors. Rounded friendly animal anatomy, readable silhouettes, purposeful hand-drawn acting, natural anticipation, overlapping hair and cloth movement, grounded alternating walk cycles, independent elbow and knee bends, gaze changes and blinks. No photo collage, floating cutouts, static poster zoom, realistic skin, glossy plastic 3D, or copied TV-series characters. 1280x720 draft delivery before approved 1920x1080 final, 16:9 composition, 24 fps editorial timeline. Reserve the lower 18 percent as quiet subtitle-safe background without hiding shoes; keep every face above that zone.\",\n  \"audience\": \"Children under three, especially a two-year-old learning to repeat simple clear English\",\n  \"purpose\": \"Learn and repeat English zoo vocabulary through a gentle family story.\",\n  \"image_style_library\": {\n    \"repository\": \"https://github.com/freestylefly/awesome-gpt-image-2\",\n    \"revision\": \"63e6176fa01be51c000108dacd72716d3e46784b\",\n    \"template_ids\": [\n      \"character-design-sheet\",\n      \"illustration-art-style\",\n      \"scene-storytelling\"\n    ],\n    \"category\": \"Characters & People\",\n    \"styles\": [\n      \"Character\",\n      \"Illustration\"\n    ],\n    \"scenes\": [\n      \"Story\"\n    ],\n    \"adaptation\": \"Adapt identity and scene composition guidance to restrained preschool cartoon artwork, with no corporate photorealism or unprovided logos.\"\n  },\n  \"characters\": [\n    {\n      \"id\": \"alice\",\n      \"name\": \"Alice\",\n      \"entity\": \"Human preschool cartoon character\",\n      \"species\": \"Homo sapiens human\",\n      \"age\": \"Two-year-old toddler girl\",\n      \"body_proportions\": \"Small round toddler torso, short limbs and oversized round head\",\n      \"surface\": \"Warm peach skin, rosy round cheeks with two tiny white highlights\",\n      \"eyes\": \"Very large dark-brown eyes, near-black pupils, white catchlights and short upper lashes\",\n      \"brows\": \"Gently arched chestnut eyebrows\",\n      \"nose_beak\": \"Tiny peach button nose\",\n      \"mouth\": \"Small mouth, red-pink interior and rounded tongue; flexible speech phonemes\",\n      \"ears\": \"Small rounded peach ears\",\n      \"hair_head\": \"Chestnut short wavy bob, side-swept bangs, high side ponytail on anatomical RIGHT\",\n      \"clothes\": \"Rose-pink A-line dress, short puff sleeves, white two-lobed Peter Pan collar, ONE centered white chest heart, lightly pleated skirt, thin white hem line\",\n      \"footwear\": \"White frilly ankle socks; rose-pink lace-up sneakers with white laces, white rounded toe caps and white soles\",\n      \"accessories\": \"One large rose-pink bow at anatomical RIGHT ponytail anchor; no other accessories\",\n      \"marks_asymmetry\": \"Bow and ponytail on anatomical RIGHT, viewer LEFT in front view; no mirroring\",\n      \"reference_assets\": [\n        {\n          \"role\": \"face_front\",\n          \"path\": \"assets/references/alice1.jpg\",\n          \"status\": \"available\",\n          \"scope\": \"Canonical front-view identity; no assertion of unseen side views\"\n        },\n        {\n          \"role\": \"wardrobe\",\n          \"path\": \"assets/references/alice1.jpg\",\n          \"status\": \"available\",\n          \"scope\": \"Canonical puff sleeve dress and sneakers\"\n        },\n        {\n          \"role\": \"accessories\",\n          \"path\": \"assets/references/alice1.jpg\",\n          \"status\": \"available\",\n          \"scope\": \"Canonical anatomical right bow\"\n        },\n        {\n          \"role\": \"gesture_only\",\n          \"path\": \"assets/references/alice2.jpg\",\n          \"status\": \"available\",\n          \"scope\": \"Expression and gestures only; exclude alternative costumes\"\n        },\n        {\n          \"role\": \"family_lineup\",\n          \"path\": \"assets/references/family-reference-higgsfield.png\",\n          \"status\": \"available\",\n          \"scope\": \"Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation.\"\n        }\n      ]\n    },\n    {\n      \"id\": \"mother\",\n      \"name\": \"Mother\",\n      \"entity\": \"Human preschool cartoon character\",\n      \"species\": \"Homo sapiens human\",\n      \"age\": \"Adult woman approximately thirty years old\",\n      \"body_proportions\": \"About twice Alice height, softly rounded adult proportions\",\n      \"surface\": \"Warm light-peach skin, oval face, softly rounded cheeks\",\n      \"eyes\": \"Almond dark-brown eyes with small white catchlights\",\n      \"brows\": \"Gently arched brown eyebrows\",\n      \"nose_beak\": \"Small rounded peach nose\",\n      \"mouth\": \"Small curved mouth with flexible silent smiles\",\n      \"ears\": \"Small rounded ears partly covered by hair\",\n      \"hair_head\": \"Chestnut shoulder-length hair, left-side part, ends curled inward\",\n      \"clothes\": \"Muted dusty-teal short-sleeved blouse, plain round neck, straight cream ankle-length trousers\",\n      \"footwear\": \"Simple off-white flat shoes\",\n      \"accessories\": \"No glasses, jewelry, hat or handbag\",\n      \"marks_asymmetry\": \"Left-side hair part remains anatomical left; no distinctive facial marks\",\n      \"reference_assets\": [\n        {\n          \"role\": \"family_lineup\",\n          \"path\": \"assets/references/family-reference-higgsfield.png\",\n          \"status\": \"available\",\n          \"scope\": \"Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation.\"\n        }\n      ]\n    },\n    {\n      \"id\": \"father\",\n      \"name\": \"Father\",\n      \"entity\": \"Human preschool cartoon character\",\n      \"species\": \"Homo sapiens human\",\n      \"age\": \"Adult man approximately thirty-two years old\",\n      \"body_proportions\": \"Adult softly broad shoulders, slightly taller than Mother\",\n      \"surface\": \"Warm light-peach skin, softly rounded rectangular face, clean-shaven\",\n      \"eyes\": \"Almond dark-brown eyes with small white catchlights\",\n      \"brows\": \"Straight dark-brown eyebrows\",\n      \"nose_beak\": \"Small broad rounded peach nose\",\n      \"mouth\": \"Small curved mouth with flexible silent smiles\",\n      \"ears\": \"Rounded ears visible beside short hair\",\n      \"hair_head\": \"Short neat dark-chestnut hair with fixed anatomical left side part\",\n      \"clothes\": \"Muted sage-green short-sleeved polo, small folded collar, two cream buttons; straight beige trousers\",\n      \"footwear\": \"Simple brown low shoes with rounded toes\",\n      \"accessories\": \"No glasses, facial hair, hat, watch or bag\",\n      \"marks_asymmetry\": \"Clean-shaven face, fixed anatomical left hair part, no other distinctive marks\",\n      \"reference_assets\": [\n        {\n          \"role\": \"family_lineup\",\n          \"path\": \"assets/references/family-reference-higgsfield.png\",\n          \"status\": \"available\",\n          \"scope\": \"Historical shared Alice, Mother and Father lineup; inspect and approve for native H3 use before generation.\"\n        }\n      ]\n    },\n    {\n      \"id\": \"bird\",\n      \"name\": \"Bird\",\n      \"entity\": \"Friendly preschool cartoon animal\",\n      \"species\": \"Small songbird\",\n      \"age\": \"Healthy adult animal with gentle behavior\",\n      \"body_proportions\": \"Small rounded body, two wings, two slender legs and short tail\",\n      \"surface\": \"Muted-blue plumage, warm-cream belly\",\n      \"eyes\": \"Round dark eyes with tiny white catchlights\",\n      \"brows\": \"No separate human eyebrows; gentle expression through eyelids\",\n      \"nose_beak\": \"Tiny ochre beak with two halves\",\n      \"mouth\": \"Species-appropriate mouth with rounded interior; natural silent movement\",\n      \"ears\": \"Small ear openings covered by feathers; no external pinnae\",\n      \"hair_head\": \"Rounded feathered head, no human hair\",\n      \"clothes\": \"No clothes; natural animal surface fully visible\",\n      \"footwear\": \"No footwear; natural species-appropriate feet\",\n      \"accessories\": \"No accessories, harness, jewelry or human props\",\n      \"marks_asymmetry\": \"Cream belly bounded consistently; blue wings and tail; no asymmetrical marks\",\n      \"reference_assets\": []\n    }\n  ],\n  \"setting\": \"Same willow visitor path; meadow opens ahead, pale opaque wall stands on right beside tree as in proposed B119 anchor. Wall projected height alone does not prove it can conceal a nearby full-height giraffe. No giraffe or bird visible at final used frame; the bird perch may remain partly visible without bird.\",\n  \"lighting\": \"Soft warm morning daylight; broad key from upper screen-left, gentle cream bounce fill, no hard rim or colored neon light. Stable white balance and exposure on peach skin and muted rose/dusty-teal/sage clothes; pale sky and restrained greens. Same light direction across cuts.\",\n  \"camera\": \"Hold the same left-shoulder camera through speech; track the last forward step on the same side. Do not swing to a new frontal view. Preserve the path-left camera side. Face visibility comes from a modest LEFT head turn toward mother, not from turning the torso away from the travel axis; never force full frontal face.\",\n  \"action\": \"Start from actual Aused119 rear-pointing state, head aimed toward bird. During local0–1s turn only head gently LEFT toward mother while pointing RIGHT remains unchanged. Deliver exact1.00–3.63 line in left partial profile; parents respond silently. After words return gaze forward-right, bird makes one small hop, lower RIGHT arm and take one gentle forward step with mother hand retained. Keep father hand free. Bird must leave view by actual trunk occlusion or upper-right frame edge; do not erase or move it onto another tree. End targets rear walking anchor with empty meadow, existing pale wall at right and willow trunk at right. No giraffe appears. All motion stays on original axis.\",\n  \"dialogue\": [\n    {\n      \"id\": \"S02_L2\",\n      \"speaker\": \"alice\",\n      \"text\": \"Bird. A little bird.\",\n      \"start\": 1.0,\n      \"end\": 3.63,\n      \"timing_status\": \"planned\"\n    }\n  ],\n  \"audio_intent\": {\n    \"voice\": {\n      \"provider\": \"VoiceStudio\",\n      \"profile_id\": \"8f1145d7\",\n      \"performance\": \"Saved Alice voice: warm clear unhurried English. Scene1 is off-screen voiceover over forward walking. Scenes2-6 use the exact guided Alice lines in natural partial profile toward family while pointing/observing, without a body reversal or camera orbit. Parents reply through attentive gestures, no extra speakers or words. Finish swallowing before speech.\",\n      \"canonical_audio_path\": \"D:\\\\23.JennieHomeSchool\\\\03 Voice\\\\production-local\\\\audio\\\\canonical-v2\\\\alice-canonical-60s.wav\",\n      \"authority\": \"Original VoiceStudio Alice native WAV samples, copied byte-for-byte into planned silence placements, no timbre replacement or time-stretch\"\n    },\n    \"music\": \"Gentle cheerful original pentatonic plucked/marimba-style instrumental, no lyrics, quiet underneath canonical Alice, duck smoothly during all words, stable modest level through transitions.\",\n    \"sfx\": [\n      {\n        \"at\": 2.7,\n        \"event\": \"quiet feather flutter\"\n      },\n      {\n        \"at\": 4.6,\n        \"event\": \"soft leaf swish\"\n      }\n    ]\n  },\n  \"continuity\": {\n    \"previous_scene_id\": \"S01\",\n    \"setting_layout\": \"Family together on path or rail; Alice central, Mother left and Father right; animal habitat beyond safe barrier.\",\n    \"theme\": \"Gentle English discovery and repetition with family at the zoo.\",\n    \"action_continuation\": \"Use predecessor actual used frame119 as this clip frame0; carry camera, gait, anatomy, environment and props. Proposed exit is a target, not evidence of achieved render.\",\n    \"entry_state\": \"Family stopped beneath willow in rear view, toddler RIGHT arm still pointing toward bird and LEFT hand held by mother. After speech toddler head/gaze has returned forward-right toward bird; mother also looks toward bird, father remains rear-facing. Plain dress back visible, no chest heart on back; same camera, planted feet and parent spacing.\",\n    \"exit_state\": \"Family takes one gentle forward stride along stone path beside willow, backs toward same camera; toddler RIGHT hand lowered/free, LEFT with mother, father hand free. Bird is no longer visible, having passed behind willow trunk or beyond upper-right image edge; do not claim entire branch is hidden. Empty meadow ahead, existing pale opaque wall on right; giraffe not visible and its hidden location remains a planned geometry condition.\"\n  },\n  \"transition\": {\n    \"intent\": \"Follow family gaze and travel direction into next story location; motivate any foreground occlusion through actual scene foliage.\",\n    \"camera_continuity\": \"Carry screen direction, horizon, family spacing and eyelines through the cut; avoid a blanket preset wipe.\",\n    \"duration\": 0.3,\n    \"kind\": \"motivated_cut\"\n  },\n  \"script_tracking\": {\n    \"segment_summary\": \"Start from actual Aused119 rear-pointing state, head aimed toward bird. During local0–1s turn only head gently LEFT toward mother while pointing RIGHT remains unchanged. Deliver exact1.00–3.63 line in left partial profile; parents respond silently. After words return gaze forward-right, bird makes one small hop, lower RIGHT arm and take one gentle forward step with mother hand retained. Keep father hand free. Bird must leave view by actual trunk occlusion or upper-right frame edge; do not erase or move it onto another tree. End targets rear walking anchor with empty meadow, existing pale wall at right and willow trunk at right. No giraffe appears. All motion stays on original axis.\",\n    \"dialogue_ids\": [\n      \"S02_L2\"\n    ],\n    \"status\": \"ready\",\n    \"review_notes\": \"Future v8 proposal; exact source words. S05_L2 retimed without PCM alteration; guide/canonical timeline rebuild REQUIRED before Scene5 submission. Actual mouth readiness, hands, camera and occlusion remain unverified.\"\n  },\n  \"reference_policy\": {\n    \"immutable_sources\": true,\n    \"identity_lock\": \"Preserve face geometry, silhouette, wardrobe, marks and anatomical asymmetry in cartoon rendering. Never delete original files.\",\n    \"allowed_performance\": [\n      \"purposeful expressions\",\n      \"blinks\",\n      \"mouth phonemes\",\n      \"body poses\"\n    ],\n    \"sheet_requirements\": {\n      \"turnaround\": [\n        \"front\",\n        \"left\",\n        \"right\"\n      ],\n      \"expressions\": [\n        \"happy\",\n        \"sad\",\n        \"angry\",\n        \"surprised\",\n        \"afraid\",\n        \"neutral\"\n      ],\n      \"poses\": [\n        \"run\",\n        \"jump\",\n        \"laugh\",\n        \"cry\"\n      ]\n    },\n    \"original_on_sheet_canvas\": false\n  },\n  \"performance_policy\": \"Preserve geometry, wardrobe, marks and anatomical asymmetry. Allow purposeful expressions, blinks, mouth phonemes and body poses.\",\n  \"render_text\": false\n}"
+    },
+    "_meta": {
+      "title": "Scene 2B / S02_B — Script and literal prompt",
+      "description": "SCENE.md: D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S02-bird-v1-prep\\SCENE.md"
+    }
+  },
+  "1030": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "JennieJoyKids_family-reference.png"
+    }
+  },
+  "1031": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "JennieJoyKids_alice1.jpg"
+    }
+  },
+  "1006": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "prompt": [
+        "1019",
+        0
+      ],
+      "width": 864,
+      "height": 480,
+      "length": 124,
+      "ref_image_size": "match",
+      "ref_audios.ref_audio_0": [
+        "1005",
+        0
+      ],
+      "ref_images.ref_image_0": [
+        "1030",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "1031",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Scene 2B / S02_B — H3 reference conditioning",
+      "description": "SCENE.md: D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S02-bird-v1-prep\\SCENE.md"
+    }
+  },
+  "1007": {
+    "class_type": "LoadAudio",
+    "inputs": {
+      "audio": "JennieJoyKids_S02_B-guide.wav"
+    }
+  },
+  "1009": {
+    "class_type": "MiniMaxH3AddGuide",
+    "inputs": {
+      "positive": [
+        "1006",
+        0
+      ],
+      "latent": [
+        "1006",
+        1
+      ],
+      "frame_idx": 0,
+      "vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "audio": [
+        "1007",
+        0
+      ],
+      "image": [
+        "51",
+        0
+      ]
+    }
+  },
+  "1100": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "JennieKidJoys_S02_A060-left-profile.png"
+    }
+  },
+  "1101": {
+    "class_type": "MiniMaxH3AddGuide",
+    "inputs": {
+      "positive": [
+        "1009",
+        0
+      ],
+      "latent": [
+        "1006",
+        1
+      ],
+      "frame_idx": 60,
+      "vae": [
+        "3",
+        0
+      ],
+      "image": [
+        "1100",
+        0
+      ]
+    }
+  },
+  "1102": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "JennieKidJoys_S02_B119-rear-walk.png"
+    }
+  },
+  "1103": {
+    "class_type": "MiniMaxH3AddGuide",
+    "inputs": {
+      "positive": [
+        "1101",
+        0
+      ],
+      "latent": [
+        "1006",
+        1
+      ],
+      "frame_idx": 119,
+      "vae": [
+        "3",
+        0
+      ],
+      "image": [
+        "1102",
+        0
+      ]
+    }
+  },
+  "1010": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "conditioning": [
+        "1103",
+        0
+      ]
+    }
+  },
+  "1011": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 4311
+    }
+  },
+  "1012": {
+    "class_type": "KSamplerSelect",
+    "inputs": {
+      "sampler_name": "res_multistep"
+    }
+  },
+  "1013": {
+    "class_type": "BasicScheduler",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "scheduler": "beta",
+      "steps": 20,
+      "denoise": 1.0
+    },
+    "_meta": {
+      "title": "Scene 2B / S02_B — Sampling schedule",
+      "description": "SCENE.md: D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S02-bird-v1-prep\\SCENE.md"
+    }
+  },
+  "1014": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "1011",
+        0
+      ],
+      "guider": [
+        "1010",
+        0
+      ],
+      "sampler": [
+        "1012",
+        0
+      ],
+      "sigmas": [
+        "1013",
+        0
+      ],
+      "latent_image": [
+        "1006",
+        1
+      ]
+    },
+    "_meta": {
+      "title": "Scene 2B / S02_B — Native sampler",
+      "description": "SCENE.md: D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S02-bird-v1-prep\\SCENE.md"
+    }
+  },
+  "1015": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "1014",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    }
+  },
+  "1016": {
+    "class_type": "VAEDecodeAudio",
+    "inputs": {
+      "samples": [
+        "1014",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    }
+  },
+  "1017": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "images": [
+        "1015",
+        0
+      ],
+      "audio": [
+        "1016",
+        0
+      ],
+      "fps": 24.0
+    },
+    "_meta": {
+      "title": "Scene 2B / S02_B — Native AV assembly",
+      "description": "SCENE.md: D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S02-bird-v1-prep\\SCENE.md"
+    }
+  },
+  "1018": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "video": [
+        "1017",
+        0
+      ],
+      "filename_prefix": "JennieKidJoys/S02-bird-v1-prep/B/native",
+      "format": "auto",
+      "codec": "auto"
+    },
+    "_meta": {
+      "title": "Scene 2B / S02_B — Native AV output",
+      "description": "SCENE.md: D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S02-bird-v1-prep\\SCENE.md"
+    }
+  },
+  "1050": {
+    "class_type": "ImageFromBatch",
+    "inputs": {
+      "image": [
+        "1015",
+        0
+      ],
+      "batch_index": 1,
+      "length": 119
+    }
+  },
+  "1052": {
+    "class_type": "ImageBatch",
+    "inputs": {
+      "image1": [
+        "51",
+        0
+      ],
+      "image2": [
+        "1050",
+        0
+      ]
+    }
+  },
+  "1051": {
+    "class_type": "ImageFromBatch",
+    "inputs": {
+      "image": [
+        "1052",
+        0
+      ],
+      "batch_index": 119,
+      "length": 1
+    }
+  },
+  "1053": {
+    "class_type": "ImageFromBatch",
+    "inputs": {
+      "image": [
+        "1052",
+        0
+      ],
+      "batch_index": 0,
+      "length": 1
+    }
+  },
+  "1054": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "1053",
+        0
+      ],
+      "filename_prefix": "JennieKidJoys/S02-bird-v1-prep/B/boundary-start"
+    },
+    "_meta": {
+      "title": "Scene 2B / S02_B — Boundary first frame",
+      "description": "SCENE.md: D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S02-bird-v1-prep\\SCENE.md"
+    }
+  },
+  "1055": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "1051",
+        0
+      ],
+      "filename_prefix": "JennieKidJoys/S02-bird-v1-prep/B/boundary-end"
+    },
+    "_meta": {
+      "title": "Scene 2B / S02_B — Boundary last used frame",
+      "description": "SCENE.md: D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S02-bird-v1-prep\\SCENE.md"
+    }
+  },
+  "1058": {
+    "class_type": "TrimAudioDuration",
+    "inputs": {
+      "audio": [
+        "1007",
+        0
+      ],
+      "start_index": 0.0,
+      "duration": 5.0
+    }
+  },
+  "1056": {
+    "class_type": "CreateVideo",
+    "inputs": {
+      "images": [
+        "1052",
+        0
+      ],
+      "audio": [
+        "1058",
+        0
+      ],
+      "fps": 24.0
+    },
+    "_meta": {
+      "title": "Scene 2B / S02_B — Editorial AV assembly",
+      "description": "SCENE.md: D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S02-bird-v1-prep\\SCENE.md"
+    }
+  },
+  "1057": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "video": [
+        "1056",
+        0
+      ],
+      "filename_prefix": "JennieKidJoys/S02-bird-v1-prep/B/editorial",
+      "format": "auto",
+      "codec": "auto"
+    },
+    "_meta": {
+      "title": "Scene 2B / S02_B — Editorial AV output",
+      "description": "SCENE.md: D:\\23.JennieHomeSchool\\03 Voice\\production-local\\shots\\S02-bird-v1-prep\\SCENE.md"
+    }
+  }
+}

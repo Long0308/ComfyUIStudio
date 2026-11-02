@@ -1,0 +1,1025 @@
+{
+  "schema": "jjv/video-ui-state/v1",
+  "generated_at": "2026-10-31T11:42:12Z",
+  "episode": "04-milk-and-mom",
+  "domain": "jenniejoy_cartoon_3d",
+  "fps": 24,
+  "native": {
+    "w": 864,
+    "h": 480
+  },
+  "export": {
+    "w": 3840,
+    "h": 2160
+  },
+  "counts": {
+    "planned": 0,
+    "prompted": 0,
+    "rendered": 0,
+    "upscaled_1080": 0,
+    "accepted": 14,
+    "unknown": 0
+  },
+  "shots": [
+    {
+      "id": "S01_A",
+      "scene": null,
+      "size": null,
+      "angle": null,
+      "move": null,
+      "seconds": 5.0,
+      "refs": [
+        {
+          "name": "mother",
+          "url": null
+        },
+        {
+          "name": "alice",
+          "url": null
+        }
+      ],
+      "prompt": null,
+      "status": "accepted",
+      "native_url": "/view?filename=HYBRID_A_video_00001_.mp4&subfolder=episodes/04-milk-and-mom/shots/S01_A&type=output",
+      "hd_url": null,
+      "thumb_url": "/view?filename=HYBRID_A_frame119_00001_.png&subfolder=episodes/04-milk-and-mom/shots/S01_A&type=output",
+      "kind": "dialogue",
+      "speaker": "mother",
+      "camera_id": null,
+      "context": null,
+      "wardrobe": null,
+      "status_source": "shots doc clip sha256 verified on disk",
+      "geometry": {
+        "w": 864,
+        "h": 480
+      },
+      "evidence": {
+        "receipt_dir": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\technical\\hybrid-v001",
+        "job": {
+          "status": "COMPLETED",
+          "prompt_id": "71eacbde-2fdb-48c2-b2e9-0b03d0241dd2"
+        },
+        "native": {
+          "name": "HYBRID_A_video_00001_.mp4",
+          "node_id": "18",
+          "path": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\episodes\\04-milk-and-mom\\shots\\S01_A\\HYBRID_A_video_00001_.mp4",
+          "exists": true,
+          "url": "/view?filename=HYBRID_A_video_00001_.mp4&subfolder=episodes/04-milk-and-mom/shots/S01_A&type=output",
+          "sha256": "9f05671fcbf308c8521297d8d4fd52f2880145ce38dc7d7883b4a8ce1664eaeb",
+          "w": 864,
+          "h": 480,
+          "frames": 124,
+          "fps": 24.0
+        }
+      },
+      "problems": []
+    },
+    {
+      "id": "S01_B",
+      "scene": null,
+      "size": null,
+      "angle": null,
+      "move": null,
+      "seconds": 5.0,
+      "refs": [
+        {
+          "name": "Incoming scene — exact native frame",
+          "url": "/view?filename=04-milk-and-mom_S01_B_motion-v002_7e38989e797f.png&type=input"
+        },
+        {
+          "name": "Dutch milkmaid identity",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_milkmaid_4adaee1fdb9e.png&type=input"
+        },
+        {
+          "name": "Exact carry/anchor frame0",
+          "url": "/view?filename=04-milk-and-mom_S01_B_motion-v002_7e38989e797f.png&type=input"
+        },
+        {
+          "name": "LoadImage 32",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_alice_e87d4d0c372b.png&type=input"
+        },
+        {
+          "name": "LoadImage 33",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_mother_5f28f442b7d2.png&type=input"
+        }
+      ],
+      "prompt": "<Picture 1> is this shot exact incoming scene. It owns composition and blocking. <Picture 2> is the selected adult Dutch milkmaid identity. <Picture 3> is canonical Alice. <Picture 4> is canonical Mother. Identity images do not override scene positions. <Audio 1> is the exact final dialogue WAV. Only Alice in <Picture 3> speaks to it, every other person keeps lips closed. Preserve child/adult age and approved appearance.\nContinuous carry-in: S01_B frame 0 must be the exact accepted last USED frame (frame 119) of S01_A: clips/hybrid-v001/S01_A-last-used-frame119.png SHA256 7e38989e797f2b0a067b7eb0a89fdc339074c61bba2d9e5ccef2aed60616a2b4. Maintain identical garden picnic table geography and actor positions (Mother in dusty-teal top seated at bench right, Alice in rose-pink heart PJs kneeling on cushion left, sealed bottle held by Mother at entry). Premium cinematic stylized 3D preschool animation with detailed soft hair and fabric, rounded appealing forms, gentle natural daylight, coherent contacts and stable animal anatomy. There are exactly THREE human characters in the scene world: Mother, toddler Alice, and one adult Dutch milkmaid. Mother and Alice are the only dialogue speakers; the milkmaid is a silent working background adult. Exactly two dairy cows remain beyond the fence. No extra farmers, children or people. Do not merge the milkmaid with Mother, do not duplicate Alice, and do not change any character's age. No native captions, letters, labels or logos; educational typography is added in Remotion. No photographic humans, anime or flat vector restyling. Every shot stays outdoors in the same garden and farm; no kitchen, bedroom, glass conservatory, enclosed room or window framing.\nAlice is a human stylized 3D toddler girl about two years old, petite short torso and soft short limbs, oversized round head, full rosy cheeks, warm peach skin, very large dark-brown eyes with near-black pupils and white catchlights, fine dark brows, delicate lashes, tiny round button nose, small pink lips and baby teeth, small rounded ears and chin. Her dark black-brown straight chin-length bob has straight forehead bangs and small tied side sections. Exactly one pink bow stays on her anatomical RIGHT, viewer LEFT in frontal views; never mirror it. She wears rose-pink long-sleeve two-piece pajamas with exactly one centered white heart on the FRONT chest, matching rose-pink loose trousers with ribbed cuffs and pale-pink socks. No added shoes, hat, glasses, jewelry, markings or logos. Preserve her approved face geometry, eyes, cheeks, age, hair and proportions; expressions and speech phonemes may change only for acting.\nMom-Alice is a human stylized 3D adult woman about thirty years old, about twice Alice's standing height, slender natural adult proportions, softly rounded oval face, warm light-peach skin with subtle freckles, warm brown eyes with near-black pupils and white catchlights, softly arched chestnut eyebrows, delicate lashes, small rounded nose, natural pink lips, rounded ears and chin. Her chestnut shoulder-length hair has soft waves, a side part and gently swept front hair. She wears a plain dusty-teal short-sleeve crewneck top, cream straight tailored trousers and off-white low flat shoes. No bow, hat, glasses, jewelry or extra accessories. Preserve the canonical face geometry, eye spacing, nose, lips, skin, freckles, age and hairstyle; only expression, gaze, blinking and speech phonemes may change for acting.\nThe Dutch milkmaid is a DISTINCT ADULT human dairy worker about thirty-five years old, visibly adult in face and full-height natural proportions, with fair lightly freckled skin, blue-gray eyes, a relaxed oval face, a practical long blonde braid and a small plain white cotton work cap. She wears a modest sky-blue work dress over a white long-sleeve cotton blouse, a plain white full apron and dark practical farm boots. No logos, brand marks, text or jewelry. Her face, blonde hair, dress and adult proportions must remain separate from Mother and Alice. She works calmly seated on a low stable milking stool beside Cow A at the farm-side station. Her lips stay gently touching at all times; she never speaks, sings, mouths the family dialogue or smiles with an open mouth. Preserve her identity across the episode after a new local canonical reference is created and reviewed.\nAttach approved Alice reference production-local/character-library/alice/2026-10-18-v1/canonical-approved-latest.png SHA256 e87d4d0c372b315697d9dd948a91b12d5b0052838b12d9dff1808cc3ecb11b3a and Mother reference production-local/character-library/mother/2026-10-18-v1/canonical-production-reference.png SHA256 5f28f442b7d2253ec699b8cff7da0524ef78455cf3ca9b47847b7f050d7295f1, plus their selected active expression images. Attach approved Dutch milkmaid reference production-local/ComfyUI/output/04-milk-and-mom/characters/milkmaid/fullbody-v001-flux-candidate_00001_.png SHA256 4adaee1fdb9ee808efeeb802a1eb2fecc9520450c518ec797604afa8d31d1150 (distinct adult dairy worker ~35yo, blonde braid, white cap, sky-blue dress over white blouse, white apron, dark farm boots; silent with lips closed at all times).\nAn entirely OUTDOOR cottage garden beside a dairy pasture in soft warm morning daylight. A low oval wooden picnic table stands on a dry woven garden mat with two floor cushions; a shaded wooden garden bench sits beneath a leafy tree. Flower borders, green grass and a small distant red barn establish the farm. A continuous sturdy wooden fence separates the garden from the pasture and the sheltered farm-side milking station. Mother and Alice always remain on the garden side, several steps from the fence; they never reach through or enter the cow enclosure. Exactly TWO calm adult black-and-white dairy cows inhabit the farm: Cow A, with a broad black shoulder patch and white forehead, stands quietly side-on at the sheltered station; Cow B, with a black patch around its right eye, grazes farther back in the pasture. Keep their markings, adult scale and count consistent. At least one cow remains clearly visible in every shot. The adult Dutch milkmaid sits beside Cow A under the open-sided timber shelter, hand-milking gently into one stable metal pail beneath the udder. Her two hands use a plausible alternating squeeze-and-release action; brief thin milk streams enter the pail. The cows never speak or enter the garden. The milking pail and its fresh raw contents remain entirely on the farm side. The family's sealed ready-to-drink milk bottle came separately from the picnic basket and stays on the garden table; never show cow milk transferred straight to Alice, her cup or that sealed bottle.\nOutdoor child-eye medium-close two-shot from the same garden axis, with Cow B visibly grazing beyond the fence and the shelter remaining in the established background direction. Mother begins holding the bottle exactly as the incoming image, then gently sets its base on the tray. Alice points to the milk and speaks, with no bottle handoff. A very gentle child-eye push-in emphasizes her expression without cutting or crossing the axis. Mother stays silent with closed lips. The milkmaid continues quietly at the station if visible. No drinking, cup handoff or connection between the lesson bottle and the milking pail.\nOnly alice speaks this shot. Exact English line: Milk is white, smooth, and liquid, Mommy! Silent characters: mother, milkmaid. Synchronize only the speaker mouth to the accepted final VoiceStudio WAV. The silent family listener and the milkmaid keep lips gently touching, with no extra words, singing or mimicking. No animal speech. Use modest natural cow movement; any visible milkmaid remains quiet in the established farm-side background. No old03 frame, footage or motion segment may be inserted. Keep raw milk on the farm side and the sealed lesson bottle separate. Current-shot human framing: two foreground humans; the one milkmaid may be distant, partly occluded or outside the close crop, but no extra human may appear.\nGenerate124frames24fps, editorial uses0-119. No graphics/text. Exact dialogue: Milk is white, smooth, and liquid, Mommy!",
+      "status": "accepted",
+      "native_url": "/view?filename=motion-v002_editorial_00001_.mp4&subfolder=episodes/04-milk-and-mom/shots/S01_B&type=output",
+      "hd_url": null,
+      "thumb_url": "/view?filename=motion-v002_frame119_00001_.png&subfolder=episodes/04-milk-and-mom/shots/S01_B&type=output",
+      "kind": "dialogue",
+      "speaker": "alice",
+      "camera_id": null,
+      "context": null,
+      "wardrobe": null,
+      "status_source": "shots doc clip sha256 verified on disk",
+      "geometry": {
+        "w": 864,
+        "h": 480
+      },
+      "evidence": {
+        "receipt_dir": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\technical\\motion-v002\\S01_B",
+        "preparation": {
+          "file": "preparation.json",
+          "schema": null,
+          "status": "PREPARED_NOT_SUBMITTED",
+          "version": "motion-v002"
+        },
+        "job": {
+          "status": "COMPLETED",
+          "prompt_id": "499cf511-b762-4676-ae11-0992c64a3689"
+        },
+        "native": {
+          "name": "motion-v002_editorial_00001_.mp4",
+          "node_id": "63",
+          "path": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\episodes\\04-milk-and-mom\\shots\\S01_B\\motion-v002_editorial_00001_.mp4",
+          "exists": true,
+          "url": "/view?filename=motion-v002_editorial_00001_.mp4&subfolder=episodes/04-milk-and-mom/shots/S01_B&type=output",
+          "sha256": "0544acc59eb788486b95142da522272b32c30f74ae0a3ea23258e3e25680e7dd",
+          "w": 864,
+          "h": 480,
+          "frames": 120,
+          "fps": 24.0
+        }
+      },
+      "problems": []
+    },
+    {
+      "id": "S02_A",
+      "scene": null,
+      "size": null,
+      "angle": null,
+      "move": null,
+      "seconds": 5.333,
+      "refs": [
+        {
+          "name": "Incoming scene — exact native frame",
+          "url": "/view?filename=04-milk-and-mom_S02_A_motion-v004_3fb7d9c5e66f.png&type=input"
+        },
+        {
+          "name": "Dutch milkmaid identity",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_milkmaid_4adaee1fdb9e.png&type=input"
+        },
+        {
+          "name": "Exact carry/anchor frame0",
+          "url": "/view?filename=04-milk-and-mom_S02_A_motion-v004_3fb7d9c5e66f.png&type=input"
+        },
+        {
+          "name": "LoadImage 32",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_alice_e87d4d0c372b.png&type=input"
+        },
+        {
+          "name": "LoadImage 33",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_mother_5f28f442b7d2.png&type=input"
+        }
+      ],
+      "prompt": "One continuous locked-camera shot, premium cinematic 3D animation. Animate the supplied scene <Picture 1> without changing composition, camera angle, scale, background geometry or sunlight. Alice is the petite toddler at screen left, round rosy face, large brown eyes, dark bob with bangs and one pink bow, pink pajamas with one white chest heart and pink socks. Mother is the adult woman at screen right, warm peach skin, brown eyes, shoulder-length wavy chestnut hair, teal shirt and cream trousers. The distant adult Dutch milkmaid has a blonde braid, white cap, blue dress with white blouse/apron and dark boots; she remains seated at her milking stool behind the wooden fence. Two black-white dairy cows remain in their same separate background positions behind the fence. Preserve every identity, proportion, hairstyle, costume and prop from Picture 1.\nACTION: Mother speaks warmly to Alice, makes one small open-palm gesture toward the distant milking shelter, then rests. Alice listens, blinks and keeps lips closed. Keep the cow, shelter and seated milkmaid small and distant exactly as in the reference; no character approaches the family.\nOnly Mother speaks the exact supplied <Audio 1>, matching its timing and mouth movements: \"Good job! Where does our fresh milk come from?\" Alice and the milkmaid keep lips gently closed throughout. Background motions are tiny natural blinks and breathing only, with no walking, enlargement, duplication, pail movement or fence crossing. No new objects, cuts, camera movement, words or graphics. The start and ending guide preserve the same staging; use restrained acting between them.",
+      "status": "accepted",
+      "native_url": "/view?filename=motion-v004_editorial_00001_.mp4&subfolder=episodes/04-milk-and-mom/shots/S02_A&type=output",
+      "hd_url": null,
+      "thumb_url": "/view?filename=motion-v004_frame127_00001_.png&subfolder=episodes/04-milk-and-mom/shots/S02_A&type=output",
+      "kind": "dialogue",
+      "speaker": "mother",
+      "camera_id": null,
+      "context": null,
+      "wardrobe": null,
+      "status_source": "shots doc clip sha256 verified on disk",
+      "geometry": {
+        "w": 864,
+        "h": 480
+      },
+      "evidence": {
+        "receipt_dir": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\technical\\motion-v004\\S02_A",
+        "preparation": {
+          "file": "preparation.json",
+          "schema": null,
+          "status": "PREPARED_NOT_SUBMITTED",
+          "version": "motion-v004"
+        },
+        "job": {
+          "status": "COMPLETED",
+          "prompt_id": "e5807445-bc27-4269-99d6-71111098ec64"
+        },
+        "native": {
+          "name": "motion-v004_editorial_00001_.mp4",
+          "node_id": "63",
+          "path": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\episodes\\04-milk-and-mom\\shots\\S02_A\\motion-v004_editorial_00001_.mp4",
+          "exists": true,
+          "url": "/view?filename=motion-v004_editorial_00001_.mp4&subfolder=episodes/04-milk-and-mom/shots/S02_A&type=output",
+          "sha256": "e97e08fe3b1d82b9d573eaf1b0f4a508fb11190896bfdf0a31c284936d8bf92a",
+          "w": 864,
+          "h": 480,
+          "frames": 128,
+          "fps": 24.0
+        }
+      },
+      "problems": []
+    },
+    {
+      "id": "S02_B",
+      "scene": null,
+      "size": null,
+      "angle": null,
+      "move": null,
+      "seconds": 5.333,
+      "refs": [
+        {
+          "name": "Incoming scene — exact native frame",
+          "url": "/view?filename=04-milk-and-mom_S02_B_motion-v005_a60f58ff2593.png&type=input"
+        },
+        {
+          "name": "Dutch milkmaid identity",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_milkmaid_4adaee1fdb9e.png&type=input"
+        },
+        {
+          "name": "Exact carry/anchor frame0",
+          "url": "/view?filename=04-milk-and-mom_S02_B_motion-v005_a60f58ff2593.png&type=input"
+        },
+        {
+          "name": "LoadImage 32",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_alice_e87d4d0c372b.png&type=input"
+        },
+        {
+          "name": "LoadImage 33",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_mother_5f28f442b7d2.png&type=input"
+        }
+      ],
+      "prompt": "One continuous locked-camera shot, premium cinematic 3D animation. Animate the supplied scene <Picture 1> without changing composition, camera angle, scale, background geometry or sunlight. Alice is the petite toddler at screen left, round rosy face, large brown eyes, dark bob with bangs and one pink bow, pink pajamas with one white chest heart and pink socks. Mother is the adult woman at screen right, warm peach skin, brown eyes, shoulder-length wavy chestnut hair, teal shirt and cream trousers. The distant adult Dutch milkmaid has a blonde braid, white cap, blue dress with white blouse/apron and dark boots; she remains seated at her milking stool behind the wooden fence. Two black-white dairy cows remain in their same separate background positions behind the fence. Preserve every identity, proportion, hairstyle, costume and prop from Picture 1.\nACTION: Alice smiles at Mother and speaks eagerly, making one small open-palm gesture toward the cows and pasture, then rests her hands. Mother listens attentively with closed lips. Keep the cows, shelter and seated milkmaid small and distant exactly as in the reference; no character approaches the family.\nOnly Alice speaks the exact supplied <Audio 1>, matching its timing and mouth movements: \"It comes from dairy cows on a green farm!\" Mother and the milkmaid keep lips gently closed throughout. Background motions are tiny natural blinks and breathing only, with no walking, enlargement, duplication, pail movement or fence crossing. No new objects, cuts, camera movement, words or graphics. The start and ending guide preserve the same staging; use restrained acting between them.",
+      "status": "accepted",
+      "native_url": "/view?filename=motion-v005_editorial_00001_.mp4&subfolder=episodes/04-milk-and-mom/shots/S02_B&type=output",
+      "hd_url": null,
+      "thumb_url": "/view?filename=motion-v005_frame127_00001_.png&subfolder=episodes/04-milk-and-mom/shots/S02_B&type=output",
+      "kind": "dialogue",
+      "speaker": "alice",
+      "camera_id": null,
+      "context": null,
+      "wardrobe": null,
+      "status_source": "shots doc clip sha256 verified on disk",
+      "geometry": {
+        "w": 864,
+        "h": 480
+      },
+      "evidence": {
+        "receipt_dir": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\technical\\motion-v005\\S02_B",
+        "preparation": {
+          "file": "preparation.json",
+          "schema": null,
+          "status": "PREPARED_NOT_SUBMITTED",
+          "version": "motion-v005"
+        },
+        "job": {
+          "status": "COMPLETED",
+          "prompt_id": "065036e1-f4b4-497b-b1ff-96e0ca27464c"
+        },
+        "native": {
+          "name": "motion-v005_editorial_00001_.mp4",
+          "node_id": "63",
+          "path": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\episodes\\04-milk-and-mom\\shots\\S02_B\\motion-v005_editorial_00001_.mp4",
+          "exists": true,
+          "url": "/view?filename=motion-v005_editorial_00001_.mp4&subfolder=episodes/04-milk-and-mom/shots/S02_B&type=output",
+          "sha256": "ef75780775f4f9e1f8af372403524584bd3fe8f74154004489514f23f1b332d8",
+          "w": 864,
+          "h": 480,
+          "frames": 128,
+          "fps": 24.0
+        }
+      },
+      "problems": []
+    },
+    {
+      "id": "S03_A",
+      "scene": null,
+      "size": null,
+      "angle": null,
+      "move": null,
+      "seconds": 5.833,
+      "refs": [
+        {
+          "name": "Incoming scene — exact native frame",
+          "url": "/view?filename=04-milk-and-mom_S03_A_motion-v004_4272cd03123c.png&type=input"
+        },
+        {
+          "name": "Dutch milkmaid identity",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_milkmaid_4adaee1fdb9e.png&type=input"
+        },
+        {
+          "name": "Exact carry/anchor frame0",
+          "url": "/view?filename=04-milk-and-mom_S03_A_motion-v004_4272cd03123c.png&type=input"
+        },
+        {
+          "name": "LoadImage 32",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_alice_e87d4d0c372b.png&type=input"
+        },
+        {
+          "name": "LoadImage 33",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_mother_5f28f442b7d2.png&type=input"
+        }
+      ],
+      "prompt": "One continuous locked-camera shot, premium cinematic 3D animation. Animate the supplied scene <Picture 1> without changing composition, camera angle, scale, background geometry or sunlight. Alice is the petite toddler at screen left, round rosy face, large brown eyes, dark bob with bangs and one pink bow, pink pajamas with one white chest heart and pink socks. Mother is the adult woman at screen right, warm peach skin, brown eyes, shoulder-length wavy chestnut hair, teal shirt and cream trousers. The distant adult Dutch milkmaid has a blonde braid, white cap, blue dress with white blouse/apron and dark boots; she remains seated at her milking stool behind the wooden fence. Two black-white dairy cows remain in their same separate background positions behind the fence. Preserve every identity, proportion, hairstyle, costume and prop from Picture 1.\nACTION: Mother asks Alice warmly about the taste of milk, looking at her with one small nod. Her hand rests by the three round wooden tokens already on the table. Alice listens with lips closed. Tokens and bottle remain stationary. No one enters the frame.\nOnly Mother speaks the exact supplied <Audio 1>, matching its timing and mouth movements: \"How does the milk taste when you take a sip, sweetie?\" Alice and the milkmaid keep lips gently closed throughout. Background motions are tiny natural blinks and breathing only, with no walking, enlargement, duplication, pail movement or fence crossing. No new objects, cuts, camera movement, words or graphics. The start and ending guide preserve the same staging; use restrained acting between them.",
+      "status": "accepted",
+      "native_url": "/view?filename=motion-v004_editorial_00001_.mp4&subfolder=episodes/04-milk-and-mom/shots/S03_A&type=output",
+      "hd_url": null,
+      "thumb_url": "/view?filename=motion-v004_frame139_00001_.png&subfolder=episodes/04-milk-and-mom/shots/S03_A&type=output",
+      "kind": "dialogue",
+      "speaker": "mother",
+      "camera_id": null,
+      "context": null,
+      "wardrobe": null,
+      "status_source": "shots doc clip sha256 verified on disk",
+      "geometry": {
+        "w": 864,
+        "h": 480
+      },
+      "evidence": {
+        "receipt_dir": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\technical\\motion-v004\\S03_A",
+        "preparation": {
+          "file": "preparation.json",
+          "schema": null,
+          "status": "PREPARED_NOT_SUBMITTED",
+          "version": "motion-v004"
+        },
+        "job": {
+          "status": "COMPLETED",
+          "prompt_id": "7435bfcb-64b3-47b3-bead-a2d62da29771"
+        },
+        "native": {
+          "name": "motion-v004_editorial_00001_.mp4",
+          "node_id": "63",
+          "path": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\episodes\\04-milk-and-mom\\shots\\S03_A\\motion-v004_editorial_00001_.mp4",
+          "exists": true,
+          "url": "/view?filename=motion-v004_editorial_00001_.mp4&subfolder=episodes/04-milk-and-mom/shots/S03_A&type=output",
+          "sha256": "ac51c347ffba226c2d14ce4c1ffa6165b2c486356ac418955bc4a03e143af52d",
+          "w": 864,
+          "h": 480,
+          "frames": 140,
+          "fps": 24.0
+        }
+      },
+      "problems": []
+    },
+    {
+      "id": "S03_B",
+      "scene": null,
+      "size": null,
+      "angle": null,
+      "move": null,
+      "seconds": 4.167,
+      "refs": [
+        {
+          "name": "Incoming scene — exact native frame",
+          "url": "/view?filename=04-milk-and-mom_S03_B_motion-v005_b3da1c2e7eda.png&type=input"
+        },
+        {
+          "name": "Dutch milkmaid identity",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_milkmaid_4adaee1fdb9e.png&type=input"
+        },
+        {
+          "name": "Exact carry/anchor frame0",
+          "url": "/view?filename=04-milk-and-mom_S03_B_motion-v005_b3da1c2e7eda.png&type=input"
+        },
+        {
+          "name": "LoadImage 32",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_alice_e87d4d0c372b.png&type=input"
+        },
+        {
+          "name": "LoadImage 33",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_mother_5f28f442b7d2.png&type=input"
+        }
+      ],
+      "prompt": "One continuous locked-camera shot, premium cinematic 3D animation. Animate the supplied scene <Picture 1> without changing composition, camera angle, scale, background geometry or sunlight. Alice is the petite toddler at screen left, round rosy face, large brown eyes, dark bob with bangs and one pink bow, pink pajamas with one white chest heart and pink socks. Mother is the adult woman at screen right, warm peach skin, brown eyes, shoulder-length wavy chestnut hair, teal shirt and cream trousers. The distant adult Dutch milkmaid has a blonde braid, white cap, blue dress with white blouse/apron and dark boots; she remains seated at her milking stool behind the wooden fence. Two black-white dairy cows remain in their same separate background positions behind the fence. Preserve every identity, proportion, hairstyle, costume and prop from Picture 1.\nACTION: Alice smiles warmly at Mother, places one round wooden taste token beside the sealed milk bottle, rests her hands and speaks happily. Mother listens with closed lips and gives one small gentle nod. The three wooden tokens and sealed milk bottle stay on the table. No character enters or approaches.\nOnly Alice speaks the exact supplied <Audio 1>, matching its timing and mouth movements: \"It tastes creamy, fresh, and yummy!\" Mother and the milkmaid keep lips gently closed throughout. Background motions are tiny natural blinks and breathing only, with no walking, enlargement, duplication, pail movement or fence crossing. No new objects, cuts, camera movement, words or graphics. The start and ending guide preserve the same staging; use restrained acting between them.",
+      "status": "accepted",
+      "native_url": "/view?filename=motion-v005_editorial_00001_.mp4&subfolder=episodes/04-milk-and-mom/shots/S03_B&type=output",
+      "hd_url": null,
+      "thumb_url": "/view?filename=motion-v005_frame99_00001_.png&subfolder=episodes/04-milk-and-mom/shots/S03_B&type=output",
+      "kind": "dialogue",
+      "speaker": "alice",
+      "camera_id": null,
+      "context": null,
+      "wardrobe": null,
+      "status_source": "shots doc clip sha256 verified on disk",
+      "geometry": {
+        "w": 864,
+        "h": 480
+      },
+      "evidence": {
+        "receipt_dir": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\technical\\motion-v005\\S03_B",
+        "preparation": {
+          "file": "preparation.json",
+          "schema": null,
+          "status": "PREPARED_NOT_SUBMITTED",
+          "version": "motion-v005"
+        },
+        "job": {
+          "status": "COMPLETED",
+          "prompt_id": "4f5c28f8-684e-4b72-845e-062d9401141d"
+        },
+        "native": {
+          "name": "motion-v005_editorial_00001_.mp4",
+          "node_id": "63",
+          "path": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\episodes\\04-milk-and-mom\\shots\\S03_B\\motion-v005_editorial_00001_.mp4",
+          "exists": true,
+          "url": "/view?filename=motion-v005_editorial_00001_.mp4&subfolder=episodes/04-milk-and-mom/shots/S03_B&type=output",
+          "sha256": "8cc48409f00e85887409f47a6adf9fed58ba4f81ca8d6de14a8f410e59877c39",
+          "w": 864,
+          "h": 480,
+          "frames": 100,
+          "fps": 24.0
+        }
+      },
+      "problems": []
+    },
+    {
+      "id": "S04_A",
+      "scene": null,
+      "size": null,
+      "angle": null,
+      "move": null,
+      "seconds": 4.667,
+      "refs": [
+        {
+          "name": "Incoming scene — exact native frame",
+          "url": "/view?filename=04-milk-and-mom_S04_A_motion-v003_bf55437ea55e.png&type=input"
+        },
+        {
+          "name": "Dutch milkmaid identity",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_milkmaid_4adaee1fdb9e.png&type=input"
+        },
+        {
+          "name": "Exact carry/anchor frame0",
+          "url": "/view?filename=04-milk-and-mom_S04_A_motion-v003_bf55437ea55e.png&type=input"
+        },
+        {
+          "name": "LoadImage 32",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_alice_e87d4d0c372b.png&type=input"
+        },
+        {
+          "name": "LoadImage 33",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_mother_5f28f442b7d2.png&type=input"
+        }
+      ],
+      "prompt": "<Picture 1> is this shot exact incoming scene. It owns composition and blocking. <Picture 2> is the selected adult Dutch milkmaid identity. <Picture 3> is canonical Alice. <Picture 4> is canonical Mother. Identity images do not override scene positions. <Audio 1> is the exact final dialogue WAV. Only Mother in <Picture 4> speaks to it, every other person keeps lips closed. Preserve child/adult age and approved appearance.\nMOTIVATED CUT to this new approved camera anchor. Preserve input composition and prop state.\nPremium cinematic stylized 3D preschool animation with detailed soft hair and fabric, rounded appealing forms, gentle natural daylight, coherent contacts and stable animal anatomy. There are exactly THREE human characters in the scene world: Mother, toddler Alice, and one adult Dutch milkmaid. Mother and Alice are the only dialogue speakers; the milkmaid is a silent working background adult. Exactly two dairy cows remain beyond the fence. No extra farmers, children or people. Do not merge the milkmaid with Mother, do not duplicate Alice, and do not change any character's age. No native captions, letters, labels or logos; educational typography is added in Remotion. No photographic humans, anime or flat vector restyling. Every shot stays outdoors in the same garden and farm; no kitchen, bedroom, glass conservatory, enclosed room or window framing.\nAlice is a human stylized 3D toddler girl about two years old, petite short torso and soft short limbs, oversized round head, full rosy cheeks, warm peach skin, very large dark-brown eyes with near-black pupils and white catchlights, fine dark brows, delicate lashes, tiny round button nose, small pink lips and baby teeth, small rounded ears and chin. Her dark black-brown straight chin-length bob has straight forehead bangs and small tied side sections. Exactly one pink bow stays on her anatomical RIGHT, viewer LEFT in frontal views; never mirror it. She wears rose-pink long-sleeve two-piece pajamas with exactly one centered white heart on the FRONT chest, matching rose-pink loose trousers with ribbed cuffs and pale-pink socks. No added shoes, hat, glasses, jewelry, markings or logos. Preserve her approved face geometry, eyes, cheeks, age, hair and proportions; expressions and speech phonemes may change only for acting.\nMom-Alice is a human stylized 3D adult woman about thirty years old, about twice Alice's standing height, slender natural adult proportions, softly rounded oval face, warm light-peach skin with subtle freckles, warm brown eyes with near-black pupils and white catchlights, softly arched chestnut eyebrows, delicate lashes, small rounded nose, natural pink lips, rounded ears and chin. Her chestnut shoulder-length hair has soft waves, a side part and gently swept front hair. She wears a plain dusty-teal short-sleeve crewneck top, cream straight tailored trousers and off-white low flat shoes. No bow, hat, glasses, jewelry or extra accessories. Preserve the canonical face geometry, eye spacing, nose, lips, skin, freckles, age and hairstyle; only expression, gaze, blinking and speech phonemes may change for acting.\nThe Dutch milkmaid is a DISTINCT ADULT human dairy worker about thirty-five years old, visibly adult in face and full-height natural proportions, with fair lightly freckled skin, blue-gray eyes, a relaxed oval face, a practical long blonde braid and a small plain white cotton work cap. She wears a modest sky-blue work dress over a white long-sleeve cotton blouse, a plain white full apron and dark practical farm boots. No logos, brand marks, text or jewelry. Her face, blonde hair, dress and adult proportions must remain separate from Mother and Alice. She works calmly seated on a low stable milking stool beside Cow A at the farm-side station. Her lips stay gently touching at all times; she never speaks, sings, mouths the family dialogue or smiles with an open mouth. Preserve her identity across the episode after a new local canonical reference is created and reviewed.\nAttach approved Alice reference production-local/character-library/alice/2026-10-18-v1/canonical-approved-latest.png SHA256 e87d4d0c372b315697d9dd948a91b12d5b0052838b12d9dff1808cc3ecb11b3a and Mother reference production-local/character-library/mother/2026-10-18-v1/canonical-production-reference.png SHA256 5f28f442b7d2253ec699b8cff7da0524ef78455cf3ca9b47847b7f050d7295f1, plus their selected active expression images. Attach approved Dutch milkmaid reference production-local/ComfyUI/output/04-milk-and-mom/characters/milkmaid/fullbody-v001-flux-candidate_00001_.png SHA256 4adaee1fdb9ee808efeeb802a1eb2fecc9520450c518ec797604afa8d31d1150 (distinct adult dairy worker ~35yo, blonde braid, white cap, sky-blue dress over white blouse, white apron, dark farm boots; silent with lips closed at all times).\nAn entirely OUTDOOR cottage garden beside a dairy pasture in soft warm morning daylight. A low oval wooden picnic table stands on a dry woven garden mat with two floor cushions; a shaded wooden garden bench sits beneath a leafy tree. Flower borders, green grass and a small distant red barn establish the farm. A continuous sturdy wooden fence separates the garden from the pasture and the sheltered farm-side milking station. Mother and Alice always remain on the garden side, several steps from the fence; they never reach through or enter the cow enclosure. Exactly TWO calm adult black-and-white dairy cows inhabit the farm: Cow A, with a broad black shoulder patch and white forehead, stands quietly side-on at the sheltered station; Cow B, with a black patch around its right eye, grazes farther back in the pasture. Keep their markings, adult scale and count consistent. At least one cow remains clearly visible in every shot. The adult Dutch milkmaid sits beside Cow A under the open-sided timber shelter, hand-milking gently into one stable metal pail beneath the udder. Her two hands use a plausible alternating squeeze-and-release action; brief thin milk streams enter the pail. The cows never speak or enter the garden. The milking pail and its fresh raw contents remain entirely on the farm side. The family's sealed ready-to-drink milk bottle came separately from the picnic basket and stays on the garden table; never show cow milk transferred straight to Alice, her cup or that sealed bottle.\nBoth fabric sleeves are ALREADY fitted to the cups in the input. Mother begins holding the orange-sleeved cup and touching the blue-sleeved cup; gently sets the orange cup beside blue, then asks the line. Do not put extra sleeves on cups and do not invent hot steam. Alice listens with closed lips. Camera stays slightly elevated medium two-shot with faces and both cups visible.\nOnly mother speaks this shot. Exact English line: Can milk be served warm or cold? Silent characters: alice, milkmaid. Synchronize only the speaker mouth to the accepted final VoiceStudio WAV. The silent family listener and the milkmaid keep lips gently touching, with no extra words, singing or mimicking. No animal speech. Use modest natural cow movement; any visible milkmaid remains quiet in the established farm-side background. No old03 frame, footage or motion segment may be inserted. Keep raw milk on the farm side and the sealed lesson bottle separate. Current-shot human framing: two foreground humans; the one milkmaid may be distant, partly occluded or outside the close crop, but no extra human may appear.\nAUTHORITATIVE CURRENT STAGING: Both fabric sleeves are ALREADY fitted to the cups in the input. Mother begins holding the orange-sleeved cup and touching the blue-sleeved cup; gently sets the orange cup beside blue, then asks the line. Do not put extra sleeves on cups and do not invent hot steam. Alice listens with closed lips. Camera stays slightly elevated medium two-shot with faces and both cups visible.\nUse 112 native frames at24fps. Close speaker lips naturally afterfinalsyllable; never speak for silentlistener. No subtitles or nativegraphics.",
+      "status": "accepted",
+      "native_url": "/view?filename=motion-v003_editorial_00001_.mp4&subfolder=episodes/04-milk-and-mom/shots/S04_A&type=output",
+      "hd_url": null,
+      "thumb_url": "/view?filename=motion-v003_frame111_00001_.png&subfolder=episodes/04-milk-and-mom/shots/S04_A&type=output",
+      "kind": "dialogue",
+      "speaker": "mother",
+      "camera_id": null,
+      "context": null,
+      "wardrobe": null,
+      "status_source": "shots doc clip sha256 verified on disk",
+      "geometry": {
+        "w": 864,
+        "h": 480
+      },
+      "evidence": {
+        "receipt_dir": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\technical\\motion-v003\\S04_A",
+        "preparation": {
+          "file": "preparation.json",
+          "schema": null,
+          "status": "PREPARED_NOT_SUBMITTED",
+          "version": "motion-v003"
+        },
+        "job": {
+          "status": "COMPLETED",
+          "prompt_id": "506c662f-78dc-4999-baa0-93b555532b8b"
+        },
+        "native": {
+          "name": "motion-v003_editorial_00001_.mp4",
+          "node_id": "63",
+          "path": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\episodes\\04-milk-and-mom\\shots\\S04_A\\motion-v003_editorial_00001_.mp4",
+          "exists": true,
+          "url": "/view?filename=motion-v003_editorial_00001_.mp4&subfolder=episodes/04-milk-and-mom/shots/S04_A&type=output",
+          "sha256": "d63a8424d4e80029cf243ca1dff3cc36caca1afb8fd7a47a9604b2dd2d90ed8d",
+          "w": 864,
+          "h": 480,
+          "frames": 112,
+          "fps": 24.0
+        }
+      },
+      "problems": []
+    },
+    {
+      "id": "S04_B",
+      "scene": null,
+      "size": null,
+      "angle": null,
+      "move": null,
+      "seconds": 5.333,
+      "refs": [
+        {
+          "name": "Incoming scene — exact native frame",
+          "url": "/view?filename=04-milk-and-mom_S04_B_motion-v004_8f4313df874e.png&type=input"
+        },
+        {
+          "name": "Dutch milkmaid identity",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_milkmaid_4adaee1fdb9e.png&type=input"
+        },
+        {
+          "name": "Exact carry/anchor frame0",
+          "url": "/view?filename=04-milk-and-mom_S04_B_motion-v004_8f4313df874e.png&type=input"
+        },
+        {
+          "name": "LoadImage 32",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_alice_e87d4d0c372b.png&type=input"
+        },
+        {
+          "name": "LoadImage 33",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_mother_5f28f442b7d2.png&type=input"
+        }
+      ],
+      "prompt": "One continuous locked-camera shot, premium cinematic 3D animation. Animate the supplied scene <Picture 1> without changing composition, camera angle, scale, background geometry or sunlight. Alice is the petite toddler at screen left, round rosy face, large brown eyes, dark bob with bangs and one pink bow, pink pajamas with one white chest heart and pink socks. Mother is the adult woman at screen right, warm peach skin, brown eyes, shoulder-length wavy chestnut hair, teal shirt and cream trousers. The distant adult Dutch milkmaid has a blonde braid, white cap, blue dress with white blouse/apron and dark boots; she remains seated at her milking stool behind the wooden fence. Two black-white dairy cows remain in their same separate background positions behind the fence. Preserve every identity, proportion, hairstyle, costume and prop from Picture 1.\nACTION: Alice smiles at Mother and speaks eagerly to the exact supplied <Audio 1>: \"Yes! I enjoy milk both warm and cold, Mommy!\" She makes one small pointing gesture toward the two cups, then rests both hands. Mother listens warmly with lips gently closed, holding the already-present orange-sleeved and blue-sleeved cups steady on the table. No token or new object appears. The sealed bottle and all table props keep their locations. Background milkmaid and cows remain small, distant and behind the fence, no walking or enlargement. Alice is the ONLY speaker; Mother and milkmaid never mimic the voice. Preserve exact first frame from previous shot and continuous locked camera; no cut, zoom, text, graphic, new person or new prop.",
+      "status": "accepted",
+      "native_url": "/view?filename=motion-v004_editorial_00001_.mp4&subfolder=episodes/04-milk-and-mom/shots/S04_B&type=output",
+      "hd_url": null,
+      "thumb_url": "/view?filename=motion-v004_frame127_00001_.png&subfolder=episodes/04-milk-and-mom/shots/S04_B&type=output",
+      "kind": "dialogue",
+      "speaker": "alice",
+      "camera_id": null,
+      "context": null,
+      "wardrobe": null,
+      "status_source": "shots doc clip sha256 verified on disk",
+      "geometry": {
+        "w": 864,
+        "h": 480
+      },
+      "evidence": {
+        "receipt_dir": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\technical\\motion-v004\\S04_B",
+        "preparation": {
+          "file": "preparation.json",
+          "schema": null,
+          "status": "PREPARED_NOT_SUBMITTED",
+          "version": "motion-v004"
+        },
+        "job": {
+          "status": "COMPLETED",
+          "prompt_id": "6d9b97c5-a529-48d2-8401-d74c6070124a"
+        },
+        "native": {
+          "name": "motion-v004_editorial_00001_.mp4",
+          "node_id": "63",
+          "path": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\episodes\\04-milk-and-mom\\shots\\S04_B\\motion-v004_editorial_00001_.mp4",
+          "exists": true,
+          "url": "/view?filename=motion-v004_editorial_00001_.mp4&subfolder=episodes/04-milk-and-mom/shots/S04_B&type=output",
+          "sha256": "217e440b5bdbd6b01a1dccc921490bbaa23b471dd5ed1513030b76fcbcdee346",
+          "w": 864,
+          "h": 480,
+          "frames": 128,
+          "fps": 24.0
+        }
+      },
+      "problems": []
+    },
+    {
+      "id": "S05_A",
+      "scene": null,
+      "size": null,
+      "angle": null,
+      "move": null,
+      "seconds": 6.167,
+      "refs": [
+        {
+          "name": "Incoming scene — exact native frame",
+          "url": "/view?filename=04-milk-and-mom_S05_A_motion-v005_f99b273e1899.png&type=input"
+        },
+        {
+          "name": "Dutch milkmaid identity",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_milkmaid_4adaee1fdb9e.png&type=input"
+        },
+        {
+          "name": "Exact carry/anchor frame0",
+          "url": "/view?filename=04-milk-and-mom_S05_A_motion-v005_f99b273e1899.png&type=input"
+        },
+        {
+          "name": "LoadImage 32",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_alice_e87d4d0c372b.png&type=input"
+        },
+        {
+          "name": "LoadImage 33",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_mother_5f28f442b7d2.png&type=input"
+        }
+      ],
+      "prompt": "One continuous locked-camera shot, premium cinematic 3D animation. Animate the supplied scene <Picture 1> without changing composition, camera angle, scale, background geometry or sunlight. Alice is the petite toddler at screen left, round rosy face, large brown eyes, dark bob with bangs and one pink bow, pink pajamas with one white chest heart and pink socks. Mother is the adult woman at screen right, warm peach skin, brown eyes, shoulder-length wavy chestnut hair, teal shirt and cream trousers. The distant adult Dutch milkmaid has a blonde braid, white cap, blue dress with white blouse/apron and dark boots; she remains seated at her milking stool behind the wooden fence. Two black-white dairy cows remain in their same separate background positions behind the fence. Preserve every identity, proportion, hairstyle, costume and prop from Picture 1.\nACTION: Mother holds the child-safe wooden arm model over the picnic table, bends its hinged elbow once gently and straightens it while speaking warmly to Alice. Alice sits securely, watches attentively with lips closed and blinks gently. The wooden arm model and milk bottle stay in place on the table. No character enters or crosses the fence.\nOnly Mother speaks the exact supplied <Audio 1>, matching its timing and mouth movements: \"Milk has calcium to help your bones grow strong and healthy!\" Alice and the milkmaid keep lips gently closed throughout. Background motions are tiny natural blinks and breathing only, with no walking, enlargement, duplication, pail movement or fence crossing. No new objects, cuts, camera movement, words or graphics. The start and ending guide preserve the same staging; use restrained acting between them.",
+      "status": "accepted",
+      "native_url": "/view?filename=motion-v005_editorial_00001_.mp4&subfolder=episodes/04-milk-and-mom/shots/S05_A&type=output",
+      "hd_url": null,
+      "thumb_url": "/view?filename=motion-v005_frame147_00001_.png&subfolder=episodes/04-milk-and-mom/shots/S05_A&type=output",
+      "kind": "dialogue",
+      "speaker": "mother",
+      "camera_id": null,
+      "context": null,
+      "wardrobe": null,
+      "status_source": "shots doc clip sha256 verified on disk",
+      "geometry": {
+        "w": 864,
+        "h": 480
+      },
+      "evidence": {
+        "receipt_dir": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\technical\\motion-v005\\S05_A",
+        "preparation": {
+          "file": "preparation.json",
+          "schema": null,
+          "status": "PREPARED_NOT_SUBMITTED",
+          "version": "motion-v005"
+        },
+        "job": {
+          "status": "COMPLETED",
+          "prompt_id": "2ff23c28-ba3a-4472-901f-85013a4516ff"
+        },
+        "native": {
+          "name": "motion-v005_editorial_00001_.mp4",
+          "node_id": "63",
+          "path": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\episodes\\04-milk-and-mom\\shots\\S05_A\\motion-v005_editorial_00001_.mp4",
+          "exists": true,
+          "url": "/view?filename=motion-v005_editorial_00001_.mp4&subfolder=episodes/04-milk-and-mom/shots/S05_A&type=output",
+          "sha256": "1d94ed91875cc97203009f225cb4076539564a1e8c890a2279957f5ad8e6634a",
+          "w": 864,
+          "h": 480,
+          "frames": 148,
+          "fps": 24.0
+        }
+      },
+      "problems": []
+    },
+    {
+      "id": "S05_B",
+      "scene": null,
+      "size": null,
+      "angle": null,
+      "move": null,
+      "seconds": 3.833,
+      "refs": [
+        {
+          "name": "Incoming scene — exact native frame",
+          "url": "/view?filename=04-milk-and-mom_S05_B_motion-v003_ddc25a483cb9.png&type=input"
+        },
+        {
+          "name": "Dutch milkmaid identity",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_milkmaid_4adaee1fdb9e.png&type=input"
+        },
+        {
+          "name": "Exact carry/anchor frame0",
+          "url": "/view?filename=04-milk-and-mom_S05_B_motion-v003_ddc25a483cb9.png&type=input"
+        },
+        {
+          "name": "LoadImage 32",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_alice_e87d4d0c372b.png&type=input"
+        },
+        {
+          "name": "LoadImage 33",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_mother_5f28f442b7d2.png&type=input"
+        }
+      ],
+      "prompt": "<Picture 1> is this shot exact incoming scene. It owns composition and blocking. <Picture 2> is the selected adult Dutch milkmaid identity. <Picture 3> is canonical Alice. <Picture 4> is canonical Mother. Identity images do not override scene positions. <Audio 1> is the exact final dialogue WAV. Only Alice in <Picture 3> speaks to it, every other person keeps lips closed. Preserve child/adult age and approved appearance.\nMOTIVATED CUT to this new approved camera anchor. Preserve input composition and prop state.\nPremium cinematic stylized 3D preschool animation with detailed soft hair and fabric, rounded appealing forms, gentle natural daylight, coherent contacts and stable animal anatomy. There are exactly THREE human characters in the scene world: Mother, toddler Alice, and one adult Dutch milkmaid. Mother and Alice are the only dialogue speakers; the milkmaid is a silent working background adult. Exactly two dairy cows remain beyond the fence. No extra farmers, children or people. Do not merge the milkmaid with Mother, do not duplicate Alice, and do not change any character's age. No native captions, letters, labels or logos; educational typography is added in Remotion. No photographic humans, anime or flat vector restyling. Every shot stays outdoors in the same garden and farm; no kitchen, bedroom, glass conservatory, enclosed room or window framing.\nAlice is a human stylized 3D toddler girl about two years old, petite short torso and soft short limbs, oversized round head, full rosy cheeks, warm peach skin, very large dark-brown eyes with near-black pupils and white catchlights, fine dark brows, delicate lashes, tiny round button nose, small pink lips and baby teeth, small rounded ears and chin. Her dark black-brown straight chin-length bob has straight forehead bangs and small tied side sections. Exactly one pink bow stays on her anatomical RIGHT, viewer LEFT in frontal views; never mirror it. She wears rose-pink long-sleeve two-piece pajamas with exactly one centered white heart on the FRONT chest, matching rose-pink loose trousers with ribbed cuffs and pale-pink socks. No added shoes, hat, glasses, jewelry, markings or logos. Preserve her approved face geometry, eyes, cheeks, age, hair and proportions; expressions and speech phonemes may change only for acting.\nMom-Alice is a human stylized 3D adult woman about thirty years old, about twice Alice's standing height, slender natural adult proportions, softly rounded oval face, warm light-peach skin with subtle freckles, warm brown eyes with near-black pupils and white catchlights, softly arched chestnut eyebrows, delicate lashes, small rounded nose, natural pink lips, rounded ears and chin. Her chestnut shoulder-length hair has soft waves, a side part and gently swept front hair. She wears a plain dusty-teal short-sleeve crewneck top, cream straight tailored trousers and off-white low flat shoes. No bow, hat, glasses, jewelry or extra accessories. Preserve the canonical face geometry, eye spacing, nose, lips, skin, freckles, age and hairstyle; only expression, gaze, blinking and speech phonemes may change for acting.\nThe Dutch milkmaid is a DISTINCT ADULT human dairy worker about thirty-five years old, visibly adult in face and full-height natural proportions, with fair lightly freckled skin, blue-gray eyes, a relaxed oval face, a practical long blonde braid and a small plain white cotton work cap. She wears a modest sky-blue work dress over a white long-sleeve cotton blouse, a plain white full apron and dark practical farm boots. No logos, brand marks, text or jewelry. Her face, blonde hair, dress and adult proportions must remain separate from Mother and Alice. She works calmly seated on a low stable milking stool beside Cow A at the farm-side station. Her lips stay gently touching at all times; she never speaks, sings, mouths the family dialogue or smiles with an open mouth. Preserve her identity across the episode after a new local canonical reference is created and reviewed.\nAttach approved Alice reference production-local/character-library/alice/2026-10-18-v1/canonical-approved-latest.png SHA256 e87d4d0c372b315697d9dd948a91b12d5b0052838b12d9dff1808cc3ecb11b3a and Mother reference production-local/character-library/mother/2026-10-18-v1/canonical-production-reference.png SHA256 5f28f442b7d2253ec699b8cff7da0524ef78455cf3ca9b47847b7f050d7295f1, plus their selected active expression images. Attach approved Dutch milkmaid reference production-local/ComfyUI/output/04-milk-and-mom/characters/milkmaid/fullbody-v001-flux-candidate_00001_.png SHA256 4adaee1fdb9ee808efeeb802a1eb2fecc9520450c518ec797604afa8d31d1150 (distinct adult dairy worker ~35yo, blonde braid, white cap, sky-blue dress over white blouse, white apron, dark farm boots; silent with lips closed at all times).\nAn entirely OUTDOOR cottage garden beside a dairy pasture in soft warm morning daylight. A low oval wooden picnic table stands on a dry woven garden mat with two floor cushions; a shaded wooden garden bench sits beneath a leafy tree. Flower borders, green grass and a small distant red barn establish the farm. A continuous sturdy wooden fence separates the garden from the pasture and the sheltered farm-side milking station. Mother and Alice always remain on the garden side, several steps from the fence; they never reach through or enter the cow enclosure. Exactly TWO calm adult black-and-white dairy cows inhabit the farm: Cow A, with a broad black shoulder patch and white forehead, stands quietly side-on at the sheltered station; Cow B, with a black patch around its right eye, grazes farther back in the pasture. Keep their markings, adult scale and count consistent. At least one cow remains clearly visible in every shot. The adult Dutch milkmaid sits beside Cow A under the open-sided timber shelter, hand-milking gently into one stable metal pail beneath the udder. Her two hands use a plausible alternating squeeze-and-release action; brief thin milk streams enter the pail. The cows never speak or enter the garden. The milking pail and its fresh raw contents remain entirely on the farm side. The family's sealed ready-to-drink milk bottle came separately from the picnic basket and stays on the garden table; never show cow milk transferred straight to Alice, her cup or that sealed bottle.\nThis is a motivated change to the adjacent tree; Alice ALREADY stands safely as shown. Mother ALREADY holds the measuring tape against trunk and a palm above Alice head. Existing ticks stay as shown, no new text. Only Alice talks, Mother keeps lips gently closed. Camera holds the full standing child plus kneelingMother, no zoom or growth.\nOnly alice speaks this shot. Exact English line: Look, Mommy! My bones are growing strong! Silent characters: mother, milkmaid. Synchronize only the speaker mouth to the accepted final VoiceStudio WAV. The silent family listener and the milkmaid keep lips gently touching, with no extra words, singing or mimicking. No animal speech. Use modest natural cow movement; any visible milkmaid remains quiet in the established farm-side background. No old03 frame, footage or motion segment may be inserted. Keep raw milk on the farm side and the sealed lesson bottle separate. Current-shot human framing: two foreground humans; the one milkmaid may be distant, partly occluded or outside the close crop, but no extra human may appear.\nAUTHORITATIVE CURRENT STAGING: This is a motivated change to the adjacent tree; Alice ALREADY stands safely as shown. Mother ALREADY holds the measuring tape against trunk and a palm above Alice head. Existing ticks stay as shown, no new text. Only Alice talks, Mother keeps lips gently closed. Camera holds the full standing child plus kneelingMother, no zoom or growth.\nUse 92 native frames at24fps. Close speaker lips naturally afterfinalsyllable; never speak for silentlistener. No subtitles or nativegraphics.",
+      "status": "accepted",
+      "native_url": "/view?filename=motion-v003_editorial_00001_.mp4&subfolder=episodes/04-milk-and-mom/shots/S05_B&type=output",
+      "hd_url": null,
+      "thumb_url": "/view?filename=motion-v003_frame91_00001_.png&subfolder=episodes/04-milk-and-mom/shots/S05_B&type=output",
+      "kind": "dialogue",
+      "speaker": "alice",
+      "camera_id": null,
+      "context": null,
+      "wardrobe": null,
+      "status_source": "shots doc clip sha256 verified on disk",
+      "geometry": {
+        "w": 864,
+        "h": 480
+      },
+      "evidence": {
+        "receipt_dir": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\technical\\motion-v003\\S05_B",
+        "preparation": {
+          "file": "preparation.json",
+          "schema": null,
+          "status": "PREPARED_NOT_SUBMITTED",
+          "version": "motion-v003"
+        },
+        "job": {
+          "status": "COMPLETED",
+          "prompt_id": "50177364-eae0-412a-9a76-ef81728c47dd"
+        },
+        "native": {
+          "name": "motion-v003_editorial_00001_.mp4",
+          "node_id": "63",
+          "path": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\episodes\\04-milk-and-mom\\shots\\S05_B\\motion-v003_editorial_00001_.mp4",
+          "exists": true,
+          "url": "/view?filename=motion-v003_editorial_00001_.mp4&subfolder=episodes/04-milk-and-mom/shots/S05_B&type=output",
+          "sha256": "6dfb9098d005be0eb3268fc07a226643083166986ade5a408c3a50218a9db2f4",
+          "w": 864,
+          "h": 480,
+          "frames": 92,
+          "fps": 24.0
+        }
+      },
+      "problems": []
+    },
+    {
+      "id": "S06_A",
+      "scene": null,
+      "size": null,
+      "angle": null,
+      "move": null,
+      "seconds": 5.833,
+      "refs": [
+        {
+          "name": "Incoming scene — exact native frame",
+          "url": "/view?filename=04-milk-and-mom_S06_A_motion-v004_3c0f0c275a1e.png&type=input"
+        },
+        {
+          "name": "Dutch milkmaid identity",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_milkmaid_4adaee1fdb9e.png&type=input"
+        },
+        {
+          "name": "Exact carry/anchor frame0",
+          "url": "/view?filename=04-milk-and-mom_S06_A_motion-v004_3c0f0c275a1e.png&type=input"
+        },
+        {
+          "name": "LoadImage 32",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_alice_e87d4d0c372b.png&type=input"
+        },
+        {
+          "name": "LoadImage 33",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_mother_5f28f442b7d2.png&type=input"
+        }
+      ],
+      "prompt": "One continuous locked-camera shot, premium cinematic 3D animation. Animate the supplied scene <Picture 1> without changing composition, camera angle, scale, background geometry or sunlight. Alice is the petite toddler at screen left, round rosy face, large brown eyes, dark bob with bangs and one pink bow, pink pajamas with one white chest heart and pink socks. Mother is the adult woman at screen right, warm peach skin, brown eyes, shoulder-length wavy chestnut hair, teal shirt and cream trousers. The distant adult Dutch milkmaid has a blonde braid, white cap, blue dress with white blouse/apron and dark boots; she remains seated at her milking stool behind the wooden fence. Two black-white dairy cows remain in their same separate background positions behind the fence. Preserve every identity, proportion, hairstyle, costume and prop from Picture 1.\nACTION: Mother holds the open illustrated book steady on her lap and asks Alice warmly about milk treats. Printed yogurt, cheese and ice cream remain unchanged on the three book panels. Alice looks from the book to Mother and listens with lips closed. Gentle blinking only. No page turn.\nOnly Mother speaks the exact supplied <Audio 1>, matching its timing and mouth movements: \"What yummy foods can we make from milk, Alice?\" Alice and the milkmaid keep lips gently closed throughout. Background motions are tiny natural blinks and breathing only, with no walking, enlargement, duplication, pail movement or fence crossing. No new objects, cuts, camera movement, words or graphics. The start and ending guide preserve the same staging; use restrained acting between them.",
+      "status": "accepted",
+      "native_url": "/view?filename=motion-v004_editorial_00001_.mp4&subfolder=episodes/04-milk-and-mom/shots/S06_A&type=output",
+      "hd_url": null,
+      "thumb_url": "/view?filename=motion-v004_frame139_00001_.png&subfolder=episodes/04-milk-and-mom/shots/S06_A&type=output",
+      "kind": "dialogue",
+      "speaker": "mother",
+      "camera_id": null,
+      "context": null,
+      "wardrobe": null,
+      "status_source": "shots doc clip sha256 verified on disk",
+      "geometry": {
+        "w": 864,
+        "h": 480
+      },
+      "evidence": {
+        "receipt_dir": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\technical\\motion-v004\\S06_A",
+        "preparation": {
+          "file": "preparation.json",
+          "schema": null,
+          "status": "PREPARED_NOT_SUBMITTED",
+          "version": "motion-v004"
+        },
+        "job": {
+          "status": "COMPLETED",
+          "prompt_id": "1974f1f4-542b-4be7-9b10-223c4bb33d52"
+        },
+        "native": {
+          "name": "motion-v004_editorial_00001_.mp4",
+          "node_id": "63",
+          "path": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\episodes\\04-milk-and-mom\\shots\\S06_A\\motion-v004_editorial_00001_.mp4",
+          "exists": true,
+          "url": "/view?filename=motion-v004_editorial_00001_.mp4&subfolder=episodes/04-milk-and-mom/shots/S06_A&type=output",
+          "sha256": "7233da4efbac668dbae1f51beb98fb70c6483e9749aa7fdce234af941896c50c",
+          "w": 864,
+          "h": 480,
+          "frames": 140,
+          "fps": 24.0
+        }
+      },
+      "problems": []
+    },
+    {
+      "id": "S06_B1",
+      "scene": null,
+      "size": null,
+      "angle": null,
+      "move": null,
+      "seconds": 5.0,
+      "refs": [
+        {
+          "name": "Incoming scene — exact native frame",
+          "url": "/view?filename=04-milk-and-mom_S06_B1_motion-v005_26ad2d1daa44.png&type=input"
+        },
+        {
+          "name": "Dutch milkmaid identity",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_milkmaid_4adaee1fdb9e.png&type=input"
+        },
+        {
+          "name": "Exact carry/anchor frame0",
+          "url": "/view?filename=04-milk-and-mom_S06_B1_motion-v005_26ad2d1daa44.png&type=input"
+        },
+        {
+          "name": "LoadImage 32",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_alice_e87d4d0c372b.png&type=input"
+        },
+        {
+          "name": "LoadImage 33",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_mother_5f28f442b7d2.png&type=input"
+        }
+      ],
+      "prompt": "One continuous locked-camera shot, premium cinematic 3D animation. Animate the supplied scene <Picture 1> without changing composition, camera angle, scale, background geometry or sunlight. Alice is the petite toddler at screen left, round rosy face, large brown eyes, dark bob with bangs and one pink bow, pink pajamas with one white chest heart and pink socks. Mother is the adult woman at screen right, warm peach skin, brown eyes, shoulder-length wavy chestnut hair, teal shirt and cream trousers. The distant adult Dutch milkmaid has a blonde braid, white cap, blue dress with white blouse/apron and dark boots; she remains seated at her milking stool behind the wooden fence. Two black-white dairy cows remain in their same separate background positions behind the fence. Preserve every identity, proportion, hairstyle, costume and prop from Picture 1.\nACTION: Alice points happily to the three pictures in the open recipe book across Mother's lap (yogurt, cheese, and ice cream) in order, then rests her hands. Mother sits close holding the open book steady on her lap, gently smiling with lips firmly closed throughout. The three-panel foldout book and sealed milk bottle remain steady. Background milkmaid and cows remain small and distant behind the fence.\nOnly Alice speaks the exact supplied <Audio 1>, matching its timing and mouth movements: \"We can make yogurt, cheese, and ice cream! Yummy!\" Mother and the milkmaid keep lips firmly closed throughout every frame with no mimicked speech. Background motions are tiny natural blinks and breathing only, with no walking, enlargement, duplication, pail movement or fence crossing. No new objects, cuts, camera movement, words or graphics. The start and ending guide preserve the same staging; use restrained acting between them.",
+      "status": "accepted",
+      "native_url": "/view?filename=motion-v005_editorial_00001_.mp4&subfolder=episodes/04-milk-and-mom/shots/S06_B1&type=output",
+      "hd_url": null,
+      "thumb_url": "/view?filename=motion-v005_frame119_00001_.png&subfolder=episodes/04-milk-and-mom/shots/S06_B1&type=output",
+      "kind": "dialogue",
+      "speaker": "alice",
+      "camera_id": null,
+      "context": null,
+      "wardrobe": null,
+      "status_source": "shots doc clip sha256 verified on disk",
+      "geometry": {
+        "w": 864,
+        "h": 480
+      },
+      "evidence": {
+        "receipt_dir": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\technical\\motion-v005\\S06_B1",
+        "preparation": {
+          "file": "preparation.json",
+          "schema": null,
+          "status": "PREPARED_NOT_SUBMITTED",
+          "version": "motion-v005"
+        },
+        "job": {
+          "status": "COMPLETED",
+          "prompt_id": "634419b3-de1a-4ba4-aa23-c14bb4e3ccd8"
+        },
+        "native": {
+          "name": "motion-v005_editorial_00001_.mp4",
+          "node_id": "63",
+          "path": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\episodes\\04-milk-and-mom\\shots\\S06_B1\\motion-v005_editorial_00001_.mp4",
+          "exists": true,
+          "url": "/view?filename=motion-v005_editorial_00001_.mp4&subfolder=episodes/04-milk-and-mom/shots/S06_B1&type=output",
+          "sha256": "e0be87956f333c721546ea283b6bf4c7a0b4dfa20165e7c44ac60596cc8861f8",
+          "w": 864,
+          "h": 480,
+          "frames": 120,
+          "fps": 24.0
+        }
+      },
+      "problems": []
+    },
+    {
+      "id": "S06_B2",
+      "scene": null,
+      "size": null,
+      "angle": null,
+      "move": null,
+      "seconds": 5.833,
+      "refs": [
+        {
+          "name": "Incoming scene — exact native frame",
+          "url": "/view?filename=04-milk-and-mom_S06_B2_motion-v006_af9dbefda888.png&type=input"
+        },
+        {
+          "name": "Dutch milkmaid identity",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_milkmaid_4adaee1fdb9e.png&type=input"
+        },
+        {
+          "name": "Exact carry/anchor frame0",
+          "url": "/view?filename=04-milk-and-mom_S06_B2_motion-v006_af9dbefda888.png&type=input"
+        },
+        {
+          "name": "LoadImage 32",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_alice_e87d4d0c372b.png&type=input"
+        },
+        {
+          "name": "LoadImage 33",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_mother_5f28f442b7d2.png&type=input"
+        }
+      ],
+      "prompt": "One continuous locked-camera shot, premium cinematic 3D animation. Animate the supplied scene <Picture 1> without changing composition, camera angle, scale, background geometry or sunlight. Alice is the petite toddler at screen left, round rosy face, large brown eyes, dark bob with bangs and one pink bow, pink pajamas with one white chest heart and pink socks. Mother is the adult woman at screen right, warm peach skin, brown eyes, shoulder-length wavy chestnut hair, teal shirt and cream trousers. The distant adult Dutch milkmaid has a blonde braid, white cap, blue dress with white blouse/apron and dark boots; she remains seated at her milking stool behind the wooden fence. Two black-white dairy cows remain in their same separate background positions behind the fence. Preserve every identity, proportion, hairstyle, costume and prop from Picture 1.\nACTION: Alice finishes speaking the motto with a joyful, bright expression, looking from the recipe book to Mother, then rests her hands. Mother smiles warmly and gives Alice one tender stroke on her hair with lips firmly closed throughout. Mother never speaks. The book and milk bottle remain steady. Background milkmaid and cows remain small and distant behind the fence.\nOnly Alice speaks the exact supplied <Audio 1>, matching its timing and mouth movements: \"Drink milk, grow strong, and stay happy!\" Mother and the milkmaid keep lips firmly closed throughout every frame with no mimicked speech. Background motions are tiny natural blinks and breathing only, with no walking, enlargement, duplication, pail movement or fence crossing. No new objects, cuts, camera movement, words or graphics. The start and ending guide preserve the same staging; use restrained acting between them.",
+      "status": "accepted",
+      "native_url": "/view?filename=motion-v006_editorial_00001_.mp4&subfolder=episodes/04-milk-and-mom/shots/S06_B2&type=output",
+      "hd_url": null,
+      "thumb_url": "/view?filename=motion-v006_frame139_00001_.png&subfolder=episodes/04-milk-and-mom/shots/S06_B2&type=output",
+      "kind": "dialogue",
+      "speaker": "alice",
+      "camera_id": null,
+      "context": null,
+      "wardrobe": null,
+      "status_source": "shots doc clip sha256 verified on disk",
+      "geometry": {
+        "w": 864,
+        "h": 480
+      },
+      "evidence": {
+        "receipt_dir": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\technical\\motion-v006\\S06_B2",
+        "preparation": {
+          "file": "preparation.json",
+          "schema": null,
+          "status": "PREPARED_NOT_SUBMITTED",
+          "version": "motion-v006"
+        },
+        "job": {
+          "status": "COMPLETED",
+          "prompt_id": "3c7852bc-4288-4b8b-8b53-ea4cfd29b000"
+        },
+        "native": {
+          "name": "motion-v006_editorial_00001_.mp4",
+          "node_id": "63",
+          "path": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\episodes\\04-milk-and-mom\\shots\\S06_B2\\motion-v006_editorial_00001_.mp4",
+          "exists": true,
+          "url": "/view?filename=motion-v006_editorial_00001_.mp4&subfolder=episodes/04-milk-and-mom/shots/S06_B2&type=output",
+          "sha256": "e1c15952eeba3a0e6017019ee3e0451c7ffcb934176a4e53e374a0d187af72ed",
+          "w": 864,
+          "h": 480,
+          "frames": 140,
+          "fps": 24.0
+        }
+      },
+      "problems": []
+    },
+    {
+      "id": "S06_B3",
+      "scene": null,
+      "size": null,
+      "angle": null,
+      "move": null,
+      "seconds": 1.667,
+      "refs": [
+        {
+          "name": "Incoming scene — exact native frame",
+          "url": "/view?filename=04-milk-and-mom_S06_B3_motion-v006_8f9ad341da9e.png&type=input"
+        },
+        {
+          "name": "Dutch milkmaid identity",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_milkmaid_4adaee1fdb9e.png&type=input"
+        },
+        {
+          "name": "Exact carry/anchor frame0",
+          "url": "/view?filename=04-milk-and-mom_S06_B3_motion-v006_8f9ad341da9e.png&type=input"
+        },
+        {
+          "name": "LoadImage 32",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_alice_e87d4d0c372b.png&type=input"
+        },
+        {
+          "name": "LoadImage 33",
+          "url": "/view?filename=04-milk-and-mom_S01_A_HYBRID_A_mother_5f28f442b7d2.png&type=input"
+        }
+      ],
+      "prompt": "One continuous locked-camera shot, premium cinematic 3D animation. Animate the supplied scene <Picture 1> without changing composition, camera angle, scale, background geometry or sunlight. Alice is the petite toddler at screen left, round rosy face, large brown eyes, dark bob with bangs and one pink bow, pink pajamas with one white chest heart and pink socks. Mother is the adult woman at screen right, warm peach skin, brown eyes, shoulder-length wavy chestnut hair, teal shirt and cream trousers. The distant adult Dutch milkmaid has a blonde braid, white cap, blue dress with white blouse/apron and dark boots; she remains seated at her milking stool behind the wooden fence. Two black-white dairy cows remain in their same separate background positions behind the fence. Preserve every identity, proportion, hairstyle, costume and prop from Picture 1.\nACTION: Alice slowly leans her head against Mother's arm and peacefully closes her eyes into a gentle daytime nap on the shaded garden bench. Mother gently supports Alice with lips firmly closed throughout. Complete quiet resting beat. The recipe book and milk bottle remain steady. Background milkmaid and cows remain small and distant behind the fence.\nSilent garden nap with quiet ambient room tone. Alice and Mother keep lips firmly closed throughout all frames. No spoken words, no mouth movement, no mimicked voice. Natural eye closure settling into sleep. Background motions are tiny natural blinks and breathing only, with no walking, enlargement, duplication, pail movement or fence crossing. No new objects, cuts, camera movement, words or graphics.",
+      "status": "accepted",
+      "native_url": "/view?filename=motion-v006_editorial_00001_.mp4&subfolder=episodes/04-milk-and-mom/shots/S06_B3&type=output",
+      "hd_url": null,
+      "thumb_url": "/view?filename=motion-v006_frame39_00001_.png&subfolder=episodes/04-milk-and-mom/shots/S06_B3&type=output",
+      "kind": "dialogue",
+      "speaker": "alice",
+      "camera_id": null,
+      "context": null,
+      "wardrobe": null,
+      "status_source": "shots doc clip sha256 verified on disk",
+      "geometry": {
+        "w": 864,
+        "h": 480
+      },
+      "evidence": {
+        "receipt_dir": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\technical\\motion-v006\\S06_B3",
+        "preparation": {
+          "file": "preparation.json",
+          "schema": null,
+          "status": "PREPARED_NOT_SUBMITTED",
+          "version": "motion-v006"
+        },
+        "job": {
+          "status": "COMPLETED",
+          "prompt_id": "521ad422-a955-4551-bd11-2d57d0b11efc"
+        },
+        "native": {
+          "name": "motion-v006_editorial_00001_.mp4",
+          "node_id": "63",
+          "path": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\episodes\\04-milk-and-mom\\shots\\S06_B3\\motion-v006_editorial_00001_.mp4",
+          "exists": true,
+          "url": "/view?filename=motion-v006_editorial_00001_.mp4&subfolder=episodes/04-milk-and-mom/shots/S06_B3&type=output",
+          "sha256": "4c25adc38904b538d44587d900029b1768a8779337ca4d1600e1622a6e4b9747",
+          "w": 864,
+          "h": 480,
+          "frames": 40,
+          "fps": 24.0
+        }
+      },
+      "problems": []
+    }
+  ],
+  "sources": {
+    "shotlist": {
+      "path": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\engine\\shots.json",
+      "sha256": "6c54b1fddba167a8a64b0a9cb5a088c1f380921d5eef125e5199537c6917e886",
+      "schema": "jjv/shots/v1"
+    },
+    "shots_doc": {
+      "path": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\engine\\shots.json",
+      "sha256": "6c54b1fddba167a8a64b0a9cb5a088c1f380921d5eef125e5199537c6917e886",
+      "schema": "jjv/shots/v1"
+    },
+    "video_out": null,
+    "wardrobe": null,
+    "h3_dirs": [
+      "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\technical\\motion-v006",
+      "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\technical\\motion-v005",
+      "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\technical\\motion-v004",
+      "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\technical\\motion-v003",
+      "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\technical\\motion-v002"
+    ],
+    "receipts": {},
+    "comfy_output_dir": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output"
+  },
+  "problems": []
+}

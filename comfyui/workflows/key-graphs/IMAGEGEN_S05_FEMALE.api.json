@@ -1,0 +1,65 @@
+﻿{
+    "1":  {
+              "inputs":  {
+                             "image":  "S05F_CHAR08_APPROVED.png"
+                         },
+              "class_type":  "LoadImage"
+          },
+    "2":  {
+              "inputs":  {
+                             "image":  "S05F_SHIRT_CANON.png"
+                         },
+              "class_type":  "LoadImage"
+          },
+    "3":  {
+              "inputs":  {
+                             "image1":  [
+                                            "1",
+                                            0
+                                        ],
+                             "image2":  [
+                                            "2",
+                                            0
+                                        ]
+                         },
+              "class_type":  "ImageBatch"
+          },
+    "4":  {
+              "inputs":  {
+                             "refs":  [
+                                          "3",
+                                          0
+                                      ],
+                             "kind":  "SHOT",
+                             "prompts":  "Photoreal live-action cinematic still, landscape 16:9, bright open-plan Vietnamese engineering office in soft daylight. Exactly one person and nobody else: Tran Thao Mai, CHAR_08, preserve approved identity face precisely, Vietnamese woman age 26 with neat dark ponytail. She sits at her own desk in a relaxed three-quarter view, eyes bright and focused, a confident small nod while replying, lips gently parted mid-sentence. Slightly wider than a close-up: show her upper body, whole desk, keyboard, mouse, and BOTH large monitors clearly; both monitors display plausible clean BIM 3D building views and understated dashboard graphics with no readable text. Canon crisp white shirt with extremely fine blue-white micro-grid, covered placket, plain unlettered collar and chest for later exact logo compositing. Natural hands and fingers; one hand draws keyboard toward her, other near mouse, no duplicated limbs. Professional warm modern office, realistic cinematic photography, natural skin texture, restrained confidence, no vest, no helmet, no other person, no logos, letters, text, watermark, collage, illustration or CGI. Composition A: woman left-of-center, both monitors fully visible behind desk, camera at seated eye level, balanced medium-wide three-quarter angle.\nPhotoreal live-action cinematic still, landscape 16:9, bright open-plan Vietnamese engineering office in soft daylight. Exactly one person and nobody else: Tran Thao Mai, CHAR_08, preserve approved identity face precisely, Vietnamese woman age 26 with neat dark ponytail. She sits at her own desk in a relaxed three-quarter view, eyes bright and focused, a confident small nod while replying, lips gently parted mid-sentence. Slightly wider than a close-up: show her upper body, whole desk, keyboard, mouse, and BOTH large monitors clearly; both monitors display plausible clean BIM 3D building views and understated dashboard graphics with no readable text. Canon crisp white shirt with extremely fine blue-white micro-grid, covered placket, plain unlettered collar and chest for later exact logo compositing. Natural hands and fingers; one hand draws keyboard toward her, other near mouse, no duplicated limbs. Professional warm modern office, realistic cinematic photography, natural skin texture, restrained confidence, no vest, no helmet, no other person, no logos, letters, text, watermark, collage, illustration or CGI. Composition B: camera slightly farther back and to her right, woman right-of-center, both monitors and generous desk surface visible, clean bright office depth.",
+                             "timeout_seconds":  14400,
+                             "episode":  "Newtecons-TienDo-KichTinh-30s",
+                             "count":  2,
+                             "ref_role":  "identity",
+                             "prompt":  "S05_FEMALE option B — wider three-quarter desk and dual monitors",
+                             "context":  "van_phong"
+                         },
+              "class_type":  "CodexOAuthImageLane"
+          },
+    "5":  {
+              "inputs":  {
+                             "images":  [
+                                            "4",
+                                            0
+                                        ],
+                             "filename_prefix":  "NEWTECONS/IMAGEGEN2_20261101/S05_FEMALE/candidate"
+                         },
+              "class_type":  "SaveImage"
+          },
+    "6":  {
+              "inputs":  {
+                             "format":  "json",
+                             "filename_prefix":  "NEWTECONS/IMAGEGEN2_20261101/S05_FEMALE/job_info",
+                             "text":  [
+                                          "4",
+                                          1
+                                      ]
+                         },
+              "class_type":  "SaveText"
+          }
+}

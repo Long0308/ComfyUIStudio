@@ -1,0 +1,378 @@
+{
+  "1": {
+    "_meta": {
+      "title": "Model MiniMax H3 R2V"
+    },
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    }
+  },
+  "10": {
+    "_meta": {
+      "title": "Guider H3"
+    },
+    "class_type": "BasicGuider",
+    "inputs": {
+      "conditioning": [
+        "9",
+        0
+      ],
+      "model": [
+        "21",
+        0
+      ]
+    }
+  },
+  "11": {
+    "_meta": {
+      "title": "Seed"
+    },
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 20261111
+    }
+  },
+  "12": {
+    "_meta": {
+      "title": "Sampler"
+    },
+    "class_type": "KSamplerSelect",
+    "inputs": {
+      "sampler_name": "res_multistep"
+    }
+  },
+  "13": {
+    "_meta": {
+      "title": "Scheduler"
+    },
+    "class_type": "BasicScheduler",
+    "inputs": {
+      "denoise": 1.0,
+      "model": [
+        "21",
+        0
+      ],
+      "scheduler": "simple",
+      "steps": 8
+    }
+  },
+  "14": {
+    "_meta": {
+      "title": "Lấy mẫu H3 video + audio"
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "guider": [
+        "10",
+        0
+      ],
+      "latent_image": [
+        "6",
+        1
+      ],
+      "noise": [
+        "11",
+        0
+      ],
+      "sampler": [
+        "12",
+        0
+      ],
+      "sigmas": [
+        "13",
+        0
+      ]
+    }
+  },
+  "15": {
+    "_meta": {
+      "title": "Giải mã hình H3"
+    },
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "14",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    }
+  },
+  "16": {
+    "_meta": {
+      "title": "Giải mã audio H3"
+    },
+    "class_type": "VAEDecodeAudio",
+    "inputs": {
+      "samples": [
+        "14",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    }
+  },
+  "17": {
+    "_meta": {
+      "title": "Ghép video H3 24 fps"
+    },
+    "class_type": "CreateVideo",
+    "inputs": {
+      "audio": [
+        "16",
+        0
+      ],
+      "fps": 24.0,
+      "images": [
+        "15",
+        0
+      ]
+    }
+  },
+  "18": {
+    "_meta": {
+      "title": "Lưu video NEWTECONS MP4 H.264"
+    },
+    "class_type": "SaveVideo",
+    "inputs": {
+      "filename_prefix": "NEWTECONS/H3/OVERNIGHT-V008/S05_A_V008VOICE_s20261111",
+      "format": "mp4",
+      "format.codec": "h264",
+      "video": [
+        "17",
+        0
+      ]
+    }
+  },
+  "19": {
+    "_meta": {
+      "title": "Prompt người thật — bổ sung hành động và camera của shot"
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "inputs": {
+      "value": "Photorealistic live-action NEWTECONS corporate footage. Use <Picture 1> as the unchanged approved scene anchor and visual look. <Picture 2> is the approved male identity, and Pictures 3-7 retain the original female identity, body, wardrobe and office references. Preserve the character's facial identity, age, hair and body proportions. Clothing and protective equipment follow the Wardrobe rule line of this prompt, not the reference photos. Photorealistic live-action footage as if shot on a full-frame cinema camera with a 35mm lens: natural skin texture with visible pores and fine lines, no airbrushing, no plastic or waxy skin, no glossy AI sheen, true-to-life fabric weave, natural hand anatomy with five fingers, realistic motion blur and lighting. Animate the approved scene anchor with natural adult movement, realistic skin and fabric, coherent lighting and camera, and performance timed to the supplied dialogue audio. Keep existing approved logos and lettering unchanged; do not invent or alter them. No cartoon styling or exaggerated facial features.\n\nSHOT S05_A (SCENE_05, 5 s, camera CAM_OTS_TO_MEDIUM_TWO_SHOT, setting SET_OPEN_OFFICE_DUAL_MONITORS).\n<Picture 2> = Hoàng Minh (CHAR_KYSU_TRE_NAM, CHAR_07).\nAlso in frame (no reference picture bound): CHAR_KYSU_TRE_NU.\nWardrobe rule: Wardrobe (van_phong, office or site container office): the company fine blue-white grid shirt with the small collar logo only; no helmet, no safety vest, nothing reflective.\nSubject: CHAR_07 Hoàng Minh and CHAR_08 Trần Thảo Mai, two smart young Vietnamese engineers collaborating happily in front of dual glowing 4K monitors displaying 3D BIM architectural models and futuristic AI Agent automation dashboards.\nStyle: modern Silicon Valley style high-tech office cinematography, clean commercial aesthetic, smooth dynamic camera movement.\nComposition: over-the-shoulder transitioning to medium two-shot, glowing screens framing the foreground, modern open office in background.\nLighting: cool blue monitor ambient glow gently bouncing off facial skin combined with bright modern Scandinavian daylight ceiling panels.\nMaterial: matte computer monitors, aluminum ergonomic desk stands, company fine blue-white grid long-sleeve shirt with the small collar N logo.\nDialogue (vi, spoken by CHAR_KYSU_TRE_NAM): \"Giờ mà Em không biết dùng AI hỗ trợ công việc là sẽ bị chậm hơn người ta nhiều đó!\" - performance timed to the supplied dialogue audio.\nNegative: old bulky CRT monitors, cluttered garbage, frowning, sleepy, dark dingy room.\n\nPERFORMANCE OVERRIDE, entire shot: CHAR_07 Hoang Minh turns his head and upper body toward the female colleague CHAR_08 seated next to him. He SPEAKS TO HER, with clear natural male lip/jaw articulation synchronized to the supplied unchanged male WAV, gaze and explaining gestures directed to HER. He points briefly at the BIM screen to explain his point, then looks back at HER. She LISTENS attentively with lips fully CLOSED from the first frame to the last. She never speaks, never mouths his words, never laughs, never continues smiling with teeth, never opens her mouth; at most one small attentive nod. Only the male speaks. His face stays readable in three-quarter profile toward her, not addressing camera. Preserve the original bright office look and fine-grid shirts. Pictures 8 and 9 are the approved helmet canon for protective-equipment design ONLY, not scene props: this remains an OFFICE with NO HELMETS and NO VESTS worn or placed in the scene. Keep these references from changing the office wardrobe. No female reply in this shot; her reply belongs to the following shot.\n"
+    }
+  },
+  "2": {
+    "_meta": {
+      "title": "Text encoder MiniMax H3"
+    },
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "device": "default",
+      "type": "minimax"
+    }
+  },
+  "20": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "lora_name": "pika_h3_flex_turbo_8step_hd_ref2va.safetensors",
+      "model": [
+        "1",
+        0
+      ],
+      "strength_model": 1.0
+    }
+  },
+  "21": {
+    "class_type": "MiniMaxH3SigmaShift",
+    "inputs": {
+      "model": [
+        "20",
+        0
+      ],
+      "shift_audio": 3.0,
+      "shift_video": 12.0
+    }
+  },
+  "3": {
+    "_meta": {
+      "title": "Video VAE"
+    },
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors"
+    }
+  },
+  "31": {
+    "_meta": {
+      "title": "ref_image_1 body"
+    },
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "newtecons_anc_Newtecons-TienDo-KichTinh-30s_S05_A_ref_image_1_a16fed39d089.png"
+    }
+  },
+  "32": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "newtecons_anc_Newtecons-TienDo-KichTinh-30s_S05_A_ref_image_2_183fb42740de.png"
+    }
+  },
+  "33": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "newtecons_anc_Newtecons-TienDo-KichTinh-30s_S05_A_ref_image_3_e653e599e721.png"
+    }
+  },
+  "34": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "newtecons_anc_Newtecons-TienDo-KichTinh-30s_S05_A_ref_image_4_55f0a34b4777.png"
+    }
+  },
+  "35": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "newtecons_anc_Newtecons-TienDo-KichTinh-30s_S05_A_ref_image_5_5cebfd96fe39.png"
+    }
+  },
+  "4": {
+    "_meta": {
+      "title": "Audio VAE"
+    },
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+    }
+  },
+  "5": {
+    "_meta": {
+      "title": "ĐIỀN: ảnh nhân vật NEWTECONS đã duyệt — ref Picture 1"
+    },
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "newtecons_anc_Newtecons-TienDo-KichTinh-30s_S05_A_ref_image_0_56d259ce541f.png"
+    }
+  },
+  "6": {
+    "_meta": {
+      "title": "H3 R2V — ảnh nhân vật tham chiếu"
+    },
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "height": 704,
+      "length": 124,
+      "prompt": [
+        "19",
+        0
+      ],
+      "ref_image_size": "match",
+      "ref_images.ref_image_0": [
+        "8",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "5",
+        0
+      ],
+      "ref_images.ref_image_2": [
+        "31",
+        0
+      ],
+      "ref_images.ref_image_3": [
+        "32",
+        0
+      ],
+      "ref_images.ref_image_4": [
+        "33",
+        0
+      ],
+      "ref_images.ref_image_5": [
+        "34",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "width": 1280,
+      "ref_images.ref_image_6": [
+        "35",
+        0
+      ],
+      "ref_images.ref_image_7": [
+        "107",
+        0
+      ],
+      "ref_images.ref_image_8": [
+        "108",
+        0
+      ]
+    }
+  },
+  "7": {
+    "_meta": {
+      "title": "ĐIỀN: WAV thoại đã duyệt — theo preparation.json wav.sha256"
+    },
+    "class_type": "LoadAudio",
+    "inputs": {
+      "audio": "v008-h3-b7d47e22523f2bc7bbc810489f6daa8591fcb92fe6c19821a1c332d4e1560713.wav"
+    }
+  },
+  "8": {
+    "_meta": {
+      "title": "ĐIỀN: ảnh cảnh đã duyệt — neo frame 0"
+    },
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "newtecons_anc_Newtecons-TienDo-KichTinh-30s_S05_A_guide_image_8d8238dadea6.png"
+    }
+  },
+  "9": {
+    "_meta": {
+      "title": "Neo cảnh và WAV thoại từ frame 0"
+    },
+    "class_type": "MiniMaxH3AddGuide",
+    "inputs": {
+      "audio": [
+        "7",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "frame_idx": 0,
+      "image": [
+        "8",
+        0
+      ],
+      "latent": [
+        "6",
+        1
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    }
+  },
+  "107": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "SOL-S06A-R5_s05_helmet_front_6454e4094a709f.png"
+    }
+  },
+  "108": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "SOL-S06A-R5_s05_helmet_3q_left_40b230b1da396e.png"
+    }
+  }
+}

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thư Viện ComfyUI Workflows & Minh Họa — Jennie Home School</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #FFFFFF;
+      --bg-secondary: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --border-color: #E2E8F0;
+      --text-main: #0A2540;
+      --text-muted: #64748B;
+      --accent-blue: #0B4FD9;
+      --accent-blue-hover: #093FB0;
+      --accent-light: #EFF6FF;
+      --badge-green: #10B981;
+      --badge-purple: #8B5CF6;
+      --badge-orange: #F59E0B;
+      --shadow-sm: 0 1px 3px rgba(10, 37, 64, 0.05);
+      --shadow-md: 0 4px 12px rgba(10, 37, 64, 0.08);
+      --shadow-lg: 0 10px 25px rgba(10, 37, 64, 0.12);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-secondary);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+
+    header {
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border-color);
+      padding: 32px 48px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .brand h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.5px;
+    }
+
+    .brand p {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    .account-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--accent-light);
+      border: 1px solid #BFDBFE;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      color: var(--accent-blue);
+      font-weight: 600;
+    }
+
+    .account-badge span.dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--badge-green);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .main-container {
+      max-width: 1400px;
+      margin: 32px auto;
+      padding: 0 24px;
+    }
+
+    .filter-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      padding: 8px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--accent-blue);
+      color: #FFFFFF;
+      border-color: var(--accent-blue);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: #CBD5E1;
+    }
+
+    .card-media {
+      width: 100%;
+      height: 250px;
+      background: #F1F5F9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-color);
+      position: relative;
+    }
+
+    .card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover .card-media img {
+      transform: scale(1.02);
+    }
+
+    .card-badge-top {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(10, 37, 64, 0.85);
+      color: #FFFFFF;
+      backdrop-filter: blur(4px);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .card-content {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-category {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .card-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .card-desc {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      flex: 1;
+    }
+
+    .file-tag {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      background: #F1F5F9;
+      color: #334155;
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid #E2E8F0;
+      margin-bottom: 16px;
+      word-break: break-all;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-color);
+      padding-top: 14px;
+    }
+
+    .status-tag {
+      font-size: 12px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .status-ready {
+      color: var(--badge-green);
+    }
+
+    .action-btn {
+      background: var(--accent-light);
+      color: var(--accent-blue);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      transition: background 0.2s ease;
+    }
+
+    .action-btn:hover {
+      background: #DBEAFE;
+    }
+
+    .banner-cloud {
+      background: linear-gradient(135deg, #0B4FD9 0%, #1D4ED8 100%);
+      color: #FFFFFF;
+      padding: 24px 32px;
+      border-radius: var(--radius-lg);
+      margin-bottom: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .banner-cloud h2 {
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .banner-cloud p {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-top: 4px;
+    }
+
+    .cloud-btn {
+      background: #FFFFFF;
+      color: var(--accent-blue);
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-size: 14px;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.2s ease;
+    }
+
+    .cloud-btn:hover {
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <div class="brand">
+        <h1>Jennie Home School & AI Studio</h1>
+        <p>Thư viện ComfyUI Workflows chuẩn hóa tiếng Việt kèm hình ảnh / video minh họa</p>
+      </div>
+      <div class="account-badge">
+        <span class="dot"></span>
+        <span>RunningHub: BimAI LongPham (philongpham023@gmail.com)</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="main-container">
+    
+    <!-- Banner Cloud Integration -->
+    <div class="banner-cloud">
+      <div>
+        <h2>Đã liên kết RunningHub.ai & ComfyUI Local</h2>
+        <p>Tài khoản của anh đã sẵn sàng với 100 RH Coins. Mọi workflow có thể chạy trực tiếp trên GPU máy nhà (RTX 5070 / RTX 5080) hoặc đẩy lên cloud qua API.</p>
+      </div>
+      <a href="https://www.runninghub.ai/my-workspace" target="_blank" class="cloud-btn">Mở Workspace Cloud →</a>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="filter-bar">
+      <button class="filter-btn active">Tất cả (17 Workflows)</button>
+      <button class="filter-btn">Anime & Hoạt hình</button>
+      <button class="filter-btn">Giữ Nhân Vật (InstantID)</button>
+      <button class="filter-btn">Biểu Cảm & Khẩu Hình</button>
+      <button class="filter-btn">Thay Đầu & Thân (Inpaint)</button>
+      <button class="filter-btn">Sinh Video Điện Ảnh</button>
+    </div>
+
+    <!-- Workflows Grid -->
+    <div class="grid-container">
+
+      <!-- Card 1: LivePortrait -->
+      <div class="card">
+        <div class="card-media">
+          <span class="card-badge-top">Hoạt Hình Khẩu Hình</span>
+          <img src="previews/LivePortrait_Showcase.gif" alt="LivePortrait Demo">
+        </div>
+        <div class="card-content">
+          <span class="card-category">Biểu Cảm & Nhép Giọng</span>
+          <h3 class="card-title">LivePortrait Điều Khiển Biểu Cảm Động</h3>
+          <p class="card-desc">Nhại cử động mắt, nụ cười và khớp khẩu hình chính xác theo giọng đọc bài giảng của bé Jennie từ file âm thanh hoặc video dẫn đường.</p>
+          <div class="file-tag">12_LivePortrait_Dieu_Khien_Bieu_Cam_Dong.json</div>
+          <div class="card-footer">
+            <span class="status-tag status-ready">● Sẵn sàng Local</span>
+            <a href="12_LivePortrait_Dieu_Khien_Bieu_Cam_Dong.json" class="action-btn">Load JSON</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: InstantID Stylized Art -->
+      <div class="card">
+        <div class="card-media">
+          <span class="card-badge-top">Đa Phong Cách</span>
+          <img src="previews/InstantID_StylizedSynthesis.png" alt="InstantID Stylized Synthesis">
+        </div>
+        <div class="card-content">
+          <span class="card-category">Nhất Quán Nhân Vật</span>
+          <h3 class="card-title">InstantID Chân Dung Nghệ Thuật & Truyện Tranh</h3>
+          <p class="card-desc">Biến khuôn mặt nhân vật thành tranh vẽ sơn dầu, anime, chiến binh hoạt hình với độ nhất quán diện mạo đạt 100%.</p>
+          <div class="file-tag">11_InstantID_Chan_Dung_Nghe_Thuat_ArtGallery.json</div>
+          <div class="card-footer">
+            <span class="status-tag status-ready">● Sẵn sàng Local</span>
+            <a href="11_InstantID_Chan_Dung_Nghe_Thuat_ArtGallery.json" class="action-btn">Load JSON</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: InstantID Pose Control -->
+      <div class="card">
+        <div class="card-media">
+          <span class="card-badge-top">Tư Thế Diễn Xuất</span>
+          <img src="previews/InstantID_Applications.png" alt="InstantID Applications">
+        </div>
+        <div class="card-content">
+          <span class="card-category">Tư Thế & Động Tác</span>
+          <h3 class="card-title">InstantID Giữ Mặt Kèm Tư Thế Hành Động</h3>
+          <p class="card-desc">Kết hợp nhận diện khuôn mặt và OpenPose ControlNet để nhân vật tạo dáng chạy nhảy, giơ tay chào hoặc các tư thế trong sách giáo dục.</p>
+          <div class="file-tag">08_InstantID_Giu_Mat_Kem_Tu_The_Hanh_Dong_Local.json</div>
+          <div class="card-footer">
+            <span class="status-tag status-ready">● Sẵn sàng Local</span>
+            <a href="08_InstantID_Giu_Mat_Kem_Tu_The_Hanh_Dong_Local.json" class="action-btn">Load JSON</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: FLUX.1 Comic & Storybook -->
+      <div class="card">
+        <div class="card-media">
+          <span class="card-badge-top">Truyện Tranh 4 Khung</span>
+          <img src="previews/FLUX1_Comic_Storybook.webp" alt="Comic Storybook">
+        </div>
+        <div class="card-content">
+          <span class="card-category">Sách Tranh Thiếu Nhi</span>
+          <h3 class="card-title">FLUX.1 Comic & Truyện Tranh Nhiều Phân Cảnh</h3>
+          <p class="card-desc">Tạo bộ truyện tranh 4 ô hoàn chỉnh với mạch truyện nối tiếp cho Jennie Home School, bảo đảm cùng một nhân vật xuất hiện ở các khung cảnh khác nhau.</p>
+          <div class="file-tag">14_FLUX1_Sinh_Anh_Dinh_Cao_DEV.json</div>
+          <div class="card-footer">
+            <span class="status-tag status-ready">● Sẵn sàng Local</span>
+            <a href="14_FLUX1_Sinh_Anh_Dinh_Cao_DEV.json" class="action-btn">Load JSON</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: Hunyuan Video T2V -->
+      <div class="card">
+        <div class="card-media">
+          <span class="card-badge-top">Sinh Video 720p/1080p</span>
+          <img src="previews/HunyuanVideo_T2V.webp" alt="Hunyuan Video">
+        </div>
+        <div class="card-content">
+          <span class="card-category">Video Hoạt Hình</span>
+          <h3 class="card-title">Hunyuan Sinh Video Chuyển Động Điện Ảnh</h3>
+          <p class="card-desc">Tạo đoạn video hoạt hình mượt mà từ câu lệnh mô tả văn bản, tái hiện thế giới động vật và thiên nhiên sống động cho bài học.</p>
+          <div class="file-tag">13_Hunyuan_Sinh_Video_Text_To_Video.json</div>
+          <div class="card-footer">
+            <span class="status-tag status-ready">● Sẵn sàng Local</span>
+            <a href="13_Hunyuan_Sinh_Video_Text_To_Video.json" class="action-btn">Load JSON</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6: CosXL Inpaint Edit -->
+      <div class="card">
+        <div class="card-media">
+          <span class="card-badge-top">Sửa Chi Tiết Theo Prompt</span>
+          <img src="previews/CosXL_Edit_Example.png" alt="CosXL Edit">
+        </div>
+        <div class="card-content">
+          <span class="card-category">Chỉnh Sửa Thông Minh</span>
+          <h3 class="card-title">CosXL Chỉnh Sửa Quần Áo & Bối Cảnh Bằng Lệnh</h3>
+          <p class="card-desc">Đổi màu váy, thêm mũ bảo hiểm, thay đổi đồ chơi của nhân vật bằng ngôn ngữ tự nhiên mà không làm biến dạng các vùng khác của bức ảnh.</p>
+          <div class="file-tag">17_CosXL_Chinh_Sua_Anh_Theo_Lenh.json</div>
+          <div class="card-footer">
+            <span class="status-tag status-ready">● Sẵn sàng Local</span>
+            <a href="17_CosXL_Chinh_Sua_Anh_Theo_Lenh.json" class="action-btn">Load JSON</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 7: LivePortrait Animals -->
+      <div class="card">
+        <div class="card-media">
+          <span class="card-badge-top">Động Vật Hoạt Hình</span>
+          <img src="previews/LivePortrait_Animals.gif" alt="LivePortrait Animals">
+        </div>
+        <div class="card-content">
+          <span class="card-category">Thú Cưng & Nhân Vật Phụ</span>
+          <h3 class="card-title">LivePortrait Hoạt Hóa Động Vật Biết Nói</h3>
+          <p class="card-desc">Mô hình đặc biệt biến gấu trúc, mèo, cún và các linh vật trong trường học Jennie biết chớp mắt, há miệng đọc thơ và kể chuyện.</p>
+          <div class="file-tag">12_LivePortrait_Dieu_Khien_Bieu_Cam_Dong.json</div>
+          <div class="card-footer">
+            <span class="status-tag status-ready">● Sẵn sàng Local</span>
+            <a href="12_LivePortrait_Dieu_Khien_Bieu_Cam_Dong.json" class="action-btn">Load JSON</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 8: JennieJoyKids Master -->
+      <div class="card">
+        <div class="card-media">
+          <span class="card-badge-top">Sản Xuất Phim 60s</span>
+          <img src="previews/InstantID_Teaser.png" alt="Master Engine">
+        </div>
+        <div class="card-content">
+          <span class="card-category">Dự Án Cốt Lõi</span>
+          <h3 class="card-title">JennieJoyKids — Phim Hoạt Hình Vườn Thú 60 Giây</h3>
+          <p class="card-desc">Quy trình tích hợp đồng bộ từ phân cảnh S01, S02, ghép lời lồng tiếng và kết xuất video hoàn chỉnh độ dài 1 phút cho kênh thiếu nhi.</p>
+          <div class="file-tag">JennieJoyKids - APP ENGINE SAN XUAT PHIM 60S (TIENG VIET).json</div>
+          <div class="card-footer">
+            <span class="status-tag status-ready">● Sẵn sàng Local</span>
+            <a href="JennieJoyKids - APP ENGINE SAN XUAT PHIM 60S (TIENG VIET).json" class="action-btn">Load JSON</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

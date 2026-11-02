@@ -1,0 +1,452 @@
+// Pure logic for the NEWTECONS step UI (no DOM, no ComfyUI imports) — tested with node.
+// Read-only: builds GET /view URLs and reads /history payloads; never queues a prompt.
+
+import { workflowDomain, workflowMediaKind } from "./workflow_context.js";
+
+export const STEP_TITLE = /^(\d{2})([A-Z]?)\s+(.+)$/u;
+export const IMAGE_SOURCES = new Set(["LoadImage", "LoadImageMask", "LoadImageOutput"]);
+export const AUDIO_SOURCES = new Set(["LoadAudio"]);
+export const TEXT_SOURCES = new Set(["PrimitiveStringMultiline", "PrimitiveString"]);
+export const OUTPUT_TYPES = new Set([
+  "SaveImage", "PreviewImage", "SaveVideo", "SaveAnimatedWEBP", "SaveAnimatedPNG", "SaveAudio", "PreviewAudio",
+]);
+const VIDEO_EXT = /\.(mp4|webm|mov|mkv)$/iu;
+const AUDIO_EXT = /\.(wav|mp3|flac|ogg|m4a)$/iu;
+const MAX_UPSTREAM_DEPTH = 40;
+
+export function workflowKind(extra, groups = [], context = {}) {
+  if (extra?.newtecons?.export_gui_version === 1) return null;
+  if (workflowDomain(extra, context) !== "newtecons_live_action") return null;
+  const kind = workflowMediaKind(extra, groups, context);
+  return kind === "none" ? "newtecons" : kind;
+}
+
+// Legacy blue #nt-step-bar: only for image-step workflows (same isImageFlow detection as the image dock).
+export function legacyBarVisible(kind, imageFlow, stepCount) {
+  return kind === "image" && imageFlow === true && stepCount >= 3;
+}
+
+export function parseSteps(groups) {
+  const steps = [];
+  for (const g of groups || []) {
+    const m = STEP_TITLE.exec(String(g.title || "").trim());
+    if (!m || !Array.isArray(g.bounding) || g.bounding.length < 4) continue;
+    steps.push({ code: m[1] + m[2], num: Number(m[1]), suffix: m[2], label: m[3], title: g.title,
+      bounding: g.bounding.slice(0, 4).map(Number) });
+  }
+  // canvas order (left -> right): v005 puts "02A NEO TRANG PHỤC" BEFORE "02"; number order would show it after
+  steps.sort((a, b) => a.bounding[0] - b.bounding[0] || a.num - b.num || a.suffix.localeCompare(b.suffix));
+  return steps;
+}
+
+export function groupSignature(groups) {
+  return (groups || []).map((g) => String(g.title || "")).filter((t) => STEP_TITLE.test(t)).sort().join("|");
+}
+
+export function inBounds(pos, b) {
+  return Array.isArray(pos) && pos[0] >= b[0] && pos[0] < b[0] + b[2] && pos[1] >= b[1] && pos[1] < b[1] + b[3];
+}
+
+export function nodesInStep(nodes, step) {
+  return (nodes || []).filter((n) => inBounds(n.pos, step.bounding));
+}
+
+export function stepOfNode(node, steps) {
+  return (steps || []).find((s) => inBounds(node.pos, s.bounding)) || null;
+}
+
+// "a/b/c.png [input]" -> {filename:"c.png", subfolder:"a/b", type:"input"}
+export function splitAnnotated(value, defaultType = "input") {
+  let name = String(value || "").trim();
+  let type = defaultType;
+  const m = /\s*\[(input|output|temp)\]$/u.exec(name);
+  if (m) { type = m[1]; name = name.slice(0, m.index); }
+  const cut = name.lastIndexOf("/");
+  return { filename: cut < 0 ? name : name.slice(cut + 1), subfolder: cut < 0 ? "" : name.slice(0, cut), type };
+}
+
+export function viewPath(ref) {
+  const q = new URLSearchParams({ filename: ref.filename, subfolder: ref.subfolder || "", type: ref.type || "output" });
+  return "/view?" + q.toString();
+}
+
+export function mediaKind(filename) {
+  if (VIDEO_EXT.test(filename || "")) return "video";
+  if (AUDIO_EXT.test(filename || "")) return "audio";
+  return "image";
+}
+
+function sourceOf(node, step) {
+  const w = node.widgets || {};
+  const base = { nodeId: node.id, type: node.type, title: node.title || node.type, mode: node.mode || 0,
+    step: step ? step.code : null };
+  if (IMAGE_SOURCES.has(node.type)) {
+    const v = w.image;
+    return { ...base, kind: "image", value: v || "", ref: v ? splitAnnotated(v) : null };
+  }
+  if (AUDIO_SOURCES.has(node.type)) {
+    const v = w.audio;
+    return { ...base, kind: "audio", value: v || "", ref: v ? splitAnnotated(v) : null };
+  }
+  if (TEXT_SOURCES.has(node.type)) return { ...base, kind: "text", value: String(w.value ?? "") };
+  return null;
+}
+
+// VÀO of a step: its own LoadImage/LoadAudio/prompt nodes; also walk connected links
+// upstream (out of the group), including when a local source exists but is blank.
+export function inputsForStep(graph, step, steps) {
+  const byId = new Map((graph.nodes || []).map((n) => [String(n.id), n]));
+  const members = nodesInStep(graph.nodes, step);
+  // Preserve blank own slots; connected upstream inputs have separate source attribution.
+  const own = members.map((n) => sourceOf(n, step)).filter(Boolean).map((s) => ({ ...s, upstream: false }));
+  const preds = new Map();
+  for (const l of graph.links || []) {
+    const target = byId.get(String(l.target_id));
+    if (target?.type === "ComfySwitchNode") {
+      const side = target.widgets?.switch ? "on_true" : "on_false";
+      const selected = (target.inputs || []).find((p) => p.name === side);
+      if (!selected || String(selected.link) !== String(l.id)) continue;
+    }
+    const key = String(l.target_id);
+    if (!preds.has(key)) preds.set(key, []);
+    preds.get(key).push(String(l.origin_id));
+  }
+  const found = [];
+  const seen = new Set(members.map((n) => String(n.id)));
+  let frontier = members.filter((n) => (n.mode || 0) !== 2).map((n) => String(n.id));
+  for (let depth = 0; depth < MAX_UPSTREAM_DEPTH && frontier.length; depth += 1) {
+    const next = [];
+    for (const id of frontier) {
+      for (const p of preds.get(id) || []) {
+        if (seen.has(p)) continue;
+        seen.add(p);
+        const node = byId.get(p);
+        if (!node || (node.mode || 0) === 2) continue;
+        const src = sourceOf(node, stepOfNode(node, steps));
+        if (src && src.kind !== "text" && (node.mode || 0) !== 4) found.push({ ...src, upstream: true });
+        else next.push(p);
+      }
+    }
+    frontier = next;
+  }
+  return [...own, ...found];
+}
+
+// ---- v004: route / source / target plans written by image_8step_build_v004.py (graph.extra) ----
+export const PLAN_KEY = "newtecons_route_plan";
+export const MUTED = 2;
+
+export function routePlan(extra) {
+  const plan = extra && extra[PLAN_KEY];
+  return plan && plan.version === 1 && plan.route && plan.route.options ? plan : null;
+}
+
+function nodeMap(nodes) {
+  return new Map((nodes || []).map((n) => [String(n.id), n]));
+}
+
+function switchValue(node) {
+  const w = node && node.widgets;
+  return w && "switch" in w ? Boolean(w.switch) : null;
+}
+
+// Which option of a dimension the graph is in now. route: extra key first; others: the option whose
+// switches, muted ids and restored ids all match the node state (null when none matches = hand-edited).
+export function currentChoice(extra, nodes, dimension) {
+  const plan = routePlan(extra);
+  const dim = plan && plan[dimension];
+  if (!dim) return null;
+  if (dimension === "route" || dim.extra_key) {
+    const key = extra[dim.extra_key || "newtecons_route"];
+    return key in dim.options ? key : dim.default;
+  }
+  const byId = nodeMap(nodes);
+  for (const [name, opt] of Object.entries(dim.options)) {
+    const swOk = Object.entries(opt.switches || {}).every(([id, v]) => switchValue(byId.get(id)) === Boolean(v));
+    const muteOk = (opt.mute || []).every((id) => (byId.get(String(id))?.mode || 0) === MUTED);
+    const liveOk = Object.keys(opt.restore || {}).every((id) => (byId.get(id)?.mode || 0) !== MUTED);
+    if (swOk && muteOk && liveOk) return name;
+  }
+  return null;
+}
+
+// Pure: the mode / saved-mode / switch edits that choosing `option` makes. Muting saves the node's current
+// mode in properties.nt_mode_saved (unless already muted); restoring uses that saved mode, else the plan
+// default, and clears it. Same rule as apply_choice() in image_8step_build_v004.py.
+export function planChanges(extra, nodes, dimension, option) {
+  const plan = routePlan(extra);
+  const opt = plan?.[dimension]?.options?.[option];
+  if (!opt) throw new Error(`no plan option ${dimension}/${option}`);
+  const byId = nodeMap(nodes);
+  const modes = [];
+  for (const id of opt.mute || []) {
+    const n = byId.get(String(id));
+    if (!n) throw new Error(`plan node ${id} missing from the graph`);
+    const cur = n.mode || 0;
+    modes.push({ id: n.id, mode: MUTED, saved: cur === MUTED ? undefined : cur });
+  }
+  for (const [id, def] of Object.entries(opt.restore || {})) {
+    const n = byId.get(id);
+    if (!n) throw new Error(`plan node ${id} missing from the graph`);
+    const saved = n.properties?.nt_mode_saved;
+    modes.push({ id: n.id, mode: Number.isInteger(saved) ? saved : def, saved: null });
+  }
+  const switches = Object.entries(opt.switches || {}).map(([id, v]) => {
+    if (!byId.get(id)) throw new Error(`plan switch ${id} missing from the graph`);
+    return { id: byId.get(id).id, value: Boolean(v) };
+  });
+  const widgets = Object.entries(opt.widgets || {}).map(([id, values]) => {
+    if (!byId.get(id)) throw new Error(`plan widget node ${id} missing from the graph`);
+    return { id: byId.get(id).id, values: { ...values } };
+  });
+  const key = dimension === "route" ? (plan.route.extra_key || "newtecons_route") : plan[dimension].extra_key;
+  return { dimension, option, modes, switches, widgets, extra: key ? { [key]: option } : {} };
+}
+
+// Pure mirror of the edits (tests and dry previews): returns new node objects, input untouched.
+export function applyChanges(nodes, changes) {
+  const modes = new Map(changes.modes.map((m) => [String(m.id), m]));
+  const sw = new Map(changes.switches.map((s) => [String(s.id), s.value]));
+  const wv = new Map((changes.widgets || []).map((w) => [String(w.id), w.values]));
+  return (nodes || []).map((n) => {
+    const m = modes.get(String(n.id));
+    const props = { ...(n.properties || {}) };
+    if (m && m.saved === null) delete props.nt_mode_saved;
+    else if (m && m.saved !== undefined) props.nt_mode_saved = m.saved;
+    let widgets = sw.has(String(n.id)) ? { ...(n.widgets || {}), switch: sw.get(String(n.id)) } : n.widgets;
+    if (wv.has(String(n.id))) widgets = { ...(widgets || {}), ...wv.get(String(n.id)) };
+    return { ...n, mode: m ? m.mode : n.mode, properties: props, widgets };
+  });
+}
+
+// Switches listed in the plan whose SELECTED side is unlinked or fed by a muted node (output would be None).
+export function switchProblems(graph) {
+  const plan = routePlan(graph.extra);
+  if (!plan) return [];
+  const ids = new Set();
+  for (const dim of Object.values(plan)) {
+    for (const opt of Object.values(dim?.options || {})) Object.keys(opt.switches || {}).forEach((i) => ids.add(i));
+  }
+  const byId = nodeMap(graph.nodes);
+  const links = new Map((graph.links || []).map((l) => [l.id, l]));
+  const out = [];
+  for (const id of ids) {
+    const n = byId.get(id);
+    if (!n || (n.mode || 0) !== 0) continue;
+    const side = switchValue(n) ? "on_true" : "on_false";
+    const port = (n.inputs || []).find((p) => p.name === side);
+    const src = port && port.link != null ? byId.get(String(links.get(port.link)?.origin_id)) : null;
+    if (!src || (src.mode || 0) === MUTED) out.push({ id: n.id, title: n.title, side, src: src ? src.id : null });
+  }
+  return out;
+}
+
+export const SHA256_HEX = /^[0-9a-f]{64}$/u;
+
+// The engine approval command (ComfyUI cannot write approvals). Placeholders stay <...> unless given.
+export function approveCommand({ sha, reviewer, scope, episode, out, libraryOut, promptId } = {}) {
+  if (!SHA256_HEX.test(String(sha || ""))) throw new Error("sha must be 64 lowercase hex chars");
+  const q = (v, ph) => (v ? (/[\s"']/u.test(v) ? JSON.stringify(v) : v) : ph);
+  return ["jjv images approve", `--episode ${q(episode, "<EPISODE>")}`, `--out ${q(out, "<IMAGES_OUT>")}`,
+    `--library-out ${q(libraryOut, "<LIBRARY_DIR>")}`, `--prompt-id ${q(promptId, "<PROMPT_ID>")}`, `--sha ${sha}`,
+    `--reviewer ${q(reviewer, "<user>")}`, `--scope ${q(scope, "<SCOPE>")}`].join(" ");
+}
+
+export function hexOf(buffer) {
+  return [...new Uint8Array(buffer)].map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+export function outputNodesForStep(graph, step) {
+  return nodesInStep(graph.nodes, step).filter((n) => OUTPUT_TYPES.has(n.type)).map((n) => ({
+    nodeId: n.id, type: n.type, title: n.title || n.type, mode: n.mode || 0,
+    prefix: n.widgets && "filename_prefix" in n.widgets ? n.widgets.filename_prefix : null,
+  }));
+}
+
+function mediaOf(out) {
+  const lists = [out.images, out.gifs, out.videos, out.video, out.audio].filter(Array.isArray);
+  return lists.flat().filter((m) => m && m.filename).map((m) => ({
+    filename: m.filename, subfolder: m.subfolder || "", type: m.type || "output", kind: mediaKind(m.filename),
+  }));
+}
+
+function entryOrder(entry) {
+  const p = entry && entry.prompt;
+  return Array.isArray(p) && Number.isFinite(p[0]) ? p[0] : -1;
+}
+
+// RA of a step from GET /history. strong = same workflow (group titles) + node id + class
+// (+ filename_prefix when the node has one); weak = node id + class + filename_prefix only.
+// PreviewImage has no prefix, so it is only matched strongly.
+export function latestOutput(history, outputs, signature) {
+  const entries = Object.entries(history || {}).map(([id, e]) => ({ id, e }))
+    .sort((a, b) => entryOrder(b.e) - entryOrder(a.e));
+  let weak = null;
+  for (const { id, e } of entries) {
+    const api = Array.isArray(e.prompt) ? e.prompt[2] || {} : {};
+    const wf = Array.isArray(e.prompt) ? e.prompt[3]?.extra_pnginfo?.workflow : null;
+    const sameWorkflow = Boolean(wf && signature && groupSignature(wf.groups) === signature);
+    for (const o of outputs) {
+      const out = e.outputs?.[String(o.nodeId)];
+      const media = out ? mediaOf(out) : [];
+      const call = api[String(o.nodeId)];
+      if (!media.length || !call || call.class_type !== o.type) continue;
+      const prefixOk = o.prefix == null || call.inputs?.filename_prefix === o.prefix;
+      if (!prefixOk) continue;
+      const hit = { promptId: id, nodeId: o.nodeId, nodeTitle: o.title, media, order: entryOrder(e) };
+      if (sameWorkflow) return { ...hit, match: "strong" };
+      if (!weak && o.prefix != null) weak = { ...hit, match: "weak" };
+    }
+  }
+  return weak;
+}
+
+// LiteGraph: screen = (graph + offset) * scale. Fit bounding into the free viewport area.
+export function fitBounds(b, view, pads = {}) {
+  const { left = 0, right = 0, top = 0, bottom = 0, margin = 24 } = pads;
+  const availW = Math.max(120, view.width - left - right - 2 * margin);
+  const availH = Math.max(120, view.height - top - bottom - 2 * margin);
+  const scale = Math.min(2, Math.max(0.05, Math.min(availW / b[2], availH / b[3])));
+  const sx = left + margin + (availW - b[2] * scale) / 2;
+  const sy = top + margin + (availH - b[3] * scale) / 2;
+  return { scale, offset: [sx / scale - b[0], sy / scale - b[1]] };
+}
+
+export function engineFilter(manifest, char, kind) {
+  return (manifest?.items || []).filter((i) => (!char || i.char === char) && (!kind || i.kind === kind));
+}
+
+// ---- v004: "10 PROMPT" list on tab 01 (user 31/10: N=10 -> 10 images from 10 prompts) ----
+export const MAX_PROMPTS = 10;
+export const PROMPT_LIST_KEY = "newtecons_prompt_list";
+
+// One prompt per non-empty line, trimmed; more than MAX_PROMPTS is refused (never silently cut).
+export function parsePromptList(text) {
+  const items = String(text ?? "").split(/\r?\n/u).map((s) => s.trim()).filter(Boolean);
+  if (items.length > MAX_PROMPTS) throw new Error(`tối đa ${MAX_PROMPTS} prompt, đang có ${items.length}`);
+  return items;
+}
+
+// LOCAL route: queue each prompt as its own ComfyUI job, strictly one after another (the server runs its
+// queue sequentially = one GPU job at a time). setPrompt(text) edits the prompt widget, queue(i) is
+// app.queuePrompt (resolves false when the server refused); restore() always runs. Stops at the first refusal.
+export async function queuePromptsSequential({ prompts, setPrompt, queue, restore, onQueued }) {
+  if (!Array.isArray(prompts) || !prompts.length) throw new Error("danh sách prompt trống");
+  const results = [];
+  try {
+    for (let i = 0; i < prompts.length; i += 1) {
+      setPrompt(prompts[i]);
+      let ok;
+      try { ok = await queue(i); } catch (err) { results.push({ index: i, ok: false, error: String(err?.message || err) }); break; }
+      if (ok === false) { results.push({ index: i, ok: false, error: "server từ chối (node_errors)" }); break; }
+      results.push({ index: i, ok: true });
+      onQueued?.(i + 1, prompts.length);
+    }
+  } finally {
+    restore?.();
+  }
+  return results;
+}
+
+// Highest prompt number known to the server (history + queue): jobs queued later have larger numbers.
+export function maxPromptNumber(history, queue) {
+  const nums = Object.values(history || {}).map((e) => (Array.isArray(e?.prompt) ? e.prompt[0] : -1));
+  for (const list of [queue?.queue_running, queue?.queue_pending]) for (const q of list || []) nums.push(q?.[0] ?? -1);
+  return nums.filter(Number.isFinite).reduce((a, b) => Math.max(a, b), -1);
+}
+
+// "k / N": prompts whose job (number > since, same prompt text on node textNodeId) finished. Duplicate
+// prompts are matched one job each.
+export function promptListProgress(history, prompts, since, textNodeId) {
+  const jobs = Object.values(history || {}).filter((e) => Array.isArray(e?.prompt) && e.prompt[0] > since)
+    .map((e) => ({ text: e.prompt[2]?.[String(textNodeId)]?.inputs?.value, status: e.status?.status_str || "", done: Boolean(e.status?.completed) }));
+  let done = 0;
+  let failed = 0;
+  const used = new Set();
+  for (const p of prompts) {
+    const k = jobs.findIndex((j, i) => !used.has(i) && j.text === p);
+    if (k < 0) continue;
+    used.add(k);
+    if (jobs[k].status === "error") failed += 1;
+    else if (jobs[k].done) done += 1;
+  }
+  return { done, failed, total: prompts.length };
+}
+
+// CODEX route: one node run makes N images from N prompts only when the bridge node has a `prompts` input.
+export function codexMultiPromptSupport(codexNode) {
+  const names = new Set([...(codexNode?.inputs || []).map((p) => p.name), ...Object.keys(codexNode?.widgets || {})]);
+  return names.has("prompts");
+}
+
+export function codexMultiPromptEdits(prompts) {
+  return { prompts: prompts.join("\n"), count: prompts.length };
+}
+
+// ImageScale with width 0 (core nodes.py ImageScale.upscale): width = max(1, round(W * height / H)), Python
+// round() = half to even. The x4 upscale keeps the ratio, so the input size is enough.
+export function roundHalfEven(x) {
+  const f = Math.floor(x);
+  const d = x - f;
+  if (Math.abs(d - 0.5) > 1e-9) return Math.round(x);
+  return f % 2 === 0 ? f : f + 1;
+}
+
+export function targetSize(width, height, targetHeight) {
+  const w = Math.max(1, roundHalfEven((width * targetHeight) / height));
+  return { width: w, height: targetHeight, is34: Math.abs(width / height - 0.75) < 0.005 };
+}
+
+// ---- v005: 02A NEO TRANG PHỤC (graph.extra.newtecons_wardrobe + plan.wardrobe/upload/boicanh) ----
+// slots: NEO 1..N (NEO 1 required) + optional UPLOAD / BỐI CẢNH. attached = live (not muted) slots with a file;
+// blocked = the required slot is blank (the server refuses every generation output).
+export function wardrobeStatus(graph) {
+  return anchorStatus(graph, "newtecons_wardrobe", "wardrobe");
+}
+
+// v005 02B: character slots (MẶT 1..k, DÁNG 1..k) from extra.newtecons_characters + plan.character.
+export function characterStatus(graph) {
+  return anchorStatus(graph, "newtecons_characters", "character");
+}
+
+export function anchorStatus(graph, extraKey, dimension) {
+  const w = graph?.extra?.[extraKey];
+  if (!w) return null;
+  const byId = nodeMap(graph.nodes);
+  const row = (id, kind) => {
+    const n = byId.get(String(id));
+    const value = String(n?.widgets?.image ?? "");
+    return { id, kind, title: n?.title || "", value, mode: n?.mode || 0, live: Boolean(n) && (n.mode || 0) !== MUTED };
+  };
+  const slots = (w.slots || []).map((id) => row(id, (w.required || []).includes(id) ? "required" : "context"));
+  const optional = (w.optional || []).map((id) => row(id, "optional"));
+  const all = [...slots, ...optional];
+  return {
+    context: currentChoice(graph.extra, graph.nodes, dimension),
+    slots, optional,
+    attached: all.filter((s) => s.live && s.value).length,
+    blocked: slots.filter((s) => s.kind === "required").some((s) => !s.value),
+    emptyLive: all.filter((s) => s.live && !s.value).map((s) => s.id),
+  };
+}
+
+// Files of one presets context (schema jjv/wardrobe-presets/v1: contexts.<ctx> = [{name, file, sha256, role}]).
+export function presetFiles(presets, context) {
+  let rows = presets?.contexts?.[context] || [];
+  if (!Array.isArray(rows)) rows = rows.refs || rows.slots || rows.files || [];
+  return rows.map((r) => (typeof r === "string" ? r : r?.file || r?.input || r?.path || "")).filter(Boolean);
+}
+
+// A slot holds a presets row when it carries the registry path OR its content-addressed top-level copy
+// (stage_toplevel_refs_v005.py: newtecons_wd_<sha12>.png) — v005 uses the copies so the frontend combo lists them.
+export function presetMatches(presets, context, values) {
+  let rows = presets?.contexts?.[context] || [];
+  if (!Array.isArray(rows)) rows = rows.refs || rows.slots || rows.files || [];
+  const want = rows.map((r) => (typeof r === "string" ? [r] : [r?.file, r?.sha256 ? `newtecons_wd_${String(r.sha256).slice(0, 12)}.png` : null]));
+  const have = (values || []).filter(Boolean);
+  return want.length === have.length && want.every((alts, i) => alts.includes(have[i]));
+}
+
+// 09 DUYỆT & UPSCALE targets: ImageScale height (width 0 keeps the aspect). One table for every panel
+// (image_ui.js imports it); must equal the ImageScale heights of image_8step_build_v004.py TARGETS.
+export const TARGET_HEIGHTS = Object.freeze({ "1080": 1440, "2K": 2048, "4K": 3840 });

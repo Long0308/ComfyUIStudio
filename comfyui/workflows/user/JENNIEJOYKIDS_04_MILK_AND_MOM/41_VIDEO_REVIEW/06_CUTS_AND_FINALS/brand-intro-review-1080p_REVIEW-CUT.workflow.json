@@ -1,0 +1,99 @@
+{
+  "id": "ff241e45-f939-5a7d-827e-6bafa8a13711",
+  "revision": 0,
+  "last_node_id": 2,
+  "last_link_id": 0,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LoadVideo",
+      "title": "KET QUA VIDEO | brand-intro-review-1080p | SHA 4df4d7fe22be",
+      "pos": [
+        0,
+        40
+      ],
+      "size": [
+        960,
+        600
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadVideo"
+      },
+      "widgets_values": [
+        "ep04review-brand-intro-REVIEW-1080p30-v001.mp4"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "Note",
+      "title": "GHI CHU VIDEO | brand-intro-review-1080p | accepted",
+      "pos": [
+        0,
+        680
+      ],
+      "size": [
+        960,
+        300
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "VIDEO KET QUA (chi hien thi, KHONG co graph sinh) - brand-intro-review-1080p\nTrang thai: accepted (nam trong FINAL v005 (intro 400 f); _library/brand-intro/REGISTRY.json; ban xem 1080p cua intro-4K v001)\nHien thi: Brand intro rieng 1080p30, 13.33 s (400 frame) co tieng\nNguon: D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\_brand\\intro-v001\\episodes\\04-milk-and-mom\\brand-intro-REVIEW-1080p30-v001.mp4\nsha256: 4df4d7fe22becf902ff0f5f7d703258af6b4df5d0226fd862d2b7397c044e3eb\nVideo: 1920x1080 @ 30/1, 400 frames, 13.33 s; 5,586,514 bytes; audio aac 48000 Hz\nComfyUI/input/ep04review-brand-intro-REVIEW-1080p30-v001.mp4 (hard link toi file nguon, cung inode)"
+      ]
+    }
+  ],
+  "links": [],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "title": "Milk and Mom ep04 - xem lai: brand-intro-review-1080p",
+    "film_id": "04-milk-and-mom",
+    "task": "T-W06",
+    "review_cut": {
+      "label": "brand-intro-review-1080p",
+      "video": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\_brand\\intro-v001\\episodes\\04-milk-and-mom\\brand-intro-REVIEW-1080p30-v001.mp4",
+      "video_sha256": "4df4d7fe22becf902ff0f5f7d703258af6b4df5d0226fd862d2b7397c044e3eb",
+      "input_file": "ep04review-brand-intro-REVIEW-1080p30-v001.mp4",
+      "status": "accepted",
+      "status_basis": "nam trong FINAL v005 (intro 400 f); _library/brand-intro/REGISTRY.json; ban xem 1080p cua intro-4K v001",
+      "shows": "Brand intro rieng 1080p30, 13.33 s (400 frame) co tieng",
+      "load_video_node_id": 1,
+      "note_node_id": 2,
+      "probe": {
+        "width": 1920,
+        "height": 1080,
+        "fps": "30/1",
+        "frames": 400,
+        "duration_s": 13.333333,
+        "audio_codec": "aac",
+        "sample_rate": 48000,
+        "channels": 2
+      },
+      "built_by": "tools/publish_review_pins_t_w06.py"
+    },
+    "ds": {
+      "scale": 0.7,
+      "offset": [
+        60,
+        20
+      ]
+    }
+  },
+  "version": 0.4
+}

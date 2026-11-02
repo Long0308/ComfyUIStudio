@@ -1,0 +1,74 @@
+{
+ "schema": "jjv/video-ui-media/v1",
+ "generated_at": "2026-11-01T00:03:06Z",
+ "episode": "Newtecons-TienDo-KichTinh-30s",
+ "shots": {
+  "S02_A": {
+   "sources": {
+    "native": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\engine\\staging\\newtecons-30s\\h3-ep05-final-v001\\S02_A\\S02_A_native_1280x704.mp4",
+    "hd": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\engine\\staging\\newtecons-30s\\seedvr2-ep05-final-v001\\S02_A\\S02_A_seedvr2_1440.mp4",
+    "logo": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\engine\\staging\\newtecons-30s\\seedvr2-ep05-final-v001\\S02_A\\S02_A_seedvr2_1440_logo.mp4"
+   },
+   "thumb_url": "/view?filename=S02_A_poster.jpg&subfolder=NEWTECONS/step-ui-media/Newtecons-TienDo-KichTinh-30s&type=output",
+   "hd_url": "/view?filename=S02_A_hd_S02_A_seedvr2_1440.mp4&subfolder=NEWTECONS/step-ui-media/Newtecons-TienDo-KichTinh-30s&type=output",
+   "logo_url": "/view?filename=S02_A_logo_S02_A_seedvr2_1440_logo.mp4&subfolder=NEWTECONS/step-ui-media/Newtecons-TienDo-KichTinh-30s&type=output"
+  },
+  "S03_A": {
+   "sources": {
+    "native": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\engine\\staging\\newtecons-30s\\h3-ep05-final-v001\\S03_A\\S03_A_native_1280x704.mp4",
+    "hd": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\engine\\staging\\newtecons-30s\\seedvr2-ep05-final-v001\\S03_A\\S03_A_seedvr2_1440.mp4"
+   },
+   "thumb_url": "/view?filename=S03_A_poster.jpg&subfolder=NEWTECONS/step-ui-media/Newtecons-TienDo-KichTinh-30s&type=output",
+   "hd_url": "/view?filename=S03_A_hd_S03_A_seedvr2_1440.mp4&subfolder=NEWTECONS/step-ui-media/Newtecons-TienDo-KichTinh-30s&type=output"
+  },
+  "S04_A": {
+   "sources": {
+    "native": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\engine\\staging\\newtecons-30s\\h3-ep05-final-v001\\S04_A\\S04_A_native_1280x704.mp4",
+    "hd": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\engine\\staging\\newtecons-30s\\seedvr2-ep05-final-v001\\S04_A\\S04_A_seedvr2_1440.mp4"
+   },
+   "thumb_url": "/view?filename=S04_A_poster.jpg&subfolder=NEWTECONS/step-ui-media/Newtecons-TienDo-KichTinh-30s&type=output",
+   "hd_url": "/view?filename=S04_A_hd_S04_A_seedvr2_1440.mp4&subfolder=NEWTECONS/step-ui-media/Newtecons-TienDo-KichTinh-30s&type=output"
+  },
+  "S05_A": {
+   "sources": {
+    "native": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\engine\\staging\\newtecons-30s\\h3-ep05-final-v001\\S05_A\\S05_A_native_1280x704.mp4",
+    "hd": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\engine\\staging\\newtecons-30s\\seedvr2-ep05-final-v001\\S05_A\\S05_A_seedvr2_1440.mp4"
+   },
+   "thumb_url": "/view?filename=S05_A_poster.jpg&subfolder=NEWTECONS/step-ui-media/Newtecons-TienDo-KichTinh-30s&type=output",
+   "hd_url": "/view?filename=S05_A_hd_S05_A_seedvr2_1440.mp4&subfolder=NEWTECONS/step-ui-media/Newtecons-TienDo-KichTinh-30s&type=output"
+  },
+  "S06_A": {
+   "sources": {
+    "native": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\engine\\staging\\newtecons-30s\\h3-ep05-final-v001\\S06_A\\S06_A_native_1280x704.mp4",
+    "hd": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\engine\\staging\\newtecons-30s\\seedvr2-ep05-final-v001\\S06_A\\S06_A_seedvr2_1440.mp4"
+   },
+   "thumb_url": "/view?filename=S06_A_poster.jpg&subfolder=NEWTECONS/step-ui-media/Newtecons-TienDo-KichTinh-30s&type=output",
+   "hd_url": "/view?filename=S06_A_hd_S06_A_seedvr2_1440.mp4&subfolder=NEWTECONS/step-ui-media/Newtecons-TienDo-KichTinh-30s&type=output"
+  },
+  "S07_A": {
+   "sources": {
+    "native": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\engine\\staging\\newtecons-30s\\h3-ep05-final-v001\\S07_A\\S07_A_native_1280x704.mp4",
+    "hd": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\engine\\staging\\newtecons-30s\\seedvr2-ep05-final-v001\\S07_A\\S07_A_seedvr2_1440.mp4"
+   },
+   "thumb_url": "/view?filename=S07_A_poster.jpg&subfolder=NEWTECONS/step-ui-media/Newtecons-TienDo-KichTinh-30s&type=output",
+   "hd_url": "/view?filename=S07_A_hd_S07_A_seedvr2_1440.mp4&subfolder=NEWTECONS/step-ui-media/Newtecons-TienDo-KichTinh-30s&type=output"
+  },
+  "SCENE_01": {
+   "sources": {
+    "native": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\NEWTECONS\\SCENE01\\scene01_video_v001_00001_.mp4",
+    "hd": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\output\\NEWTECONS\\SCENE01\\scene01_video_v001_1080_00001_.mp4"
+   },
+   "thumb_url": "/view?filename=SCENE_01_poster.jpg&subfolder=NEWTECONS/step-ui-media/Newtecons-TienDo-KichTinh-30s&type=output",
+   "hd_url": "/view?filename=SCENE_01_hd_scene01_video_v001_1080_00001_.mp4&subfolder=NEWTECONS/step-ui-media/Newtecons-TienDo-KichTinh-30s&type=output",
+   "note": "intro đã duyệt 1920x1080 (không phải 1440)"
+  }
+ },
+ "final": {
+  "label": "Phim cuối final-v002 · 1920x1080 review (AAC) — bản 2560x1440 cùng thư mục assemble-v001/out-final",
+  "url": "/view?filename=Newtecons-TienDo-KichTinh-30s-final-v002-1920x1080-review-aac.mp4&subfolder=NEWTECONS/step-ui-media/Newtecons-TienDo-KichTinh-30s&type=output",
+  "path": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\engine\\staging\\newtecons-30s\\assemble-v001\\out-final\\Newtecons-TienDo-KichTinh-30s-final-v002-1920x1080-review-aac.mp4",
+  "bytes": 48685635,
+  "receipt": "production-local/engine/staging/newtecons-30s/assemble-v001/out-final/receipt-final-v002.json",
+  "exists": true
+ }
+}

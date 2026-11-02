@@ -1,0 +1,121 @@
+{
+ "id": "03455a18-1d3c-5e3b-afe4-ae20c6807092",
+ "revision": 0,
+ "last_node_id": 2,
+ "last_link_id": 0,
+ "nodes": [
+  {
+   "id": 1,
+   "type": "LoadAudio",
+   "pos": [
+    0,
+    40
+   ],
+   "size": [
+    430,
+    180
+   ],
+   "flags": {},
+   "order": 0,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "audio",
+     "name": "audio",
+     "type": "COMBO",
+     "widget": {
+      "name": "audio"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "audioUI",
+     "name": "audioUI",
+     "type": "AUDIO_UI",
+     "widget": {
+      "name": "audioUI"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "upload",
+     "name": "upload",
+     "type": "AUDIOUPLOAD",
+     "widget": {
+      "name": "upload"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "AUDIO",
+     "name": "AUDIO",
+     "type": "AUDIO",
+     "links": []
+    }
+   ],
+   "title": "KET QUA PICK | GIONG-C2-B | SHA 7de5f23222f6",
+   "properties": {
+    "Node name for S&R": "LoadAudio"
+   },
+   "widgets_values": [
+    "04-milk-and-mom-T-A12-GIONG-C2-B-7de5f23222f6.wav",
+    ""
+   ],
+   "widgets_values_named": {
+    "audio": "04-milk-and-mom-T-A12-GIONG-C2-B-7de5f23222f6.wav",
+    "upload": ""
+   },
+   "color": "#114f5a",
+   "bgcolor": "#09292f"
+  },
+  {
+   "id": 2,
+   "type": "Note",
+   "title": "GHI CHU | GIONG-C2-B user chon",
+   "pos": [
+    0,
+    280
+   ],
+   "size": [
+    960,
+    330
+   ],
+   "flags": {},
+   "order": 1,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [],
+   "properties": {},
+   "widgets_values": [
+    "GIONG THUONG HIEU USER CHON: GIONG-C2-B 'Jennie Joy Kids!' (chi hien thi ket qua; KHONG phai graph Comfy)\nsha256: 7de5f23222f6dec21f81494a16c8eb306e7b531b0bd8c0ccf1fd5d84e3af60ef\nAudio: 2.346 s, 48000 Hz, 2 kenh; -16.0 LUFS, peak -4.7 dBTP; ASR 'Jenny Joy Kids' (dat)\nLo trinh: GIONG-C goc + 1 nhip nghi + 0.4 s dau ('Jen') cham x1.25, giu formant (sua re nhat)\nChuoi lam: take YuE2 'V2A-guitar-marimba-tag' (T-A11; workflow 06_AUDIO_MUSIC/V2A-guitar-marimba-tag) -> Demucs tach stem vocals -> GIONG-C goc -> +1 nhip nghi (0.556 s @108 BPM) + 0.4 s dau cham x1.25 giu formant (CPU, audio/music-yue2-v002/jingle/c2_build.py).\n4 take YuE2 lam lai T-A12 (08_BRAND_VOICE/C2-V2A-tag-s2026110{3..6}) khong cho ra ban dung; C2-A/B/C la sua tu GIONG-C goc, C2-D cat tay tu take s20261106.\nNguon: D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\audio\\music-yue2-v002\\jingle\\c2\\GIONG-C2-B.wav\nThu vien: _library/brand-voice/ (REGISTRY.json); dung trong brand intro + FINAL v004 (giong o 0 s).\nComfyUI/input/04-milk-and-mom-T-A12-GIONG-C2-B-7de5f23222f6.wav"
+   ]
+  }
+ ],
+ "links": [],
+ "groups": [],
+ "config": {},
+ "extra": {
+  "title": "Milk and Mom T-A12 GIONG-C2-B (user pick) - ket qua ghim",
+  "film_id": "04-milk-and-mom",
+  "task": "T-W06",
+  "status": "user-pick",
+  "review_only": true,
+  "result_sha256": "7de5f23222f6dec21f81494a16c8eb306e7b531b0bd8c0ccf1fd5d84e3af60ef",
+  "review_pin": {
+   "input_file": "04-milk-and-mom-T-A12-GIONG-C2-B-7de5f23222f6.wav",
+   "source": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\audio\\music-yue2-v002\\jingle\\c2\\GIONG-C2-B.wav",
+   "sha256": "7de5f23222f6dec21f81494a16c8eb306e7b531b0bd8c0ccf1fd5d84e3af60ef"
+  },
+  "built_by": "tools/publish_review_pins_t_w06.py",
+  "ds": {
+   "scale": 0.7,
+   "offset": [
+    60,
+    20
+   ]
+  }
+ },
+ "version": 0.4
+}

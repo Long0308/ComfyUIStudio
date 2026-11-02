@@ -1,0 +1,99 @@
+{
+  "id": "f17cafa1-9af5-55f6-a5bd-3c0a6edaa575",
+  "revision": 0,
+  "last_node_id": 2,
+  "last_link_id": 0,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LoadVideo",
+      "title": "KET QUA VIDEO | review-hd-v014 | SHA 83e55c0c13fc",
+      "pos": [
+        0,
+        40
+      ],
+      "size": [
+        960,
+        600
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadVideo"
+      },
+      "widgets_values": [
+        "ep04review-v014-REVIEW-1080p-native-upscaled.mp4"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "Note",
+      "title": "GHI CHU VIDEO | review-hd-v014 | superseded",
+      "pos": [
+        0,
+        680
+      ],
+      "size": [
+        960,
+        300
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "VIDEO KET QUA (chi hien thi, KHONG co graph sinh) - review-hd-v014\nTrang thai: superseded (XEM-DUYET 4-v014 / 5-v014: chu karaoke con som, sua o v015 (handover 2026-10-27 §1))\nHien thi: Review 1080p30 co tieng, 114.8 s, mix v014 (nhac NHAC-2 + SFX, loi chao cuoi)\nNguon: D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\editorial\\review-hd-v014\\milk-and-mom-REVIEW-1080p30-native-upscaled-v014.mp4\nsha256: 83e55c0c13fcb364edc2246ca256ca45b82c6264607cdcbd4e133ace5a1363f8\nVideo: 1920x1080 @ 30/1, 3444 frames, 114.80 s; 82,345,384 bytes; audio aac 48000 Hz\nComfyUI/input/ep04review-v014-REVIEW-1080p-native-upscaled.mp4 (hard link toi file nguon, cung inode)"
+      ]
+    }
+  ],
+  "links": [],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "title": "Milk and Mom ep04 - xem lai: review-hd-v014",
+    "film_id": "04-milk-and-mom",
+    "task": "T-W06",
+    "review_cut": {
+      "label": "review-hd-v014",
+      "video": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\editorial\\review-hd-v014\\milk-and-mom-REVIEW-1080p30-native-upscaled-v014.mp4",
+      "video_sha256": "83e55c0c13fcb364edc2246ca256ca45b82c6264607cdcbd4e133ace5a1363f8",
+      "input_file": "ep04review-v014-REVIEW-1080p-native-upscaled.mp4",
+      "status": "superseded",
+      "status_basis": "XEM-DUYET 4-v014 / 5-v014: chu karaoke con som, sua o v015 (handover 2026-10-27 §1)",
+      "shows": "Review 1080p30 co tieng, 114.8 s, mix v014 (nhac NHAC-2 + SFX, loi chao cuoi)",
+      "load_video_node_id": 1,
+      "note_node_id": 2,
+      "probe": {
+        "width": 1920,
+        "height": 1080,
+        "fps": "30/1",
+        "frames": 3444,
+        "duration_s": 114.8,
+        "audio_codec": "aac",
+        "sample_rate": 48000,
+        "channels": 2
+      },
+      "built_by": "tools/publish_review_pins_t_w06.py"
+    },
+    "ds": {
+      "scale": 0.7,
+      "offset": [
+        60,
+        20
+      ]
+    }
+  },
+  "version": 0.4
+}

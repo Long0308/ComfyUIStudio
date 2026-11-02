@@ -1,0 +1,45 @@
+"""Read-only server browser and shotlist routes; no arbitrary read/write endpoint."""
+import asyncio
+from functools import wraps
+
+from aiohttp import web
+from . import core
+
+
+def endpoint(fn):
+    @wraps(fn)
+    async def handle(request):
+        try:
+            result = await asyncio.to_thread(fn, request.query)
+            return web.json_response(result, headers={"Cache-Control": "no-store"})
+        except (ValueError, OSError, KeyError, TypeError) as exc:
+            # Avoid leaking paths outside the allowlisted project in OS error strings.
+            # ProjectRootError subclasses ValueError, so its real "project root not mounted" reason is shown.
+            message = str(exc) if isinstance(exc, ValueError) else "Invalid or unavailable project input"
+            return web.json_response({"error": message}, status=400)
+    return handle
+
+
+def register(routes):
+    @routes.get("/newtecons/panel/browse")
+    @endpoint
+    def browse(query):
+        return core.browse(query.get("path", ""), core.project_root(), query.get("kind", "script"))
+
+    @routes.get("/newtecons/panel/shots")
+    @endpoint
+    def shots(query):
+        path, rows = core.load_shots(query["shotlist"], query.get("domain", core.DOMAINS[0]), core.project_root())
+        return {"shotlist": str(path), "sha256": core.sha256(path),
+                "scenes": list(dict.fromkeys(x["scene"] for x in rows)), "shots": rows}
+
+    @routes.get("/newtecons/panel/pending")
+    @endpoint
+    def pending(query):
+        import folder_paths
+        names = ("domain", "script_path", "shotlist_path", "asset_folder", "run_mode", "scene", "shot",
+                 "aspect", "generation_size", "output_resolution", "style", "no_image_mode", "min_duration")
+        values = {name: query[name] for name in names}
+        values["render_context_sha256"] = query.get("render_context_sha256", "")
+        return core.missing_shots(root=core.project_root(), input_dir=folder_paths.get_input_directory(),
+                                  output_dir=folder_paths.get_output_directory(), **values)

@@ -1,0 +1,154 @@
+// Pure helpers: no browser, graph mutation or network side effects on import.
+export const CELL_IDS = ["P1_FRONT", "P1_THREE_QUARTER_LEFT", "P1_BACK",
+  "P2_FRONT", "P2_THREE_QUARTER_LEFT", "P2_BACK", "P3_FRONT", "P3_THREE_QUARTER_LEFT", "P3_BACK"];
+const SELECTORS = [174, 175, 176, 177, 178, 179, 180, 181];
+export function poseSource(output, cell, binding) {
+  if (!output[281]) return undefined; // r2 has only the Blender route
+  const loader = output[cell.load_image_node_id];
+  if (loader?.class_type !== "LoadImage" || typeof loader.inputs?.image !== "string") {
+    throw new Error(`${cell.cell_id}: thiếu ảnh nguồn dáng.`);
+  }
+  const filename = loader.inputs.image;
+  const normalize = (value) => String(value || "").replaceAll("\\", "/");
+  const variant = [cell, ...(cell.alternates || [])].find((item) =>
+    [item.file_path, item.flat_input_filename].filter(Boolean).some((name) => normalize(name) === normalize(filename)));
+  if (binding !== undefined && (!binding || binding.image !== filename ||
+      !["library", "blender"].includes(binding.source) || (variant && variant.source !== binding.source))) {
+    throw new Error(`${cell.cell_id}: nguồn dáng khai báo không khớp ảnh đang gắn.`);
+  }
+  if (variant) return variant.source;
+  if (binding) return binding.source;
+  throw new Error(`${cell.cell_id}: ảnh dáng chưa có nguồn xác định; cần metadata {image, source} khớp tên ảnh.`);
+}
+export function selectPoseCell(output, cell, source) {
+  const index = CELL_IDS.indexOf(cell);
+  if (index < 0) throw new Error(`Ô dáng không hợp lệ: ${cell}`);
+  const copy = structuredClone(output);
+  for (const [slot, id] of SELECTORS.entries()) {
+    const node = copy[id];
+    if (node?.class_type !== "PrimitiveBoolean" || typeof node.inputs?.value !== "boolean") {
+      throw new Error(`Thiếu boolean chọn ô #${id}; cần workflow v006/v006r2/v006r3.`);
+    }
+    node.inputs.value = slot === index;
+  }
+  // P3_BACK is the all-false fallback, NOT a ninth boolean at #193 (a LoadImage in r3).
+  if (copy[281]) {
+    if (copy[281].class_type !== "ComfySwitchNode" || typeof copy[281].inputs?.switch !== "boolean" ||
+        !["library", "blender"].includes(source)) throw new Error("NGUỒN DÁNG #281 không hợp lệ.");
+    if (source === "library" && copy[172]?.inputs?.value !== false) {
+      throw new Error("Auto hybrid cần tắt depth #172 cho ô thư viện.");
+    }
+    copy[281].inputs.switch = source === "library";
+  }
+  return copy;
+}
+
+export function poseSnapshot(snapshot, cell, source) {
+  const result = structuredClone(snapshot);
+  result.output = selectPoseCell(snapshot.output, cell, source);
+  // Saved PNG workflows must reopen with the selection that actually rendered.
+  for (const node of result.workflow?.nodes || []) {
+    if (SELECTORS.includes(Number(node.id))) {
+      node.widgets_values[0] = result.output[node.id].inputs.value;
+    } else if (Number(node.id) === 281 && result.output[281]) {
+      node.widgets_values[0] = result.output[281].inputs.switch;
+    }
+  }
+  return result;
+}
+
+export function queueHasRoom(queue) {
+  if (!Array.isArray(queue?.queue_pending) || !Array.isArray(queue?.queue_running)) {
+    throw new Error("Phản hồi /queue không hợp lệ.");
+  }
+  return queue.queue_pending.length < 4;
+}
+
+export function assertLocalEndpoint(endpoint, base) {
+  const url = new URL(endpoint, base);
+  if (!["http:", "https:"].includes(url.protocol) ||
+      !["localhost", "127.0.0.1", "[::1]"].includes(url.hostname)) {
+    throw new Error("Auto chỉ gửi đến ComfyUI local (localhost / 127.0.0.1 / ::1).");
+  }
+}
+
+export function assertLocalGraph(output, info) {
+  for (const node of Object.values(output)) {
+    const definition = info[node.class_type];
+    if (!definition) throw new Error(`Node chưa cài: ${node.class_type}`);
+    if (definition.api_node || /comfy_api_nodes/.test(definition.python_module || "") ||
+        /CodexOAuth|ClaudeNode|OpenAI|Gemini|Higgsfield|Remote|HTTP|Request/i.test(node.class_type)) {
+      throw new Error(`Auto local từ chối node dịch vụ: ${node.class_type}`);
+    }
+  }
+}
+
+export function promptResult(history, promptId, outputIds) {
+  const entry = history?.[promptId];
+  if (!entry) return null;
+  if (entry.status?.status_str === "error" || entry.status?.messages?.some(([event]) =>
+    ["execution_error", "execution_interrupted"].includes(event))) throw new Error(`Prompt ${promptId} lỗi / bị dừng.`);
+  if (entry.status?.completed !== true || entry.status?.status_str !== "success") return null;
+  const images = outputIds.flatMap((id) => entry.outputs?.[id]?.images || []);
+  if (!images.length) throw new Error(`Prompt ${promptId} xong nhưng không có ảnh RA bước 07.`);
+  return images;
+}
+
+// One prompt in flight per batch. A stopped batch keeps observing a running prompt;
+// it may delete its own pending prompt, never POST /interrupt or clear someone else's queue.
+export async function runPoseBatch({ jobs, request, submit, validate, run, onChange, isCurrent = () => true,
+  sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms)), now = Date.now,
+  timeoutMs = 2 * 60 * 60 * 1000 }) {
+  const notify = () => onChange?.(run);
+  for (const job of jobs) {
+    if (run.cancelled) break;
+    const deadline = now() + timeoutMs;
+    while (true) {
+      if (run.cancelled) break;
+      await validate();
+      if (run.cancelled) break;
+      const queue = await request("/queue");
+      if (run.cancelled) break;
+      if (queueHasRoom(queue)) break;
+      if (now() > deadline) throw new Error("Hết thời gian chờ queue.");
+      run.message = "Đang chờ queue pending < 4…"; notify();
+      await sleep(1000);
+    }
+    if (run.cancelled) break;
+    // No asynchronous serialization between the last capacity read and POST.
+    if (!isCurrent()) throw new Error("Graph/cài đặt đã đổi — Auto đã dừng.");
+    job.state = "submitting"; run.message = `Đang gửi ${job.label}`; notify();
+    // Never retry a failed POST: the server may already have accepted it.
+    const answer = await submit(job);
+    if (typeof answer?.prompt_id !== "string" || Object.keys(answer.node_errors || {}).length) {
+      throw new Error("ComfyUI không xác nhận prompt hợp lệ; kiểm queue trước khi thử lại.");
+    }
+    job.promptId = answer.prompt_id; job.state = "queued"; notify();
+    let absentSince = null;
+    while (true) {
+      const result = promptResult(await request(`/history/${encodeURIComponent(job.promptId)}`), job.promptId, job.outputIds);
+      if (result) { job.images = result; job.state = "done"; notify(); break; }
+      const queue = await request("/queue");
+      queueHasRoom(queue); // validates the response even while waiting for this prompt
+      const pending = queue.queue_pending.some((item) => item[1] === job.promptId);
+      const running = queue.queue_running.some((item) => item[1] === job.promptId);
+      if (run.cancelled && pending) {
+        await request("/queue", { method: "POST", body: JSON.stringify({ delete: [job.promptId] }) });
+        // A pending job can become running between GET and DELETE. Reconcile next poll.
+        job.state = "stopping";
+      } else if (running) job.state = "running";
+      if (!pending && !running) {
+        absentSince ??= now();
+        if (now() - absentSince >= 5000) {
+          if (run.cancelled) { job.state = "cancelled"; notify(); break; }
+          throw new Error(`Prompt ${job.promptId} mất khỏi queue/history; Auto đã dừng.`);
+        }
+      } else absentSince = null;
+      if (now() > deadline) throw new Error(`Hết thời gian theo dõi ${job.label}; job có thể vẫn đang chạy.`);
+      notify(); await sleep(1000);
+    }
+  }
+  for (const job of jobs) if (!job.state) job.state = "cancelled";
+  run.message = run.cancelled ? "Đã dừng Auto; các ô còn lại không gửi." : "Đã xong 9 ô — ảnh chờ duyệt.";
+  notify();
+}

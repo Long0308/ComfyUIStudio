@@ -1,0 +1,2274 @@
+{
+  "id": "87cac215-87e9-5645-8ba9-a6fa63079aad",
+  "revision": 0,
+  "last_node_id": 65,
+  "last_link_id": 38,
+  "nodes": [
+    {
+      "id": 19,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        40,
+        70
+      ],
+      "size": [
+        820,
+        620
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "type": "STRING",
+          "widget": {
+            "name": "value"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2
+          ]
+        }
+      ],
+      "title": "S04_A full cast and performance",
+      "properties": {
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "<Picture 1> is this shot exact incoming scene. It owns composition and blocking. <Picture 2> is the selected adult Dutch milkmaid identity. <Picture 3> is canonical Alice. <Picture 4> is canonical Mother. Identity images do not override scene positions. <Audio 1> is the exact final dialogue WAV. Only Mother in <Picture 4> speaks to it, every other person keeps lips closed. Preserve child/adult age and approved appearance.\nMOTIVATED CUT to this new approved camera anchor. Preserve input composition and prop state.\nPremium cinematic stylized 3D preschool animation with detailed soft hair and fabric, rounded appealing forms, gentle natural daylight, coherent contacts and stable animal anatomy. There are exactly THREE human characters in the scene world: Mother, toddler Alice, and one adult Dutch milkmaid. Mother and Alice are the only dialogue speakers; the milkmaid is a silent working background adult. Exactly two dairy cows remain beyond the fence. No extra farmers, children or people. Do not merge the milkmaid with Mother, do not duplicate Alice, and do not change any character's age. No native captions, letters, labels or logos; educational typography is added in Remotion. No photographic humans, anime or flat vector restyling. Every shot stays outdoors in the same garden and farm; no kitchen, bedroom, glass conservatory, enclosed room or window framing.\nAlice is a human stylized 3D toddler girl about two years old, petite short torso and soft short limbs, oversized round head, full rosy cheeks, warm peach skin, very large dark-brown eyes with near-black pupils and white catchlights, fine dark brows, delicate lashes, tiny round button nose, small pink lips and baby teeth, small rounded ears and chin. Her dark black-brown straight chin-length bob has straight forehead bangs and small tied side sections. Exactly one pink bow stays on her anatomical RIGHT, viewer LEFT in frontal views; never mirror it. She wears rose-pink long-sleeve two-piece pajamas with exactly one centered white heart on the FRONT chest, matching rose-pink loose trousers with ribbed cuffs and pale-pink socks. No added shoes, hat, glasses, jewelry, markings or logos. Preserve her approved face geometry, eyes, cheeks, age, hair and proportions; expressions and speech phonemes may change only for acting.\nMom-Alice is a human stylized 3D adult woman about thirty years old, about twice Alice's standing height, slender natural adult proportions, softly rounded oval face, warm light-peach skin with subtle freckles, warm brown eyes with near-black pupils and white catchlights, softly arched chestnut eyebrows, delicate lashes, small rounded nose, natural pink lips, rounded ears and chin. Her chestnut shoulder-length hair has soft waves, a side part and gently swept front hair. She wears a plain dusty-teal short-sleeve crewneck top, cream straight tailored trousers and off-white low flat shoes. No bow, hat, glasses, jewelry or extra accessories. Preserve the canonical face geometry, eye spacing, nose, lips, skin, freckles, age and hairstyle; only expression, gaze, blinking and speech phonemes may change for acting.\nThe Dutch milkmaid is a DISTINCT ADULT human dairy worker about thirty-five years old, visibly adult in face and full-height natural proportions, with fair lightly freckled skin, blue-gray eyes, a relaxed oval face, a practical long blonde braid and a small plain white cotton work cap. She wears a modest sky-blue work dress over a white long-sleeve cotton blouse, a plain white full apron and dark practical farm boots. No logos, brand marks, text or jewelry. Her face, blonde hair, dress and adult proportions must remain separate from Mother and Alice. She works calmly seated on a low stable milking stool beside Cow A at the farm-side station. Her lips stay gently touching at all times; she never speaks, sings, mouths the family dialogue or smiles with an open mouth. Preserve her identity across the episode after a new local canonical reference is created and reviewed.\nAttach approved Alice reference production-local/character-library/alice/2026-10-18-v1/canonical-approved-latest.png SHA256 e87d4d0c372b315697d9dd948a91b12d5b0052838b12d9dff1808cc3ecb11b3a and Mother reference production-local/character-library/mother/2026-10-18-v1/canonical-production-reference.png SHA256 5f28f442b7d2253ec699b8cff7da0524ef78455cf3ca9b47847b7f050d7295f1, plus their selected active expression images. Attach approved Dutch milkmaid reference production-local/ComfyUI/output/04-milk-and-mom/characters/milkmaid/fullbody-v001-flux-candidate_00001_.png SHA256 4adaee1fdb9ee808efeeb802a1eb2fecc9520450c518ec797604afa8d31d1150 (distinct adult dairy worker ~35yo, blonde braid, white cap, sky-blue dress over white blouse, white apron, dark farm boots; silent with lips closed at all times).\nAn entirely OUTDOOR cottage garden beside a dairy pasture in soft warm morning daylight. A low oval wooden picnic table stands on a dry woven garden mat with two floor cushions; a shaded wooden garden bench sits beneath a leafy tree. Flower borders, green grass and a small distant red barn establish the farm. A continuous sturdy wooden fence separates the garden from the pasture and the sheltered farm-side milking station. Mother and Alice always remain on the garden side, several steps from the fence; they never reach through or enter the cow enclosure. Exactly TWO calm adult black-and-white dairy cows inhabit the farm: Cow A, with a broad black shoulder patch and white forehead, stands quietly side-on at the sheltered station; Cow B, with a black patch around its right eye, grazes farther back in the pasture. Keep their markings, adult scale and count consistent. At least one cow remains clearly visible in every shot. The adult Dutch milkmaid sits beside Cow A under the open-sided timber shelter, hand-milking gently into one stable metal pail beneath the udder. Her two hands use a plausible alternating squeeze-and-release action; brief thin milk streams enter the pail. The cows never speak or enter the garden. The milking pail and its fresh raw contents remain entirely on the farm side. The family's sealed ready-to-drink milk bottle came separately from the picnic basket and stays on the garden table; never show cow milk transferred straight to Alice, her cup or that sealed bottle.\nBoth fabric sleeves are ALREADY fitted to the cups in the input. Mother begins holding the orange-sleeved cup and touching the blue-sleeved cup; gently sets the orange cup beside blue, then asks the line. Do not put extra sleeves on cups and do not invent hot steam. Alice listens with closed lips. Camera stays slightly elevated medium two-shot with faces and both cups visible.\nOnly mother speaks this shot. Exact English line: Can milk be served warm or cold? Silent characters: alice, milkmaid. Synchronize only the speaker mouth to the accepted final VoiceStudio WAV. The silent family listener and the milkmaid keep lips gently touching, with no extra words, singing or mimicking. No animal speech. Use modest natural cow movement; any visible milkmaid remains quiet in the established farm-side background. No old03 frame, footage or motion segment may be inserted. Keep raw milk on the farm side and the sealed lesson bottle separate. Current-shot human framing: two foreground humans; the one milkmaid may be distant, partly occluded or outside the close crop, but no extra human may appear.\nAUTHORITATIVE CURRENT STAGING: Both fabric sleeves are ALREADY fitted to the cups in the input. Mother begins holding the orange-sleeved cup and touching the blue-sleeved cup; gently sets the orange cup beside blue, then asks the line. Do not put extra sleeves on cups and do not invent hot steam. Alice listens with closed lips. Camera stays slightly elevated medium two-shot with faces and both cups visible.\nUse 112 native frames at24fps. Close speaker lips naturally afterfinalsyllable; never speak for silentlistener. No subtitles or nativegraphics."
+      ],
+      "widgets_values_named": {
+        "value": "<Picture 1> is this shot exact incoming scene. It owns composition and blocking. <Picture 2> is the selected adult Dutch milkmaid identity. <Picture 3> is canonical Alice. <Picture 4> is canonical Mother. Identity images do not override scene positions. <Audio 1> is the exact final dialogue WAV. Only Mother in <Picture 4> speaks to it, every other person keeps lips closed. Preserve child/adult age and approved appearance.\nMOTIVATED CUT to this new approved camera anchor. Preserve input composition and prop state.\nPremium cinematic stylized 3D preschool animation with detailed soft hair and fabric, rounded appealing forms, gentle natural daylight, coherent contacts and stable animal anatomy. There are exactly THREE human characters in the scene world: Mother, toddler Alice, and one adult Dutch milkmaid. Mother and Alice are the only dialogue speakers; the milkmaid is a silent working background adult. Exactly two dairy cows remain beyond the fence. No extra farmers, children or people. Do not merge the milkmaid with Mother, do not duplicate Alice, and do not change any character's age. No native captions, letters, labels or logos; educational typography is added in Remotion. No photographic humans, anime or flat vector restyling. Every shot stays outdoors in the same garden and farm; no kitchen, bedroom, glass conservatory, enclosed room or window framing.\nAlice is a human stylized 3D toddler girl about two years old, petite short torso and soft short limbs, oversized round head, full rosy cheeks, warm peach skin, very large dark-brown eyes with near-black pupils and white catchlights, fine dark brows, delicate lashes, tiny round button nose, small pink lips and baby teeth, small rounded ears and chin. Her dark black-brown straight chin-length bob has straight forehead bangs and small tied side sections. Exactly one pink bow stays on her anatomical RIGHT, viewer LEFT in frontal views; never mirror it. She wears rose-pink long-sleeve two-piece pajamas with exactly one centered white heart on the FRONT chest, matching rose-pink loose trousers with ribbed cuffs and pale-pink socks. No added shoes, hat, glasses, jewelry, markings or logos. Preserve her approved face geometry, eyes, cheeks, age, hair and proportions; expressions and speech phonemes may change only for acting.\nMom-Alice is a human stylized 3D adult woman about thirty years old, about twice Alice's standing height, slender natural adult proportions, softly rounded oval face, warm light-peach skin with subtle freckles, warm brown eyes with near-black pupils and white catchlights, softly arched chestnut eyebrows, delicate lashes, small rounded nose, natural pink lips, rounded ears and chin. Her chestnut shoulder-length hair has soft waves, a side part and gently swept front hair. She wears a plain dusty-teal short-sleeve crewneck top, cream straight tailored trousers and off-white low flat shoes. No bow, hat, glasses, jewelry or extra accessories. Preserve the canonical face geometry, eye spacing, nose, lips, skin, freckles, age and hairstyle; only expression, gaze, blinking and speech phonemes may change for acting.\nThe Dutch milkmaid is a DISTINCT ADULT human dairy worker about thirty-five years old, visibly adult in face and full-height natural proportions, with fair lightly freckled skin, blue-gray eyes, a relaxed oval face, a practical long blonde braid and a small plain white cotton work cap. She wears a modest sky-blue work dress over a white long-sleeve cotton blouse, a plain white full apron and dark practical farm boots. No logos, brand marks, text or jewelry. Her face, blonde hair, dress and adult proportions must remain separate from Mother and Alice. She works calmly seated on a low stable milking stool beside Cow A at the farm-side station. Her lips stay gently touching at all times; she never speaks, sings, mouths the family dialogue or smiles with an open mouth. Preserve her identity across the episode after a new local canonical reference is created and reviewed.\nAttach approved Alice reference production-local/character-library/alice/2026-10-18-v1/canonical-approved-latest.png SHA256 e87d4d0c372b315697d9dd948a91b12d5b0052838b12d9dff1808cc3ecb11b3a and Mother reference production-local/character-library/mother/2026-10-18-v1/canonical-production-reference.png SHA256 5f28f442b7d2253ec699b8cff7da0524ef78455cf3ca9b47847b7f050d7295f1, plus their selected active expression images. Attach approved Dutch milkmaid reference production-local/ComfyUI/output/04-milk-and-mom/characters/milkmaid/fullbody-v001-flux-candidate_00001_.png SHA256 4adaee1fdb9ee808efeeb802a1eb2fecc9520450c518ec797604afa8d31d1150 (distinct adult dairy worker ~35yo, blonde braid, white cap, sky-blue dress over white blouse, white apron, dark farm boots; silent with lips closed at all times).\nAn entirely OUTDOOR cottage garden beside a dairy pasture in soft warm morning daylight. A low oval wooden picnic table stands on a dry woven garden mat with two floor cushions; a shaded wooden garden bench sits beneath a leafy tree. Flower borders, green grass and a small distant red barn establish the farm. A continuous sturdy wooden fence separates the garden from the pasture and the sheltered farm-side milking station. Mother and Alice always remain on the garden side, several steps from the fence; they never reach through or enter the cow enclosure. Exactly TWO calm adult black-and-white dairy cows inhabit the farm: Cow A, with a broad black shoulder patch and white forehead, stands quietly side-on at the sheltered station; Cow B, with a black patch around its right eye, grazes farther back in the pasture. Keep their markings, adult scale and count consistent. At least one cow remains clearly visible in every shot. The adult Dutch milkmaid sits beside Cow A under the open-sided timber shelter, hand-milking gently into one stable metal pail beneath the udder. Her two hands use a plausible alternating squeeze-and-release action; brief thin milk streams enter the pail. The cows never speak or enter the garden. The milking pail and its fresh raw contents remain entirely on the farm side. The family's sealed ready-to-drink milk bottle came separately from the picnic basket and stays on the garden table; never show cow milk transferred straight to Alice, her cup or that sealed bottle.\nBoth fabric sleeves are ALREADY fitted to the cups in the input. Mother begins holding the orange-sleeved cup and touching the blue-sleeved cup; gently sets the orange cup beside blue, then asks the line. Do not put extra sleeves on cups and do not invent hot steam. Alice listens with closed lips. Camera stays slightly elevated medium two-shot with faces and both cups visible.\nOnly mother speaks this shot. Exact English line: Can milk be served warm or cold? Silent characters: alice, milkmaid. Synchronize only the speaker mouth to the accepted final VoiceStudio WAV. The silent family listener and the milkmaid keep lips gently touching, with no extra words, singing or mimicking. No animal speech. Use modest natural cow movement; any visible milkmaid remains quiet in the established farm-side background. No old03 frame, footage or motion segment may be inserted. Keep raw milk on the farm side and the sealed lesson bottle separate. Current-shot human framing: two foreground humans; the one milkmaid may be distant, partly occluded or outside the close crop, but no extra human may appear.\nAUTHORITATIVE CURRENT STAGING: Both fabric sleeves are ALREADY fitted to the cups in the input. Mother begins holding the orange-sleeved cup and touching the blue-sleeved cup; gently sets the orange cup beside blue, then asks the line. Do not put extra sleeves on cups and do not invent hot steam. Alice listens with closed lips. Camera stays slightly elevated medium two-shot with faces and both cups visible.\nUse 112 native frames at24fps. Close speaker lips naturally afterfinalsyllable; never speak for silentlistener. No subtitles or nativegraphics."
+      },
+      "color": "#2e5b3c",
+      "bgcolor": "#1c3b26"
+    },
+    {
+      "id": 30,
+      "type": "LoadImage",
+      "pos": [
+        40,
+        740
+      ],
+      "size": [
+        390,
+        470
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            5
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "title": "Incoming scene — exact native frame",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "04-milk-and-mom_S04_A_motion-v003_bf55437ea55e.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "04-milk-and-mom_S04_A_motion-v003_bf55437ea55e.png",
+        "upload": "image"
+      },
+      "color": "#1a4066",
+      "bgcolor": "#0d2238"
+    },
+    {
+      "id": 31,
+      "type": "LoadImage",
+      "pos": [
+        470,
+        740
+      ],
+      "size": [
+        390,
+        470
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            6
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "title": "Dutch milkmaid identity",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "04-milk-and-mom_S01_A_HYBRID_A_milkmaid_4adaee1fdb9e.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "04-milk-and-mom_S01_A_HYBRID_A_milkmaid_4adaee1fdb9e.png",
+        "upload": "image"
+      },
+      "color": "#1a4066",
+      "bgcolor": "#0d2238"
+    },
+    {
+      "id": 32,
+      "type": "LoadImage",
+      "pos": [
+        900,
+        740
+      ],
+      "size": [
+        390,
+        470
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            8
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "title": "S04_A: LoadImage",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "04-milk-and-mom_S01_A_HYBRID_A_alice_e87d4d0c372b.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "04-milk-and-mom_S01_A_HYBRID_A_alice_e87d4d0c372b.png",
+        "upload": "image"
+      },
+      "color": "#1a4066",
+      "bgcolor": "#0d2238"
+    },
+    {
+      "id": 33,
+      "type": "LoadImage",
+      "pos": [
+        1330,
+        740
+      ],
+      "size": [
+        390,
+        470
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            9
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "title": "S04_A: LoadImage",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "04-milk-and-mom_S01_A_HYBRID_A_mother_5f28f442b7d2.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "04-milk-and-mom_S01_A_HYBRID_A_mother_5f28f442b7d2.png",
+        "upload": "image"
+      },
+      "color": "#1a4066",
+      "bgcolor": "#0d2238"
+    },
+    {
+      "id": 8,
+      "type": "LoadImage",
+      "pos": [
+        1760,
+        740
+      ],
+      "size": [
+        390,
+        470
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            14,
+            34
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "title": "Exact carry/anchor frame0",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "04-milk-and-mom_S04_A_motion-v003_bf55437ea55e.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "04-milk-and-mom_S04_A_motion-v003_bf55437ea55e.png",
+        "upload": "image"
+      },
+      "color": "#114f5a",
+      "bgcolor": "#09292f"
+    },
+    {
+      "id": 7,
+      "type": "LoadAudio",
+      "pos": [
+        1760,
+        1240
+      ],
+      "size": [
+        390,
+        180
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "type": "COMBO",
+          "widget": {
+            "name": "audio"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "audioUI",
+          "name": "audioUI",
+          "type": "AUDIO_UI",
+          "widget": {
+            "name": "audioUI"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "upload",
+          "name": "upload",
+          "type": "AUDIOUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "AUDIO",
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            7,
+            15,
+            37
+          ]
+        }
+      ],
+      "title": "Exact conditioning and editorial WAV offset0",
+      "properties": {
+        "Node name for S&R": "LoadAudio"
+      },
+      "widgets_values": [
+        "04-milk-and-mom_S04_A_motion-v003_2ab13e8fff48.wav",
+        ""
+      ],
+      "widgets_values_named": {
+        "audio": "04-milk-and-mom_S04_A_motion-v003_2ab13e8fff48.wav",
+        "upload": ""
+      },
+      "color": "#4b1e5a",
+      "bgcolor": "#290f32"
+    },
+    {
+      "id": 1,
+      "type": "UNETLoader",
+      "pos": [
+        40,
+        1280
+      ],
+      "size": [
+        390,
+        100
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "unet_name",
+          "name": "unet_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "unet_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "weight_dtype",
+          "name": "weight_dtype",
+          "type": "COMBO",
+          "widget": {
+            "name": "weight_dtype"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            16,
+            18
+          ]
+        }
+      ],
+      "title": "⚙️ 1. Model MiniMax H3 (INT8)",
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "default"
+      ],
+      "widgets_values_named": {
+        "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "weight_dtype": "default"
+      },
+      "color": "#5b4e2e",
+      "bgcolor": "#382f17"
+    },
+    {
+      "id": 2,
+      "type": "CLIPLoader",
+      "pos": [
+        470,
+        1280
+      ],
+      "size": [
+        350,
+        120
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip_name",
+          "name": "clip_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "clip_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "type",
+          "name": "type",
+          "type": "COMBO",
+          "widget": {
+            "name": "type"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "device",
+          "name": "device",
+          "type": "COMBO",
+          "widget": {
+            "name": "device"
+          },
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "title": "⚙️ 2. Qwen3-VL 32B Text Encoder",
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "minimax",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "type": "minimax",
+        "device": "default"
+      }
+    },
+    {
+      "id": 3,
+      "type": "VAELoader",
+      "pos": [
+        860,
+        1280
+      ],
+      "size": [
+        390,
+        90
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "VAE",
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            3,
+            12,
+            25
+          ]
+        }
+      ],
+      "title": "⚙️ 3. Video VAE Decoder (INT8)",
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "minimax_h3_video_vae_int8_convrot.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors"
+      }
+    },
+    {
+      "id": 4,
+      "type": "VAELoader",
+      "pos": [
+        1290,
+        1280
+      ],
+      "size": [
+        390,
+        90
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "VAE",
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            4,
+            13,
+            27
+          ]
+        }
+      ],
+      "title": "⚙️ 4. Audio VAE Decoder (FP32)",
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "minimax_h3_audio_vae_fp32.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+      }
+    },
+    {
+      "id": 6,
+      "type": "MiniMaxH3ReferenceToVideo",
+      "pos": [
+        40,
+        1460
+      ],
+      "size": [
+        650,
+        570
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 1
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 3,
+          "shape": 7
+        },
+        {
+          "localized_name": "audio_vae",
+          "name": "audio_vae",
+          "type": "VAE",
+          "link": 4,
+          "shape": 7
+        },
+        {
+          "localized_name": "ref_image_0",
+          "name": "ref_images.ref_image_0",
+          "type": "IMAGE",
+          "link": 5,
+          "shape": 7
+        },
+        {
+          "localized_name": "ref_image_1",
+          "name": "ref_images.ref_image_1",
+          "type": "IMAGE",
+          "link": 6,
+          "shape": 7
+        },
+        {
+          "localized_name": "ref_image_2",
+          "name": "ref_images.ref_image_2",
+          "type": "IMAGE",
+          "link": 8,
+          "shape": 7
+        },
+        {
+          "localized_name": "ref_image_3",
+          "name": "ref_images.ref_image_3",
+          "type": "IMAGE",
+          "link": 9,
+          "shape": 7
+        },
+        {
+          "localized_name": "ref_video_0",
+          "name": "ref_videos.ref_video_0",
+          "type": "IMAGE",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "localized_name": "ref_video_audio_0",
+          "name": "ref_video_audios.ref_video_audio_0",
+          "type": "AUDIO",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "localized_name": "ref_audio_0",
+          "name": "ref_audios.ref_audio_0",
+          "type": "AUDIO",
+          "link": 7,
+          "shape": 7
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "type": "STRING",
+          "link": 2
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "length",
+          "name": "length",
+          "type": "INT",
+          "widget": {
+            "name": "length"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "ref_image_size",
+          "name": "ref_image_size",
+          "type": "COMBO",
+          "widget": {
+            "name": "ref_image_size"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            10
+          ]
+        },
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            11,
+            23
+          ]
+        }
+      ],
+      "title": "🧠 TRUNG TÂM TỔNG HỢP NEO & PROMPT (MiniMax H3 Engine)",
+      "properties": {
+        "Node name for S&R": "MiniMaxH3ReferenceToVideo"
+      },
+      "widgets_values": [
+        "",
+        864,
+        480,
+        124,
+        "match"
+      ],
+      "widgets_values_named": {
+        "prompt": "",
+        "width": 864,
+        "height": 480,
+        "length": 124,
+        "ref_image_size": "match"
+      },
+      "color": "#5b452e",
+      "bgcolor": "#382917"
+    },
+    {
+      "id": 9,
+      "type": "MiniMaxH3AddGuide",
+      "pos": [
+        720,
+        1460
+      ],
+      "size": [
+        420,
+        280
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 10
+        },
+        {
+          "localized_name": "latent",
+          "name": "latent",
+          "type": "LATENT",
+          "link": 11
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 12,
+          "shape": 7
+        },
+        {
+          "localized_name": "audio_vae",
+          "name": "audio_vae",
+          "type": "VAE",
+          "link": 13,
+          "shape": 7
+        },
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 14,
+          "shape": 7
+        },
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 15,
+          "shape": 7
+        },
+        {
+          "localized_name": "frame_idx",
+          "name": "frame_idx",
+          "type": "INT",
+          "widget": {
+            "name": "frame_idx"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            17
+          ]
+        }
+      ],
+      "title": "🎯 BỘ NEO FRAME 0 TIẾP DIỄN TỪ CẢNH TRƯỚC",
+      "properties": {
+        "Node name for S&R": "MiniMaxH3AddGuide"
+      },
+      "widgets_values": [
+        0
+      ],
+      "widgets_values_named": {
+        "frame_idx": 0
+      },
+      "color": "#5b382e",
+      "bgcolor": "#381f17"
+    },
+    {
+      "id": 10,
+      "type": "BasicGuider",
+      "pos": [
+        1170,
+        1460
+      ],
+      "size": [
+        510,
+        100
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 16
+        },
+        {
+          "localized_name": "conditioning",
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "GUIDER",
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "links": [
+            20
+          ]
+        }
+      ],
+      "title": "⚙️ Bộ dẫn hướng Guider",
+      "properties": {
+        "Node name for S&R": "BasicGuider"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 11,
+      "type": "RandomNoise",
+      "pos": [
+        40,
+        2060
+      ],
+      "size": [
+        390,
+        90
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "noise_seed",
+          "name": "noise_seed",
+          "type": "INT",
+          "widget": {
+            "name": "noise_seed"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "NOISE",
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            19
+          ]
+        }
+      ],
+      "title": "⚙️ Random Seed (Tự động đổi)",
+      "properties": {
+        "Node name for S&R": "RandomNoise"
+      },
+      "widgets_values": [
+        20261031,
+        "fixed"
+      ],
+      "widgets_values_named": {
+        "noise_seed": 20261031,
+        "control_after_generate": "fixed"
+      }
+    },
+    {
+      "id": 12,
+      "type": "KSamplerSelect",
+      "pos": [
+        470,
+        2060
+      ],
+      "size": [
+        350,
+        80
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "sampler_name",
+          "name": "sampler_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "sampler_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "SAMPLER",
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            21
+          ]
+        }
+      ],
+      "title": "⚙️ Thuật toán Sampler (res_multistep)",
+      "properties": {
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "res_multistep"
+      ],
+      "widgets_values_named": {
+        "sampler_name": "res_multistep"
+      }
+    },
+    {
+      "id": 13,
+      "type": "BasicScheduler",
+      "pos": [
+        860,
+        2060
+      ],
+      "size": [
+        390,
+        120
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 18
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "type": "COMBO",
+          "widget": {
+            "name": "scheduler"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "type": "INT",
+          "widget": {
+            "name": "steps"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "denoise",
+          "name": "denoise",
+          "type": "FLOAT",
+          "widget": {
+            "name": "denoise"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "SIGMAS",
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            22
+          ]
+        }
+      ],
+      "title": "⚙️ Scheduler (20 steps beta scheduler)",
+      "properties": {
+        "Node name for S&R": "BasicScheduler"
+      },
+      "widgets_values": [
+        "beta",
+        20,
+        1
+      ],
+      "widgets_values_named": {
+        "scheduler": "beta",
+        "steps": 20,
+        "denoise": 1
+      }
+    },
+    {
+      "id": 14,
+      "type": "SamplerCustomAdvanced",
+      "pos": [
+        1290,
+        1460
+      ],
+      "size": [
+        390,
+        220
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "noise",
+          "name": "noise",
+          "type": "NOISE",
+          "link": 19
+        },
+        {
+          "localized_name": "guider",
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 20
+        },
+        {
+          "localized_name": "sampler",
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 21
+        },
+        {
+          "localized_name": "sigmas",
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 22
+        },
+        {
+          "localized_name": "latent_image",
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 23
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "output",
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            24,
+            26
+          ]
+        },
+        {
+          "localized_name": "denoised_output",
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "title": "⚡ BỘ LẤY MẪU H3 SAMPLER NGUYÊN BẢN",
+      "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {},
+      "color": "#5b452e",
+      "bgcolor": "#382917"
+    },
+    {
+      "id": 15,
+      "type": "VAEDecode",
+      "pos": [
+        1720,
+        1280
+      ],
+      "size": [
+        360,
+        100
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "samples",
+          "name": "samples",
+          "type": "LATENT",
+          "link": 24
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 25
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            28,
+            33
+          ]
+        }
+      ],
+      "title": "🔄 Giải mã hình ảnh Video VAE",
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 16,
+      "type": "VAEDecodeAudio",
+      "pos": [
+        2120,
+        1280
+      ],
+      "size": [
+        360,
+        100
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "samples",
+          "name": "samples",
+          "type": "LATENT",
+          "link": 26
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 27
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "AUDIO",
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            29
+          ]
+        }
+      ],
+      "title": "🔄 Giải mã âm thanh Audio VAE",
+      "properties": {
+        "Node name for S&R": "VAEDecodeAudio"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 17,
+      "type": "CreateVideo",
+      "pos": [
+        1720,
+        1440
+      ],
+      "size": [
+        760,
+        170
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 28
+        },
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 29,
+          "shape": 7
+        },
+        {
+          "localized_name": "fps",
+          "name": "fps",
+          "type": "FLOAT",
+          "widget": {
+            "name": "fps"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "bit_depth",
+          "name": "bit_depth",
+          "type": "COMBO",
+          "widget": {
+            "name": "bit_depth"
+          },
+          "link": null,
+          "shape": 7
+        },
+        {
+          "localized_name": "color_space",
+          "name": "color_space",
+          "type": "COMBO",
+          "widget": {
+            "name": "color_space"
+          },
+          "link": null,
+          "shape": 7
+        },
+        {
+          "localized_name": "codec",
+          "name": "codec",
+          "type": "COMBO",
+          "widget": {
+            "name": "codec"
+          },
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "VIDEO",
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            30
+          ]
+        }
+      ],
+      "title": "🎬 Ghép hình & tiếng thành Video 24FPS",
+      "properties": {
+        "Node name for S&R": "CreateVideo"
+      },
+      "widgets_values": [
+        24,
+        "auto",
+        "sRGB",
+        "none"
+      ],
+      "widgets_values_named": {
+        "fps": 24,
+        "bit_depth": "auto",
+        "color_space": "sRGB",
+        "codec": "none"
+      }
+    },
+    {
+      "id": 18,
+      "type": "SaveVideo",
+      "pos": [
+        1720,
+        1660
+      ],
+      "size": [
+        760,
+        250
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "video",
+          "name": "video",
+          "type": "VIDEO",
+          "link": 30
+        },
+        {
+          "localized_name": "filename_prefix",
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "format",
+          "name": "format",
+          "type": "COMFY_DYNAMICCOMBO_V3",
+          "widget": {
+            "name": "format"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "format.codec",
+          "name": "format.codec",
+          "type": "COMFY_DYNAMICCOMBO_V3",
+          "widget": {
+            "name": "format.codec"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "codec",
+          "name": "codec",
+          "type": "COMFY_DYNAMICCOMBO_V3",
+          "widget": {
+            "name": "codec"
+          },
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "video",
+          "name": "video",
+          "type": "VIDEO",
+          "links": []
+        }
+      ],
+      "title": "Raw native AV archive",
+      "properties": {
+        "Node name for S&R": "SaveVideo"
+      },
+      "widgets_values": [
+        "episodes/04-milk-and-mom/shots/S04_A/motion-v003_native",
+        "auto"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "episodes/04-milk-and-mom/shots/S04_A/motion-v003_native",
+        "format": "auto",
+        "format.codec": "auto",
+        "codec": "auto"
+      },
+      "color": "#662222",
+      "bgcolor": "#3d1414"
+    },
+    {
+      "id": 50,
+      "type": "ImageFromBatch",
+      "pos": [
+        1720,
+        1960
+      ],
+      "size": [
+        400,
+        100
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 31
+        },
+        {
+          "localized_name": "batch_index",
+          "name": "batch_index",
+          "type": "INT",
+          "widget": {
+            "name": "batch_index"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "length",
+          "name": "length",
+          "type": "INT",
+          "widget": {
+            "name": "length"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            32
+          ]
+        }
+      ],
+      "title": "🖼️ Tự động trích xuất Frame 119 (Frame cuối cùng của shot)",
+      "properties": {
+        "Node name for S&R": "ImageFromBatch"
+      },
+      "widgets_values": [
+        111,
+        1
+      ],
+      "widgets_values_named": {
+        "batch_index": 111,
+        "length": 1
+      }
+    },
+    {
+      "id": 55,
+      "type": "SaveImage",
+      "pos": [
+        2170,
+        1960
+      ],
+      "size": [
+        480,
+        190
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 32
+        },
+        {
+          "localized_name": "filename_prefix",
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "title": "Last USED frame 111",
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "episodes/04-milk-and-mom/shots/S04_A/motion-v003_frame111"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "episodes/04-milk-and-mom/shots/S04_A/motion-v003_frame111"
+      },
+      "color": "#63481f",
+      "bgcolor": "#3d2c12"
+    },
+    {
+      "id": 60,
+      "type": "ImageFromBatch",
+      "pos": [
+        2850,
+        1350
+      ],
+      "size": [
+        400,
+        100
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 33
+        },
+        {
+          "localized_name": "batch_index",
+          "name": "batch_index",
+          "type": "INT",
+          "widget": {
+            "name": "batch_index"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "length",
+          "name": "length",
+          "type": "INT",
+          "widget": {
+            "name": "length"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            35
+          ]
+        }
+      ],
+      "title": "S04_A: ImageFromBatch",
+      "properties": {
+        "Node name for S&R": "ImageFromBatch"
+      },
+      "widgets_values": [
+        1,
+        111
+      ],
+      "widgets_values_named": {
+        "batch_index": 1,
+        "length": 111
+      }
+    },
+    {
+      "id": 61,
+      "type": "ImageBatch",
+      "pos": [
+        3290,
+        1620
+      ],
+      "size": [
+        350,
+        160
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image1",
+          "name": "image1",
+          "type": "IMAGE",
+          "link": 34
+        },
+        {
+          "localized_name": "image2",
+          "name": "image2",
+          "type": "IMAGE",
+          "link": 35
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            31,
+            36
+          ]
+        }
+      ],
+      "title": "S04_A: ImageBatch",
+      "properties": {
+        "Node name for S&R": "ImageBatch"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 62,
+      "type": "CreateVideo",
+      "pos": [
+        2850,
+        1890
+      ],
+      "size": [
+        760,
+        170
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 36
+        },
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 37,
+          "shape": 7
+        },
+        {
+          "localized_name": "fps",
+          "name": "fps",
+          "type": "FLOAT",
+          "widget": {
+            "name": "fps"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "bit_depth",
+          "name": "bit_depth",
+          "type": "COMBO",
+          "widget": {
+            "name": "bit_depth"
+          },
+          "link": null,
+          "shape": 7
+        },
+        {
+          "localized_name": "color_space",
+          "name": "color_space",
+          "type": "COMBO",
+          "widget": {
+            "name": "color_space"
+          },
+          "link": null,
+          "shape": 7
+        },
+        {
+          "localized_name": "codec",
+          "name": "codec",
+          "type": "COMBO",
+          "widget": {
+            "name": "codec"
+          },
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "VIDEO",
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            38
+          ]
+        }
+      ],
+      "title": "🎬 Ghép hình & tiếng thành Video 24FPS",
+      "properties": {
+        "Node name for S&R": "CreateVideo"
+      },
+      "widgets_values": [
+        24,
+        "auto",
+        "sRGB",
+        "none"
+      ],
+      "widgets_values_named": {
+        "fps": 24,
+        "bit_depth": "auto",
+        "color_space": "sRGB",
+        "codec": "none"
+      }
+    },
+    {
+      "id": 63,
+      "type": "SaveVideo",
+      "pos": [
+        3290,
+        2160
+      ],
+      "size": [
+        760,
+        250
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "video",
+          "name": "video",
+          "type": "VIDEO",
+          "link": 38
+        },
+        {
+          "localized_name": "filename_prefix",
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "format",
+          "name": "format",
+          "type": "COMFY_DYNAMICCOMBO_V3",
+          "widget": {
+            "name": "format"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "format.codec",
+          "name": "format.codec",
+          "type": "COMFY_DYNAMICCOMBO_V3",
+          "widget": {
+            "name": "format.codec"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "codec",
+          "name": "codec",
+          "type": "COMFY_DYNAMICCOMBO_V3",
+          "widget": {
+            "name": "codec"
+          },
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "video",
+          "name": "video",
+          "type": "VIDEO",
+          "links": []
+        }
+      ],
+      "title": "OUTPUT VIDEO: S01A",
+      "properties": {
+        "Node name for S&R": "SaveVideo"
+      },
+      "widgets_values": [
+        "episodes/04-milk-and-mom/shots/S04_A/motion-v003_editorial",
+        "auto"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "episodes/04-milk-and-mom/shots/S04_A/motion-v003_editorial",
+        "format": "auto",
+        "format.codec": "auto",
+        "codec": "auto"
+      },
+      "color": "#662222",
+      "bgcolor": "#3d1414"
+    },
+    {
+      "id": 64,
+      "type": "LoadVideo",
+      "title": "KET QUA VIDEO | job 506c662f | SHA d63a8424d4e8",
+      "pos": [
+        4110.0,
+        2160.0
+      ],
+      "size": [
+        760,
+        560
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadVideo"
+      },
+      "widgets_values": [
+        "ep04review-d63a8424d4e80029-S04_A-motion-v003-editorial.mp4"
+      ]
+    },
+    {
+      "id": 65,
+      "type": "Note",
+      "title": "GHI CHU VIDEO | S04_A | candidate",
+      "pos": [
+        4110.0,
+        2750.0
+      ],
+      "size": [
+        760,
+        260
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "VIDEO KET QUA (chi hien thi, KHONG noi vao graph sinh) - motion S04_A\nTrang thai: candidate\nNguon: D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\clips\\motion-v003\\S04_A-editorial.mp4\nsha256: d63a8424d4e80029cf243ca1dff3cc36caca1afb8fd7a47a9604b2dd2d90ed8d\nVideo: 864x480 @ 24/1, 112 frames; 1,635,603 bytes\nComfyUI/input/ep04review-d63a8424d4e80029-S04_A-motion-v003-editorial.mp4\nJob H3: 506c662f-78dc-4999-baa0-93b555532b8b (COMPLETED); receipt: technical/motion-v003/S04_A/job.json\nTrang thai manifest: candidate - engine/shots.json receipt_dir -> technical/motion-v003/S04_A; job.json COMPLETED, review_status='CANDIDATE_AV_REVIEW_PENDING'; no per-shot final accept receipt found\nClip trong phim: clips/motion-v003/S04_A-editorial.mp4 (112 frames), trung byte voi file SaveVideo da luu."
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      2,
+      0,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      2,
+      19,
+      0,
+      6,
+      10,
+      "STRING"
+    ],
+    [
+      3,
+      3,
+      0,
+      6,
+      1,
+      "VAE"
+    ],
+    [
+      4,
+      4,
+      0,
+      6,
+      2,
+      "VAE"
+    ],
+    [
+      5,
+      30,
+      0,
+      6,
+      3,
+      "IMAGE"
+    ],
+    [
+      6,
+      31,
+      0,
+      6,
+      4,
+      "IMAGE"
+    ],
+    [
+      7,
+      7,
+      0,
+      6,
+      9,
+      "AUDIO"
+    ],
+    [
+      8,
+      32,
+      0,
+      6,
+      5,
+      "IMAGE"
+    ],
+    [
+      9,
+      33,
+      0,
+      6,
+      6,
+      "IMAGE"
+    ],
+    [
+      10,
+      6,
+      0,
+      9,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      11,
+      6,
+      1,
+      9,
+      1,
+      "LATENT"
+    ],
+    [
+      12,
+      3,
+      0,
+      9,
+      2,
+      "VAE"
+    ],
+    [
+      13,
+      4,
+      0,
+      9,
+      3,
+      "VAE"
+    ],
+    [
+      14,
+      8,
+      0,
+      9,
+      4,
+      "IMAGE"
+    ],
+    [
+      15,
+      7,
+      0,
+      9,
+      5,
+      "AUDIO"
+    ],
+    [
+      16,
+      1,
+      0,
+      10,
+      0,
+      "MODEL"
+    ],
+    [
+      17,
+      9,
+      0,
+      10,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      18,
+      1,
+      0,
+      13,
+      0,
+      "MODEL"
+    ],
+    [
+      19,
+      11,
+      0,
+      14,
+      0,
+      "NOISE"
+    ],
+    [
+      20,
+      10,
+      0,
+      14,
+      1,
+      "GUIDER"
+    ],
+    [
+      21,
+      12,
+      0,
+      14,
+      2,
+      "SAMPLER"
+    ],
+    [
+      22,
+      13,
+      0,
+      14,
+      3,
+      "SIGMAS"
+    ],
+    [
+      23,
+      6,
+      1,
+      14,
+      4,
+      "LATENT"
+    ],
+    [
+      24,
+      14,
+      0,
+      15,
+      0,
+      "LATENT"
+    ],
+    [
+      25,
+      3,
+      0,
+      15,
+      1,
+      "VAE"
+    ],
+    [
+      26,
+      14,
+      0,
+      16,
+      0,
+      "LATENT"
+    ],
+    [
+      27,
+      4,
+      0,
+      16,
+      1,
+      "VAE"
+    ],
+    [
+      28,
+      15,
+      0,
+      17,
+      0,
+      "IMAGE"
+    ],
+    [
+      29,
+      16,
+      0,
+      17,
+      1,
+      "AUDIO"
+    ],
+    [
+      30,
+      17,
+      0,
+      18,
+      0,
+      "VIDEO"
+    ],
+    [
+      31,
+      61,
+      0,
+      50,
+      0,
+      "IMAGE"
+    ],
+    [
+      32,
+      50,
+      0,
+      55,
+      0,
+      "IMAGE"
+    ],
+    [
+      33,
+      15,
+      0,
+      60,
+      0,
+      "IMAGE"
+    ],
+    [
+      34,
+      8,
+      0,
+      61,
+      0,
+      "IMAGE"
+    ],
+    [
+      35,
+      60,
+      0,
+      61,
+      1,
+      "IMAGE"
+    ],
+    [
+      36,
+      61,
+      0,
+      62,
+      0,
+      "IMAGE"
+    ],
+    [
+      37,
+      7,
+      0,
+      62,
+      1,
+      "AUDIO"
+    ],
+    [
+      38,
+      62,
+      0,
+      63,
+      0,
+      "VIDEO"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.5,
+      "offset": [
+        -3950.0,
+        -2040.0
+      ]
+    },
+    "review_video": {
+      "source_workflow": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\user\\default\\workflows\\JENNIEJOYKIDS_04_MILK_AND_MOM\\03_MOTION_H3\\S04_A_motion-v003.workflow.json",
+      "source_workflow_sha256": "014034f16536f1f62ae63d644b3320375dc526379bd7234eeeb4d7ccc0bd2a3b",
+      "video": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\clips\\motion-v003\\S04_A-editorial.mp4",
+      "video_sha256": "d63a8424d4e80029cf243ca1dff3cc36caca1afb8fd7a47a9604b2dd2d90ed8d",
+      "input_file": "ep04review-d63a8424d4e80029-S04_A-motion-v003-editorial.mp4",
+      "status": "candidate",
+      "kind": "motion",
+      "shot": "S04_A",
+      "load_video_node_id": 64,
+      "note_node_id": 65,
+      "built_by": "tools/attach_comfy_result_video.py"
+    }
+  },
+  "version": 0.4
+}

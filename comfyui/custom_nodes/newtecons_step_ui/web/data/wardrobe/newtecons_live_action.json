@@ -1,0 +1,71 @@
+{
+  "schema": "jjv/wardrobe-presets/v1",
+  "domain": "newtecons_live_action",
+  "default_context": "cong_truong",
+  "contexts": {
+    "cong_truong": [
+      {
+        "name": "\u00c1O PH\u1ea2N TRONG.png",
+        "file": "newtecons-wardrobe/59aba9523b61_AO_PHAN_TRONG.png",
+        "sha256": "59aba9523b6177e3702c831e4abe44f3b7cca03477f1c85c274565cec086c57e",
+        "role": "wardrobe_shirt_fine_microgrid_and_collar_logo_only"
+      },
+      {
+        "name": "SHIRT_APPROVED_FINE_GRID_COLLAR_LOGO_REFERENCE.png",
+        "file": "newtecons-wardrobe/55f0a34b4777_SHIRT_APPROVED_FINE_GRID_COLLAR_LOGO_REFERENCE.png",
+        "sha256": "55f0a34b4777207a2add39896f1ee21f225ea9fbf7c4dba93d35347ab838600c",
+        "role": "approved_fine_microgrid_and_small_collar_logo_only"
+      },
+      {
+        "name": "UNIFORM_HELMET.png",
+        "file": "newtecons-wardrobe/deae83d60abb_UNIFORM_HELMET.png",
+        "sha256": "deae83d60abb5d4315da78f5b8af71cad5082c7a8bf05c6a50299c886d977d4e",
+        "role": "wardrobe_helmet_shape_and_logo_placement"
+      },
+      {
+        "name": "LOGO_NEWTECONS_COLOR.png",
+        "file": "newtecons-wardrobe/e320eabbf4af_LOGO_NEWTECONS_COLOR.png",
+        "sha256": "e320eabbf4af707351a6e36e13cf961fca71b43c058d84e60b61c3681552ca51",
+        "role": "original_brand_mark_keep_exact_geometry_and_alpha"
+      },
+      {
+        "name": "\u00c1O PH\u1ea2N QUANG 1.png",
+        "file": "newtecons-wardrobe/637ce3ada45e_AO_PHAN_QUANG_1.png",
+        "sha256": "637ce3ada45e4cff4efda1c8d2b8f4f6436ab7a02f56f942654d297ba70fb46e",
+        "role": "wardrobe_vest_front_geometry_no_identity_replace_department"
+      },
+      {
+        "name": "\u00c1O PH\u1ea2N QUANG 2.png",
+        "file": "newtecons-wardrobe/c3b895832141_AO_PHAN_QUANG_2.png",
+        "sha256": "c3b895832141e41460f4133414fa53f42b37b2380c71846c190c11708fa25447",
+        "role": "wardrobe_vest_back_geometry_mesh_and_three_bands"
+      },
+      {
+        "name": "LOGO_NEWTECONS_WHITE.png",
+        "file": "newtecons-wardrobe/785e1770dfcb_LOGO_NEWTECONS_WHITE.png",
+        "sha256": "785e1770dfcb5d60e15c4ec5cbb85cf666dbf5431185896b891c98a26dac1df7",
+        "role": "exact_white_brand_logo_preserve_alpha"
+      }
+    ],
+    "van_phong": [
+      {
+        "name": "\u00c1O PH\u1ea2N TRONG.png",
+        "file": "newtecons-wardrobe/59aba9523b61_AO_PHAN_TRONG.png",
+        "sha256": "59aba9523b6177e3702c831e4abe44f3b7cca03477f1c85c274565cec086c57e",
+        "role": "wardrobe_shirt_fine_microgrid_and_collar_logo_only"
+      },
+      {
+        "name": "SHIRT_APPROVED_FINE_GRID_COLLAR_LOGO_REFERENCE.png",
+        "file": "newtecons-wardrobe/55f0a34b4777_SHIRT_APPROVED_FINE_GRID_COLLAR_LOGO_REFERENCE.png",
+        "sha256": "55f0a34b4777207a2add39896f1ee21f225ea9fbf7c4dba93d35347ab838600c",
+        "role": "approved_fine_microgrid_and_small_collar_logo_only"
+      },
+      {
+        "name": "LOGO_NEWTECONS_COLOR.png",
+        "file": "newtecons-wardrobe/e320eabbf4af_LOGO_NEWTECONS_COLOR.png",
+        "sha256": "e320eabbf4af707351a6e36e13cf961fca71b43c058d84e60b61c3681552ca51",
+        "role": "original_brand_mark_keep_exact_geometry_and_alpha"
+      }
+    ]
+  }
+}

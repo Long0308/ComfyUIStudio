@@ -1,0 +1,99 @@
+{
+  "id": "f97acb71-f74f-55e3-b070-d3a513c52e82",
+  "revision": 0,
+  "last_node_id": 2,
+  "last_link_id": 0,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LoadVideo",
+      "title": "KET QUA VIDEO | master-4k-v005-with-intro | SHA e60331b5baf8",
+      "pos": [
+        0,
+        40
+      ],
+      "size": [
+        960,
+        600
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadVideo"
+      },
+      "widgets_values": [
+        "ep04review-FINAL-MASTER-4K-v005-with-intro.mp4"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "Note",
+      "title": "GHI CHU VIDEO | master-4k-v005-with-intro | accepted",
+      "pos": [
+        0,
+        680
+      ],
+      "size": [
+        960,
+        300
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "VIDEO KET QUA (chi hien thi, KHONG co graph sinh) - master-4k-v005-with-intro\nTrang thai: accepted (user: 'video ok roi do' (handover §1); technical/studio-publish-master-v005-with-intro/publication-receipt-master-v005-with-intro.json)\nHien thi: FINAL 4K 3840x2160 30 fps, 132.4 s = intro 400 f + title 128 f + film 3444 f\nNguon: D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\editorial\\master-4k-v005-with-intro\\milk-and-mom-MASTER-4K-2160p30-v005-with-intro-FINAL.mp4\nsha256: e60331b5baf88ec5b0b6cc698d82eebffc2a3f85543c9a3f7e9c1b21e058bb98\nVideo: 3840x2160 @ 30/1, 3972 frames, 132.40 s; 515,223,558 bytes; audio aac 48000 Hz\nComfyUI/input/ep04review-FINAL-MASTER-4K-v005-with-intro.mp4 (hard link toi file nguon, cung inode)"
+      ]
+    }
+  ],
+  "links": [],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "title": "Milk and Mom ep04 - xem lai: master-4k-v005-with-intro",
+    "film_id": "04-milk-and-mom",
+    "task": "T-W06",
+    "review_cut": {
+      "label": "master-4k-v005-with-intro",
+      "video": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\editorial\\master-4k-v005-with-intro\\milk-and-mom-MASTER-4K-2160p30-v005-with-intro-FINAL.mp4",
+      "video_sha256": "e60331b5baf88ec5b0b6cc698d82eebffc2a3f85543c9a3f7e9c1b21e058bb98",
+      "input_file": "ep04review-FINAL-MASTER-4K-v005-with-intro.mp4",
+      "status": "accepted",
+      "status_basis": "user: 'video ok roi do' (handover §1); technical/studio-publish-master-v005-with-intro/publication-receipt-master-v005-with-intro.json",
+      "shows": "FINAL 4K 3840x2160 30 fps, 132.4 s = intro 400 f + title 128 f + film 3444 f",
+      "load_video_node_id": 1,
+      "note_node_id": 2,
+      "probe": {
+        "width": 3840,
+        "height": 2160,
+        "fps": "30/1",
+        "frames": 3972,
+        "duration_s": 132.4,
+        "audio_codec": "aac",
+        "sample_rate": 48000,
+        "channels": 2
+      },
+      "built_by": "tools/publish_review_pins_t_w06.py"
+    },
+    "ds": {
+      "scale": 0.7,
+      "offset": [
+        60,
+        20
+      ]
+    }
+  },
+  "version": 0.4
+}

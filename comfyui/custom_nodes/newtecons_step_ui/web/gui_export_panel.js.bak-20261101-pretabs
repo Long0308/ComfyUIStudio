@@ -1,0 +1,101 @@
+// Staged GUI export panel: provenance from this workflow only. No GPU or network submission.
+import { app } from "../../scripts/app.js";
+import { api } from "../../scripts/api.js";
+import { createDock, el } from "./step_dock.js";
+
+const DOMAINS = new Set(["newtecons_live_action", "jenniejoy_cartoon_3d"]);
+const SHA = /^[a-f0-9]{64}$/;
+const SAFE = /^[A-Za-z0-9_.-]+$/;
+let dock, last = "", runtime = [], runtimeExport = null;
+const bound = new Map(), early = new Map();
+let pending = 0;
+
+function metadata() {
+  const m = app.graph?.extra?.newtecons;
+  if (!m || m.export_gui_version !== 1 || !DOMAINS.has(m.domain) || !["video", "image"].includes(m.kind) || !SAFE.test(m.shot || "") || !SHA.test(m.export_id || "")) return null;
+  return m;
+}
+function ref(item, expectedType) {
+  if (!item || item.type !== expectedType || !SAFE.test(item.filename || "") || !SHA.test(item.sha256 || "")) return null;
+  const sub = item.subfolder || "";
+  if (sub && !sub.split("/").every((part) => SAFE.test(part) && part !== "." && part !== "..")) return null;
+  return { ...item, subfolder: sub };
+}
+function list(items, type, hashed = true) {
+  const rows = (Array.isArray(items) ? items : []).map((x) => ref(hashed ? x : { ...x, sha256: "0".repeat(64) }, type)).filter(Boolean);
+  if (!rows.length && type === "output" && hashed && runtime.length && metadata()?.kind === "video") return null;
+  if (!rows.length) return el("div", { text: type === "output" ? "CHƯA CÓ — chưa có kết quả được ghi nhận." : "CHƯA CÓ đầu vào hợp lệ." });
+  return el("div", {}, rows.map((r) => {
+    const q = new URLSearchParams({ filename: r.filename, subfolder: r.subfolder, type: r.type });
+    const url = api.apiURL(`/view?${q}`);
+    return el("div", { class: "ntd-slot" },
+      el("div", { text: `${r.role || "file"}: ${r.subfolder ? r.subfolder + "/" : ""}${r.filename}` }),
+      el("div", { text: hashed ? `SHA-256: ${r.sha256}` : "Kết quả chạy trong phiên — chưa kiểm SHA — chưa duyệt" }),
+      /\.(png|jpe?g|webp)$/i.test(r.filename) ? el("img", { src: url, alt: r.role || "ảnh", style: "max-width:220px;max-height:140px" }) :
+      /\.(mp4|webm)$/i.test(r.filename) ? el("video", { src: url, controls: true, style: "max-width:320px" }) :
+      /\.(wav|mp3|flac|ogg)$/i.test(r.filename) ? el("audio", { src: url, controls: true }) : null);
+  }));
+}
+function tick() {
+  const m = metadata();
+  dock.show(Boolean(m));
+  if (!m) { last = ""; return; }
+  if (runtimeExport !== m.export_id) { runtime = []; runtimeExport = m.export_id; }
+  const signature = JSON.stringify([m, runtime]);
+  if (signature !== last) {
+    last = signature;
+    dock.setBar({ title: m.domain === "newtecons_live_action" ? "NEWTECONS" : "JENNIEJOYKIDS",
+      sub: `${m.kind} · ${m.shot}`, tabs: [{ code: "01", label: "VÀO / RA", on: true }] });
+    dock.setPanel(null, el("div", {}, el("h3", { text: "VÀO — dữ liệu workflow" }), list(m.inputs, "input"),
+      el("h3", { text: "RA — kết quả được ghi nhận" }), list(m.outputs, "output"), el("h3", { text: "RA — kết quả chạy trong phiên" }), list(runtime, "output", false),
+      el("div", { text: "Metadata là bản ghi tại thời điểm xuất; chạy GUI không tự cập nhật nhật ký." })));
+  }
+  dock.watch(); dock.place();
+}
+// Installed frontend 1.55.17: api.queuePrompt(number, {output, workflow}, options).
+// Bind only the response to the submitted serialized workflow, never to execution_start alone.
+function capture(d) {
+  const id = bound.get(d?.prompt_id), m = metadata();
+  if (!id || !m || m.export_id !== id) return;
+  if (runtimeExport !== id) { runtime = []; runtimeExport = id; }
+  for (const group of ["images", "gifs", "videos", "audio"]) {
+    for (const item of Array.isArray(d.output?.[group]) ? d.output[group] : []) {
+      if (item?.type === "output") runtime.push({ ...item, role: `node ${d.node || "?"}` });
+    }
+  }
+  last = "";
+}
+app.registerExtension({ name: "Studio.GuiExportPanel", async setup() {
+  const queue = api.queuePrompt;
+  api.queuePrompt = function (...args) {
+    const submitted = args[1]?.workflow?.extra?.newtecons;
+    const current = metadata();
+    const id = current && submitted?.export_gui_version === 1 && submitted.export_id === current.export_id
+      && submitted.domain === current.domain && submitted.kind === current.kind && submitted.shot === current.shot
+      ? current.export_id : null;
+    if (id) pending++;
+    let result;
+    try { result = queue.apply(this, args); }
+    catch (error) { if (id) pending--; throw error; }
+    if (!id) return result;
+    return Promise.resolve(result).then((answer) => {
+      const prompt = answer?.prompt_id;
+      if (typeof prompt === "string" && prompt) {
+        bound.set(prompt, id);
+        for (const d of early.get(prompt) || []) capture(d);
+        early.delete(prompt);
+      }
+      return answer;
+    }).finally(() => { if (--pending === 0) early.clear(); });
+  };
+  api.addEventListener("executed", (event) => {
+    const d = event.detail || {};
+    if (bound.has(d.prompt_id)) capture(d);
+    else if (pending && typeof d.prompt_id === "string") {
+      // A fast job may finish before the POST response. Nothing is shown until prompt_id is bound.
+      if (early.size < 100) early.set(d.prompt_id, [...(early.get(d.prompt_id) || []), d]);
+    }
+  });
+  dock = createDock({ key: "gui-export", theme: "gold", barId: "gui-export-bar", panelId: "gui-export-panel" });
+  setInterval(tick, 1000);
+}, async afterConfigureGraph() { last = ""; } });

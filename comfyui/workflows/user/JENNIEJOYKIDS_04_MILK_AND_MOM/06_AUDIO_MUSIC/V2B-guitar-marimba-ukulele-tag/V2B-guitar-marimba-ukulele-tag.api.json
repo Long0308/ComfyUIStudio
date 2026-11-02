@@ -1,0 +1,120 @@
+{
+ "1": {
+  "class_type": "CheckpointLoaderSimple",
+  "inputs": {
+   "ckpt_name": "yue2_3b_int8_convrot.safetensors"
+  }
+ },
+ "2": {
+  "class_type": "YuE2GenerateABC",
+  "inputs": {
+   "clip": [
+    "1",
+    1
+   ],
+   "style": "English, a cheerful child voice sings the brand tag 'Jennie Joys Kids!' once at the very start (2 seconds, melodic rise on 'Joys', fall on 'Kids'), then English, purely instrumental accompaniment, no other singing, no humming, no choir, gentle cheerful preschool cartoon background music, major key, warm and bright, playful but calm, steady soft groove, no sudden loud hits, no drops, clean mix, 108 BPM, F major, nylon acoustic guitar, marimba and toy xylophone, light bongo and shaker, sunny garden morning, light ukulele strumming under the guitar",
+   "lyrics": "[Intro]\nJennie Joy Kids!\n\n[Instrumental]\n\n[Instrumental]\n\n[Instrumental]\n\n[Instrumental]\n\n[Outro]",
+   "seed": 20261113,
+   "mode": "full",
+   "max_abc_tokens": 8192,
+   "temperature": 0.7,
+   "top_p": 0.9,
+   "top_k": 30,
+   "repetition_penalty": 1.005,
+   "penalty_window": 100
+  }
+ },
+ "3": {
+  "class_type": "YuE2GenerateMusic",
+  "inputs": {
+   "clip": [
+    "1",
+    1
+   ],
+   "style": "English, a cheerful child voice sings the brand tag 'Jennie Joys Kids!' once at the very start (2 seconds, melodic rise on 'Joys', fall on 'Kids'), then English, purely instrumental accompaniment, no other singing, no humming, no choir, gentle cheerful preschool cartoon background music, major key, warm and bright, playful but calm, steady soft groove, no sudden loud hits, no drops, clean mix, 108 BPM, F major, nylon acoustic guitar, marimba and toy xylophone, light bongo and shaker, sunny garden morning, light ukulele strumming under the guitar",
+   "lyrics": "[Intro]\nJennie Joy Kids!\n\n[Instrumental]\n\n[Instrumental]\n\n[Instrumental]\n\n[Instrumental]\n\n[Outro]",
+   "abc": [
+    "2",
+    0
+   ],
+   "seed": 20261113,
+   "mode": "full",
+   "max_duration": 150.0,
+   "temperature": 1.0,
+   "top_p": 0.95,
+   "top_k": 100,
+   "repetition_penalty": 1.2
+  }
+ },
+ "4": {
+  "class_type": "ConditioningZeroOut",
+  "inputs": {
+   "conditioning": [
+    "3",
+    0
+   ]
+  }
+ },
+ "5": {
+  "class_type": "EmptyYuE2LatentAudio",
+  "inputs": {
+   "seconds": [
+    "3",
+    1
+   ],
+   "batch_size": 1
+  }
+ },
+ "6": {
+  "class_type": "KSampler",
+  "inputs": {
+   "model": [
+    "1",
+    0
+   ],
+   "seed": 20261113,
+   "steps": 32,
+   "cfg": 1.0,
+   "sampler_name": "dpm_2",
+   "scheduler": "sgm_uniform",
+   "positive": [
+    "3",
+    0
+   ],
+   "negative": [
+    "4",
+    0
+   ],
+   "latent_image": [
+    "5",
+    0
+   ],
+   "denoise": 1.0
+  }
+ },
+ "7": {
+  "class_type": "VAEDecodeAudioTiled",
+  "inputs": {
+   "samples": [
+    "6",
+    0
+   ],
+   "vae": [
+    "1",
+    2
+   ],
+   "tile_size": 512,
+   "overlap": 64
+  }
+ },
+ "8": {
+  "class_type": "SaveAudio",
+  "inputs": {
+   "audio": [
+    "7",
+    0
+   ],
+   "filename_prefix": "episodes/04-milk-and-mom/music-yue2-v002/V2B-guitar-marimba-ukulele-tag/V2B-guitar-marimba-ukulele-tag"
+  }
+ }
+}

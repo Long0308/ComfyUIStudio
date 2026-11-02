@@ -1,0 +1,1022 @@
+{
+  "schema": "jjv/character-refs/v1",
+  "domain": "newtecons_live_action",
+  "characters": {
+    "CHAR_01": {
+      "name": "Nguy\u1ec5n V\u0103n Minh",
+      "face": [
+        {
+          "name": "02_01_NEUTRAL_FOCUS__d353aa75a08a",
+          "file": "newtecons-characters/CHAR_01/d353aa75a08a_02_01_NEUTRAL_FOCUS_d353aa75a08a.png",
+          "sha256": "d353aa75a08ab7ef73ae55c0b41f01db2440fa9b0ad443fbca16c15e94201d96",
+          "qa": null
+        },
+        {
+          "name": "02_02_WARM_SMILE__7f1d8c25e2ec",
+          "file": "newtecons-characters/CHAR_01/7f1d8c25e2ec_02_02_WARM_SMILE_7f1d8c25e2ec.png",
+          "sha256": "7f1d8c25e2ecba0dd737e7b6139ef23c5188cbb2181a3b1f1c0439fd8c933c13",
+          "qa": null
+        },
+        {
+          "name": "02_03_TACTICAL_CONCERN__ff526759ba91",
+          "file": "newtecons-characters/CHAR_01/ff526759ba91_02_03_TACTICAL_CONCERN_ff526759ba91.png",
+          "sha256": "ff526759ba9148294cc2ff81898fd9ab4194f27d65b7dfbd563de494d14f5569",
+          "qa": null
+        },
+        {
+          "name": "02_04_DECISIVE_COMMAND__d4ba98770928",
+          "file": "newtecons-characters/CHAR_01/d4ba98770928_02_04_DECISIVE_COMMAND_d4ba98770928.png",
+          "sha256": "d4ba9877092807f4e013a3295d6c76cc556933c8bddf64c1d71a07b6f6bbf15d",
+          "qa": null
+        },
+        {
+          "name": "02_05_SURPRISE_DISCOVERY__8c6147e9921b",
+          "file": "newtecons-characters/CHAR_01/8c6147e9921b_02_05_SURPRISE_DISCOVERY_8c6147e9921b.png",
+          "sha256": "8c6147e9921bb953a521a03c5239bf571b5cb399aede433812a85ed33463f203",
+          "qa": null
+        },
+        {
+          "name": "02_06_DEEP_THOUGHT__a84f687706a0",
+          "file": "newtecons-characters/CHAR_01/a84f687706a0_02_06_DEEP_THOUGHT_a84f687706a0.png",
+          "sha256": "a84f687706a0b85c920c7f0e5f2451d29a140a7c89b90233452d6c64361a4913",
+          "qa": null
+        },
+        {
+          "name": "02_07_EMPATHETIC_CARE__3547d3d8f5a2",
+          "file": "newtecons-characters/CHAR_01/3547d3d8f5a2_02_07_EMPATHETIC_CARE_3547d3d8f5a2.png",
+          "sha256": "3547d3d8f5a22d8d5e4799a733790442bff7f58f438e054175cf2841f878d280",
+          "qa": null
+        },
+        {
+          "name": "02_08_DETERMINATION__a7f81a2102ea",
+          "file": "newtecons-characters/CHAR_01/a7f81a2102ea_02_08_DETERMINATION_a7f81a2102ea.png",
+          "sha256": "a7f81a2102ea5f81f98863aa9682179478129ea135479602d7d8a8ad4a62d413",
+          "qa": null
+        },
+        {
+          "name": "02_09_RELIEF__f9002a724eb4",
+          "file": "newtecons-characters/CHAR_01/f9002a724eb4_02_09_RELIEF_f9002a724eb4.png",
+          "sha256": "f9002a724eb4ea76d97e26e6ad46a18959acdc79eb979a3e02a6af741a9e3078",
+          "qa": null
+        },
+        {
+          "name": "02_10_PROUD_JOY__a2a10aad454f",
+          "file": "newtecons-characters/CHAR_01/a2a10aad454f_02_10_PROUD_JOY_a2a10aad454f.png",
+          "sha256": "a2a10aad454fcc79bf854a11389d9ff6e6023c6f2742c9d339c320a373cb9544",
+          "qa": null
+        }
+      ],
+      "action": [
+        {
+          "name": "03_01_FRONT_FULL_BODY__2ab25302dba5",
+          "file": "newtecons-characters/CHAR_01/2ab25302dba5_03_01_FRONT_FULL_BODY_2ab25302dba5.png",
+          "sha256": "2ab25302dba547a3570ad36d27fb67cfaea89fdce56faf78702b44756bab6d47",
+          "qa": null
+        },
+        {
+          "name": "03_02_THREE_QUARTER_FULL_BODY__ce6dd444b5aa",
+          "file": "newtecons-characters/CHAR_01/ce6dd444b5aa_03_02_THREE_QUARTER_FULL_BODY_ce6dd444b5aa.png",
+          "sha256": "ce6dd444b5aa8bc01eb43458e28bf60a4de02505c5137edaec5026cc8908411f",
+          "qa": null
+        },
+        {
+          "name": "03_03_WALK_INSPECTION__94e3c2cbc97f",
+          "file": "newtecons-characters/CHAR_01/94e3c2cbc97f_03_03_WALK_INSPECTION_94e3c2cbc97f.png",
+          "sha256": "94e3c2cbc97fc7fc6e16a36a93de2d0040133eee336fd27ca82b551464c70f52",
+          "qa": null
+        },
+        {
+          "name": "03_06_DRAWING_BRIEF__a7eda3553b00",
+          "file": "newtecons-characters/CHAR_01/a7eda3553b00_03_06_DRAWING_BRIEF_a7eda3553b00.png",
+          "sha256": "a7eda3553b006d658cdc797c5c8df64b394b1cf92ad683b712204305891e06bf",
+          "qa": null
+        },
+        {
+          "name": "03_07_SITE_DIRECTION__e1b829589504",
+          "file": "newtecons-characters/CHAR_01/e1b829589504_03_07_SITE_DIRECTION_e1b829589504.png",
+          "sha256": "e1b829589504bbf3bf620b71bf8bbfe913420ae153e8a678dfcb2db56cde044c",
+          "qa": null
+        },
+        {
+          "name": "03_08_BIM_PRESENTATION__576e7a2784e6",
+          "file": "newtecons-characters/CHAR_01/576e7a2784e6_03_08_BIM_PRESENTATION_576e7a2784e6.png",
+          "sha256": "576e7a2784e6c1019d20fc08e0b80be0d1a3c6cbfbb0b26d093da8160ebf9bb2",
+          "qa": null
+        },
+        {
+          "name": "03_09_RADIO_REPORT__c8b476e5de5c",
+          "file": "newtecons-characters/CHAR_01/c8b476e5de5c_03_09_RADIO_REPORT_c8b476e5de5c.png",
+          "sha256": "c8b476e5de5c35198a291beafb570579e4755a0867d05b5e0f9a2ca98e5f7841",
+          "qa": null
+        },
+        {
+          "name": "03_10_TEAM_SUCCESS__ec4a50a09c45",
+          "file": "newtecons-characters/CHAR_01/ec4a50a09c45_03_10_TEAM_SUCCESS_ec4a50a09c45.png",
+          "sha256": "ec4a50a09c45792217d9e414416d90e92f29f2550984f844dbd06b10b1c7da4a",
+          "qa": null
+        },
+        {
+          "name": "04_04_TABLET_REVIEW__37382d439df7",
+          "file": "newtecons-characters/CHAR_01/37382d439df7_04_04_TABLET_REVIEW_37382d439df7.png",
+          "sha256": "37382d439df7a9200d0ad034e68a6dc2ffa70a5b4aaa98fe4b5cd69c32282ff9",
+          "qa": null
+        },
+        {
+          "name": "04_05_PHONE_COORDINATION__09f64f5f5630",
+          "file": "newtecons-characters/CHAR_01/09f64f5f5630_04_05_PHONE_COORDINATION_09f64f5f5630.png",
+          "sha256": "09f64f5f563006d3cfcf11c902c99588cb41a0b30019c7806060c6eb8587e9cc",
+          "qa": null
+        }
+      ]
+    },
+    "CHAR_02": {
+      "name": "Tr\u1ea7n \u0110\u00ecnh Tu\u1ea5n",
+      "face": [
+        {
+          "name": "04_01_NEUTRAL_FOCUS__8f39ae3d38a1",
+          "file": "newtecons-characters/CHAR_02/8f39ae3d38a1_04_01_NEUTRAL_FOCUS_8f39ae3d38a1.png",
+          "sha256": "8f39ae3d38a12809aea0966677568168372fb26d113be815d0a4b09f886a6371",
+          "qa": null
+        },
+        {
+          "name": "04_02_WARM_SMILE__62960fdc25f7",
+          "file": "newtecons-characters/CHAR_02/62960fdc25f7_04_02_WARM_SMILE_62960fdc25f7.png",
+          "sha256": "62960fdc25f7f24b2041beb1abf0b4740c4c09b1a9a79ee580ec34edcca4a033",
+          "qa": null
+        },
+        {
+          "name": "04_03_TACTICAL_CONCERN__ec26c53bf39b",
+          "file": "newtecons-characters/CHAR_02/ec26c53bf39b_04_03_TACTICAL_CONCERN_ec26c53bf39b.png",
+          "sha256": "ec26c53bf39bef8e7b1ceafb9e07b51bcda704bed8222c2f9fe6c8d0b098227d",
+          "qa": null
+        },
+        {
+          "name": "04_04_DECISIVE_COMMAND__2f01be018cab",
+          "file": "newtecons-characters/CHAR_02/2f01be018cab_04_04_DECISIVE_COMMAND_2f01be018cab.png",
+          "sha256": "2f01be018cab32e059ede226c31aefe706c3fe804cbeb16d955f1def34793b90",
+          "qa": null
+        },
+        {
+          "name": "04_05_SURPRISE_DISCOVERY__a700bcd7ee28",
+          "file": "newtecons-characters/CHAR_02/a700bcd7ee28_04_05_SURPRISE_DISCOVERY_a700bcd7ee28.png",
+          "sha256": "a700bcd7ee28aee12909b2cc49b14879f314e702e233cabdd90179ba620e7c3d",
+          "qa": null
+        },
+        {
+          "name": "04_06_DEEP_THOUGHT__b36f66c5feba",
+          "file": "newtecons-characters/CHAR_02/b36f66c5feba_04_06_DEEP_THOUGHT_b36f66c5feba.png",
+          "sha256": "b36f66c5febae1acfd42ad18540d415cf63438b6a21e68d3540237e79340afaa",
+          "qa": null
+        },
+        {
+          "name": "04_07_EMPATHETIC_CARE__6bc960e1bc1d",
+          "file": "newtecons-characters/CHAR_02/6bc960e1bc1d_04_07_EMPATHETIC_CARE_6bc960e1bc1d.png",
+          "sha256": "6bc960e1bc1d8dd2ee980759d56e928216ada830c49c6873b3f16767cb793777",
+          "qa": null
+        },
+        {
+          "name": "04_08_DETERMINATION__bf94075b8aff",
+          "file": "newtecons-characters/CHAR_02/bf94075b8aff_04_08_DETERMINATION_bf94075b8aff.png",
+          "sha256": "bf94075b8afff7792e2bacfa633c70c91ff07354b970c1dadb2cfd53154b8740",
+          "qa": null
+        },
+        {
+          "name": "04_09_RELIEF__9e36ee0e0913",
+          "file": "newtecons-characters/CHAR_02/9e36ee0e0913_04_09_RELIEF_9e36ee0e0913.png",
+          "sha256": "9e36ee0e0913e78e4bfea70bc18967ec5361fab1243c4e81991b065cdadfa3cd",
+          "qa": null
+        },
+        {
+          "name": "04_10_PROUD_JOY__d43404713f4f",
+          "file": "newtecons-characters/CHAR_02/d43404713f4f_04_10_PROUD_JOY_d43404713f4f.png",
+          "sha256": "d43404713f4f401cacfa0ec02480c6784bf40266f07b1725c7e501e591fbe9e4",
+          "qa": null
+        }
+      ],
+      "action": [
+        {
+          "name": "05_01_FRONT_FULL_BODY__121c710e0dbc",
+          "file": "newtecons-characters/CHAR_02/121c710e0dbc_05_01_FRONT_FULL_BODY_121c710e0dbc.png",
+          "sha256": "121c710e0dbc6dbc859ccadcdfb7b1643fb41c0e9cabb1d61a43e80937ca1d5c",
+          "qa": null
+        },
+        {
+          "name": "05_02_THREE_QUARTER_FULL_BODY__5e0d548a93a8",
+          "file": "newtecons-characters/CHAR_02/5e0d548a93a8_05_02_THREE_QUARTER_FULL_BODY_5e0d548a93a8.png",
+          "sha256": "5e0d548a93a82f62ab6fa93c98bd2e037c4f809d59b0c7c4fbb068820a24e158",
+          "qa": null
+        },
+        {
+          "name": "05_03_WALK_INSPECTION__f63ce2b99e1c",
+          "file": "newtecons-characters/CHAR_02/f63ce2b99e1c_05_03_WALK_INSPECTION_f63ce2b99e1c.png",
+          "sha256": "f63ce2b99e1c2f986c5c4a44182a33d7209c69dab183d4636b89adfb6588ed7d",
+          "qa": null
+        },
+        {
+          "name": "05_06_DRAWING_BRIEF__fcc74a2c1f6e",
+          "file": "newtecons-characters/CHAR_02/fcc74a2c1f6e_05_06_DRAWING_BRIEF_fcc74a2c1f6e.png",
+          "sha256": "fcc74a2c1f6e139c2f562f48f252f8694dee67d4749a72669e9f5cdc6b0c4b90",
+          "qa": null
+        },
+        {
+          "name": "05_09_RADIO_REPORT__61b04e3971b5",
+          "file": "newtecons-characters/CHAR_02/61b04e3971b5_05_09_RADIO_REPORT_61b04e3971b5.png",
+          "sha256": "61b04e3971b574345376c9eaff21158862cfe9e5779cdd161200a3de2a24b0a1",
+          "qa": null
+        },
+        {
+          "name": "05_10_TEAM_SUCCESS__29b0eebe6df5",
+          "file": "newtecons-characters/CHAR_02/29b0eebe6df5_05_10_TEAM_SUCCESS_29b0eebe6df5.png",
+          "sha256": "29b0eebe6df5131c00a2dd2a4c9b32b18617f1b30b2a8be3686d8537326bd740",
+          "qa": null
+        },
+        {
+          "name": "06_04_TABLET_REVIEW__f765ef462cf5",
+          "file": "newtecons-characters/CHAR_02/f765ef462cf5_06_04_TABLET_REVIEW_f765ef462cf5.png",
+          "sha256": "f765ef462cf52460b1ae9dd7279f0f9403fa6434ca101b8a4ccd1ba689f9da58",
+          "qa": null
+        },
+        {
+          "name": "06_05_PHONE_COORDINATION__f6713daed100",
+          "file": "newtecons-characters/CHAR_02/f6713daed100_06_05_PHONE_COORDINATION_f6713daed100.png",
+          "sha256": "f6713daed100c7f5e13f983eb567e899e30c15085268fe2211b34b38602fd5bb",
+          "qa": null
+        },
+        {
+          "name": "06_07_SITE_DIRECTION__4a883f13abe0",
+          "file": "newtecons-characters/CHAR_02/4a883f13abe0_06_07_SITE_DIRECTION_4a883f13abe0.png",
+          "sha256": "4a883f13abe0494d59d5243f76d5c3c2794969614abcdd63dd42c90c5cc29d53",
+          "qa": null
+        },
+        {
+          "name": "06_08_BIM_PRESENTATION__942097d505c7",
+          "file": "newtecons-characters/CHAR_02/942097d505c7_06_08_BIM_PRESENTATION_942097d505c7.png",
+          "sha256": "942097d505c7c4f281e5b2d8ff2ee6beb913e9c2e34636f3aa732d98219410f8",
+          "qa": null
+        }
+      ]
+    },
+    "CHAR_03": {
+      "name": "L\u00ea V\u0103n Th\u1ecd",
+      "face": [
+        {
+          "name": "06_01_NEUTRAL_FOCUS__b7945fba19b6",
+          "file": "newtecons-characters/CHAR_03/b7945fba19b6_06_01_NEUTRAL_FOCUS_b7945fba19b6.png",
+          "sha256": "b7945fba19b61d8de9a3144ff60cfbca78e1b3dd99316d8b7057e19c7dfcefc3",
+          "qa": null
+        },
+        {
+          "name": "06_02_WARM_SMILE__236d395863f1",
+          "file": "newtecons-characters/CHAR_03/236d395863f1_06_02_WARM_SMILE_236d395863f1.png",
+          "sha256": "236d395863f1f7608c8e861370ae4a6f1b9bf7a047267581d20cbf0c2a7ca396",
+          "qa": null
+        },
+        {
+          "name": "06_03_TACTICAL_CONCERN__3accd17b93ec",
+          "file": "newtecons-characters/CHAR_03/3accd17b93ec_06_03_TACTICAL_CONCERN_3accd17b93ec.png",
+          "sha256": "3accd17b93ec27f555f033e8210282b34845737bbf4f2b819ae5c1464579ef6b",
+          "qa": null
+        },
+        {
+          "name": "06_04_DECISIVE_COMMAND__3d8b7d41ae69",
+          "file": "newtecons-characters/CHAR_03/3d8b7d41ae69_06_04_DECISIVE_COMMAND_3d8b7d41ae69.png",
+          "sha256": "3d8b7d41ae69bec5edf57c662678d22054540988b8ad3b4d7fcbe94cace71b86",
+          "qa": null
+        },
+        {
+          "name": "06_05_SURPRISE_DISCOVERY__dea1b6ac0365",
+          "file": "newtecons-characters/CHAR_03/dea1b6ac0365_06_05_SURPRISE_DISCOVERY_dea1b6ac0365.png",
+          "sha256": "dea1b6ac0365edc6fbb3b22a95e571b53a7056a4e3e82924476e6b9d6f06b40d",
+          "qa": null
+        },
+        {
+          "name": "06_06_DEEP_THOUGHT__e358acd1a16f",
+          "file": "newtecons-characters/CHAR_03/e358acd1a16f_06_06_DEEP_THOUGHT_e358acd1a16f.png",
+          "sha256": "e358acd1a16f8dd302804ad8e55fccae765cb672a12e1fbc845838f74c43bc64",
+          "qa": null
+        },
+        {
+          "name": "06_09_RELIEF__b0a5091a50e2",
+          "file": "newtecons-characters/CHAR_03/b0a5091a50e2_06_09_RELIEF_b0a5091a50e2.png",
+          "sha256": "b0a5091a50e215e895a85ed58f33a4fa2b4d892f395c4a5601a5d6cdf8de1c84",
+          "qa": null
+        },
+        {
+          "name": "06_10_PROUD_JOY__9ac00e9c8e23",
+          "file": "newtecons-characters/CHAR_03/9ac00e9c8e23_06_10_PROUD_JOY_9ac00e9c8e23.png",
+          "sha256": "9ac00e9c8e23f80ef64f5e31128c738a56a4006c5f6a682e3af2424e08ded178",
+          "qa": null
+        },
+        {
+          "name": "07_07_EMPATHETIC_CARE__50dd2344265e",
+          "file": "newtecons-characters/CHAR_03/50dd2344265e_07_07_EMPATHETIC_CARE_50dd2344265e.png",
+          "sha256": "50dd2344265e033867d09817d563eece4d0ef4d375a0502f645784bdb60b8ce7",
+          "qa": null
+        },
+        {
+          "name": "07_08_DETERMINATION__42d1cb2db998",
+          "file": "newtecons-characters/CHAR_03/42d1cb2db998_07_08_DETERMINATION_42d1cb2db998.png",
+          "sha256": "42d1cb2db998627c5f4b33c5bb98ea054680760e294265092e08fe951126aa88",
+          "qa": null
+        }
+      ],
+      "action": [
+        {
+          "name": "07_01_FRONT_FULL_BODY__5985211ea88e",
+          "file": "newtecons-characters/CHAR_03/5985211ea88e_07_01_FRONT_FULL_BODY_5985211ea88e.png",
+          "sha256": "5985211ea88e1c2674ca756f00ec897a62ea4914e9f903d9654d72ef81099162",
+          "qa": null
+        },
+        {
+          "name": "07_02_THREE_QUARTER_FULL_BODY__09a807aebc58",
+          "file": "newtecons-characters/CHAR_03/09a807aebc58_07_02_THREE_QUARTER_FULL_BODY_09a807aebc58.png",
+          "sha256": "09a807aebc58bf6759c20d5523790ff3b5164aef001168fe8c1741a38e5f5498",
+          "qa": null
+        },
+        {
+          "name": "07_03_WALK_INSPECTION__0374e8de9967",
+          "file": "newtecons-characters/CHAR_03/0374e8de9967_07_03_WALK_INSPECTION_0374e8de9967.png",
+          "sha256": "0374e8de9967f457135cb650c1855abf45359a19981f503beee59b104b53ed18",
+          "qa": null
+        },
+        {
+          "name": "07_04_TABLET_REVIEW__d1391fb87f6d",
+          "file": "newtecons-characters/CHAR_03/d1391fb87f6d_07_04_TABLET_REVIEW_d1391fb87f6d.png",
+          "sha256": "d1391fb87f6d96820d18083b78aa80c8fa62023abe11f84cb4ce9db089cab4aa",
+          "qa": null
+        },
+        {
+          "name": "07_05_PHONE_COORDINATION__195d82f11461",
+          "file": "newtecons-characters/CHAR_03/195d82f11461_07_05_PHONE_COORDINATION_195d82f11461.png",
+          "sha256": "195d82f11461acef9bc122760c5690a01793b7100e0a100d70ec7cf9524e3942",
+          "qa": null
+        },
+        {
+          "name": "07_07_SITE_DIRECTION__9cfec7ca16fd",
+          "file": "newtecons-characters/CHAR_03/9cfec7ca16fd_07_07_SITE_DIRECTION_9cfec7ca16fd.png",
+          "sha256": "9cfec7ca16fd825cdae8862a539d9592dce3e295c9996ab2d571846c5ba15a5c",
+          "qa": null
+        },
+        {
+          "name": "07_10_TEAM_SUCCESS__cef790992c1a",
+          "file": "newtecons-characters/CHAR_03/cef790992c1a_07_10_TEAM_SUCCESS_cef790992c1a.png",
+          "sha256": "cef790992c1ab27c61d92438662c0b51e193f2f86b9b7c2cb3aa6fe7e8702e26",
+          "qa": null
+        },
+        {
+          "name": "08_06_DRAWING_BRIEF__0029ad055563",
+          "file": "newtecons-characters/CHAR_03/0029ad055563_08_06_DRAWING_BRIEF_0029ad055563.png",
+          "sha256": "0029ad0555632663677439652cdd0bb238a920eb4dbb76ffdfcfe55d2e6e99af",
+          "qa": null
+        },
+        {
+          "name": "08_08_BIM_PRESENTATION__810945b8cdec",
+          "file": "newtecons-characters/CHAR_03/810945b8cdec_08_08_BIM_PRESENTATION_810945b8cdec.png",
+          "sha256": "810945b8cdec3e1597596c7a5765013f1244f00556353e42c61bbe1f15b8214a",
+          "qa": null
+        },
+        {
+          "name": "08_09_RADIO_REPORT__d1be6e34c041",
+          "file": "newtecons-characters/CHAR_03/d1be6e34c041_08_09_RADIO_REPORT_d1be6e34c041.png",
+          "sha256": "d1be6e34c0411b26c74e06820e3c71753d8dc3a48c7d8970a6bded4829411051",
+          "qa": null
+        }
+      ]
+    },
+    "CHAR_04": {
+      "name": "Ph\u1ea1m Quang Ho\u00e0ng",
+      "face": [
+        {
+          "name": "09_01_NEUTRAL_FOCUS__4b49bc7f2391",
+          "file": "newtecons-characters/CHAR_04/4b49bc7f2391_09_01_NEUTRAL_FOCUS_4b49bc7f2391.png",
+          "sha256": "4b49bc7f2391aa46d7082f93c495dd1a547de6ab1feda7acb706d4871de59b53",
+          "qa": null
+        },
+        {
+          "name": "09_02_WARM_SMILE__2ae06e464b6e",
+          "file": "newtecons-characters/CHAR_04/2ae06e464b6e_09_02_WARM_SMILE_2ae06e464b6e.png",
+          "sha256": "2ae06e464b6ef24198e12476245354935b921c7a26980f73d471ae4f8d9b5548",
+          "qa": null
+        },
+        {
+          "name": "09_03_TACTICAL_CONCERN__832196b335f8",
+          "file": "newtecons-characters/CHAR_04/832196b335f8_09_03_TACTICAL_CONCERN_832196b335f8.png",
+          "sha256": "832196b335f83193c79fd7cc3e28a6fc68f8cf36a37ff590dc85b96b1634bd71",
+          "qa": null
+        },
+        {
+          "name": "09_04_DECISIVE_COMMAND__68bb8698f4b9",
+          "file": "newtecons-characters/CHAR_04/68bb8698f4b9_09_04_DECISIVE_COMMAND_68bb8698f4b9.png",
+          "sha256": "68bb8698f4b9ac890cb6649ba5ca1797538bf094bd9428698a0102eabdf502bd",
+          "qa": null
+        },
+        {
+          "name": "09_05_SURPRISE_DISCOVERY__62f392bc2125",
+          "file": "newtecons-characters/CHAR_04/62f392bc2125_09_05_SURPRISE_DISCOVERY_62f392bc2125.png",
+          "sha256": "62f392bc21255d12e38139e1b2fb6902edff4636b0ba26e23b793631cca9814b",
+          "qa": null
+        },
+        {
+          "name": "09_06_DEEP_THOUGHT__748a08366d11",
+          "file": "newtecons-characters/CHAR_04/748a08366d11_09_06_DEEP_THOUGHT_748a08366d11.png",
+          "sha256": "748a08366d111fe5436448b6daca7770a21377f545312b76cc627d1bb254b6cd",
+          "qa": null
+        },
+        {
+          "name": "09_07_EMPATHETIC_CARE__64a774f3243e",
+          "file": "newtecons-characters/CHAR_04/64a774f3243e_09_07_EMPATHETIC_CARE_64a774f3243e.png",
+          "sha256": "64a774f3243eaa069c456e2f1ec6d924f1beea0d6cbac38c185f235508111ef1",
+          "qa": null
+        },
+        {
+          "name": "09_08_DETERMINATION__1b4089fc24a1",
+          "file": "newtecons-characters/CHAR_04/1b4089fc24a1_09_08_DETERMINATION_1b4089fc24a1.png",
+          "sha256": "1b4089fc24a1857049b092aba31f3f60bad2f5b2901bbaf49d5b801cfb820ce5",
+          "qa": null
+        },
+        {
+          "name": "09_09_RELIEF__b35d338a1b68",
+          "file": "newtecons-characters/CHAR_04/b35d338a1b68_09_09_RELIEF_b35d338a1b68.png",
+          "sha256": "b35d338a1b68e91027faa3c71e7c634ca5682051596f81a97121ee779972a92a",
+          "qa": null
+        },
+        {
+          "name": "09_10_PROUD_JOY__e6e64bc2cc34",
+          "file": "newtecons-characters/CHAR_04/e6e64bc2cc34_09_10_PROUD_JOY_e6e64bc2cc34.png",
+          "sha256": "e6e64bc2cc34c3b7352f485d5f992ef1cc098f2c3ef2b4109e85ccb43bdd54ae",
+          "qa": null
+        }
+      ],
+      "action": [
+        {
+          "name": "08_08_BIM_PRESENTATION__ec7b992cd9c6",
+          "file": "newtecons-characters/CHAR_04/ec7b992cd9c6_08_08_BIM_PRESENTATION_ec7b992cd9c6.png",
+          "sha256": "ec7b992cd9c61ab1e579ea072149607f9d5661fad84ee01886ca3c3512418e17",
+          "qa": null
+        },
+        {
+          "name": "10_01_FRONT_FULL_BODY__bd92dfb2b19a",
+          "file": "newtecons-characters/CHAR_04/bd92dfb2b19a_10_01_FRONT_FULL_BODY_bd92dfb2b19a.png",
+          "sha256": "bd92dfb2b19abd9ac8337cb9a852488d5dcfb8a31d8e883da8aa1fe5ba2613b4",
+          "qa": null
+        },
+        {
+          "name": "10_02_THREE_QUARTER_FULL_BODY__59398e3c5937",
+          "file": "newtecons-characters/CHAR_04/59398e3c5937_10_02_THREE_QUARTER_FULL_BODY_59398e3c5937.png",
+          "sha256": "59398e3c59372b6b75ff76fb2cf1f4fe0f2b0910c0aef1e825f48cf75b2f341d",
+          "qa": null
+        },
+        {
+          "name": "10_03_WALK_INSPECTION__8e0ef2d6e87e",
+          "file": "newtecons-characters/CHAR_04/8e0ef2d6e87e_10_03_WALK_INSPECTION_8e0ef2d6e87e.png",
+          "sha256": "8e0ef2d6e87e1b312bfd30ab445779170cc1cf58fce8b6c0b633eb9f9bba310d",
+          "qa": null
+        },
+        {
+          "name": "10_04_TABLET_REVIEW__b096bf6f50e8",
+          "file": "newtecons-characters/CHAR_04/b096bf6f50e8_10_04_TABLET_REVIEW_b096bf6f50e8.png",
+          "sha256": "b096bf6f50e89a30aaba3cadf950fd5368166f4c8e4cd312f1c0768bf8a4a085",
+          "qa": null
+        },
+        {
+          "name": "10_05_PHONE_COORDINATION__1cdc79c23776",
+          "file": "newtecons-characters/CHAR_04/1cdc79c23776_10_05_PHONE_COORDINATION_1cdc79c23776.png",
+          "sha256": "1cdc79c23776a3cf03baed21eac2f02c50ee96927c07cb828f8330044165335e",
+          "qa": null
+        },
+        {
+          "name": "10_06_DRAWING_BRIEF__f0480b88fb0e",
+          "file": "newtecons-characters/CHAR_04/f0480b88fb0e_10_06_DRAWING_BRIEF_f0480b88fb0e.png",
+          "sha256": "f0480b88fb0e757d8dcdba4c33fbce336a099a234a2bcd467041c71f0f2e97bc",
+          "qa": null
+        },
+        {
+          "name": "10_07_SITE_DIRECTION__dd1835132491",
+          "file": "newtecons-characters/CHAR_04/dd1835132491_10_07_SITE_DIRECTION_dd1835132491.png",
+          "sha256": "dd18351324913369a5cee09888cc57cc5f13124cc4310066486e09208c18a03f",
+          "qa": null
+        },
+        {
+          "name": "10_09_RADIO_REPORT__b5e6a634651c",
+          "file": "newtecons-characters/CHAR_04/b5e6a634651c_10_09_RADIO_REPORT_b5e6a634651c.png",
+          "sha256": "b5e6a634651c0a7722b2cbe930ba7edafc71b778e960754eaf964964abfb6e5a",
+          "qa": null
+        },
+        {
+          "name": "10_10_TEAM_SUCCESS__9edc7b6aae9c",
+          "file": "newtecons-characters/CHAR_04/9edc7b6aae9c_10_10_TEAM_SUCCESS_9edc7b6aae9c.png",
+          "sha256": "9edc7b6aae9c152e0dc4ca3b85819c66a59682bdbe32d9c51a3b36541d475065",
+          "qa": null
+        }
+      ]
+    },
+    "CHAR_05": {
+      "name": "\u0110\u1ed7 M\u1ea1nh Th\u1eafng",
+      "face": [
+        {
+          "name": "11_01_NEUTRAL_FOCUS__06ce07f4defe",
+          "file": "newtecons-characters/CHAR_05/06ce07f4defe_11_01_NEUTRAL_FOCUS_06ce07f4defe.png",
+          "sha256": "06ce07f4defe4362ab0eed9197952c9c3fb42a5e88a7f6963305c2d45d5920f9",
+          "qa": null
+        },
+        {
+          "name": "11_02_WARM_SMILE__e96110c269f2",
+          "file": "newtecons-characters/CHAR_05/e96110c269f2_11_02_WARM_SMILE_e96110c269f2.png",
+          "sha256": "e96110c269f22950f5aba75106cd08845b76fdcdf3f2efa3c7492e89b815df63",
+          "qa": null
+        },
+        {
+          "name": "11_03_TACTICAL_CONCERN__057d3cc16273",
+          "file": "newtecons-characters/CHAR_05/057d3cc16273_11_03_TACTICAL_CONCERN_057d3cc16273.png",
+          "sha256": "057d3cc16273cc40e854271275f573f664015c7880cb7a1c310f686c477087b0",
+          "qa": null
+        },
+        {
+          "name": "11_04_DECISIVE_COMMAND__2e48af4b3adf",
+          "file": "newtecons-characters/CHAR_05/2e48af4b3adf_11_04_DECISIVE_COMMAND_2e48af4b3adf.png",
+          "sha256": "2e48af4b3adf48563b1d033580ecf92f00ca49737b18de0c334af69e6f683dcf",
+          "qa": null
+        },
+        {
+          "name": "11_05_SURPRISE_DISCOVERY__8e617e951e3f",
+          "file": "newtecons-characters/CHAR_05/8e617e951e3f_11_05_SURPRISE_DISCOVERY_8e617e951e3f.png",
+          "sha256": "8e617e951e3f86fae2781630a8af39a52a68c04d67b52c2cc2ab9ceeaf431884",
+          "qa": null
+        },
+        {
+          "name": "11_06_DEEP_THOUGHT__2b093fcae833",
+          "file": "newtecons-characters/CHAR_05/2b093fcae833_11_06_DEEP_THOUGHT_2b093fcae833.png",
+          "sha256": "2b093fcae833bc1a6a9541dc055aca540f885e6b2d488135b85f608c5fdfd14e",
+          "qa": null
+        },
+        {
+          "name": "11_07_EMPATHETIC_CARE__1c536c497d18",
+          "file": "newtecons-characters/CHAR_05/1c536c497d18_11_07_EMPATHETIC_CARE_1c536c497d18.png",
+          "sha256": "1c536c497d183b6079394fd4392cce7e380dce6545c4f6799e4b1b56ec9bb809",
+          "qa": null
+        },
+        {
+          "name": "11_08_DETERMINATION__f7a236033615",
+          "file": "newtecons-characters/CHAR_05/f7a236033615_11_08_DETERMINATION_f7a236033615.png",
+          "sha256": "f7a23603361545d53d795f54bda5a5a4e689adc8c7aa462e21612209356da99c",
+          "qa": null
+        },
+        {
+          "name": "11_09_RELIEF__7e0c26f99c27",
+          "file": "newtecons-characters/CHAR_05/7e0c26f99c27_11_09_RELIEF_7e0c26f99c27.png",
+          "sha256": "7e0c26f99c27a1e0aed0ffa0644adcc11d180616378adb240790e5088a4599cb",
+          "qa": null
+        },
+        {
+          "name": "11_10_PROUD_JOY__c11c930c0db5",
+          "file": "newtecons-characters/CHAR_05/c11c930c0db5_11_10_PROUD_JOY_c11c930c0db5.png",
+          "sha256": "c11c930c0db571ea12f88b4e24b5faa26520a754b7d5d46f54ce2ab66d07fb82",
+          "qa": null
+        }
+      ],
+      "action": [
+        {
+          "name": "12_01_FRONT_FULL_BODY__682c71e1e19a",
+          "file": "newtecons-characters/CHAR_05/682c71e1e19a_12_01_FRONT_FULL_BODY_682c71e1e19a.png",
+          "sha256": "682c71e1e19af063b2620a6be7da88629a1f6bac8d2894ec1e047af92f27dc40",
+          "qa": null
+        },
+        {
+          "name": "12_02_THREE_QUARTER_FULL_BODY__b7d414e02582",
+          "file": "newtecons-characters/CHAR_05/b7d414e02582_12_02_THREE_QUARTER_FULL_BODY_b7d414e02582.png",
+          "sha256": "b7d414e025824acb678b1bed1ac38badbcad1d25381d0df7fee90bc875ee29c2",
+          "qa": null
+        },
+        {
+          "name": "12_03_WALK_INSPECTION__c411934d7b40",
+          "file": "newtecons-characters/CHAR_05/c411934d7b40_12_03_WALK_INSPECTION_c411934d7b40.png",
+          "sha256": "c411934d7b4025b06422ac29306d175bba1b1251d7542d83014b0e2e381f6103",
+          "qa": null
+        },
+        {
+          "name": "12_07_SITE_DIRECTION__6b3af1611233",
+          "file": "newtecons-characters/CHAR_05/6b3af1611233_12_07_SITE_DIRECTION_6b3af1611233.png",
+          "sha256": "6b3af1611233cdad47a28e752f81b777e1fee552316d8060360dfc5bc5fb83fe",
+          "qa": null
+        },
+        {
+          "name": "12_09_RADIO_REPORT__25a63512c670",
+          "file": "newtecons-characters/CHAR_05/25a63512c670_12_09_RADIO_REPORT_25a63512c670.png",
+          "sha256": "25a63512c6701ca39fe4043ecea1d8700e6c55bf67130fad5115a7d343ccb789",
+          "qa": null
+        },
+        {
+          "name": "12_10_TEAM_SUCCESS__9464f8c414f0",
+          "file": "newtecons-characters/CHAR_05/9464f8c414f0_12_10_TEAM_SUCCESS_9464f8c414f0.png",
+          "sha256": "9464f8c414f0c8199896d518bf29c45e2c59f49ec42d7dc918ed2ebef9fe4267",
+          "qa": null
+        },
+        {
+          "name": "13_04_TABLET_REVIEW__d229b7ad8a98",
+          "file": "newtecons-characters/CHAR_05/d229b7ad8a98_13_04_TABLET_REVIEW_d229b7ad8a98.png",
+          "sha256": "d229b7ad8a98cb3a6b272cd47799c2ee355f4828b77d9b24b38b95362dbbe660",
+          "qa": null
+        },
+        {
+          "name": "13_05_PHONE_COORDINATION__2786b8efefaa",
+          "file": "newtecons-characters/CHAR_05/2786b8efefaa_13_05_PHONE_COORDINATION_2786b8efefaa.png",
+          "sha256": "2786b8efefaa0ad087a201b72ab4ea4010a4db19c805be48e7a952bef5ab8089",
+          "qa": null
+        },
+        {
+          "name": "13_06_DRAWING_BRIEF__e286b7c64ce0",
+          "file": "newtecons-characters/CHAR_05/e286b7c64ce0_13_06_DRAWING_BRIEF_e286b7c64ce0.png",
+          "sha256": "e286b7c64ce00bcd1fad892aa573be1a5d72d40a17d05385d4618887f9444969",
+          "qa": null
+        },
+        {
+          "name": "13_08_BIM_PRESENTATION__85518aef0c31",
+          "file": "newtecons-characters/CHAR_05/85518aef0c31_13_08_BIM_PRESENTATION_85518aef0c31.png",
+          "sha256": "85518aef0c31da6de7ef8a31c1a43ef3a2240beca9e8fb1fa84fd6823ed851d7",
+          "qa": null
+        }
+      ]
+    },
+    "CHAR_06": {
+      "name": "Nguy\u1ec5n Lan Anh",
+      "face": [
+        {
+          "name": "09_01_NEUTRAL_FOCUS__20e9ebbd8648",
+          "file": "newtecons-characters/CHAR_06/20e9ebbd8648_09_01_NEUTRAL_FOCUS_20e9ebbd8648.png",
+          "sha256": "20e9ebbd8648b665020931faa44c913c1a866213305539ca8c10f959babd9e89",
+          "qa": null
+        },
+        {
+          "name": "09_02_WARM_SMILE__8bb711ada576",
+          "file": "newtecons-characters/CHAR_06/8bb711ada576_09_02_WARM_SMILE_8bb711ada576.png",
+          "sha256": "8bb711ada576092f0b9b82e7bdfc9ca4a46eb83deab542465b06b86b09bc6e6b",
+          "qa": null
+        },
+        {
+          "name": "09_03_TACTICAL_CONCERN__a5e7365c4e6b",
+          "file": "newtecons-characters/CHAR_06/a5e7365c4e6b_09_03_TACTICAL_CONCERN_a5e7365c4e6b.png",
+          "sha256": "a5e7365c4e6bfe480a22748f320d4ddfb7280b662abee7b5863b50beb497c0fc",
+          "qa": null
+        },
+        {
+          "name": "09_04_DECISIVE_COMMAND__1519e5a70c59",
+          "file": "newtecons-characters/CHAR_06/1519e5a70c59_09_04_DECISIVE_COMMAND_1519e5a70c59.png",
+          "sha256": "1519e5a70c592666b3797e1d32d770880937f94c0755e2f9ea9b17c2ae6f04bd",
+          "qa": null
+        },
+        {
+          "name": "09_05_SURPRISE_DISCOVERY__fb6d08dc6dfb",
+          "file": "newtecons-characters/CHAR_06/fb6d08dc6dfb_09_05_SURPRISE_DISCOVERY_fb6d08dc6dfb.png",
+          "sha256": "fb6d08dc6dfb18e198388d47e801d120fd91e1e6119d005846ab985397190919",
+          "qa": null
+        },
+        {
+          "name": "09_06_DEEP_THOUGHT__54b2fee5ad18",
+          "file": "newtecons-characters/CHAR_06/54b2fee5ad18_09_06_DEEP_THOUGHT_54b2fee5ad18.png",
+          "sha256": "54b2fee5ad1848de2239beb9e6245dbd1107c1146d2a12955f11b2a656004ee8",
+          "qa": null
+        },
+        {
+          "name": "09_07_EMPATHETIC_CARE__27569fb45cfb",
+          "file": "newtecons-characters/CHAR_06/27569fb45cfb_09_07_EMPATHETIC_CARE_27569fb45cfb.png",
+          "sha256": "27569fb45cfb2fbc7e5582fd54a93366b02dd06f2df15f7a1de00933b6ec4ee4",
+          "qa": null
+        },
+        {
+          "name": "09_08_DETERMINATION__2dda7bd6289d",
+          "file": "newtecons-characters/CHAR_06/2dda7bd6289d_09_08_DETERMINATION_2dda7bd6289d.png",
+          "sha256": "2dda7bd6289d7ef61d562bd330fa7661c455ade0b1dac175796b8f7081c950c4",
+          "qa": null
+        },
+        {
+          "name": "09_09_RELIEF__4ef84c8a55e3",
+          "file": "newtecons-characters/CHAR_06/4ef84c8a55e3_09_09_RELIEF_4ef84c8a55e3.png",
+          "sha256": "4ef84c8a55e31859a992893b47f15b36b4a90aa5340c4a2de46525011f455066",
+          "qa": null
+        },
+        {
+          "name": "09_10_PROUD_JOY__186ca92565f7",
+          "file": "newtecons-characters/CHAR_06/186ca92565f7_09_10_PROUD_JOY_186ca92565f7.png",
+          "sha256": "186ca92565f7a4e10c9b42845cf17afa08a8992493702dd4c4c29c1a20320d08",
+          "qa": null
+        }
+      ],
+      "action": [
+        {
+          "name": "10_01_FRONT_FULL_BODY__07dd9150e4a8",
+          "file": "newtecons-characters/CHAR_06/07dd9150e4a8_10_01_FRONT_FULL_BODY_07dd9150e4a8.png",
+          "sha256": "07dd9150e4a872715f159171e997e6459b8e3e7a219517a830d0453e7475eb3b",
+          "qa": null
+        },
+        {
+          "name": "10_02_THREE_QUARTER_FULL_BODY__05a823e9f8f4",
+          "file": "newtecons-characters/CHAR_06/05a823e9f8f4_10_02_THREE_QUARTER_FULL_BODY_05a823e9f8f4.png",
+          "sha256": "05a823e9f8f419a2b597e10da9a8db39de62340dcedce2cd07023f7cd7f5e95a",
+          "qa": null
+        },
+        {
+          "name": "10_03_WALK_INSPECTION__47abbdff7b4f",
+          "file": "newtecons-characters/CHAR_06/47abbdff7b4f_10_03_WALK_INSPECTION_47abbdff7b4f.png",
+          "sha256": "47abbdff7b4f750cc17a23b05467f18e8344a6e10274a8d18dfbe77796bd3115",
+          "qa": null
+        },
+        {
+          "name": "10_04_TABLET_REVIEW__05abc92e118a",
+          "file": "newtecons-characters/CHAR_06/05abc92e118a_10_04_TABLET_REVIEW_05abc92e118a.png",
+          "sha256": "05abc92e118afddde458898f4ecccfda12350db70faad419b05e73ed9c65ae8f",
+          "qa": null
+        },
+        {
+          "name": "10_10_TEAM_SUCCESS__9d5b8b5fe955",
+          "file": "newtecons-characters/CHAR_06/9d5b8b5fe955_10_10_TEAM_SUCCESS_9d5b8b5fe955.png",
+          "sha256": "9d5b8b5fe955561a74ff1c27ec943fbf8eba3caca8ba1f3fd8d55a3fdcf174f5",
+          "qa": null
+        },
+        {
+          "name": "14_05_PHONE_COORDINATION__6c70569e83de",
+          "file": "newtecons-characters/CHAR_06/6c70569e83de_14_05_PHONE_COORDINATION_6c70569e83de.png",
+          "sha256": "6c70569e83de095f605f6cce193e64188344f79707b0e04a5f44a8a510ffc7e8",
+          "qa": null
+        },
+        {
+          "name": "14_06_DRAWING_BRIEF__2d9bdf76a775",
+          "file": "newtecons-characters/CHAR_06/2d9bdf76a775_14_06_DRAWING_BRIEF_2d9bdf76a775.png",
+          "sha256": "2d9bdf76a77578b52d5e8185fd61eb254a03a8e5d50345e4821e651ec6e1d64f",
+          "qa": null
+        },
+        {
+          "name": "14_07_SITE_DIRECTION__d1b363562fdf",
+          "file": "newtecons-characters/CHAR_06/d1b363562fdf_14_07_SITE_DIRECTION_d1b363562fdf.png",
+          "sha256": "d1b363562fdf75fbf28f2a51bf6e4980a856cc0f2b8aa298fa040c0c3765c506",
+          "qa": null
+        },
+        {
+          "name": "14_08_BIM_PRESENTATION__a3a6e6806dd2",
+          "file": "newtecons-characters/CHAR_06/a3a6e6806dd2_14_08_BIM_PRESENTATION_a3a6e6806dd2.png",
+          "sha256": "a3a6e6806dd2964673e684e7a046d75b0a09c7653827aed820531803ae5a7897",
+          "qa": null
+        },
+        {
+          "name": "14_09_WELFARE_DRINKS__f935b92a304d",
+          "file": "newtecons-characters/CHAR_06/f935b92a304d_14_09_WELFARE_DRINKS_f935b92a304d.png",
+          "sha256": "f935b92a304d443c5f4da8be80756b9ab4d080cac1e15a04811a6734b585a609",
+          "qa": null
+        }
+      ]
+    },
+    "CHAR_07": {
+      "name": "Ho\u00e0ng Minh",
+      "face": [
+        {
+          "name": "11_01_NEUTRAL_FOCUS__0a704c0451c8",
+          "file": "newtecons-characters/CHAR_07/0a704c0451c8_11_01_NEUTRAL_FOCUS_0a704c0451c8.png",
+          "sha256": "0a704c0451c8fd67179b2e660ed4ba9d47bd38488b04ae2ef8e22fed07f39514",
+          "qa": null
+        },
+        {
+          "name": "11_02_WARM_SMILE__c467112c9d91",
+          "file": "newtecons-characters/CHAR_07/c467112c9d91_11_02_WARM_SMILE_c467112c9d91.png",
+          "sha256": "c467112c9d910279afbb3955274af363d6f5d914d8c917290c688112a1cfc6f4",
+          "qa": null
+        },
+        {
+          "name": "11_03_TACTICAL_CONCERN__26c9e2120985",
+          "file": "newtecons-characters/CHAR_07/26c9e2120985_11_03_TACTICAL_CONCERN_26c9e2120985.png",
+          "sha256": "26c9e212098595b6cd1c4357beeb2817cb0aad8213dfe3ddf406b8ba48b0573b",
+          "qa": null
+        },
+        {
+          "name": "11_04_DECISIVE_COMMAND__17752f2c7d72",
+          "file": "newtecons-characters/CHAR_07/17752f2c7d72_11_04_DECISIVE_COMMAND_17752f2c7d72.png",
+          "sha256": "17752f2c7d72566739d597561763326059e18dd0984d1a5417ac4efa028aaa50",
+          "qa": null
+        },
+        {
+          "name": "11_05_SURPRISE_DISCOVERY__82368a9bb1f3",
+          "file": "newtecons-characters/CHAR_07/82368a9bb1f3_11_05_SURPRISE_DISCOVERY_82368a9bb1f3.png",
+          "sha256": "82368a9bb1f3a5b19b1f7a56f4e22b99fabc9e9e62c881d9c919b05ea365cdcb",
+          "qa": null
+        },
+        {
+          "name": "11_06_DEEP_THOUGHT__0e40b35f6f01",
+          "file": "newtecons-characters/CHAR_07/0e40b35f6f01_11_06_DEEP_THOUGHT_0e40b35f6f01.png",
+          "sha256": "0e40b35f6f015320c7bfaf703944fe57f8d637eaf6a2109e5e7e3b052e400a84",
+          "qa": null
+        },
+        {
+          "name": "11_07_EMPATHETIC_CARE__0e4352f291e5",
+          "file": "newtecons-characters/CHAR_07/0e4352f291e5_11_07_EMPATHETIC_CARE_0e4352f291e5.png",
+          "sha256": "0e4352f291e506a8ed71e643f2283ecc459adf383cb7740ce406d198d7cd3241",
+          "qa": null
+        },
+        {
+          "name": "11_08_DETERMINATION__1e24375f2904",
+          "file": "newtecons-characters/CHAR_07/1e24375f2904_11_08_DETERMINATION_1e24375f2904.png",
+          "sha256": "1e24375f29045d789d3c6e65216d02d28fe8cc8def5f07bfd78daa2643931cd0",
+          "qa": null
+        },
+        {
+          "name": "11_09_RELIEF__a44d4acf9c11",
+          "file": "newtecons-characters/CHAR_07/a44d4acf9c11_11_09_RELIEF_a44d4acf9c11.png",
+          "sha256": "a44d4acf9c11f7fc88a3014d6e26633484684a896827c487a67c982b22b13fab",
+          "qa": null
+        },
+        {
+          "name": "11_10_PROUD_JOY__7a9511d2d761",
+          "file": "newtecons-characters/CHAR_07/7a9511d2d761_11_10_PROUD_JOY_7a9511d2d761.png",
+          "sha256": "7a9511d2d761988063327686c52ee94ae0141289f61d8dc039a49b2cd3ad6fd1",
+          "qa": null
+        }
+      ],
+      "action": [
+        {
+          "name": "12_01_FRONT_FULL_BODY__fdf79ba0b28c",
+          "file": "newtecons-characters/CHAR_07/fdf79ba0b28c_12_01_FRONT_FULL_BODY_fdf79ba0b28c.png",
+          "sha256": "fdf79ba0b28c7aa8382a6078734d0466a26c636050b9a4e1df4c4565f5fb59da",
+          "qa": null
+        },
+        {
+          "name": "12_02_THREE_QUARTER_FULL_BODY__63edf26ddfdb",
+          "file": "newtecons-characters/CHAR_07/63edf26ddfdb_12_02_THREE_QUARTER_FULL_BODY_63edf26ddfdb.png",
+          "sha256": "63edf26ddfdb0bdd324fa4e440edb9a49687770e80077c572a7ac2fce1294e2a",
+          "qa": null
+        },
+        {
+          "name": "12_04_TABLET_REVIEW__67534847e9ff",
+          "file": "newtecons-characters/CHAR_07/67534847e9ff_12_04_TABLET_REVIEW_67534847e9ff.png",
+          "sha256": "67534847e9ffd7a48716370236d01833bd1787e77a82db31e08b73b10f47ce9b",
+          "qa": null
+        },
+        {
+          "name": "12_07_SITE_DIRECTION__53b607a73909",
+          "file": "newtecons-characters/CHAR_07/53b607a73909_12_07_SITE_DIRECTION_53b607a73909.png",
+          "sha256": "53b607a739099f2a2fda9cb82a206a6c70aa7ca7979fe639d9fcf3e8ecb265fc",
+          "qa": null
+        },
+        {
+          "name": "12_08_BIM_PRESENTATION__183fb42740de",
+          "file": "newtecons-characters/CHAR_07/183fb42740de_12_08_BIM_PRESENTATION_183fb42740de.png",
+          "sha256": "183fb42740def4e1cbd079784f0c952bb30065babe286b372e3d23cc2160d24a",
+          "qa": null
+        },
+        {
+          "name": "12_09_RADIO_REPORT__d730cf781e57",
+          "file": "newtecons-characters/CHAR_07/d730cf781e57_12_09_RADIO_REPORT_d730cf781e57.png",
+          "sha256": "d730cf781e575f44696c89850faf346a3630e09d1100476adc7ff269bb547d3e",
+          "qa": null
+        },
+        {
+          "name": "12_10_TEAM_SUCCESS__9bf404a0805f",
+          "file": "newtecons-characters/CHAR_07/9bf404a0805f_12_10_TEAM_SUCCESS_9bf404a0805f.png",
+          "sha256": "9bf404a0805f5c42b476a51425c0db7650ad68e79cd8688c0d4830721d0ec004",
+          "qa": null
+        },
+        {
+          "name": "16_03_WALK_INSPECTION__7b89dc5e3fe3",
+          "file": "newtecons-characters/CHAR_07/7b89dc5e3fe3_16_03_WALK_INSPECTION_7b89dc5e3fe3.png",
+          "sha256": "7b89dc5e3fe3a7586b488a662adfd4e327fc1732239b012d7bc060e6495c49d8",
+          "qa": null
+        },
+        {
+          "name": "16_05_PHONE_COORDINATION__974f0a841639",
+          "file": "newtecons-characters/CHAR_07/974f0a841639_16_05_PHONE_COORDINATION_974f0a841639.png",
+          "sha256": "974f0a84163951ce46cd94543135a0b51e5d6aa089a5289d8b012cab7305a902",
+          "qa": null
+        },
+        {
+          "name": "16_06_DRAWING_BRIEF__696bf409cf38",
+          "file": "newtecons-characters/CHAR_07/696bf409cf38_16_06_DRAWING_BRIEF_696bf409cf38.png",
+          "sha256": "696bf409cf38cde3b851836fb9dfed91878d970fd231b8fb9888243ff5cd4206",
+          "qa": null
+        }
+      ]
+    },
+    "CHAR_08": {
+      "name": "Tr\u1ea7n Th\u1ea3o Mai",
+      "face": [
+        {
+          "name": "01_01_NEUTRAL_FOCUS__dcb24e27c764",
+          "file": "newtecons-characters/CHAR_08/dcb24e27c764_01_01_NEUTRAL_FOCUS_dcb24e27c764.png",
+          "sha256": "dcb24e27c7649d2044d08f9f5c0d9d16d40806e632e5dca8d9ea6b2a149aaedb",
+          "qa": null
+        },
+        {
+          "name": "01_02_WARM_SMILE__a16fed39d089",
+          "file": "newtecons-characters/CHAR_08/a16fed39d089_01_02_WARM_SMILE_a16fed39d089.png",
+          "sha256": "a16fed39d0892df7dd54f65326626e8a6562bb792d0c1a7acfd1d3ffa4166ead",
+          "qa": null
+        },
+        {
+          "name": "01_03_TACTICAL_CONCERN__4898eda93f73",
+          "file": "newtecons-characters/CHAR_08/4898eda93f73_01_03_TACTICAL_CONCERN_4898eda93f73.png",
+          "sha256": "4898eda93f73cbcb5d953562f15034a0a61095ced5424921cb31390ee42c6ba8",
+          "qa": null
+        },
+        {
+          "name": "01_04_DECISIVE_COMMAND__42e711853101",
+          "file": "newtecons-characters/CHAR_08/42e711853101_01_04_DECISIVE_COMMAND_42e711853101.png",
+          "sha256": "42e7118531019056223153d1f5bdbc7381bc25ad4dbc1ca0dd32031c96366253",
+          "qa": null
+        },
+        {
+          "name": "01_05_SURPRISE_DISCOVERY__c1cf236420f6",
+          "file": "newtecons-characters/CHAR_08/c1cf236420f6_01_05_SURPRISE_DISCOVERY_c1cf236420f6.png",
+          "sha256": "c1cf236420f65db32664f03d459003a49935f43d0833f8f7d68b74e3085fe70d",
+          "qa": null
+        },
+        {
+          "name": "01_06_DEEP_THOUGHT__31b41d41ec94",
+          "file": "newtecons-characters/CHAR_08/31b41d41ec94_01_06_DEEP_THOUGHT_31b41d41ec94.png",
+          "sha256": "31b41d41ec945a9a6eeea2466f083d5fc8c1a6ca1e9d7c86f5eb0f9f7799948e",
+          "qa": null
+        },
+        {
+          "name": "01_07_EMPATHETIC_CARE__6510c3883be6",
+          "file": "newtecons-characters/CHAR_08/6510c3883be6_01_07_EMPATHETIC_CARE_6510c3883be6.png",
+          "sha256": "6510c3883be6565cdf21a9c78f2cf2e3b1167faa6a0da261a2940d6f23ddb57f",
+          "qa": null
+        },
+        {
+          "name": "01_08_DETERMINATION__f0218d070d72",
+          "file": "newtecons-characters/CHAR_08/f0218d070d72_01_08_DETERMINATION_f0218d070d72.png",
+          "sha256": "f0218d070d724d4388726516322d240bf31b523c56defc79360fd724d4b10949",
+          "qa": null
+        },
+        {
+          "name": "01_09_RELIEF__9130b854d785",
+          "file": "newtecons-characters/CHAR_08/9130b854d785_01_09_RELIEF_9130b854d785.png",
+          "sha256": "9130b854d7857cc1fa9d3f4bcae4ff91cfdbaf251b83d2f0e58f89a3731b751c",
+          "qa": null
+        },
+        {
+          "name": "01_10_PROUD_JOY__3b67e85726d2",
+          "file": "newtecons-characters/CHAR_08/3b67e85726d2_01_10_PROUD_JOY_3b67e85726d2.png",
+          "sha256": "3b67e85726d266bb5a29e667e7747c32a4335348b506a6dc0f8ffc7ef8ee66f4",
+          "qa": null
+        }
+      ],
+      "action": [
+        {
+          "name": "01_01_FRONT_FULL_BODY__94d4f0def935",
+          "file": "newtecons-characters/CHAR_08/94d4f0def935_01_01_FRONT_FULL_BODY_94d4f0def935.png",
+          "sha256": "94d4f0def935997042de3eb6d1390b8d959679db33d79ed4cc8bbd5ba1f1a0c5",
+          "qa": null
+        },
+        {
+          "name": "01_02_THREE_QUARTER_FULL_BODY__16bfdfa9f4a2",
+          "file": "newtecons-characters/CHAR_08/16bfdfa9f4a2_01_02_THREE_QUARTER_FULL_BODY_16bfdfa9f4a2.png",
+          "sha256": "16bfdfa9f4a279cba12c78bed48370445a5ee0b435c7198d4d6dab5a3621e61f",
+          "qa": null
+        },
+        {
+          "name": "01_04_TABLET_REVIEW__69e82e913eff",
+          "file": "newtecons-characters/CHAR_08/69e82e913eff_01_04_TABLET_REVIEW_69e82e913eff.png",
+          "sha256": "69e82e913eff681c4ea44144a7dd4b0e27cf23c084aeb48a6e2bed67aba09551",
+          "qa": null
+        },
+        {
+          "name": "01_05_PHONE_COORDINATION__9ef2525c9ed3",
+          "file": "newtecons-characters/CHAR_08/9ef2525c9ed3_01_05_PHONE_COORDINATION_9ef2525c9ed3.png",
+          "sha256": "9ef2525c9ed385d8b7bcf68b66b4574b5fd9356f6f5f4639c6cf0ca9a9dc96dc",
+          "qa": null
+        },
+        {
+          "name": "01_06_DRAWING_BRIEF__8fe749e5e25e",
+          "file": "newtecons-characters/CHAR_08/8fe749e5e25e_01_06_DRAWING_BRIEF_8fe749e5e25e.png",
+          "sha256": "8fe749e5e25e87c8ede6220ed5e846c9ee6a6929346d41c57c69930b99b414cd",
+          "qa": null
+        },
+        {
+          "name": "01_07_SITE_DIRECTION__ea92dbcd4cf8",
+          "file": "newtecons-characters/CHAR_08/ea92dbcd4cf8_01_07_SITE_DIRECTION_ea92dbcd4cf8.png",
+          "sha256": "ea92dbcd4cf84c486249bdb00203aaa3759b512c7994218da3eb130909da5800",
+          "qa": null
+        },
+        {
+          "name": "01_08_BIM_PRESENTATION__e653e599e721",
+          "file": "newtecons-characters/CHAR_08/e653e599e721_01_08_BIM_PRESENTATION_e653e599e721.png",
+          "sha256": "e653e599e72178fac230522b9b20f27d7922db8609adbaccb6811ad78d572f22",
+          "qa": null
+        },
+        {
+          "name": "01_09_RADIO_REPORT__43c8b8704854",
+          "file": "newtecons-characters/CHAR_08/43c8b8704854_01_09_RADIO_REPORT_43c8b8704854.png",
+          "sha256": "43c8b8704854cc7e12648f4ee030d4f02b509d405a8d2b94c4c18db3a96dfb08",
+          "qa": null
+        },
+        {
+          "name": "01_10_TEAM_SUCCESS__f0f7255071a9",
+          "file": "newtecons-characters/CHAR_08/f0f7255071a9_01_10_TEAM_SUCCESS_f0f7255071a9.png",
+          "sha256": "f0f7255071a9517e5f6e65cc96b6bbfc71c97aeb6bde4dec20aa7d6346ceb13e",
+          "qa": null
+        },
+        {
+          "name": "02_03_WALK_INSPECTION__1a21f5ce3acf",
+          "file": "newtecons-characters/CHAR_08/1a21f5ce3acf_02_03_WALK_INSPECTION_1a21f5ce3acf.png",
+          "sha256": "1a21f5ce3acfaab83c8e01e31256d3a3ab22cdc19fb38d71b7b750ab8762c911",
+          "qa": null
+        }
+      ]
+    }
+  }
+}

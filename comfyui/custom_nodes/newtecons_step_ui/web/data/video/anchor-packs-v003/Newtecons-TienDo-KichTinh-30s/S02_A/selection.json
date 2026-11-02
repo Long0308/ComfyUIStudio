@@ -1,0 +1,24 @@
+{
+  "schema": "jjv/shot-anchor-selection/v1",
+  "episode_id": "Newtecons-TienDo-KichTinh-30s",
+  "shot": "S02_A",
+  "context": "van_phong",
+  "chosen_by": "v003 (worker Fable 31/10, no-helmet rebuild for SHOTLIST-EP05-v006 S02_A context van_phong): BODY = ACTION 06_05_PHONE_COORDINATION (f6713daed100, office, company shirt, no helmet, no vest; body ref recorded in the approved storyboard receipt 849d06e5ad1c) + ACTION 06_08_BIM_PRESENTATION (942097d505c7, office, standing three-quarter pose gesturing at a screen, company shirt, no helmet, no vest; closest to the S02_A action 'standing, one hand pointing at the schedule map'); ACTION 05_02_THREE_QUARTER_FULL_BODY (5e0d548a93a8, site pose with helmet + reflective vest) dropped. FACE = 04_04_DECISIVE_COMMAND (2f01be018cab) KEPT UNCHANGED AND FLAGGED: every one of the 10 CHAR_02 FACE images in library-r005f-by-character (04_01..04_10) is a site headshot with the white helmet worn and the vest on; the library has no office (no-helmet) FACE for CHAR_02, and anchor-pack only accepts INDEX FACE entries as face refs. Identity only; a van_phong FACE batch for CHAR_02 is needed before this pack can be called no-helmet end to end. Not user-confirmed.",
+  "comment": "Speaker CHAR_GDDA is cast CHAR_02 (shotlist refs). Wardrobe comes only from the van_phong preset of production-local/ComfyUI/custom_nodes/newtecons_step_ui/web/data/wardrobe/newtecons_live_action.json (fine-grid shirt refs + colour logo; no helmet, no vest). Storyboard anchor = S02_A_v005 take 849d06e5ad1c with its codex-exec receipt; user approval transcribed from production-local/engine/staging/newtecons-30s/storyboard-auto-v001/APPROVALS-2026-10-31.json. Previous packs are kept untouched: v001 at web/data/video/anchor-packs/ (context cong_truong, shotlist v004) and v002 at web/data/video/anchor-packs-v002/ (van_phong, FACE 04_04 + ACTION 05_02 + 06_05).",
+  "characters": [
+    {
+      "character": "CHAR_02",
+      "role": "speaker",
+      "face": ["2f01be018cab"],
+      "body": ["f6713daed100", "942097d505c7"]
+    }
+  ],
+  "storyboard": {
+    "path": "production-local/engine/staging/newtecons-30s/storyboard-auto-v001/S02_A_v005/S02_A_v005_ANCHOR_SB_v001/t001/849d06e5ad1c.png",
+    "receipt": "production-local/engine/staging/newtecons-30s/storyboard-auto-v001/S02_A_v005/S02_A_v005_ANCHOR_SB_v001/t001/849d06e5ad1c.receipt.json",
+    "user_approved": {
+      "by": "user (chat 31/10/2026)",
+      "note": "APPROVALS-2026-10-31.json item S02_A: status approved, sha256 849d06e5ad1cf0a7ada340e059602b647fbb1809a443e417c1444431016311c1, note 'upscale 2K (2560x1440) for input'"
+    }
+  }
+}

@@ -1,0 +1,770 @@
+{
+  "1": {
+    "inputs": {
+      "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "2": {
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "type": "minimax",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load CLIP"
+    }
+  },
+  "3": {
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "4": {
+    "inputs": {
+      "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "6": {
+    "inputs": {
+      "prompt": [
+        "19",
+        0
+      ],
+      "width": 864,
+      "height": 480,
+      "length": 124,
+      "ref_image_size": "match",
+      "clip": [
+        "2",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "ref_images.ref_image_0": [
+        "30",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "31",
+        0
+      ]
+    },
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "_meta": {
+      "title": "Scene 1B - Rear Aligned Anchors v15 — H3 reference conditioning"
+    }
+  },
+  "7": {
+    "inputs": {
+      "audio": "JennieJoyKids_S01_B-guide.wav"
+    },
+    "class_type": "LoadAudio",
+    "_meta": {
+      "title": "Load Audio"
+    }
+  },
+  "8": {
+    "inputs": {
+      "image": "JennieKidJoys_S01_v10_A119.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "9": {
+    "inputs": {
+      "frame_idx": 0,
+      "positive": [
+        "6",
+        0
+      ],
+      "latent": [
+        "6",
+        1
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "image": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "MiniMaxH3AddGuide",
+    "_meta": {
+      "title": "Add Guide for MiniMax H3"
+    }
+  },
+  "10": {
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "conditioning": [
+        "119",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "Basic Guider"
+    }
+  },
+  "11": {
+    "inputs": {
+      "noise_seed": 4303
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "RandomNoise"
+    }
+  },
+  "12": {
+    "inputs": {
+      "sampler_name": "res_multistep"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "KSamplerSelect"
+    }
+  },
+  "13": {
+    "inputs": {
+      "scheduler": "beta",
+      "steps": 20,
+      "denoise": 1.0,
+      "model": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "Scene 1B - Rear Aligned Anchors v15 — Sampling schedule"
+    }
+  },
+  "14": {
+    "inputs": {
+      "noise": [
+        "11",
+        0
+      ],
+      "guider": [
+        "10",
+        0
+      ],
+      "sampler": [
+        "12",
+        0
+      ],
+      "sigmas": [
+        "13",
+        0
+      ],
+      "latent_image": [
+        "6",
+        1
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "Scene 1B - Rear Aligned Anchors v15 — Native sampler"
+    }
+  },
+  "15": {
+    "inputs": {
+      "samples": [
+        "14",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "16": {
+    "inputs": {
+      "samples": [
+        "14",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "VAEDecodeAudio",
+    "_meta": {
+      "title": "VAE Decode Audio"
+    }
+  },
+  "17": {
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": "auto",
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "15",
+        0
+      ],
+      "audio": [
+        "16",
+        0
+      ]
+    },
+    "class_type": "CreateVideo",
+    "_meta": {
+      "title": "Scene 1B - Rear Aligned Anchors v15 — Native AV assembly"
+    }
+  },
+  "18": {
+    "inputs": {
+      "filename_prefix": "JennieKidJoys/Scene-01-B-dense-v18/S01_B/native",
+      "format": "auto",
+      "format.codec": "auto",
+      "codec": "auto",
+      "video": [
+        "17",
+        0
+      ]
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "Scene 1B - Rear Aligned Anchors v15 — Native AV output"
+    }
+  },
+  "19": {
+    "inputs": {
+      "value": "One continuous medium-wide rear-following shot in original preschool 2D animation. Soft restrained rose pink, dusty teal, sage, warm cream and pale sky blue; clean warm-dark-brown outlines, softly painted garden scenery. The camera follows the family from behind at a steady distance and height. The three backs remain visible throughout the shot; facial identity stays anatomically consistent even while the facial features are occluded by this rear view. Keep the full figures and grounded feet readable.\n\n<Picture 1> is the starting family pose and gate-threshold layout. <Picture 2> is the intended final rear-facing garden arrangement. Mother stays screen-left, the two-year-old toddler stays in the middle, Father stays screen-right. Both parents maintain their existing hand contacts with the toddler. The family looks and walks toward the willow tree ahead. Their alternating legs, knees and elbows move independently; their bodies translate forward along the path, with subtle secondary hair and fabric motion.\n\nFrom 0 to 2.5 seconds, follow their continuous forward stride through the open space between the cream gate pillars. The pillars move beside and behind the following camera as the family reaches the inner garden path. From 2.5 to 5 seconds, maintain the same rear-following composition and steady inward travel toward the willow, low wooden rails and restrained flower beds. The visible destination stays ahead; the outside plaza remains behind the following camera.\n\nCharacter identity details below are anatomical and wardrobe facts; only the surfaces naturally visible in the continuous rear view appear on screen. Preserve every detail without changing the rear-facing performance.\n\nAlice — Human preschool cartoon character; Homo sapiens human; Two-year-old toddler girl; Small round toddler torso, short limbs and oversized round head; Warm peach skin, rosy round cheeks with two tiny white highlights; Very large dark-brown eyes, near-black pupils, white catchlights and short upper lashes; Gently arched chestnut eyebrows; Tiny peach button nose; Small mouth, red-pink interior and rounded tongue; flexible speech phonemes; Small rounded peach ears; Chestnut short wavy bob, side-swept bangs, high side ponytail on anatomical RIGHT; Rose-pink A-line dress, short puff sleeves, white two-lobed Peter Pan collar, ONE centered white chest heart, lightly pleated skirt, thin white hem line; White frilly ankle socks; rose-pink lace-up sneakers with white laces, white rounded toe caps and white soles; One large rose-pink bow at anatomical RIGHT ponytail anchor; no other accessories; Bow and ponytail on anatomical RIGHT, viewer LEFT in front view; no mirroring.\n\nMother — Human preschool cartoon character; Homo sapiens human; Adult woman approximately thirty years old; About twice Alice height, softly rounded adult proportions; Warm light-peach skin, oval face, softly rounded cheeks; Almond dark-brown eyes with small white catchlights; Gently arched brown eyebrows; Small rounded peach nose; Small curved mouth with flexible silent smiles; Small rounded ears partly covered by hair; Chestnut shoulder-length hair, left-side part, ends curled inward; Muted dusty-teal short-sleeved blouse, plain round neck, straight cream ankle-length trousers; Simple off-white flat shoes; No glasses, jewelry, hat or handbag; Left-side hair part remains anatomical left; no distinctive facial marks.\n\nFather — Human preschool cartoon character; Homo sapiens human; Adult man approximately thirty-two years old; Adult softly broad shoulders, slightly taller than Mother; Warm light-peach skin, softly rounded rectangular face, clean-shaven; Almond dark-brown eyes with small white catchlights; Straight dark-brown eyebrows; Small broad rounded peach nose; Small curved mouth with flexible silent smiles; Rounded ears visible beside short hair; Short neat dark-chestnut hair with fixed anatomical left side part; Muted sage-green short-sleeved polo, small folded collar, two cream buttons; straight beige trousers; Simple brown low shoes with rounded toes; No glasses, facial hair, hat, watch or bag; Clean-shaven face, fixed anatomical left hair part, no other distinctive marks.\n\nSoft warm morning daylight; broad key from upper screen-left, gentle cream bounce fill, no hard rim or colored neon light. Stable white balance and exposure on peach skin and muted rose/dusty-teal/sage clothes; pale sky and restrained greens. Same light direction across cuts.\n\nQuiet garden ambience and very soft foliage swish. The family continues the quiet, nonverbal walk."
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Scene 1B - Rear Aligned Anchors v15 — Script and literal prompt"
+    }
+  },
+  "30": {
+    "inputs": {
+      "image": "JennieKidJoys_S01_v10_A119.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "31": {
+    "inputs": {
+      "image": "JennieKidJoys_S01_v10_B119.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "50": {
+    "inputs": {
+      "batch_index": 1,
+      "length": 119,
+      "image": [
+        "15",
+        0
+      ]
+    },
+    "class_type": "ImageFromBatch",
+    "_meta": {
+      "title": "Get Image from Batch"
+    }
+  },
+  "51": {
+    "inputs": {
+      "batch_index": 119,
+      "length": 1,
+      "image": [
+        "52",
+        0
+      ]
+    },
+    "class_type": "ImageFromBatch",
+    "_meta": {
+      "title": "Get Image from Batch"
+    }
+  },
+  "52": {
+    "inputs": {
+      "image1": [
+        "8",
+        0
+      ],
+      "image2": [
+        "50",
+        0
+      ]
+    },
+    "class_type": "ImageBatch",
+    "_meta": {
+      "title": "Batch Images (DEPRECATED)"
+    }
+  },
+  "53": {
+    "inputs": {
+      "batch_index": 0,
+      "length": 1,
+      "image": [
+        "52",
+        0
+      ]
+    },
+    "class_type": "ImageFromBatch",
+    "_meta": {
+      "title": "Get Image from Batch"
+    }
+  },
+  "54": {
+    "inputs": {
+      "filename_prefix": "JennieKidJoys/Scene-01-B-dense-v18/S01_B/boundary-start",
+      "images": [
+        "53",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Scene 1B - Rear Aligned Anchors v15 — Boundary first frame"
+    }
+  },
+  "55": {
+    "inputs": {
+      "filename_prefix": "JennieKidJoys/Scene-01-B-dense-v18/S01_B/boundary-end",
+      "images": [
+        "51",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Scene 1B - Rear Aligned Anchors v15 — Boundary last used frame"
+    }
+  },
+  "56": {
+    "inputs": {
+      "fps": 24.0,
+      "bit_depth": "auto",
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "52",
+        0
+      ],
+      "audio": [
+        "58",
+        0
+      ]
+    },
+    "class_type": "CreateVideo",
+    "_meta": {
+      "title": "Scene 1B - Rear Aligned Anchors v15 — Editorial AV assembly"
+    }
+  },
+  "57": {
+    "inputs": {
+      "filename_prefix": "JennieKidJoys/Scene-01-B-dense-v18/S01_B/editorial",
+      "format": "auto",
+      "format.codec": "auto",
+      "codec": "auto",
+      "video": [
+        "56",
+        0
+      ]
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "Scene 1B - Rear Aligned Anchors v15 — Editorial AV output"
+    }
+  },
+  "58": {
+    "inputs": {
+      "start_index": 0.0,
+      "duration": 5.0,
+      "audio": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "TrimAudioDuration",
+    "_meta": {
+      "title": "Trim Audio Duration"
+    }
+  },
+  "100": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "JennieKidJoys_S01_B_dense_guide_f012.png"
+    },
+    "_meta": {
+      "title": "Load Guide f12"
+    }
+  },
+  "101": {
+    "class_type": "MiniMaxH3AddGuide",
+    "inputs": {
+      "frame_idx": 12,
+      "positive": [
+        "9",
+        0
+      ],
+      "latent": [
+        "6",
+        1
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "image": [
+        "100",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Guide f12"
+    }
+  },
+  "102": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "JennieKidJoys_S01_B_dense_guide_f024.png"
+    },
+    "_meta": {
+      "title": "Load Guide f24"
+    }
+  },
+  "103": {
+    "class_type": "MiniMaxH3AddGuide",
+    "inputs": {
+      "frame_idx": 24,
+      "positive": [
+        "101",
+        0
+      ],
+      "latent": [
+        "6",
+        1
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "image": [
+        "102",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Guide f24"
+    }
+  },
+  "104": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "JennieKidJoys_S01_B_dense_guide_f036.png"
+    },
+    "_meta": {
+      "title": "Load Guide f36"
+    }
+  },
+  "105": {
+    "class_type": "MiniMaxH3AddGuide",
+    "inputs": {
+      "frame_idx": 36,
+      "positive": [
+        "103",
+        0
+      ],
+      "latent": [
+        "6",
+        1
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "image": [
+        "104",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Guide f36"
+    }
+  },
+  "106": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "JennieKidJoys_S01_B_dense_guide_f048.png"
+    },
+    "_meta": {
+      "title": "Load Guide f48"
+    }
+  },
+  "107": {
+    "class_type": "MiniMaxH3AddGuide",
+    "inputs": {
+      "frame_idx": 48,
+      "positive": [
+        "105",
+        0
+      ],
+      "latent": [
+        "6",
+        1
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "image": [
+        "106",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Guide f48"
+    }
+  },
+  "108": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "JennieKidJoys_S01_B_dense_guide_f060.png"
+    },
+    "_meta": {
+      "title": "Load Guide f60"
+    }
+  },
+  "109": {
+    "class_type": "MiniMaxH3AddGuide",
+    "inputs": {
+      "frame_idx": 60,
+      "positive": [
+        "107",
+        0
+      ],
+      "latent": [
+        "6",
+        1
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "image": [
+        "108",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Guide f60"
+    }
+  },
+  "110": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "JennieKidJoys_S01_B_dense_guide_f072.png"
+    },
+    "_meta": {
+      "title": "Load Guide f72"
+    }
+  },
+  "111": {
+    "class_type": "MiniMaxH3AddGuide",
+    "inputs": {
+      "frame_idx": 72,
+      "positive": [
+        "109",
+        0
+      ],
+      "latent": [
+        "6",
+        1
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "image": [
+        "110",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Guide f72"
+    }
+  },
+  "112": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "JennieKidJoys_S01_B_dense_guide_f084.png"
+    },
+    "_meta": {
+      "title": "Load Guide f84"
+    }
+  },
+  "113": {
+    "class_type": "MiniMaxH3AddGuide",
+    "inputs": {
+      "frame_idx": 84,
+      "positive": [
+        "111",
+        0
+      ],
+      "latent": [
+        "6",
+        1
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "image": [
+        "112",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Guide f84"
+    }
+  },
+  "114": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "JennieKidJoys_S01_B_dense_guide_f096.png"
+    },
+    "_meta": {
+      "title": "Load Guide f96"
+    }
+  },
+  "115": {
+    "class_type": "MiniMaxH3AddGuide",
+    "inputs": {
+      "frame_idx": 96,
+      "positive": [
+        "113",
+        0
+      ],
+      "latent": [
+        "6",
+        1
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "image": [
+        "114",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Guide f96"
+    }
+  },
+  "116": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "JennieKidJoys_S01_B_dense_guide_f108.png"
+    },
+    "_meta": {
+      "title": "Load Guide f108"
+    }
+  },
+  "117": {
+    "class_type": "MiniMaxH3AddGuide",
+    "inputs": {
+      "frame_idx": 108,
+      "positive": [
+        "115",
+        0
+      ],
+      "latent": [
+        "6",
+        1
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "image": [
+        "116",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Guide f108"
+    }
+  },
+  "118": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "JennieKidJoys_S01_B_dense_guide_f119.png"
+    },
+    "_meta": {
+      "title": "Load Guide f119"
+    }
+  },
+  "119": {
+    "class_type": "MiniMaxH3AddGuide",
+    "inputs": {
+      "frame_idx": 119,
+      "positive": [
+        "117",
+        0
+      ],
+      "latent": [
+        "6",
+        1
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "image": [
+        "118",
+        0
+      ]
+    },
+    "_meta": {
+      "title": "Guide f119"
+    }
+  }
+}

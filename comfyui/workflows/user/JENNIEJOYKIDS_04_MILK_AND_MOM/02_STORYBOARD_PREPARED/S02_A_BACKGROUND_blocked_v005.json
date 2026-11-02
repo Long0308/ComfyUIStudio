@@ -1,0 +1,432 @@
+{
+  "last_node_id": 8,
+  "last_link_id": 10,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        80,
+        120
+      ],
+      "size": [
+        320,
+        120
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "title": "Giai đoạn 1: Nạp Checkpoint Flux.1 Dev FP8",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "slot_index": 1,
+          "links": [
+            2
+          ]
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "slot_index": 2,
+          "links": [
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "flux1-dev-fp8.safetensors"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        520,
+        120
+      ],
+      "size": [
+        320,
+        120
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "title": "Giai đoạn 1: Nạp LoRA Flux.1 Turbo Alpha (8 bước)",
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            4
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "flux1_turbo_alpha.safetensors",
+        1.0
+      ]
+    },
+    {
+      "id": 3,
+      "type": "EmptySD3LatentImage",
+      "pos": [
+        80,
+        340
+      ],
+      "size": [
+        320,
+        120
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "title": "Giai đoạn 1: Khởi tạo Latent 1152x1536 (3:4)",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            7
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptySD3LatentImage"
+      },
+      "widgets_values": [
+        1152,
+        648,
+        1
+      ]
+    },
+    {
+      "id": 4,
+      "type": "CLIPTextEncode",
+      "pos": [
+        80,
+        560
+      ],
+      "size": [
+        600,
+        340
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "title": "Giai đoạn 1: Prompt T2I adapter — một ảnh toàn thân, một góc máy",
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            3,
+            5
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "One single cinematic 16:9 storyboard frame for an original premium stylized 3D preschool film, morning in an OUTDOOR flower garden beside a Dutch dairy pasture. Reserve the LOWER-LEFT foreground third as empty safe family lawn with a low oval picnic table, a sealed ready-to-drink milk bottle on its tray, woven mat and shaded wooden bench; Mother and Alice will be inserted in this garden region later. A sturdy continuous wooden fence spans the full image in the middle distance, unmistakably separating the family garden in front from the dairy pasture and a clean open-sided milking station BEHIND it. Give that station the RIGHT-MIDDLE portion of the composition, large and readable. Beyond the fence is exactly ONE distinct adult Dutch dairy woman, about THIRTY-FIVE years old, natural relaxed oval face, fair lightly freckled skin and blue-gray eyes, ONE long blonde braid under a small plain white cotton work cap. She wears a modest sky-blue work dress OVER a white LONG-SLEEVE cotton blouse, a plain white full apron and dark practical farm boots, no jewelry. She sits safely on a low farm stool beside exactly ONE calm, full-size black-and-white adult dairy cow. Her lips stay gently CLOSED; she never speaks or mouths any dialogue. She gently hand-milks the cow at the udder into one stable clean stainless steel pail, with anatomically plausible hands, udder and cow legs. Show both hands, brief thin milk streams and pail clearly at a child-friendly medium distance. A SECOND distinct adult black-and-white dairy cow grazes farther back inside the fenced pasture. Exactly TWO cows in total, one dairy worker in total, no other humans or animals. The nearer cow has a broad black shoulder patch and white forehead; the farther cow has a small black patch around its right eye. Keep the worker and both cows entirely behind the fence, never in the family garden. Soft morning sunlight, grounded shadows, green meadow, gentle red barn far away, readable clean silhouette, warm child-friendly rendering and coherent anatomy. The sealed picnic bottle is separate from raw farm milk; no milk flows from cow to child's cup. No children, no mother character, no kitchen, no bedroom, no wall picture of a cow, no brand logo, no writing or captions."
+      ]
+    },
+    {
+      "id": 5,
+      "type": "ConditioningZeroOut",
+      "pos": [
+        800,
+        560
+      ],
+      "size": [
+        320,
+        120
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "title": "Giai đoạn 1: Triệt tiêu nhiễu Negative",
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            6
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ConditioningZeroOut"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 6,
+      "type": "KSampler",
+      "pos": [
+        800,
+        900
+      ],
+      "size": [
+        400,
+        280
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "title": "Giai đoạn 1: Lấy mẫu KSampler Flux1 Turbo (8 bước)",
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 4
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 5
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 6
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            8
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        2026102643,
+        "fixed",
+        8,
+        1.0,
+        "euler",
+        "simple",
+        1.0
+      ]
+    },
+    {
+      "id": 7,
+      "type": "VAEDecode",
+      "pos": [
+        1220,
+        900
+      ],
+      "size": [
+        320,
+        120
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "title": "Giai đoạn 1: Giải mã ảnh cơ sở Flux1",
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 8
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 9
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            10
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 8,
+      "type": "SaveImage",
+      "pos": [
+        1220,
+        1240
+      ],
+      "size": [
+        480,
+        520
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "title": "Milk and Mom S02_A: Dutch dairy worker milking behind garden fence",
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "04-milk-and-mom/storyboard-v005/S02_A_DUTCH_MILKMAID_FENCED_DAIRY_GARDEN_BACKGROUND"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "MODEL"
+    ],
+    [
+      2,
+      1,
+      1,
+      4,
+      0,
+      "CLIP"
+    ],
+    [
+      3,
+      4,
+      0,
+      5,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      4,
+      2,
+      0,
+      6,
+      0,
+      "MODEL"
+    ],
+    [
+      5,
+      4,
+      0,
+      6,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      6,
+      5,
+      0,
+      6,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      7,
+      3,
+      0,
+      6,
+      3,
+      "LATENT"
+    ],
+    [
+      8,
+      6,
+      0,
+      7,
+      0,
+      "LATENT"
+    ],
+    [
+      9,
+      1,
+      2,
+      7,
+      1,
+      "VAE"
+    ],
+    [
+      10,
+      7,
+      0,
+      8,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "jjv/video-ui-index/v1",
+  "episodes": [
+    {
+      "episode": "04-milk-and-mom",
+      "domain": "jenniejoy_cartoon_3d",
+      "file": "04-milk-and-mom.json",
+      "label": "Tập 4 — JennieJoyKids · 3D cartoon"
+    },
+    {
+      "episode": "Newtecons-TienDo-KichTinh-30s",
+      "domain": "newtecons_live_action",
+      "file": "Newtecons-TienDo-KichTinh-30s.json",
+      "label": "Tập 5 — NEWTECONS · live-action"
+    }
+  ]
+}

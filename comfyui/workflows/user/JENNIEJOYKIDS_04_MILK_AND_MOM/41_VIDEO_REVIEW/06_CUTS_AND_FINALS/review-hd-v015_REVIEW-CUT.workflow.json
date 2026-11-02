@@ -1,0 +1,99 @@
+{
+  "id": "d260c983-1cf8-5af4-90ed-a08595cf3b09",
+  "revision": 0,
+  "last_node_id": 2,
+  "last_link_id": 0,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LoadVideo",
+      "title": "KET QUA VIDEO | review-hd-v015 | SHA 55597e6fe30a",
+      "pos": [
+        0,
+        40
+      ],
+      "size": [
+        960,
+        600
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadVideo"
+      },
+      "widgets_values": [
+        "ep04review-v015-REVIEW-1080p-native-upscaled.mp4"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "Note",
+      "title": "GHI CHU VIDEO | review-hd-v015 | superseded",
+      "pos": [
+        0,
+        680
+      ],
+      "size": [
+        960,
+        300
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "VIDEO KET QUA (chi hien thi, KHONG co graph sinh) - review-hd-v015\nTrang thai: superseded (timeline v015 la timeline cua FINAL (word-timing-v004); FINAL Master v004 thay the (handover §1))\nHien thi: Review 1080p30 co tieng, 114.8 s, timeline v015 (chu karaoke da sua)\nNguon: D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\editorial\\review-hd-v015\\milk-and-mom-REVIEW-1080p30-native-upscaled-v015.mp4\nsha256: 55597e6fe30a4bfe04c6e34eff7538c4b3ed74be102793f2af8a0d97ceb8ce79\nVideo: 1920x1080 @ 30/1, 3444 frames, 114.80 s; 82,332,352 bytes; audio aac 48000 Hz\nComfyUI/input/ep04review-v015-REVIEW-1080p-native-upscaled.mp4 (hard link toi file nguon, cung inode)"
+      ]
+    }
+  ],
+  "links": [],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "title": "Milk and Mom ep04 - xem lai: review-hd-v015",
+    "film_id": "04-milk-and-mom",
+    "task": "T-W06",
+    "review_cut": {
+      "label": "review-hd-v015",
+      "video": "D:\\23.JennieHomeSchool\\03 Voice\\production-local\\JennieJoyKids-Story\\04-milk-and-mom\\editorial\\review-hd-v015\\milk-and-mom-REVIEW-1080p30-native-upscaled-v015.mp4",
+      "video_sha256": "55597e6fe30a4bfe04c6e34eff7538c4b3ed74be102793f2af8a0d97ceb8ce79",
+      "input_file": "ep04review-v015-REVIEW-1080p-native-upscaled.mp4",
+      "status": "superseded",
+      "status_basis": "timeline v015 la timeline cua FINAL (word-timing-v004); FINAL Master v004 thay the (handover §1)",
+      "shows": "Review 1080p30 co tieng, 114.8 s, timeline v015 (chu karaoke da sua)",
+      "load_video_node_id": 1,
+      "note_node_id": 2,
+      "probe": {
+        "width": 1920,
+        "height": 1080,
+        "fps": "30/1",
+        "frames": 3444,
+        "duration_s": 114.8,
+        "audio_codec": "aac",
+        "sample_rate": 48000,
+        "channels": 2
+      },
+      "built_by": "tools/publish_review_pins_t_w06.py"
+    },
+    "ds": {
+      "scale": 0.7,
+      "offset": [
+        60,
+        20
+      ]
+    }
+  },
+  "version": 0.4
+}

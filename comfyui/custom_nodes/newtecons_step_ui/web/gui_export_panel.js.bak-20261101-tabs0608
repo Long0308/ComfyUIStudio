@@ -1,0 +1,203 @@
+// Staged GUI export panel: provenance from this workflow only. No GPU or network submission.
+import { app } from "../../scripts/app.js";
+import { api } from "../../scripts/api.js";
+import { createDock, el } from "./step_dock.js";
+
+import { nodeParameters, panelIsEditing } from "./widget_panel.js";
+
+const DOMAINS = new Set(["newtecons_live_action", "jenniejoy_cartoon_3d"]);
+const SHA = /^[a-f0-9]{64}$/;
+const SAFE = /^[A-Za-z0-9_.-]+$/;
+let dock, last = "", runtime = [], runtimeExport = null, activeStep = "01";
+const bound = new Map(), early = new Map();
+let pending = 0;
+const VIDEO_STEPS = [
+  { code: "01", label: "VÀO", ids: [[5, "LoadImage"], [8, "LoadImage"], [31, "LoadImage"], [32, "LoadImage"], [33, "LoadImage"], [34, "LoadImage"]] },
+  { code: "02", label: "GIỌNG", ids: [[7, "LoadAudio"]] },
+  { code: "03", label: "PROMPT", ids: [[19, "PrimitiveStringMultiline"]] },
+  { code: "04", label: "H3", ids: [[1, "UNETLoader"], [2, "CLIPLoader"], [3, "VAELoader"], [4, "VAELoader"],
+    [6, "MiniMaxH3ReferenceToVideo"], [9, "MiniMaxH3AddGuide"], [10, "BasicGuider"], [11, "RandomNoise"],
+    [12, "KSamplerSelect"], [13, "BasicScheduler"], [14, "SamplerCustomAdvanced"], [15, "VAEDecode"],
+    [16, "VAEDecodeAudio"], [17, "CreateVideo"], [20, "LoraLoaderModelOnly"], [21, "MiniMaxH3SigmaShift"]] },
+  { code: "05", label: "RA", ids: [[18, "SaveVideo"]] },
+  { code: "06", label: "UPSCALE", verb: "jjv seedvr2 plan / jjv seedvr2 execute" },
+  { code: "07", label: "LOGO", verb: "jjv post logo" },
+  { code: "08", label: "PHỤ ĐỀ", verb: "jjv timing words / jjv edit assemble" },
+];
+
+function metadata() {
+  const m = app.graph?.extra?.newtecons;
+  if (!m || m.export_gui_version !== 1 || !DOMAINS.has(m.domain) || !["video", "image"].includes(m.kind) || !SAFE.test(m.shot || "") || !SHA.test(m.export_id || "")) return null;
+  return m;
+}
+function ref(item, expectedType) {
+  if (!item || item.type !== expectedType || !SAFE.test(item.filename || "") || !SHA.test(item.sha256 || "")) return null;
+  const sub = item.subfolder || "";
+  if (sub && !sub.split("/").every((part) => SAFE.test(part) && part !== "." && part !== "..")) return null;
+  return { ...item, subfolder: sub };
+}
+function list(items, type, hashed = true) {
+  const rows = (Array.isArray(items) ? items : []).map((x) => x && ref(hashed && !x._unverified ? x : { ...x, sha256: "0".repeat(64), _unverified: true }, type)).filter(Boolean);
+  if (!rows.length) return el("div", { text: type === "output" ? "CHƯA CÓ — chưa có kết quả được ghi nhận." : "CHƯA CÓ đầu vào hợp lệ." });
+  return el("div", {}, rows.map((r) => {
+    const q = new URLSearchParams({ filename: r.filename, subfolder: r.subfolder, type: r.type });
+    const url = api.apiURL(`/view?${q}`);
+    return el("div", { class: "ntd-slot" },
+      el("div", { text: `${r.node_id ? `#${r.node_id} ` : ""}${r.role || "file"}: ${r.subfolder ? r.subfolder + "/" : ""}${r.filename}` }),
+      el("div", { text: r._unverified ? (type === "input" ? "Giá trị graph đã đổi — chưa kiểm SHA — chưa duyệt" : "Kết quả chạy trong phiên — chưa kiểm SHA — chưa duyệt") : `SHA-256: ${r.sha256}` }),
+      /\.(png|jpe?g|webp)$/i.test(r.filename) ? el("img", { src: url, alt: r.role || "ảnh", style: "max-width:220px;max-height:140px" }) :
+      /\.(mp4|webm)$/i.test(r.filename) ? el("video", { src: url, controls: true, style: "max-width:320px" }) :
+      /\.(wav|mp3|flac|ogg)$/i.test(r.filename) ? el("audio", { src: url, controls: true }) : null);
+  }));
+}
+function graphNode(id, type) {
+  const node = app.graph?.getNodeById?.(id) || (app.graph?._nodes || []).find((n) => String(n.id) === String(id));
+  return node?.type === type ? node : null;
+}
+function widget(node, name, index = 0) {
+  return node?.widgets?.find((w) => w.name === name)?.value ?? node?.widgets?.[index]?.value ?? null;
+}
+function fileInputs(m, step) {
+  const ids = new Set(step.ids.map(([id]) => String(id)));
+  return (m.inputs || []).filter((item) => ids.has(String(item.node_id))).map((item) => {
+    const type = step.code === "02" ? "LoadAudio" : "LoadImage";
+    const value = widget(graphNode(item.node_id, type), type === "LoadAudio" ? "audio" : "image");
+    const recorded = item.subfolder ? `${item.subfolder}/${item.filename}` : item.filename;
+    if (typeof value !== "string" || value === recorded) return item;
+    const path = value.replace(/\\/gu, "/");
+    const cut = path.lastIndexOf("/");
+    return { ...item, filename: path.slice(cut + 1), subfolder: cut < 0 ? "" : path.slice(0, cut), _unverified: true };
+  });
+}
+function status(m, step) {
+  if (step.verb) return "CHƯA NỐI";
+  const missing = step.ids.filter(([id, type]) => !graphNode(id, type));
+  if (missing.length) return `THIẾU ${missing.length} NODE`;
+  if (step.code === "05") return (runtime.some((r) => String(r.node_id) === "18") || (m.outputs || []).some((r) => String(r.node_id) === "18")) ? "CÓ RA" : "CHƯA CÓ RA";
+  if (step.code === "03") return String(widget(graphNode(19, "PrimitiveStringMultiline"), "value") || "").trim() ? "ĐÃ NHẬP" : "PROMPT TRỐNG";
+  if (step.code === "04") return "ĐÃ CẤU HÌNH";
+  const rows = fileInputs(m, step);
+  return rows.length === step.ids.length && rows.every((r) => !r._unverified) ? "ĐÃ NẠP" : "CẦN KIỂM ĐẦU VÀO";
+}
+function field(label, value) {
+  return el("div", { class: "ntd-slot" }, el("b", { text: label }), el("div", { text: value == null || value === "" ? "—" : String(value) }));
+}
+function summary(nodeId, type, fields) {
+  const n = graphNode(nodeId, type);
+  return field(`#${nodeId} ${n?.title || type}`, n ? fields.map(([label, name, index]) => `${label}: ${widget(n, name, index) ?? "—"}`).join(" · ") : "THIẾU NODE / SAI TYPE");
+}
+function stepBody(m, step) {
+  const rows = [el("h3", { text: `${step.code} ${step.label} · ${status(m, step)}` })];
+  if (step.verb) {
+    rows.push(el("div", { class: "ntd-banner", text: `CHƯA NỐI — bước ngoài ComfyUI (${step.verb})` }));
+  } else if (step.code === "01" || step.code === "02") {
+    rows.push(el("h4", { text: "VÀO — giá trị của workflow" }), list(fileInputs(m, step), "input"));
+    if (step.code === "02") {
+      const frames = Number(widget(graphNode(6, "MiniMaxH3ReferenceToVideo"), "length", 3));
+      const fps = Number(widget(graphNode(17, "CreateVideo"), "fps", 0));
+      rows.push(field("Thời lượng cấu hình H3", frames > 0 && fps > 0 ? `${frames} khung / ${fps} fps ≈ ${(frames / fps).toFixed(2)} s; thời lượng WAV đọc từ player` : "Chưa xác định"));
+    }
+    rows.push(field("RA", "Bước này không có node lưu RA riêng; đầu vào được nối vào H3."));
+  } else if (step.code === "03") {
+    rows.push(field("#19 Prompt", widget(graphNode(19, "PrimitiveStringMultiline"), "value", 0) || "(prompt trống)"),
+      field("RA", "Prompt được nối vào H3; không có node lưu RA riêng."));
+  } else if (step.code === "04") {
+    rows.push(el("div", { class: "ntd-banner", text: "Giá trị graph đang mở. Chỉnh tham số trong phần THÔNG SỐ bên dưới." }));
+    for (const [id, type, fields] of [
+      [1, "UNETLoader", [["UNET", "unet_name", 0]]], [2, "CLIPLoader", [["CLIP", "clip_name", 0], ["type", "type", 1]]],
+      [3, "VAELoader", [["Video VAE", "vae_name", 0]]], [4, "VAELoader", [["Audio VAE", "vae_name", 0]]],
+      [20, "LoraLoaderModelOnly", [["LoRA", "lora_name", 0], ["strength", "strength_model", 1]]],
+      [21, "MiniMaxH3SigmaShift", [["video shift", "shift_video", 0], ["audio shift", "shift_audio", 1]]],
+      [6, "MiniMaxH3ReferenceToVideo", [["width", "width", 1], ["height", "height", 2], ["frames", "length", 3]]],
+      [11, "RandomNoise", [["seed", "noise_seed", 0]]], [12, "KSamplerSelect", [["sampler", "sampler_name", 0]]],
+      [13, "BasicScheduler", [["scheduler", "scheduler", 0], ["steps", "steps", 1], ["denoise", "denoise", 2]]],
+      [17, "CreateVideo", [["fps", "fps", 0]]],
+    ]) rows.push(summary(id, type, fields));
+    rows.push(field("Chuỗi H3", "#9 Guide → #10 Guider → #14 Sampler → #15/#16 Decode → #17 CreateVideo"),
+      field("RA", "#17 CreateVideo nối tới #18 SaveVideo; xem tab 05 RA."));
+  } else if (step.code === "05") {
+    const saved = (m.outputs || []).filter((r) => String(r.node_id) === "18");
+    const live = runtime.filter((r) => String(r.node_id) === "18");
+    rows.push(summary(18, "SaveVideo", [["prefix", "filename_prefix", 0], ["format", "format", 1], ["codec", "codec", 2]]));
+    if (saved.length) rows.push(el("h4", { text: "RA — kết quả trong bản xuất" }), list(saved, "output"));
+    if (live.length) rows.push(el("h4", { text: "RA — kết quả chạy trong phiên" }), list(live, "output", false));
+    if (!saved.length && !live.length) rows.push(field("RA", "CHƯA CÓ — SaveVideo #18 chưa trả file cho bản xuất / phiên này."));
+  }
+  if (step.ids) rows.push(nodeParameters(step.ids, { panelId: "gui-export-panel" }));
+  rows.push(el("div", { text: "Metadata là bản ghi tại thời điểm xuất; chạy GUI không tự cập nhật nhật ký." }));
+  return el("div", {}, rows);
+}
+function tick() {
+  const m = metadata();
+  dock.show(Boolean(m));
+  if (!m) { last = ""; return; }
+  if (runtimeExport !== m.export_id) { runtime = []; runtimeExport = m.export_id; activeStep = "01"; }
+  const isNewteconsVideo = m.kind === "video" && m.domain === "newtecons_live_action";
+  const steps = isNewteconsVideo ? VIDEO_STEPS : [{ code: "01", label: "VÀO / RA" }];
+  const graphValues = isNewteconsVideo ? steps.flatMap((s) => (s.ids || []).map(([id, type]) => [id, graphNode(id, type)?.widgets?.map((w) => w.value)])) : [];
+  if (panelIsEditing("gui-export-panel")) { last = ""; dock.watch(); dock.place(); return; }
+  const signature = JSON.stringify([m, runtime, graphValues, activeStep, dock.prefs]);
+  if (signature !== last) {
+    last = signature;
+    dock.setBar({ title: m.domain === "newtecons_live_action" ? "NEWTECONS" : "JENNIEJOYKIDS",
+      sub: `${m.kind} · ${m.shot}`, tabs: steps.map((s) => ({ code: s.code, label: s.label, on: activeStep === s.code,
+        title: `${s.code} ${s.label} · ${isNewteconsVideo ? status(m, s) : "VÀO / RA"}`,
+        onClick: () => { activeStep = s.code; last = ""; tick(); } })) });
+    dock.setPanel(null, isNewteconsVideo ? stepBody(m, steps.find((s) => s.code === activeStep) || steps[0])
+      : el("div", {}, el("h3", { text: "VÀO — dữ liệu workflow" }), list(m.inputs, "input"),
+        el("h3", { text: "RA — kết quả được ghi nhận" }), list(m.outputs, "output"),
+        el("h3", { text: "RA — kết quả chạy trong phiên" }), list(runtime, "output", false),
+        el("div", { text: "Metadata là bản ghi tại thời điểm xuất; chạy GUI không tự cập nhật nhật ký." })));
+  }
+  dock.watch(); dock.place();
+}
+// Installed frontend 1.55.17: api.queuePrompt(number, {output, workflow}, options).
+// Bind only the response to the submitted serialized workflow, never to execution_start alone.
+function capture(d) {
+  const id = bound.get(d?.prompt_id), m = metadata();
+  if (!id || !m || m.export_id !== id) return;
+  if (runtimeExport !== id) { runtime = []; runtimeExport = id; }
+  for (const group of ["images", "gifs", "videos", "audio"]) {
+    for (const item of Array.isArray(d.output?.[group]) ? d.output[group] : []) {
+      if (item?.type === "output") runtime.push({ ...item, node_id: String(d.node || ""), role: `node ${d.node || "?"}` });
+    }
+  }
+  for (const item of Array.isArray(d.output?.video) ? d.output.video : []) {
+    if (item?.type === "output") runtime.push({ ...item, node_id: String(d.node || ""), role: `node ${d.node || "?"}` });
+  }
+  last = "";
+}
+app.registerExtension({ name: "Studio.GuiExportPanel", async setup() {
+  const queue = api.queuePrompt;
+  api.queuePrompt = function (...args) {
+    const submitted = args[1]?.workflow?.extra?.newtecons;
+    const current = metadata();
+    const id = current && submitted?.export_gui_version === 1 && submitted.export_id === current.export_id
+      && submitted.domain === current.domain && submitted.kind === current.kind && submitted.shot === current.shot
+      ? current.export_id : null;
+    if (id) pending++;
+    let result;
+    try { result = queue.apply(this, args); }
+    catch (error) { if (id) pending--; throw error; }
+    if (!id) return result;
+    return Promise.resolve(result).then((answer) => {
+      const prompt = answer?.prompt_id;
+      if (typeof prompt === "string" && prompt) {
+        bound.set(prompt, id);
+        for (const d of early.get(prompt) || []) capture(d);
+        early.delete(prompt);
+      }
+      return answer;
+    }).finally(() => { if (--pending === 0) early.clear(); });
+  };
+  api.addEventListener("executed", (event) => {
+    const d = event.detail || {};
+    if (bound.has(d.prompt_id)) capture(d);
+    else if (pending && typeof d.prompt_id === "string") {
+      // A fast job may finish before the POST response. Nothing is shown until prompt_id is bound.
+      if (early.size < 100) early.set(d.prompt_id, [...(early.get(d.prompt_id) || []), d]);
+    }
+  });
+  dock = createDock({ key: "gui-export", theme: "gold", barId: "gui-export-bar", panelId: "gui-export-panel" });
+  setInterval(tick, 1000);
+}, async afterConfigureGraph() { last = ""; } });

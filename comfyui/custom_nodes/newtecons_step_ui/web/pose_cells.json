@@ -1,0 +1,267 @@
+{
+  "schema": "newtecons/pose-cells/v006r3",
+  "description": "Initial 3x3 selector. Add another record using an existing selector/load-image slot; fill_cells.py loads that record into the mapped slot.",
+  "library_index": "docs/media-stage/POSELIB-INDEX/poselib_index.json",
+  "library_views": [
+    "front",
+    "diag",
+    "side",
+    "high",
+    "low"
+  ],
+  "source_policy": {
+    "library": "LoadImage(line-art PNG) -> SDPoseKeypointExtractor -> SDPoseDrawKeypoints -> union ControlNet",
+    "blender": "LoadImage(Blender OpenPose skeleton PNG) -> union ControlNet; depth is optional and off by default",
+    "lineart_direct": "Direct library line drawing to union ControlNet; unverified guess, off by default",
+    "default_by_view": {
+      "front": "library",
+      "diag": "library",
+      "side": "library",
+      "high": "library",
+      "low": "library",
+      "back": "blender"
+    },
+    "prop_holding": "Select the Blender alternate for prop-holding actions; the source switch follows the selected variant."
+  },
+  "controls": {
+    "source_switch_node_id": 281,
+    "lineart_direct_switch_node_id": 280,
+    "depth_switch_boolean_node_id": 172,
+    "selector_boolean_node_ids": [
+      174,
+      175,
+      176,
+      177,
+      178,
+      179,
+      180,
+      181
+    ],
+    "default_cell_id": "P3_BACK",
+    "default_source": "blender",
+    "default_lineart_direct": false,
+    "default_depth_enabled": false
+  },
+  "cells": [
+    {
+      "cell_id": "P1_FRONT",
+      "pose_id": "full_single_P017",
+      "blender_cell_id": null,
+      "view": "front",
+      "source": "library",
+      "file_path": "J:\\6.AI_Pose_Gallery\\Poses_1439_PNG\\full_single_P017_front.png",
+      "depth_file_path": null,
+      "load_image_node_id": 185,
+      "depth_load_image_node_id": 194,
+      "selector_index": 0,
+      "alternates": [
+        {
+          "source": "blender",
+          "blender_cell_id": "P1_FRONT",
+          "file_path": "IMG-POSESET-BLENDER-V001/P1_FRONT/openpose.png",
+          "depth_file_path": "IMG-POSESET-BLENDER-V001/P1_FRONT/depth.png",
+          "use_case": "prop_holding",
+          "conditioning_text": "standing upright, right index finger pointing at a drawing board and left hand gripping the carrying handle; front view, camera yaw 0 degrees; full-body framing.",
+          "flat_input_filename": "newtecons_live_action__POSESET__6074251db8f7__P1_FRONT_openpose.png",
+          "source_sha256": "6074251db8f7582dbf9ec0cd9e78a794ef0a6ef23e27a1f0d34466b1866a896f"
+        }
+      ],
+      "pose_conditioning_node_id": 206,
+      "conditioning_text": "Pose follows the selected pose-control image; front view; full-body framing.",
+      "flat_input_filename": "newtecons_live_action__POSESET__2cce14f8ec85__Poses_1439_PNG_full_single_P017_front.png",
+      "source_sha256": "2cce14f8ec85528ea5a70a76f6d573b86c2894986dc38b8f369cd5feaea59f24"
+    },
+    {
+      "cell_id": "P1_THREE_QUARTER_LEFT",
+      "pose_id": "full_single_P017",
+      "blender_cell_id": null,
+      "view": "diag",
+      "source": "library",
+      "file_path": "J:\\6.AI_Pose_Gallery\\Poses_1439_PNG\\full_single_P017_diag.png",
+      "depth_file_path": null,
+      "load_image_node_id": 186,
+      "depth_load_image_node_id": 195,
+      "selector_index": 1,
+      "alternates": [
+        {
+          "source": "blender",
+          "blender_cell_id": "P1_THREE_QUARTER_LEFT",
+          "file_path": "IMG-POSESET-BLENDER-V001/P1_THREE_QUARTER_LEFT/openpose.png",
+          "depth_file_path": "IMG-POSESET-BLENDER-V001/P1_THREE_QUARTER_LEFT/depth.png",
+          "use_case": "prop_holding",
+          "conditioning_text": "standing upright, right index finger pointing at a drawing board and left hand gripping the carrying handle; left three-quarter view, camera yaw 45 degrees toward the subject's anatomical left; full-body framing.",
+          "flat_input_filename": "newtecons_live_action__POSESET__093572b7af47__P1_THREE_QUARTER_LEFT_openpose.png",
+          "source_sha256": "093572b7af4730950753e15942f783b692c612823c73984c941ba1f19213a53e"
+        }
+      ],
+      "pose_conditioning_node_id": 207,
+      "conditioning_text": "Pose follows the selected pose-control image; three-quarter view; full-body framing.",
+      "flat_input_filename": "newtecons_live_action__POSESET__858459718eca__Poses_1439_PNG_full_single_P017_diag.png",
+      "source_sha256": "858459718eca91ae23bf15ac293ccfc00da136a58c8751a7454145b36f147a8d"
+    },
+    {
+      "cell_id": "P1_BACK",
+      "pose_id": null,
+      "blender_cell_id": "P1_BACK",
+      "view": "back",
+      "source": "blender",
+      "file_path": "IMG-POSESET-BLENDER-V001/P1_BACK/openpose.png",
+      "depth_file_path": "IMG-POSESET-BLENDER-V001/P1_BACK/depth.png",
+      "load_image_node_id": 187,
+      "depth_load_image_node_id": 196,
+      "selector_index": 2,
+      "alternates": [],
+      "pose_conditioning_node_id": 208,
+      "conditioning_text": "standing upright, right index finger pointing at a drawing board and left hand gripping the carrying handle; rear view, camera yaw 180 degrees; full-body framing.",
+      "flat_input_filename": "newtecons_live_action__POSESET__1950270bb1a0__P1_BACK_openpose.png",
+      "source_sha256": "1950270bb1a0666b6c6e75d6eafdadf7ef3591aa889564542feb03233b8d58dd"
+    },
+    {
+      "cell_id": "P2_FRONT",
+      "pose_id": "full_single_P018",
+      "blender_cell_id": null,
+      "view": "front",
+      "source": "library",
+      "file_path": "J:\\6.AI_Pose_Gallery\\Poses_1439_PNG\\full_single_P018_front.png",
+      "depth_file_path": null,
+      "load_image_node_id": 188,
+      "depth_load_image_node_id": 197,
+      "selector_index": 3,
+      "alternates": [
+        {
+          "source": "blender",
+          "blender_cell_id": "P2_FRONT",
+          "file_path": "IMG-POSESET-BLENDER-V001/P2_FRONT/openpose.png",
+          "depth_file_path": "IMG-POSESET-BLENDER-V001/P2_FRONT/depth.png",
+          "use_case": "prop_holding",
+          "conditioning_text": "standing upright, holding a tablet at lower chest height with both hands; front view, camera yaw 0 degrees; full-body framing.",
+          "flat_input_filename": "newtecons_live_action__POSESET__36ba29661a4d__P2_FRONT_openpose.png",
+          "source_sha256": "36ba29661a4d2f18e68051d9c2b83b97037d727961010e482a79586436d3d7f9"
+        }
+      ],
+      "pose_conditioning_node_id": 209,
+      "conditioning_text": "Pose follows the selected pose-control image; front view; full-body framing.",
+      "flat_input_filename": "newtecons_live_action__POSESET__88e17842ae57__Poses_1439_PNG_full_single_P018_front.png",
+      "source_sha256": "88e17842ae5798b4d092d9ce5db126cc795bb77e6270fa7719d6160e9128585f"
+    },
+    {
+      "cell_id": "P2_THREE_QUARTER_LEFT",
+      "pose_id": "full_single_P018",
+      "blender_cell_id": null,
+      "view": "diag",
+      "source": "library",
+      "file_path": "J:\\6.AI_Pose_Gallery\\Poses_1439_PNG\\full_single_P018_diag.png",
+      "depth_file_path": null,
+      "load_image_node_id": 189,
+      "depth_load_image_node_id": 198,
+      "selector_index": 4,
+      "alternates": [
+        {
+          "source": "blender",
+          "blender_cell_id": "P2_THREE_QUARTER_LEFT",
+          "file_path": "IMG-POSESET-BLENDER-V001/P2_THREE_QUARTER_LEFT/openpose.png",
+          "depth_file_path": "IMG-POSESET-BLENDER-V001/P2_THREE_QUARTER_LEFT/depth.png",
+          "use_case": "prop_holding",
+          "conditioning_text": "standing upright, holding a tablet at lower chest height with both hands; left three-quarter view, camera yaw 45 degrees toward the subject's anatomical left; full-body framing.",
+          "flat_input_filename": "newtecons_live_action__POSESET__84dda2f0aa0c__P2_THREE_QUARTER_LEFT_openpose.png",
+          "source_sha256": "84dda2f0aa0cfd00477c77414a14b345b5db84671400532e29bf8a575d719e12"
+        }
+      ],
+      "pose_conditioning_node_id": 210,
+      "conditioning_text": "Pose follows the selected pose-control image; three-quarter view; full-body framing.",
+      "flat_input_filename": "newtecons_live_action__POSESET__7aa9db27e731__Poses_1439_PNG_full_single_P018_diag.png",
+      "source_sha256": "7aa9db27e73111746d41fed8ef0bc0025d06c2f4fda8cede456cea456b6f1a9c"
+    },
+    {
+      "cell_id": "P2_BACK",
+      "pose_id": null,
+      "blender_cell_id": "P2_BACK",
+      "view": "back",
+      "source": "blender",
+      "file_path": "IMG-POSESET-BLENDER-V001/P2_BACK/openpose.png",
+      "depth_file_path": "IMG-POSESET-BLENDER-V001/P2_BACK/depth.png",
+      "load_image_node_id": 190,
+      "depth_load_image_node_id": 199,
+      "selector_index": 5,
+      "alternates": [],
+      "pose_conditioning_node_id": 211,
+      "conditioning_text": "standing upright, holding a tablet at lower chest height with both hands; rear view, camera yaw 180 degrees; full-body framing.",
+      "flat_input_filename": "newtecons_live_action__POSESET__3bed1dba755e__P2_BACK_openpose.png",
+      "source_sha256": "3bed1dba755e43b2a0f4dc4d648f29cf470d023b2bdf93302cf06f8f015a501e"
+    },
+    {
+      "cell_id": "P3_FRONT",
+      "pose_id": "full_single_P019",
+      "blender_cell_id": null,
+      "view": "front",
+      "source": "library",
+      "file_path": "J:\\6.AI_Pose_Gallery\\Poses_1439_PNG\\full_single_P019_front.png",
+      "depth_file_path": null,
+      "load_image_node_id": 191,
+      "depth_load_image_node_id": 200,
+      "selector_index": 6,
+      "alternates": [
+        {
+          "source": "blender",
+          "blender_cell_id": "P3_FRONT",
+          "file_path": "IMG-POSESET-BLENDER-V001/P3_FRONT/openpose.png",
+          "depth_file_path": "IMG-POSESET-BLENDER-V001/P3_FRONT/depth.png",
+          "use_case": "prop_holding",
+          "conditioning_text": "standing upright, holding a white helmet prop at waist height with both hands; front view, camera yaw 0 degrees; full-body framing.",
+          "flat_input_filename": "newtecons_live_action__POSESET__2122323e92e0__P3_FRONT_openpose.png",
+          "source_sha256": "2122323e92e0d1cd8993105fdc9490501e86ce0d62293deab95b10c8e54ebb67"
+        }
+      ],
+      "pose_conditioning_node_id": 212,
+      "conditioning_text": "Pose follows the selected pose-control image; front view; full-body framing.",
+      "flat_input_filename": "newtecons_live_action__POSESET__25fea98ca831__Poses_1439_PNG_full_single_P019_front.png",
+      "source_sha256": "25fea98ca831642ac6ee03fe1990b32fe3a3864dd600a75c38e877a7df730440"
+    },
+    {
+      "cell_id": "P3_THREE_QUARTER_LEFT",
+      "pose_id": "full_single_P019",
+      "blender_cell_id": null,
+      "view": "diag",
+      "source": "library",
+      "file_path": "J:\\6.AI_Pose_Gallery\\Poses_1439_PNG\\full_single_P019_diag.png",
+      "depth_file_path": null,
+      "load_image_node_id": 192,
+      "depth_load_image_node_id": 201,
+      "selector_index": 7,
+      "alternates": [
+        {
+          "source": "blender",
+          "blender_cell_id": "P3_THREE_QUARTER_LEFT",
+          "file_path": "IMG-POSESET-BLENDER-V001/P3_THREE_QUARTER_LEFT/openpose.png",
+          "depth_file_path": "IMG-POSESET-BLENDER-V001/P3_THREE_QUARTER_LEFT/depth.png",
+          "use_case": "prop_holding",
+          "conditioning_text": "standing upright, holding a white helmet prop at waist height with both hands; left three-quarter view, camera yaw 45 degrees toward the subject's anatomical left; full-body framing.",
+          "flat_input_filename": "newtecons_live_action__POSESET__282b385c6f62__P3_THREE_QUARTER_LEFT_openpose.png",
+          "source_sha256": "282b385c6f62441db76070fcae7567e9994e880edda8c600da9a2cb4e825b939"
+        }
+      ],
+      "pose_conditioning_node_id": 213,
+      "conditioning_text": "Pose follows the selected pose-control image; three-quarter view; full-body framing.",
+      "flat_input_filename": "newtecons_live_action__POSESET__18ab2cc6cb22__Poses_1439_PNG_full_single_P019_diag.png",
+      "source_sha256": "18ab2cc6cb22b53605f233a92324e5331a105ba15c0ab507d3ef15f43323d65e"
+    },
+    {
+      "cell_id": "P3_BACK",
+      "pose_id": null,
+      "blender_cell_id": "P3_BACK",
+      "view": "back",
+      "source": "blender",
+      "file_path": "IMG-POSESET-BLENDER-V001/P3_BACK/openpose.png",
+      "depth_file_path": "IMG-POSESET-BLENDER-V001/P3_BACK/depth.png",
+      "load_image_node_id": 193,
+      "depth_load_image_node_id": 202,
+      "selector_index": 8,
+      "alternates": [],
+      "pose_conditioning_node_id": 214,
+      "conditioning_text": "standing upright, holding a white helmet prop at waist height with both hands; rear view, camera yaw 180 degrees; full-body framing.",
+      "flat_input_filename": "newtecons_live_action__POSESET__5ff3fcd2dad5__P3_BACK_openpose.png",
+      "source_sha256": "5ff3fcd2dad5fe193426e2327f56ce7a9a4252691c65933544ff5215caa44f7a"
+    }
+  ],
+  "pose_id_assignment_note": "full_single_P017/P018/P019 are representative editable defaults; the user did not specify exact pose_id-to-row mappings."
+}

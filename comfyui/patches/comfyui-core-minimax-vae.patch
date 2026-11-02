@@ -1,0 +1,28 @@
+diff --git a/comfy/ldm/minimax/vae.py b/comfy/ldm/minimax/vae.py
+index 9f17dad5..cc44d683 100644
+--- a/comfy/ldm/minimax/vae.py
++++ b/comfy/ldm/minimax/vae.py
+@@ -10,7 +10,7 @@ import comfy.model_management
+ import comfy.ops
+ import comfy.quant_ops
+ import comfy.rmsnorm
+-from comfy.ldm.modules.attention import COMFY_KITCHEN_INT8_ATTENTION_IS_AVAILABLE, optimized_attention
++from comfy.ldm.modules.attention import COMFY_KITCHEN_INT8_ATTENTION_IS_AVAILABLE, optimized_attention_for_device
+ 
+ ops = comfy.ops.disable_weight_init
+ 
+@@ -319,11 +319,12 @@ class Attention(nn.Module):
+ 
+         query, key, value = (t.transpose(1, 2) for t in (query, key, value))
+         # an int8 decoder already accepts int8 numerics; fp16 keeps exact flash
+-        if isinstance(self.to_qkv.weight, comfy.ops.QuantizedTensor) and COMFY_KITCHEN_INT8_ATTENTION_IS_AVAILABLE:
++        if (isinstance(self.to_qkv.weight, comfy.ops.QuantizedTensor) and COMFY_KITCHEN_INT8_ATTENTION_IS_AVAILABLE
++                and query.is_cuda and query.device == key.device == value.device):
+             out = comfy.quant_ops.ck.int8_attention(query, key, value)
+             out = out.transpose(1, 2).reshape(batch_size, seq_len, -1)
+         else:
+-            out = optimized_attention(query, key, value, self.heads, skip_reshape=True)
++            out = optimized_attention_for_device(query.device)(query, key, value, self.heads, skip_reshape=True)
+         return comfy.ops.linear_input_act(self.to_out, torch.nan_to_num(out), None, residual=residual, residual_scale=residual_scale)
+ 
+ 

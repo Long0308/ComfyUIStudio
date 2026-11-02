@@ -1,0 +1,45 @@
+{
+  "1": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "SOL_INTRO_shirt_59aba9523b61_c2633c.png"
+    }
+  },
+  "2": {
+    "class_type": "CodexOAuthImageLane",
+    "inputs": {
+      "prompt": "INTRO_FOOTSTEPS two candidates",
+      "count": 2,
+      "episode": "Newtecons-TienDo-KichTinh-30s",
+      "kind": "SHOT",
+      "refs": [
+        "1",
+        0
+      ],
+      "ref_role": "identity",
+      "prompts": "Create a single landscape cinematic still, 16:9, photoreal live-action corporate film in Vietnam for NEWTECONS. Extreme low-angle close-up of exactly one adult man entering a contemporary construction company office in warm morning window light. Black tailored dress trousers and two black polished leather Oxford shoes in a natural mid-step walking stride. One relaxed hand hangs naturally beside his thigh near the upper edge, showing a small shirt cuff made from the attached reference fabric: VERY FINE light-blue and white micro-check, delicate tiny woven checks, not large gingham squares. Face and upper torso entirely outside the crop. Focus on leather texture, trouser drape and shoe contact shadows on the pale office floor; glass office doorway and desks softly blurred in background. No safety boots, no outdoor rubble, no extra legs, no extra hands, no extra people. All walls and visible fabric areas plain and unbranded: no text, no letters, no logos, no watermark. This is one frame, not a collage. Camera behind and to the left of the walking figure, one shoe just crossing the office threshold.\nCreate a single landscape cinematic still, 16:9, photoreal live-action corporate film in Vietnam for NEWTECONS. Extreme low-angle close-up of exactly one adult man entering a contemporary construction company office in warm morning window light. Black tailored dress trousers and two black polished leather Oxford shoes in a natural mid-step walking stride. One relaxed hand hangs naturally beside his thigh near the upper edge, showing a small shirt cuff made from the attached reference fabric: VERY FINE light-blue and white micro-check, delicate tiny woven checks, not large gingham squares. Face and upper torso entirely outside the crop. Focus on leather texture, trouser drape and shoe contact shadows on the pale office floor; glass office doorway and desks softly blurred in background. No safety boots, no outdoor rubble, no extra legs, no extra hands, no extra people. All walls and visible fabric areas plain and unbranded: no text, no letters, no logos, no watermark. This is one frame, not a collage. Alternate camera at floor height from a front three-quarter side angle, the leading shoe plants inside the bright office, trailing heel gently raised.",
+      "timeout_seconds": 14400
+    }
+  },
+  "3": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "2",
+        0
+      ],
+      "filename_prefix": "NEWTECONS/IMAGEGEN2_20261101/SOL_INTRO_FOOTSTEPS/candidate"
+    }
+  },
+  "4": {
+    "class_type": "SaveText",
+    "inputs": {
+      "text": [
+        "2",
+        1
+      ],
+      "filename_prefix": "NEWTECONS/IMAGEGEN2_20261101/SOL_INTRO_FOOTSTEPS/job_info",
+      "format": "json"
+    }
+  }
+}

@@ -1,0 +1,684 @@
+{
+ "id": "13586d2d-0000-4000-8000-190ef1499494",
+ "revision": 0,
+ "last_node_id": 9,
+ "last_link_id": 9,
+ "nodes": [
+  {
+   "id": 1,
+   "type": "CheckpointLoaderSimple",
+   "pos": [
+    40,
+    40
+   ],
+   "size": [
+    430,
+    150
+   ],
+   "flags": {},
+   "order": 0,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "ckpt_name",
+     "name": "ckpt_name",
+     "type": "COMBO",
+     "widget": {
+      "name": "ckpt_name"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "MODEL",
+     "name": "MODEL",
+     "type": "MODEL",
+     "links": [
+      3
+     ]
+    },
+    {
+     "localized_name": "CLIP",
+     "name": "CLIP",
+     "type": "CLIP",
+     "links": []
+    },
+    {
+     "localized_name": "VAE",
+     "name": "VAE",
+     "type": "VAE",
+     "links": [
+      8
+     ]
+    }
+   ],
+   "title": "1. Stable Audio 3 small SFX (DiT + VAE)",
+   "properties": {
+    "Node name for S&R": "CheckpointLoaderSimple"
+   },
+   "widgets_values": [
+    "stable_audio_3_small_sfx.safetensors"
+   ],
+   "widgets_values_named": {
+    "ckpt_name": "stable_audio_3_small_sfx.safetensors"
+   }
+  },
+  {
+   "id": 2,
+   "type": "CLIPLoader",
+   "pos": [
+    510,
+    40
+   ],
+   "size": [
+    430,
+    150
+   ],
+   "flags": {},
+   "order": 1,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "clip_name",
+     "name": "clip_name",
+     "type": "COMBO",
+     "widget": {
+      "name": "clip_name"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "type",
+     "name": "type",
+     "type": "COMBO",
+     "widget": {
+      "name": "type"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "device",
+     "name": "device",
+     "type": "COMBO",
+     "widget": {
+      "name": "device"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "CLIP",
+     "name": "CLIP",
+     "type": "CLIP",
+     "links": [
+      1,
+      2
+     ]
+    }
+   ],
+   "title": "2. T5Gemma text encoder",
+   "properties": {
+    "Node name for S&R": "CLIPLoader"
+   },
+   "widgets_values": [
+    "t5gemma_b_b_ul2.safetensors",
+    "stable_audio",
+    null
+   ],
+   "widgets_values_named": {
+    "clip_name": "t5gemma_b_b_ul2.safetensors",
+    "type": "stable_audio",
+    "device": null
+   }
+  },
+  {
+   "id": 3,
+   "type": "CLIPTextEncode",
+   "pos": [
+    980,
+    40
+   ],
+   "size": [
+    430,
+    260
+   ],
+   "flags": {},
+   "order": 2,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "text",
+     "name": "text",
+     "type": "STRING",
+     "widget": {
+      "name": "text"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "clip",
+     "name": "clip",
+     "type": "CLIP",
+     "link": 1
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "CONDITIONING",
+     "name": "CONDITIONING",
+     "type": "CONDITIONING",
+     "links": [
+      4
+     ]
+    }
+   ],
+   "title": "3. Positive prompt",
+   "properties": {
+    "Node name for S&R": "CLIPTextEncode"
+   },
+   "widgets_values": [
+    "A glass milk bottle gently rotated a quarter turn on a wooden tray, soft glass-on-wood scrape, quiet, close, no music"
+   ],
+   "widgets_values_named": {
+    "text": "A glass milk bottle gently rotated a quarter turn on a wooden tray, soft glass-on-wood scrape, quiet, close, no music"
+   }
+  },
+  {
+   "id": 4,
+   "type": "CLIPTextEncode",
+   "pos": [
+    1450,
+    40
+   ],
+   "size": [
+    430,
+    260
+   ],
+   "flags": {},
+   "order": 3,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "text",
+     "name": "text",
+     "type": "STRING",
+     "widget": {
+      "name": "text"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "clip",
+     "name": "clip",
+     "type": "CLIP",
+     "link": 2
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "CONDITIONING",
+     "name": "CONDITIONING",
+     "type": "CONDITIONING",
+     "links": [
+      5
+     ]
+    }
+   ],
+   "title": "4. Negative prompt",
+   "properties": {
+    "Node name for S&R": "CLIPTextEncode"
+   },
+   "widgets_values": [
+    "speech, voice, singing, music, melody, reverb tail, distortion, noise floor, harsh"
+   ],
+   "widgets_values_named": {
+    "text": "speech, voice, singing, music, melody, reverb tail, distortion, noise floor, harsh"
+   }
+  },
+  {
+   "id": 5,
+   "type": "EmptyLatentAudio",
+   "pos": [
+    40,
+    370
+   ],
+   "size": [
+    430,
+    150
+   ],
+   "flags": {},
+   "order": 4,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "seconds",
+     "name": "seconds",
+     "type": "FLOAT",
+     "widget": {
+      "name": "seconds"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "batch_size",
+     "name": "batch_size",
+     "type": "INT",
+     "widget": {
+      "name": "batch_size"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "LATENT",
+     "name": "LATENT",
+     "type": "LATENT",
+     "links": [
+      6
+     ]
+    }
+   ],
+   "title": "5. Empty audio latent",
+   "properties": {
+    "Node name for S&R": "EmptyLatentAudio"
+   },
+   "widgets_values": [
+    1.0,
+    1
+   ],
+   "widgets_values_named": {
+    "seconds": 1.0,
+    "batch_size": 1
+   }
+  },
+  {
+   "id": 6,
+   "type": "KSampler",
+   "pos": [
+    510,
+    370
+   ],
+   "size": [
+    430,
+    260
+   ],
+   "flags": {},
+   "order": 5,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "model",
+     "name": "model",
+     "type": "MODEL",
+     "link": 3
+    },
+    {
+     "localized_name": "seed",
+     "name": "seed",
+     "type": "INT",
+     "widget": {
+      "name": "seed"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "steps",
+     "name": "steps",
+     "type": "INT",
+     "widget": {
+      "name": "steps"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "cfg",
+     "name": "cfg",
+     "type": "FLOAT",
+     "widget": {
+      "name": "cfg"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "sampler_name",
+     "name": "sampler_name",
+     "type": "COMBO",
+     "widget": {
+      "name": "sampler_name"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "scheduler",
+     "name": "scheduler",
+     "type": "COMBO",
+     "widget": {
+      "name": "scheduler"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "positive",
+     "name": "positive",
+     "type": "CONDITIONING",
+     "link": 4
+    },
+    {
+     "localized_name": "negative",
+     "name": "negative",
+     "type": "CONDITIONING",
+     "link": 5
+    },
+    {
+     "localized_name": "latent_image",
+     "name": "latent_image",
+     "type": "LATENT",
+     "link": 6
+    },
+    {
+     "localized_name": "denoise",
+     "name": "denoise",
+     "type": "FLOAT",
+     "widget": {
+      "name": "denoise"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "LATENT",
+     "name": "LATENT",
+     "type": "LATENT",
+     "links": [
+      7
+     ]
+    }
+   ],
+   "title": "6. LCM sampler",
+   "properties": {
+    "Node name for S&R": "KSampler"
+   },
+   "widgets_values": [
+    104,
+    "fixed",
+    8,
+    1.0,
+    "lcm",
+    "simple",
+    1.0
+   ],
+   "widgets_values_named": {
+    "seed": 104,
+    "steps": 8,
+    "cfg": 1.0,
+    "sampler_name": "lcm",
+    "scheduler": "simple",
+    "denoise": 1.0
+   }
+  },
+  {
+   "id": 7,
+   "type": "VAEDecodeAudio",
+   "pos": [
+    980,
+    370
+   ],
+   "size": [
+    430,
+    150
+   ],
+   "flags": {},
+   "order": 6,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "samples",
+     "name": "samples",
+     "type": "LATENT",
+     "link": 7
+    },
+    {
+     "localized_name": "vae",
+     "name": "vae",
+     "type": "VAE",
+     "link": 8
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "AUDIO",
+     "name": "AUDIO",
+     "type": "AUDIO",
+     "links": [
+      9
+     ]
+    }
+   ],
+   "title": "7. VAE decode (44.1 kHz)",
+   "properties": {
+    "Node name for S&R": "VAEDecodeAudio"
+   },
+   "widgets_values": [],
+   "widgets_values_named": {}
+  },
+  {
+   "id": 8,
+   "type": "SaveAudio",
+   "pos": [
+    1450,
+    370
+   ],
+   "size": [
+    430,
+    150
+   ],
+   "flags": {},
+   "order": 7,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "audio",
+     "name": "audio",
+     "type": "AUDIO",
+     "link": 9
+    },
+    {
+     "localized_name": "filename_prefix",
+     "name": "filename_prefix",
+     "type": "STRING",
+     "widget": {
+      "name": "filename_prefix"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "audioUI",
+     "name": "audioUI",
+     "type": "AUDIO_UI",
+     "widget": {
+      "name": "audioUI"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "audio",
+     "name": "audio",
+     "type": "AUDIO",
+     "links": []
+    }
+   ],
+   "title": "8. Save FLAC",
+   "properties": {
+    "Node name for S&R": "SaveAudio"
+   },
+   "widgets_values": [
+    "episodes/04-milk-and-mom/sfx-v003/SFX-04-glass-bottle-rotate-on-tray/SFX-04-glass-bottle-rotate-on-tray"
+   ],
+   "widgets_values_named": {
+    "filename_prefix": "episodes/04-milk-and-mom/sfx-v003/SFX-04-glass-bottle-rotate-on-tray/SFX-04-glass-bottle-rotate-on-tray"
+   }
+  },
+  {
+   "id": 9,
+   "type": "LoadAudio",
+   "pos": [
+    1970.0,
+    40
+   ],
+   "size": [
+    430,
+    180
+   ],
+   "flags": {},
+   "order": 8,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "audio",
+     "name": "audio",
+     "type": "COMBO",
+     "widget": {
+      "name": "audio"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "audioUI",
+     "name": "audioUI",
+     "type": "AUDIO_UI",
+     "widget": {
+      "name": "audioUI"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "upload",
+     "name": "upload",
+     "type": "AUDIOUPLOAD",
+     "widget": {
+      "name": "upload"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "AUDIO",
+     "name": "AUDIO",
+     "type": "AUDIO",
+     "links": []
+    }
+   ],
+   "title": "KET QUA CANDIDATE | job 8b72914e | SHA c58d5e38ff3b | -35.0 LUFS",
+   "properties": {
+    "Node name for S&R": "LoadAudio"
+   },
+   "widgets_values": [
+    "04-milk-and-mom-T-A10-SFX-04-c58d5e38ff3b.wav",
+    ""
+   ],
+   "widgets_values_named": {
+    "audio": "04-milk-and-mom-T-A10-SFX-04-c58d5e38ff3b.wav",
+    "upload": ""
+   },
+   "color": "#114f5a",
+   "bgcolor": "#09292f"
+  }
+ ],
+ "links": [
+  [
+   1,
+   2,
+   0,
+   3,
+   0,
+   "CLIP"
+  ],
+  [
+   2,
+   2,
+   0,
+   4,
+   0,
+   "CLIP"
+  ],
+  [
+   3,
+   1,
+   0,
+   6,
+   0,
+   "MODEL"
+  ],
+  [
+   4,
+   3,
+   0,
+   6,
+   1,
+   "CONDITIONING"
+  ],
+  [
+   5,
+   4,
+   0,
+   6,
+   2,
+   "CONDITIONING"
+  ],
+  [
+   6,
+   5,
+   0,
+   6,
+   3,
+   "LATENT"
+  ],
+  [
+   7,
+   6,
+   0,
+   7,
+   0,
+   "LATENT"
+  ],
+  [
+   8,
+   1,
+   2,
+   7,
+   1,
+   "VAE"
+  ],
+  [
+   9,
+   7,
+   0,
+   8,
+   0,
+   "AUDIO"
+  ]
+ ],
+ "groups": [],
+ "config": {},
+ "extra": {
+  "title": "Milk and Mom T-A10 SFX SFX-04-glass-bottle-rotate-on-tray",
+  "film_id": "04-milk-and-mom",
+  "task": "T-A10",
+  "status": "candidate",
+  "api_graph_sha256": "f519d16d9b1a5938dd5161464632b5af05ff9c62db03734552f4bfd268244bad",
+  "seed": 104,
+  "seconds": 1.0,
+  "action": "Mẹ xoay chai sữa kín một phần tư vòng trên khay (S01_A)",
+  "review_only": true,
+  "result_sha256": "c58d5e38ff3b2a95dd46ae89462fe383fd343f3f757dd20b2a55fdf8c25a3279",
+  "prompt_id": "8b72914e-3f60-4f8a-9856-72563f181d59"
+ },
+ "version": 0.4
+}

@@ -1,0 +1,386 @@
+{
+  "schema": "jjv/shot-anchor-pack/v1",
+  "generated_at": "2026-10-31T12:48:34Z",
+  "episode_id": "Newtecons-TienDo-KichTinh-30s",
+  "domain": "newtecons_live_action",
+  "shot": "S02_A",
+  "scene": "SCENE_02",
+  "speaker": "CHAR_GDDA",
+  "context": "cong_truong",
+  "context_per_character": null,
+  "chosen_by": "user 31/10: FACE 04_04_DECISIVE_COMMAND (2f01be018cab) + ACTION 05_02_THREE_QUARTER_FULL_BODY (5e0d548a93a8); worker Fable added ACTION 06_07_SITE_DIRECTION (4a883f13abe0) as the pointing/site-direction pose for the schedule-board beat (not user-confirmed)",
+  "characters": [
+    {
+      "character": "CHAR_02",
+      "role": "speaker",
+      "face": [
+        "2f01be018cab32e059ede226c31aefe706c3fe804cbeb16d955f1def34793b90"
+      ],
+      "body": [
+        "5e0d548a93a82f62ab6fa93c98bd2e037c4f809d59b0c7c4fbb068820a24e158",
+        "4a883f13abe0494d59d5243f76d5c3c2794969614abcdd63dd42c90c5cc29d53"
+      ]
+    }
+  ],
+  "face_refs": [
+    {
+      "character": "CHAR_02",
+      "role": "face",
+      "kind": "FACE",
+      "name": "04_04_DECISIVE_COMMAND__2f01be018cab.png",
+      "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/production-v2-45s/library-r005f-by-character/CHAR_02/FACE/04_04_DECISIVE_COMMAND__2f01be018cab.png",
+      "sha256": "2f01be018cab32e059ede226c31aefe706c3fe804cbeb16d955f1def34793b90",
+      "prompt_id": "CHAR_02_FACE_04_DECISIVE_COMMAND_r005_r005d",
+      "rev": "r005d",
+      "chosen": "selection",
+      "route": "codex-exec",
+      "source_route": "codex",
+      "receipt": {
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/production-v2-45s/library-r005d/batch-04f-CHAR_02-FACE/t004/2f01be018cab.receipt.json",
+        "sha256": "eefcd30a5ba5669fab1498dd531e9ee116c4c60f615072e0981d63d0d3c29b19"
+      },
+      "approval": "candidate",
+      "approval_record": null,
+      "thumb": {
+        "subfolder": "engine-library-r005f/CHAR_02/FACE",
+        "filename": "04_04_DECISIVE_COMMAND__2f01be018cab.jpg",
+        "sha256": "e55fb08dcec05c0f4e9749ccc18793e1b1153c9bb63d144a6035f1abed539a79"
+      }
+    }
+  ],
+  "body_refs": [
+    {
+      "character": "CHAR_02",
+      "role": "body",
+      "kind": "ACTION",
+      "name": "05_02_THREE_QUARTER_FULL_BODY__5e0d548a93a8.png",
+      "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/production-v2-45s/library-r005f-by-character/CHAR_02/ACTION/05_02_THREE_QUARTER_FULL_BODY__5e0d548a93a8.png",
+      "sha256": "5e0d548a93a82f62ab6fa93c98bd2e037c4f809d59b0c7c4fbb068820a24e158",
+      "prompt_id": "CHAR_02_ACTION_02_THREE_QUARTER_FULL_BODY_r005_r005d",
+      "rev": "r005d",
+      "chosen": "selection",
+      "route": "codex-exec",
+      "source_route": "codex",
+      "receipt": {
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/production-v2-45s/library-r005d/batch-05-CHAR_02-ACTION/t002/5e0d548a93a8.receipt.json",
+        "sha256": "80fd9016d7a0cf7c3dbfc657d99c6122ee81ae461e2023d754879382ac836de1"
+      },
+      "approval": "candidate",
+      "approval_record": null,
+      "thumb": {
+        "subfolder": "engine-library-r005f/CHAR_02/ACTION",
+        "filename": "05_02_THREE_QUARTER_FULL_BODY__5e0d548a93a8.jpg",
+        "sha256": "4da3c103ab1ecbdc259a0b27fb8b4d31fbc168a685b9da31de50298fbdc378a8"
+      }
+    },
+    {
+      "character": "CHAR_02",
+      "role": "body",
+      "kind": "ACTION",
+      "name": "06_07_SITE_DIRECTION__4a883f13abe0.png",
+      "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/production-v2-45s/library-r005f-by-character/CHAR_02/ACTION/06_07_SITE_DIRECTION__4a883f13abe0.png",
+      "sha256": "4a883f13abe0494d59d5243f76d5c3c2794969614abcdd63dd42c90c5cc29d53",
+      "prompt_id": "CHAR_02_ACTION_07_SITE_DIRECTION_r005_r005c",
+      "rev": "r005c",
+      "chosen": "selection",
+      "route": "codex-exec",
+      "source_route": "codex",
+      "receipt": {
+        "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/production-v2-45s/library-r005c/batch-06-CHAR_02-ACTION/t007/4a883f13abe0.receipt.json",
+        "sha256": "b4c534506679a9fe142771b676834a8190442a33dad1f05290e19cc0e38819a9"
+      },
+      "approval": "candidate",
+      "approval_record": null,
+      "thumb": {
+        "subfolder": "engine-library-r005f/CHAR_02/ACTION",
+        "filename": "06_07_SITE_DIRECTION__4a883f13abe0.jpg",
+        "sha256": "d1476050d506c26c75103d708f561cc8de23212ac4ed37a13861a08ed502d15a"
+      }
+    }
+  ],
+  "wardrobe_refs": [
+    {
+      "role": "wardrobe",
+      "name": "ÁO PHẢN TRONG.png",
+      "file": "newtecons-wardrobe/59aba9523b61_AO_PHAN_TRONG.png",
+      "path": "production-local/ComfyUI/input/newtecons-wardrobe/59aba9523b61_AO_PHAN_TRONG.png",
+      "sha256": "59aba9523b6177e3702c831e4abe44f3b7cca03477f1c85c274565cec086c57e",
+      "preset_role": "wardrobe_shirt_fine_microgrid_and_collar_logo_only",
+      "preset_group": "wardrobe_anchor",
+      "context": "cong_truong",
+      "characters": [],
+      "verified": true,
+      "source_route": "preset",
+      "approval": "candidate"
+    },
+    {
+      "role": "wardrobe",
+      "name": "SHIRT_APPROVED_FINE_GRID_COLLAR_LOGO_REFERENCE.png",
+      "file": "newtecons-wardrobe/55f0a34b4777_SHIRT_APPROVED_FINE_GRID_COLLAR_LOGO_REFERENCE.png",
+      "path": "production-local/ComfyUI/input/newtecons-wardrobe/55f0a34b4777_SHIRT_APPROVED_FINE_GRID_COLLAR_LOGO_REFERENCE.png",
+      "sha256": "55f0a34b4777207a2add39896f1ee21f225ea9fbf7c4dba93d35347ab838600c",
+      "preset_role": "approved_fine_microgrid_and_small_collar_logo_only",
+      "preset_group": "wardrobe_anchor",
+      "context": "cong_truong",
+      "characters": [],
+      "verified": true,
+      "source_route": "preset",
+      "approval": "candidate"
+    },
+    {
+      "role": "wardrobe",
+      "name": "UNIFORM_HELMET.png",
+      "file": "newtecons-wardrobe/deae83d60abb_UNIFORM_HELMET.png",
+      "path": "production-local/ComfyUI/input/newtecons-wardrobe/deae83d60abb_UNIFORM_HELMET.png",
+      "sha256": "deae83d60abb5d4315da78f5b8af71cad5082c7a8bf05c6a50299c886d977d4e",
+      "preset_role": "wardrobe_helmet_shape_and_logo_placement",
+      "preset_group": "wardrobe_anchor",
+      "context": "cong_truong",
+      "characters": [],
+      "verified": true,
+      "source_route": "preset",
+      "approval": "candidate"
+    },
+    {
+      "role": "wardrobe",
+      "name": "LOGO_NEWTECONS_COLOR.png",
+      "file": "newtecons-wardrobe/e320eabbf4af_LOGO_NEWTECONS_COLOR.png",
+      "path": "production-local/ComfyUI/input/newtecons-wardrobe/e320eabbf4af_LOGO_NEWTECONS_COLOR.png",
+      "sha256": "e320eabbf4af707351a6e36e13cf961fca71b43c058d84e60b61c3681552ca51",
+      "preset_role": "original_brand_mark_keep_exact_geometry_and_alpha",
+      "preset_group": "wardrobe_anchor",
+      "context": "cong_truong",
+      "characters": [],
+      "verified": true,
+      "source_route": "preset",
+      "approval": "candidate"
+    },
+    {
+      "role": "wardrobe",
+      "name": "ÁO PHẢN QUANG 1.png",
+      "file": "newtecons-wardrobe/637ce3ada45e_AO_PHAN_QUANG_1.png",
+      "path": "production-local/ComfyUI/input/newtecons-wardrobe/637ce3ada45e_AO_PHAN_QUANG_1.png",
+      "sha256": "637ce3ada45e4cff4efda1c8d2b8f4f6436ab7a02f56f942654d297ba70fb46e",
+      "preset_role": "wardrobe_vest_front_geometry_no_identity_replace_department",
+      "preset_group": "wardrobe_anchor",
+      "context": "cong_truong",
+      "characters": [],
+      "verified": true,
+      "source_route": "preset",
+      "approval": "candidate"
+    },
+    {
+      "role": "wardrobe",
+      "name": "ÁO PHẢN QUANG 2.png",
+      "file": "newtecons-wardrobe/c3b895832141_AO_PHAN_QUANG_2.png",
+      "path": "production-local/ComfyUI/input/newtecons-wardrobe/c3b895832141_AO_PHAN_QUANG_2.png",
+      "sha256": "c3b895832141e41460f4133414fa53f42b37b2380c71846c190c11708fa25447",
+      "preset_role": "wardrobe_vest_back_geometry_mesh_and_three_bands",
+      "preset_group": "wardrobe_anchor",
+      "context": "cong_truong",
+      "characters": [],
+      "verified": true,
+      "source_route": "preset",
+      "approval": "candidate"
+    },
+    {
+      "role": "wardrobe",
+      "name": "LOGO_NEWTECONS_WHITE.png",
+      "file": "newtecons-wardrobe/785e1770dfcb_LOGO_NEWTECONS_WHITE.png",
+      "path": "production-local/ComfyUI/input/newtecons-wardrobe/785e1770dfcb_LOGO_NEWTECONS_WHITE.png",
+      "sha256": "785e1770dfcb5d60e15c4ec5cbb85cf666dbf5431185896b891c98a26dac1df7",
+      "preset_role": "exact_white_brand_logo_preserve_alpha",
+      "preset_group": "wardrobe_anchor",
+      "context": "cong_truong",
+      "characters": [],
+      "verified": true,
+      "source_route": "preset",
+      "approval": "candidate"
+    }
+  ],
+  "location_refs": [],
+  "storyboard_anchor": {
+    "status": "pending",
+    "path": null,
+    "sha256": null,
+    "source_route": null,
+    "receipt": null,
+    "rule": "the first frame must itself be produced by an image route (codex | comfyui-local) from this pack's refs and carry its receipt; an old casting/storyboard file is never substituted unless the user marks it approved"
+  },
+  "ref_slots": {
+    "max_slots": 9,
+    "priority": [
+      "face",
+      "body",
+      "wardrobe",
+      "location"
+    ],
+    "bound": [
+      {
+        "role": "face",
+        "name": "04_04_DECISIVE_COMMAND__2f01be018cab.png",
+        "sha256": "2f01be018cab32e059ede226c31aefe706c3fe804cbeb16d955f1def34793b90",
+        "slot": "ref_images.ref_image_0"
+      },
+      {
+        "role": "body",
+        "name": "05_02_THREE_QUARTER_FULL_BODY__5e0d548a93a8.png",
+        "sha256": "5e0d548a93a82f62ab6fa93c98bd2e037c4f809d59b0c7c4fbb068820a24e158",
+        "slot": "ref_images.ref_image_1"
+      },
+      {
+        "role": "body",
+        "name": "06_07_SITE_DIRECTION__4a883f13abe0.png",
+        "sha256": "4a883f13abe0494d59d5243f76d5c3c2794969614abcdd63dd42c90c5cc29d53",
+        "slot": "ref_images.ref_image_2"
+      },
+      {
+        "role": "wardrobe",
+        "name": "ÁO PHẢN TRONG.png",
+        "sha256": "59aba9523b6177e3702c831e4abe44f3b7cca03477f1c85c274565cec086c57e",
+        "slot": "ref_images.ref_image_3"
+      },
+      {
+        "role": "wardrobe",
+        "name": "SHIRT_APPROVED_FINE_GRID_COLLAR_LOGO_REFERENCE.png",
+        "sha256": "55f0a34b4777207a2add39896f1ee21f225ea9fbf7c4dba93d35347ab838600c",
+        "slot": "ref_images.ref_image_4"
+      },
+      {
+        "role": "wardrobe",
+        "name": "UNIFORM_HELMET.png",
+        "sha256": "deae83d60abb5d4315da78f5b8af71cad5082c7a8bf05c6a50299c886d977d4e",
+        "slot": "ref_images.ref_image_5"
+      },
+      {
+        "role": "wardrobe",
+        "name": "LOGO_NEWTECONS_COLOR.png",
+        "sha256": "e320eabbf4af707351a6e36e13cf961fca71b43c058d84e60b61c3681552ca51",
+        "slot": "ref_images.ref_image_6"
+      },
+      {
+        "role": "wardrobe",
+        "name": "ÁO PHẢN QUANG 1.png",
+        "sha256": "637ce3ada45e4cff4efda1c8d2b8f4f6436ab7a02f56f942654d297ba70fb46e",
+        "slot": "ref_images.ref_image_7"
+      },
+      {
+        "role": "wardrobe",
+        "name": "ÁO PHẢN QUANG 2.png",
+        "sha256": "c3b895832141e41460f4133414fa53f42b37b2380c71846c190c11708fa25447",
+        "slot": "ref_images.ref_image_8"
+      }
+    ],
+    "overflow": [
+      {
+        "role": "wardrobe",
+        "name": "LOGO_NEWTECONS_WHITE.png",
+        "sha256": "785e1770dfcb5d60e15c4ec5cbb85cf666dbf5431185896b891c98a26dac1df7",
+        "slot": null
+      }
+    ],
+    "storyboard": "guide.image"
+  },
+  "status": "candidate",
+  "ready_for_graph": false,
+  "sources": {
+    "selection": {
+      "path": "production-local/ComfyUI/custom_nodes/newtecons_step_ui/web/data/video/anchor-packs/Newtecons-TienDo-KichTinh-30s/S02_A/selection.json",
+      "sha256": "9340a431d8047034d016875999bd7119fabf04d9095bbcbe31e71e194fd49e22"
+    },
+    "shotlist": {
+      "path": "docs/plans/2026-10-30-newtecons-10lan/SHOTLIST-EP05-v004.json",
+      "sha256": "ee86873418a418e210809d85657dbe3b2379b93e64cd024c684740b01fe17666"
+    },
+    "library_index": {
+      "path": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/production-v2-45s/library-r005f-by-character/INDEX.json",
+      "sha256": "8570ef1f9f7ec131f38e9dea47859ae8a7dcbf1cae281b1ff0fc2a7587672d8a"
+    },
+    "wardrobe_presets": {
+      "path": "production-local/ComfyUI/custom_nodes/newtecons_step_ui/web/data/wardrobe/newtecons_live_action.json",
+      "sha256": "1742471c327222c1c8b33aeb66fd3656eae3cc21849ed4015676435849243093"
+    },
+    "thumbs": {
+      "path": "production-local/ComfyUI/custom_nodes/newtecons_step_ui/web/engine_library_r005f.json",
+      "sha256": "c54ce518d082628c9375ab5b507dd6c999a0558f0f606f6e38b423a3250a747b"
+    }
+  },
+  "problems": [
+    "REF_SLOTS_OVERFLOW: 10 refs for 9 ref_images slots; priority face > body > wardrobe > location leaves ['LOGO_NEWTECONS_WHITE.png'] unbound (mute those loaders or drop a lower-priority ref)"
+  ],
+  "staged": [
+    {
+      "slot": "ref_images.ref_image_0",
+      "role": "face",
+      "name": "04_04_DECISIVE_COMMAND__2f01be018cab.png",
+      "input_subfolder": "",
+      "filename": "newtecons_anc_Newtecons-TienDo-KichTinh-30s_S02_A_ref_image_0_2f01be018cab.png",
+      "sha256": "2f01be018cab32e059ede226c31aefe706c3fe804cbeb16d955f1def34793b90"
+    },
+    {
+      "slot": "ref_images.ref_image_1",
+      "role": "body",
+      "name": "05_02_THREE_QUARTER_FULL_BODY__5e0d548a93a8.png",
+      "input_subfolder": "",
+      "filename": "newtecons_anc_Newtecons-TienDo-KichTinh-30s_S02_A_ref_image_1_5e0d548a93a8.png",
+      "sha256": "5e0d548a93a82f62ab6fa93c98bd2e037c4f809d59b0c7c4fbb068820a24e158"
+    },
+    {
+      "slot": "ref_images.ref_image_2",
+      "role": "body",
+      "name": "06_07_SITE_DIRECTION__4a883f13abe0.png",
+      "input_subfolder": "",
+      "filename": "newtecons_anc_Newtecons-TienDo-KichTinh-30s_S02_A_ref_image_2_4a883f13abe0.png",
+      "sha256": "4a883f13abe0494d59d5243f76d5c3c2794969614abcdd63dd42c90c5cc29d53"
+    },
+    {
+      "slot": "ref_images.ref_image_3",
+      "role": "wardrobe",
+      "name": "ÁO PHẢN TRONG.png",
+      "input_subfolder": "",
+      "filename": "newtecons_anc_Newtecons-TienDo-KichTinh-30s_S02_A_ref_image_3_59aba9523b61.png",
+      "sha256": "59aba9523b6177e3702c831e4abe44f3b7cca03477f1c85c274565cec086c57e"
+    },
+    {
+      "slot": "ref_images.ref_image_4",
+      "role": "wardrobe",
+      "name": "SHIRT_APPROVED_FINE_GRID_COLLAR_LOGO_REFERENCE.png",
+      "input_subfolder": "",
+      "filename": "newtecons_anc_Newtecons-TienDo-KichTinh-30s_S02_A_ref_image_4_55f0a34b4777.png",
+      "sha256": "55f0a34b4777207a2add39896f1ee21f225ea9fbf7c4dba93d35347ab838600c"
+    },
+    {
+      "slot": "ref_images.ref_image_5",
+      "role": "wardrobe",
+      "name": "UNIFORM_HELMET.png",
+      "input_subfolder": "",
+      "filename": "newtecons_anc_Newtecons-TienDo-KichTinh-30s_S02_A_ref_image_5_deae83d60abb.png",
+      "sha256": "deae83d60abb5d4315da78f5b8af71cad5082c7a8bf05c6a50299c886d977d4e"
+    },
+    {
+      "slot": "ref_images.ref_image_6",
+      "role": "wardrobe",
+      "name": "LOGO_NEWTECONS_COLOR.png",
+      "input_subfolder": "",
+      "filename": "newtecons_anc_Newtecons-TienDo-KichTinh-30s_S02_A_ref_image_6_e320eabbf4af.png",
+      "sha256": "e320eabbf4af707351a6e36e13cf961fca71b43c058d84e60b61c3681552ca51"
+    },
+    {
+      "slot": "ref_images.ref_image_7",
+      "role": "wardrobe",
+      "name": "ÁO PHẢN QUANG 1.png",
+      "input_subfolder": "",
+      "filename": "newtecons_anc_Newtecons-TienDo-KichTinh-30s_S02_A_ref_image_7_637ce3ada45e.png",
+      "sha256": "637ce3ada45e4cff4efda1c8d2b8f4f6436ab7a02f56f942654d297ba70fb46e"
+    },
+    {
+      "slot": "ref_images.ref_image_8",
+      "role": "wardrobe",
+      "name": "ÁO PHẢN QUANG 2.png",
+      "input_subfolder": "",
+      "filename": "newtecons_anc_Newtecons-TienDo-KichTinh-30s_S02_A_ref_image_8_c3b895832141.png",
+      "sha256": "c3b895832141e41460f4133414fa53f42b37b2380c71846c190c11708fa25447"
+    }
+  ],
+  "staged_at": "2026-10-31T13:30:03Z"
+}

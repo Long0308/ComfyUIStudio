@@ -1,0 +1,131 @@
+"""Allow-list and argv builder for NEWTECONS video tabs 06–08.
+
+This module is shared by the ComfyUI queue endpoint and the host runner. It accepts
+structured parameters only; user strings are never interpreted as shell fragments.
+"""
+from __future__ import annotations
+
+import re
+from pathlib import Path
+
+DOMAIN = "newtecons_live_action"
+SAFE = re.compile(r"^[A-Za-z0-9_.-]{1,96}$")
+TARGETS = {"1920x1080", "2560x1440"}
+TILES = {512, 768, 1024}
+
+# Public operation names are deliberately narrower than the jjv CLI.
+SCHEMAS = {
+    "seedvr2.plan": {"out", "segments_root", "reads", "tail_map", "target", "tile_size"},
+    "seedvr2.execute": {"plan"},
+    "post.logo": {"enabled", "video", "out"},
+    "timing.words": {"dialogue", "out"},
+    "captions.burn": {"video", "timing", "timing_receipt", "subtitles", "font", "wav", "out", "style"},
+    "edit.assemble": {"edl", "out_dir", "tag", "base"},
+}
+
+PATH_KEYS = {"out", "segments_root", "reads", "tail_map", "plan", "video", "dialogue",
+             "timing", "timing_receipt", "subtitles", "font", "wav", "edl", "out_dir", "base"}
+
+
+class RequestError(ValueError):
+    pass
+
+
+def validate_request(payload: object) -> dict:
+    if not isinstance(payload, dict) or set(payload) != {"verb", "shot", "episode", "args"}:
+        raise RequestError("request must contain exactly verb, shot, episode, args")
+    verb, shot, episode, args = payload["verb"], payload["shot"], payload["episode"], payload["args"]
+    if not isinstance(verb, str) or verb not in SCHEMAS:
+        raise RequestError("unknown verb")
+    if not isinstance(shot, str) or not SAFE.fullmatch(shot):
+        raise RequestError("invalid shot token")
+    if not isinstance(episode, str) or not SAFE.fullmatch(episode):
+        raise RequestError("episode must be a slug, not a path")
+    if not isinstance(args, dict):
+        raise RequestError("args must be an object")
+    extra = set(args) - SCHEMAS[verb]
+    if extra:
+        raise RequestError(f"unknown args: {', '.join(sorted(map(str, extra)))}")
+    clean = dict(args)
+    for key in PATH_KEYS.intersection(clean):
+        value = clean[key]
+        if not isinstance(value, str) or not value or "\x00" in value:
+            raise RequestError(f"{key} must be a non-empty path string")
+        if ".." in re.split(r"[\\/]", value):
+            raise RequestError(f"{key} cannot contain parent traversal")
+    if verb == "seedvr2.plan":
+        if not isinstance(clean.get("target", "2560x1440"), str) or clean.get("target", "2560x1440") not in TARGETS:
+            raise RequestError("target must be 1920x1080 or 2560x1440")
+        if isinstance(clean.get("tile_size", 768), bool) or clean.get("tile_size", 768) not in TILES:
+            raise RequestError("tile_size must be 512, 768 or 1024")
+    if verb == "post.logo" and type(clean.get("enabled", True)) is not bool:
+        raise RequestError("enabled must be boolean")
+    if verb == "captions.burn":
+        style = clean.get("style", "single_word")
+        if not isinstance(style, str) or style != "single_word":
+            raise RequestError("only single_word highlight is implemented by jjv; cumulative is unavailable")
+    required = {
+        "seedvr2.plan": {"out"}, "seedvr2.execute": {"plan"},
+        "post.logo": {"video", "out"}, "timing.words": {"dialogue", "out"},
+        "captions.burn": {"video", "timing", "timing_receipt", "subtitles", "font", "wav", "out"},
+        "edit.assemble": {"edl", "out_dir", "tag"},
+    }[verb]
+    if not required.issubset(clean):
+        raise RequestError(f"missing args: {', '.join(sorted(required - set(clean)))}")
+    if verb == "edit.assemble" and (not isinstance(clean["tag"], str) or not SAFE.fullmatch(clean["tag"])):
+        raise RequestError("tag must be a safe token")
+    return {"verb": verb, "shot": shot, "episode": episode, "args": clean,
+            "domain": DOMAIN, "preview": True}
+
+
+def validate_stored_request(payload: object) -> dict:
+    """Validate the record written by step_routes (4 core keys + domain/preview markers).
+
+    Route output (validate_request) carries domain/preview next to the 4 core keys; the
+    runner must accept that exact shape while still enforcing the NEWTECONS domain.
+    """
+    if not isinstance(payload, dict):
+        raise RequestError("request must be an object")
+    if payload.get("domain") != DOMAIN:
+        raise RequestError("only NEWTECONS live-action jobs are accepted")
+    if payload.get("preview") is not True:
+        raise RequestError("only preview jobs are accepted")
+    if set(payload) - {"verb", "shot", "episode", "args", "domain", "preview"}:
+        raise RequestError("unexpected keys in stored request")
+    return validate_request({k: payload.get(k) for k in ("verb", "shot", "episode", "args")}
+                            if all(k in payload for k in ("verb", "shot", "episode", "args"))
+                            else {})
+
+
+def build_argv(request: dict, *, jjv: Path, repo_root: Path) -> list[str] | None:
+    """Return a literal argv list; None means an explicit no-op (logo disabled)."""
+    r = validate_request({k: request[k] for k in ("verb", "shot", "episode", "args")})
+    a, v = r["args"], r["verb"]
+    base = ["python", "-I", str(jjv)]
+    ep = ["--episode", r["episode"]]
+    if v == "seedvr2.plan":
+        # target/tile are asserted/display-only: jjv seedvr2 plan owns these in its qualified recipe.
+        argv = base + ["seedvr2", "plan"] + ep + ["--out", a["out"]]
+        for key, flag in (("segments_root", "--segments-root"), ("reads", "--reads"), ("tail_map", "--tail-map")):
+            if key in a:
+                argv += [flag, a[key]]
+        return argv
+    if v == "seedvr2.execute":
+        # Intentionally omit --execute. jjv's own default remains a dry-run; this UI cannot approve GPU work.
+        return base + ["seedvr2", "execute"] + ep + ["--plan", a["plan"]]
+    if v == "post.logo":
+        if not a.get("enabled", True):
+            return None
+        return base + ["post", "logo"] + ep + ["--video", a["video"], "--out", a["out"]]
+    if v == "timing.words":
+        return base + ["timing", "words"] + ep + ["--dialogue", a["dialogue"], "--out", a["out"]]
+    if v == "captions.burn":
+        return base + ["captions", "burn"] + ep + ["--video", a["video"], "--timing", a["timing"],
+                "--timing-receipt", a["timing_receipt"], "--subtitles", a["subtitles"], "--font", a["font"],
+                "--wav", a["wav"], "--out", a["out"]]
+    if v == "edit.assemble":
+        argv = base + ["edit", "assemble"] + ep + ["--edl", a["edl"], "--out-dir", a["out_dir"], "--tag", a["tag"]]
+        if "base" in a:
+            argv += ["--base", a["base"]]
+        return argv
+    raise RequestError("unknown verb")

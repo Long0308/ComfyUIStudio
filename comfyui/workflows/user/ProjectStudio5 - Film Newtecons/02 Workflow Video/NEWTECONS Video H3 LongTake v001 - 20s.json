@@ -1,0 +1,3863 @@
+{
+  "id": "eea180a1-0000-4000-8000-400f335a1cc6",
+  "revision": 0,
+  "last_node_id": 67,
+  "last_link_id": 62,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "UNETLoader",
+      "pos": [
+        40,
+        40
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "unet_name",
+          "name": "unet_name",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "unet_name"
+          }
+        },
+        {
+          "localized_name": "weight_dtype",
+          "name": "weight_dtype",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "weight_dtype"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            25
+          ]
+        }
+      ],
+      "title": "Model MiniMax H3 R2V",
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "default"
+      ],
+      "widgets_values_named": {
+        "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "weight_dtype": "default"
+      }
+    },
+    {
+      "id": 2,
+      "type": "CLIPLoader",
+      "pos": [
+        510,
+        40
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip_name",
+          "name": "clip_name",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "clip_name"
+          }
+        },
+        {
+          "localized_name": "type",
+          "name": "type",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "type"
+          }
+        },
+        {
+          "localized_name": "device",
+          "name": "device",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "device"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            1,
+            28,
+            31,
+            34,
+            37,
+            40,
+            43,
+            46
+          ]
+        }
+      ],
+      "title": "Text encoder MiniMax H3",
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "minimax",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "type": "minimax",
+        "device": "default"
+      }
+    },
+    {
+      "id": 3,
+      "type": "VAELoader",
+      "pos": [
+        980,
+        40
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "VAE",
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            3,
+            6,
+            19,
+            30,
+            33,
+            36,
+            39,
+            42,
+            45,
+            48
+          ]
+        }
+      ],
+      "title": "Video VAE",
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "minimax_h3_video_vae_int8_convrot.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors"
+      }
+    },
+    {
+      "id": 4,
+      "type": "VAELoader",
+      "pos": [
+        1450,
+        40
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "VAE",
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            7,
+            21
+          ]
+        }
+      ],
+      "title": "Audio VAE",
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "minimax_h3_audio_vae_fp32.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+      }
+    },
+    {
+      "id": 5,
+      "type": "LoadImage",
+      "pos": [
+        40,
+        370
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "title": "ĐIỀN: ảnh nhân vật NEWTECONS đã duyệt — ref Picture 1",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "widgets_values_named": {
+        "image": ""
+      }
+    },
+    {
+      "id": 6,
+      "type": "MiniMaxH3ReferenceToVideo",
+      "pos": [
+        510,
+        370
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "link": 1,
+          "type": "CLIP"
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "link": 2,
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          }
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          }
+        },
+        {
+          "localized_name": "length",
+          "name": "length",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "length"
+          }
+        },
+        {
+          "localized_name": "ref_image_size",
+          "name": "ref_image_size",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "ref_image_size"
+          }
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "link": 3,
+          "type": "VAE"
+        },
+        {
+          "localized_name": "audio_vae",
+          "name": "audio_vae",
+          "link": null,
+          "type": "VAE"
+        },
+        {
+          "localized_name": "ref_images",
+          "name": "ref_images",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        },
+        {
+          "localized_name": "ref_videos",
+          "name": "ref_videos",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        },
+        {
+          "localized_name": "ref_video_audios",
+          "name": "ref_video_audios",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        },
+        {
+          "localized_name": "ref_audios",
+          "name": "ref_audios",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            49
+          ]
+        },
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            5,
+            17
+          ]
+        }
+      ],
+      "title": "H3 R2V window 0 (latent + refs)",
+      "properties": {
+        "Node name for S&R": "MiniMaxH3ReferenceToVideo"
+      },
+      "widgets_values": [
+        null,
+        1280,
+        704,
+        481,
+        "match"
+      ],
+      "widgets_values_named": {
+        "prompt": null,
+        "width": 1280,
+        "height": 704,
+        "length": 481,
+        "ref_image_size": "match"
+      }
+    },
+    {
+      "id": 7,
+      "type": "LoadAudio",
+      "pos": [
+        980,
+        370
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "audio"
+          }
+        },
+        {
+          "localized_name": "audioUI",
+          "name": "audioUI",
+          "type": "AUDIO_UI",
+          "widget": {
+            "name": "audioUI"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "upload",
+          "name": "upload",
+          "type": "AUDIOUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "AUDIO",
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            9
+          ]
+        }
+      ],
+      "title": "ĐIỀN: WAV thoại đã duyệt — theo preparation.json wav.sha256",
+      "properties": {
+        "Node name for S&R": "LoadAudio"
+      },
+      "widgets_values": [
+        "",
+        ""
+      ],
+      "widgets_values_named": {
+        "audio": "",
+        "upload": ""
+      }
+    },
+    {
+      "id": 8,
+      "type": "LoadImage",
+      "pos": [
+        1450,
+        370
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            8
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "title": "ĐIỀN: ảnh cảnh đã duyệt — neo frame 0",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "widgets_values_named": {
+        "image": ""
+      }
+    },
+    {
+      "id": 9,
+      "type": "MiniMaxH3AddGuide",
+      "pos": [
+        40,
+        700
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "link": 4,
+          "type": "CONDITIONING"
+        },
+        {
+          "localized_name": "latent",
+          "name": "latent",
+          "link": 5,
+          "type": "LATENT"
+        },
+        {
+          "localized_name": "frame_idx",
+          "name": "frame_idx",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "frame_idx"
+          }
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "link": 6,
+          "type": "VAE"
+        },
+        {
+          "localized_name": "audio_vae",
+          "name": "audio_vae",
+          "link": 7,
+          "type": "VAE"
+        },
+        {
+          "localized_name": "image",
+          "name": "image",
+          "link": 8,
+          "type": "IMAGE"
+        },
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "link": 9,
+          "type": "AUDIO"
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            11
+          ]
+        }
+      ],
+      "title": "Neo cảnh và WAV thoại từ frame 0",
+      "properties": {
+        "Node name for S&R": "MiniMaxH3AddGuide"
+      },
+      "widgets_values": [
+        0
+      ],
+      "widgets_values_named": {
+        "frame_idx": 0
+      }
+    },
+    {
+      "id": 10,
+      "type": "BasicGuider",
+      "pos": [
+        510,
+        700
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "link": 10,
+          "type": "MODEL"
+        },
+        {
+          "localized_name": "conditioning",
+          "name": "conditioning",
+          "link": 11,
+          "type": "CONDITIONING"
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "GUIDER",
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "links": [
+            14
+          ]
+        }
+      ],
+      "title": "Guider H3",
+      "properties": {
+        "Node name for S&R": "BasicGuider"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 11,
+      "type": "RandomNoise",
+      "pos": [
+        980,
+        700
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "noise_seed",
+          "name": "noise_seed",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "noise_seed"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "NOISE",
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            13
+          ]
+        }
+      ],
+      "title": "Seed",
+      "properties": {
+        "Node name for S&R": "RandomNoise"
+      },
+      "widgets_values": [
+        20261030,
+        "fixed"
+      ],
+      "widgets_values_named": {
+        "noise_seed": 20261030
+      }
+    },
+    {
+      "id": 12,
+      "type": "KSamplerSelect",
+      "pos": [
+        1450,
+        700
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "sampler_name",
+          "name": "sampler_name",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "sampler_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "SAMPLER",
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            15
+          ]
+        }
+      ],
+      "title": "Sampler",
+      "properties": {
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "res_multistep"
+      ],
+      "widgets_values_named": {
+        "sampler_name": "res_multistep"
+      }
+    },
+    {
+      "id": 13,
+      "type": "BasicScheduler",
+      "pos": [
+        40,
+        1030
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "link": 12,
+          "type": "MODEL"
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "scheduler"
+          }
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "steps"
+          }
+        },
+        {
+          "localized_name": "denoise",
+          "name": "denoise",
+          "link": null,
+          "type": "FLOAT",
+          "widget": {
+            "name": "denoise"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "SIGMAS",
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            16
+          ]
+        }
+      ],
+      "title": "Scheduler",
+      "properties": {
+        "Node name for S&R": "BasicScheduler"
+      },
+      "widgets_values": [
+        "simple",
+        8,
+        1.0
+      ],
+      "widgets_values_named": {
+        "scheduler": "simple",
+        "steps": 8,
+        "denoise": 1.0
+      }
+    },
+    {
+      "id": 14,
+      "type": "SamplerCustomAdvanced",
+      "pos": [
+        510,
+        1030
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "noise",
+          "name": "noise",
+          "link": 13,
+          "type": "NOISE"
+        },
+        {
+          "localized_name": "guider",
+          "name": "guider",
+          "link": 14,
+          "type": "GUIDER"
+        },
+        {
+          "localized_name": "sampler",
+          "name": "sampler",
+          "link": 15,
+          "type": "SAMPLER"
+        },
+        {
+          "localized_name": "sigmas",
+          "name": "sigmas",
+          "link": 16,
+          "type": "SIGMAS"
+        },
+        {
+          "localized_name": "latent_image",
+          "name": "latent_image",
+          "link": 17,
+          "type": "LATENT"
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "output",
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            18,
+            20
+          ]
+        },
+        {
+          "localized_name": "denoised_output",
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "title": "Lấy mẫu H3 video + audio",
+      "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 15,
+      "type": "VAEDecode",
+      "pos": [
+        980,
+        1030
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "samples",
+          "name": "samples",
+          "link": 18,
+          "type": "LATENT"
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "link": 19,
+          "type": "VAE"
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            22
+          ]
+        }
+      ],
+      "title": "Giải mã hình H3",
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 16,
+      "type": "VAEDecodeAudio",
+      "pos": [
+        1450,
+        1030
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "samples",
+          "name": "samples",
+          "link": 20,
+          "type": "LATENT"
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "link": 21,
+          "type": "VAE"
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "AUDIO",
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            23
+          ]
+        }
+      ],
+      "title": "Giải mã audio H3",
+      "properties": {
+        "Node name for S&R": "VAEDecodeAudio"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 17,
+      "type": "CreateVideo",
+      "pos": [
+        40,
+        1360
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "link": 22,
+          "type": "IMAGE"
+        },
+        {
+          "localized_name": "fps",
+          "name": "fps",
+          "link": null,
+          "type": "FLOAT",
+          "widget": {
+            "name": "fps"
+          }
+        },
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "link": 23,
+          "type": "AUDIO"
+        },
+        {
+          "localized_name": "bit_depth",
+          "name": "bit_depth",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "bit_depth"
+          }
+        },
+        {
+          "localized_name": "color_space",
+          "name": "color_space",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "color_space"
+          }
+        },
+        {
+          "localized_name": "codec",
+          "name": "codec",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "codec"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "VIDEO",
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            24
+          ]
+        }
+      ],
+      "title": "Ghép video H3 24 fps",
+      "properties": {
+        "Node name for S&R": "CreateVideo"
+      },
+      "widgets_values": [
+        24.0,
+        null,
+        null,
+        null
+      ],
+      "widgets_values_named": {
+        "fps": 24.0,
+        "bit_depth": null,
+        "color_space": null,
+        "codec": null
+      }
+    },
+    {
+      "id": 18,
+      "type": "SaveVideo",
+      "pos": [
+        510,
+        1360
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "video",
+          "name": "video",
+          "link": 24,
+          "type": "VIDEO"
+        },
+        {
+          "localized_name": "filename_prefix",
+          "name": "filename_prefix",
+          "link": null,
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          }
+        },
+        {
+          "localized_name": "format",
+          "name": "format",
+          "link": null,
+          "type": "COMFY_DYNAMICCOMBO_V3"
+        },
+        {
+          "localized_name": "codec",
+          "name": "codec",
+          "link": null,
+          "type": "COMFY_DYNAMICCOMBO_V3"
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "video",
+          "name": "video",
+          "type": "VIDEO",
+          "links": []
+        }
+      ],
+      "title": "Lưu video NEWTECONS MP4 H.264",
+      "properties": {
+        "Node name for S&R": "SaveVideo"
+      },
+      "widgets_values": [
+        "NEWTECONS/H3/LongTake"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "NEWTECONS/H3/LongTake"
+      }
+    },
+    {
+      "id": 19,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        980,
+        1360
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "link": null,
+          "type": "STRING",
+          "widget": {
+            "name": "value"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            2
+          ]
+        }
+      ],
+      "title": "Window 0 prompt = GLOBAL block + window-0 block (engine fills)",
+      "properties": {
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "Photorealistic live-action NEWTECONS corporate footage. Use <Picture 1> as the approved adult character identity and wardrobe reference. Preserve the character's facial identity, age, hair and body proportions. Clothing and protective equipment follow the Wardrobe rule line of this prompt, not the reference photos. Photorealistic live-action footage as if shot on a full-frame cinema camera with a 35mm lens: natural skin texture with visible pores and fine lines, no airbrushing, no plastic or waxy skin, no glossy AI sheen, true-to-life fabric weave, natural hand anatomy with five fingers, realistic motion blur and lighting. Animate the approved scene anchor with natural adult movement, realistic skin and fabric, coherent lighting and camera, and performance timed to the supplied dialogue audio. Keep existing approved logos and lettering unchanged; do not invent or alter them. No cartoon styling or exaggerated facial features."
+      ],
+      "widgets_values_named": {
+        "value": "Photorealistic live-action NEWTECONS corporate footage. Use <Picture 1> as the approved adult character identity and wardrobe reference. Preserve the character's facial identity, age, hair and body proportions. Clothing and protective equipment follow the Wardrobe rule line of this prompt, not the reference photos. Photorealistic live-action footage as if shot on a full-frame cinema camera with a 35mm lens: natural skin texture with visible pores and fine lines, no airbrushing, no plastic or waxy skin, no glossy AI sheen, true-to-life fabric weave, natural hand anatomy with five fingers, realistic motion blur and lighting. Animate the approved scene anchor with natural adult movement, realistic skin and fabric, coherent lighting and camera, and performance timed to the supplied dialogue audio. Keep existing approved logos and lettering unchanged; do not invent or alter them. No cartoon styling or exaggerated facial features."
+      }
+    },
+    {
+      "id": 20,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        1450,
+        1360
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "link": 25,
+          "type": "MODEL"
+        },
+        {
+          "localized_name": "lora_name",
+          "name": "lora_name",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "lora_name"
+          }
+        },
+        {
+          "localized_name": "strength_model",
+          "name": "strength_model",
+          "link": null,
+          "type": "FLOAT",
+          "widget": {
+            "name": "strength_model"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            26
+          ]
+        }
+      ],
+      "title": "LoraLoaderModelOnly",
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "pika_h3_flex_turbo_8step_hd_ref2va.safetensors",
+        1.0
+      ],
+      "widgets_values_named": {
+        "lora_name": "pika_h3_flex_turbo_8step_hd_ref2va.safetensors",
+        "strength_model": 1.0
+      }
+    },
+    {
+      "id": 21,
+      "type": "MiniMaxH3SigmaShift",
+      "pos": [
+        40,
+        1690
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "link": 26,
+          "type": "MODEL"
+        },
+        {
+          "localized_name": "shift_video",
+          "name": "shift_video",
+          "link": null,
+          "type": "FLOAT",
+          "widget": {
+            "name": "shift_video"
+          }
+        },
+        {
+          "localized_name": "shift_audio",
+          "name": "shift_audio",
+          "link": null,
+          "type": "FLOAT",
+          "widget": {
+            "name": "shift_audio"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            27
+          ]
+        }
+      ],
+      "title": "MiniMaxH3SigmaShift",
+      "properties": {
+        "Node name for S&R": "MiniMaxH3SigmaShift"
+      },
+      "widgets_values": [
+        12.0,
+        3.0
+      ],
+      "widgets_values_named": {
+        "shift_video": 12.0,
+        "shift_audio": 3.0
+      }
+    },
+    {
+      "id": 22,
+      "type": "ContextWindowsManual",
+      "pos": [
+        510,
+        1690
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "link": 27,
+          "type": "MODEL"
+        },
+        {
+          "localized_name": "context_length",
+          "name": "context_length",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "context_length"
+          }
+        },
+        {
+          "localized_name": "context_overlap",
+          "name": "context_overlap",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "context_overlap"
+          }
+        },
+        {
+          "localized_name": "context_schedule",
+          "name": "context_schedule",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "context_schedule"
+          }
+        },
+        {
+          "localized_name": "context_stride",
+          "name": "context_stride",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "context_stride"
+          }
+        },
+        {
+          "localized_name": "closed_loop",
+          "name": "closed_loop",
+          "link": null,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "closed_loop"
+          }
+        },
+        {
+          "localized_name": "fuse_method",
+          "name": "fuse_method",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "fuse_method"
+          }
+        },
+        {
+          "localized_name": "dim",
+          "name": "dim",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "dim"
+          }
+        },
+        {
+          "localized_name": "freenoise",
+          "name": "freenoise",
+          "link": null,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "freenoise"
+          }
+        },
+        {
+          "localized_name": "cond_retain_index_list",
+          "name": "cond_retain_index_list",
+          "link": null,
+          "type": "STRING",
+          "widget": {
+            "name": "cond_retain_index_list"
+          }
+        },
+        {
+          "localized_name": "split_conds_to_windows",
+          "name": "split_conds_to_windows",
+          "link": null,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "split_conds_to_windows"
+          }
+        },
+        {
+          "localized_name": "latent_retain_index_list",
+          "name": "latent_retain_index_list",
+          "link": null,
+          "type": "STRING",
+          "widget": {
+            "name": "latent_retain_index_list"
+          }
+        },
+        {
+          "localized_name": "causal_window_fix",
+          "name": "causal_window_fix",
+          "link": null,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "causal_window_fix"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            10,
+            12
+          ]
+        }
+      ],
+      "title": "Context windows (GUESS values: context_length/overlap are in LATENT units, dim=2 assumed time axis; to measure in the UAT)",
+      "properties": {
+        "Node name for S&R": "ContextWindowsManual"
+      },
+      "widgets_values": [
+        24,
+        6,
+        "standard_static",
+        1,
+        false,
+        "pyramid",
+        2,
+        false,
+        "",
+        true,
+        "",
+        true
+      ],
+      "widgets_values_named": {
+        "context_length": 24,
+        "context_overlap": 6,
+        "context_schedule": "standard_static",
+        "context_stride": 1,
+        "closed_loop": false,
+        "fuse_method": "pyramid",
+        "dim": 2,
+        "freenoise": false,
+        "cond_retain_index_list": "",
+        "split_conds_to_windows": true,
+        "latent_retain_index_list": "",
+        "causal_window_fix": true
+      }
+    },
+    {
+      "id": 31,
+      "type": "LoadImage",
+      "pos": [
+        980,
+        1690
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "title": "ref_image_1 body",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "widgets_values_named": {
+        "image": ""
+      }
+    },
+    {
+      "id": 32,
+      "type": "LoadImage",
+      "pos": [
+        1450,
+        1690
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "title": "LoadImage",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "widgets_values_named": {
+        "image": ""
+      }
+    },
+    {
+      "id": 33,
+      "type": "LoadImage",
+      "pos": [
+        40,
+        2020
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "title": "LoadImage",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "widgets_values_named": {
+        "image": ""
+      }
+    },
+    {
+      "id": 34,
+      "type": "LoadImage",
+      "pos": [
+        510,
+        2020
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "title": "LoadImage",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "widgets_values_named": {
+        "image": ""
+      }
+    },
+    {
+      "id": 35,
+      "type": "LoadImage",
+      "pos": [
+        980,
+        2020
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "title": "LoadImage",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "widgets_values_named": {
+        "image": ""
+      }
+    },
+    {
+      "id": 41,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        1450,
+        2020
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "link": null,
+          "type": "STRING",
+          "widget": {
+            "name": "value"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            29
+          ]
+        }
+      ],
+      "title": "Window 1 prompt = GLOBAL block + window-1 block (engine fills; node removed when fewer windows)",
+      "properties": {
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "Photorealistic live-action NEWTECONS corporate footage. Use <Picture 1> as the approved adult character identity and wardrobe reference. Preserve the character's facial identity, age, hair and body proportions. Clothing and protective equipment follow the Wardrobe rule line of this prompt, not the reference photos. Photorealistic live-action footage as if shot on a full-frame cinema camera with a 35mm lens: natural skin texture with visible pores and fine lines, no airbrushing, no plastic or waxy skin, no glossy AI sheen, true-to-life fabric weave, natural hand anatomy with five fingers, realistic motion blur and lighting. Animate the approved scene anchor with natural adult movement, realistic skin and fabric, coherent lighting and camera, and performance timed to the supplied dialogue audio. Keep existing approved logos and lettering unchanged; do not invent or alter them. No cartoon styling or exaggerated facial features."
+      ],
+      "widgets_values_named": {
+        "value": "Photorealistic live-action NEWTECONS corporate footage. Use <Picture 1> as the approved adult character identity and wardrobe reference. Preserve the character's facial identity, age, hair and body proportions. Clothing and protective equipment follow the Wardrobe rule line of this prompt, not the reference photos. Photorealistic live-action footage as if shot on a full-frame cinema camera with a 35mm lens: natural skin texture with visible pores and fine lines, no airbrushing, no plastic or waxy skin, no glossy AI sheen, true-to-life fabric weave, natural hand anatomy with five fingers, realistic motion blur and lighting. Animate the approved scene anchor with natural adult movement, realistic skin and fabric, coherent lighting and camera, and performance timed to the supplied dialogue audio. Keep existing approved logos and lettering unchanged; do not invent or alter them. No cartoon styling or exaggerated facial features."
+      }
+    },
+    {
+      "id": 42,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        40,
+        2350
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "link": null,
+          "type": "STRING",
+          "widget": {
+            "name": "value"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            32
+          ]
+        }
+      ],
+      "title": "Window 2 prompt = GLOBAL block + window-2 block (engine fills; node removed when fewer windows)",
+      "properties": {
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "Photorealistic live-action NEWTECONS corporate footage. Use <Picture 1> as the approved adult character identity and wardrobe reference. Preserve the character's facial identity, age, hair and body proportions. Clothing and protective equipment follow the Wardrobe rule line of this prompt, not the reference photos. Photorealistic live-action footage as if shot on a full-frame cinema camera with a 35mm lens: natural skin texture with visible pores and fine lines, no airbrushing, no plastic or waxy skin, no glossy AI sheen, true-to-life fabric weave, natural hand anatomy with five fingers, realistic motion blur and lighting. Animate the approved scene anchor with natural adult movement, realistic skin and fabric, coherent lighting and camera, and performance timed to the supplied dialogue audio. Keep existing approved logos and lettering unchanged; do not invent or alter them. No cartoon styling or exaggerated facial features."
+      ],
+      "widgets_values_named": {
+        "value": "Photorealistic live-action NEWTECONS corporate footage. Use <Picture 1> as the approved adult character identity and wardrobe reference. Preserve the character's facial identity, age, hair and body proportions. Clothing and protective equipment follow the Wardrobe rule line of this prompt, not the reference photos. Photorealistic live-action footage as if shot on a full-frame cinema camera with a 35mm lens: natural skin texture with visible pores and fine lines, no airbrushing, no plastic or waxy skin, no glossy AI sheen, true-to-life fabric weave, natural hand anatomy with five fingers, realistic motion blur and lighting. Animate the approved scene anchor with natural adult movement, realistic skin and fabric, coherent lighting and camera, and performance timed to the supplied dialogue audio. Keep existing approved logos and lettering unchanged; do not invent or alter them. No cartoon styling or exaggerated facial features."
+      }
+    },
+    {
+      "id": 43,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        510,
+        2350
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "link": null,
+          "type": "STRING",
+          "widget": {
+            "name": "value"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            35
+          ]
+        }
+      ],
+      "title": "Window 3 prompt = GLOBAL block + window-3 block (engine fills; node removed when fewer windows)",
+      "properties": {
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "Photorealistic live-action NEWTECONS corporate footage. Use <Picture 1> as the approved adult character identity and wardrobe reference. Preserve the character's facial identity, age, hair and body proportions. Clothing and protective equipment follow the Wardrobe rule line of this prompt, not the reference photos. Photorealistic live-action footage as if shot on a full-frame cinema camera with a 35mm lens: natural skin texture with visible pores and fine lines, no airbrushing, no plastic or waxy skin, no glossy AI sheen, true-to-life fabric weave, natural hand anatomy with five fingers, realistic motion blur and lighting. Animate the approved scene anchor with natural adult movement, realistic skin and fabric, coherent lighting and camera, and performance timed to the supplied dialogue audio. Keep existing approved logos and lettering unchanged; do not invent or alter them. No cartoon styling or exaggerated facial features."
+      ],
+      "widgets_values_named": {
+        "value": "Photorealistic live-action NEWTECONS corporate footage. Use <Picture 1> as the approved adult character identity and wardrobe reference. Preserve the character's facial identity, age, hair and body proportions. Clothing and protective equipment follow the Wardrobe rule line of this prompt, not the reference photos. Photorealistic live-action footage as if shot on a full-frame cinema camera with a 35mm lens: natural skin texture with visible pores and fine lines, no airbrushing, no plastic or waxy skin, no glossy AI sheen, true-to-life fabric weave, natural hand anatomy with five fingers, realistic motion blur and lighting. Animate the approved scene anchor with natural adult movement, realistic skin and fabric, coherent lighting and camera, and performance timed to the supplied dialogue audio. Keep existing approved logos and lettering unchanged; do not invent or alter them. No cartoon styling or exaggerated facial features."
+      }
+    },
+    {
+      "id": 44,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        980,
+        2350
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "link": null,
+          "type": "STRING",
+          "widget": {
+            "name": "value"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            38
+          ]
+        }
+      ],
+      "title": "Window 4 prompt = GLOBAL block + window-4 block (engine fills; node removed when fewer windows)",
+      "properties": {
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "Photorealistic live-action NEWTECONS corporate footage. Use <Picture 1> as the approved adult character identity and wardrobe reference. Preserve the character's facial identity, age, hair and body proportions. Clothing and protective equipment follow the Wardrobe rule line of this prompt, not the reference photos. Photorealistic live-action footage as if shot on a full-frame cinema camera with a 35mm lens: natural skin texture with visible pores and fine lines, no airbrushing, no plastic or waxy skin, no glossy AI sheen, true-to-life fabric weave, natural hand anatomy with five fingers, realistic motion blur and lighting. Animate the approved scene anchor with natural adult movement, realistic skin and fabric, coherent lighting and camera, and performance timed to the supplied dialogue audio. Keep existing approved logos and lettering unchanged; do not invent or alter them. No cartoon styling or exaggerated facial features."
+      ],
+      "widgets_values_named": {
+        "value": "Photorealistic live-action NEWTECONS corporate footage. Use <Picture 1> as the approved adult character identity and wardrobe reference. Preserve the character's facial identity, age, hair and body proportions. Clothing and protective equipment follow the Wardrobe rule line of this prompt, not the reference photos. Photorealistic live-action footage as if shot on a full-frame cinema camera with a 35mm lens: natural skin texture with visible pores and fine lines, no airbrushing, no plastic or waxy skin, no glossy AI sheen, true-to-life fabric weave, natural hand anatomy with five fingers, realistic motion blur and lighting. Animate the approved scene anchor with natural adult movement, realistic skin and fabric, coherent lighting and camera, and performance timed to the supplied dialogue audio. Keep existing approved logos and lettering unchanged; do not invent or alter them. No cartoon styling or exaggerated facial features."
+      }
+    },
+    {
+      "id": 45,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        1450,
+        2350
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "link": null,
+          "type": "STRING",
+          "widget": {
+            "name": "value"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            41
+          ]
+        }
+      ],
+      "title": "Window 5 prompt = GLOBAL block + window-5 block (engine fills; node removed when fewer windows)",
+      "properties": {
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "Photorealistic live-action NEWTECONS corporate footage. Use <Picture 1> as the approved adult character identity and wardrobe reference. Preserve the character's facial identity, age, hair and body proportions. Clothing and protective equipment follow the Wardrobe rule line of this prompt, not the reference photos. Photorealistic live-action footage as if shot on a full-frame cinema camera with a 35mm lens: natural skin texture with visible pores and fine lines, no airbrushing, no plastic or waxy skin, no glossy AI sheen, true-to-life fabric weave, natural hand anatomy with five fingers, realistic motion blur and lighting. Animate the approved scene anchor with natural adult movement, realistic skin and fabric, coherent lighting and camera, and performance timed to the supplied dialogue audio. Keep existing approved logos and lettering unchanged; do not invent or alter them. No cartoon styling or exaggerated facial features."
+      ],
+      "widgets_values_named": {
+        "value": "Photorealistic live-action NEWTECONS corporate footage. Use <Picture 1> as the approved adult character identity and wardrobe reference. Preserve the character's facial identity, age, hair and body proportions. Clothing and protective equipment follow the Wardrobe rule line of this prompt, not the reference photos. Photorealistic live-action footage as if shot on a full-frame cinema camera with a 35mm lens: natural skin texture with visible pores and fine lines, no airbrushing, no plastic or waxy skin, no glossy AI sheen, true-to-life fabric weave, natural hand anatomy with five fingers, realistic motion blur and lighting. Animate the approved scene anchor with natural adult movement, realistic skin and fabric, coherent lighting and camera, and performance timed to the supplied dialogue audio. Keep existing approved logos and lettering unchanged; do not invent or alter them. No cartoon styling or exaggerated facial features."
+      }
+    },
+    {
+      "id": 46,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        40,
+        2680
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "link": null,
+          "type": "STRING",
+          "widget": {
+            "name": "value"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            44
+          ]
+        }
+      ],
+      "title": "Window 6 prompt = GLOBAL block + window-6 block (engine fills; node removed when fewer windows)",
+      "properties": {
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "Photorealistic live-action NEWTECONS corporate footage. Use <Picture 1> as the approved adult character identity and wardrobe reference. Preserve the character's facial identity, age, hair and body proportions. Clothing and protective equipment follow the Wardrobe rule line of this prompt, not the reference photos. Photorealistic live-action footage as if shot on a full-frame cinema camera with a 35mm lens: natural skin texture with visible pores and fine lines, no airbrushing, no plastic or waxy skin, no glossy AI sheen, true-to-life fabric weave, natural hand anatomy with five fingers, realistic motion blur and lighting. Animate the approved scene anchor with natural adult movement, realistic skin and fabric, coherent lighting and camera, and performance timed to the supplied dialogue audio. Keep existing approved logos and lettering unchanged; do not invent or alter them. No cartoon styling or exaggerated facial features."
+      ],
+      "widgets_values_named": {
+        "value": "Photorealistic live-action NEWTECONS corporate footage. Use <Picture 1> as the approved adult character identity and wardrobe reference. Preserve the character's facial identity, age, hair and body proportions. Clothing and protective equipment follow the Wardrobe rule line of this prompt, not the reference photos. Photorealistic live-action footage as if shot on a full-frame cinema camera with a 35mm lens: natural skin texture with visible pores and fine lines, no airbrushing, no plastic or waxy skin, no glossy AI sheen, true-to-life fabric weave, natural hand anatomy with five fingers, realistic motion blur and lighting. Animate the approved scene anchor with natural adult movement, realistic skin and fabric, coherent lighting and camera, and performance timed to the supplied dialogue audio. Keep existing approved logos and lettering unchanged; do not invent or alter them. No cartoon styling or exaggerated facial features."
+      }
+    },
+    {
+      "id": 47,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        510,
+        2680
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "link": null,
+          "type": "STRING",
+          "widget": {
+            "name": "value"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            47
+          ]
+        }
+      ],
+      "title": "Window 7 prompt = GLOBAL block + window-7 block (engine fills; node removed when fewer windows)",
+      "properties": {
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "Photorealistic live-action NEWTECONS corporate footage. Use <Picture 1> as the approved adult character identity and wardrobe reference. Preserve the character's facial identity, age, hair and body proportions. Clothing and protective equipment follow the Wardrobe rule line of this prompt, not the reference photos. Photorealistic live-action footage as if shot on a full-frame cinema camera with a 35mm lens: natural skin texture with visible pores and fine lines, no airbrushing, no plastic or waxy skin, no glossy AI sheen, true-to-life fabric weave, natural hand anatomy with five fingers, realistic motion blur and lighting. Animate the approved scene anchor with natural adult movement, realistic skin and fabric, coherent lighting and camera, and performance timed to the supplied dialogue audio. Keep existing approved logos and lettering unchanged; do not invent or alter them. No cartoon styling or exaggerated facial features."
+      ],
+      "widgets_values_named": {
+        "value": "Photorealistic live-action NEWTECONS corporate footage. Use <Picture 1> as the approved adult character identity and wardrobe reference. Preserve the character's facial identity, age, hair and body proportions. Clothing and protective equipment follow the Wardrobe rule line of this prompt, not the reference photos. Photorealistic live-action footage as if shot on a full-frame cinema camera with a 35mm lens: natural skin texture with visible pores and fine lines, no airbrushing, no plastic or waxy skin, no glossy AI sheen, true-to-life fabric weave, natural hand anatomy with five fingers, realistic motion blur and lighting. Animate the approved scene anchor with natural adult movement, realistic skin and fabric, coherent lighting and camera, and performance timed to the supplied dialogue audio. Keep existing approved logos and lettering unchanged; do not invent or alter them. No cartoon styling or exaggerated facial features."
+      }
+    },
+    {
+      "id": 51,
+      "type": "MiniMaxH3ReferenceToVideo",
+      "pos": [
+        980,
+        2680
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "link": 28,
+          "type": "CLIP"
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "link": 29,
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          }
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          }
+        },
+        {
+          "localized_name": "length",
+          "name": "length",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "length"
+          }
+        },
+        {
+          "localized_name": "ref_image_size",
+          "name": "ref_image_size",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "ref_image_size"
+          }
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "link": 30,
+          "type": "VAE"
+        },
+        {
+          "localized_name": "audio_vae",
+          "name": "audio_vae",
+          "link": null,
+          "type": "VAE"
+        },
+        {
+          "localized_name": "ref_images",
+          "name": "ref_images",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        },
+        {
+          "localized_name": "ref_videos",
+          "name": "ref_videos",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        },
+        {
+          "localized_name": "ref_video_audios",
+          "name": "ref_video_audios",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        },
+        {
+          "localized_name": "ref_audios",
+          "name": "ref_audios",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            50
+          ]
+        },
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "title": "H3 R2V window 1 (only its conditioning is used; its latent is ignored)",
+      "properties": {
+        "Node name for S&R": "MiniMaxH3ReferenceToVideo"
+      },
+      "widgets_values": [
+        null,
+        1280,
+        704,
+        481,
+        "match"
+      ],
+      "widgets_values_named": {
+        "prompt": null,
+        "width": 1280,
+        "height": 704,
+        "length": 481,
+        "ref_image_size": "match"
+      }
+    },
+    {
+      "id": 52,
+      "type": "MiniMaxH3ReferenceToVideo",
+      "pos": [
+        1450,
+        2680
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "link": 31,
+          "type": "CLIP"
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "link": 32,
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          }
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          }
+        },
+        {
+          "localized_name": "length",
+          "name": "length",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "length"
+          }
+        },
+        {
+          "localized_name": "ref_image_size",
+          "name": "ref_image_size",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "ref_image_size"
+          }
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "link": 33,
+          "type": "VAE"
+        },
+        {
+          "localized_name": "audio_vae",
+          "name": "audio_vae",
+          "link": null,
+          "type": "VAE"
+        },
+        {
+          "localized_name": "ref_images",
+          "name": "ref_images",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        },
+        {
+          "localized_name": "ref_videos",
+          "name": "ref_videos",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        },
+        {
+          "localized_name": "ref_video_audios",
+          "name": "ref_video_audios",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        },
+        {
+          "localized_name": "ref_audios",
+          "name": "ref_audios",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            52
+          ]
+        },
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "title": "H3 R2V window 2 (only its conditioning is used; its latent is ignored)",
+      "properties": {
+        "Node name for S&R": "MiniMaxH3ReferenceToVideo"
+      },
+      "widgets_values": [
+        null,
+        1280,
+        704,
+        481,
+        "match"
+      ],
+      "widgets_values_named": {
+        "prompt": null,
+        "width": 1280,
+        "height": 704,
+        "length": 481,
+        "ref_image_size": "match"
+      }
+    },
+    {
+      "id": 53,
+      "type": "MiniMaxH3ReferenceToVideo",
+      "pos": [
+        40,
+        3010
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "link": 34,
+          "type": "CLIP"
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "link": 35,
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          }
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          }
+        },
+        {
+          "localized_name": "length",
+          "name": "length",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "length"
+          }
+        },
+        {
+          "localized_name": "ref_image_size",
+          "name": "ref_image_size",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "ref_image_size"
+          }
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "link": 36,
+          "type": "VAE"
+        },
+        {
+          "localized_name": "audio_vae",
+          "name": "audio_vae",
+          "link": null,
+          "type": "VAE"
+        },
+        {
+          "localized_name": "ref_images",
+          "name": "ref_images",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        },
+        {
+          "localized_name": "ref_videos",
+          "name": "ref_videos",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        },
+        {
+          "localized_name": "ref_video_audios",
+          "name": "ref_video_audios",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        },
+        {
+          "localized_name": "ref_audios",
+          "name": "ref_audios",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            54
+          ]
+        },
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "title": "H3 R2V window 3 (only its conditioning is used; its latent is ignored)",
+      "properties": {
+        "Node name for S&R": "MiniMaxH3ReferenceToVideo"
+      },
+      "widgets_values": [
+        null,
+        1280,
+        704,
+        481,
+        "match"
+      ],
+      "widgets_values_named": {
+        "prompt": null,
+        "width": 1280,
+        "height": 704,
+        "length": 481,
+        "ref_image_size": "match"
+      }
+    },
+    {
+      "id": 54,
+      "type": "MiniMaxH3ReferenceToVideo",
+      "pos": [
+        510,
+        3010
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "link": 37,
+          "type": "CLIP"
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "link": 38,
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          }
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          }
+        },
+        {
+          "localized_name": "length",
+          "name": "length",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "length"
+          }
+        },
+        {
+          "localized_name": "ref_image_size",
+          "name": "ref_image_size",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "ref_image_size"
+          }
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "link": 39,
+          "type": "VAE"
+        },
+        {
+          "localized_name": "audio_vae",
+          "name": "audio_vae",
+          "link": null,
+          "type": "VAE"
+        },
+        {
+          "localized_name": "ref_images",
+          "name": "ref_images",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        },
+        {
+          "localized_name": "ref_videos",
+          "name": "ref_videos",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        },
+        {
+          "localized_name": "ref_video_audios",
+          "name": "ref_video_audios",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        },
+        {
+          "localized_name": "ref_audios",
+          "name": "ref_audios",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            56
+          ]
+        },
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "title": "H3 R2V window 4 (only its conditioning is used; its latent is ignored)",
+      "properties": {
+        "Node name for S&R": "MiniMaxH3ReferenceToVideo"
+      },
+      "widgets_values": [
+        null,
+        1280,
+        704,
+        481,
+        "match"
+      ],
+      "widgets_values_named": {
+        "prompt": null,
+        "width": 1280,
+        "height": 704,
+        "length": 481,
+        "ref_image_size": "match"
+      }
+    },
+    {
+      "id": 55,
+      "type": "MiniMaxH3ReferenceToVideo",
+      "pos": [
+        980,
+        3010
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 38,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "link": 40,
+          "type": "CLIP"
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "link": 41,
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          }
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          }
+        },
+        {
+          "localized_name": "length",
+          "name": "length",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "length"
+          }
+        },
+        {
+          "localized_name": "ref_image_size",
+          "name": "ref_image_size",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "ref_image_size"
+          }
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "link": 42,
+          "type": "VAE"
+        },
+        {
+          "localized_name": "audio_vae",
+          "name": "audio_vae",
+          "link": null,
+          "type": "VAE"
+        },
+        {
+          "localized_name": "ref_images",
+          "name": "ref_images",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        },
+        {
+          "localized_name": "ref_videos",
+          "name": "ref_videos",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        },
+        {
+          "localized_name": "ref_video_audios",
+          "name": "ref_video_audios",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        },
+        {
+          "localized_name": "ref_audios",
+          "name": "ref_audios",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            58
+          ]
+        },
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "title": "H3 R2V window 5 (only its conditioning is used; its latent is ignored)",
+      "properties": {
+        "Node name for S&R": "MiniMaxH3ReferenceToVideo"
+      },
+      "widgets_values": [
+        null,
+        1280,
+        704,
+        481,
+        "match"
+      ],
+      "widgets_values_named": {
+        "prompt": null,
+        "width": 1280,
+        "height": 704,
+        "length": 481,
+        "ref_image_size": "match"
+      }
+    },
+    {
+      "id": 56,
+      "type": "MiniMaxH3ReferenceToVideo",
+      "pos": [
+        1450,
+        3010
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "link": 43,
+          "type": "CLIP"
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "link": 44,
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          }
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          }
+        },
+        {
+          "localized_name": "length",
+          "name": "length",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "length"
+          }
+        },
+        {
+          "localized_name": "ref_image_size",
+          "name": "ref_image_size",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "ref_image_size"
+          }
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "link": 45,
+          "type": "VAE"
+        },
+        {
+          "localized_name": "audio_vae",
+          "name": "audio_vae",
+          "link": null,
+          "type": "VAE"
+        },
+        {
+          "localized_name": "ref_images",
+          "name": "ref_images",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        },
+        {
+          "localized_name": "ref_videos",
+          "name": "ref_videos",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        },
+        {
+          "localized_name": "ref_video_audios",
+          "name": "ref_video_audios",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        },
+        {
+          "localized_name": "ref_audios",
+          "name": "ref_audios",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            60
+          ]
+        },
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "title": "H3 R2V window 6 (only its conditioning is used; its latent is ignored)",
+      "properties": {
+        "Node name for S&R": "MiniMaxH3ReferenceToVideo"
+      },
+      "widgets_values": [
+        null,
+        1280,
+        704,
+        481,
+        "match"
+      ],
+      "widgets_values_named": {
+        "prompt": null,
+        "width": 1280,
+        "height": 704,
+        "length": 481,
+        "ref_image_size": "match"
+      }
+    },
+    {
+      "id": 57,
+      "type": "MiniMaxH3ReferenceToVideo",
+      "pos": [
+        40,
+        3340
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 40,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "link": 46,
+          "type": "CLIP"
+        },
+        {
+          "localized_name": "prompt",
+          "name": "prompt",
+          "link": 47,
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          }
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          }
+        },
+        {
+          "localized_name": "length",
+          "name": "length",
+          "link": null,
+          "type": "INT",
+          "widget": {
+            "name": "length"
+          }
+        },
+        {
+          "localized_name": "ref_image_size",
+          "name": "ref_image_size",
+          "link": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "ref_image_size"
+          }
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "link": 48,
+          "type": "VAE"
+        },
+        {
+          "localized_name": "audio_vae",
+          "name": "audio_vae",
+          "link": null,
+          "type": "VAE"
+        },
+        {
+          "localized_name": "ref_images",
+          "name": "ref_images",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        },
+        {
+          "localized_name": "ref_videos",
+          "name": "ref_videos",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        },
+        {
+          "localized_name": "ref_video_audios",
+          "name": "ref_video_audios",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        },
+        {
+          "localized_name": "ref_audios",
+          "name": "ref_audios",
+          "link": null,
+          "type": "COMFY_AUTOGROW_V3"
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            62
+          ]
+        },
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "title": "H3 R2V window 7 (only its conditioning is used; its latent is ignored)",
+      "properties": {
+        "Node name for S&R": "MiniMaxH3ReferenceToVideo"
+      },
+      "widgets_values": [
+        null,
+        1280,
+        704,
+        481,
+        "match"
+      ],
+      "widgets_values_named": {
+        "prompt": null,
+        "width": 1280,
+        "height": 704,
+        "length": 481,
+        "ref_image_size": "match"
+      }
+    },
+    {
+      "id": 61,
+      "type": "ConditioningCombine",
+      "pos": [
+        510,
+        3340
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 41,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "conditioning_1",
+          "name": "conditioning_1",
+          "link": 49,
+          "type": "CONDITIONING"
+        },
+        {
+          "localized_name": "conditioning_2",
+          "name": "conditioning_2",
+          "link": 50,
+          "type": "CONDITIONING"
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            51
+          ]
+        }
+      ],
+      "title": "Combine windows 0..1",
+      "properties": {
+        "Node name for S&R": "ConditioningCombine"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 62,
+      "type": "ConditioningCombine",
+      "pos": [
+        980,
+        3340
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 42,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "conditioning_1",
+          "name": "conditioning_1",
+          "link": 51,
+          "type": "CONDITIONING"
+        },
+        {
+          "localized_name": "conditioning_2",
+          "name": "conditioning_2",
+          "link": 52,
+          "type": "CONDITIONING"
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            53
+          ]
+        }
+      ],
+      "title": "Combine windows 0..2",
+      "properties": {
+        "Node name for S&R": "ConditioningCombine"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 63,
+      "type": "ConditioningCombine",
+      "pos": [
+        1450,
+        3340
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 43,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "conditioning_1",
+          "name": "conditioning_1",
+          "link": 53,
+          "type": "CONDITIONING"
+        },
+        {
+          "localized_name": "conditioning_2",
+          "name": "conditioning_2",
+          "link": 54,
+          "type": "CONDITIONING"
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            55
+          ]
+        }
+      ],
+      "title": "Combine windows 0..3",
+      "properties": {
+        "Node name for S&R": "ConditioningCombine"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 64,
+      "type": "ConditioningCombine",
+      "pos": [
+        40,
+        3670
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 44,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "conditioning_1",
+          "name": "conditioning_1",
+          "link": 55,
+          "type": "CONDITIONING"
+        },
+        {
+          "localized_name": "conditioning_2",
+          "name": "conditioning_2",
+          "link": 56,
+          "type": "CONDITIONING"
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            57
+          ]
+        }
+      ],
+      "title": "Combine windows 0..4",
+      "properties": {
+        "Node name for S&R": "ConditioningCombine"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 65,
+      "type": "ConditioningCombine",
+      "pos": [
+        510,
+        3670
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 45,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "conditioning_1",
+          "name": "conditioning_1",
+          "link": 57,
+          "type": "CONDITIONING"
+        },
+        {
+          "localized_name": "conditioning_2",
+          "name": "conditioning_2",
+          "link": 58,
+          "type": "CONDITIONING"
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            59
+          ]
+        }
+      ],
+      "title": "Combine windows 0..5",
+      "properties": {
+        "Node name for S&R": "ConditioningCombine"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 66,
+      "type": "ConditioningCombine",
+      "pos": [
+        980,
+        3670
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 46,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "conditioning_1",
+          "name": "conditioning_1",
+          "link": 59,
+          "type": "CONDITIONING"
+        },
+        {
+          "localized_name": "conditioning_2",
+          "name": "conditioning_2",
+          "link": 60,
+          "type": "CONDITIONING"
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            61
+          ]
+        }
+      ],
+      "title": "Combine windows 0..6",
+      "properties": {
+        "Node name for S&R": "ConditioningCombine"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 67,
+      "type": "ConditioningCombine",
+      "pos": [
+        1450,
+        3670
+      ],
+      "size": [
+        430,
+        150
+      ],
+      "flags": {},
+      "order": 47,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "conditioning_1",
+          "name": "conditioning_1",
+          "link": 61,
+          "type": "CONDITIONING"
+        },
+        {
+          "localized_name": "conditioning_2",
+          "name": "conditioning_2",
+          "link": 62,
+          "type": "CONDITIONING"
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            4
+          ]
+        }
+      ],
+      "title": "Combine windows 0..7",
+      "properties": {
+        "Node name for S&R": "ConditioningCombine"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    }
+  ],
+  "links": [
+    [
+      1,
+      2,
+      0,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      2,
+      19,
+      0,
+      6,
+      1,
+      "STRING"
+    ],
+    [
+      3,
+      3,
+      0,
+      6,
+      2,
+      "VAE"
+    ],
+    [
+      4,
+      67,
+      0,
+      9,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      5,
+      6,
+      1,
+      9,
+      1,
+      "LATENT"
+    ],
+    [
+      6,
+      3,
+      0,
+      9,
+      2,
+      "VAE"
+    ],
+    [
+      7,
+      4,
+      0,
+      9,
+      3,
+      "VAE"
+    ],
+    [
+      8,
+      8,
+      0,
+      9,
+      4,
+      "IMAGE"
+    ],
+    [
+      9,
+      7,
+      0,
+      9,
+      5,
+      "AUDIO"
+    ],
+    [
+      10,
+      22,
+      0,
+      10,
+      0,
+      "MODEL"
+    ],
+    [
+      11,
+      9,
+      0,
+      10,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      12,
+      22,
+      0,
+      13,
+      0,
+      "MODEL"
+    ],
+    [
+      13,
+      11,
+      0,
+      14,
+      0,
+      "NOISE"
+    ],
+    [
+      14,
+      10,
+      0,
+      14,
+      1,
+      "GUIDER"
+    ],
+    [
+      15,
+      12,
+      0,
+      14,
+      2,
+      "SAMPLER"
+    ],
+    [
+      16,
+      13,
+      0,
+      14,
+      3,
+      "SIGMAS"
+    ],
+    [
+      17,
+      6,
+      1,
+      14,
+      4,
+      "LATENT"
+    ],
+    [
+      18,
+      14,
+      0,
+      15,
+      0,
+      "LATENT"
+    ],
+    [
+      19,
+      3,
+      0,
+      15,
+      1,
+      "VAE"
+    ],
+    [
+      20,
+      14,
+      0,
+      16,
+      0,
+      "LATENT"
+    ],
+    [
+      21,
+      4,
+      0,
+      16,
+      1,
+      "VAE"
+    ],
+    [
+      22,
+      15,
+      0,
+      17,
+      0,
+      "IMAGE"
+    ],
+    [
+      23,
+      16,
+      0,
+      17,
+      1,
+      "AUDIO"
+    ],
+    [
+      24,
+      17,
+      0,
+      18,
+      0,
+      "VIDEO"
+    ],
+    [
+      25,
+      1,
+      0,
+      20,
+      0,
+      "MODEL"
+    ],
+    [
+      26,
+      20,
+      0,
+      21,
+      0,
+      "MODEL"
+    ],
+    [
+      27,
+      21,
+      0,
+      22,
+      0,
+      "MODEL"
+    ],
+    [
+      28,
+      2,
+      0,
+      51,
+      0,
+      "CLIP"
+    ],
+    [
+      29,
+      41,
+      0,
+      51,
+      1,
+      "STRING"
+    ],
+    [
+      30,
+      3,
+      0,
+      51,
+      2,
+      "VAE"
+    ],
+    [
+      31,
+      2,
+      0,
+      52,
+      0,
+      "CLIP"
+    ],
+    [
+      32,
+      42,
+      0,
+      52,
+      1,
+      "STRING"
+    ],
+    [
+      33,
+      3,
+      0,
+      52,
+      2,
+      "VAE"
+    ],
+    [
+      34,
+      2,
+      0,
+      53,
+      0,
+      "CLIP"
+    ],
+    [
+      35,
+      43,
+      0,
+      53,
+      1,
+      "STRING"
+    ],
+    [
+      36,
+      3,
+      0,
+      53,
+      2,
+      "VAE"
+    ],
+    [
+      37,
+      2,
+      0,
+      54,
+      0,
+      "CLIP"
+    ],
+    [
+      38,
+      44,
+      0,
+      54,
+      1,
+      "STRING"
+    ],
+    [
+      39,
+      3,
+      0,
+      54,
+      2,
+      "VAE"
+    ],
+    [
+      40,
+      2,
+      0,
+      55,
+      0,
+      "CLIP"
+    ],
+    [
+      41,
+      45,
+      0,
+      55,
+      1,
+      "STRING"
+    ],
+    [
+      42,
+      3,
+      0,
+      55,
+      2,
+      "VAE"
+    ],
+    [
+      43,
+      2,
+      0,
+      56,
+      0,
+      "CLIP"
+    ],
+    [
+      44,
+      46,
+      0,
+      56,
+      1,
+      "STRING"
+    ],
+    [
+      45,
+      3,
+      0,
+      56,
+      2,
+      "VAE"
+    ],
+    [
+      46,
+      2,
+      0,
+      57,
+      0,
+      "CLIP"
+    ],
+    [
+      47,
+      47,
+      0,
+      57,
+      1,
+      "STRING"
+    ],
+    [
+      48,
+      3,
+      0,
+      57,
+      2,
+      "VAE"
+    ],
+    [
+      49,
+      6,
+      0,
+      61,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      50,
+      51,
+      0,
+      61,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      51,
+      61,
+      0,
+      62,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      52,
+      52,
+      0,
+      62,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      53,
+      62,
+      0,
+      63,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      54,
+      53,
+      0,
+      63,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      55,
+      63,
+      0,
+      64,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      56,
+      54,
+      0,
+      64,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      57,
+      64,
+      0,
+      65,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      58,
+      55,
+      0,
+      65,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      59,
+      65,
+      0,
+      66,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      60,
+      56,
+      0,
+      66,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      61,
+      66,
+      0,
+      67,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      62,
+      57,
+      0,
+      67,
+      1,
+      "CONDITIONING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "title": "NEWTECONS Video H3 LongTake v001 - 20s",
+    "graph_sha256": "c4009207d6e3d74b2224dd46fbce6703b730a187a9ff26092d3b73dcb0ed8cdb",
+    "source": "api_to_gui from the (API).api.json copy"
+  },
+  "version": 0.4
+}

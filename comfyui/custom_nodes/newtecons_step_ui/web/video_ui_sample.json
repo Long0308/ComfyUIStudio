@@ -1,0 +1,28 @@
+{
+  "schema": "jjv/video-ui-state/v1",
+  "sample": true,
+  "sample_note": "MẪU GIAO DIỆN — không phải dữ liệu thật. Không có video, ảnh hay prompt thật; mọi trạng thái là giả lập để xem bố cục. Dữ liệu thật do Fable ghi vào data/video/<tập>.json.",
+  "episode": "SAMPLE",
+  "domain": "newtecons_live_action",
+  "fps": 24,
+  "native": { "w": 864, "h": 480 },
+  "export": { "w": 1920, "h": 1080 },
+  "shots": [
+    { "id": "S01_A", "scene": "S01", "size": "Toàn", "angle": "Ngang tầm mắt", "move": "Đứng yên", "seconds": 2.0,
+      "refs": [{ "name": "MẪU ref nhân vật" }], "prompt": "MẪU: prompt minh hoạ bố cục, không dùng để render.", "status": "upscaled_1080" },
+    { "id": "S01_B", "scene": "S01", "size": "Trung", "angle": "Ngang tầm mắt", "move": "Đẩy máy vào", "seconds": 1.4,
+      "refs": [{ "name": "MẪU ref nhân vật" }, { "name": "MẪU ref cảnh" }], "prompt": "MẪU: prompt minh hoạ bố cục, không dùng để render.", "status": "upscaled_1080" },
+    { "id": "S01_C", "scene": "S01", "size": "Cận", "angle": "Góc thấp", "move": "Lia ngang", "seconds": 1.2,
+      "refs": [{ "name": "MẪU ref nhân vật" }], "prompt": "MẪU: prompt minh hoạ bố cục, không dùng để render.", "status": "accepted" },
+    { "id": "S02_A", "scene": "S02", "size": "Trung toàn", "angle": "Góc cao", "move": "Kéo máy ra", "seconds": 1.6,
+      "refs": [{ "name": "MẪU ref nhân vật" }, { "name": "MẪU ref cảnh" }, { "name": "MẪU ref đạo cụ" }], "prompt": "MẪU: prompt minh hoạ bố cục, không dùng để render.", "status": "prompted" },
+    { "id": "S02_B", "scene": "S02", "size": "Cận", "angle": "Ngang tầm mắt", "move": "Đứng yên", "seconds": 1.8,
+      "refs": [{ "name": "MẪU ref nhân vật" }], "status": "planned" },
+    { "id": "S03_A", "scene": "S03", "size": "Toàn", "angle": "Góc cao", "move": "Dolly theo", "seconds": 2.4,
+      "refs": [], "status": "planned" },
+    { "id": "S03_B", "scene": "S03", "size": "Đặc tả", "angle": "Ngang tầm mắt", "move": "Đứng yên", "seconds": 1.0,
+      "refs": [], "status": "planned" },
+    { "id": "S04_A", "scene": "S04", "size": "Trung", "angle": "Qua vai", "move": "Lia dọc", "seconds": 2.2,
+      "refs": [], "status": null }
+  ]
+}

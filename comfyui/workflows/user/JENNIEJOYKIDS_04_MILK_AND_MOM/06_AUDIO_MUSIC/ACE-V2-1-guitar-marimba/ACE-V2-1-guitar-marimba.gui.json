@@ -1,0 +1,869 @@
+{
+ "id": "357202df-0000-4000-8000-03367f312237",
+ "revision": 0,
+ "last_node_id": 10,
+ "last_link_id": 10,
+ "nodes": [
+  {
+   "id": 1,
+   "type": "UNETLoader",
+   "pos": [
+    40,
+    40
+   ],
+   "size": [
+    430,
+    150
+   ],
+   "flags": {},
+   "order": 0,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "unet_name",
+     "name": "unet_name",
+     "type": "COMBO",
+     "widget": {
+      "name": "unet_name"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "weight_dtype",
+     "name": "weight_dtype",
+     "type": "COMBO",
+     "widget": {
+      "name": "weight_dtype"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "MODEL",
+     "name": "MODEL",
+     "type": "MODEL",
+     "links": [
+      3
+     ]
+    }
+   ],
+   "title": "1. ACE-Step 1.5 turbo DiT",
+   "properties": {
+    "Node name for S&R": "UNETLoader"
+   },
+   "widgets_values": [
+    "acestep_v1.5_turbo.safetensors",
+    "default"
+   ],
+   "widgets_values_named": {
+    "unet_name": "acestep_v1.5_turbo.safetensors",
+    "weight_dtype": "default"
+   }
+  },
+  {
+   "id": 2,
+   "type": "DualCLIPLoader",
+   "pos": [
+    510,
+    40
+   ],
+   "size": [
+    430,
+    150
+   ],
+   "flags": {},
+   "order": 1,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "clip_name1",
+     "name": "clip_name1",
+     "type": "COMBO",
+     "widget": {
+      "name": "clip_name1"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "clip_name2",
+     "name": "clip_name2",
+     "type": "COMBO",
+     "widget": {
+      "name": "clip_name2"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "type",
+     "name": "type",
+     "type": "COMBO",
+     "widget": {
+      "name": "type"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "device",
+     "name": "device",
+     "type": "COMBO",
+     "widget": {
+      "name": "device"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "CLIP",
+     "name": "CLIP",
+     "type": "CLIP",
+     "links": [
+      1
+     ]
+    }
+   ],
+   "title": "2. Qwen 0.6B text encoder + 1.7B LM",
+   "properties": {
+    "Node name for S&R": "DualCLIPLoader"
+   },
+   "widgets_values": [
+    "qwen_0.6b_ace15.safetensors",
+    "qwen_1.7b_ace15.safetensors",
+    "ace",
+    "default"
+   ],
+   "widgets_values_named": {
+    "clip_name1": "qwen_0.6b_ace15.safetensors",
+    "clip_name2": "qwen_1.7b_ace15.safetensors",
+    "type": "ace",
+    "device": "default"
+   }
+  },
+  {
+   "id": 3,
+   "type": "VAELoader",
+   "pos": [
+    980,
+    40
+   ],
+   "size": [
+    430,
+    150
+   ],
+   "flags": {},
+   "order": 2,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "vae_name",
+     "name": "vae_name",
+     "type": "COMBO",
+     "widget": {
+      "name": "vae_name"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "VAE",
+     "name": "VAE",
+     "type": "VAE",
+     "links": [
+      9
+     ]
+    }
+   ],
+   "title": "3. ACE 1.5 VAE",
+   "properties": {
+    "Node name for S&R": "VAELoader"
+   },
+   "widgets_values": [
+    "ace_1.5_vae.safetensors"
+   ],
+   "widgets_values_named": {
+    "vae_name": "ace_1.5_vae.safetensors"
+   }
+  },
+  {
+   "id": 4,
+   "type": "TextEncodeAceStepAudio1.5",
+   "pos": [
+    1450,
+    40
+   ],
+   "size": [
+    430,
+    150
+   ],
+   "flags": {},
+   "order": 3,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "clip",
+     "name": "clip",
+     "type": "CLIP",
+     "link": 1
+    },
+    {
+     "localized_name": "tags",
+     "name": "tags",
+     "type": "STRING",
+     "widget": {
+      "name": "tags"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "lyrics",
+     "name": "lyrics",
+     "type": "STRING",
+     "widget": {
+      "name": "lyrics"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "seed",
+     "name": "seed",
+     "type": "INT",
+     "widget": {
+      "name": "seed"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "bpm",
+     "name": "bpm",
+     "type": "INT",
+     "widget": {
+      "name": "bpm"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "duration",
+     "name": "duration",
+     "type": "FLOAT",
+     "widget": {
+      "name": "duration"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "timesignature",
+     "name": "timesignature",
+     "type": "COMBO",
+     "widget": {
+      "name": "timesignature"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "language",
+     "name": "language",
+     "type": "COMBO",
+     "widget": {
+      "name": "language"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "keyscale",
+     "name": "keyscale",
+     "type": "COMBO",
+     "widget": {
+      "name": "keyscale"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "generate_audio_codes",
+     "name": "generate_audio_codes",
+     "type": "BOOLEAN",
+     "widget": {
+      "name": "generate_audio_codes"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "cfg_scale",
+     "name": "cfg_scale",
+     "type": "FLOAT",
+     "widget": {
+      "name": "cfg_scale"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "temperature",
+     "name": "temperature",
+     "type": "FLOAT",
+     "widget": {
+      "name": "temperature"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "top_p",
+     "name": "top_p",
+     "type": "FLOAT",
+     "widget": {
+      "name": "top_p"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "top_k",
+     "name": "top_k",
+     "type": "INT",
+     "widget": {
+      "name": "top_k"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "min_p",
+     "name": "min_p",
+     "type": "FLOAT",
+     "widget": {
+      "name": "min_p"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "CONDITIONING",
+     "name": "CONDITIONING",
+     "type": "CONDITIONING",
+     "links": [
+      2,
+      5
+     ]
+    }
+   ],
+   "title": "4. ACE-Step 1.5 conditioning (instrumental)",
+   "properties": {
+    "Node name for S&R": "TextEncodeAceStepAudio1.5"
+   },
+   "widgets_values": [
+    "instrumental, no vocals, gentle cheerful preschool cartoon background music, warm and bright, playful but calm, steady soft groove, nylon acoustic guitar, marimba, toy xylophone, light bongo and shaker, sunny garden morning, clean mix, no sudden loud hits, no drops",
+    "[Instrumental]",
+    20261201,
+    "fixed",
+    108,
+    120.0,
+    "4",
+    "en",
+    "F major",
+    true,
+    2.0,
+    0.85,
+    0.9,
+    0,
+    0.0
+   ],
+   "widgets_values_named": {
+    "tags": "instrumental, no vocals, gentle cheerful preschool cartoon background music, warm and bright, playful but calm, steady soft groove, nylon acoustic guitar, marimba, toy xylophone, light bongo and shaker, sunny garden morning, clean mix, no sudden loud hits, no drops",
+    "lyrics": "[Instrumental]",
+    "seed": 20261201,
+    "bpm": 108,
+    "duration": 120.0,
+    "timesignature": "4",
+    "language": "en",
+    "keyscale": "F major",
+    "generate_audio_codes": true,
+    "cfg_scale": 2.0,
+    "temperature": 0.85,
+    "top_p": 0.9,
+    "top_k": 0,
+    "min_p": 0.0
+   }
+  },
+  {
+   "id": 5,
+   "type": "ConditioningZeroOut",
+   "pos": [
+    40,
+    370
+   ],
+   "size": [
+    430,
+    150
+   ],
+   "flags": {},
+   "order": 4,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "conditioning",
+     "name": "conditioning",
+     "type": "CONDITIONING",
+     "link": 2
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "CONDITIONING",
+     "name": "CONDITIONING",
+     "type": "CONDITIONING",
+     "links": [
+      6
+     ]
+    }
+   ],
+   "title": "5. Negative = zero",
+   "properties": {
+    "Node name for S&R": "ConditioningZeroOut"
+   },
+   "widgets_values": [],
+   "widgets_values_named": {}
+  },
+  {
+   "id": 6,
+   "type": "EmptyAceStep1.5LatentAudio",
+   "pos": [
+    510,
+    370
+   ],
+   "size": [
+    430,
+    150
+   ],
+   "flags": {},
+   "order": 5,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "seconds",
+     "name": "seconds",
+     "type": "FLOAT",
+     "widget": {
+      "name": "seconds"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "batch_size",
+     "name": "batch_size",
+     "type": "INT",
+     "widget": {
+      "name": "batch_size"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "LATENT",
+     "name": "LATENT",
+     "type": "LATENT",
+     "links": [
+      7
+     ]
+    }
+   ],
+   "title": "6. Empty latent 120 s",
+   "properties": {
+    "Node name for S&R": "EmptyAceStep1.5LatentAudio"
+   },
+   "widgets_values": [
+    120.0,
+    1
+   ],
+   "widgets_values_named": {
+    "seconds": 120.0,
+    "batch_size": 1
+   }
+  },
+  {
+   "id": 7,
+   "type": "ModelSamplingAuraFlow",
+   "pos": [
+    980,
+    370
+   ],
+   "size": [
+    430,
+    150
+   ],
+   "flags": {},
+   "order": 6,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "model",
+     "name": "model",
+     "type": "MODEL",
+     "link": 3
+    },
+    {
+     "localized_name": "shift",
+     "name": "shift",
+     "type": "FLOAT",
+     "widget": {
+      "name": "shift"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "sampling",
+     "name": "sampling",
+     "type": "COMBO",
+     "widget": {
+      "name": "sampling"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "MODEL",
+     "name": "MODEL",
+     "type": "MODEL",
+     "links": [
+      4
+     ]
+    }
+   ],
+   "title": "7. Sampling shift 3",
+   "properties": {
+    "Node name for S&R": "ModelSamplingAuraFlow"
+   },
+   "widgets_values": [
+    3.0,
+    null
+   ],
+   "widgets_values_named": {
+    "shift": 3.0,
+    "sampling": null
+   }
+  },
+  {
+   "id": 8,
+   "type": "KSampler",
+   "pos": [
+    1450,
+    370
+   ],
+   "size": [
+    430,
+    260
+   ],
+   "flags": {},
+   "order": 7,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "model",
+     "name": "model",
+     "type": "MODEL",
+     "link": 4
+    },
+    {
+     "localized_name": "seed",
+     "name": "seed",
+     "type": "INT",
+     "widget": {
+      "name": "seed"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "steps",
+     "name": "steps",
+     "type": "INT",
+     "widget": {
+      "name": "steps"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "cfg",
+     "name": "cfg",
+     "type": "FLOAT",
+     "widget": {
+      "name": "cfg"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "sampler_name",
+     "name": "sampler_name",
+     "type": "COMBO",
+     "widget": {
+      "name": "sampler_name"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "scheduler",
+     "name": "scheduler",
+     "type": "COMBO",
+     "widget": {
+      "name": "scheduler"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "positive",
+     "name": "positive",
+     "type": "CONDITIONING",
+     "link": 5
+    },
+    {
+     "localized_name": "negative",
+     "name": "negative",
+     "type": "CONDITIONING",
+     "link": 6
+    },
+    {
+     "localized_name": "latent_image",
+     "name": "latent_image",
+     "type": "LATENT",
+     "link": 7
+    },
+    {
+     "localized_name": "denoise",
+     "name": "denoise",
+     "type": "FLOAT",
+     "widget": {
+      "name": "denoise"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "LATENT",
+     "name": "LATENT",
+     "type": "LATENT",
+     "links": [
+      8
+     ]
+    }
+   ],
+   "title": "8. KSampler turbo 8 steps",
+   "properties": {
+    "Node name for S&R": "KSampler"
+   },
+   "widgets_values": [
+    20261201,
+    "fixed",
+    8,
+    1.0,
+    "euler",
+    "simple",
+    1.0
+   ],
+   "widgets_values_named": {
+    "seed": 20261201,
+    "steps": 8,
+    "cfg": 1.0,
+    "sampler_name": "euler",
+    "scheduler": "simple",
+    "denoise": 1.0
+   }
+  },
+  {
+   "id": 9,
+   "type": "VAEDecodeAudio",
+   "pos": [
+    40,
+    700
+   ],
+   "size": [
+    430,
+    150
+   ],
+   "flags": {},
+   "order": 8,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "samples",
+     "name": "samples",
+     "type": "LATENT",
+     "link": 8
+    },
+    {
+     "localized_name": "vae",
+     "name": "vae",
+     "type": "VAE",
+     "link": 9
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "AUDIO",
+     "name": "AUDIO",
+     "type": "AUDIO",
+     "links": [
+      10
+     ]
+    }
+   ],
+   "title": "9. VAE decode 48 kHz",
+   "properties": {
+    "Node name for S&R": "VAEDecodeAudio"
+   },
+   "widgets_values": [],
+   "widgets_values_named": {}
+  },
+  {
+   "id": 10,
+   "type": "SaveAudio",
+   "pos": [
+    510,
+    700
+   ],
+   "size": [
+    430,
+    150
+   ],
+   "flags": {},
+   "order": 9,
+   "mode": 0,
+   "inputs": [
+    {
+     "localized_name": "audio",
+     "name": "audio",
+     "type": "AUDIO",
+     "link": 10
+    },
+    {
+     "localized_name": "filename_prefix",
+     "name": "filename_prefix",
+     "type": "STRING",
+     "widget": {
+      "name": "filename_prefix"
+     },
+     "link": null
+    },
+    {
+     "localized_name": "audioUI",
+     "name": "audioUI",
+     "type": "AUDIO_UI",
+     "widget": {
+      "name": "audioUI"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "localized_name": "audio",
+     "name": "audio",
+     "type": "AUDIO",
+     "links": []
+    }
+   ],
+   "title": "10. Save FLAC",
+   "properties": {
+    "Node name for S&R": "SaveAudio"
+   },
+   "widgets_values": [
+    "episodes/04-milk-and-mom/music-yue2-v002/ACE-V2-1-guitar-marimba/ACE-V2-1-guitar-marimba"
+   ],
+   "widgets_values_named": {
+    "filename_prefix": "episodes/04-milk-and-mom/music-yue2-v002/ACE-V2-1-guitar-marimba/ACE-V2-1-guitar-marimba"
+   }
+  }
+ ],
+ "links": [
+  [
+   1,
+   2,
+   0,
+   4,
+   0,
+   "CLIP"
+  ],
+  [
+   2,
+   4,
+   0,
+   5,
+   0,
+   "CONDITIONING"
+  ],
+  [
+   3,
+   1,
+   0,
+   7,
+   0,
+   "MODEL"
+  ],
+  [
+   4,
+   7,
+   0,
+   8,
+   0,
+   "MODEL"
+  ],
+  [
+   5,
+   4,
+   0,
+   8,
+   1,
+   "CONDITIONING"
+  ],
+  [
+   6,
+   5,
+   0,
+   8,
+   2,
+   "CONDITIONING"
+  ],
+  [
+   7,
+   6,
+   0,
+   8,
+   3,
+   "LATENT"
+  ],
+  [
+   8,
+   8,
+   0,
+   9,
+   0,
+   "LATENT"
+  ],
+  [
+   9,
+   3,
+   0,
+   9,
+   1,
+   "VAE"
+  ],
+  [
+   10,
+   9,
+   0,
+   10,
+   0,
+   "AUDIO"
+  ]
+ ],
+ "groups": [],
+ "config": {},
+ "extra": {
+  "title": "Milk and Mom T-A11 ACE-Step 1.5 ACE-V2-1-guitar-marimba",
+  "film_id": "04-milk-and-mom",
+  "task": "T-A11",
+  "status": "CANDIDATE",
+  "api_graph_sha256": "e0c1c75356062ce18e7225ff0b2cfdab90800ea2428306319f58bde9824a525b",
+  "seed": 20261201
+ },
+ "version": 0.4
+}

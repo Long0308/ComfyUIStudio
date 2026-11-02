@@ -1,0 +1,144 @@
+{
+ "1": {
+  "class_type": "CheckpointLoaderSimple",
+  "inputs": {
+   "ckpt_name": "yue2_3b_int8_convrot.safetensors"
+  },
+  "_meta": {
+   "title": "1. YuE2 3B int8 (AIO: LM + DiT + VAE)"
+  }
+ },
+ "2": {
+  "class_type": "YuE2GenerateABC",
+  "inputs": {
+   "clip": [
+    "1",
+    1
+   ],
+   "style": "Epic corporate cinematic construction drama, tense heroic build, modern orchestral trailer texture, heavy concert bass drum, deep low brass, driving staccato low strings, restrained anvil accents, sub-bass pulse, corporate tension with a noble resolve, 96 BPM, D minor, cinematic 4/4, long-form 45-second instrumental background bed, space for Vietnamese dialogue, instrumental only, no vocals, no singing, no choir, no humming, no spoken words, no pop song structure, no cartoon tone, no sudden clipping, clean controlled mix",
+   "lyrics": "[Instrumental]",
+   "seed": 202611111,
+   "mode": "full",
+   "max_abc_tokens": 8192,
+   "temperature": 0.7,
+   "top_p": 0.9,
+   "top_k": 30,
+   "repetition_penalty": 1.005,
+   "penalty_window": 100
+  },
+  "_meta": {
+   "title": "2. ABC score planning (melody + chords)"
+  }
+ },
+ "3": {
+  "class_type": "YuE2GenerateMusic",
+  "inputs": {
+   "clip": [
+    "1",
+    1
+   ],
+   "style": "Epic corporate cinematic construction drama, tense heroic build, modern orchestral trailer texture, heavy concert bass drum, deep low brass, driving staccato low strings, restrained anvil accents, sub-bass pulse, corporate tension with a noble resolve, 96 BPM, D minor, cinematic 4/4, long-form 45-second instrumental background bed, space for Vietnamese dialogue, instrumental only, no vocals, no singing, no choir, no humming, no spoken words, no pop song structure, no cartoon tone, no sudden clipping, clean controlled mix",
+   "lyrics": "[Instrumental]",
+   "abc": [
+    "2",
+    0
+   ],
+   "seed": 202611111,
+   "mode": "full",
+   "max_duration": 120.0,
+   "temperature": 1.0,
+   "top_p": 0.95,
+   "top_k": 100,
+   "repetition_penalty": 1.2
+  },
+  "_meta": {
+   "title": "3. Semantic tokens + acoustic conditioning"
+  }
+ },
+ "4": {
+  "class_type": "ConditioningZeroOut",
+  "inputs": {
+   "conditioning": [
+    "3",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "4. Negative = zero"
+  }
+ },
+ "5": {
+  "class_type": "EmptyYuE2LatentAudio",
+  "inputs": {
+   "seconds": [
+    "3",
+    1
+   ],
+   "batch_size": 1
+  },
+  "_meta": {
+   "title": "5. Latent length = generated seconds"
+  }
+ },
+ "6": {
+  "class_type": "KSampler",
+  "inputs": {
+   "model": [
+    "1",
+    0
+   ],
+   "seed": 202611111,
+   "steps": 32,
+   "cfg": 1.0,
+   "sampler_name": "dpm_2",
+   "scheduler": "sgm_uniform",
+   "positive": [
+    "3",
+    0
+   ],
+   "negative": [
+    "4",
+    0
+   ],
+   "latent_image": [
+    "5",
+    0
+   ],
+   "denoise": 1.0
+  },
+  "_meta": {
+   "title": "6. Flow-matching DiT sampler"
+  }
+ },
+ "7": {
+  "class_type": "VAEDecodeAudioTiled",
+  "inputs": {
+   "samples": [
+    "6",
+    0
+   ],
+   "vae": [
+    "1",
+    2
+   ],
+   "tile_size": 512,
+   "overlap": 64
+  },
+  "_meta": {
+   "title": "7. VAE decode (tiled, 48 kHz stereo)"
+  }
+ },
+ "8": {
+  "class_type": "SaveAudio",
+  "inputs": {
+   "audio": [
+    "7",
+    0
+   ],
+   "filename_prefix": "NEWTECONS/audio-pilot-v001/music/PILOT-music-A-take1"
+  },
+  "_meta": {
+   "title": "8. Save FLAC"
+  }
+ }
+}

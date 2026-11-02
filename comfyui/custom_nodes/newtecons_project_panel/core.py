@@ -1,0 +1,417 @@
+"""CPU-only parsing, confinement and domain checks; no ComfyUI imports."""
+from __future__ import annotations
+
+import csv
+import hashlib
+import io
+import json
+import logging
+import math
+import os
+from pathlib import Path
+import re
+import struct
+import zipfile
+
+DEFAULT_ROOT = r"J:\1.JennieHomeSchool\03 Voice\production-local\JennieJoyKids-Story"
+DOMAINS = ("newtecons_live_action", "jenniejoy_cartoon_3d")
+STYLES = ("Live-action photoreal", "3D cartoon")
+MODES = ("One shot", "Auto: missing shots")
+ASPECTS = ("16:9", "9:16", "1:1", "4:3", "3:4")
+SIZES = ("Native 768p", "704p", "480p")
+OUTPUTS = ("1080p", "1440p")
+IMAGE_EXTS = {".png", ".jpg", ".jpeg", ".webp"}
+SAFE_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.-]{0,95}$")
+MAX_BYTES = 16 * 1024 * 1024
+MAX_ROWS = 10000
+
+
+CONTAINER_ROOT = "/mnt/project-root"  # proposed read-only mount of production-local/JennieJoyKids-Story
+ENV_ROOT = "NEWTECONS_PANEL_PROJECT_ROOT"
+
+
+class ProjectRootError(ValueError):
+    """Carries the real reason (shown to the operator; contains only configured paths, never user input)."""
+
+
+def project_root():
+    """Order: env override (admin's Docker mount mapping) -> host default -> container mount.
+
+    Raises ProjectRootError naming the path tried when nothing is mounted.
+    """
+    env = os.environ.get(ENV_ROOT, "").strip()
+    candidates = [env] if env else [DEFAULT_ROOT, CONTAINER_ROOT]
+    for raw in candidates:
+        try:
+            path = Path(raw).resolve(strict=True)
+        except OSError:
+            continue
+        if path.is_dir():
+            return path
+    tried = env if env else " | ".join(candidates)
+    raise ProjectRootError(f"project root not mounted: {tried}; set {ENV_ROOT}")
+
+
+def confined(value, root, *, kind=None):
+    root = Path(root).resolve(strict=True)
+    raw = str(value).strip()
+    if not raw or "\x00" in raw or "://" in raw:
+        raise ValueError("Choose an existing project path")
+    path = Path(raw)
+    if not path.is_absolute():
+        # Windows drive/UNC paths cannot be interpreted as Linux-relative names.
+        if re.match(r"^[A-Za-z]:", raw) or raw.startswith(("\\\\", "//")):
+            raise ValueError("Use the server's project mount path")
+        path = root / path
+    resolved = path.resolve(strict=True)
+    if not resolved.is_relative_to(root):
+        raise ValueError("Path is outside the project root")
+    if kind == "file" and not resolved.is_file():
+        raise ValueError("Expected a file")
+    if kind == "dir" and not resolved.is_dir():
+        raise ValueError("Expected a folder")
+    return resolved
+
+
+def sha256(path):
+    with Path(path).open("rb") as stream:
+        return hashlib.file_digest(stream, "sha256").hexdigest()
+
+
+def digest(value):
+    return hashlib.sha256(json.dumps(value, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode()).hexdigest()
+
+
+def context_hash(prompt):
+    graph = json.loads(json.dumps(prompt))
+    for node in graph.values():
+        node.pop("_meta", None)
+        if node.get("class_type") == "NewteconsProjectPanel":
+            for key in ("run_mode", "scene", "shot", "auto_shot", "auto_render_key"):
+                node.get("inputs", {}).pop(key, None)
+    # ComfyUI converts JSON integers to FLOAT inputs before execution. Hash IEEE-754
+    # bytes on BOTH sides, avoiding 4 vs 4.0 and Python/JS exponent-format differences.
+    def canonical(value):
+        if isinstance(value, (int, float)) and not isinstance(value, bool):
+            number = float(value)
+            if not math.isfinite(number):
+                raise ValueError("Graph contains a non-finite number")
+            return "n" + struct.pack(">d", number if number else 0.0).hex()
+        if isinstance(value, list):
+            return "[" + ",".join(canonical(x) for x in value) + "]"
+        if isinstance(value, dict):
+            return "{" + ",".join(json.dumps(key, ensure_ascii=False) + ":" + canonical(value[key])
+                                   for key in sorted(value)) + "}"
+        return json.dumps(value, ensure_ascii=False, separators=(",", ":"))
+    return hashlib.sha256(canonical(graph).encode("utf-8")).hexdigest()
+
+
+def episode_domain(path, root):
+    """Use explicit episode metadata, never 'JennieJoyKids-Story' in the shared root."""
+    root = Path(root).resolve(strict=True)
+    path = confined(path, root)
+    parts = path.relative_to(root).parts
+    if not parts:
+        raise ValueError("Select an episode folder, not the shared project root")
+    episode = confined(root / parts[0], root, kind="dir")
+    declarations = []
+    for rel in ("project-panel.json", "episode.json", "engine/episode.json"):
+        candidate = episode / rel
+        if candidate.exists():
+            marker = confined(candidate, root, kind="file")
+            if marker.stat().st_size > 1024 * 1024:
+                raise ValueError("Domain manifest too large")
+            domain = json.loads(marker.read_text(encoding="utf-8-sig")).get("domain")
+            if domain not in DOMAINS:
+                raise ValueError(f"Missing or invalid domain in {rel}")
+            declarations.append(domain)
+    if not declarations or len(set(declarations)) != 1:
+        raise ValueError("Episode needs consistent explicit domain metadata (project-panel.json)")
+    return declarations[0]
+
+
+def guard_domain(domain, paths, root, style=None):
+    if domain not in DOMAINS:
+        raise ValueError("Unknown domain")
+    expected = STYLES[DOMAINS.index(domain)]
+    if style is not None and style != expected:
+        raise ValueError(f"{domain} requires style {expected}")
+    for path in paths:
+        if episode_domain(path, root) != domain:
+            raise ValueError(f"Cross-domain asset refused: {Path(path).name}")
+
+
+def parse_refs(value):
+    if value is None or not str(value).strip():
+        return []
+    text = str(value).strip()
+    if text.startswith("["):
+        refs = json.loads(text)
+        if not isinstance(refs, list) or not all(isinstance(x, str) and x.strip() for x in refs):
+            raise ValueError("refs must be a JSON string array")
+        return [x.strip() for x in refs]
+    return [x.strip() for x in text.split(";") if x.strip()]
+
+
+def parse_shotlist(path):
+    path = Path(path)
+    if path.stat().st_size > MAX_BYTES:
+        raise ValueError("Shotlist exceeds 16 MiB")
+    suffix = path.suffix.lower()
+    if suffix == ".csv":
+        text = path.read_text(encoding="utf-8-sig")
+        reader = csv.reader(io.StringIO(text, newline=""))
+        rows = reader
+        close = lambda: None
+    elif suffix == ".xlsx":
+        # Bound ZIP expansion before openpyxl parses XML.
+        with zipfile.ZipFile(path) as archive:
+            if sum(x.file_size for x in archive.infolist()) > 64 * 1024 * 1024:
+                raise ValueError("Expanded workbook exceeds 64 MiB")
+        from openpyxl import load_workbook
+        book = load_workbook(path, read_only=True, data_only=False, keep_links=False)
+        rows = book.active.iter_rows(values_only=True)
+        close = book.close
+    else:
+        raise ValueError("Shotlist must be .xlsx or .csv")
+    try:
+        headers = next(rows, None)
+        if headers is None:
+            raise ValueError("Empty shotlist")
+        headers = [str(x or "").strip().lower() for x in headers]
+        required = {"scene", "shot", "duration", "prompt", "refs"}
+        if len(set(headers)) != len(headers) or not required.issubset(headers):
+            raise ValueError("Unique headers required: scene, shot, duration, prompt, refs")
+        shots, seen = [], set()
+        for number, values in enumerate(rows, 2):
+            if number > MAX_ROWS + 1:
+                raise ValueError("Too many shotlist rows")
+            if all(x is None or str(x).strip() == "" for x in values):
+                continue
+            item = dict(zip(headers, values))
+            if any(isinstance(x, str) and x.startswith("=") for x in values):
+                raise ValueError(f"Row {number}: formulas are not accepted")
+            scene, shot = (str(item.get(k) or "").strip() for k in ("scene", "shot"))
+            if not SAFE_ID.fullmatch(scene) or not SAFE_ID.fullmatch(shot):
+                raise ValueError(f"Row {number}: scene/shot must be safe IDs")
+            # Shot IDs are globally unique to avoid completion/file name collisions.
+            if shot in seen:
+                raise ValueError(f"Row {number}: duplicate shot ID {shot}")
+            seen.add(shot)
+            try:
+                duration = float(item.get("duration", ""))
+            except (TypeError, ValueError) as exc:
+                raise ValueError(f"Row {number}: invalid duration") from exc
+            if not math.isfinite(duration) or not 0 < duration <= 150:
+                raise ValueError(f"Row {number}: duration must be finite and in (0, 150]")
+            prompt = str(item.get("prompt") or "").strip()
+            if not prompt:
+                raise ValueError(f"Row {number}: prompt is required")
+            refs = parse_refs(item.get("refs"))
+            if len(refs) > 9:
+                raise ValueError("H3 accepts at most nine reference images")
+            shots.append({"scene": scene, "shot": shot, "duration": duration,
+                          "prompt": prompt, "refs": refs,
+                          "guide": str(item.get("guide") or "").strip()})
+        if not shots:
+            raise ValueError("Shotlist has no shots")
+        return shots
+    finally:
+        close()
+
+
+def load_shots(shotlist, domain, root):
+    path = confined(shotlist, root, kind="file")
+    guard_domain(domain, [path], root)
+    return path, parse_shotlist(path)
+
+
+def dimensions(aspect, generation_size, output_resolution):
+    if aspect not in ASPECTS or generation_size not in SIZES or output_resolution not in OUTPUTS:
+        raise ValueError("Unsupported dimensions preset")
+    a, b = map(int, aspect.split(":"))
+    short = {"Native 768p": 768, "704p": 704, "480p": 480}[generation_size]
+    # H3 uses a 32-pixel spatial grid. The requested aspect is approximate at H3 size.
+    if aspect in ("16:9", "9:16"):
+        # Match the local native H3 / existing S02 presets rather than rounding 16/9 independently.
+        width, height = {768: (1344, 768), 704: (1280, 704), 480: (864, 480)}[short]
+        if aspect == "9:16":
+            width, height = height, width
+    else:
+        width = round(short * a / min(a, b) / 32) * 32
+        height = round(short * b / min(a, b) / 32) * 32
+    out_short = {"1080p": 1080, "1440p": 1440}[output_resolution]
+    ow = round(out_short * a / min(a, b) / 2) * 2
+    oh = round(out_short * b / min(a, b) / 2) * 2
+    return width, height, ow, oh
+
+
+def stage_image(source, input_dir, domain, shot):
+    if domain not in DOMAINS or not SAFE_ID.fullmatch(shot):
+        raise ValueError("Unsafe staging identifiers")
+    source = Path(source)
+    if source.suffix.lower() not in IMAGE_EXTS or source.stat().st_size > 128 * 1024 * 1024:
+        raise ValueError("Reference must be a PNG/JPEG/WebP image under 128 MiB")
+    from PIL import Image
+    with Image.open(source) as img:
+        img.verify()
+    source_sha = sha256(source)
+    basename = re.sub(r"[^A-Za-z0-9_.-]", "_", source.name)[-100:]
+    name = f"{domain}__{shot}__{source_sha[:12]}__{basename}"
+    input_dir = Path(input_dir).resolve(strict=True)
+    target = input_dir / name
+    if target.is_symlink() or (target.exists() and not target.resolve().is_relative_to(input_dir)):
+        raise ValueError("Staging destination must not be a symlink")
+    if target.exists():
+        if sha256(target) != source_sha:
+            raise ValueError("Staged image hash collision; existing file preserved")
+    else:
+        # Exclusive creation never overwrites existing historical input files.
+        try:
+            with source.open("rb") as src, target.open("xb") as dst:
+                while block := src.read(1024 * 1024):
+                    dst.write(block)
+            if sha256(target) != source_sha:
+                raise ValueError("Source changed while staging")
+        except Exception:
+            # Keep partial files visible for diagnosis; next run refuses a mismatch.
+            raise
+    return {"source": str(source), "source_sha256": source_sha,
+            "filename": name, "sha256": source_sha}
+
+
+def rendered(output_dir, key):
+    marker = Path(output_dir) / "newtecons-panel" / f"{key}.json"
+    if not marker.is_file():
+        return False
+    try:
+        marker = confined(marker, output_dir, kind="file")
+        if marker.stat().st_size > 1024 * 1024:
+            raise ValueError("Oversized completion marker")
+        data = json.loads(marker.read_text(encoding="utf-8"))
+        output = confined(data["output"], output_dir, kind="file")
+        return data.get("render_key") == key and sha256(output) == data.get("sha256")
+    except (ValueError, OSError, KeyError, TypeError):
+        logging.getLogger(__name__).warning("Panel completion %s is stale/invalid; scheduling a new render", key)
+        return False
+
+
+def prepare(*, root, input_dir, output_dir, domain, script_path, shotlist_path,
+            asset_folder, run_mode, scene, shot, aspect, generation_size,
+            output_resolution, style, no_image_mode, min_duration, panel_id="", stage=True,
+            render_context_sha256="", auto_shot="", auto_render_key="", report=False):
+    """Select a shot or scan technical completions without staging any files.
+
+    Auto snapshots bind a shot AND its content key. Never silently select a later
+    missing shot when an earlier job finishes while this prompt waits in queue.
+    """
+    if bool(auto_shot) != bool(auto_render_key):
+        raise ValueError("Auto snapshot requires both shot and render key")
+    if auto_shot and (not SAFE_ID.fullmatch(auto_shot) or
+                      not re.fullmatch(r"[a-f0-9]{64}", auto_render_key)):
+        raise ValueError("Invalid Auto snapshot binding")
+    if report and (stage or auto_shot):
+        raise ValueError("Missing-shot report requires stage=False and no snapshot binding")
+    if run_mode not in MODES or no_image_mode not in ("T2V", "I2V"):
+        raise ValueError("Invalid run mode or missing-image policy")
+    if not math.isfinite(float(min_duration)) or not 0 < float(min_duration) <= 150:
+        raise ValueError("Minimum duration must be in (0, 150]")
+    script = confined(script_path, root, kind="file")
+    if script.suffix.lower() not in (".docx", ".txt"):
+        raise ValueError("Script must be .docx or .txt")
+    assets = confined(asset_folder, root, kind="dir")
+    shotlist, rows = load_shots(shotlist_path, domain, root)
+    guard_domain(domain, [script, assets], root, style)
+    width, height, ow, oh = dimensions(aspect, generation_size, output_resolution)
+    settings = {"domain": domain, "script_sha256": sha256(script),
+                "shotlist_sha256": sha256(shotlist), "asset_folder": str(assets),
+                "style": style, "aspect": aspect, "generation_size": generation_size,
+                "output_resolution": output_resolution, "no_image_mode": no_image_mode,
+                "min_duration": float(min_duration), "fps": 24,
+                "render_context_sha256": render_context_sha256}
+    candidates = rows if scene == "ALL" else [x for x in rows if x["scene"] == scene]
+    if run_mode == "One shot":
+        candidates = [x for x in candidates if x["shot"] == shot]
+    if auto_shot:
+        candidates = [x for x in candidates if x["shot"] == auto_shot]
+    if not candidates:
+        raise ValueError("Selected scene/shot is absent from the shotlist")
+    progress = []
+    for item in candidates:
+        sources = [confined(x if Path(x).is_absolute() else assets / x, root, kind="file")
+                   for x in item["refs"]]
+        guide_value = item.get("guide")
+        guide_sources = [confined(guide_value if Path(guide_value).is_absolute() else assets / guide_value,
+                                  root, kind="file")] if guide_value else []
+        guard_domain(domain, sources + guide_sources, root)
+        refs = [{"source": str(p), "source_sha256": sha256(p)} for p in sources + guide_sources]
+        key = digest({"settings": settings, "shot": item, "refs": refs})
+        if auto_render_key and key != auto_render_key:
+            raise ValueError("Auto snapshot inputs changed; restart Auto to refresh the shot")
+        complete = rendered(output_dir, key) if report or run_mode == MODES[1] else False
+        if complete and auto_shot:
+            raise ValueError("AUTO_ALREADY_RENDERED: bound shot has a hash-verified render")
+        if report:
+            progress.append({"scene": item["scene"], "shot": item["shot"],
+                             "render_key": key, "rendered": complete})
+        if complete and not auto_shot:
+            continue
+        if not sources and not guide_sources and no_image_mode == "I2V":
+            raise ValueError(f"{item['shot']}: I2V requires an image; choose T2V or supply refs")
+        duration = max(item["duration"], float(min_duration))
+        requested_frames = math.ceil(duration * 24)
+        frames = max(5, requested_frames)
+        frames += (5 - frames) % 17
+        if frames > 3600:
+            raise ValueError("Duration exceeds H3's 3600-frame limit after alignment")
+        if report:
+            continue
+        staged = [stage_image(p, input_dir, domain, item["shot"]) for p in sources] if stage else refs
+        guide = [stage_image(p, input_dir, domain, item["shot"]) for p in guide_sources] if stage else []
+        if stage and [x["source_sha256"] for x in staged + guide] != [x["source_sha256"] for x in refs]:
+            raise ValueError("Source changed after Auto snapshot validation")
+        return {"schema": "newtecons/project-panel/v1", "domain": domain,
+                "panel_id": str(panel_id), "run_mode": run_mode,
+                "scene": item["scene"], "shot": item["shot"], "render_key": key,
+                "settings": settings, "script_path": str(script), "shotlist_path": str(shotlist),
+                "prompt": f"{style}. {item['prompt']}", "refs": staged, "guide": guide,
+                "duration": duration, "actual_duration": frames / 24, "frames": frames,
+                "width": width, "height": height, "fps": 24,
+                "output_width": ow, "output_height": oh,
+                "image_mode": "I2V" if sources or guide_sources else "T2V",
+                "technical_render_only": True, "approved": False}
+    if report:
+        missing = [item for item in progress if not item["rendered"]]
+        first = missing[0] if missing else {}
+        return {"pending": bool(missing), "shot": first.get("shot"),
+                "scene": first.get("scene"), "render_key": first.get("render_key"),
+                "missing": len(missing), "total": len(progress),
+                "completed": len(progress) - len(missing), "shots": progress,
+                "technical_render_only": True, "approved": False}
+    return None
+
+
+def missing_shots(**values):
+    """CPU-only inventory. A valid receipt is a render record, never approval."""
+    return prepare(**{**values, "stage": False, "report": True})
+
+
+def browse(path, root, kind):
+    filters = {"script": {".docx", ".txt"}, "shotlist": {".xlsx", ".csv"}, "folder": set()}
+    if kind not in filters:
+        raise ValueError("Invalid browser kind")
+    here = confined(path or str(root), root, kind="dir")
+    entries = []
+    for child in sorted(here.iterdir(), key=lambda x: (not x.is_dir(), x.name.casefold())):
+        if child.name.startswith("."):
+            continue
+        try:
+            child = confined(child, root)
+        except (ValueError, OSError):
+            continue
+        if child.is_dir() or (kind != "folder" and child.suffix.lower() in filters[kind]):
+            entries.append({"name": child.name, "path": str(child), "directory": child.is_dir()})
+        if len(entries) >= 2000:
+            raise ValueError("Too many entries; choose a narrower folder")
+    return {"path": str(here), "parent": None if here == Path(root) else str(here.parent),
+            "entries": entries}
