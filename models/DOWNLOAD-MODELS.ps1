@@ -16,11 +16,12 @@
 [CmdletBinding(SupportsShouldProcess = $true)]
 param(
     [Parameter(Mandatory = $true)][string]$BaseDir,
-    [string]$Manifest = (Join-Path $PSScriptRoot "model-manifest.csv"),
+    [string]$Manifest = "",
     [string[]]$Only = @(),
     [switch]$SkipHash
 )
 $ErrorActionPreference = "Stop"
+if (-not $Manifest) { $Manifest = Join-Path $PSScriptRoot "model-manifest.csv" }
 if (-not (Test-Path -LiteralPath $Manifest)) { throw "Khong thay manifest: $Manifest" }
 $rows = Import-Csv -LiteralPath $Manifest -Encoding UTF8
 $ok = 0; $skip = 0; $fail = 0

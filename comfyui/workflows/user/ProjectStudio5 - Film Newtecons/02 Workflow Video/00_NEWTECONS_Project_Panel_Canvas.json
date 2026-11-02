@@ -1,0 +1,1188 @@
+{
+  "version": 0.4,
+  "last_node_id": 100,
+  "last_link_id": 33,
+  "nodes": [
+    {
+      "id": 100,
+      "type": "NewteconsProjectPanel",
+      "title": "NEWTECONS Project Panel",
+      "pos": [
+        -520,
+        0
+      ],
+      "size": [
+        460,
+        990
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            3
+          ]
+        },
+        {
+          "name": "ref_image_paths_json",
+          "type": "STRING",
+          "links": [
+            4
+          ]
+        },
+        {
+          "name": "duration_s",
+          "type": "FLOAT",
+          "links": []
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            5
+          ]
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            6
+          ]
+        },
+        {
+          "name": "fps",
+          "type": "FLOAT",
+          "links": [
+            30
+          ]
+        },
+        {
+          "name": "length",
+          "type": "INT",
+          "links": [
+            7
+          ]
+        },
+        {
+          "name": "receipt_json",
+          "type": "STRING",
+          "links": [
+            33
+          ]
+        },
+        {
+          "name": "output_width",
+          "type": "INT",
+          "links": []
+        },
+        {
+          "name": "output_height",
+          "type": "INT",
+          "links": []
+        },
+        {
+          "name": "guide_image_paths_json",
+          "type": "STRING",
+          "links": [
+            8
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "NewteconsProjectPanel"
+      },
+      "widgets_values": [
+        "newtecons_live_action",
+        "Newtecons-TienDo-KichTinh-30s/panel-example/script.txt",
+        "Newtecons-TienDo-KichTinh-30s/panel-example/shots.csv",
+        "Newtecons-TienDo-KichTinh-30s/panel-example/assets",
+        "One shot",
+        "SCENE_02",
+        "S02_A",
+        "16:9",
+        "704p",
+        "1440p",
+        "Live-action photoreal",
+        "I2V",
+        4.0
+      ]
+    },
+    {
+      "id": 1,
+      "type": "UNETLoader",
+      "title": "UNETLoader",
+      "pos": [
+        0,
+        0
+      ],
+      "size": [
+        430,
+        190
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            15
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "default"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "CLIPLoader",
+      "title": "CLIPLoader",
+      "pos": [
+        470,
+        0
+      ],
+      "size": [
+        430,
+        190
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "minimax",
+        "default"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "VAELoader",
+      "title": "VAELoader",
+      "pos": [
+        940,
+        0
+      ],
+      "size": [
+        430,
+        190
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            2,
+            11,
+            26
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "minimax_h3_video_vae_int8_convrot.safetensors"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "VAELoader",
+      "title": "VAELoader",
+      "pos": [
+        0,
+        230
+      ],
+      "size": [
+        430,
+        190
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            12,
+            28
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "minimax_h3_audio_vae_fp32.safetensors"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "NewteconsPanelH3",
+      "title": "NewteconsPanelH3",
+      "pos": [
+        470,
+        230
+      ],
+      "size": [
+        430,
+        190
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 1
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 2
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "link": 3
+        },
+        {
+          "name": "ref_image_paths_json",
+          "type": "STRING",
+          "link": 4
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 5
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 6
+        },
+        {
+          "name": "length",
+          "type": "INT",
+          "link": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            9
+          ]
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            10,
+            24
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "NewteconsPanelH3"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 7,
+      "type": "LoadAudio",
+      "title": "LoadAudio",
+      "pos": [
+        940,
+        230
+      ],
+      "size": [
+        430,
+        190
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            14
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadAudio"
+      },
+      "widgets_values": [
+        "h3-cafa894f56bf884f614864d1bf2a62ea66d57ccf64ef99344bd9d7c5ea1edb76.wav",
+        ""
+      ]
+    },
+    {
+      "id": 8,
+      "type": "NewteconsPanelReference",
+      "title": "NewteconsPanelReference",
+      "pos": [
+        0,
+        460
+      ],
+      "size": [
+        430,
+        190
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "ref_image_paths_json",
+          "type": "STRING",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            13
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "NewteconsPanelReference"
+      },
+      "widgets_values": [
+        0
+      ]
+    },
+    {
+      "id": 9,
+      "type": "MiniMaxH3AddGuide",
+      "title": "MiniMaxH3AddGuide",
+      "pos": [
+        470,
+        460
+      ],
+      "size": [
+        430,
+        190
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 9
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "link": 10
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 11
+        },
+        {
+          "name": "audio_vae",
+          "type": "VAE",
+          "link": 12
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 13
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 14
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            18
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3AddGuide"
+      },
+      "widgets_values": [
+        0
+      ]
+    },
+    {
+      "id": 20,
+      "type": "LoraLoaderModelOnly",
+      "title": "LoraLoaderModelOnly",
+      "pos": [
+        940,
+        460
+      ],
+      "size": [
+        430,
+        190
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 15
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            16
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "pika_h3_flex_turbo_8step_hd_ref2va.safetensors",
+        1.0
+      ]
+    },
+    {
+      "id": 21,
+      "type": "MiniMaxH3SigmaShift",
+      "title": "MiniMaxH3SigmaShift",
+      "pos": [
+        0,
+        690
+      ],
+      "size": [
+        430,
+        190
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 16
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            17,
+            19
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3SigmaShift"
+      },
+      "widgets_values": [
+        12.0,
+        3.0
+      ]
+    },
+    {
+      "id": 10,
+      "type": "BasicGuider",
+      "title": "BasicGuider",
+      "pos": [
+        470,
+        690
+      ],
+      "size": [
+        430,
+        190
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 17
+        },
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 18
+        }
+      ],
+      "outputs": [
+        {
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "links": [
+            21
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicGuider"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 11,
+      "type": "RandomNoise",
+      "title": "RandomNoise",
+      "pos": [
+        940,
+        690
+      ],
+      "size": [
+        430,
+        190
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            20
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RandomNoise"
+      },
+      "widgets_values": [
+        20261030,
+        "fixed"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "KSamplerSelect",
+      "title": "KSamplerSelect",
+      "pos": [
+        0,
+        920
+      ],
+      "size": [
+        430,
+        190
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            22
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "res_multistep"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "BasicScheduler",
+      "title": "BasicScheduler",
+      "pos": [
+        470,
+        920
+      ],
+      "size": [
+        430,
+        190
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 19
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            23
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicScheduler"
+      },
+      "widgets_values": [
+        "simple",
+        8,
+        1.0
+      ]
+    },
+    {
+      "id": 14,
+      "type": "SamplerCustomAdvanced",
+      "title": "SamplerCustomAdvanced",
+      "pos": [
+        940,
+        920
+      ],
+      "size": [
+        430,
+        190
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "noise",
+          "type": "NOISE",
+          "link": 20
+        },
+        {
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 21
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 22
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 23
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 24
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            25,
+            27
+          ]
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 15,
+      "type": "VAEDecode",
+      "title": "VAEDecode",
+      "pos": [
+        0,
+        1150
+      ],
+      "size": [
+        430,
+        190
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 25
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 26
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            29
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 16,
+      "type": "VAEDecodeAudio",
+      "title": "VAEDecodeAudio",
+      "pos": [
+        470,
+        1150
+      ],
+      "size": [
+        430,
+        190
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 27
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 28
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            31
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecodeAudio"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 17,
+      "type": "CreateVideo",
+      "title": "CreateVideo",
+      "pos": [
+        940,
+        1150
+      ],
+      "size": [
+        430,
+        190
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 29
+        },
+        {
+          "name": "fps",
+          "type": "FLOAT",
+          "link": 30
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 31
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            32
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CreateVideo"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 18,
+      "type": "NewteconsPanelSaveVideo",
+      "title": "NewteconsPanelSaveVideo",
+      "pos": [
+        0,
+        1380
+      ],
+      "size": [
+        430,
+        190
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 32
+        },
+        {
+          "name": "receipt_json",
+          "type": "STRING",
+          "link": 33
+        }
+      ],
+      "outputs": [
+        {
+          "name": "render_receipt_json",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "NewteconsPanelSaveVideo"
+      },
+      "widgets_values": []
+    }
+  ],
+  "links": [
+    [
+      1,
+      2,
+      0,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      2,
+      3,
+      0,
+      6,
+      1,
+      "VAE"
+    ],
+    [
+      3,
+      100,
+      0,
+      6,
+      2,
+      "STRING"
+    ],
+    [
+      4,
+      100,
+      1,
+      6,
+      3,
+      "STRING"
+    ],
+    [
+      5,
+      100,
+      3,
+      6,
+      4,
+      "INT"
+    ],
+    [
+      6,
+      100,
+      4,
+      6,
+      5,
+      "INT"
+    ],
+    [
+      7,
+      100,
+      6,
+      6,
+      6,
+      "INT"
+    ],
+    [
+      8,
+      100,
+      10,
+      8,
+      0,
+      "STRING"
+    ],
+    [
+      9,
+      6,
+      0,
+      9,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      10,
+      6,
+      1,
+      9,
+      1,
+      "LATENT"
+    ],
+    [
+      11,
+      3,
+      0,
+      9,
+      2,
+      "VAE"
+    ],
+    [
+      12,
+      4,
+      0,
+      9,
+      3,
+      "VAE"
+    ],
+    [
+      13,
+      8,
+      0,
+      9,
+      4,
+      "IMAGE"
+    ],
+    [
+      14,
+      7,
+      0,
+      9,
+      5,
+      "AUDIO"
+    ],
+    [
+      15,
+      1,
+      0,
+      20,
+      0,
+      "MODEL"
+    ],
+    [
+      16,
+      20,
+      0,
+      21,
+      0,
+      "MODEL"
+    ],
+    [
+      17,
+      21,
+      0,
+      10,
+      0,
+      "MODEL"
+    ],
+    [
+      18,
+      9,
+      0,
+      10,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      19,
+      21,
+      0,
+      13,
+      0,
+      "MODEL"
+    ],
+    [
+      20,
+      11,
+      0,
+      14,
+      0,
+      "NOISE"
+    ],
+    [
+      21,
+      10,
+      0,
+      14,
+      1,
+      "GUIDER"
+    ],
+    [
+      22,
+      12,
+      0,
+      14,
+      2,
+      "SAMPLER"
+    ],
+    [
+      23,
+      13,
+      0,
+      14,
+      3,
+      "SIGMAS"
+    ],
+    [
+      24,
+      6,
+      1,
+      14,
+      4,
+      "LATENT"
+    ],
+    [
+      25,
+      14,
+      0,
+      15,
+      0,
+      "LATENT"
+    ],
+    [
+      26,
+      3,
+      0,
+      15,
+      1,
+      "VAE"
+    ],
+    [
+      27,
+      14,
+      0,
+      16,
+      0,
+      "LATENT"
+    ],
+    [
+      28,
+      4,
+      0,
+      16,
+      1,
+      "VAE"
+    ],
+    [
+      29,
+      15,
+      0,
+      17,
+      0,
+      "IMAGE"
+    ],
+    [
+      30,
+      100,
+      5,
+      17,
+      1,
+      "FLOAT"
+    ],
+    [
+      31,
+      16,
+      0,
+      17,
+      2,
+      "AUDIO"
+    ],
+    [
+      32,
+      17,
+      0,
+      18,
+      0,
+      "VIDEO"
+    ],
+    [
+      33,
+      100,
+      7,
+      18,
+      1,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "title": "NEWTECONS S02_A • Project Panel integration example",
+    "domain": "newtecons_live_action",
+    "stage_only": true,
+    "not_rendered": true,
+    "source_workflow": "production-local/JennieJoyKids-Story/Newtecons-TienDo-KichTinh-30s/workflows/H3_MOTION/S02_A-h3-f52be0d7015d-v001.workflow.json",
+    "source_sha256": "bc7d2a0b84ee54c6dcb7f2114b914d52cc63dae8763db535829aa4ed5443bc95",
+    "notes": "Replace sample paths/images. Fixed approved S02 WAV retained. One shot only. No approval inferred."
+  }
+}

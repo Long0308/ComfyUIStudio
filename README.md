@@ -16,7 +16,7 @@ Hai domain chỉ chia sẻ **engine** ([studio-video-engine](skills/studio-video
 | Thư mục | Nội dung |
 |---|---|
 | [skills/](skills/) | 11 skill: `studio-video-engine` (CLI `jjv`), `jenniejoy-remotion`, `jenniejoy-studio-webapp`, `jenniejoy-hyperframes`, `jenniejoy-music-sfx-yue`, `nhan-vat-ai-newtecons`, `create-video-newtecons(-comfyui)`, `create-video-jenniejoykids` (không kèm thư mục `assets/` 273 MB), `comfyui-video-pipeline`, `comfyui-blender`, `opus-motion-engineering` |
-| [comfyui/custom_nodes/](comfyui/custom_nodes/) | `newtecons_*` (branding, live_preview, project_panel, step_ui), `codex_lane_bridge`, `comfyui-krea2edit` |
+| [comfyui/custom_nodes/](comfyui/custom_nodes/) | `newtecons_*` (branding, live_preview, project_panel, step_ui), `codex_lane_bridge`, `comfyui-krea2edit`, `H3-Character-Sheet-Designer`, `rgthree-comfy` |
 | [comfyui/workflows/user/](comfyui/workflows/user/) | workflow người dùng đã lưu của cả hai phim (cây "ProjectStudio5 - Film Newtecons", JENNIEJOYKIDS, NEWTECONS_H3, ...) |
 | [comfyui/workflows/key-graphs/](comfyui/workflows/key-graphs/) | graph `*.api.json` mẫu: H3, Image Gen, SeedVR2 |
 | [comfyui/patches/](comfyui/patches/) | bản vá cho lõi ComfyUI (`comfy/ldm/minimax/vae.py`) |
@@ -112,7 +112,35 @@ Thêm node mới = thêm tên vào danh sách whitelist **và** ghi rõ lý do; 
 
 ### 3.3 Mở workflow
 
-Mở `http://127.0.0.1:8188/`, panel Workflows: cây `ProjectStudio5 - Film Newtecons` (`00 UAT`, `01 Workflow Image`, `02 Workflow Video`, `03 Workflow Audio`) và các thư mục `JENNIEJOYKIDS*`. Graph API mẫu để chạy bằng script: [comfyui/workflows/key-graphs/](comfyui/workflows/key-graphs/).
+Mở `http://127.0.0.1:8188/`, panel Workflows: cây `ProjectStudio5 - Film Newtecons` (`00 UAT`, `01 Workflow Image`, `02 Workflow Video`, `03 Workflow Audio`), thư mục `H3_Character_Sheet` và các thư mục `JENNIEJOYKIDS*`. Graph API mẫu để chạy bằng script: [comfyui/workflows/key-graphs/](comfyui/workflows/key-graphs/).
+
+### 3.4 Cập nhật và đồng bộ ở máy nhà (Pull & Setup model mới)
+
+Khi về máy nhà, để đồng bộ các cập nhật mới nhất từ công ty:
+
+1. **Kéo code mới**:
+   ```powershell
+   cd C:\ComfyUIStudio
+   git pull origin main
+   ```
+2. **Chép bổ sung custom nodes và workflows vào ComfyUI**:
+   ```powershell
+   robocopy "C:\ComfyUIStudio\comfyui\custom_nodes" "<Thư mục ComfyUI>\custom_nodes" /E
+   robocopy "C:\ComfyUIStudio\comfyui\workflows\user" "<Thư mục ComfyUI>\user\default\workflows" /E
+   ```
+3. **Tải các model mới bổ sung (Noct-Q Uncensored, Qwen 2.1, SDPose, Z-Image ControlNet)**:
+   ```powershell
+   # Tải các model mới thêm vào:
+   powershell -ExecutionPolicy Bypass -File C:\ComfyUIStudio\models\DOWNLOAD-MODELS.ps1 -BaseDir "<Thư mục Models>" -Only "NoctQ","qwen3vl_8b","qwen_image_2.1_vae","sdpose","Z-Image-Turbo-Fun"
+   ```
+4. **Tạo Hardlink cho H3 Character Sheet (nếu workflow dùng tên cũ DasiwaMinimaxH3)**:
+   ```cmd
+   rem Chạy trong Command Prompt hoặc PowerShell admin:
+   cd /d "<Thư mục Models>\ComfyUI\diffusion_models"
+   if not exist minimax mkdir minimax
+   mklink /H "minimax\DasiwaMinimaxH3_dasiwaHybridV2_int8.safetensors" "minimax_h3_ref2va_pruned_int8_convrot.safetensors"
+   ```
+5. Khởi động lại ComfyUI và tải lại trang web `http://127.0.0.1:8188` (Ctrl + F5).
 
 ## 4. Bắt đầu nhanh theo phim (giữ hai domain tách biệt)
 
