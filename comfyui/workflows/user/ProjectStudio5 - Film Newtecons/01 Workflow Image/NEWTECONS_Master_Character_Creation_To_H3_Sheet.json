@@ -1,7 +1,7 @@
 {
   "version": 0.4,
-  "last_node_id": 37,
-  "last_link_id": 33,
+  "last_node_id": 42,
+  "last_link_id": 41,
   "extra": {
     "flow": "image",
     "newtecons_flow": "image",
@@ -54,11 +54,11 @@
       "font_size": 24
     },
     {
-      "title": "5. AI QUAY VIDEO & XUẤT SHEET HOÀN THIỆN",
+      "title": "5. AI QUAY VIDEO & SIÊU PHÂN GIẢI UPSCALE 2K/4K",
       "bounding": [
         400,
         20,
-        780,
+        1180,
         1960
       ],
       "color": "#f39c12",
@@ -1066,7 +1066,7 @@
     {
       "id": 36,
       "type": "SaveImage",
-      "title": "💾 Lưu Character Turnaround Sheet 13-20 Góc",
+      "title": "💾 Lưu Character Sheet Gốc (Native 768p/896p)",
       "pos": [
         820,
         530
@@ -1091,6 +1091,113 @@
       },
       "widgets_values": [
         "NEWTECONS_Character_Sheet_Finished"
+      ]
+    },
+    {
+      "id": 40,
+      "type": "UpscaleModelLoader",
+      "title": "🔍 [05 UPSCALE] Load RealESRGAN x4 Model",
+      "pos": [
+        1200,
+        100
+      ],
+      "size": [
+        340,
+        90
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "UPSCALE_MODEL",
+          "type": "UPSCALE_MODEL",
+          "links": [
+            40
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UpscaleModelLoader"
+      },
+      "widgets_values": [
+        "RealESRGAN_x4plus.pth"
+      ],
+      "widgets_values_named": {
+        "model_name": "RealESRGAN_x4plus.pth"
+      }
+    },
+    {
+      "id": 41,
+      "type": "ImageUpscaleWithModel",
+      "title": "🚀 [05 UPSCALE] Siêu Phân Giải 2K/4K (GPU)",
+      "pos": [
+        1200,
+        220
+      ],
+      "size": [
+        340,
+        110
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "upscale_model",
+          "type": "UPSCALE_MODEL",
+          "link": 40
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 29
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            41
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageUpscaleWithModel"
+      }
+    },
+    {
+      "id": 42,
+      "type": "SaveImage",
+      "title": "💾 Lưu Character Sheet ĐÃ UPSCALE 2K/4K SIÊU NÉT",
+      "pos": [
+        1200,
+        360
+      ],
+      "size": [
+        340,
+        420
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 41
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "NEWTECONS_Character_Sheet_UPSCALE_2K_4K"
       ]
     }
   ],
@@ -1348,6 +1455,22 @@
       35,
       0,
       36,
+      0,
+      "IMAGE"
+    ],
+    [
+      40,
+      40,
+      0,
+      41,
+      0,
+      "UPSCALE_MODEL"
+    ],
+    [
+      41,
+      41,
+      0,
+      42,
       0,
       "IMAGE"
     ]
