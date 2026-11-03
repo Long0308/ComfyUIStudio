@@ -121,3 +121,21 @@ Nguồn: [USER-PROMPT-NOTES-2026-10-30.md](J:/1.JennieHomeSchool/03%20Voice/docs
 - **Mục C và D:** Identity Lock ID / REF / LOCK / DETAIL / LIMIT; câu khoá mặt; danh sách negative.
 - **Mục E:** da thật. Nâng nét và chữa da nhựa đã có ở [nang-cap-anh.md](references/nang-cap-anh.md) mục ② và ③.
 - Liên kết: [tao-anh-prompt-as-code SKILL](../tao-anh-prompt-as-code/SKILL.md) · [gpt-image-2-style-library SKILL](../gpt-image-2-style-library/SKILL.md).
+
+## QUY TRÌNH SẢN XUẤT 2 BƯỚC CHUẨN ĐIỆN ẢNH & TÀI NGUYÊN 3D BLENDER (UPDATE 2026-11-03)
+
+### 1. Phân định rõ 2 bước:
+- **Bước 1 (`01_Tao_Nhan_Vat_Chinh_Real_NoctQ.json`)**: Dựng ảnh nhân vật đơn lẻ chân thực nhất (Narrative Action Pose: ngồi bệt, làm việc hiện trường...). Áp dụng công cụ vector typography `tools/apply_branding_auto.py` để đè chữ Unicode (`BAN TRUYỀN THÔNG` / `KHỐI KỸ THUẬT`) và logo 3D Blender lên nón/áo trong 0.1 giây.
+- **Bước 2 (`02_Master_Sheet_NEWTECONS_PPE_360_4K.json`)**: Tạo Bản Hồ Sơ Tham Chiếu 360° (Turnaround 3 góc đứng tự nhiên + 6 biểu cảm + 4 bối cảnh lối sống công trường 1024×1024) xuất ra 4K trong 30 giây.
+
+### 2. Bộ tài nguyên 3D Blender đã nạp sẵn trong ComfyUI input:
+- `BLENDER_HELMET_FRONT.png`: Nón bảo hộ 3D Blender v004 chính xác milimét, logo đỏ/cyan chuẩn #00ADED, không có quai nón xe máy.
+- `BLENDER_VEST_SITE_MALE_FRONT.png`: Áo phản quang kỹ sư 3D Blender v002, dải cam huỳnh quang eo, sọc bạc ngực.
+- `BLENDER_VEST_SITE_MALE_BACK.png`: Áo phản quang mặt sau 3D Blender v002.
+- `BLENDER_SHIRT_COMPANY_FRONT.png`: Sơ mi sọc caro ô vuông trắng xanh chìm 3D Blender.
+
+### 3. Lệnh chạy 1-Click tự động toàn diện:
+```powershell
+python tools/run_master_character_pipeline.py "BAN TRUYỀN`nTHÔNG"
+# Hoặc: "KHỐI`nKỸ THUẬT"
+```
