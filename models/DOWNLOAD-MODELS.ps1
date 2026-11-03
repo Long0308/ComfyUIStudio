@@ -26,6 +26,14 @@ if (-not (Test-Path -LiteralPath $Manifest)) { throw "Khong thay manifest: $Mani
 $rows = Import-Csv -LiteralPath $Manifest -Encoding UTF8
 $ok = 0; $skip = 0; $fail = 0
 
+# `powershell -File x.ps1 -Only "a","b"` binds ONE string "a,b" in Windows PowerShell 5.1: split it.
+$Only = @($Only | ForEach-Object { $_ -split ',' } | ForEach-Object { $_.Trim().Trim('"').Trim("'") } | Where-Object { $_ })
+if ($Only.Count -gt 0) {
+    $matched = @($rows | Where-Object { $row = $_; $Only | Where-Object { $row.file_or_repo -like "*$_*" } })
+    if ($matched.Count -eq 0) { throw "-Only khong khop dong nao trong manifest: $($Only -join ', ')" }
+    Write-Host "-Only khop $($matched.Count) dong: $(($matched | ForEach-Object { Split-Path $_.file_or_repo -Leaf }) -join ', ')"
+}
+
 foreach ($r in $rows) {
     if ($Only.Count -gt 0 -and -not ($Only | Where-Object { $r.file_or_repo -like "*$_*" })) { continue }
 
