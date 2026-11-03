@@ -7,12 +7,12 @@
       "id": 1,
       "type": "LoadImage",
       "pos": [
-        -1100,
-        -250
+        -1370,
+        -220
       ],
       "size": [
         360,
-        420
+        480
       ],
       "flags": {},
       "order": 0,
@@ -51,12 +51,12 @@
       "id": 10,
       "type": "H3CharacterSheetDesignerReferenceV13",
       "pos": [
-        -680,
-        -250
+        -910,
+        -220
       ],
       "size": [
-        440,
-        520
+        500,
+        1200
       ],
       "flags": {},
       "order": 1,
@@ -167,8 +167,8 @@
       "id": 20,
       "type": "UNETLoader",
       "pos": [
-        -180,
-        -250
+        -310,
+        -220
       ],
       "size": [
         340,
@@ -204,8 +204,8 @@
       "id": 21,
       "type": "CLIPLoader",
       "pos": [
-        -180,
-        -110
+        -310,
+        -70
       ],
       "size": [
         340,
@@ -242,8 +242,8 @@
       "id": 22,
       "type": "VAELoader",
       "pos": [
-        -180,
-        50
+        -310,
+        100
       ],
       "size": [
         340,
@@ -279,12 +279,12 @@
       "id": 23,
       "type": "MiniMaxH3ReferenceToVideo",
       "pos": [
-        200,
-        -250
+        70,
+        -220
       ],
       "size": [
         380,
-        460
+        520
       ],
       "flags": {},
       "order": 5,
@@ -354,7 +354,7 @@
         5,
         "match"
       ],
-      "title": "[03 H3] MiniMax H3 Reference To Video",
+      "title": "[03 H3] MiniMax H3 Reference To Video (Frame=5)",
       "color": "#52361f",
       "bgcolor": "#332214"
     },
@@ -362,11 +362,11 @@
       "id": 24,
       "type": "ConditioningZeroOut",
       "pos": [
-        620,
-        -250
+        550,
+        -220
       ],
       "size": [
-        220,
+        400,
         90
       ],
       "flags": {},
@@ -402,12 +402,12 @@
       "id": 25,
       "type": "KSampler",
       "pos": [
-        620,
-        -120
+        550,
+        -80
       ],
       "size": [
-        340,
-        460
+        400,
+        480
       ],
       "flags": {},
       "order": 7,
@@ -457,7 +457,7 @@
         "simple",
         1.0
       ],
-      "title": "KSampler Xoay Góc 5 Views (28 Giây)",
+      "title": "KSampler Xoay Goc 5 Views (28 Giay)",
       "color": "#3f2b60",
       "bgcolor": "#281b3d"
     },
@@ -465,8 +465,8 @@
       "id": 26,
       "type": "VAEDecode",
       "pos": [
-        1000,
-        -120
+        1070,
+        -220
       ],
       "size": [
         240,
@@ -511,12 +511,12 @@
       "id": 27,
       "type": "SaveImage",
       "pos": [
-        1280,
-        -120
+        1350,
+        -220
       ],
       "size": [
-        360,
-        360
+        550,
+        450
       ],
       "flags": {},
       "order": 9,
@@ -535,7 +535,7 @@
       "widgets_values": [
         "NEWTECONS_H3_Sheet_Native_672p"
       ],
-      "title": "Lưu Character Sheet Gốc (Native 672p)",
+      "title": "Luu Character Sheet Goc (Native 672p)",
       "color": "#234a36",
       "bgcolor": "#162f22"
     },
@@ -543,11 +543,11 @@
       "id": 30,
       "type": "UpscaleModelLoader",
       "pos": [
-        1000,
-        160
+        1070,
+        280
       ],
       "size": [
-        340,
+        240,
         90
       ],
       "flags": {},
@@ -579,11 +579,11 @@
       "id": 31,
       "type": "ImageUpscaleWithModel",
       "pos": [
-        1000,
-        290
+        1070,
+        420
       ],
       "size": [
-        280,
+        240,
         110
       ],
       "flags": {},
@@ -616,7 +616,7 @@
         "Node name for S&R": "ImageUpscaleWithModel"
       },
       "widgets_values": [],
-      "title": "[04 UPSCALE] Siêu Phân Giải 4K (GPU ~7s)",
+      "title": "[04 UPSCALE] Sieu Phan Giai 4K (GPU ~7s)",
       "color": "#1f3a52",
       "bgcolor": "#142533"
     },
@@ -624,12 +624,12 @@
       "id": 32,
       "type": "SaveImage",
       "pos": [
-        1320,
-        290
+        1350,
+        280
       ],
       "size": [
-        360,
-        360
+        550,
+        450
       ],
       "flags": {},
       "order": 12,
@@ -648,7 +648,7 @@
       "widgets_values": [
         "NEWTECONS_H3_Sheet_Upscale_4K"
       ],
-      "title": "Lưu Character Sheet ĐÃ UPSCALE 4K CỰC NÉT",
+      "title": "Luu Character Sheet DA UPSCALE 4K CUC NET",
       "color": "#234a36",
       "bgcolor": "#162f22"
     }
@@ -809,57 +809,68 @@
   ],
   "groups": [
     {
-      "title": "1. DUY NHẤT 1 ẢNH THAM CHIẾU (TỪ BƯỚC 1)",
+      "title": "1. DUY NHẤT 1 ĐẦU VÀO THAM CHIẾU (TỪ BƯỚC 1)",
       "bounding": [
-        -1140,
-        -320,
+        -1400,
+        -300,
         420,
-        780
+        1320
       ],
       "color": "#1f3a52",
       "font_size": 24
     },
     {
-      "title": "2. THIẾT KẾ BẢNG XOAY GÓC (5 GÓC CHUẨN 672P)",
+      "title": "2. THIẾT KẾ BẢNG XOAY GÓC (5 GÓC CHUẨN - 672P)",
       "bounding": [
-        -700,
-        -320,
-        480,
-        780
+        -940,
+        -300,
+        560,
+        1320
       ],
       "color": "#234a36",
       "font_size": 24
     },
     {
-      "title": "3. MÔ HÌNH H3 & BỘ SAMPLER XOAY GÓC (28 GIÂY)",
+      "title": "3. MÔ HÌNH H3 & BỘ ĐIỀU KHIỂN (LENGTH = 5 FRAMES)",
       "bounding": [
-        -200,
-        -320,
-        1180,
-        780
+        -340,
+        -300,
+        820,
+        1320
       ],
       "color": "#52361f",
       "font_size": 24
     },
     {
-      "title": "4. SIÊU PHÂN GIẢI 4K REAL-ESRGAN (7 GIÂY)",
+      "title": "4. KHU KHỬ NHIỄU & SAMPLING (28 GIÂY)",
       "bounding": [
-        980,
-        100,
-        720,
-        580
+        520,
+        -300,
+        480,
+        1320
       ],
-      "color": "#1f3a52",
+      "color": "#3f2b60",
+      "font_size": 24
+    },
+    {
+      "title": "5. XUẤT THÀNH PHẨM (NATIVE 672P & SIÊU PHÂN GIẢI 4K)",
+      "bounding": [
+        1040,
+        -300,
+        900,
+        1320
+      ],
+      "color": "#163b28",
       "font_size": 24
     }
   ],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.8,
+      "scale": 0.7,
       "offset": [
-        1200,
-        400
+        1500,
+        420
       ]
     }
   }
