@@ -219,11 +219,15 @@ flowchart LR
 1. **Quá tải Receptive Field của Diffusion**: Mô hình Video DiT (như MiniMax H3) được huấn luyện chuẩn ở cạnh ngắn 768p. Khi ép sinh trực tiếp ở độ phân giải $4320 \times 1280$ (> 5.5 Megapixels), lượng token tăng gấp 6 lần khiến thời gian sinh kéo dài từ 2 phút lên hơn 15 phút, đồng thời dễ sinh dị tật hình ảnh.
 2. **Nghẽn VRAM và Swap bộ nhớ**: Trên GPU 16 GB, chạy đồng thời mô hình Qwen 2.1 (16 GB) và MiniMax H3 (38 GB) sẽ làm tràn VRAM và cgroup memory limit, kích hoạt paging swap trên ổ đĩa khiến hệ thống bị chậm.
 
-#### Danh sách Workflow chuẩn hóa 2 bước trong Repo:
+#### Danh sách Workflow chuẩn hóa trong Repo:
 * **Bước 1**: `01_Tao_Nhan_Vat_Chinh_Real_NoctQ_Uncensored.json` (Alias: `01_Step1_Tao_Anh_Nhan_Vat_NoctQ_Uncensored.json`).
   - *Nhiệm vụ*: Nhận Mặt + Dáng + Trang phục (Tự do hoặc Đồng phục) + Mũ bảo hộ -> Hộp Prompt-As-Code sinh ra ảnh nhân vật đơn lẻ chân thực nhất. Xả sạch VRAM sau khi chạy.
-* **Bước 2**: `02_Ho_So_Nhan_Vat_Film_360_Turnaround_Expressions_Poses_4K.json` (Alias: `02_Step2_H3_Character_Sheet_Native672p_Upscale4K.json`).
-  - *Nhiệm vụ*: Nhận DUY NHẤT 1 ảnh nhân vật gốc từ Bước 1 -> H3 Designer (Turnaround 360° + Biểu cảm + Lối sống sinh hoạt) -> Khóa cứng `length = 5 frames` (28 giây) -> RealESRGAN phóng đại 4K Ultra-HD (7 giây).
+* **Bước 2 (Hai Luồng Song Song Chuyên Biệt - Chuẩn Hồ Sơ 9 Phân Khu Nhật Bản)**:
+  - **Luồng 1 (NEWTECONS PPE & Công Trường)**: `02_Ho_So_Nhan_Vat_Film_Master_Sheet_NEWTECONS_4K.json`
+    * Chuyên dòng phim kỹ sư công trường: Turnaround 360° đội nón bảo hộ logo NEWTECONS + áo phản quang Ban Truyền Thông / Khối Kỹ Thuật, bảng 6 biểu cảm chỉ huy/tập trung, và 8 cảnh lối sống công trường (đọc bản vẽ BIM, bộ đàm cẩu tháp, họp dự án, giải lao, cafe sáng, cất nóc...).
+  - **Luồng 2 (Thời Trang Đời Thường / Hiyori Lifestyle)**: `02_Ho_So_Nhan_Vat_Film_Master_Sheet_LIFESTYLE_HIYORI_4K.json`
+    * Chuyên dòng phim đời thường / thời trang / hoạt hình 3D JennieJoy: Giống hệt 100% bản mẫu Hiyori của Nhật Bản với đầm hoa, áo len dệt kim, đồ mặc nhà, đồ đi cafe, bikini biển, váy du lịch, biểu cảm nháy mắt, má lúm đồng tiền.
+  - *Thời gian sinh*: Chỉ **13 giây sampling** (20 steps) + **7 giây RealESRGAN 4K** (tổng cộng chưa đầy **30–35 giây**)!
 
 #### Thao tác chuẩn & Tối ưu hóa thời gian:
 * **Bước 1 (Tạo nhân vật chính Real nhất - 20 Steps Siêu Tốc)**:
@@ -231,11 +235,10 @@ flowchart LR
   - Cấu hình KSampler chuẩn: **`steps: 20`** (bộ giải `euler` + `simple` hội tụ hoàn hảo ở 20 bước, chất lượng tương đương 25-30 bước nhưng giảm thời gian lấy mẫu xuống chỉ còn **13 giây**).
   - Bấm **Run** $\rightarrow$ Thời gian sinh tổng cộng chỉ **18–25 giây**.
   - Ảnh xuất ra lưu tại `ComfyUI/output/NEWTECONS_Character_Fused_*.png`.
-* **Bước 2 (Bản Hồ Sơ Tham Chiếu 360° & Lối Sống Sinh Hoạt 4K - 35 Giây)**:
-  - Mở workflow `02_Ho_So_Nhan_Vat_Film_360_Turnaround_Expressions_Poses_4K.json`.
+* **Bước 2 (Bản Hồ Sơ Tham Chiếu 360° & Lối Sống Sinh Hoạt 4K - 30 Giây)**:
+  - Tùy theo nhu cầu phim, mở **`02_Ho_So_Nhan_Vat_Film_Master_Sheet_NEWTECONS_4K`** (cho kỹ sư công trường) HOẶC **`02_Ho_So_Nhan_Vat_Film_Master_Sheet_LIFESTYLE_HIYORI_4K`** (cho thời trang đời thường).
   - Nạp ảnh vừa sinh ở Bước 1 vào ô `[01 INPUT] Duy Nhất 1 Ảnh Nhân Vật Gốc (Từ Bước 1)`.
-  - Node H3 Reference To Video đã được **khóa cứng `length: 5`** (chế độ ảnh tĩnh siêu tốc).
-  - Bấm **Run** $\rightarrow$ MiniMax H3 lấy mẫu trong **28 giây** $\rightarrow$ Tự động chuyển tiếp sang `RealESRGAN_x4plus` phóng to 4K trong **7 giây** $\rightarrow$ Xuất ngay bảng hồ sơ 4K cực nét (`7680 × 3072`)!
+  - Bấm **Run** $\rightarrow$ Sau **30 giây** nhận ngay trọn vẹn Bản Hồ Sơ Cố Định Nhân Vật 9 phân khu cực nét (`7680 × 3072`)!
 
 ## 4. Bắt đầu nhanh theo phim (giữ hai domain tách biệt)
 
