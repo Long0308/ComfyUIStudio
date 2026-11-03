@@ -235,6 +235,11 @@ flowchart LR
   - Cấu hình KSampler chuẩn: **`steps: 20`** (bộ giải `euler` + `simple` hội tụ hoàn hảo ở 20 bước, chất lượng tương đương 25-30 bước nhưng giảm thời gian lấy mẫu xuống chỉ còn **13 giây**).
   - Bấm **Run** $\rightarrow$ Thời gian sinh tổng cộng chỉ **18–25 giây**.
   - Ảnh xuất ra lưu tại `ComfyUI/output/NEWTECONS_Character_Fused_*.png`.
+  - **Khắc phục triệt để lỗi chính tả tiếng Việt & Logo nón 3D Blender**: Vì không mô hình AI khuếch tán nào viết đúng dấu tiếng Việt có dấu (`BAN TRUYỀN THÔNG` dễ bị méo thành `BAN TRUY?N TH?NG`), repo tích hợp công cụ tự động `tools/apply_branding_auto.py` (hoặc node `newtecons_branding`) để đè trực tiếp vector typography font Unicode và logo 3D Blender chính xác 100%:
+    ```powershell
+    python tools/apply_branding_auto.py <ảnh_input> <ảnh_output> "BAN TRUYỀN`nTHÔNG"
+    # Hoặc đổi thành: "KHỐI`nKỸ THUẬT", "BAN AN TOÀN", "BIM CENTER"...
+    ```
 * **Bước 2 (Bản Hồ Sơ Tham Chiếu 360° & Lối Sống Sinh Hoạt 4K - 30 Giây)**:
   - Tùy theo nhu cầu phim, mở **`02_Ho_So_Nhan_Vat_Film_Master_Sheet_NEWTECONS_4K`** (cho kỹ sư công trường) HOẶC **`02_Ho_So_Nhan_Vat_Film_Master_Sheet_LIFESTYLE_HIYORI_4K`** (cho thời trang đời thường).
   - Nạp ảnh vừa sinh ở Bước 1 vào ô `[01 INPUT] Duy Nhất 1 Ảnh Nhân Vật Gốc (Từ Bước 1)`.
