@@ -229,3 +229,11 @@ Khi tạo Character Sheet, bắt buộc thêm chỉ thị phong cách điện �
 
 ## Liên quan
 `nex-gui-anh` (gửi ảnh Zalo) · `tao_anh` tool NEX · `nhan-vat-ai-newtecons` · `pose-costume-character`.
+
+## Thư viện prompt theo thể loại (user, 2026-10-30)
+
+Nguồn: [USER-PROMPT-NOTES-2026-10-30.md](J:/1.JennieHomeSchool/03%20Voice/docs/prompts/USER-PROMPT-NOTES-2026-10-30.md), mục **B** và **G**. Chi tiết đầy đủ: [prompt-library-2026-10-30.md](references/prompt-library-2026-10-30.md).
+
+- **Mục B:** cấu trúc 5 lớp; công thức S + A + E + ST + T; 5W1H; công thức agency S + M + E + V + ST + L + T và khuôn 7 ô.
+- **Mục G:** khối biến prompt-as-code `{argument name="…" default="…"}`. **Ghi chú mâu thuẫn:** mẫu gốc đặt `skin_texture` = "da trắng sứ, mịn màng", ngược với chống da nhựa ở mục ⑥, phần 4 của skill này. Với NEWTECONS live-action dùng da thật.
+- Liên kết: [nhan-vat-ai-newtecons SKILL](../nhan-vat-ai-newtecons/SKILL.md) · [gpt-image-2-style-library SKILL](../gpt-image-2-style-library/SKILL.md).

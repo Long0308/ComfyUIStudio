@@ -15,7 +15,7 @@ Hai domain chỉ chia sẻ **engine** ([studio-video-engine](skills/studio-video
 
 | Thư mục | Nội dung |
 |---|---|
-| [skills/](skills/) | 11 skill: `studio-video-engine` (CLI `jjv`), `jenniejoy-remotion`, `jenniejoy-studio-webapp`, `jenniejoy-hyperframes`, `jenniejoy-music-sfx-yue`, `nhan-vat-ai-newtecons`, `create-video-newtecons(-comfyui)`, `create-video-jenniejoykids` (không kèm thư mục `assets/` 273 MB), `comfyui-video-pipeline`, `comfyui-blender`, `opus-motion-engineering` |
+| [skills/](skills/) | 16 skill: `studio-video-engine` (CLI `jjv`), `jenniejoy-remotion`, `jenniejoy-studio-webapp`, `jenniejoy-hyperframes`, `jenniejoy-music-sfx-yue`, `nhan-vat-ai-newtecons`, `tao-anh-prompt-as-code`, `pose-costume-character`, `create-video-newtecons(-comfyui)`, `create-video-jenniejoykids` (không kèm thư mục `assets/` 273 MB), `comfyui-video-pipeline`, `comfyui-blender`, `opus-motion-engineering`, `cognee-hindsight-mesh`, `hindsight-ky-uc-phan-tang` |
 | [comfyui/custom_nodes/](comfyui/custom_nodes/) | `newtecons_*` (branding, live_preview, project_panel, step_ui), `codex_lane_bridge`, `comfyui-krea2edit`, `H3-Character-Sheet-Designer`, `rgthree-comfy` |
 | [comfyui/workflows/user/](comfyui/workflows/user/) | workflow người dùng đã lưu của cả hai phim (cây "ProjectStudio5 - Film Newtecons", JENNIEJOYKIDS, NEWTECONS_H3, ...) |
 | [comfyui/workflows/key-graphs/](comfyui/workflows/key-graphs/) | graph `*.api.json` mẫu: H3, Image Gen, SeedVR2 |
@@ -214,7 +214,7 @@ Quy trình tối ưu hóa hiệu năng render phim AI, tránh nghẽn VRAM và t
 
 ```mermaid
 flowchart LR
-    A["BƯỚC 1: NHÂN VẬT GỐC (HERO REAL SHOT)<br>01_Tao_Nhan_Vat_Chinh_Real_NoctQ_Uncensored<br><i>Thời gian: 15 - 25 giây (Noct-Q V4)</i>"] -->|Ảnh nhân vật đơn lẻ chân thực| B["BƯỚC 2: HỒ SƠ NHÂN VẬT FILM 360° + LỐI SỐNG<br>02_Ho_So_Nhan_Vat_Film_360_Turnaround_Expressions_Poses_4K<br><i>Thời gian: 28 giây (H3 DiT) + 7s (4K RealESRGAN)</i>"]
+    A["BƯỚC 1: NHÂN VẬT GỐC (HERO REAL SHOT)<br>01_Tao_Nhan_Vat_Chinh_Real_NoctQ.json<br><i>Thời gian: 15 - 25 giây (Noct-Q V4)</i>"] -->|Ảnh nhân vật đơn lẻ chân thực| B["BƯỚC 2: HỒ SƠ NHÂN VẬT FILM 360° + LỐI SỐNG<br>02_Master_Sheet_NEWTECONS_PPE_360_4K.json / 02_Master_Sheet_LIFESTYLE_HIYORI_4K.json<br><i>Thời gian: 28 giây (H3 DiT) + 7s (4K RealESRGAN)</i>"]
     B --> C["THÀNH PHẨM MASTER SHEET 4K<br>Xoay 360° + Biểu Cảm + Lối Sống Sinh Hoạt Sắc Nét!"]
 ```
 
@@ -223,6 +223,8 @@ flowchart LR
 2. **Nghẽn VRAM và Swap bộ nhớ**: Trên GPU 16 GB, chạy đồng thời mô hình Qwen 2.1 (16 GB) và MiniMax H3 (38 GB) sẽ làm tràn VRAM và cgroup memory limit, kích hoạt paging swap trên ổ đĩa khiến hệ thống bị chậm.
 
 #### Danh sách Workflow chuẩn hóa trong Repo:
+Cả 4 file nằm trong [comfyui/workflows/user/H3_Character_Sheet/](comfyui/workflows/user/H3_Character_Sheet/), chỉ một bản mỗi file; bản nháp cũ ở `H3_Character_Sheet/archive_cu/`. Cần thêm custom node `H3-Character-Sheet-Designer` (bản PPE dùng node `H3CharacterSheetDesignerReferenceV13`) và model `NoctQ_V4_int8_convrot`, `qwen3vl_8b_int8_convrot`, `qwen_image_2.1_vae_bf16` (tải bằng `models/DOWNLOAD-MODELS.ps1 -Only "NoctQ","qwen3vl_8b","qwen_image_2.1_vae"`).
+
 * **Workflow Toàn Tự Động 1-Click (Chained Pipeline)**:
   - **`00_PIPELINE_TU_DONG_STEP1_SANG_STEP2_4K.json`**:
     * **Đỉnh cao tự động hóa**: Dây nối output `IMAGE` của Bước 1 (Hero Character) được cắm trực tiếp vào input `image_1` của Bước 2 (Master Sheet).
