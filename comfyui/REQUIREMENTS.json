@@ -1,0 +1,374 @@
+{
+    "generated":  "2026-11-03T21:10:35",
+    "generated_on":  "home",
+    "workflows":  {
+                      "H3_Character_Sheet/00_PIPELINE_TU_DONG_STEP1_SANG_STEP2_4K.json":  {
+                                                                                              "models":  [
+                                                                                                             {
+                                                                                                                 "name":  "NoctQ_V4_int8_convrot.safetensors",
+                                                                                                                 "size_bytes":  7256784368,
+                                                                                                                 "in_manifest":  true
+                                                                                                             },
+                                                                                                             {
+                                                                                                                 "name":  "qwen_image_2.1_vae_bf16.safetensors",
+                                                                                                                 "size_bytes":  675509688,
+                                                                                                                 "in_manifest":  true
+                                                                                                             },
+                                                                                                             {
+                                                                                                                 "name":  "qwen3vl_8b_int8_convrot.safetensors",
+                                                                                                                 "size_bytes":  9350798360,
+                                                                                                                 "in_manifest":  true
+                                                                                                             },
+                                                                                                             {
+                                                                                                                 "name":  "RealESRGAN_x4plus.pth",
+                                                                                                                 "size_bytes":  67040989,
+                                                                                                                 "in_manifest":  true
+                                                                                                             }
+                                                                                                         ],
+                                                                                              "node_types":  [
+                                                                                                                 {
+                                                                                                                     "type":  "CLIPLoader",
+                                                                                                                     "custom_node_folder":  null
+                                                                                                                 },
+                                                                                                                 {
+                                                                                                                     "type":  "ImageUpscaleWithModel",
+                                                                                                                     "custom_node_folder":  null
+                                                                                                                 },
+                                                                                                                 {
+                                                                                                                     "type":  "KSampler",
+                                                                                                                     "custom_node_folder":  null
+                                                                                                                 },
+                                                                                                                 {
+                                                                                                                     "type":  "LoadImage",
+                                                                                                                     "custom_node_folder":  null
+                                                                                                                 },
+                                                                                                                 {
+                                                                                                                     "type":  "SaveImage",
+                                                                                                                     "custom_node_folder":  null
+                                                                                                                 },
+                                                                                                                 {
+                                                                                                                     "type":  "TextEncodeQwenImage21",
+                                                                                                                     "custom_node_folder":  null
+                                                                                                                 },
+                                                                                                                 {
+                                                                                                                     "type":  "UNETLoader",
+                                                                                                                     "custom_node_folder":  null
+                                                                                                                 },
+                                                                                                                 {
+                                                                                                                     "type":  "UpscaleModelLoader",
+                                                                                                                     "custom_node_folder":  null
+                                                                                                                 },
+                                                                                                                 {
+                                                                                                                     "type":  "VAEDecode",
+                                                                                                                     "custom_node_folder":  null
+                                                                                                                 },
+                                                                                                                 {
+                                                                                                                     "type":  "VAELoader",
+                                                                                                                     "custom_node_folder":  null
+                                                                                                                 }
+                                                                                                             ],
+                                                                                              "inputs":  [
+                                                                                                             "AI_HUMAN_FACE.png",
+                                                                                                             "AO_PHAN_QUANG_1.png",
+                                                                                                             "full_P002_front.png",
+                                                                                                             "SCENE01_HELMET_CANON_FRONT_6454E4094A70.png"
+                                                                                                         ]
+                                                                                          },
+                      "H3_Character_Sheet/01_Tao_Nhan_Vat_Chinh_Real_NoctQ.json":  {
+                                                                                       "models":  [
+                                                                                                      {
+                                                                                                          "name":  "NoctQ_V4_int8_convrot.safetensors",
+                                                                                                          "size_bytes":  7256784368,
+                                                                                                          "in_manifest":  true
+                                                                                                      },
+                                                                                                      {
+                                                                                                          "name":  "qwen_image_2.1_vae_bf16.safetensors",
+                                                                                                          "size_bytes":  675509688,
+                                                                                                          "in_manifest":  true
+                                                                                                      },
+                                                                                                      {
+                                                                                                          "name":  "qwen3vl_8b_int8_convrot.safetensors",
+                                                                                                          "size_bytes":  9350798360,
+                                                                                                          "in_manifest":  true
+                                                                                                      }
+                                                                                                  ],
+                                                                                       "node_types":  [
+                                                                                                          {
+                                                                                                              "type":  "CLIPLoader",
+                                                                                                              "custom_node_folder":  null
+                                                                                                          },
+                                                                                                          {
+                                                                                                              "type":  "KSampler",
+                                                                                                              "custom_node_folder":  null
+                                                                                                          },
+                                                                                                          {
+                                                                                                              "type":  "LoadImage",
+                                                                                                              "custom_node_folder":  null
+                                                                                                          },
+                                                                                                          {
+                                                                                                              "type":  "PreviewImage",
+                                                                                                              "custom_node_folder":  null
+                                                                                                          },
+                                                                                                          {
+                                                                                                              "type":  "SaveImage",
+                                                                                                              "custom_node_folder":  null
+                                                                                                          },
+                                                                                                          {
+                                                                                                              "type":  "TextEncodeQwenImage21",
+                                                                                                              "custom_node_folder":  null
+                                                                                                          },
+                                                                                                          {
+                                                                                                              "type":  "UNETLoader",
+                                                                                                              "custom_node_folder":  null
+                                                                                                          },
+                                                                                                          {
+                                                                                                              "type":  "VAEDecode",
+                                                                                                              "custom_node_folder":  null
+                                                                                                          },
+                                                                                                          {
+                                                                                                              "type":  "VAELoader",
+                                                                                                              "custom_node_folder":  null
+                                                                                                          }
+                                                                                                      ],
+                                                                                       "inputs":  [
+                                                                                                      "f06fe4f6b36.webp",
+                                                                                                      "full_P002_front.png",
+                                                                                                      "helmet_front.png",
+                                                                                                      "SPR-0004.png"
+                                                                                                  ]
+                                                                                   },
+                      "H3_Character_Sheet/02_Master_Sheet_LIFESTYLE_HIYORI_4K.json":  {
+                                                                                          "models":  [
+                                                                                                         {
+                                                                                                             "name":  "NoctQ_V4_int8_convrot.safetensors",
+                                                                                                             "size_bytes":  7256784368,
+                                                                                                             "in_manifest":  true
+                                                                                                         },
+                                                                                                         {
+                                                                                                             "name":  "qwen_image_2.1_vae_bf16.safetensors",
+                                                                                                             "size_bytes":  675509688,
+                                                                                                             "in_manifest":  true
+                                                                                                         },
+                                                                                                         {
+                                                                                                             "name":  "qwen3vl_8b_int8_convrot.safetensors",
+                                                                                                             "size_bytes":  9350798360,
+                                                                                                             "in_manifest":  true
+                                                                                                         },
+                                                                                                         {
+                                                                                                             "name":  "RealESRGAN_x4plus.pth",
+                                                                                                             "size_bytes":  67040989,
+                                                                                                             "in_manifest":  true
+                                                                                                         }
+                                                                                                     ],
+                                                                                          "node_types":  [
+                                                                                                             {
+                                                                                                                 "type":  "CLIPLoader",
+                                                                                                                 "custom_node_folder":  null
+                                                                                                             },
+                                                                                                             {
+                                                                                                                 "type":  "ImageUpscaleWithModel",
+                                                                                                                 "custom_node_folder":  null
+                                                                                                             },
+                                                                                                             {
+                                                                                                                 "type":  "KSampler",
+                                                                                                                 "custom_node_folder":  null
+                                                                                                             },
+                                                                                                             {
+                                                                                                                 "type":  "LoadImage",
+                                                                                                                 "custom_node_folder":  null
+                                                                                                             },
+                                                                                                             {
+                                                                                                                 "type":  "SaveImage",
+                                                                                                                 "custom_node_folder":  null
+                                                                                                             },
+                                                                                                             {
+                                                                                                                 "type":  "TextEncodeQwenImage21",
+                                                                                                                 "custom_node_folder":  null
+                                                                                                             },
+                                                                                                             {
+                                                                                                                 "type":  "UNETLoader",
+                                                                                                                 "custom_node_folder":  null
+                                                                                                             },
+                                                                                                             {
+                                                                                                                 "type":  "UpscaleModelLoader",
+                                                                                                                 "custom_node_folder":  null
+                                                                                                             },
+                                                                                                             {
+                                                                                                                 "type":  "VAEDecode",
+                                                                                                                 "custom_node_folder":  null
+                                                                                                             },
+                                                                                                             {
+                                                                                                                 "type":  "VAELoader",
+                                                                                                                 "custom_node_folder":  null
+                                                                                                             }
+                                                                                                         ],
+                                                                                          "inputs":  [
+                                                                                                         "NEWTECONS_Character_Fused.png"
+                                                                                                     ]
+                                                                                      },
+                      "H3_Character_Sheet/02_Master_Sheet_NEWTECONS_PPE_360_4K.json":  {
+                                                                                           "models":  [
+                                                                                                          {
+                                                                                                              "name":  "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+                                                                                                              "size_bytes":  20970379616,
+                                                                                                              "in_manifest":  true
+                                                                                                          },
+                                                                                                          {
+                                                                                                              "name":  "minimax_h3_video_vae_int8_convrot.safetensors",
+                                                                                                              "size_bytes":  2811065184,
+                                                                                                              "in_manifest":  true
+                                                                                                          },
+                                                                                                          {
+                                                                                                              "name":  "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+                                                                                                              "size_bytes":  15687142551,
+                                                                                                              "in_manifest":  true
+                                                                                                          },
+                                                                                                          {
+                                                                                                              "name":  "RealESRGAN_x4plus.pth",
+                                                                                                              "size_bytes":  67040989,
+                                                                                                              "in_manifest":  true
+                                                                                                          }
+                                                                                                      ],
+                                                                                           "node_types":  [
+                                                                                                              {
+                                                                                                                  "type":  "CLIPLoader",
+                                                                                                                  "custom_node_folder":  null
+                                                                                                              },
+                                                                                                              {
+                                                                                                                  "type":  "ConditioningZeroOut",
+                                                                                                                  "custom_node_folder":  null
+                                                                                                              },
+                                                                                                              {
+                                                                                                                  "type":  "H3CharacterSheetDesignerReferenceV13",
+                                                                                                                  "custom_node_folder":  "H3-Character-Sheet-Designer"
+                                                                                                              },
+                                                                                                              {
+                                                                                                                  "type":  "ImageUpscaleWithModel",
+                                                                                                                  "custom_node_folder":  null
+                                                                                                              },
+                                                                                                              {
+                                                                                                                  "type":  "KSampler",
+                                                                                                                  "custom_node_folder":  null
+                                                                                                              },
+                                                                                                              {
+                                                                                                                  "type":  "LoadImage",
+                                                                                                                  "custom_node_folder":  null
+                                                                                                              },
+                                                                                                              {
+                                                                                                                  "type":  "MiniMaxH3ReferenceToVideo",
+                                                                                                                  "custom_node_folder":  null
+                                                                                                              },
+                                                                                                              {
+                                                                                                                  "type":  "SaveImage",
+                                                                                                                  "custom_node_folder":  null
+                                                                                                              },
+                                                                                                              {
+                                                                                                                  "type":  "UNETLoader",
+                                                                                                                  "custom_node_folder":  null
+                                                                                                              },
+                                                                                                              {
+                                                                                                                  "type":  "UpscaleModelLoader",
+                                                                                                                  "custom_node_folder":  null
+                                                                                                              },
+                                                                                                              {
+                                                                                                                  "type":  "VAEDecode",
+                                                                                                                  "custom_node_folder":  null
+                                                                                                              },
+                                                                                                              {
+                                                                                                                  "type":  "VAELoader",
+                                                                                                                  "custom_node_folder":  null
+                                                                                                              }
+                                                                                                          ],
+                                                                                           "inputs":  [
+                                                                                                          "BLENDER_HELMET_FRONT.png",
+                                                                                                          "BLENDER_SHIRT_COMPANY_FRONT.png",
+                                                                                                          "BLENDER_VEST_SITE_MALE_FRONT.png",
+                                                                                                          "NEWTECONS_Character_Fused.png"
+                                                                                                      ]
+                                                                                       },
+                      "H3_Character_Sheet/experimental/H3_Character_Sheet_Designer_MultiReference_wf.json":  {
+                                                                                                                 "models":  [
+                                                                                                                                {
+                                                                                                                                    "name":  "minimax\\minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+                                                                                                                                    "size_bytes":  20970379616,
+                                                                                                                                    "in_manifest":  true
+                                                                                                                                },
+                                                                                                                                {
+                                                                                                                                    "name":  "minimax_h3_video_vae_int8_convrot.safetensors",
+                                                                                                                                    "size_bytes":  2811065184,
+                                                                                                                                    "in_manifest":  true
+                                                                                                                                },
+                                                                                                                                {
+                                                                                                                                    "name":  "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+                                                                                                                                    "size_bytes":  15687142551,
+                                                                                                                                    "in_manifest":  true
+                                                                                                                                }
+                                                                                                                            ],
+                                                                                                                 "node_types":  [
+                                                                                                                                    {
+                                                                                                                                        "type":  "BasicGuider",
+                                                                                                                                        "custom_node_folder":  null
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        "type":  "BasicScheduler",
+                                                                                                                                        "custom_node_folder":  null
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        "type":  "CLIPLoader",
+                                                                                                                                        "custom_node_folder":  null
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        "type":  "H3CharacterSheetDesignerMultiReference",
+                                                                                                                                        "custom_node_folder":  "H3-Character-Sheet-Designer"
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        "type":  "ImageFromBatch",
+                                                                                                                                        "custom_node_folder":  null
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        "type":  "KSamplerSelect",
+                                                                                                                                        "custom_node_folder":  null
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        "type":  "LoadImage",
+                                                                                                                                        "custom_node_folder":  null
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        "type":  "MiniMaxH3ReferenceToVideo",
+                                                                                                                                        "custom_node_folder":  null
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        "type":  "PreviewAny",
+                                                                                                                                        "custom_node_folder":  null
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        "type":  "RandomNoise",
+                                                                                                                                        "custom_node_folder":  "newtecons_project_panel"
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        "type":  "SamplerCustomAdvanced",
+                                                                                                                                        "custom_node_folder":  null
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        "type":  "SaveImageAdvanced",
+                                                                                                                                        "custom_node_folder":  null
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        "type":  "UNETLoader",
+                                                                                                                                        "custom_node_folder":  null
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        "type":  "VAEDecode",
+                                                                                                                                        "custom_node_folder":  null
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        "type":  "VAELoader",
+                                                                                                                                        "custom_node_folder":  null
+                                                                                                                                    }
+                                                                                                                                ],
+                                                                                                                 "inputs":  [
+                                                                                                                                "krea2_00327_.webp"
+                                                                                                                            ]
+                                                                                                             }
+                  }
+}

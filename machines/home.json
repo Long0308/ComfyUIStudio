@@ -1,0 +1,11 @@
+{
+  "_comment": "Ho so may NHA (HOME). Cac duong dan do thuc te ngay 2026-11-03. Code tren J:, model tren C:.",
+  "name": "home",
+  "code_repo": "J:\\1.JennieHomeSchool\\_push\\ComfyUIStudio",
+  "comfy_root": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI",
+  "workflows_dir": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\user\\default\\workflows",
+  "custom_nodes_dir": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\custom_nodes",
+  "input_dir": "J:\\1.JennieHomeSchool\\03 Voice\\production-local\\ComfyUI\\input",
+  "models_root": "C:\\AI-Models-Fast\\2.Model-AI-Local\\ComfyUI",
+  "api_url": "http://127.0.0.1:8188"
+}

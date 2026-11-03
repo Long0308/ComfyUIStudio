@@ -114,34 +114,30 @@ Thêm node mới = thêm tên vào danh sách whitelist **và** ghi rõ lý do; 
 
 Mở `http://127.0.0.1:8188/`, panel Workflows: cây `ProjectStudio5 - Film Newtecons` (`00 UAT`, `01 Workflow Image`, `02 Workflow Video`, `03 Workflow Audio`), thư mục `H3_Character_Sheet` và các thư mục `JENNIEJOYKIDS*`. Graph API mẫu để chạy bằng script: [comfyui/workflows/key-graphs/](comfyui/workflows/key-graphs/).
 
-### 3.4 Cập nhật và đồng bộ ở máy nhà (Pull & Setup model mới)
+### 3.4 Cập nhật và đồng bộ giữa hai máy (HOME / COMPANY)
 
-Khi về máy nhà, để đồng bộ các cập nhật mới nhất từ công ty:
+Quy trình đầy đủ: **[docs/HANDOVER-SYNC.md](docs/HANDOVER-SYNC.md)**. Workflow đẩy từ máy kia có thể thiếu thứ không nằm trong git (model, node, ảnh input), nên sau mỗi `git pull` phải chạy hai lệnh:
 
-1. **Kéo code mới**:
-   ```powershell
-   cd C:\ComfyUIStudio
-   git pull origin main
-   ```
-2. **Chép bổ sung custom nodes và workflows vào ComfyUI**:
-   ```powershell
-   robocopy "C:\ComfyUIStudio\comfyui\custom_nodes" "<Thư mục ComfyUI>\custom_nodes" /E
-   robocopy "C:\ComfyUIStudio\comfyui\workflows\user" "<Thư mục ComfyUI>\user\default\workflows" /E
-   ```
-3. **Tải các model mới bổ sung (Noct-Q Uncensored, Qwen 2.1, SDPose, Z-Image ControlNet)**:
-   ```powershell
-   # Tải các model mới thêm vào:
-   powershell -ExecutionPolicy Bypass -File C:\ComfyUIStudio\models\DOWNLOAD-MODELS.ps1 -BaseDir "<Thư mục Models>" -Only "NoctQ","qwen3vl_8b","qwen_image_2.1_vae","sdpose","Z-Image-Turbo-Fun"
-   ```
-4. **Tạo Hardlink cho H3 Character Sheet (nếu workflow dùng tên cũ DasiwaMinimaxH3)**:
-   ```cmd
-   rem Chạy trong Command Prompt hoặc PowerShell admin:
-   cd /d "<Thư mục Models>\ComfyUI\diffusion_models"
-   if not exist minimax mkdir minimax
-   mklink /H "minimax\DasiwaMinimaxH3_dasiwaHybridV2_int8.safetensors" "minimax_h3_ref2va_pruned_int8_convrot.safetensors"
-   mklink /H "minimax\DasiwaMinimaxH3_dasiwaHybridV4_int8.safetensors" "minimax_h3_ref2va_pruned_int8_convrot.safetensors"
-   ```
-5. Khởi động lại ComfyUI và tải lại trang web `http://127.0.0.1:8188` (Ctrl + F5).
+```powershell
+# 1) Dry-run (chỉ đọc): liệt kê workflow lệch, model/node/ảnh input còn thiếu. Exit 0 = đủ, 2 = còn thiếu
+powershell -NoProfile -ExecutionPolicy Bypass -File tools\sync_machine.ps1 -Machine <home|company> [-Scope H3_Character_Sheet]
+# 2) Chép workflow + custom_nodes vào ComfyUI (chỉ thêm, file lệch được sao lưu .bak-yyyyMMdd, không xoá)
+powershell -NoProfile -ExecutionPolicy Bypass -File tools\sync_machine.ps1 -Machine <home|company> -Apply
+```
+
+Trước khi push, chạy `... -Machine <me> -Report` để cập nhật `comfyui/REQUIREMENTS.json`. Hồ sơ máy: `machines/home.json`, `machines/company.example.json` (copy thành `company.json` rồi điền).
+
+Model thiếu: script in sẵn lệnh `DOWNLOAD-MODELS.ps1 -BaseDir ... -Only ...` (xem 3.1, script đồng bộ không tự tải). Node mới: thêm tên vào whitelist (3.2) rồi restart container.
+
+Hardlink cho H3 Character Sheet (nếu workflow dùng tên cũ DasiwaMinimaxH3):
+```cmd
+rem Chạy trong Command Prompt hoặc PowerShell admin:
+cd /d "<Thư mục Models>\ComfyUI\diffusion_models"
+if not exist minimax mkdir minimax
+mklink /H "minimax\DasiwaMinimaxH3_dasiwaHybridV2_int8.safetensors" "minimax_h3_ref2va_pruned_int8_convrot.safetensors"
+mklink /H "minimax\DasiwaMinimaxH3_dasiwaHybridV4_int8.safetensors" "minimax_h3_ref2va_pruned_int8_convrot.safetensors"
+```
+Sau đó khởi động lại ComfyUI và tải lại trang `http://127.0.0.1:8188` (Ctrl + F5).
 
 ### 3.5 Sơ đồ Kiến Trúc Tổng Thể: Quy Trình 2 Bước Chuẩn Phim Điện Ảnh AI
 

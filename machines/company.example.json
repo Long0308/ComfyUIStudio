@@ -1,0 +1,11 @@
+{
+  "_comment": "MAU: copy file nay thanh machines/company.json roi dien duong dan THAT tren may cong ty. Khong doan duong dan; cac gia tri duoi day chi la cho trong (bat dau bang '<' se bi script tu choi).",
+  "name": "company",
+  "code_repo": "<DIEN: thu muc clone ComfyUIStudio>",
+  "comfy_root": "<DIEN: thu muc goc ComfyUI (bind mount /opt/ComfyUI)>",
+  "workflows_dir": "<DIEN: comfy_root + user\\default\\workflows>",
+  "custom_nodes_dir": "<DIEN: comfy_root + custom_nodes>",
+  "input_dir": "<DIEN: comfy_root + input>",
+  "models_root": "<DIEN: thu muc models = <BaseDir>\\ComfyUI cua DOWNLOAD-MODELS.ps1>",
+  "api_url": "http://127.0.0.1:8188"
+}
