@@ -436,13 +436,13 @@
       "widgets_values": [
         42,
         "randomize",
-        25,
+        20,
         3.0,
         "euler",
         "simple",
         1.0
       ],
-      "title": "? KSampler Sinh ?nh Nh?n V?t G?c (Noct-Q)",
+      "title": "? KSampler Sinh ?nh Nh?n V?t G?c (Noct-Q 20 Steps Si?u T?c)",
       "color": "#3f2b60",
       "bgcolor": "#281b3d"
     },

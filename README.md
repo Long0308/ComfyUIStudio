@@ -224,15 +224,18 @@ flowchart LR
 * **Bước 2**: `02_Step2_H3_Character_Sheet_Native672p_Upscale4K.json` (Nằm ở root thư mục workflow, `H3_Character_Sheet/`, và `ProjectStudio5 - Film Newtecons/02 Workflow Video/`).
   - *Nhiệm vụ*: Nhận ảnh nhân vật từ Bước 1 + Áo/Mũ 3D -> H3 Designer (Native 672p/896p) -> MiniMax H3 Video/Sheet (1-2 phút) -> Tự động nạp vào cụm RealESRGAN x4plus phóng to 2K/4K trong 7 giây.
 
-#### Thao tác chuẩn:
-* **Bước 1 (Native Generation)**:
-  - Mở workflow `01_Step1_Tao_Anh_Nhan_Vat_NoctQ_Uncensored.json`, nạp ảnh Face/Pose/Costume và Queue. Ảnh xuất ra lưu tại `ComfyUI/output/` (hoặc `Newtecons_Character_NoctQ_*.png`).
-  - Sau đó mở workflow `02_Step2_H3_Character_Sheet_Native672p_Upscale4K.json`, nạp ảnh vừa tạo vào ô `[01 INPUT] Ảnh Nhân Vật Fused`.
-  - Trên node `H3 Character Sheet Designer`, mục **Output size**: đặt `Panel height` ở mức **`672`** hoặc **`896`** (tự động điều chỉnh kích thước về khoảng $2240 \times 768$ hoặc $2560 \times 896$).
-  - Thời gian sinh giảm xuống chỉ còn **1–2 phút/shot**, hình dạng nhân vật, mũ bảo hộ và áo phản quang giữ nguyên độ chuẩn xác của mô hình 3D Blender.
-* **Bước 2 (Chuyên dụng Upscale)**:
-  - **Với Character Sheet (Ảnh tĩnh)**: Sử dụng node `RealESRGAN_x4plus` phóng to 4 lần lên 4K/8K trong **10–15 giây**.
-  - **Với Video chuyển động**: Sử dụng pipeline siêu phân giải **`SeedVR2 7B`** (`seedvr2_7b_int8_convrot.safetensors`) với cấu hình tile 768 / overlap 64 phóng video lên 2K (1440p) hoặc 4K (2160p) mượt mà, khử nhiễu và làm sắc nét logo.
+#### Thao tác chuẩn & Tối ưu hóa thời gian:
+* **Bước 1 (Tạo nhân vật gốc Noct-Q V4 - 20 Steps Siêu Tốc)**:
+  - Mở workflow `01_Step1_Tao_Anh_Nhan_Vat_NoctQ_Uncensored.json`.
+  - Cấu hình KSampler chuẩn: **`steps: 20`** (bộ giải `euler` + `simple` hội tụ hoàn hảo ở 20 bước, chất lượng tương đương 25-30 bước nhưng giảm thời gian lấy mẫu xuống chỉ còn **13 giây**).
+  - Bấm **Queue Prompt** $\rightarrow$ Thời gian sinh tổng cộng chỉ **18–25 giây** (nếu model đã nạp) hoặc ~45 giây (lần đầu nạp model).
+  - Ảnh xuất ra lưu tại `ComfyUI/output/NEWTECONS_Character_Fused_*.png`.
+  - *Mẹo tránh nghẽn RAM*: Nếu vừa chạy Bước 2 (mô hình H3 38 GB), trước khi quay lại chạy Bước 1 nên bấm biểu tượng thùng rác (Free memory) trên góc phải ComfyUI để giải phóng RAM, tránh bị tràn swap ổ cứng.
+* **Bước 2 (H3 Sheet Native 672p + RealESRGAN 4K - 1.5 đến 2 phút)**:
+  - Mở workflow `02_Step2_H3_Character_Sheet_Native672p_Upscale4K.json`.
+  - Nạp ảnh vừa sinh ở Bước 1 vào ô `[01 INPUT] Ảnh Nhân Vật Gốc`.
+  - Đặt `Panel height` ở mức **`672`** (Native) $\rightarrow$ Sampling 15 bước chỉ mất **44 giây**.
+  - Tự động chuyển tiếp sang `RealESRGAN_x4plus` phóng to 4K trong **7 giây** $\rightarrow$ Xuất trọn bộ 2 file: Native Sheet và Ultra-HD 4K Sheet.
 
 ## 4. Bắt đầu nhanh theo phim (giữ hai domain tách biệt)
 
