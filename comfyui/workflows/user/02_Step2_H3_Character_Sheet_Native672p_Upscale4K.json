@@ -1,71 +1,18 @@
 {
   "version": 0.4,
-  "last_node_id": 40,
-  "last_link_id": 50,
-  "extra": {
-    "flow": "image",
-    "newtecons_flow": "image",
-    "media_kind": "image",
-    "title": "BƯỚC 2: H3 Character Sheet (Native 672p Siêu Tốc 1-2 Phút) + Upscale 4K"
-  },
-  "groups": [
-    {
-      "title": "1. ẢNH ĐẦU VÀO (NHÂN VẬT GỐC + MŨ 3D + ÁO 3D)",
-      "bounding": [
-        -1120,
-        20,
-        380,
-        1480
-      ],
-      "color": "#2a52be",
-      "font_size": 24
-    },
-    {
-      "title": "2. H3 CHARACTER SHEET DESIGNER (CHỌN GÓC NATIVE 672P)",
-      "bounding": [
-        -700,
-        20,
-        720,
-        1480
-      ],
-      "color": "#27ae60",
-      "font_size": 24
-    },
-    {
-      "title": "3. MINIMAX H3 QUAY VIDEO / SHEET NATIVE (1-2 PHÚT)",
-      "bounding": [
-        60,
-        20,
-        420,
-        1480
-      ],
-      "color": "#e67e22",
-      "font_size": 24
-    },
-    {
-      "title": "4. SIÊU PHÂN GIẢI UPSCALE 4K (REALESRGAN 7 GIÂY)",
-      "bounding": [
-        520,
-        20,
-        420,
-        1480
-      ],
-      "color": "#8e44ad",
-      "font_size": 24
-    }
-  ],
+  "last_node_id": 35,
+  "last_link_id": 40,
   "nodes": [
     {
       "id": 1,
       "type": "LoadImage",
-      "title": "🖼️ [01 INPUT] Ảnh Nhân Vật Gốc (từ Bước 1)",
       "pos": [
         -1100,
-        100
+        -250
       ],
       "size": [
-        340,
-        430
+        360,
+        420
       ],
       "flags": {},
       "order": 0,
@@ -78,12 +25,14 @@
           "links": [
             1
           ],
+          "shape": 3,
           "slot_index": 0
         },
         {
           "name": "MASK",
           "type": "MASK",
-          "links": [],
+          "links": null,
+          "shape": 3,
           "slot_index": 1
         }
       ],
@@ -91,116 +40,26 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "f06fe4f6b36.webp",
+        "NEWTECONS_Character_Fused.png",
         "image"
       ],
-      "widgets_values_named": {
-        "image": "f06fe4f6b36.webp",
-        "upload": "image"
-      }
-    },
-    {
-      "id": 2,
-      "type": "LoadImage",
-      "title": "🦺 [01 INPUT] Trang Phục / Áo Phản Quang (PPE)",
-      "pos": [
-        -1100,
-        580
-      ],
-      "size": [
-        340,
-        430
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            2
-          ],
-          "slot_index": 0
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": [],
-          "slot_index": 1
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "SPR-0004.png",
-        "image"
-      ],
-      "widgets_values_named": {
-        "image": "SPR-0004.png",
-        "upload": "image"
-      }
-    },
-    {
-      "id": 3,
-      "type": "LoadImage",
-      "title": "⛑️ [01 INPUT] Mũ bảo hộ NEWTECONS (3D Helmet)",
-      "pos": [
-        -1100,
-        1060
-      ],
-      "size": [
-        340,
-        430
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            3
-          ],
-          "slot_index": 0
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": [],
-          "slot_index": 1
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "helmet_front.png",
-        "image"
-      ],
-      "widgets_values_named": {
-        "image": "helmet_front.png",
-        "upload": "image"
-      }
+      "title": "??? [01 INPUT] DUY NH?T 1 ?NH NH?N V?T G?C (T? B??C 1)",
+      "color": "#1f3a52",
+      "bgcolor": "#142533"
     },
     {
       "id": 10,
       "type": "H3CharacterSheetDesignerReferenceV13",
-      "title": "🎛️ [02 DESIGN] H3 Sheet Designer (Độ cao 672p Tối Ưu Tốc Độ)",
       "pos": [
         -680,
-        100
+        -250
       ],
       "size": [
-        680,
-        940
+        440,
+        520
       ],
       "flags": {},
-      "order": 3,
+      "order": 1,
       "mode": 0,
       "inputs": [
         {
@@ -211,12 +70,12 @@
         {
           "name": "reference_image_1",
           "type": "IMAGE",
-          "link": 2
+          "link": null
         },
         {
           "name": "reference_image_2",
           "type": "IMAGE",
-          "link": 3
+          "link": null
         },
         {
           "name": "reference_image_3",
@@ -231,6 +90,7 @@
           "links": [
             10
           ],
+          "shape": 3,
           "slot_index": 0
         },
         {
@@ -239,6 +99,7 @@
           "links": [
             11
           ],
+          "shape": 3,
           "slot_index": 1
         },
         {
@@ -247,6 +108,7 @@
           "links": [
             12
           ],
+          "shape": 3,
           "slot_index": 2
         },
         {
@@ -255,6 +117,7 @@
           "links": [
             13
           ],
+          "shape": 3,
           "slot_index": 3
         },
         {
@@ -263,28 +126,28 @@
           "links": [
             14
           ],
+          "shape": 3,
           "slot_index": 4
         },
         {
           "name": "reference_image_1",
           "type": "IMAGE",
-          "links": [
-            15
-          ],
+          "links": null,
+          "shape": 3,
           "slot_index": 5
         },
         {
           "name": "reference_image_2",
           "type": "IMAGE",
-          "links": [
-            16
-          ],
+          "links": null,
+          "shape": 3,
           "slot_index": 6
         },
         {
           "name": "reference_image_3",
           "type": "IMAGE",
-          "links": [],
+          "links": null,
+          "shape": 3,
           "slot_index": 7
         }
       ],
@@ -292,25 +155,27 @@
         "Node name for S&R": "H3CharacterSheetDesignerReferenceV13"
       },
       "widgets_values": [
-        "{\"schema_version\": 3, \"views\": [\"face_front\", \"face_left\", \"helmet_front\", \"body_front\", \"body_left\", \"body_back\", \"vest_front\"], \"size\": {\"mode\": \"auto\", \"body_height\": 672, \"manual_width\": 2624, \"manual_height\": 768}, \"part_prompts\": {}, \"hand_state\": \"reference\", \"clothing_mode\": \"worn\", \"clothing_type\": \"reference\", \"footwear_state\": \"reference\"}",
+        "{\"schema_version\": 3, \"views\": [\"face_front\", \"face_left\", \"body_front\", \"body_left\", \"body_back\"], \"size\": {\"mode\": \"auto\", \"body_height\": 672, \"manual_width\": 1920, \"manual_height\": 768}, \"part_prompts\": {}, \"hand_state\": \"reference\", \"clothing_mode\": \"worn\", \"clothing_type\": \"reference\", \"footwear_state\": \"reference\"}",
         true,
         "none"
-      ]
+      ],
+      "title": "??? [02 DESIGN] H3 Turnaround Designer (5 G?c Chu?n 672p)",
+      "color": "#234a36",
+      "bgcolor": "#162f22"
     },
     {
       "id": 20,
       "type": "UNETLoader",
-      "title": "🎬 [03 H3] MiniMax H3 Ref2VA Model",
       "pos": [
-        80,
-        100
+        -180,
+        -250
       ],
       "size": [
-        380,
-        90
+        340,
+        100
       ],
       "flags": {},
-      "order": 4,
+      "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -320,6 +185,7 @@
           "links": [
             20
           ],
+          "shape": 3,
           "slot_index": 0
         }
       ],
@@ -330,25 +196,23 @@
         "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
         "default"
       ],
-      "widgets_values_named": {
-        "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
-        "weight_dtype": "default"
-      }
+      "title": "?? [03 H3] MiniMax H3 Ref2VA Model",
+      "color": "#52361f",
+      "bgcolor": "#332214"
     },
     {
       "id": 21,
       "type": "CLIPLoader",
-      "title": "🎬 [03 H3] Qwen3VL 32B NVFP4 Text Encoder",
       "pos": [
-        80,
-        220
+        -180,
+        -110
       ],
       "size": [
-        380,
-        90
+        340,
+        120
       ],
       "flags": {},
-      "order": 5,
+      "order": 3,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -358,6 +222,7 @@
           "links": [
             21
           ],
+          "shape": 3,
           "slot_index": 0
         }
       ],
@@ -369,26 +234,23 @@
         "minimax",
         "default"
       ],
-      "widgets_values_named": {
-        "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
-        "type": "minimax",
-        "device": "default"
-      }
+      "title": "?? [03 H3] Qwen3VL 32B NVFP4 Text Encoder",
+      "color": "#52361f",
+      "bgcolor": "#332214"
     },
     {
       "id": 22,
       "type": "VAELoader",
-      "title": "🎬 [03 H3] MiniMax H3 Video VAE",
       "pos": [
-        80,
-        340
+        -180,
+        50
       ],
       "size": [
-        380,
-        60
+        340,
+        100
       ],
       "flags": {},
-      "order": 6,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -399,6 +261,7 @@
             22,
             23
           ],
+          "shape": 3,
           "slot_index": 0
         }
       ],
@@ -408,24 +271,23 @@
       "widgets_values": [
         "minimax_h3_video_vae_int8_convrot.safetensors"
       ],
-      "widgets_values_named": {
-        "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors"
-      }
+      "title": "?? [03 H3] MiniMax H3 Video VAE",
+      "color": "#52361f",
+      "bgcolor": "#332214"
     },
     {
       "id": 23,
       "type": "MiniMaxH3ReferenceToVideo",
-      "title": "📹 [03 H3] MiniMax H3 Reference To Video",
       "pos": [
-        80,
-        430
+        200,
+        -250
       ],
       "size": [
         380,
         460
       ],
       "flags": {},
-      "order": 7,
+      "order": 5,
       "mode": 0,
       "inputs": [
         {
@@ -462,16 +324,6 @@
           "name": "ref_images.ref_image_1",
           "type": "IMAGE",
           "link": 13
-        },
-        {
-          "name": "ref_images.ref_image_2",
-          "type": "IMAGE",
-          "link": 15
-        },
-        {
-          "name": "ref_images.ref_image_3",
-          "type": "IMAGE",
-          "link": 16
         }
       ],
       "outputs": [
@@ -482,6 +334,7 @@
             24,
             25
           ],
+          "shape": 3,
           "slot_index": 0
         },
         {
@@ -490,6 +343,7 @@
           "links": [
             26
           ],
+          "shape": 3,
           "slot_index": 1
         }
       ],
@@ -499,22 +353,24 @@
       "widgets_values": [
         5,
         "match"
-      ]
+      ],
+      "title": "?? [03 H3] MiniMax H3 Reference To Video",
+      "color": "#52361f",
+      "bgcolor": "#332214"
     },
     {
       "id": 24,
       "type": "ConditioningZeroOut",
-      "title": "ZeroOut Negative Conditioning (H3)",
       "pos": [
-        80,
-        920
+        620,
+        -250
       ],
       "size": [
-        380,
-        50
+        220,
+        90
       ],
       "flags": {},
-      "order": 8,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
@@ -530,27 +386,31 @@
           "links": [
             27
           ],
+          "shape": 3,
           "slot_index": 0
         }
       ],
       "properties": {
         "Node name for S&R": "ConditioningZeroOut"
-      }
+      },
+      "widgets_values": [],
+      "title": "ZeroOut Negative Conditioning (H3)",
+      "color": "#3f2b60",
+      "bgcolor": "#281b3d"
     },
     {
       "id": 25,
       "type": "KSampler",
-      "title": "⚡ [03 H3] KSampler Quay Video H3 (1-2 Phút)",
       "pos": [
-        80,
-        1000
+        620,
+        -120
       ],
       "size": [
-        380,
-        310
+        340,
+        460
       ],
       "flags": {},
-      "order": 9,
+      "order": 7,
       "mode": 0,
       "inputs": [
         {
@@ -581,6 +441,7 @@
           "links": [
             28
           ],
+          "shape": 3,
           "slot_index": 0
         }
       ],
@@ -588,29 +449,31 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        20261102,
-        "fixed",
-        20,
-        1.0,
+        20261103,
+        "randomize",
+        15,
+        3.0,
         "euler",
         "simple",
         1.0
-      ]
+      ],
+      "title": "? [03 H3] KSampler Xoay G?c 5 Views (28 Gi?y)",
+      "color": "#3f2b60",
+      "bgcolor": "#281b3d"
     },
     {
       "id": 26,
       "type": "VAEDecode",
-      "title": "🖼️ Decode Sheet Native (672p)",
       "pos": [
-        80,
-        1340
+        1000,
+        -120
       ],
       "size": [
-        380,
-        60
+        240,
+        120
       ],
       "flags": {},
-      "order": 10,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
@@ -632,27 +495,31 @@
             29,
             30
           ],
+          "shape": 3,
           "slot_index": 0
         }
       ],
       "properties": {
         "Node name for S&R": "VAEDecode"
-      }
+      },
+      "widgets_values": [],
+      "title": "??? Decode Sheet Native (672p)",
+      "color": "#3f2b60",
+      "bgcolor": "#281b3d"
     },
     {
       "id": 27,
       "type": "SaveImage",
-      "title": "💾 Lưu Character Sheet Gốc (Native 672p)",
       "pos": [
-        80,
-        1430
+        1280,
+        -120
       ],
       "size": [
-        380,
-        240
+        360,
+        360
       ],
       "flags": {},
-      "order": 11,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
@@ -667,22 +534,24 @@
       },
       "widgets_values": [
         "NEWTECONS_H3_Sheet_Native_672p"
-      ]
+      ],
+      "title": "?? L?u Character Sheet G?c (Native 672p)",
+      "color": "#234a36",
+      "bgcolor": "#162f22"
     },
     {
       "id": 30,
       "type": "UpscaleModelLoader",
-      "title": "🔍 [04 UPSCALE] Load RealESRGAN x4 Model",
       "pos": [
-        540,
-        100
+        1000,
+        160
       ],
       "size": [
-        380,
+        340,
         90
       ],
       "flags": {},
-      "order": 12,
+      "order": 10,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -692,6 +561,7 @@
           "links": [
             31
           ],
+          "shape": 3,
           "slot_index": 0
         }
       ],
@@ -701,24 +571,23 @@
       "widgets_values": [
         "RealESRGAN_x4plus.pth"
       ],
-      "widgets_values_named": {
-        "model_name": "RealESRGAN_x4plus.pth"
-      }
+      "title": "?? [04 UPSCALE] Load RealESRGAN x4 Model",
+      "color": "#1f3a52",
+      "bgcolor": "#142533"
     },
     {
       "id": 31,
       "type": "ImageUpscaleWithModel",
-      "title": "🚀 [04 UPSCALE] Siêu Phân Giải 4K (GPU ~7s)",
       "pos": [
-        540,
-        220
+        1000,
+        290
       ],
       "size": [
-        380,
+        280,
         110
       ],
       "flags": {},
-      "order": 13,
+      "order": 11,
       "mode": 0,
       "inputs": [
         {
@@ -739,27 +608,31 @@
           "links": [
             32
           ],
+          "shape": 3,
           "slot_index": 0
         }
       ],
       "properties": {
         "Node name for S&R": "ImageUpscaleWithModel"
-      }
+      },
+      "widgets_values": [],
+      "title": "?? [04 UPSCALE] Si?u Ph?n Gi?i 4K (GPU ~7s)",
+      "color": "#1f3a52",
+      "bgcolor": "#142533"
     },
     {
       "id": 32,
       "type": "SaveImage",
-      "title": "💾 Lưu Character Sheet ĐÃ UPSCALE 4K CỰC NÉT",
       "pos": [
-        540,
-        360
+        1320,
+        290
       ],
       "size": [
-        380,
-        420
+        360,
+        360
       ],
       "flags": {},
-      "order": 14,
+      "order": 12,
       "mode": 0,
       "inputs": [
         {
@@ -773,8 +646,11 @@
         "Node name for S&R": "SaveImage"
       },
       "widgets_values": [
-        "NEWTECONS_H3_Sheet_Upscaled_4K"
-      ]
+        "NEWTECONS_H3_Sheet_Upscale_4K"
+      ],
+      "title": "?? L?u Character Sheet ?? UPSCALE 4K C?C N?T",
+      "color": "#234a36",
+      "bgcolor": "#162f22"
     }
   ],
   "links": [
@@ -784,22 +660,6 @@
       0,
       10,
       0,
-      "IMAGE"
-    ],
-    [
-      2,
-      2,
-      0,
-      10,
-      1,
-      "IMAGE"
-    ],
-    [
-      3,
-      3,
-      0,
-      10,
-      2,
       "IMAGE"
     ],
     [
@@ -840,22 +700,6 @@
       4,
       23,
       5,
-      "IMAGE"
-    ],
-    [
-      15,
-      10,
-      5,
-      23,
-      7,
-      "IMAGE"
-    ],
-    [
-      16,
-      10,
-      6,
-      23,
-      8,
       "IMAGE"
     ],
     [
@@ -907,20 +751,20 @@
       "CONDITIONING"
     ],
     [
-      27,
-      24,
-      0,
-      25,
-      2,
-      "CONDITIONING"
-    ],
-    [
       26,
       23,
       1,
       25,
       3,
       "LATENT"
+    ],
+    [
+      27,
+      24,
+      0,
+      25,
+      2,
+      "CONDITIONING"
     ],
     [
       28,
@@ -962,5 +806,61 @@
       0,
       "IMAGE"
     ]
-  ]
+  ],
+  "groups": [
+    {
+      "title": "1. DUY NH?T 1 ?NH THAM CHI?U (T? B??C 1)",
+      "bounding": [
+        -1140,
+        -320,
+        420,
+        780
+      ],
+      "color": "#1f3a52",
+      "font_size": 24
+    },
+    {
+      "title": "2. THI?T K? B?NG XOAY G?C (5 G?C CHU?N - 672P)",
+      "bounding": [
+        -700,
+        -320,
+        480,
+        780
+      ],
+      "color": "#234a36",
+      "font_size": 24
+    },
+    {
+      "title": "3. M? H?NH H3 & B? SAMPLER XOAY G?C (28 GI?Y)",
+      "bounding": [
+        -200,
+        -320,
+        1180,
+        780
+      ],
+      "color": "#52361f",
+      "font_size": 24
+    },
+    {
+      "title": "4. SI?U PH?N GI?I 4K REAL-ESRGAN (7 GI?Y)",
+      "bounding": [
+        980,
+        100,
+        720,
+        580
+      ],
+      "color": "#1f3a52",
+      "font_size": 24
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8,
+      "offset": [
+        1200,
+        400
+      ]
+    }
+  }
 }
