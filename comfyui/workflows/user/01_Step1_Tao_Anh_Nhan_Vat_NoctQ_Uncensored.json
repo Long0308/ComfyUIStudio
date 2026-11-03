@@ -1,60 +1,18 @@
 {
   "version": 0.4,
   "last_node_id": 20,
-  "last_link_id": 20,
-  "extra": {
-    "flow": "image",
-    "newtecons_flow": "image",
-    "media_kind": "image",
-    "title": "BƯỚC 1: Tạo Nhân Vật Gốc (Noct-Q Qwen 2.1 Uncensored)"
-  },
-  "groups": [
-    {
-      "title": "1. CÁC ẢNH ĐẦU VÀO (MẶT + DÁNG + TRANG PHỤC + MŨ)",
-      "bounding": [
-        -1120,
-        20,
-        380,
-        1960
-      ],
-      "color": "#2a52be",
-      "font_size": 24
-    },
-    {
-      "title": "2. HỘP NHẬP PROMPT LỚN (ĐIỀU KHIỂN ĐA PHƯƠNG THỨC)",
-      "bounding": [
-        -700,
-        20,
-        420,
-        600
-      ],
-      "color": "#d35400",
-      "font_size": 24
-    },
-    {
-      "title": "3. NOCT-Q UNCENSORED GENERATOR (SINH ẢNH GỐC HOÀN CHỈNH)",
-      "bounding": [
-        -700,
-        640,
-        420,
-        1340
-      ],
-      "color": "#8e44ad",
-      "font_size": 24
-    }
-  ],
+  "last_link_id": 25,
   "nodes": [
     {
       "id": 1,
       "type": "LoadImage",
-      "title": "🖼️ [01 INPUT] Mặt (Face Image)",
       "pos": [
-        -1100,
-        100
+        -1200,
+        -250
       ],
       "size": [
         340,
-        430
+        310
       ],
       "flags": {},
       "order": 0,
@@ -67,12 +25,14 @@
           "links": [
             1
           ],
+          "shape": 3,
           "slot_index": 0
         },
         {
           "name": "MASK",
           "type": "MASK",
-          "links": [],
+          "links": null,
+          "shape": 3,
           "slot_index": 1
         }
       ],
@@ -83,22 +43,20 @@
         "f06fe4f6b36.webp",
         "image"
       ],
-      "widgets_values_named": {
-        "image": "f06fe4f6b36.webp",
-        "upload": "image"
-      }
+      "title": "??? [01 INPUT] M?t (Face Image)",
+      "color": "#1f3a52",
+      "bgcolor": "#142533"
     },
     {
       "id": 2,
       "type": "LoadImage",
-      "title": "🧍 [01 INPUT] Dáng (Pose / OpenPose)",
       "pos": [
-        -1100,
-        580
+        -1200,
+        100
       ],
       "size": [
         340,
-        430
+        310
       ],
       "flags": {},
       "order": 1,
@@ -111,12 +69,14 @@
           "links": [
             2
           ],
+          "shape": 3,
           "slot_index": 0
         },
         {
           "name": "MASK",
           "type": "MASK",
-          "links": [],
+          "links": null,
+          "shape": 3,
           "slot_index": 1
         }
       ],
@@ -127,22 +87,20 @@
         "full_P002_front.png",
         "image"
       ],
-      "widgets_values_named": {
-        "image": "full_P002_front.png",
-        "upload": "image"
-      }
+      "title": "?? [01 INPUT] D?ng (Pose / OpenPose)",
+      "color": "#1f3a52",
+      "bgcolor": "#142533"
     },
     {
       "id": 3,
       "type": "LoadImage",
-      "title": "🦺 [01 INPUT] Trang Phục (Costume / PPE)",
       "pos": [
-        -1100,
-        1060
+        -1200,
+        450
       ],
       "size": [
         340,
-        430
+        310
       ],
       "flags": {},
       "order": 2,
@@ -155,12 +113,14 @@
           "links": [
             3
           ],
+          "shape": 3,
           "slot_index": 0
         },
         {
           "name": "MASK",
           "type": "MASK",
-          "links": [],
+          "links": null,
+          "shape": 3,
           "slot_index": 1
         }
       ],
@@ -171,22 +131,20 @@
         "SPR-0004.png",
         "image"
       ],
-      "widgets_values_named": {
-        "image": "SPR-0004.png",
-        "upload": "image"
-      }
+      "title": "?? [01 INPUT] Trang Ph?c (Costume / PPE)",
+      "color": "#1f3a52",
+      "bgcolor": "#142533"
     },
     {
       "id": 4,
       "type": "LoadImage",
-      "title": "⛑️ [01 INPUT] Mũ bảo hộ NEWTECONS (3D Helmet)",
       "pos": [
-        -1100,
-        1540
+        -1200,
+        800
       ],
       "size": [
         340,
-        430
+        310
       ],
       "flags": {},
       "order": 3,
@@ -196,13 +154,17 @@
         {
           "name": "IMAGE",
           "type": "IMAGE",
-          "links": [],
+          "links": [
+            4
+          ],
+          "shape": 3,
           "slot_index": 0
         },
         {
           "name": "MASK",
           "type": "MASK",
-          "links": [],
+          "links": null,
+          "shape": 3,
           "slot_index": 1
         }
       ],
@@ -213,22 +175,20 @@
         "helmet_front.png",
         "image"
       ],
-      "widgets_values_named": {
-        "image": "helmet_front.png",
-        "upload": "image"
-      }
+      "title": "?? [01 INPUT] M? b?o h? NEWTECONS (3D Helmet)",
+      "color": "#1f3a52",
+      "bgcolor": "#142533"
     },
     {
       "id": 10,
       "type": "UNETLoader",
-      "title": "🤖 [02 MODEL] Noct-Q V4 Uncensored (Qwen 2.1)",
       "pos": [
-        -680,
-        100
+        -800,
+        -250
       ],
       "size": [
-        380,
-        90
+        340,
+        100
       ],
       "flags": {},
       "order": 4,
@@ -241,6 +201,7 @@
           "links": [
             6
           ],
+          "shape": 3,
           "slot_index": 0
         }
       ],
@@ -251,22 +212,20 @@
         "NoctQ_V4_int8_convrot.safetensors",
         "default"
       ],
-      "widgets_values_named": {
-        "unet_name": "NoctQ_V4_int8_convrot.safetensors",
-        "weight_dtype": "default"
-      }
+      "title": "?? [02 MODEL] Noct-Q V4 Uncensored (Qwen 2.1)",
+      "color": "#3f2b60",
+      "bgcolor": "#281b3d"
     },
     {
       "id": 11,
       "type": "CLIPLoader",
-      "title": "🧠 [02 TEXT] Qwen3VL 8B Multimodal Encoder",
       "pos": [
-        -680,
-        220
+        -800,
+        -110
       ],
       "size": [
-        380,
-        90
+        340,
+        120
       ],
       "flags": {},
       "order": 5,
@@ -279,6 +238,7 @@
           "links": [
             7
           ],
+          "shape": 3,
           "slot_index": 0
         }
       ],
@@ -290,23 +250,20 @@
         "qwen_image",
         "default"
       ],
-      "widgets_values_named": {
-        "clip_name": "qwen3vl_8b_int8_convrot.safetensors",
-        "type": "qwen_image",
-        "device": "default"
-      }
+      "title": "?? [02 TEXT] Qwen3VL 8B Multimodal Encoder",
+      "color": "#3f2b60",
+      "bgcolor": "#281b3d"
     },
     {
       "id": 12,
       "type": "VAELoader",
-      "title": "🎨 [02 VAE] Qwen Image 2.1 VAE",
       "pos": [
-        -680,
-        340
+        -800,
+        50
       ],
       "size": [
-        380,
-        60
+        340,
+        100
       ],
       "flags": {},
       "order": 6,
@@ -320,6 +277,7 @@
             8,
             9
           ],
+          "shape": 3,
           "slot_index": 0
         }
       ],
@@ -329,21 +287,20 @@
       "widgets_values": [
         "qwen_image_2.1_vae_bf16.safetensors"
       ],
-      "widgets_values_named": {
-        "vae_name": "qwen_image_2.1_vae_bf16.safetensors"
-      }
+      "title": "?? [02 VAE] Qwen Image 2.1 VAE",
+      "color": "#3f2b60",
+      "bgcolor": "#281b3d"
     },
     {
       "id": 13,
       "type": "TextEncodeQwenImage21",
-      "title": "📝 [02 PROMPT] HỘP NHẬP PROMPT & GHÉP ĐẦU VÀO",
       "pos": [
-        -680,
-        430
+        -400,
+        -250
       ],
       "size": [
-        380,
-        360
+        580,
+        580
       ],
       "flags": {},
       "order": 7,
@@ -356,27 +313,33 @@
         },
         {
           "name": "images.image_1",
-          "shape": 7,
           "type": "IMAGE",
-          "link": 1
+          "link": 1,
+          "shape": 7
         },
         {
           "name": "images.image_2",
-          "shape": 7,
           "type": "IMAGE",
-          "link": 2
+          "link": 2,
+          "shape": 7
         },
         {
           "name": "images.image_3",
-          "shape": 7,
           "type": "IMAGE",
-          "link": 3
+          "link": 3,
+          "shape": 7
+        },
+        {
+          "name": "images.image_4",
+          "type": "IMAGE",
+          "link": 4,
+          "shape": 7
         },
         {
           "name": "vae",
-          "shape": 7,
           "type": "VAE",
-          "link": 8
+          "link": 8,
+          "shape": 7
         }
       ],
       "outputs": [
@@ -386,6 +349,7 @@
           "links": [
             10
           ],
+          "shape": 3,
           "slot_index": 0
         },
         {
@@ -394,75 +358,44 @@
           "links": [
             11
           ],
+          "shape": 3,
           "slot_index": 1
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            12
+          ],
+          "shape": 3,
+          "slot_index": 2
         }
       ],
       "properties": {
         "Node name for S&R": "TextEncodeQwenImage21"
       },
       "widgets_values": [
-        "Master character photograph: full body portrait of an engineer featuring the exact face from input 1, standing in the exact full body pose from input 2, wearing the costume from input 3 and NEWTECONS white safety helmet. Clean white studio background, photorealistic 8k, sharp detailed textures.",
-        "low quality, blurry, distorted, deformed, extra limbs"
+        "Task: High quality photographic character portrait fusing character identity, body pose, costume, and NEWTECONS PPE safety gear.\n\nInput Responsibilities:\n<image1> (Character Identity): Faithfully preserve the exact female face, eyes, facial features, dark hair, hairstyle, smile, and Asian skin tone.\n<image2> (Pose Reference): Adopt the exact sitting posture, limb orientation, and center of gravity: the woman is sitting on the floor, leaning back slightly with one arm supporting herself on the ground, knees bent comfortably to the side. Do NOT stand up. Do NOT transfer any mannequin wireframe, ball joints, or sketch lines.\n<image3> (Costume Reference): Wear the exact clothing style, fabric colors, layers, and shoes. The fabric must drape and fold naturally according to the sitting posture.\n<image4> (Safety Equipment): Wear the authentic white construction safety hardhat featuring the distinct red 'N' and cyan 'NEWTECONS' logo centered on the front of the helmet.\n\nOutput: Realistic studio photograph, clean solid studio background, 8k uhd, authentic textures, professional lighting, photorealistic masterpiece.",
+        "standing, standing upright, upright posture, wrong pose, mannequin, ball joints, wireframe, sketch, 2d drawing, cartoon, 3d render, missing logo, blank helmet, plain helmet without logo, bad anatomy, deformed limbs, extra fingers, blurry, low resolution, multiple people",
+        1024
       ],
-      "widgets_values_named": {
-        "prompt": "Master character photograph: full body portrait of an engineer featuring the exact face from input 1, standing in the exact full body pose from input 2, wearing the costume from input 3 and NEWTECONS white safety helmet. Clean white studio background, photorealistic 8k, sharp detailed textures.",
-        "negative_prompt": "low quality, blurry, distorted, deformed, extra limbs"
-      }
-    },
-    {
-      "id": 14,
-      "type": "EmptyLatentImage",
-      "title": "📐 Kích Thước Nhân Vật (1024x1536)",
-      "pos": [
-        -680,
-        820
-      ],
-      "size": [
-        380,
-        110
-      ],
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            12
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "EmptyLatentImage"
-      },
-      "widgets_values": [
-        1024,
-        1536,
-        1
-      ],
-      "widgets_values_named": {
-        "width": 1024,
-        "height": 1536,
-        "batch_size": 1
-      }
+      "title": "?? [02 PROMPT] H?P NH?P PROMPT & GH?P 4 THAM CHI?U (OpenPose & Costume)",
+      "color": "#52361f",
+      "bgcolor": "#332214"
     },
     {
       "id": 15,
       "type": "KSampler",
-      "title": "⚡ KSampler Sinh Ảnh Nhân Vật Gốc (Noct-Q)",
       "pos": [
-        -680,
-        960
+        240,
+        -250
       ],
       "size": [
-        380,
-        310
+        360,
+        480
       ],
       "flags": {},
-      "order": 9,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
@@ -493,6 +426,7 @@
           "links": [
             13
           ],
+          "shape": 3,
           "slot_index": 0
         }
       ],
@@ -500,7 +434,7 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        672732600220299,
+        42,
         "randomize",
         25,
         3.0,
@@ -508,30 +442,23 @@
         "simple",
         1.0
       ],
-      "widgets_values_named": {
-        "seed": 672732600220299,
-        "control_after_generate": "randomize",
-        "steps": 25,
-        "cfg": 3.0,
-        "sampler_name": "euler",
-        "scheduler": "simple",
-        "denoise": 1.0
-      }
+      "title": "? KSampler Sinh ?nh Nh?n V?t G?c (Noct-Q)",
+      "color": "#3f2b60",
+      "bgcolor": "#281b3d"
     },
     {
       "id": 16,
       "type": "VAEDecode",
-      "title": "🖼️ Giải Mã Ảnh Nhân Vật",
       "pos": [
-        -680,
-        1300
+        650,
+        -250
       ],
       "size": [
-        380,
-        60
+        240,
+        120
       ],
       "flags": {},
-      "order": 10,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
@@ -553,27 +480,31 @@
             14,
             15
           ],
+          "shape": 3,
           "slot_index": 0
         }
       ],
       "properties": {
         "Node name for S&R": "VAEDecode"
-      }
+      },
+      "widgets_values": [],
+      "title": "??? Gi?i M? ?nh Nh?n V?t",
+      "color": "#3f2b60",
+      "bgcolor": "#281b3d"
     },
     {
       "id": 17,
       "type": "SaveImage",
-      "title": "💾 LƯU ẢNH NHÂN VẬT GỐC (ĐÃ PHỐI HỢP)",
       "pos": [
-        -680,
-        1390
+        940,
+        -250
       ],
       "size": [
         380,
-        270
+        420
       ],
       "flags": {},
-      "order": 11,
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
@@ -588,22 +519,24 @@
       },
       "widgets_values": [
         "NEWTECONS_Character_Fused"
-      ]
+      ],
+      "title": "?? L?U ?NH NH?N V?T G?C (?? PH?I H?P)",
+      "color": "#234a36",
+      "bgcolor": "#162f22"
     },
     {
       "id": 18,
       "type": "PreviewImage",
-      "title": "👁️ Xem Trước Trực Quan",
       "pos": [
-        -680,
-        1690
+        940,
+        220
       ],
       "size": [
         380,
-        290
+        420
       ],
       "flags": {},
-      "order": 12,
+      "order": 11,
       "mode": 0,
       "inputs": [
         {
@@ -615,7 +548,11 @@
       "outputs": [],
       "properties": {
         "Node name for S&R": "PreviewImage"
-      }
+      },
+      "widgets_values": [],
+      "title": "??? Xem Tr??c Tr?c Quan",
+      "color": "#234a36",
+      "bgcolor": "#162f22"
     }
   ],
   "links": [
@@ -644,6 +581,14 @@
       "IMAGE"
     ],
     [
+      4,
+      4,
+      0,
+      13,
+      4,
+      "IMAGE"
+    ],
+    [
       6,
       10,
       0,
@@ -664,7 +609,7 @@
       12,
       0,
       13,
-      4,
+      5,
       "VAE"
     ],
     [
@@ -693,8 +638,8 @@
     ],
     [
       12,
-      14,
-      0,
+      13,
+      2,
       15,
       3,
       "LATENT"
@@ -723,5 +668,72 @@
       0,
       "IMAGE"
     ]
-  ]
+  ],
+  "groups": [
+    {
+      "title": "1. 4 ??U V?O THAM CHI?U (M?T + D?NG + ?O + M? 3D NEWTECONS)",
+      "bounding": [
+        -1240,
+        -320,
+        400,
+        1460
+      ],
+      "color": "#1f3a52",
+      "font_size": 24
+    },
+    {
+      "title": "2. B? M? H?NH NOCT-Q V4 & QWEN3VL 8B MULTIMODAL",
+      "bounding": [
+        -830,
+        -320,
+        390,
+        500
+      ],
+      "color": "#3f2b60",
+      "font_size": 24
+    },
+    {
+      "title": "3. H?P PROMPT T?NG H?P & GH?P 4 THAM CHI?U (OPEN-POSE & COSTUME)",
+      "bounding": [
+        -430,
+        -320,
+        630,
+        700
+      ],
+      "color": "#52361f",
+      "font_size": 24
+    },
+    {
+      "title": "4. SAMPLING & GI?I M? NH?N V?T G?C (30 GI?Y - X? S?CH VRAM)",
+      "bounding": [
+        210,
+        -320,
+        700,
+        700
+      ],
+      "color": "#3f2b60",
+      "font_size": 24
+    },
+    {
+      "title": "5. TH?NH PH?M NH?N V?T G?C ?? D?NG CHO B??C 2",
+      "bounding": [
+        920,
+        -320,
+        420,
+        1000
+      ],
+      "color": "#234a36",
+      "font_size": 24
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8,
+      "offset": [
+        1300,
+        400
+      ]
+    }
+  }
 }

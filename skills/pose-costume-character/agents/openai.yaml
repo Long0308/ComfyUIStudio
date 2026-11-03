@@ -1,0 +1,4 @@
+interface:
+  display_name: "姿势 × 服饰 × 人物生图"
+  short_description: "融合姿势、服饰和人物参考，生成保留人物特征并采用指定动作穿搭的新图"
+  default_prompt: "使用 $pose-costume-character，将我提供的姿势、服饰与人物参考融合成一张人物图，保留人物身份与画风。"

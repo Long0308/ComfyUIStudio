@@ -201,6 +201,7 @@ flowchart LR
 Repo đã tích hợp sẵn 2 skill quản trị ký ức dài hạn để đồng bộ tri thức khi làm việc ở máy công ty và máy nhà:
 * [skills/hindsight-ky-uc-phan-tang](skills/hindsight-ky-uc-phan-tang/SKILL.md): Quản trị ký ức phân tầng, bảo mật hai kho không trộn (Local `:8890` vs VPS `:8888`), lưu trữ kinh nghiệm sửa lỗi, thông số render và bẫy kỹ thuật.
 * [skills/cognee-hindsight-mesh](skills/cognee-hindsight-mesh/SKILL.md): Semantic Knowledge Graph kết hợp Vector Memory để tra cứu chéo ngữ cảnh giữa các phiên làm việc.
+* [skills/pose-costume-character](skills/pose-costume-character/SKILL.md): Kỹ năng chuẩn hóa từ repo `hongye007/open-pose-costume` chuyên hợp nhất Dáng (Pose) + Trang phục (Costume) + Mặt (Face) + Mũ bảo hộ NEWTECONS (PPE) theo nguyên tắc "Phân tách Trách nhiệm" (Duty Separation), triệt tiêu hoàn toàn lỗi không theo dáng ngồi hoặc mất logo mũ.
 * **Nguyên tắc bảo mật**: Chỉ lưu facts, code patterns và kinh nghiệm kiến trúc; không bao giờ lưu token, cookie hay dữ liệu cá nhân lên Git.
 
 ### 3.7 Quy trình chuẩn 2 bước: Sinh Native ⟶ Upscale chuyên dụng
