@@ -217,8 +217,16 @@ flowchart LR
 1. **Quá tải Receptive Field của Diffusion**: Mô hình Video DiT (như MiniMax H3) được huấn luyện chuẩn ở cạnh ngắn 768p. Khi ép sinh trực tiếp ở độ phân giải $4320 \times 1280$ (> 5.5 Megapixels), lượng token tăng gấp 6 lần khiến thời gian sinh kéo dài từ 2 phút lên hơn 15 phút, đồng thời dễ sinh dị tật hình ảnh.
 2. **Nghẽn VRAM và Swap bộ nhớ**: Trên GPU 16 GB, chạy đồng thời mô hình Qwen 2.1 (16 GB) và MiniMax H3 (38 GB) sẽ làm tràn VRAM và cgroup memory limit, kích hoạt paging swap trên ổ đĩa khiến hệ thống bị chậm.
 
+#### Danh sách Workflow chuẩn hóa 2 bước trong Repo:
+* **Bước 1**: `01_Step1_Tao_Anh_Nhan_Vat_NoctQ_Uncensored.json` (Nằm ở root thư mục workflow và `ProjectStudio5 - Film Newtecons/01 Workflow Image/`).
+  - *Nhiệm vụ*: Nhận 3 input (Mặt, Dáng, Áo) + Hộp Prompt lớn -> Sinh ảnh nhân vật phối hợp Noct-Q V4 chất lượng cao. Chạy riêng giúp GPU xả sạch RAM sau khi sinh xong.
+* **Bước 2**: `02_Step2_H3_Character_Sheet_Native672p_Upscale4K.json` (Nằm ở root thư mục workflow, `H3_Character_Sheet/`, và `ProjectStudio5 - Film Newtecons/02 Workflow Video/`).
+  - *Nhiệm vụ*: Nhận ảnh nhân vật từ Bước 1 + Áo/Mũ 3D -> H3 Designer (Native 672p/896p) -> MiniMax H3 Video/Sheet (1-2 phút) -> Tự động nạp vào cụm RealESRGAN x4plus phóng to 2K/4K trong 7 giây.
+
 #### Thao tác chuẩn:
 * **Bước 1 (Native Generation)**:
+  - Mở workflow `01_Step1_Tao_Anh_Nhan_Vat_NoctQ_Uncensored.json`, nạp ảnh Face/Pose/Costume và Queue. Ảnh xuất ra lưu tại `ComfyUI/output/` (hoặc `Newtecons_Character_NoctQ_*.png`).
+  - Sau đó mở workflow `02_Step2_H3_Character_Sheet_Native672p_Upscale4K.json`, nạp ảnh vừa tạo vào ô `[01 INPUT] Ảnh Nhân Vật Fused`.
   - Trên node `H3 Character Sheet Designer`, mục **Output size**: đặt `Panel height` ở mức **`672`** hoặc **`896`** (tự động điều chỉnh kích thước về khoảng $2240 \times 768$ hoặc $2560 \times 896$).
   - Thời gian sinh giảm xuống chỉ còn **1–2 phút/shot**, hình dạng nhân vật, mũ bảo hộ và áo phản quang giữ nguyên độ chuẩn xác của mô hình 3D Blender.
 * **Bước 2 (Chuyên dụng Upscale)**:

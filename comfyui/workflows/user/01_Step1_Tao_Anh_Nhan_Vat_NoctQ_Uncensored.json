@@ -1,0 +1,727 @@
+{
+  "version": 0.4,
+  "last_node_id": 20,
+  "last_link_id": 20,
+  "extra": {
+    "flow": "image",
+    "newtecons_flow": "image",
+    "media_kind": "image",
+    "title": "BƯỚC 1: Tạo Nhân Vật Gốc (Noct-Q Qwen 2.1 Uncensored)"
+  },
+  "groups": [
+    {
+      "title": "1. CÁC ẢNH ĐẦU VÀO (MẶT + DÁNG + TRANG PHỤC + MŨ)",
+      "bounding": [
+        -1120,
+        20,
+        380,
+        1960
+      ],
+      "color": "#2a52be",
+      "font_size": 24
+    },
+    {
+      "title": "2. HỘP NHẬP PROMPT LỚN (ĐIỀU KHIỂN ĐA PHƯƠNG THỨC)",
+      "bounding": [
+        -700,
+        20,
+        420,
+        600
+      ],
+      "color": "#d35400",
+      "font_size": 24
+    },
+    {
+      "title": "3. NOCT-Q UNCENSORED GENERATOR (SINH ẢNH GỐC HOÀN CHỈNH)",
+      "bounding": [
+        -700,
+        640,
+        420,
+        1340
+      ],
+      "color": "#8e44ad",
+      "font_size": 24
+    }
+  ],
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "title": "🖼️ [01 INPUT] Mặt (Face Image)",
+      "pos": [
+        -1100,
+        100
+      ],
+      "size": [
+        340,
+        430
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "f06fe4f6b36.webp",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "f06fe4f6b36.webp",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 2,
+      "type": "LoadImage",
+      "title": "🧍 [01 INPUT] Dáng (Pose / OpenPose)",
+      "pos": [
+        -1100,
+        580
+      ],
+      "size": [
+        340,
+        430
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "full_P002_front.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "full_P002_front.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 3,
+      "type": "LoadImage",
+      "title": "🦺 [01 INPUT] Trang Phục (Costume / PPE)",
+      "pos": [
+        -1100,
+        1060
+      ],
+      "size": [
+        340,
+        430
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            3
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "SPR-0004.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "SPR-0004.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 4,
+      "type": "LoadImage",
+      "title": "⛑️ [01 INPUT] Mũ bảo hộ NEWTECONS (3D Helmet)",
+      "pos": [
+        -1100,
+        1540
+      ],
+      "size": [
+        340,
+        430
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "helmet_front.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "helmet_front.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 10,
+      "type": "UNETLoader",
+      "title": "🤖 [02 MODEL] Noct-Q V4 Uncensored (Qwen 2.1)",
+      "pos": [
+        -680,
+        100
+      ],
+      "size": [
+        380,
+        90
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            6
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "NoctQ_V4_int8_convrot.safetensors",
+        "default"
+      ],
+      "widgets_values_named": {
+        "unet_name": "NoctQ_V4_int8_convrot.safetensors",
+        "weight_dtype": "default"
+      }
+    },
+    {
+      "id": 11,
+      "type": "CLIPLoader",
+      "title": "🧠 [02 TEXT] Qwen3VL 8B Multimodal Encoder",
+      "pos": [
+        -680,
+        220
+      ],
+      "size": [
+        380,
+        90
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            7
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "qwen3vl_8b_int8_convrot.safetensors",
+        "qwen_image",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "qwen3vl_8b_int8_convrot.safetensors",
+        "type": "qwen_image",
+        "device": "default"
+      }
+    },
+    {
+      "id": 12,
+      "type": "VAELoader",
+      "title": "🎨 [02 VAE] Qwen Image 2.1 VAE",
+      "pos": [
+        -680,
+        340
+      ],
+      "size": [
+        380,
+        60
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            8,
+            9
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "qwen_image_2.1_vae_bf16.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "qwen_image_2.1_vae_bf16.safetensors"
+      }
+    },
+    {
+      "id": 13,
+      "type": "TextEncodeQwenImage21",
+      "title": "📝 [02 PROMPT] HỘP NHẬP PROMPT & GHÉP ĐẦU VÀO",
+      "pos": [
+        -680,
+        430
+      ],
+      "size": [
+        380,
+        360
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 7
+        },
+        {
+          "name": "images.image_1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 1
+        },
+        {
+          "name": "images.image_2",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 2
+        },
+        {
+          "name": "images.image_3",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 3
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            10
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            11
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextEncodeQwenImage21"
+      },
+      "widgets_values": [
+        "Master character photograph: full body portrait of an engineer featuring the exact face from input 1, standing in the exact full body pose from input 2, wearing the costume from input 3 and NEWTECONS white safety helmet. Clean white studio background, photorealistic 8k, sharp detailed textures.",
+        "low quality, blurry, distorted, deformed, extra limbs"
+      ],
+      "widgets_values_named": {
+        "prompt": "Master character photograph: full body portrait of an engineer featuring the exact face from input 1, standing in the exact full body pose from input 2, wearing the costume from input 3 and NEWTECONS white safety helmet. Clean white studio background, photorealistic 8k, sharp detailed textures.",
+        "negative_prompt": "low quality, blurry, distorted, deformed, extra limbs"
+      }
+    },
+    {
+      "id": 14,
+      "type": "EmptyLatentImage",
+      "title": "📐 Kích Thước Nhân Vật (1024x1536)",
+      "pos": [
+        -680,
+        820
+      ],
+      "size": [
+        380,
+        110
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            12
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1536,
+        1
+      ],
+      "widgets_values_named": {
+        "width": 1024,
+        "height": 1536,
+        "batch_size": 1
+      }
+    },
+    {
+      "id": 15,
+      "type": "KSampler",
+      "title": "⚡ KSampler Sinh Ảnh Nhân Vật Gốc (Noct-Q)",
+      "pos": [
+        -680,
+        960
+      ],
+      "size": [
+        380,
+        310
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 6
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 10
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 11
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            13
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        672732600220299,
+        "randomize",
+        25,
+        3.0,
+        "euler",
+        "simple",
+        1.0
+      ],
+      "widgets_values_named": {
+        "seed": 672732600220299,
+        "control_after_generate": "randomize",
+        "steps": 25,
+        "cfg": 3.0,
+        "sampler_name": "euler",
+        "scheduler": "simple",
+        "denoise": 1.0
+      }
+    },
+    {
+      "id": 16,
+      "type": "VAEDecode",
+      "title": "🖼️ Giải Mã Ảnh Nhân Vật",
+      "pos": [
+        -680,
+        1300
+      ],
+      "size": [
+        380,
+        60
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 13
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 9
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            14,
+            15
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 17,
+      "type": "SaveImage",
+      "title": "💾 LƯU ẢNH NHÂN VẬT GỐC (ĐÃ PHỐI HỢP)",
+      "pos": [
+        -680,
+        1390
+      ],
+      "size": [
+        380,
+        270
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 14
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "NEWTECONS_Character_Fused"
+      ]
+    },
+    {
+      "id": 18,
+      "type": "PreviewImage",
+      "title": "👁️ Xem Trước Trực Quan",
+      "pos": [
+        -680,
+        1690
+      ],
+      "size": [
+        380,
+        290
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 15
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      13,
+      1,
+      "IMAGE"
+    ],
+    [
+      2,
+      2,
+      0,
+      13,
+      2,
+      "IMAGE"
+    ],
+    [
+      3,
+      3,
+      0,
+      13,
+      3,
+      "IMAGE"
+    ],
+    [
+      6,
+      10,
+      0,
+      15,
+      0,
+      "MODEL"
+    ],
+    [
+      7,
+      11,
+      0,
+      13,
+      0,
+      "CLIP"
+    ],
+    [
+      8,
+      12,
+      0,
+      13,
+      4,
+      "VAE"
+    ],
+    [
+      9,
+      12,
+      0,
+      16,
+      1,
+      "VAE"
+    ],
+    [
+      10,
+      13,
+      0,
+      15,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      11,
+      13,
+      1,
+      15,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      12,
+      14,
+      0,
+      15,
+      3,
+      "LATENT"
+    ],
+    [
+      13,
+      15,
+      0,
+      16,
+      0,
+      "LATENT"
+    ],
+    [
+      14,
+      16,
+      0,
+      17,
+      0,
+      "IMAGE"
+    ],
+    [
+      15,
+      16,
+      0,
+      18,
+      0,
+      "IMAGE"
+    ]
+  ]
+}

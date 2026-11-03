@@ -1,67 +1,56 @@
 {
   "version": 0.4,
-  "last_node_id": 42,
-  "last_link_id": 41,
+  "last_node_id": 40,
+  "last_link_id": 50,
   "extra": {
     "flow": "image",
     "newtecons_flow": "image",
     "media_kind": "image",
-    "title": "NEWTECONS Master Character Creation & H3 Turnaround Sheet"
+    "title": "BƯỚC 2: H3 Character Sheet (Native 672p Siêu Tốc 1-2 Phút) + Upscale 4K"
   },
   "groups": [
     {
-      "title": "1. 4 CỔNG INPUT RÕ RÀNG (BÊN TRÁI)",
+      "title": "1. ẢNH ĐẦU VÀO (NHÂN VẬT GỐC + MŨ 3D + ÁO 3D)",
       "bounding": [
-        -1220,
+        -1120,
         20,
-        390,
-        1960
+        380,
+        1480
       ],
       "color": "#2a52be",
       "font_size": 24
     },
     {
-      "title": "2. HỘP NHẬP PROMPT LỚN (RÕ RÀNG)",
+      "title": "2. H3 CHARACTER SHEET DESIGNER (CHỌN GÓC NATIVE 672P)",
       "bounding": [
-        -800,
-        20,
-        420,
-        800
-      ],
-      "color": "#d35400",
-      "font_size": 24
-    },
-    {
-      "title": "3. NOCT-Q UNCENSORED QWEN 2.1 (TẠO ẢNH NHÂN VẬT GỐC)",
-      "bounding": [
-        -800,
-        840,
-        420,
-        1140
-      ],
-      "color": "#8e44ad",
-      "font_size": 24
-    },
-    {
-      "title": "4. H3 CHARACTER SHEET DESIGNER (4 HÀNG GÓC NHÌN & ĐẠO CỤ)",
-      "bounding": [
-        -350,
+        -700,
         20,
         720,
-        1960
+        1480
       ],
       "color": "#27ae60",
       "font_size": 24
     },
     {
-      "title": "5. AI QUAY VIDEO & SIÊU PHÂN GIẢI UPSCALE 2K/4K",
+      "title": "3. MINIMAX H3 QUAY VIDEO / SHEET NATIVE (1-2 PHÚT)",
       "bounding": [
-        400,
+        60,
         20,
-        1180,
-        1960
+        420,
+        1480
       ],
-      "color": "#f39c12",
+      "color": "#e67e22",
+      "font_size": 24
+    },
+    {
+      "title": "4. SIÊU PHÂN GIẢI UPSCALE 4K (REALESRGAN 7 GIÂY)",
+      "bounding": [
+        520,
+        20,
+        420,
+        1480
+      ],
+      "color": "#8e44ad",
       "font_size": 24
     }
   ],
@@ -69,13 +58,13 @@
     {
       "id": 1,
       "type": "LoadImage",
-      "title": "🖼️ [01 INPUT] Mặt (Face Image)",
+      "title": "🖼️ [01 INPUT] Ảnh Nhân Vật Gốc (từ Bước 1)",
       "pos": [
-        -1200,
+        -1100,
         100
       ],
       "size": [
-        350,
+        340,
         430
       ],
       "flags": {},
@@ -113,13 +102,13 @@
     {
       "id": 2,
       "type": "LoadImage",
-      "title": "🧍 [01 INPUT] Dáng (Pose / OpenPose)",
+      "title": "🦺 [01 INPUT] Trang Phục / Áo Phản Quang (PPE)",
       "pos": [
-        -1200,
+        -1100,
         580
       ],
       "size": [
-        350,
+        340,
         430
       ],
       "flags": {},
@@ -146,24 +135,24 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "full_P002_front.png",
+        "SPR-0004.png",
         "image"
       ],
       "widgets_values_named": {
-        "image": "full_P002_front.png",
+        "image": "SPR-0004.png",
         "upload": "image"
       }
     },
     {
       "id": 3,
       "type": "LoadImage",
-      "title": "🦺 [01 INPUT] Trang Phục (Costume / PPE)",
+      "title": "⛑️ [01 INPUT] Mũ bảo hộ NEWTECONS (3D Helmet)",
       "pos": [
-        -1200,
+        -1100,
         1060
       ],
       "size": [
-        350,
+        340,
         430
       ],
       "flags": {},
@@ -175,52 +164,7 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            3,
-            4
-          ],
-          "slot_index": 0
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": [],
-          "slot_index": 1
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "SPR-0004.png",
-        "image"
-      ],
-      "widgets_values_named": {
-        "image": "SPR-0004.png",
-        "upload": "image"
-      }
-    },
-    {
-      "id": 4,
-      "type": "LoadImage",
-      "title": "⛑️ [01 INPUT] Mũ bảo hộ NEWTECONS (3D Helmet)",
-      "pos": [
-        -1200,
-        1540
-      ],
-      "size": [
-        350,
-        430
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            5
+            3
           ],
           "slot_index": 0
         },
@@ -245,10 +189,120 @@
     },
     {
       "id": 10,
-      "type": "UNETLoader",
-      "title": "🤖 [02 MODEL] Noct-Q V4 Uncensored (Qwen 2.1)",
+      "type": "H3CharacterSheetDesignerReferenceV13",
+      "title": "🎛️ [02 DESIGN] H3 Sheet Designer (Độ cao 672p Tối Ưu Tốc Độ)",
       "pos": [
-        -780,
+        -680,
+        100
+      ],
+      "size": [
+        680,
+        940
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "character_image",
+          "type": "IMAGE",
+          "link": 1
+        },
+        {
+          "name": "reference_image_1",
+          "type": "IMAGE",
+          "link": 2
+        },
+        {
+          "name": "reference_image_2",
+          "type": "IMAGE",
+          "link": 3
+        },
+        {
+          "name": "reference_image_3",
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            10
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            11
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            12
+          ],
+          "slot_index": 2
+        },
+        {
+          "name": "layout_image",
+          "type": "IMAGE",
+          "links": [
+            13
+          ],
+          "slot_index": 3
+        },
+        {
+          "name": "character_image",
+          "type": "IMAGE",
+          "links": [
+            14
+          ],
+          "slot_index": 4
+        },
+        {
+          "name": "reference_image_1",
+          "type": "IMAGE",
+          "links": [
+            15
+          ],
+          "slot_index": 5
+        },
+        {
+          "name": "reference_image_2",
+          "type": "IMAGE",
+          "links": [
+            16
+          ],
+          "slot_index": 6
+        },
+        {
+          "name": "reference_image_3",
+          "type": "IMAGE",
+          "links": [],
+          "slot_index": 7
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "H3CharacterSheetDesignerReferenceV13"
+      },
+      "widgets_values": [
+        "{\"schema_version\": 3, \"views\": [\"face_front\", \"face_left\", \"helmet_front\", \"body_front\", \"body_left\", \"body_back\", \"vest_front\"], \"size\": {\"mode\": \"auto\", \"body_height\": 672, \"manual_width\": 2624, \"manual_height\": 768}, \"part_prompts\": {}, \"hand_state\": \"reference\", \"clothing_mode\": \"worn\", \"clothing_type\": \"reference\", \"footwear_state\": \"reference\"}",
+        true,
+        "none"
+      ]
+    },
+    {
+      "id": 20,
+      "type": "UNETLoader",
+      "title": "🎬 [03 H3] MiniMax H3 Ref2VA Model",
+      "pos": [
+        80,
         100
       ],
       "size": [
@@ -264,486 +318,7 @@
           "name": "MODEL",
           "type": "MODEL",
           "links": [
-            6
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "UNETLoader"
-      },
-      "widgets_values": [
-        "NoctQ_V4_int8_convrot.safetensors",
-        "default"
-      ],
-      "widgets_values_named": {
-        "unet_name": "NoctQ_V4_int8_convrot.safetensors",
-        "weight_dtype": "default"
-      }
-    },
-    {
-      "id": 11,
-      "type": "CLIPLoader",
-      "title": "🧠 [02 TEXT] Qwen3VL 8B Multimodal Encoder",
-      "pos": [
-        -780,
-        220
-      ],
-      "size": [
-        380,
-        90
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            7
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPLoader"
-      },
-      "widgets_values": [
-        "qwen3vl_8b_int8_convrot.safetensors",
-        "qwen_image",
-        "default"
-      ],
-      "widgets_values_named": {
-        "clip_name": "qwen3vl_8b_int8_convrot.safetensors",
-        "type": "qwen_image",
-        "device": "default"
-      }
-    },
-    {
-      "id": 12,
-      "type": "VAELoader",
-      "title": "🎨 [02 VAE] Qwen Image 2.1 VAE",
-      "pos": [
-        -780,
-        340
-      ],
-      "size": [
-        380,
-        60
-      ],
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            8,
-            9
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAELoader"
-      },
-      "widgets_values": [
-        "qwen_image_2.1_vae_bf16.safetensors"
-      ],
-      "widgets_values_named": {
-        "vae_name": "qwen_image_2.1_vae_bf16.safetensors"
-      }
-    },
-    {
-      "id": 13,
-      "type": "TextEncodeQwenImage21",
-      "title": "📝 [02 PROMPT] HỘP NHẬP PROMPT LỚN (RÕ RÀNG)",
-      "pos": [
-        -780,
-        430
-      ],
-      "size": [
-        380,
-        370
-      ],
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 7
-        },
-        {
-          "name": "images.image_1",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 1
-        },
-        {
-          "name": "images.image_2",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 2
-        },
-        {
-          "name": "images.image_3",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 3
-        },
-        {
-          "name": "vae",
-          "shape": 7,
-          "type": "VAE",
-          "link": 8
-        }
-      ],
-      "outputs": [
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "links": [
-            10
-          ],
-          "slot_index": 0
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "links": [
-            31
-          ],
-          "slot_index": 1
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "TextEncodeQwenImage21"
-      },
-      "widgets_values": [
-        "Master character photograph: full body portrait of an engineer featuring the exact face from input 1, standing in the exact full body pose from input 2, wearing the costume from input 3 and NEWTECONS white safety helmet. Clean white studio background, photorealistic 8k, sharp detailed textures.",
-        "low quality, blurry, distorted, deformed"
-      ],
-      "widgets_values_named": {
-        "prompt": "Master character photograph: full body portrait of an engineer featuring the exact face from input 1, standing in the exact full body pose from input 2, wearing the costume from input 3 and NEWTECONS white safety helmet. Clean white studio background, photorealistic 8k, sharp detailed textures.",
-        "negative_prompt": "low quality, blurry, distorted, deformed"
-      }
-    },
-    {
-      "id": 14,
-      "type": "EmptyLatentImage",
-      "title": "📐 Kích Thước Nhân Vật (1024x1536)",
-      "pos": [
-        -780,
-        920
-      ],
-      "size": [
-        380,
-        110
-      ],
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            11
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "EmptyLatentImage"
-      },
-      "widgets_values": [
-        1024,
-        1536,
-        1
-      ],
-      "widgets_values_named": {
-        "width": 1024,
-        "height": 1536,
-        "batch_size": 1
-      }
-    },
-    {
-      "id": 15,
-      "type": "KSampler",
-      "title": "⚡ KSampler Sinh Ảnh Nhân Vật Gốc (Noct-Q)",
-      "pos": [
-        -780,
-        1060
-      ],
-      "size": [
-        380,
-        310
-      ],
-      "flags": {},
-      "order": 9,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 6
-        },
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 10
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 31
-        },
-        {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 11
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            12
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "KSampler"
-      },
-      "widgets_values": [
-        672732600220299,
-        "randomize",
-        25,
-        3.0,
-        "euler",
-        "simple",
-        1.0
-      ],
-      "widgets_values_named": {
-        "seed": 672732600220299,
-        "control_after_generate": "randomize",
-        "steps": 25,
-        "cfg": 3.0,
-        "sampler_name": "euler",
-        "scheduler": "simple",
-        "denoise": 1.0
-      }
-    },
-    {
-      "id": 16,
-      "type": "VAEDecode",
-      "title": "🖼️ Ảnh Nhân Vật Đã Phối Hợp",
-      "pos": [
-        -780,
-        1400
-      ],
-      "size": [
-        380,
-        60
-      ],
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 12
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 9
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            13,
-            14
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAEDecode"
-      }
-    },
-    {
-      "id": 17,
-      "type": "PreviewImage",
-      "title": "👁️ Xem Trước Nhân Vật Fused",
-      "pos": [
-        -780,
-        1490
-      ],
-      "size": [
-        380,
-        460
-      ],
-      "flags": {},
-      "order": 11,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 13
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "PreviewImage"
-      }
-    },
-    {
-      "id": 20,
-      "type": "H3CharacterSheetDesignerReferenceV13",
-      "title": "🎛️ [03 DESIGN] H3 Sheet Designer (4 Hàng Riêng Biệt)",
-      "pos": [
-        -320,
-        100
-      ],
-      "size": [
-        660,
-        940
-      ],
-      "flags": {},
-      "order": 12,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "character_image",
-          "type": "IMAGE",
-          "link": 14
-        },
-        {
-          "name": "reference_image_1",
-          "type": "IMAGE",
-          "link": 4
-        },
-        {
-          "name": "reference_image_2",
-          "type": "IMAGE",
-          "link": 5
-        },
-        {
-          "name": "reference_image_3",
-          "type": "IMAGE",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "prompt",
-          "type": "STRING",
-          "links": [
-            15
-          ],
-          "slot_index": 0
-        },
-        {
-          "name": "width",
-          "type": "INT",
-          "links": [
-            16
-          ],
-          "slot_index": 1
-        },
-        {
-          "name": "height",
-          "type": "INT",
-          "links": [
-            17
-          ],
-          "slot_index": 2
-        },
-        {
-          "name": "layout_image",
-          "type": "IMAGE",
-          "links": [
-            18
-          ],
-          "slot_index": 3
-        },
-        {
-          "name": "character_image",
-          "type": "IMAGE",
-          "links": [
-            19
-          ],
-          "slot_index": 4
-        },
-        {
-          "name": "reference_image_1",
-          "type": "IMAGE",
-          "links": [
             20
-          ],
-          "slot_index": 5
-        },
-        {
-          "name": "reference_image_2",
-          "type": "IMAGE",
-          "links": [
-            21
-          ],
-          "slot_index": 6
-        },
-        {
-          "name": "reference_image_3",
-          "type": "IMAGE",
-          "links": [],
-          "slot_index": 7
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "H3CharacterSheetDesignerReferenceV13"
-      },
-      "widgets_values": [
-        "{\"schema_version\": 3, \"views\": [\"face_front\", \"face_left\", \"helmet_front\", \"body_front\", \"body_left\", \"body_back\", \"vest_front\"], \"size\": {\"mode\": \"auto\", \"body_height\": 1120, \"manual_width\": 4320, \"manual_height\": 1280}, \"part_prompts\": {}, \"hand_state\": \"reference\", \"clothing_mode\": \"worn\", \"clothing_type\": \"reference\", \"footwear_state\": \"reference\"}",
-        true,
-        "none"
-      ]
-    },
-    {
-      "id": 30,
-      "type": "UNETLoader",
-      "title": "🎬 [04 H3] MiniMax H3 Ref2VA Model",
-      "pos": [
-        430,
-        100
-      ],
-      "size": [
-        360,
-        90
-      ],
-      "flags": {},
-      "order": 13,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            22
           ],
           "slot_index": 0
         }
@@ -761,19 +336,19 @@
       }
     },
     {
-      "id": 31,
+      "id": 21,
       "type": "CLIPLoader",
-      "title": "🎬 [04 H3] Qwen3VL 32B NVFP4 Text Encoder",
+      "title": "🎬 [03 H3] Qwen3VL 32B NVFP4 Text Encoder",
       "pos": [
-        430,
+        80,
         220
       ],
       "size": [
-        360,
+        380,
         90
       ],
       "flags": {},
-      "order": 14,
+      "order": 5,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -781,7 +356,7 @@
           "name": "CLIP",
           "type": "CLIP",
           "links": [
-            23
+            21
           ],
           "slot_index": 0
         }
@@ -801,19 +376,19 @@
       }
     },
     {
-      "id": 32,
+      "id": 22,
       "type": "VAELoader",
-      "title": "🎬 [04 H3] MiniMax H3 Video VAE",
+      "title": "🎬 [03 H3] MiniMax H3 Video VAE",
       "pos": [
-        430,
+        80,
         340
       ],
       "size": [
-        360,
+        380,
         60
       ],
       "flags": {},
-      "order": 15,
+      "order": 6,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -821,8 +396,8 @@
           "name": "VAE",
           "type": "VAE",
           "links": [
-            24,
-            25
+            22,
+            23
           ],
           "slot_index": 0
         }
@@ -838,65 +413,65 @@
       }
     },
     {
-      "id": 33,
+      "id": 23,
       "type": "MiniMaxH3ReferenceToVideo",
-      "title": "📹 [04 H3] MiniMax H3 Reference To Video",
+      "title": "📹 [03 H3] MiniMax H3 Reference To Video",
       "pos": [
-        430,
+        80,
         430
       ],
       "size": [
-        360,
+        380,
         460
       ],
       "flags": {},
-      "order": 16,
+      "order": 7,
       "mode": 0,
       "inputs": [
         {
           "name": "clip",
           "type": "CLIP",
-          "link": 23
+          "link": 21
         },
         {
           "name": "vae",
           "type": "VAE",
-          "link": 24
+          "link": 22
         },
         {
           "name": "prompt",
           "type": "STRING",
-          "link": 15
+          "link": 10
         },
         {
           "name": "width",
           "type": "INT",
-          "link": 16
+          "link": 11
         },
         {
           "name": "height",
           "type": "INT",
-          "link": 17
+          "link": 12
         },
         {
           "name": "ref_images.ref_image_0",
           "type": "IMAGE",
-          "link": 19
+          "link": 14
         },
         {
           "name": "ref_images.ref_image_1",
           "type": "IMAGE",
-          "link": 18
+          "link": 13
         },
         {
           "name": "ref_images.ref_image_2",
           "type": "IMAGE",
-          "link": 20
+          "link": 15
         },
         {
           "name": "ref_images.ref_image_3",
           "type": "IMAGE",
-          "link": 21
+          "link": 16
         }
       ],
       "outputs": [
@@ -904,8 +479,8 @@
           "name": "positive",
           "type": "CONDITIONING",
           "links": [
-            26,
-            32
+            24,
+            25
           ],
           "slot_index": 0
         },
@@ -913,7 +488,7 @@
           "name": "latent",
           "type": "LATENT",
           "links": [
-            27
+            26
           ],
           "slot_index": 1
         }
@@ -927,25 +502,25 @@
       ]
     },
     {
-      "id": 37,
+      "id": 24,
       "type": "ConditioningZeroOut",
       "title": "ZeroOut Negative Conditioning (H3)",
       "pos": [
-        820,
-        20
+        80,
+        920
       ],
       "size": [
-        340,
+        380,
         50
       ],
       "flags": {},
-      "order": 17,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
           "name": "conditioning",
           "type": "CONDITIONING",
-          "link": 32
+          "link": 25
         }
       ],
       "outputs": [
@@ -953,7 +528,7 @@
           "name": "CONDITIONING",
           "type": "CONDITIONING",
           "links": [
-            33
+            27
           ],
           "slot_index": 0
         }
@@ -963,40 +538,40 @@
       }
     },
     {
-      "id": 34,
+      "id": 25,
       "type": "KSampler",
-      "title": "⚡ [04 H3] KSampler Quay Video H3",
+      "title": "⚡ [03 H3] KSampler Quay Video H3 (1-2 Phút)",
       "pos": [
-        820,
-        100
+        80,
+        1000
       ],
       "size": [
-        340,
+        380,
         310
       ],
       "flags": {},
-      "order": 18,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
           "name": "model",
           "type": "MODEL",
-          "link": 22
+          "link": 20
         },
         {
           "name": "positive",
           "type": "CONDITIONING",
-          "link": 26
+          "link": 24
         },
         {
           "name": "negative",
           "type": "CONDITIONING",
-          "link": 33
+          "link": 27
         },
         {
           "name": "latent_image",
           "type": "LATENT",
-          "link": 27
+          "link": 26
         }
       ],
       "outputs": [
@@ -1023,19 +598,19 @@
       ]
     },
     {
-      "id": 35,
+      "id": 26,
       "type": "VAEDecode",
-      "title": "🖼️ Decode Video / Sheet Hoàn Thiện",
+      "title": "🖼️ Decode Sheet Native (672p)",
       "pos": [
-        820,
-        440
+        80,
+        1340
       ],
       "size": [
-        340,
+        380,
         60
       ],
       "flags": {},
-      "order": 19,
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
@@ -1046,7 +621,7 @@
         {
           "name": "vae",
           "type": "VAE",
-          "link": 25
+          "link": 23
         }
       ],
       "outputs": [
@@ -1054,7 +629,8 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            29
+            29,
+            30
           ],
           "slot_index": 0
         }
@@ -1064,19 +640,19 @@
       }
     },
     {
-      "id": 36,
+      "id": 27,
       "type": "SaveImage",
-      "title": "💾 Lưu Character Sheet Gốc (Native 768p/896p)",
+      "title": "💾 Lưu Character Sheet Gốc (Native 672p)",
       "pos": [
-        820,
-        530
+        80,
+        1430
       ],
       "size": [
-        340,
-        270
+        380,
+        240
       ],
       "flags": {},
-      "order": 20,
+      "order": 11,
       "mode": 0,
       "inputs": [
         {
@@ -1090,23 +666,23 @@
         "Node name for S&R": "SaveImage"
       },
       "widgets_values": [
-        "NEWTECONS_Character_Sheet_Finished"
+        "NEWTECONS_H3_Sheet_Native_672p"
       ]
     },
     {
-      "id": 40,
+      "id": 30,
       "type": "UpscaleModelLoader",
-      "title": "🔍 [05 UPSCALE] Load RealESRGAN x4 Model",
+      "title": "🔍 [04 UPSCALE] Load RealESRGAN x4 Model",
       "pos": [
-        1200,
+        540,
         100
       ],
       "size": [
-        340,
+        380,
         90
       ],
       "flags": {},
-      "order": 20,
+      "order": 12,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1114,7 +690,7 @@
           "name": "UPSCALE_MODEL",
           "type": "UPSCALE_MODEL",
           "links": [
-            40
+            31
           ],
           "slot_index": 0
         }
@@ -1130,30 +706,30 @@
       }
     },
     {
-      "id": 41,
+      "id": 31,
       "type": "ImageUpscaleWithModel",
-      "title": "🚀 [05 UPSCALE] Siêu Phân Giải 2K/4K (GPU)",
+      "title": "🚀 [04 UPSCALE] Siêu Phân Giải 4K (GPU ~7s)",
       "pos": [
-        1200,
+        540,
         220
       ],
       "size": [
-        340,
+        380,
         110
       ],
       "flags": {},
-      "order": 21,
+      "order": 13,
       "mode": 0,
       "inputs": [
         {
           "name": "upscale_model",
           "type": "UPSCALE_MODEL",
-          "link": 40
+          "link": 31
         },
         {
           "name": "image",
           "type": "IMAGE",
-          "link": 29
+          "link": 30
         }
       ],
       "outputs": [
@@ -1161,7 +737,7 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            41
+            32
           ],
           "slot_index": 0
         }
@@ -1171,25 +747,25 @@
       }
     },
     {
-      "id": 42,
+      "id": 32,
       "type": "SaveImage",
-      "title": "💾 Lưu Character Sheet ĐÃ UPSCALE 2K/4K SIÊU NÉT",
+      "title": "💾 Lưu Character Sheet ĐÃ UPSCALE 4K CỰC NÉT",
       "pos": [
-        1200,
+        540,
         360
       ],
       "size": [
-        340,
+        380,
         420
       ],
       "flags": {},
-      "order": 22,
+      "order": 14,
       "mode": 0,
       "inputs": [
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 41
+          "link": 32
         }
       ],
       "outputs": [],
@@ -1197,7 +773,7 @@
         "Node name for S&R": "SaveImage"
       },
       "widgets_values": [
-        "NEWTECONS_Character_Sheet_UPSCALE_2K_4K"
+        "NEWTECONS_H3_Sheet_Upscaled_4K"
       ]
     }
   ],
@@ -1206,271 +782,183 @@
       1,
       1,
       0,
-      13,
-      1,
-      "IMAGE"
-    ],
-    [
-      2,
-      2,
-      0,
-      13,
-      2,
-      "IMAGE"
-    ],
-    [
-      3,
-      3,
-      0,
-      13,
-      3,
-      "IMAGE"
-    ],
-    [
-      4,
-      3,
-      0,
-      20,
-      1,
-      "IMAGE"
-    ],
-    [
-      5,
-      4,
-      0,
-      20,
-      2,
-      "IMAGE"
-    ],
-    [
-      6,
       10,
       0,
-      15,
-      0,
-      "MODEL"
+      "IMAGE"
     ],
     [
-      7,
-      11,
+      2,
+      2,
       0,
-      13,
-      0,
-      "CLIP"
-    ],
-    [
-      8,
-      12,
-      0,
-      13,
-      4,
-      "VAE"
-    ],
-    [
-      9,
-      12,
-      0,
-      16,
+      10,
       1,
-      "VAE"
+      "IMAGE"
+    ],
+    [
+      3,
+      3,
+      0,
+      10,
+      2,
+      "IMAGE"
     ],
     [
       10,
-      13,
+      10,
       0,
-      15,
-      1,
-      "CONDITIONING"
-    ],
-    [
-      31,
-      13,
-      1,
-      15,
-      2,
-      "CONDITIONING"
-    ],
-    [
-      11,
-      14,
-      0,
-      15,
-      3,
-      "LATENT"
-    ],
-    [
-      12,
-      15,
-      0,
-      16,
-      0,
-      "LATENT"
-    ],
-    [
-      13,
-      16,
-      0,
-      17,
-      0,
-      "IMAGE"
-    ],
-    [
-      14,
-      16,
-      0,
-      20,
-      0,
-      "IMAGE"
-    ],
-    [
-      15,
-      20,
-      0,
-      33,
+      23,
       2,
       "STRING"
     ],
     [
-      16,
-      20,
+      11,
+      10,
       1,
-      33,
+      23,
       3,
       "INT"
     ],
     [
-      17,
-      20,
+      12,
+      10,
       2,
-      33,
+      23,
       4,
       "INT"
     ],
     [
-      18,
-      20,
+      13,
+      10,
       3,
-      33,
+      23,
       6,
       "IMAGE"
     ],
     [
-      19,
-      20,
+      14,
+      10,
       4,
-      33,
+      23,
       5,
       "IMAGE"
     ],
     [
-      20,
-      20,
+      15,
+      10,
       5,
-      33,
+      23,
       7,
       "IMAGE"
     ],
     [
-      21,
-      20,
+      16,
+      10,
       6,
-      33,
+      23,
       8,
       "IMAGE"
     ],
     [
-      22,
-      30,
+      20,
+      20,
       0,
-      34,
+      25,
       0,
       "MODEL"
     ],
     [
-      23,
-      31,
+      21,
+      21,
       0,
-      33,
+      23,
       0,
       "CLIP"
     ],
     [
-      24,
-      32,
+      22,
+      22,
       0,
-      33,
+      23,
       1,
       "VAE"
+    ],
+    [
+      23,
+      22,
+      0,
+      26,
+      1,
+      "VAE"
+    ],
+    [
+      24,
+      23,
+      0,
+      25,
+      1,
+      "CONDITIONING"
     ],
     [
       25,
-      32,
+      23,
       0,
-      35,
-      1,
-      "VAE"
-    ],
-    [
-      26,
-      33,
+      24,
       0,
-      34,
-      1,
-      "CONDITIONING"
-    ],
-    [
-      32,
-      33,
-      0,
-      37,
-      0,
-      "CONDITIONING"
-    ],
-    [
-      33,
-      37,
-      0,
-      34,
-      2,
       "CONDITIONING"
     ],
     [
       27,
-      33,
+      24,
+      0,
+      25,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      26,
+      23,
       1,
-      34,
+      25,
       3,
       "LATENT"
     ],
     [
       28,
-      34,
+      25,
       0,
-      35,
+      26,
       0,
       "LATENT"
     ],
     [
       29,
-      35,
+      26,
       0,
-      36,
+      27,
       0,
       "IMAGE"
     ],
     [
-      40,
-      40,
+      30,
+      26,
       0,
-      41,
+      31,
+      1,
+      "IMAGE"
+    ],
+    [
+      31,
+      30,
+      0,
+      31,
       0,
       "UPSCALE_MODEL"
     ],
     [
-      41,
-      41,
+      32,
+      31,
       0,
-      42,
+      32,
       0,
       "IMAGE"
     ]
