@@ -1,18 +1,18 @@
 {
   "version": 0.4,
   "last_node_id": 35,
-  "last_link_id": 30,
+  "last_link_id": 40,
   "nodes": [
     {
       "id": 1,
       "type": "LoadImage",
       "pos": [
-        -1200,
-        -200
+        -1420,
+        -260
       ],
       "size": [
-        360,
-        480
+        340,
+        310
       ],
       "flags": {},
       "order": 0,
@@ -43,20 +43,20 @@
         "NEWTECONS_Character_Fused.png",
         "image"
       ],
-      "title": "[01 INPUT] Duy Nhất 1 Ảnh Nhân Vật Gốc (Từ Bước 1)",
+      "title": "🖼️ [01 INPUT] Ảnh Nhân Vật Gốc (Từ Bước 1)",
       "color": "#1f3a52",
       "bgcolor": "#142533"
     },
     {
-      "id": 10,
-      "type": "UNETLoader",
+      "id": 2,
+      "type": "LoadImage",
       "pos": [
-        -800,
-        -200
+        -1420,
+        90
       ],
       "size": [
         340,
-        100
+        310
       ],
       "flags": {},
       "order": 1,
@@ -64,10 +64,264 @@
       "inputs": [],
       "outputs": [
         {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "BLENDER_VEST_SITE_MALE_FRONT.png",
+        "image"
+      ],
+      "title": "🦺 [01 INPUT] Áo Phản Quang 3D Blender (Canon V002)",
+      "color": "#1f3a52",
+      "bgcolor": "#142533"
+    },
+    {
+      "id": 3,
+      "type": "LoadImage",
+      "pos": [
+        -1420,
+        440
+      ],
+      "size": [
+        340,
+        310
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            3
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "BLENDER_HELMET_FRONT.png",
+        "image"
+      ],
+      "title": "⛑️ [01 INPUT] Mũ Bảo Hộ 3D Blender (Canon V004)",
+      "color": "#1f3a52",
+      "bgcolor": "#142533"
+    },
+    {
+      "id": 4,
+      "type": "LoadImage",
+      "pos": [
+        -1420,
+        790
+      ],
+      "size": [
+        340,
+        310
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            4
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "BLENDER_SHIRT_COMPANY_FRONT.png",
+        "image"
+      ],
+      "title": "👔 [01 INPUT] Sơ Mi Caro 3D Blender (Canon V002)",
+      "color": "#1f3a52",
+      "bgcolor": "#142533"
+    },
+    {
+      "id": 10,
+      "type": "H3CharacterSheetDesignerReferenceV13",
+      "pos": [
+        -1040,
+        -260
+      ],
+      "size": [
+        500,
+        1360
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "character_image",
+          "type": "IMAGE",
+          "link": 1
+        },
+        {
+          "name": "reference_image_1",
+          "type": "IMAGE",
+          "link": 2
+        },
+        {
+          "name": "reference_image_2",
+          "type": "IMAGE",
+          "link": 3
+        },
+        {
+          "name": "reference_image_3",
+          "type": "IMAGE",
+          "link": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            10
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            11
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            12
+          ],
+          "shape": 3,
+          "slot_index": 2
+        },
+        {
+          "name": "layout_image",
+          "type": "IMAGE",
+          "links": [
+            13
+          ],
+          "shape": 3,
+          "slot_index": 3
+        },
+        {
+          "name": "character_image",
+          "type": "IMAGE",
+          "links": [
+            14
+          ],
+          "shape": 3,
+          "slot_index": 4
+        },
+        {
+          "name": "reference_image_1",
+          "type": "IMAGE",
+          "links": [
+            15
+          ],
+          "shape": 3,
+          "slot_index": 5
+        },
+        {
+          "name": "reference_image_2",
+          "type": "IMAGE",
+          "links": [
+            16
+          ],
+          "shape": 3,
+          "slot_index": 6
+        },
+        {
+          "name": "reference_image_3",
+          "type": "IMAGE",
+          "links": [
+            17
+          ],
+          "shape": 3,
+          "slot_index": 7
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "H3CharacterSheetDesignerReferenceV13"
+      },
+      "widgets_values": [
+        "{\"schema_version\": 3, \"views\": [\"face_front\", \"face_left\", \"helmet_front\", \"body_front\", \"body_left\", \"body_back\", \"vest_front\"], \"size\": {\"mode\": \"auto\", \"body_height\": 672, \"manual_width\": 2624, \"manual_height\": 768}, \"part_prompts\": {}, \"hand_state\": \"reference\", \"clothing_mode\": \"worn\", \"clothing_type\": \"reference\", \"footwear_state\": \"reference\"}",
+        true,
+        "none"
+      ],
+      "title": "🎛️ [02 DESIGN] H3 Sheet Designer (Nạp Mũ & Áo 3D Blender)",
+      "color": "#234a36",
+      "bgcolor": "#162f22"
+    },
+    {
+      "id": 20,
+      "type": "UNETLoader",
+      "pos": [
+        -500,
+        -260
+      ],
+      "size": [
+        340,
+        100
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
           "name": "MODEL",
           "type": "MODEL",
           "links": [
-            6
+            20
           ],
           "shape": 3,
           "slot_index": 0
@@ -77,26 +331,26 @@
         "Node name for S&R": "UNETLoader"
       },
       "widgets_values": [
-        "NoctQ_V4_int8_convrot.safetensors",
+        "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
         "default"
       ],
-      "title": "[02 MODEL] Noct-Q V4 Uncensored (Qwen 2.1)",
-      "color": "#3f2b60",
-      "bgcolor": "#281b3d"
+      "title": "🎬 [03 H3] MiniMax H3 Ref2VA Model",
+      "color": "#52361f",
+      "bgcolor": "#332214"
     },
     {
-      "id": 11,
+      "id": 21,
       "type": "CLIPLoader",
       "pos": [
-        -800,
-        -60
+        -500,
+        -120
       ],
       "size": [
         340,
         120
       ],
       "flags": {},
-      "order": 2,
+      "order": 6,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -104,7 +358,7 @@
           "name": "CLIP",
           "type": "CLIP",
           "links": [
-            7
+            21
           ],
           "shape": 3,
           "slot_index": 0
@@ -114,27 +368,27 @@
         "Node name for S&R": "CLIPLoader"
       },
       "widgets_values": [
-        "qwen3vl_8b_int8_convrot.safetensors",
-        "qwen_image",
+        "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "minimax",
         "default"
       ],
-      "title": "[02 TEXT] Qwen3VL 8B Multimodal Encoder",
-      "color": "#3f2b60",
-      "bgcolor": "#281b3d"
+      "title": "🎬 [03 H3] Qwen3VL 32B NVFP4 Text Encoder",
+      "color": "#52361f",
+      "bgcolor": "#332214"
     },
     {
-      "id": 12,
+      "id": 22,
       "type": "VAELoader",
       "pos": [
-        -800,
-        100
+        -500,
+        40
       ],
       "size": [
         340,
         100
       ],
       "flags": {},
-      "order": 3,
+      "order": 7,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -142,8 +396,8 @@
           "name": "VAE",
           "type": "VAE",
           "links": [
-            8,
-            9
+            22,
+            23
           ],
           "shape": 3,
           "slot_index": 0
@@ -153,43 +407,71 @@
         "Node name for S&R": "VAELoader"
       },
       "widgets_values": [
-        "qwen_image_2.1_vae_bf16.safetensors"
+        "minimax_h3_video_vae_int8_convrot.safetensors"
       ],
-      "title": "[02 VAE] Qwen Image 2.1 VAE",
-      "color": "#3f2b60",
-      "bgcolor": "#281b3d"
+      "title": "🎬 [03 H3] MiniMax H3 Video VAE",
+      "color": "#52361f",
+      "bgcolor": "#332214"
     },
     {
-      "id": 13,
-      "type": "TextEncodeQwenImage21",
+      "id": 23,
+      "type": "MiniMaxH3ReferenceToVideo",
       "pos": [
-        -420,
-        -200
+        -120,
+        -260
       ],
       "size": [
-        620,
-        680
+        400,
+        520
       ],
       "flags": {},
-      "order": 4,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
           "name": "clip",
           "type": "CLIP",
-          "link": 7
-        },
-        {
-          "name": "images.image_1",
-          "type": "IMAGE",
-          "link": 1,
-          "shape": 7
+          "link": 21
         },
         {
           "name": "vae",
           "type": "VAE",
-          "link": 8,
-          "shape": 7
+          "link": 22
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "link": 10
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 11
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 12
+        },
+        {
+          "name": "ref_images.ref_image_0",
+          "type": "IMAGE",
+          "link": 14
+        },
+        {
+          "name": "ref_images.ref_image_1",
+          "type": "IMAGE",
+          "link": 13
+        },
+        {
+          "name": "ref_images.ref_image_2",
+          "type": "IMAGE",
+          "link": 15
+        },
+        {
+          "name": "ref_images.ref_image_3",
+          "type": "IMAGE",
+          "link": 16
         }
       ],
       "outputs": [
@@ -197,76 +479,107 @@
           "name": "positive",
           "type": "CONDITIONING",
           "links": [
-            10
+            24,
+            25
           ],
           "shape": 3,
           "slot_index": 0
         },
         {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "links": [
-            11
-          ],
-          "shape": 3,
-          "slot_index": 1
-        },
-        {
           "name": "latent",
           "type": "LATENT",
           "links": [
-            12
+            26
           ],
           "shape": 3,
-          "slot_index": 2
+          "slot_index": 1
         }
       ],
       "properties": {
-        "Node name for S&R": "TextEncodeQwenImage21"
+        "Node name for S&R": "MiniMaxH3ReferenceToVideo"
       },
       "widgets_values": [
-        "Task: Complete Photorealistic Master Character Design Sheet (\"AI美女 キャラクター固定シート\" Japanese Film Production Standard) of the professional NEWTECONS engineer in <image1> for a live-action film series.\n\nIDENTITY LOCK 100%:\nStrictly preserve exact facial features, bone structure, eyes, nose, lips, smile, Asian skin tone, and hairstyle from <image1>. Keep original face 100%. Do NOT change identity. Do NOT anime-fy.\n\nNEWTECONS OFFICIAL UNIFORM & BRANDING:\n- Light blue long-sleeve slim-fit micro-checkered shirt neatly tucked into black dress trousers.\n- Navy blue safety reflective vest: V-neck, black zipper, navy solid upper and hem, black breathable mesh sides/lower back. Horizontal silver reflective chest band, fluorescent orange waist/back bands with silver center strip.\n- Left chest: Crisp white capital text 'BAN TRUYỀN THÔNG' (or 'KHỐI KỸ THUẬT').\n- Right chest & upper back: White NEWTECONS emblem and tagline from 'logo trang.png'. No logos on pockets.\n- Safety helmet: White helmet with original full-color NEWTECONS logo on the front (red stylized N icon above cyan NEWTECONS text).\n- Sturdy construction safety boots.\n\nCANVAS LAYOUT & COEXISTING PANELS:\n1. TOP-LEFT [PROFILE SPECIFICATION]: Hero portrait, title 'AI美女 キャラクター固定シート', and engineer profile card (Name, Age 26, Position, Concept, Height, Measurements, Identifying colors, Professional speech).\n2. TOP-MIDDLE [TURNAROUND VIEWS]: Five full-body angles in uniform: Front (正面), Profile (横), Rear (後ろ), 3/4 Front (斜め前), 3/4 Rear (斜め後ろ). Natural relaxed standing stance, arms resting naturally at sides (no stiff 3D A-pose).\n3. TOP-RIGHT [EXPRESSION SHEET]: Six close-up portraits: Neutral (通常), Warm radiant smile (笑顔), Focused determination (真剣), Alert surprise (驚き), Thoughtful (真剣), Friendly communication.\n4. MIDDLE-ROW [MACRO DETAILS]: Multi-angle facial closeups, helmet logo macro, reflective vest zipper and fabric texture.\n5. LOWER-MIDDLE [BODY & SKIN TEXTURE]: Collarbone, hands, safety footwear, natural skin pores, realistic daylight contact shadows.\n6. BOTTOM ROW [8 SITE LIFESTYLE SCENARIOS]: (1) Reviewing architectural blueprints on site, (2) Directing crane lifting with walkie-talkie, (3) 3D BIM meeting in modern technical office, (4) Mid-day break drinking water with colleagues, (5) Morning coffee before shift, (6) Laser level floor inspection, (7) Relaxed off-duty casual wear strolling the city, (8) Topping-out ceremony celebration.\n\nQUALITY DIRECTIVES:\n過度なアニメ化、3DCG化、美化、デフォルメを避け、現実のファッション撮影資料のような高い写実性を保つ。\nPhotorealistic cinema look, authentic skin texture with natural pores, soft daylight, sharp textures, 8k uhd.",
-        "anime, 3dcg, cartoon, 3d render, drawing, illustration, sketch, blurry, plastic skin, doll skin, extra limbs, deformed fingers, low resolution, distorted text",
-        1024
+        5,
+        "match"
       ],
-      "title": "[03 PROMPT] Hộp Master Sheet Nhật Bản (NEWTECONS PPE & Công Trường)",
+      "title": "📹 [03 H3] MiniMax H3 Ref2Video (Length=5 Frames)",
       "color": "#52361f",
       "bgcolor": "#332214"
     },
     {
-      "id": 15,
-      "type": "KSampler",
+      "id": 24,
+      "type": "ConditioningZeroOut",
       "pos": [
-        240,
-        -200
+        320,
+        -260
       ],
       "size": [
-        360,
+        340,
+        90
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 25
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            27
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ConditioningZeroOut"
+      },
+      "widgets_values": [],
+      "title": "ZeroOut Negative Conditioning (H3)",
+      "color": "#3f2b60",
+      "bgcolor": "#281b3d"
+    },
+    {
+      "id": 25,
+      "type": "KSampler",
+      "pos": [
+        320,
+        -120
+      ],
+      "size": [
+        340,
         480
       ],
       "flags": {},
-      "order": 5,
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
           "name": "model",
           "type": "MODEL",
-          "link": 6
+          "link": 20
         },
         {
           "name": "positive",
           "type": "CONDITIONING",
-          "link": 10
+          "link": 24
         },
         {
           "name": "negative",
           "type": "CONDITIONING",
-          "link": 11
+          "link": 27
         },
         {
           "name": "latent_image",
           "type": "LATENT",
-          "link": 12
+          "link": 26
         }
       ],
       "outputs": [
@@ -274,7 +587,7 @@
           "name": "LATENT",
           "type": "LATENT",
           "links": [
-            13
+            28
           ],
           "shape": 3,
           "slot_index": 0
@@ -286,40 +599,40 @@
       "widgets_values": [
         20261103,
         "randomize",
-        20,
+        15,
         3.0,
         "euler",
         "simple",
         1.0
       ],
-      "title": "⚡ KSampler Sinh Master Sheet (20 Steps - 13 Giây)",
+      "title": "⚡ [03 H3] KSampler Xoay Góc 3D Blender (15 Steps)",
       "color": "#3f2b60",
       "bgcolor": "#281b3d"
     },
     {
-      "id": 16,
+      "id": 26,
       "type": "VAEDecode",
       "pos": [
-        640,
-        -200
+        700,
+        -260
       ],
       "size": [
         240,
         120
       ],
       "flags": {},
-      "order": 6,
+      "order": 11,
       "mode": 0,
       "inputs": [
         {
           "name": "samples",
           "type": "LATENT",
-          "link": 13
+          "link": 28
         },
         {
           "name": "vae",
           "type": "VAE",
-          "link": 9
+          "link": 23
         }
       ],
       "outputs": [
@@ -327,8 +640,8 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            14,
-            15
+            29,
+            30
           ],
           "shape": 3,
           "slot_index": 0
@@ -338,29 +651,29 @@
         "Node name for S&R": "VAEDecode"
       },
       "widgets_values": [],
-      "title": "🖼️ Giải Mã Master Sheet",
+      "title": "🖼️ Decode Sheet Native (672p)",
       "color": "#3f2b60",
       "bgcolor": "#281b3d"
     },
     {
-      "id": 17,
+      "id": 27,
       "type": "SaveImage",
       "pos": [
-        920,
-        -200
+        980,
+        -260
       ],
       "size": [
-        440,
+        480,
         420
       ],
       "flags": {},
-      "order": 7,
+      "order": 12,
       "mode": 0,
       "inputs": [
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 14
+          "link": 29
         }
       ],
       "outputs": [],
@@ -368,9 +681,9 @@
         "Node name for S&R": "SaveImage"
       },
       "widgets_values": [
-        "NEWTECONS_MASTER_CHARACTER_SHEET_NATIVE"
+        "NEWTECONS_H3_Sheet_Native_672p"
       ],
-      "title": "💾 LƯU BẢN MASTER SHEET GỐC (NATIVE 1024P)",
+      "title": "💾 LƯU BẢN SHEET NATIVE 672P",
       "color": "#234a36",
       "bgcolor": "#162f22"
     },
@@ -378,15 +691,15 @@
       "id": 30,
       "type": "UpscaleModelLoader",
       "pos": [
-        640,
-        -40
+        700,
+        200
       ],
       "size": [
         240,
         90
       ],
       "flags": {},
-      "order": 8,
+      "order": 13,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -394,7 +707,7 @@
           "name": "UPSCALE_MODEL",
           "type": "UPSCALE_MODEL",
           "links": [
-            16
+            31
           ],
           "shape": 3,
           "slot_index": 0
@@ -414,26 +727,26 @@
       "id": 31,
       "type": "ImageUpscaleWithModel",
       "pos": [
-        640,
-        90
+        700,
+        330
       ],
       "size": [
         240,
         110
       ],
       "flags": {},
-      "order": 9,
+      "order": 14,
       "mode": 0,
       "inputs": [
         {
           "name": "upscale_model",
           "type": "UPSCALE_MODEL",
-          "link": 16
+          "link": 31
         },
         {
           "name": "image",
           "type": "IMAGE",
-          "link": 15
+          "link": 30
         }
       ],
       "outputs": [
@@ -441,7 +754,7 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            17
+            32
           ],
           "shape": 3,
           "slot_index": 0
@@ -459,21 +772,21 @@
       "id": 32,
       "type": "SaveImage",
       "pos": [
-        920,
-        260
+        980,
+        200
       ],
       "size": [
-        440,
+        480,
         420
       ],
       "flags": {},
-      "order": 10,
+      "order": 15,
       "mode": 0,
       "inputs": [
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 17
+          "link": 32
         }
       ],
       "outputs": [],
@@ -481,9 +794,9 @@
         "Node name for S&R": "SaveImage"
       },
       "widgets_values": [
-        "NEWTECONS_MASTER_CHARACTER_SHEET_4K_SUPER_RESOLUTION"
+        "NEWTECONS_H3_Sheet_Upscale_4K"
       ],
-      "title": "💾 LƯU BẢN MASTER SHEET 4K SIÊU SẮC NÉT (CỰC NÉT)",
+      "title": "💾 LƯU BẢN SHEET 4K SIÊU SẮC NÉT (CỰC NÉT)",
       "color": "#234a36",
       "bgcolor": "#162f22"
     }
@@ -493,92 +806,180 @@
       1,
       1,
       0,
-      13,
+      10,
+      0,
+      "IMAGE"
+    ],
+    [
+      2,
+      2,
+      0,
+      10,
       1,
       "IMAGE"
     ],
     [
-      6,
+      3,
+      3,
+      0,
+      10,
+      2,
+      "IMAGE"
+    ],
+    [
+      4,
+      4,
+      0,
+      10,
+      3,
+      "IMAGE"
+    ],
+    [
+      10,
       10,
       0,
+      23,
+      2,
+      "STRING"
+    ],
+    [
+      11,
+      10,
+      1,
+      23,
+      3,
+      "INT"
+    ],
+    [
+      12,
+      10,
+      2,
+      23,
+      4,
+      "INT"
+    ],
+    [
+      13,
+      10,
+      3,
+      23,
+      6,
+      "IMAGE"
+    ],
+    [
+      14,
+      10,
+      4,
+      23,
+      5,
+      "IMAGE"
+    ],
+    [
       15,
+      10,
+      5,
+      23,
+      7,
+      "IMAGE"
+    ],
+    [
+      16,
+      10,
+      6,
+      23,
+      8,
+      "IMAGE"
+    ],
+    [
+      20,
+      20,
+      0,
+      25,
       0,
       "MODEL"
     ],
     [
-      7,
-      11,
+      21,
+      21,
       0,
-      13,
+      23,
       0,
       "CLIP"
     ],
     [
-      8,
-      12,
+      22,
+      22,
       0,
-      13,
-      2,
-      "VAE"
-    ],
-    [
-      9,
-      12,
-      0,
-      16,
+      23,
       1,
       "VAE"
     ],
     [
-      10,
-      13,
+      23,
+      22,
       0,
-      15,
+      26,
+      1,
+      "VAE"
+    ],
+    [
+      24,
+      23,
+      0,
+      25,
       1,
       "CONDITIONING"
     ],
     [
-      11,
-      13,
-      1,
-      15,
-      2,
+      25,
+      23,
+      0,
+      24,
+      0,
       "CONDITIONING"
     ],
     [
-      12,
-      13,
-      2,
-      15,
+      26,
+      23,
+      1,
+      25,
       3,
       "LATENT"
     ],
     [
-      13,
-      15,
+      27,
+      24,
       0,
-      16,
+      25,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      28,
+      25,
+      0,
+      26,
       0,
       "LATENT"
     ],
     [
-      14,
-      16,
+      29,
+      26,
       0,
-      17,
+      27,
       0,
       "IMAGE"
     ],
     [
-      15,
-      16,
+      30,
+      26,
       0,
       31,
       1,
       "IMAGE"
     ],
     [
-      16,
+      31,
       30,
       0,
       31,
@@ -586,7 +987,7 @@
       "UPSCALE_MODEL"
     ],
     [
-      17,
+      32,
       31,
       0,
       32,
@@ -596,56 +997,56 @@
   ],
   "groups": [
     {
-      "title": "1. DUY NHẤT 1 ĐẦU VÀO THAM CHIẾU (TỪ BƯỚC 1)",
+      "title": "1. 4 ĐẦU VÀO THAM CHIẾU (ẢNH BƯỚC 1 + ÁO 3D + NÓN 3D + SƠ MI 3D BLENDER)",
       "bounding": [
-        -1240,
-        -280,
-        420,
-        1000
+        -1450,
+        -320,
+        390,
+        1460
       ],
       "color": "#1f3a52",
       "font_size": 24
     },
     {
-      "title": "2. BỘ MÔ HÌNH NOCT-Q V4 & QWEN3VL 8B (SIÊU TỐC)",
+      "title": "2. THIẾT KẾ BẢNG XOAY GÓC (H3 DESIGNER NẠP MŨ & ÁO 3D BLENDER)",
       "bounding": [
-        -830,
-        -280,
-        390,
-        500
+        -1060,
+        -320,
+        540,
+        1460
       ],
-      "color": "#3f2b60",
+      "color": "#234a36",
       "font_size": 24
     },
     {
-      "title": "3. HỘP PROMPT-AS-CODE MASTER SHEET (9 PHÂN KHU CHUẨN NHẬT)",
+      "title": "3. MÔ HÌNH H3 & BỘ ĐIỀU KHIỂN REF2VIDEO (LENGTH=5 FRAMES)",
       "bounding": [
-        -440,
-        -280,
-        660,
-        1000
+        -520,
+        -320,
+        820,
+        1460
       ],
       "color": "#52361f",
       "font_size": 24
     },
     {
-      "title": "4. SAMPLING KHỬ NHIỄU (20 STEPS - CHỈ 13 GIÂY)",
+      "title": "4. SAMPLING KHỬ NHIỄU H3 (15 STEPS)",
       "bounding": [
-        220,
-        -280,
-        400,
-        1000
+        300,
+        -320,
+        380,
+        1460
       ],
       "color": "#3f2b60",
       "font_size": 24
     },
     {
-      "title": "5. THÀNH PHẨM MASTER SHEET NATIVE & 4K (REAL-ESRGAN ~7S)",
+      "title": "5. THÀNH PHẨM MASTER SHEET NATIVE 672P & SIÊU PHÂN GIẢI 4K",
       "bounding": [
-        630,
-        -280,
-        750,
-        1000
+        680,
+        -320,
+        800,
+        1460
       ],
       "color": "#163b28",
       "font_size": 24
@@ -654,10 +1055,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.75,
+      "scale": 0.65,
       "offset": [
-        1300,
-        350
+        1550,
+        420
       ]
     }
   }
