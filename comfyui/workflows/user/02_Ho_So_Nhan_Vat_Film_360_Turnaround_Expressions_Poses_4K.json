@@ -1,0 +1,877 @@
+{
+  "version": 0.4,
+  "last_node_id": 35,
+  "last_link_id": 40,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "pos": [
+        -1370,
+        -220
+      ],
+      "size": [
+        360,
+        480
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "NEWTECONS_Character_Fused.png",
+        "image"
+      ],
+      "title": "[01 INPUT] Duy Nhất 1 Ảnh Nhân Vật Gốc (Từ Bước 1)",
+      "color": "#1f3a52",
+      "bgcolor": "#142533"
+    },
+    {
+      "id": 10,
+      "type": "H3CharacterSheetDesignerReferenceV13",
+      "pos": [
+        -910,
+        -220
+      ],
+      "size": [
+        500,
+        1200
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "character_image",
+          "type": "IMAGE",
+          "link": 1
+        },
+        {
+          "name": "reference_image_1",
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "reference_image_2",
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "reference_image_3",
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            10
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            11
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            12
+          ],
+          "shape": 3,
+          "slot_index": 2
+        },
+        {
+          "name": "layout_image",
+          "type": "IMAGE",
+          "links": [
+            13
+          ],
+          "shape": 3,
+          "slot_index": 3
+        },
+        {
+          "name": "character_image",
+          "type": "IMAGE",
+          "links": [
+            14
+          ],
+          "shape": 3,
+          "slot_index": 4
+        },
+        {
+          "name": "reference_image_1",
+          "type": "IMAGE",
+          "links": null,
+          "shape": 3,
+          "slot_index": 5
+        },
+        {
+          "name": "reference_image_2",
+          "type": "IMAGE",
+          "links": null,
+          "shape": 3,
+          "slot_index": 6
+        },
+        {
+          "name": "reference_image_3",
+          "type": "IMAGE",
+          "links": null,
+          "shape": 3,
+          "slot_index": 7
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "H3CharacterSheetDesignerReferenceV13"
+      },
+      "widgets_values": [
+        "{\"schema_version\": 3, \"views\": [\"face_front\", \"face_left\", \"body_front\", \"body_left\", \"body_back\"], \"size\": {\"mode\": \"auto\", \"body_height\": 672, \"manual_width\": 1920, \"manual_height\": 768}, \"part_prompts\": {}, \"hand_state\": \"reference\", \"clothing_mode\": \"worn\", \"clothing_type\": \"reference\", \"footwear_state\": \"reference\"}",
+        true,
+        "none"
+      ],
+      "title": "[02 DESIGN] H3 Turnaround Designer (5 Góc Chuẩn 672p)",
+      "color": "#234a36",
+      "bgcolor": "#162f22"
+    },
+    {
+      "id": 20,
+      "type": "UNETLoader",
+      "pos": [
+        -310,
+        -220
+      ],
+      "size": [
+        340,
+        100
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            20
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "default"
+      ],
+      "title": "[03 H3] MiniMax H3 Ref2VA Model",
+      "color": "#52361f",
+      "bgcolor": "#332214"
+    },
+    {
+      "id": 21,
+      "type": "CLIPLoader",
+      "pos": [
+        -310,
+        -70
+      ],
+      "size": [
+        340,
+        120
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            21
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "minimax",
+        "default"
+      ],
+      "title": "[03 H3] Qwen3VL 32B NVFP4 Text Encoder",
+      "color": "#52361f",
+      "bgcolor": "#332214"
+    },
+    {
+      "id": 22,
+      "type": "VAELoader",
+      "pos": [
+        -310,
+        100
+      ],
+      "size": [
+        340,
+        100
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            22,
+            23
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "minimax_h3_video_vae_int8_convrot.safetensors"
+      ],
+      "title": "[03 H3] MiniMax H3 Video VAE",
+      "color": "#52361f",
+      "bgcolor": "#332214"
+    },
+    {
+      "id": 23,
+      "type": "MiniMaxH3ReferenceToVideo",
+      "pos": [
+        70,
+        -220
+      ],
+      "size": [
+        380,
+        520
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 21
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 22
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "link": 10
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 11
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 12
+        },
+        {
+          "name": "ref_images.ref_image_0",
+          "type": "IMAGE",
+          "link": 14
+        },
+        {
+          "name": "ref_images.ref_image_1",
+          "type": "IMAGE",
+          "link": 13
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            24,
+            25
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            26
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3ReferenceToVideo"
+      },
+      "widgets_values": [
+        5,
+        "match"
+      ],
+      "title": "[03 H3] MiniMax H3 Reference To Video (Frame=5)",
+      "color": "#52361f",
+      "bgcolor": "#332214"
+    },
+    {
+      "id": 24,
+      "type": "ConditioningZeroOut",
+      "pos": [
+        550,
+        -220
+      ],
+      "size": [
+        400,
+        90
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 25
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            27
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ConditioningZeroOut"
+      },
+      "widgets_values": [],
+      "title": "ZeroOut Negative Conditioning (H3)",
+      "color": "#3f2b60",
+      "bgcolor": "#281b3d"
+    },
+    {
+      "id": 25,
+      "type": "KSampler",
+      "pos": [
+        550,
+        -80
+      ],
+      "size": [
+        400,
+        480
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 20
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 24
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 27
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 26
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            28
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        20261103,
+        "randomize",
+        15,
+        3.0,
+        "euler",
+        "simple",
+        1.0
+      ],
+      "title": "KSampler Xoay Goc 5 Views (28 Giay)",
+      "color": "#3f2b60",
+      "bgcolor": "#281b3d"
+    },
+    {
+      "id": 26,
+      "type": "VAEDecode",
+      "pos": [
+        1070,
+        -220
+      ],
+      "size": [
+        240,
+        120
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 28
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 23
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            29,
+            30
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": [],
+      "title": "Decode Sheet Native (672p)",
+      "color": "#3f2b60",
+      "bgcolor": "#281b3d"
+    },
+    {
+      "id": 27,
+      "type": "SaveImage",
+      "pos": [
+        1350,
+        -220
+      ],
+      "size": [
+        550,
+        450
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 29
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "NEWTECONS_H3_Sheet_Native_672p"
+      ],
+      "title": "Luu Character Sheet Goc (Native 672p)",
+      "color": "#234a36",
+      "bgcolor": "#162f22"
+    },
+    {
+      "id": 30,
+      "type": "UpscaleModelLoader",
+      "pos": [
+        1070,
+        280
+      ],
+      "size": [
+        240,
+        90
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "UPSCALE_MODEL",
+          "type": "UPSCALE_MODEL",
+          "links": [
+            31
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UpscaleModelLoader"
+      },
+      "widgets_values": [
+        "RealESRGAN_x4plus.pth"
+      ],
+      "title": "[04 UPSCALE] Load RealESRGAN x4 Model",
+      "color": "#1f3a52",
+      "bgcolor": "#142533"
+    },
+    {
+      "id": 31,
+      "type": "ImageUpscaleWithModel",
+      "pos": [
+        1070,
+        420
+      ],
+      "size": [
+        240,
+        110
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "upscale_model",
+          "type": "UPSCALE_MODEL",
+          "link": 31
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 30
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            32
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageUpscaleWithModel"
+      },
+      "widgets_values": [],
+      "title": "[04 UPSCALE] Sieu Phan Giai 4K (GPU ~7s)",
+      "color": "#1f3a52",
+      "bgcolor": "#142533"
+    },
+    {
+      "id": 32,
+      "type": "SaveImage",
+      "pos": [
+        1350,
+        280
+      ],
+      "size": [
+        550,
+        450
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 32
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "NEWTECONS_H3_Sheet_Upscale_4K"
+      ],
+      "title": "Luu Character Sheet DA UPSCALE 4K CUC NET",
+      "color": "#234a36",
+      "bgcolor": "#162f22"
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      10,
+      0,
+      "IMAGE"
+    ],
+    [
+      10,
+      10,
+      0,
+      23,
+      2,
+      "STRING"
+    ],
+    [
+      11,
+      10,
+      1,
+      23,
+      3,
+      "INT"
+    ],
+    [
+      12,
+      10,
+      2,
+      23,
+      4,
+      "INT"
+    ],
+    [
+      13,
+      10,
+      3,
+      23,
+      6,
+      "IMAGE"
+    ],
+    [
+      14,
+      10,
+      4,
+      23,
+      5,
+      "IMAGE"
+    ],
+    [
+      20,
+      20,
+      0,
+      25,
+      0,
+      "MODEL"
+    ],
+    [
+      21,
+      21,
+      0,
+      23,
+      0,
+      "CLIP"
+    ],
+    [
+      22,
+      22,
+      0,
+      23,
+      1,
+      "VAE"
+    ],
+    [
+      23,
+      22,
+      0,
+      26,
+      1,
+      "VAE"
+    ],
+    [
+      24,
+      23,
+      0,
+      25,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      25,
+      23,
+      0,
+      24,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      26,
+      23,
+      1,
+      25,
+      3,
+      "LATENT"
+    ],
+    [
+      27,
+      24,
+      0,
+      25,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      28,
+      25,
+      0,
+      26,
+      0,
+      "LATENT"
+    ],
+    [
+      29,
+      26,
+      0,
+      27,
+      0,
+      "IMAGE"
+    ],
+    [
+      30,
+      26,
+      0,
+      31,
+      1,
+      "IMAGE"
+    ],
+    [
+      31,
+      30,
+      0,
+      31,
+      0,
+      "UPSCALE_MODEL"
+    ],
+    [
+      32,
+      31,
+      0,
+      32,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "1. DUY NHẤT 1 ĐẦU VÀO THAM CHIẾU (TỪ BƯỚC 1)",
+      "bounding": [
+        -1400,
+        -300,
+        420,
+        1320
+      ],
+      "color": "#1f3a52",
+      "font_size": 24
+    },
+    {
+      "title": "2. THIẾT KẾ BẢNG XOAY GÓC (5 GÓC CHUẨN - 672P)",
+      "bounding": [
+        -940,
+        -300,
+        560,
+        1320
+      ],
+      "color": "#234a36",
+      "font_size": 24
+    },
+    {
+      "title": "3. MÔ HÌNH H3 & BỘ ĐIỀU KHIỂN (LENGTH = 5 FRAMES)",
+      "bounding": [
+        -340,
+        -300,
+        820,
+        1320
+      ],
+      "color": "#52361f",
+      "font_size": 24
+    },
+    {
+      "title": "4. KHU KHỬ NHIỄU & SAMPLING (28 GIÂY)",
+      "bounding": [
+        520,
+        -300,
+        480,
+        1320
+      ],
+      "color": "#3f2b60",
+      "font_size": 24
+    },
+    {
+      "title": "5. XUẤT THÀNH PHẨM (NATIVE 672P & SIÊU PHÂN GIẢI 4K)",
+      "bounding": [
+        1040,
+        -300,
+        900,
+        1320
+      ],
+      "color": "#163b28",
+      "font_size": 24
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7,
+      "offset": [
+        1500,
+        420
+      ]
+    }
+  }
+}

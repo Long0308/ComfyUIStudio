@@ -201,7 +201,8 @@ flowchart LR
 Repo đã tích hợp sẵn 2 skill quản trị ký ức dài hạn để đồng bộ tri thức khi làm việc ở máy công ty và máy nhà:
 * [skills/hindsight-ky-uc-phan-tang](skills/hindsight-ky-uc-phan-tang/SKILL.md): Quản trị ký ức phân tầng, bảo mật hai kho không trộn (Local `:8890` vs VPS `:8888`), lưu trữ kinh nghiệm sửa lỗi, thông số render và bẫy kỹ thuật.
 * [skills/cognee-hindsight-mesh](skills/cognee-hindsight-mesh/SKILL.md): Semantic Knowledge Graph kết hợp Vector Memory để tra cứu chéo ngữ cảnh giữa các phiên làm việc.
-* [skills/pose-costume-character](skills/pose-costume-character/SKILL.md): Kỹ năng chuẩn hóa từ repo `hongye007/open-pose-costume` chuyên hợp nhất Dáng (Pose) + Trang phục (Costume) + Mặt (Face) + Mũ bảo hộ NEWTECONS (PPE) theo nguyên tắc "Phân tách Trách nhiệm" (Duty Separation), triệt tiêu hoàn toàn lỗi không theo dáng ngồi hoặc mất logo mũ.
+* [skills/pose-costume-character](skills/pose-costume-character/SKILL.md): Kỹ năng chuẩn hóa từ repo `hongye007/open-pose-costume` chuyên hợp nhất Dáng (Pose) + Trang phục (Costume) + Mặt (Face) + Mũ bảo hộ NEWTECONS (PPE) theo nguyên tắc "Phân tách Trách nhiệm" (Duty Separation).
+* [skills/tao-anh-prompt-as-code](skills/tao-anh-prompt-as-code/SKILL.md): Bộ quy chuẩn "Prompt-As-Code" (12 thể loại × 8 trường nguyên tử) kết hợp hệ sinh thái nhân vật điện ảnh & lối sống sinh hoạt của `@aisumeragi` (X/Twitter). Hỗ trợ biến đổi chữ ngực áo (`BAN TRUYỀN THÔNG` vs `KHỐI KỸ THUẬT`) và 2 luồng trang phục (Đồng phục NEWTECONS PPE vs Trang phục tự do).
 * **Nguyên tắc bảo mật**: Chỉ lưu facts, code patterns và kinh nghiệm kiến trúc; không bao giờ lưu token, cookie hay dữ liệu cá nhân lên Git.
 
 ### 3.7 Quy trình chuẩn 2 bước: Sinh Native ⟶ Upscale chuyên dụng
@@ -210,8 +211,8 @@ Quy trình tối ưu hóa hiệu năng render phim AI, tránh nghẽn VRAM và t
 
 ```mermaid
 flowchart LR
-    A["BƯỚC 1: SINH NATIVE (GỐC)<br>Panel Height: 672 hoặc 896<br><i>Thời gian: 1 - 2 phút</i>"] -->|Ảnh/Video chuẩn tỉ lệ| B["BƯỚC 2: SIÊU PHÂN GIẢI (UPSCALE)<br>RealESRGAN (Ảnh) / SeedVR2 7B (Video)<br><i>Thời gian: 15 - 30 giây</i>"]
-    B --> C["THÀNH PHẨM 2K / 4K<br>Sắc nét từng thớ vải & logo NEWTECONS!"]
+    A["BƯỚC 1: NHÂN VẬT GỐC (HERO REAL SHOT)<br>01_Tao_Nhan_Vat_Chinh_Real_NoctQ_Uncensored<br><i>Thời gian: 15 - 25 giây (Noct-Q V4)</i>"] -->|Ảnh nhân vật đơn lẻ chân thực| B["BƯỚC 2: HỒ SƠ NHÂN VẬT FILM 360° + LỐI SỐNG<br>02_Ho_So_Nhan_Vat_Film_360_Turnaround_Expressions_Poses_4K<br><i>Thời gian: 28 giây (H3 DiT) + 7s (4K RealESRGAN)</i>"]
+    B --> C["THÀNH PHẨM MASTER SHEET 4K<br>Xoay 360° + Biểu Cảm + Lối Sống Sinh Hoạt Sắc Nét!"]
 ```
 
 #### Tại sao không sinh trực tiếp ở 4K (4320x1280)?
@@ -219,23 +220,22 @@ flowchart LR
 2. **Nghẽn VRAM và Swap bộ nhớ**: Trên GPU 16 GB, chạy đồng thời mô hình Qwen 2.1 (16 GB) và MiniMax H3 (38 GB) sẽ làm tràn VRAM và cgroup memory limit, kích hoạt paging swap trên ổ đĩa khiến hệ thống bị chậm.
 
 #### Danh sách Workflow chuẩn hóa 2 bước trong Repo:
-* **Bước 1**: `01_Step1_Tao_Anh_Nhan_Vat_NoctQ_Uncensored.json` (Nằm ở root thư mục workflow và `ProjectStudio5 - Film Newtecons/01 Workflow Image/`).
-  - *Nhiệm vụ*: Nhận 3 input (Mặt, Dáng, Áo) + Hộp Prompt lớn -> Sinh ảnh nhân vật phối hợp Noct-Q V4 chất lượng cao. Chạy riêng giúp GPU xả sạch RAM sau khi sinh xong.
-* **Bước 2**: `02_Step2_H3_Character_Sheet_Native672p_Upscale4K.json` (Nằm ở root thư mục workflow, `H3_Character_Sheet/`, và `ProjectStudio5 - Film Newtecons/02 Workflow Video/`).
-  - *Nhiệm vụ*: Nhận ảnh nhân vật từ Bước 1 + Áo/Mũ 3D -> H3 Designer (Native 672p/896p) -> MiniMax H3 Video/Sheet (1-2 phút) -> Tự động nạp vào cụm RealESRGAN x4plus phóng to 2K/4K trong 7 giây.
+* **Bước 1**: `01_Tao_Nhan_Vat_Chinh_Real_NoctQ_Uncensored.json` (Alias: `01_Step1_Tao_Anh_Nhan_Vat_NoctQ_Uncensored.json`).
+  - *Nhiệm vụ*: Nhận Mặt + Dáng + Trang phục (Tự do hoặc Đồng phục) + Mũ bảo hộ -> Hộp Prompt-As-Code sinh ra ảnh nhân vật đơn lẻ chân thực nhất. Xả sạch VRAM sau khi chạy.
+* **Bước 2**: `02_Ho_So_Nhan_Vat_Film_360_Turnaround_Expressions_Poses_4K.json` (Alias: `02_Step2_H3_Character_Sheet_Native672p_Upscale4K.json`).
+  - *Nhiệm vụ*: Nhận DUY NHẤT 1 ảnh nhân vật gốc từ Bước 1 -> H3 Designer (Turnaround 360° + Biểu cảm + Lối sống sinh hoạt) -> Khóa cứng `length = 5 frames` (28 giây) -> RealESRGAN phóng đại 4K Ultra-HD (7 giây).
 
 #### Thao tác chuẩn & Tối ưu hóa thời gian:
-* **Bước 1 (Tạo nhân vật gốc Noct-Q V4 - 20 Steps Siêu Tốc)**:
-  - Mở workflow `01_Step1_Tao_Anh_Nhan_Vat_NoctQ_Uncensored.json`.
+* **Bước 1 (Tạo nhân vật chính Real nhất - 20 Steps Siêu Tốc)**:
+  - Mở workflow `01_Tao_Nhan_Vat_Chinh_Real_NoctQ_Uncensored.json`.
   - Cấu hình KSampler chuẩn: **`steps: 20`** (bộ giải `euler` + `simple` hội tụ hoàn hảo ở 20 bước, chất lượng tương đương 25-30 bước nhưng giảm thời gian lấy mẫu xuống chỉ còn **13 giây**).
-  - Bấm **Queue Prompt** $\rightarrow$ Thời gian sinh tổng cộng chỉ **18–25 giây** (nếu model đã nạp) hoặc ~45 giây (lần đầu nạp model).
+  - Bấm **Run** $\rightarrow$ Thời gian sinh tổng cộng chỉ **18–25 giây**.
   - Ảnh xuất ra lưu tại `ComfyUI/output/NEWTECONS_Character_Fused_*.png`.
-  - *Mẹo tránh nghẽn RAM*: Nếu vừa chạy Bước 2 (mô hình H3 38 GB), trước khi quay lại chạy Bước 1 nên bấm biểu tượng thùng rác (Free memory) trên góc phải ComfyUI để giải phóng RAM, tránh bị tràn swap ổ cứng.
-* **Bước 2 (H3 Sheet Native 672p + RealESRGAN 4K - 1.5 đến 2 phút)**:
-  - Mở workflow `02_Step2_H3_Character_Sheet_Native672p_Upscale4K.json`.
-  - Nạp ảnh vừa sinh ở Bước 1 vào ô `[01 INPUT] Ảnh Nhân Vật Gốc`.
-  - Đặt `Panel height` ở mức **`672`** (Native) $\rightarrow$ Sampling 15 bước chỉ mất **44 giây**.
-  - Tự động chuyển tiếp sang `RealESRGAN_x4plus` phóng to 4K trong **7 giây** $\rightarrow$ Xuất trọn bộ 2 file: Native Sheet và Ultra-HD 4K Sheet.
+* **Bước 2 (Bản Hồ Sơ Tham Chiếu 360° & Lối Sống Sinh Hoạt 4K - 35 Giây)**:
+  - Mở workflow `02_Ho_So_Nhan_Vat_Film_360_Turnaround_Expressions_Poses_4K.json`.
+  - Nạp ảnh vừa sinh ở Bước 1 vào ô `[01 INPUT] Duy Nhất 1 Ảnh Nhân Vật Gốc (Từ Bước 1)`.
+  - Node H3 Reference To Video đã được **khóa cứng `length: 5`** (chế độ ảnh tĩnh siêu tốc).
+  - Bấm **Run** $\rightarrow$ MiniMax H3 lấy mẫu trong **28 giây** $\rightarrow$ Tự động chuyển tiếp sang `RealESRGAN_x4plus` phóng to 4K trong **7 giây** $\rightarrow$ Xuất ngay bảng hồ sơ 4K cực nét (`7680 × 3072`)!
 
 ## 4. Bắt đầu nhanh theo phim (giữ hai domain tách biệt)
 
