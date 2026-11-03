@@ -43,7 +43,7 @@
         "f06fe4f6b36.webp",
         "image"
       ],
-      "title": "??? [01 INPUT] M?t (Face Image)",
+      "title": "[01 INPUT] Mặt (Face Image)",
       "color": "#1f3a52",
       "bgcolor": "#142533"
     },
@@ -87,7 +87,7 @@
         "full_P002_front.png",
         "image"
       ],
-      "title": "?? [01 INPUT] D?ng (Pose / OpenPose)",
+      "title": "[01 INPUT] Dáng (Pose / OpenPose)",
       "color": "#1f3a52",
       "bgcolor": "#142533"
     },
@@ -131,7 +131,7 @@
         "SPR-0004.png",
         "image"
       ],
-      "title": "?? [01 INPUT] Trang Ph?c (Costume / PPE)",
+      "title": "[01 INPUT] Trang Phục (Costume / PPE)",
       "color": "#1f3a52",
       "bgcolor": "#142533"
     },
@@ -175,7 +175,7 @@
         "helmet_front.png",
         "image"
       ],
-      "title": "?? [01 INPUT] M? b?o h? NEWTECONS (3D Helmet)",
+      "title": "[01 INPUT] Mũ bảo hộ NEWTECONS (3D Helmet)",
       "color": "#1f3a52",
       "bgcolor": "#142533"
     },
@@ -212,7 +212,7 @@
         "NoctQ_V4_int8_convrot.safetensors",
         "default"
       ],
-      "title": "?? [02 MODEL] Noct-Q V4 Uncensored (Qwen 2.1)",
+      "title": "[02 MODEL] Noct-Q V4 Uncensored (Qwen 2.1)",
       "color": "#3f2b60",
       "bgcolor": "#281b3d"
     },
@@ -250,7 +250,7 @@
         "qwen_image",
         "default"
       ],
-      "title": "?? [02 TEXT] Qwen3VL 8B Multimodal Encoder",
+      "title": "[02 TEXT] Qwen3VL 8B Multimodal Encoder",
       "color": "#3f2b60",
       "bgcolor": "#281b3d"
     },
@@ -287,7 +287,7 @@
       "widgets_values": [
         "qwen_image_2.1_vae_bf16.safetensors"
       ],
-      "title": "?? [02 VAE] Qwen Image 2.1 VAE",
+      "title": "[02 VAE] Qwen Image 2.1 VAE",
       "color": "#3f2b60",
       "bgcolor": "#281b3d"
     },
@@ -379,7 +379,7 @@
         "standing, standing upright, upright posture, wrong pose, mannequin, ball joints, wireframe, sketch, 2d drawing, cartoon, 3d render, missing logo, blank helmet, plain helmet without logo, bad anatomy, deformed limbs, extra fingers, blurry, low resolution, multiple people",
         1024
       ],
-      "title": "?? [02 PROMPT] H?P NH?P PROMPT & GH?P 4 THAM CHI?U (OpenPose & Costume)",
+      "title": "[02 PROMPT] Hộp Nhập Prompt & Ghép 4 Tham Chiếu",
       "color": "#52361f",
       "bgcolor": "#332214"
     },
@@ -442,7 +442,7 @@
         "simple",
         1.0
       ],
-      "title": "? KSampler Sinh ?nh Nh?n V?t G?c (Noct-Q 20 Steps Si?u T?c)",
+      "title": "KSampler Sinh Ảnh Nhân Vật Gốc (Noct-Q 20 Steps)",
       "color": "#3f2b60",
       "bgcolor": "#281b3d"
     },
@@ -488,7 +488,7 @@
         "Node name for S&R": "VAEDecode"
       },
       "widgets_values": [],
-      "title": "??? Gi?i M? ?nh Nh?n V?t",
+      "title": "Giải Mã Ảnh Nhân Vật",
       "color": "#3f2b60",
       "bgcolor": "#281b3d"
     },
@@ -520,7 +520,7 @@
       "widgets_values": [
         "NEWTECONS_Character_Fused"
       ],
-      "title": "?? L?U ?NH NH?N V?T G?C (?? PH?I H?P)",
+      "title": "LƯU ẢNH NHÂN VẬT GỐC (ĐÃ PHỐI HỢP)",
       "color": "#234a36",
       "bgcolor": "#162f22"
     },
@@ -550,7 +550,7 @@
         "Node name for S&R": "PreviewImage"
       },
       "widgets_values": [],
-      "title": "??? Xem Tr??c Tr?c Quan",
+      "title": "Xem Trước Trực Quan",
       "color": "#234a36",
       "bgcolor": "#162f22"
     }
@@ -671,7 +671,7 @@
   ],
   "groups": [
     {
-      "title": "1. 4 ??U V?O THAM CHI?U (M?T + D?NG + ?O + M? 3D NEWTECONS)",
+      "title": "1. 4 ĐẦU VÀO THAM CHIẾU (MẶT + DÁNG + ÁO + MŨ)",
       "bounding": [
         -1240,
         -320,
@@ -682,7 +682,7 @@
       "font_size": 24
     },
     {
-      "title": "2. B? M? H?NH NOCT-Q V4 & QWEN3VL 8B MULTIMODAL",
+      "title": "2. BỘ MÔ HÌNH NOCT-Q V4 & QWEN3VL 8B",
       "bounding": [
         -830,
         -320,
@@ -693,7 +693,7 @@
       "font_size": 24
     },
     {
-      "title": "3. H?P PROMPT T?NG H?P & GH?P 4 THAM CHI?U (OPEN-POSE & COSTUME)",
+      "title": "3. HỘP PROMPT TỔNG HỢP & GHÉP 4 THAM CHIẾU",
       "bounding": [
         -430,
         -320,
@@ -704,7 +704,7 @@
       "font_size": 24
     },
     {
-      "title": "4. SAMPLING & GI?I M? NH?N V?T G?C (30 GI?Y - X? S?CH VRAM)",
+      "title": "4. SAMPLING & GIẢI MÃ NHÂN VẬT GỐC (20 STEPS)",
       "bounding": [
         210,
         -320,
@@ -715,7 +715,7 @@
       "font_size": 24
     },
     {
-      "title": "5. TH?NH PH?M NH?N V?T G?C ?? D?NG CHO B??C 2",
+      "title": "5. THÀNH PHẨM NHÂN VẬT GỐC (DÙNG CHO BƯỚC 2)",
       "bounding": [
         920,
         -320,

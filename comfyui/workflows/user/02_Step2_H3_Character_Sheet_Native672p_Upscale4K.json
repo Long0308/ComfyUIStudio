@@ -43,7 +43,7 @@
         "NEWTECONS_Character_Fused.png",
         "image"
       ],
-      "title": "??? [01 INPUT] DUY NH?T 1 ?NH NH?N V?T G?C (T? B??C 1)",
+      "title": "[01 INPUT] Duy Nhất 1 Ảnh Nhân Vật Gốc (Từ Bước 1)",
       "color": "#1f3a52",
       "bgcolor": "#142533"
     },
@@ -159,7 +159,7 @@
         true,
         "none"
       ],
-      "title": "??? [02 DESIGN] H3 Turnaround Designer (5 G?c Chu?n 672p)",
+      "title": "[02 DESIGN] H3 Turnaround Designer (5 Góc Chuẩn 672p)",
       "color": "#234a36",
       "bgcolor": "#162f22"
     },
@@ -196,7 +196,7 @@
         "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
         "default"
       ],
-      "title": "?? [03 H3] MiniMax H3 Ref2VA Model",
+      "title": "[03 H3] MiniMax H3 Ref2VA Model",
       "color": "#52361f",
       "bgcolor": "#332214"
     },
@@ -234,7 +234,7 @@
         "minimax",
         "default"
       ],
-      "title": "?? [03 H3] Qwen3VL 32B NVFP4 Text Encoder",
+      "title": "[03 H3] Qwen3VL 32B NVFP4 Text Encoder",
       "color": "#52361f",
       "bgcolor": "#332214"
     },
@@ -271,7 +271,7 @@
       "widgets_values": [
         "minimax_h3_video_vae_int8_convrot.safetensors"
       ],
-      "title": "?? [03 H3] MiniMax H3 Video VAE",
+      "title": "[03 H3] MiniMax H3 Video VAE",
       "color": "#52361f",
       "bgcolor": "#332214"
     },
@@ -354,7 +354,7 @@
         5,
         "match"
       ],
-      "title": "?? [03 H3] MiniMax H3 Reference To Video",
+      "title": "[03 H3] MiniMax H3 Reference To Video",
       "color": "#52361f",
       "bgcolor": "#332214"
     },
@@ -457,7 +457,7 @@
         "simple",
         1.0
       ],
-      "title": "? [03 H3] KSampler Xoay G?c 5 Views (28 Gi?y)",
+      "title": "KSampler Xoay Góc 5 Views (28 Giây)",
       "color": "#3f2b60",
       "bgcolor": "#281b3d"
     },
@@ -503,7 +503,7 @@
         "Node name for S&R": "VAEDecode"
       },
       "widgets_values": [],
-      "title": "??? Decode Sheet Native (672p)",
+      "title": "Decode Sheet Native (672p)",
       "color": "#3f2b60",
       "bgcolor": "#281b3d"
     },
@@ -535,7 +535,7 @@
       "widgets_values": [
         "NEWTECONS_H3_Sheet_Native_672p"
       ],
-      "title": "?? L?u Character Sheet G?c (Native 672p)",
+      "title": "Lưu Character Sheet Gốc (Native 672p)",
       "color": "#234a36",
       "bgcolor": "#162f22"
     },
@@ -571,7 +571,7 @@
       "widgets_values": [
         "RealESRGAN_x4plus.pth"
       ],
-      "title": "?? [04 UPSCALE] Load RealESRGAN x4 Model",
+      "title": "[04 UPSCALE] Load RealESRGAN x4 Model",
       "color": "#1f3a52",
       "bgcolor": "#142533"
     },
@@ -616,7 +616,7 @@
         "Node name for S&R": "ImageUpscaleWithModel"
       },
       "widgets_values": [],
-      "title": "?? [04 UPSCALE] Si?u Ph?n Gi?i 4K (GPU ~7s)",
+      "title": "[04 UPSCALE] Siêu Phân Giải 4K (GPU ~7s)",
       "color": "#1f3a52",
       "bgcolor": "#142533"
     },
@@ -648,7 +648,7 @@
       "widgets_values": [
         "NEWTECONS_H3_Sheet_Upscale_4K"
       ],
-      "title": "?? L?u Character Sheet ?? UPSCALE 4K C?C N?T",
+      "title": "Lưu Character Sheet ĐÃ UPSCALE 4K CỰC NÉT",
       "color": "#234a36",
       "bgcolor": "#162f22"
     }
@@ -809,7 +809,7 @@
   ],
   "groups": [
     {
-      "title": "1. DUY NH?T 1 ?NH THAM CHI?U (T? B??C 1)",
+      "title": "1. DUY NHẤT 1 ẢNH THAM CHIẾU (TỪ BƯỚC 1)",
       "bounding": [
         -1140,
         -320,
@@ -820,7 +820,7 @@
       "font_size": 24
     },
     {
-      "title": "2. THI?T K? B?NG XOAY G?C (5 G?C CHU?N - 672P)",
+      "title": "2. THIẾT KẾ BẢNG XOAY GÓC (5 GÓC CHUẨN 672P)",
       "bounding": [
         -700,
         -320,
@@ -831,7 +831,7 @@
       "font_size": 24
     },
     {
-      "title": "3. M? H?NH H3 & B? SAMPLER XOAY G?C (28 GI?Y)",
+      "title": "3. MÔ HÌNH H3 & BỘ SAMPLER XOAY GÓC (28 GIÂY)",
       "bounding": [
         -200,
         -320,
@@ -842,7 +842,7 @@
       "font_size": 24
     },
     {
-      "title": "4. SI?U PH?N GI?I 4K REAL-ESRGAN (7 GI?Y)",
+      "title": "4. SIÊU PHÂN GIẢI 4K REAL-ESRGAN (7 GIÂY)",
       "bounding": [
         980,
         100,
