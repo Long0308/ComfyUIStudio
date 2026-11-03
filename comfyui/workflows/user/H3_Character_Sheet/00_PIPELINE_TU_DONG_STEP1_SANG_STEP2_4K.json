@@ -1,0 +1,1126 @@
+{
+  "version": 0.4,
+  "last_node_id": 40,
+  "last_link_id": 40,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "pos": [
+        -1500,
+        -250
+      ],
+      "size": [
+        340,
+        310
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "AI_HUMAN_FACE.png",
+        "image"
+      ],
+      "title": "[01 INPUT] Mặt Gốc Diễn Viên Thật",
+      "color": "#1f3a52",
+      "bgcolor": "#142533"
+    },
+    {
+      "id": 2,
+      "type": "LoadImage",
+      "pos": [
+        -1500,
+        100
+      ],
+      "size": [
+        340,
+        310
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "full_P002_front.png",
+        "image"
+      ],
+      "title": "[01 INPUT] Dáng Diễn Xuất (Pose)",
+      "color": "#1f3a52",
+      "bgcolor": "#142533"
+    },
+    {
+      "id": 3,
+      "type": "LoadImage",
+      "pos": [
+        -1500,
+        450
+      ],
+      "size": [
+        340,
+        310
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            3
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "AO_PHAN_QUANG_1.png",
+        "image"
+      ],
+      "title": "[01 INPUT] Áo Phản Quang 3D / Đồ Thường",
+      "color": "#1f3a52",
+      "bgcolor": "#142533"
+    },
+    {
+      "id": 4,
+      "type": "LoadImage",
+      "pos": [
+        -1500,
+        800
+      ],
+      "size": [
+        340,
+        310
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            4
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "SCENE01_HELMET_CANON_FRONT_6454E4094A70.png",
+        "image"
+      ],
+      "title": "[01 INPUT] Nón Bảo Hộ 3D Blender v004",
+      "color": "#1f3a52",
+      "bgcolor": "#142533"
+    },
+    {
+      "id": 10,
+      "type": "UNETLoader",
+      "pos": [
+        -1120,
+        -250
+      ],
+      "size": [
+        340,
+        100
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            6,
+            26
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "NoctQ_V4_int8_convrot.safetensors",
+        "default"
+      ],
+      "title": "[02 MODEL] Noct-Q V4 Uncensored (Dùng chung cả 2 bước)",
+      "color": "#3f2b60",
+      "bgcolor": "#281b3d"
+    },
+    {
+      "id": 11,
+      "type": "CLIPLoader",
+      "pos": [
+        -1120,
+        -110
+      ],
+      "size": [
+        340,
+        120
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            7,
+            27
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "qwen3vl_8b_int8_convrot.safetensors",
+        "qwen_image",
+        "default"
+      ],
+      "title": "[02 TEXT] Qwen3VL 8B Multimodal Encoder",
+      "color": "#3f2b60",
+      "bgcolor": "#281b3d"
+    },
+    {
+      "id": 12,
+      "type": "VAELoader",
+      "pos": [
+        -1120,
+        50
+      ],
+      "size": [
+        340,
+        100
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            8,
+            9,
+            28,
+            29
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "qwen_image_2.1_vae_bf16.safetensors"
+      ],
+      "title": "[02 VAE] Qwen Image 2.1 VAE",
+      "color": "#3f2b60",
+      "bgcolor": "#281b3d"
+    },
+    {
+      "id": 13,
+      "type": "TextEncodeQwenImage21",
+      "pos": [
+        -740,
+        -250
+      ],
+      "size": [
+        500,
+        620
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 7
+        },
+        {
+          "name": "images.image_1",
+          "type": "IMAGE",
+          "link": 1,
+          "shape": 7
+        },
+        {
+          "name": "images.image_2",
+          "type": "IMAGE",
+          "link": 2,
+          "shape": 7
+        },
+        {
+          "name": "images.image_3",
+          "type": "IMAGE",
+          "link": 3,
+          "shape": 7
+        },
+        {
+          "name": "images.image_4",
+          "type": "IMAGE",
+          "link": 4,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 8,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            10
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            11
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            12
+          ],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextEncodeQwenImage21"
+      },
+      "widgets_values": [
+        "Task: Master photographic film portrait of a Vietnamese NEWTECONS civil construction engineer (Prompt-As-Code standard).\n\nINPUT ROLES & IDENTITY LOCK:\n<image1> (Identity Lock 100%): Faithfully preserve the exact Vietnamese male face from input 1: facial bone structure, warm eyes, nose, lips, natural smile, authentic Asian skin tone with realistic skin pores. Do NOT change identity.\n<image2> (Body Posture): Natural upright standing posture, shoulders relaxed and square, arms resting comfortably at sides, confident stance on job site.\n<image3> (NEWTECONS Reflective Vest): Wear the exact two-tone reflective safety vest from input 3: navy blue upper chest and shoulders, black breathable mesh sides and lower back, central black zipper with V-neck collar. Crucial vest details: ONE horizontal silver reflective stripe across the mid-chest; prominent bright FLUORESCENT ORANGE horizontal bands wrapping completely around the waist and lower torso, with a silver reflective stripe centered within the orange bands. Worn over a light blue micro-checkered dress shirt and tailored black trousers.\n<image4> (NEWTECONS Safety Helmet): Wear the authentic white industrial safety helmet from input 4 sitting cleanly on top of head with NO chin strap covering the neck or chin. Front center clearly displays the original full-color NEWTECONS logo.\n\nQUALITY & CINEMA CANON:\n過度なアニメ化、3DCG化、美化、デフォルメを避け、現実のファッション撮影資料のような高い写実性を保つ。\nPhotorealistic live-action cinema look, natural daytime jobsite lighting, realistic soft depth of field, 8k uhd.",
+        "chin strap, helmet strap under chin, bicycle helmet, missing orange bands, anime, 3dcg, cartoon, 3d render, plastic skin, doll face, deformed hands, extra fingers, blurry",
+        1024
+      ],
+      "title": "[BƯỚC 1] Prompt Tạo Nhân Vật Gốc (Hero Shot)",
+      "color": "#52361f",
+      "bgcolor": "#332214"
+    },
+    {
+      "id": 15,
+      "type": "KSampler",
+      "pos": [
+        -200,
+        -250
+      ],
+      "size": [
+        340,
+        480
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 6
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 10
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 11
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            13
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        20261103,
+        "randomize",
+        20,
+        3.0,
+        "euler",
+        "simple",
+        1.0
+      ],
+      "title": "⚡ KSampler Bước 1 (20 Steps - 13 Giây)",
+      "color": "#3f2b60",
+      "bgcolor": "#281b3d"
+    },
+    {
+      "id": 16,
+      "type": "VAEDecode",
+      "pos": [
+        180,
+        -250
+      ],
+      "size": [
+        240,
+        120
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 13
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 9
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            14,
+            21
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": [],
+      "title": "🖼️ Giải Mã Ảnh Hero Bước 1",
+      "color": "#3f2b60",
+      "bgcolor": "#281b3d"
+    },
+    {
+      "id": 17,
+      "type": "SaveImage",
+      "pos": [
+        180,
+        -90
+      ],
+      "size": [
+        360,
+        360
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 14
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "01_HERO_CHARACTER_STEP1"
+      ],
+      "title": "💾 Lưu Ảnh Nhân Vật Bước 1 (Tự động nạp sang Bước 2)",
+      "color": "#234a36",
+      "bgcolor": "#162f22"
+    },
+    {
+      "id": 23,
+      "type": "TextEncodeQwenImage21",
+      "pos": [
+        580,
+        -250
+      ],
+      "size": [
+        500,
+        620
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 27
+        },
+        {
+          "name": "images.image_1",
+          "type": "IMAGE",
+          "link": 21,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 28,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            30
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            31
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            32
+          ],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextEncodeQwenImage21"
+      },
+      "widgets_values": [
+        "Task: Complete Photorealistic Master Character Design Sheet (\"AI美女 キャラクター固定シート\" Japanese Film Production Standard) of the professional NEWTECONS engineer in <image1> for a live-action film series.\n\nIDENTITY LOCK 100%:\nStrictly preserve exact facial features, bone structure, eyes, nose, lips, smile, Asian skin tone, and dark hair from <image1>. Do NOT change identity. Do NOT anime-fy.\n\nSHEET STRUCTURE & EDITORIAL CANVAS (Structured multi-panel cheat sheet on clean studio layout with neat Japanese section titles):\n1. TOP-LEFT [HERO & PROFILE CARD]: Hero selfie portrait with phone, title \"AI美女 キャラクター固定シート\", and specification table covering Name, Age (26), Profession (NEWTECONS Engineer), Personality, Height, Measurements, and Routine.\n2. TOP-MIDDLE [TURNAROUND VIEWS]: Five full-body views showing the same engineer in exact uniform: Front view (正面), Profile (横), Rear (後ろ), 3/4 Front (斜め前), 3/4 Rear (斜め後ろ). Natural relaxed standing posture with arms resting naturally at sides.\n3. TOP-RIGHT [EXPRESSION SHEET]: Six close-up facial portraits: Neutral (通常), Radiant Smile (笑顔), Focused (真剣), Alert Surprise (驚き), Pensive (真剣), Friendly Communication.\n4. MIDDLE-ROW [MACRO DETAILS]: Multi-angle facial closeups, helmet logo macro, reflective vest zipper and fabric texture.\n5. LOWER-MIDDLE [BODY & SKIN TEXTURE]: Collarbone, waistline, hands, safety boots, and authentic skin texture with visible natural pores.\n6. BOTTOM ROW [8 SITE LIFESTYLE SCENARIOS]: Eight distinct photo cards: (1) Reviewing technical blueprints on site, (2) Directing crane with walkie-talkie, (3) 3D BIM meeting in modern technical office, (4) Mid-day jobsite break chatting with colleagues, (5) Morning coffee before shift, (6) Laser level floor inspection, (7) Relaxed off-duty casual wear strolling the city, (8) Topping-out ceremony celebration.\n\nQUALITY DIRECTIVES:\n過度なアニメ化、3DCG化、美化、デフォルメを避け、現実のファッション撮影資料のような高い写実性を保つ。\nHigh-end editorial fashion catalogue aesthetics, photorealistic cinema masterpiece, authentic pores and fine skin texture, soft even studio lighting, 8k resolution.",
+        "chin strap, helmet strap under chin, bicycle helmet, missing orange bands, anime, 3dcg, cartoon, 3d render, plastic skin, doll face, deformed hands, extra fingers, blurry",
+        1024
+      ],
+      "title": "[BƯỚC 2] Prompt Master Sheet (Tự Động Nhận Ảnh Bước 1)",
+      "color": "#52361f",
+      "bgcolor": "#332214"
+    },
+    {
+      "id": 25,
+      "type": "KSampler",
+      "pos": [
+        1120,
+        -250
+      ],
+      "size": [
+        340,
+        480
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 26
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 30
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 31
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 32
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            33
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        20261103,
+        "randomize",
+        20,
+        3.0,
+        "euler",
+        "simple",
+        1.0
+      ],
+      "title": "⚡ KSampler Bước 2 (20 Steps - 13 Giây)",
+      "color": "#3f2b60",
+      "bgcolor": "#281b3d"
+    },
+    {
+      "id": 26,
+      "type": "VAEDecode",
+      "pos": [
+        1500,
+        -250
+      ],
+      "size": [
+        240,
+        120
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 33
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 29
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            34,
+            35
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": [],
+      "title": "🖼️ Giải Mã Master Sheet Bước 2",
+      "color": "#3f2b60",
+      "bgcolor": "#281b3d"
+    },
+    {
+      "id": 27,
+      "type": "SaveImage",
+      "pos": [
+        1780,
+        -250
+      ],
+      "size": [
+        360,
+        360
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 34
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "02_MASTER_SHEET_NATIVE_STEP2"
+      ],
+      "title": "💾 Lưu Master Sheet Native (1024p)",
+      "color": "#234a36",
+      "bgcolor": "#162f22"
+    },
+    {
+      "id": 30,
+      "type": "UpscaleModelLoader",
+      "pos": [
+        1500,
+        160
+      ],
+      "size": [
+        240,
+        90
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "UPSCALE_MODEL",
+          "type": "UPSCALE_MODEL",
+          "links": [
+            36
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UpscaleModelLoader"
+      },
+      "widgets_values": [
+        "RealESRGAN_x4plus.pth"
+      ],
+      "title": "🔍 [04 UPSCALE] Load RealESRGAN x4 Model",
+      "color": "#1f3a52",
+      "bgcolor": "#142533"
+    },
+    {
+      "id": 31,
+      "type": "ImageUpscaleWithModel",
+      "pos": [
+        1500,
+        290
+      ],
+      "size": [
+        240,
+        110
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "upscale_model",
+          "type": "UPSCALE_MODEL",
+          "link": 36
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 35
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            37
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageUpscaleWithModel"
+      },
+      "widgets_values": [],
+      "title": "🚀 [04 UPSCALE] Siêu Phân Giải 4K (GPU ~7s)",
+      "color": "#1f3a52",
+      "bgcolor": "#142533"
+    },
+    {
+      "id": 32,
+      "type": "SaveImage",
+      "pos": [
+        1780,
+        160
+      ],
+      "size": [
+        360,
+        360
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 37
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "03_MASTER_CHARACTER_SHEET_4K_FINAL"
+      ],
+      "title": "🏆 Lưu Master Character Sheet 4K Siêu Sắc Nét",
+      "color": "#234a36",
+      "bgcolor": "#162f22"
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      13,
+      1,
+      "IMAGE"
+    ],
+    [
+      2,
+      2,
+      0,
+      13,
+      2,
+      "IMAGE"
+    ],
+    [
+      3,
+      3,
+      0,
+      13,
+      3,
+      "IMAGE"
+    ],
+    [
+      4,
+      4,
+      0,
+      13,
+      4,
+      "IMAGE"
+    ],
+    [
+      6,
+      10,
+      0,
+      15,
+      0,
+      "MODEL"
+    ],
+    [
+      7,
+      11,
+      0,
+      13,
+      0,
+      "CLIP"
+    ],
+    [
+      8,
+      12,
+      0,
+      13,
+      5,
+      "VAE"
+    ],
+    [
+      9,
+      12,
+      0,
+      16,
+      1,
+      "VAE"
+    ],
+    [
+      10,
+      13,
+      0,
+      15,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      11,
+      13,
+      1,
+      15,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      12,
+      13,
+      2,
+      15,
+      3,
+      "LATENT"
+    ],
+    [
+      13,
+      15,
+      0,
+      16,
+      0,
+      "LATENT"
+    ],
+    [
+      14,
+      16,
+      0,
+      17,
+      0,
+      "IMAGE"
+    ],
+    [
+      21,
+      16,
+      0,
+      23,
+      1,
+      "IMAGE"
+    ],
+    [
+      26,
+      10,
+      0,
+      25,
+      0,
+      "MODEL"
+    ],
+    [
+      27,
+      11,
+      0,
+      23,
+      0,
+      "CLIP"
+    ],
+    [
+      28,
+      12,
+      0,
+      23,
+      2,
+      "VAE"
+    ],
+    [
+      29,
+      12,
+      0,
+      26,
+      1,
+      "VAE"
+    ],
+    [
+      30,
+      23,
+      0,
+      25,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      31,
+      23,
+      1,
+      25,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      32,
+      23,
+      2,
+      25,
+      3,
+      "LATENT"
+    ],
+    [
+      33,
+      25,
+      0,
+      26,
+      0,
+      "LATENT"
+    ],
+    [
+      34,
+      26,
+      0,
+      27,
+      0,
+      "IMAGE"
+    ],
+    [
+      35,
+      26,
+      0,
+      31,
+      1,
+      "IMAGE"
+    ],
+    [
+      36,
+      30,
+      0,
+      31,
+      0,
+      "UPSCALE_MODEL"
+    ],
+    [
+      37,
+      31,
+      0,
+      32,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "1. 4 ĐẦU VÀO GỐC (MẶT + DÁNG + ÁO + MŨ)",
+      "bounding": [
+        -1540,
+        -320,
+        390,
+        1480
+      ],
+      "color": "#1f3a52",
+      "font_size": 24
+    },
+    {
+      "title": "2. BỘ MÔ HÌNH DÙNG CHUNG CẢ 2 BƯỚC (SHARED CORE - 0% TRÀN VRAM)",
+      "bounding": [
+        -1150,
+        -320,
+        380,
+        520
+      ],
+      "color": "#3f2b60",
+      "font_size": 24
+    },
+    {
+      "title": "3. BƯỚC 1: TẠO ẢNH NHÂN VẬT GỐC HERO SHOT (~13S)",
+      "bounding": [
+        -760,
+        -320,
+        1320,
+        750
+      ],
+      "color": "#52361f",
+      "font_size": 24
+    },
+    {
+      "title": "4. BƯỚC 2: TỰ ĐỘNG NHẬN ẢNH BƯỚC 1 -> MASTER SHEET 4K (~20S)",
+      "bounding": [
+        560,
+        -320,
+        1600,
+        920
+      ],
+      "color": "#163b28",
+      "font_size": 24
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6,
+      "offset": [
+        1600,
+        400
+      ]
+    }
+  }
+}

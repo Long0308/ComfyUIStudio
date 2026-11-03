@@ -223,14 +223,15 @@ flowchart LR
 2. **Nghẽn VRAM và Swap bộ nhớ**: Trên GPU 16 GB, chạy đồng thời mô hình Qwen 2.1 (16 GB) và MiniMax H3 (38 GB) sẽ làm tràn VRAM và cgroup memory limit, kích hoạt paging swap trên ổ đĩa khiến hệ thống bị chậm.
 
 #### Danh sách Workflow chuẩn hóa trong Repo:
-* **Bước 1**: `01_Tao_Nhan_Vat_Chinh_Real_NoctQ_Uncensored.json` (Alias: `01_Step1_Tao_Anh_Nhan_Vat_NoctQ_Uncensored.json`).
-  - *Nhiệm vụ*: Nhận Mặt + Dáng + Trang phục (Tự do hoặc Đồng phục) + Mũ bảo hộ -> Hộp Prompt-As-Code sinh ra ảnh nhân vật đơn lẻ chân thực nhất. Xả sạch VRAM sau khi chạy.
-* **Bước 2 (Hai Luồng Song Song Chuyên Biệt - Chuẩn Hồ Sơ 9 Phân Khu Nhật Bản)**:
-  - **Luồng 1 (NEWTECONS PPE & Công Trường)**: `02_Ho_So_Nhan_Vat_Film_Master_Sheet_NEWTECONS_4K.json`
-    * Chuyên dòng phim kỹ sư công trường: Turnaround 360° đội nón bảo hộ logo NEWTECONS + áo phản quang Ban Truyền Thông / Khối Kỹ Thuật, bảng 6 biểu cảm chỉ huy/tập trung, và 8 cảnh lối sống công trường (đọc bản vẽ BIM, bộ đàm cẩu tháp, họp dự án, giải lao, cafe sáng, cất nóc...).
-  - **Luồng 2 (Thời Trang Đời Thường / Hiyori Lifestyle)**: `02_Ho_So_Nhan_Vat_Film_Master_Sheet_LIFESTYLE_HIYORI_4K.json`
-    * Chuyên dòng phim đời thường / thời trang / hoạt hình 3D JennieJoy: Giống hệt 100% bản mẫu Hiyori của Nhật Bản với đầm hoa, áo len dệt kim, đồ mặc nhà, đồ đi cafe, bikini biển, váy du lịch, biểu cảm nháy mắt, má lúm đồng tiền.
-  - *Thời gian sinh*: Chỉ **13 giây sampling** (20 steps) + **7 giây RealESRGAN 4K** (tổng cộng chưa đầy **30–35 giây**)!
+* **Workflow Toàn Tự Động 1-Click (Chained Pipeline)**:
+  - **`00_PIPELINE_TU_DONG_STEP1_SANG_STEP2_4K.json`**:
+    * **Đỉnh cao tự động hóa**: Dây nối output `IMAGE` của Bước 1 (Hero Character) được cắm trực tiếp vào input `image_1` của Bước 2 (Master Sheet).
+    * Cả 2 bước dùng chung lõi mô hình `Noct-Q V4` + `Qwen3VL 8B` đã nạp sẵn trong VRAM $\rightarrow$ **0% tải lại model, 0% tràn RAM**.
+    * Bấm **Run duy nhất 1 lần** $\rightarrow$ Tự động sinh ảnh Hero Bước 1 (13s) $\rightarrow$ Tự động nạp sang sinh Master Sheet Bước 2 (13s) $\rightarrow$ Tự động RealESRGAN phóng đại 4K (7s). **Tổng thời gian chỉ đúng 35–40 giây** là có trọn vẹn cả ảnh Hero lẫn Bản Hồ Sơ 4K!
+* **Workflow Độc Lập Từng Bước (Modular Steps)**:
+  - **Bước 1**: `01_Tao_Nhan_Vat_Chinh_Real_NoctQ.json` (Sinh ảnh Hero đơn lẻ chân thực nhất).
+  - **Bước 2 (NEWTECONS PPE)**: `02_Master_Sheet_NEWTECONS_PPE_360_4K.json` (Bản hồ sơ 360° + 4 bối cảnh công trường kỹ sư NEWTECONS).
+  - **Bước 2 (LIFESTYLE HIYORI)**: `02_Master_Sheet_LIFESTYLE_HIYORI_4K.json` (Bản hồ sơ thời trang đời thường phong cách Hiyori Nhật Bản).
 
 #### Thao tác chuẩn & Tối ưu hóa thời gian:
 * **Bước 1 (Tạo nhân vật chính Real nhất - 20 Steps Siêu Tốc)**:
