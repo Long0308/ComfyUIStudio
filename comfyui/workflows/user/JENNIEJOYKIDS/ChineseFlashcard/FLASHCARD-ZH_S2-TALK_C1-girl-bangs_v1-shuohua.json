@@ -1,0 +1,861 @@
+{
+  "last_node_id": 40,
+  "last_link_id": 40,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "UNETLoader",
+      "pos": [
+        20,
+        100
+      ],
+      "size": [
+        420,
+        90
+      ],
+      "title": "STEP 2a - reference-to-video+audio",
+      "widgets_values": [
+        "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "default"
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "type": "CLIPLoader",
+      "pos": [
+        20,
+        220
+      ],
+      "size": [
+        420,
+        110
+      ],
+      "widgets_values": [
+        "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "minimax",
+        "default"
+      ],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "VAELoader",
+      "pos": [
+        20,
+        360
+      ],
+      "size": [
+        420,
+        60
+      ],
+      "title": "video VAE",
+      "widgets_values": [
+        "minimax_h3_video_vae_int8_convrot.safetensors"
+      ],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            4,
+            5,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "type": "VAELoader",
+      "pos": [
+        20,
+        450
+      ],
+      "size": [
+        420,
+        60
+      ],
+      "title": "audio VAE",
+      "widgets_values": [
+        "minimax_h3_audio_vae_fp32.safetensors"
+      ],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            7,
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "type": "LoadImage",
+      "pos": [
+        20,
+        550
+      ],
+      "size": [
+        400,
+        360
+      ],
+      "title": "OUTPUT OF STEP 1 (flattened RGBA -> RGB)",
+      "widgets_values": [
+        "c1-girl-bangs-flat.png",
+        "image"
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            10,
+            11
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "type": "LoadAudio",
+      "pos": [
+        20,
+        940
+      ],
+      "size": [
+        400,
+        130
+      ],
+      "title": "Mandarin word audio (pad to >= 5 s)",
+      "widgets_values": [
+        "shuohua-pad.wav"
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            12,
+            13
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "type": "MiniMaxH3ReferenceToVideo",
+      "pos": [
+        480,
+        100
+      ],
+      "size": [
+        560,
+        460
+      ],
+      "title": "ref_image_size = max  (identity fidelity)",
+      "widgets_values": [
+        "REFERENCE ORDER AND AUTHORITY:\n<Picture 1> is the user-approved portrait of the child. The face, hair, skin tone and clothing come from <Picture 1> and must stay identical for the whole shot. Do not change age, ethnicity, hairstyle or outfit.\n\nSKIN - CRITICAL: this is a young preschool child, so the skin must be perfectly smooth, plump, soft and luminous like a baby's. Absence of facial hair is mandatory: NO peach fuzz, NO vellus hair, NO beard shadow, NO stubble, NO dark hair strokes on the cheeks, NO hair on the upper lip, NO fuzz along the jaw or chin. The cheeks are clean, round, plump and smooth with a soft natural rosy blush. Poreless, flawlessly clean baby skin with a gentle natural sheen on the nose and forehead, subtle subsurface scattering making the skin look translucent and alive. Soft baby fat on the cheeks, a small rounded chin, delicate smooth neck.\n\nSHOT: the same child from <Picture 1> speaks the Mandarin word shuō huà directly to the camera. Mouth shapes match the audio exactly, jaw and lips move with each syllable, eyes blink naturally, tiny head movement, shoulders relaxed.\n\nCAMERA: locked-off frontal shot, no camera move, eye level.\nLIGHT: soft frontal key, warm 3500K, even and flattering, no harsh shadows.\nSTYLE: photorealistic live-action footage of a real preschool child, clean smooth baby skin, no cartoon, no 3D render, no illustration.",
+        768,
+        768,
+        124,
+        "max"
+      ],
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 3
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 4
+        },
+        {
+          "name": "audio_vae",
+          "type": "VAE",
+          "link": 7
+        },
+        {
+          "name": "ref_image_0",
+          "type": "IMAGE",
+          "link": 10
+        },
+        {
+          "name": "ref_audio_0",
+          "type": "AUDIO",
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            14
+          ]
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": []
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "type": "EmptyMiniMaxH3LatentAV",
+      "pos": [
+        480,
+        600
+      ],
+      "size": [
+        400,
+        130
+      ],
+      "widgets_values": [
+        768,
+        768,
+        124
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            15,
+            16
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "type": "MiniMaxH3AddGuide",
+      "pos": [
+        480,
+        780
+      ],
+      "size": [
+        400,
+        220
+      ],
+      "title": "STEP 2b - THE IDENTITY FIX: anchor the photo at frame 0",
+      "widgets_values": [
+        0
+      ],
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 14
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "link": 15
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 5
+        },
+        {
+          "name": "audio_vae",
+          "type": "VAE",
+          "link": 8
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 11
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 13
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            17
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "type": "BasicGuider",
+      "pos": [
+        1080,
+        100
+      ],
+      "size": [
+        300,
+        90
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 1
+        },
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "GUIDER",
+          "type": "GUIDER",
+          "links": [
+            18
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "type": "RandomNoise",
+      "pos": [
+        1080,
+        220
+      ],
+      "size": [
+        300,
+        90
+      ],
+      "widgets_values": [
+        8800,
+        "fixed"
+      ],
+      "outputs": [
+        {
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            19
+          ]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "type": "KSamplerSelect",
+      "pos": [
+        1080,
+        340
+      ],
+      "size": [
+        300,
+        80
+      ],
+      "title": "res_multistep (not euler)",
+      "widgets_values": [
+        "res_multistep"
+      ],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            20
+          ]
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "type": "BasicScheduler",
+      "pos": [
+        1080,
+        450
+      ],
+      "size": [
+        300,
+        120
+      ],
+      "title": "beta / 20 steps",
+      "widgets_values": [
+        "beta",
+        20,
+        1.0
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            21
+          ]
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "type": "SamplerCustomAdvanced",
+      "pos": [
+        1420,
+        100
+      ],
+      "size": [
+        340,
+        200
+      ],
+      "inputs": [
+        {
+          "name": "noise",
+          "type": "NOISE",
+          "link": 19
+        },
+        {
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 18
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 20
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 21
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 16
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            22,
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "type": "VAEDecode",
+      "pos": [
+        1420,
+        340
+      ],
+      "size": [
+        240,
+        60
+      ],
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 22
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 6
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            24
+          ]
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "type": "VAEDecodeAudio",
+      "pos": [
+        1420,
+        430
+      ],
+      "size": [
+        240,
+        60
+      ],
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 23
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 9
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            25
+          ]
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "type": "CreateVideo",
+      "pos": [
+        1700,
+        340
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "title": "24 fps",
+      "widgets_values": [
+        24.0
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 24
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 25
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            26
+          ]
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "type": "SaveVideo",
+      "pos": [
+        1700,
+        500
+      ],
+      "size": [
+        420,
+        380
+      ],
+      "widgets_values": [
+        "ZHKIDS/lipsync/c1-girl-bangs",
+        "mp4",
+        "h264"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      10,
+      0,
+      "MODEL"
+    ],
+    [
+      2,
+      1,
+      0,
+      13,
+      0,
+      "MODEL"
+    ],
+    [
+      3,
+      2,
+      0,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      4,
+      3,
+      0,
+      7,
+      1,
+      "VAE"
+    ],
+    [
+      5,
+      3,
+      0,
+      9,
+      2,
+      "VAE"
+    ],
+    [
+      6,
+      3,
+      0,
+      15,
+      1,
+      "VAE"
+    ],
+    [
+      7,
+      4,
+      0,
+      7,
+      2,
+      "VAE"
+    ],
+    [
+      8,
+      4,
+      0,
+      9,
+      3,
+      "VAE"
+    ],
+    [
+      9,
+      4,
+      0,
+      16,
+      1,
+      "VAE"
+    ],
+    [
+      10,
+      5,
+      0,
+      7,
+      3,
+      "IMAGE"
+    ],
+    [
+      11,
+      5,
+      0,
+      9,
+      4,
+      "IMAGE"
+    ],
+    [
+      12,
+      6,
+      0,
+      7,
+      4,
+      "AUDIO"
+    ],
+    [
+      13,
+      6,
+      0,
+      9,
+      5,
+      "AUDIO"
+    ],
+    [
+      14,
+      7,
+      0,
+      9,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      15,
+      8,
+      0,
+      9,
+      1,
+      "LATENT"
+    ],
+    [
+      16,
+      8,
+      0,
+      14,
+      4,
+      "LATENT"
+    ],
+    [
+      17,
+      9,
+      0,
+      10,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      18,
+      10,
+      0,
+      14,
+      1,
+      "GUIDER"
+    ],
+    [
+      19,
+      11,
+      0,
+      14,
+      0,
+      "NOISE"
+    ],
+    [
+      20,
+      12,
+      0,
+      14,
+      2,
+      "SAMPLER"
+    ],
+    [
+      21,
+      13,
+      0,
+      14,
+      3,
+      "SIGMAS"
+    ],
+    [
+      22,
+      14,
+      0,
+      15,
+      0,
+      "LATENT"
+    ],
+    [
+      23,
+      14,
+      0,
+      16,
+      0,
+      "LATENT"
+    ],
+    [
+      24,
+      15,
+      0,
+      17,
+      0,
+      "IMAGE"
+    ],
+    [
+      25,
+      16,
+      0,
+      17,
+      1,
+      "AUDIO"
+    ],
+    [
+      26,
+      17,
+      0,
+      18,
+      0,
+      "VIDEO"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "STEP 2a - CONDITIONING (reference image + reference audio)",
+      "bounding": [
+        0,
+        60,
+        1120,
+        780
+      ],
+      "color": "#8e6f3f",
+      "font_size": 26,
+      "flags": {}
+    },
+    {
+      "title": "STEP 2b - IDENTITY ANCHOR (AddGuide frame 0) + SAMPLING",
+      "bounding": [
+        420,
+        740,
+        1400,
+        320
+      ],
+      "color": "#6f3f8e",
+      "font_size": 26,
+      "flags": {}
+    },
+    {
+      "title": "STEP 2c - DECODE + MP4",
+      "bounding": [
+        1360,
+        60,
+        800,
+        840
+      ],
+      "color": "#3f8e5f",
+      "font_size": 26,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.55,
+      "offset": [
+        0,
+        0
+      ]
+    }
+  },
+  "version": 0.4
+}

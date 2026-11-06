@@ -1,0 +1,647 @@
+{
+  "last_node_id": 14,
+  "last_link_id": 20,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "UNETLoader",
+      "pos": [
+        20,
+        100
+      ],
+      "size": [
+        400,
+        90
+      ],
+      "widgets_values": [
+        "krea2_turbo_int8_convrot.safetensors",
+        "default"
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        20,
+        220
+      ],
+      "size": [
+        400,
+        100
+      ],
+      "title": "IDENTITY LORA - required before the patch",
+      "widgets_values": [
+        "krea2_identity_edit_v2.safetensors",
+        1.0
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "CLIPLoader",
+      "pos": [
+        20,
+        350
+      ],
+      "size": [
+        400,
+        110
+      ],
+      "widgets_values": [
+        "qwen3vl_4b_fp8_scaled.safetensors",
+        "krea2",
+        "default"
+      ],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            3,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "type": "VAELoader",
+      "pos": [
+        20,
+        490
+      ],
+      "size": [
+        400,
+        60
+      ],
+      "widgets_values": [
+        "qwen_image_vae.safetensors"
+      ],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            5,
+            6,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "type": "LoadImage",
+      "pos": [
+        20,
+        590
+      ],
+      "size": [
+        400,
+        360
+      ],
+      "title": "reference PNG (flatten RGBA -> RGB on cream first)",
+      "widgets_values": [
+        "alice-neutral-flat.png",
+        "image"
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "type": "ImageScale",
+      "pos": [
+        460,
+        590
+      ],
+      "size": [
+        300,
+        130
+      ],
+      "widgets_values": [
+        "lanczos",
+        1024,
+        1024,
+        "center"
+      ],
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            9,
+            10,
+            11
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "type": "VAEEncode",
+      "pos": [
+        460,
+        750
+      ],
+      "size": [
+        300,
+        60
+      ],
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 9
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            12
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "type": "EmptySD3LatentImage",
+      "pos": [
+        460,
+        850
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            13,
+            14
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "type": "Krea2EditModelPatch",
+      "pos": [
+        820,
+        100
+      ],
+      "size": [
+        380,
+        330
+      ],
+      "title": "patch model + target_latent (omit it and steps slow 4x)",
+      "widgets_values": [
+        1.0,
+        1.0,
+        "fit",
+        "aligned (trained)",
+        "aligned (trained)"
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 2
+        },
+        {
+          "name": "source_latent",
+          "type": "LATENT",
+          "link": 12
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 6
+        },
+        {
+          "name": "source_image",
+          "type": "IMAGE",
+          "link": 10
+        },
+        {
+          "name": "target_latent",
+          "type": "LATENT",
+          "link": 13
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            15
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "type": "Krea2EditGroundedEncode",
+      "pos": [
+        820,
+        470
+      ],
+      "size": [
+        520,
+        230
+      ],
+      "title": "positive",
+      "widgets_values": [
+        "the same preschool girl from the reference, identical face, identical large dark-brown eyes, identical black bob with straight bangs and a pink bow on the anatomical right, identical rose-pink pyjama top with one centred white heart, identical warm peach skin, identical stylized 3D animation sculpt with soft hair strands. chest-up portrait, centred, front-facing. flat solid pale cream background, no gradient, no floor, no props, soft studio key light, warm and gentle. Listening attentively: head tilted slightly to her left, eyebrows raised, one hand cupped behind her ear, eyes wide and curious.",
+        768,
+        ""
+      ],
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 3
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 11
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            16
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "type": "Krea2EditGroundedEncode",
+      "pos": [
+        820,
+        730
+      ],
+      "size": [
+        520,
+        180
+      ],
+      "title": "negative (empty is correct for Krea2)",
+      "widgets_values": [
+        "",
+        768,
+        ""
+      ],
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 4
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 11
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            17
+          ]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "type": "KSampler",
+      "pos": [
+        1380,
+        100
+      ],
+      "size": [
+        340,
+        260
+      ],
+      "title": "10 steps / cfg 1.0 / euler simple",
+      "widgets_values": [
+        1201,
+        "fixed",
+        10,
+        1.0,
+        "euler",
+        "simple",
+        1.0
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 15
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 16
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 17
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 14
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            18
+          ]
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "type": "VAEDecode",
+      "pos": [
+        1380,
+        400
+      ],
+      "size": [
+        240,
+        60
+      ],
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 18
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            19
+          ]
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "type": "SaveImage",
+      "pos": [
+        1380,
+        500
+      ],
+      "size": [
+        420,
+        400
+      ],
+      "widgets_values": [
+        "JENNIEJOYKIDS/alice-02_listening"
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 19
+        }
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "MODEL"
+    ],
+    [
+      2,
+      2,
+      0,
+      9,
+      0,
+      "MODEL"
+    ],
+    [
+      3,
+      3,
+      0,
+      10,
+      0,
+      "CLIP"
+    ],
+    [
+      4,
+      3,
+      0,
+      11,
+      0,
+      "CLIP"
+    ],
+    [
+      5,
+      4,
+      0,
+      7,
+      1,
+      "VAE"
+    ],
+    [
+      6,
+      4,
+      0,
+      9,
+      2,
+      "VAE"
+    ],
+    [
+      7,
+      4,
+      0,
+      13,
+      1,
+      "VAE"
+    ],
+    [
+      8,
+      5,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      9,
+      6,
+      0,
+      7,
+      0,
+      "IMAGE"
+    ],
+    [
+      10,
+      6,
+      0,
+      9,
+      3,
+      "IMAGE"
+    ],
+    [
+      11,
+      6,
+      0,
+      10,
+      1,
+      "IMAGE"
+    ],
+    [
+      12,
+      7,
+      0,
+      9,
+      1,
+      "LATENT"
+    ],
+    [
+      13,
+      8,
+      0,
+      9,
+      4,
+      "LATENT"
+    ],
+    [
+      14,
+      8,
+      0,
+      12,
+      3,
+      "LATENT"
+    ],
+    [
+      15,
+      9,
+      0,
+      12,
+      0,
+      "MODEL"
+    ],
+    [
+      16,
+      10,
+      0,
+      12,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      17,
+      11,
+      0,
+      12,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      18,
+      12,
+      0,
+      13,
+      0,
+      "LATENT"
+    ],
+    [
+      19,
+      13,
+      0,
+      14,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.68,
+      "offset": [
+        0,
+        0
+      ]
+    }
+  },
+  "version": 0.4
+}

@@ -1,0 +1,388 @@
+{
+  "last_node_id": 30,
+  "last_link_id": 30,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "UNETLoader",
+      "pos": [
+        20,
+        100
+      ],
+      "size": [
+        420,
+        90
+      ],
+      "widgets_values": [
+        "qwen_image_2512_fp8_e4m3fn.safetensors",
+        "default"
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "type": "CLIPLoader",
+      "pos": [
+        20,
+        220
+      ],
+      "size": [
+        420,
+        110
+      ],
+      "widgets_values": [
+        "qwen_2.5_vl_7b_fp8_scaled.safetensors",
+        "qwen_image",
+        "default"
+      ],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "VAELoader",
+      "pos": [
+        20,
+        360
+      ],
+      "size": [
+        420,
+        60
+      ],
+      "widgets_values": [
+        "qwen_image_vae.safetensors"
+      ],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "type": "EmptySD3LatentImage",
+      "pos": [
+        20,
+        450
+      ],
+      "size": [
+        420,
+        110
+      ],
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "type": "CLIPTextEncode",
+      "pos": [
+        480,
+        100
+      ],
+      "size": [
+        620,
+        420
+      ],
+      "title": "POSITIVE - baby skin, no facial hair",
+      "widgets_values": [
+        "Photorealistic studio portrait photograph of an original 5-year-old East Asian girl, chest-up, facing the camera directly, looking into the lens. Straight black shoulder-length hair with a small white side clip. Wearing a plain pale yellow cotton t-shirt. Gentle reassuring smile, head tipped slightly to one side.\n\nSKIN - CRITICAL: this is a young preschool child, so the skin must be perfectly smooth, plump, soft and luminous like a baby's. Absence of facial hair is mandatory: NO peach fuzz, NO vellus hair, NO beard shadow, NO stubble, NO dark hair strokes on the cheeks, NO hair on the upper lip, NO fuzz along the jaw or chin. The cheeks are clean, round, plump and smooth with a soft natural rosy blush. Poreless, flawlessly clean baby skin with a gentle natural sheen on the nose and forehead, subtle subsurface scattering making the skin look translucent and alive. Soft baby fat on the cheeks, a small rounded chin, delicate smooth neck.\n\nHair on the HEAD is rendered strand by strand with a few flyaway hairs catching the light, but the FACE itself is completely hair-free.\n\nLighting: large softbox 45 degrees camera-left, white reflector filling the right side, about 1.5:1 ratio, catchlights visible in both eyes, warm 3500K, even flattering falloff, no harsh shadows on the skin. Background: plain flat soft lavender seamless studio backdrop, no gradient, no props, no floor line. Shot on an 85mm lens at f/2.0, shallow depth of field, sharp focus on the eyes, fine film grain at ISO 400. Square composition. No text, no logo, no watermark."
+      ],
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        480,
+        560
+      ],
+      "size": [
+        620,
+        200
+      ],
+      "title": "NEGATIVE - forbids fuzz, stubble, beard shadow",
+      "widgets_values": [
+        "facial hair, peach fuzz, vellus hair, beard shadow, stubble, five o'clock shadow, hair on cheeks, dark hair strokes on skin, hairy face, mustache, adult skin texture, wrinkles, rough skin, sun damage, blemishes, dark patches, dirty skin, 3D render, cartoon, anime, illustration, painting, plastic doll skin, extra fingers, deformed hands, extra limbs, distorted teeth, text, watermark, logo, harsh shadows, oversaturated, HDR halo, lens flare, blurry, low quality"
+      ],
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "type": "KSampler",
+      "pos": [
+        1140,
+        100
+      ],
+      "size": [
+        340,
+        260
+      ],
+      "title": "30 steps / cfg 4.5",
+      "widgets_values": [
+        5504,
+        "fixed",
+        30,
+        4.5,
+        "euler",
+        "simple",
+        1.0
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 1
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 6
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 7
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        1140,
+        400
+      ],
+      "size": [
+        240,
+        60
+      ],
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 8
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            9,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "type": "SaveImage",
+      "pos": [
+        1420,
+        400
+      ],
+      "size": [
+        420,
+        400
+      ],
+      "widgets_values": [
+        "ZHKIDS/v2/c5-girl-long"
+      ],
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 9
+        }
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      7,
+      0,
+      "MODEL"
+    ],
+    [
+      2,
+      2,
+      0,
+      5,
+      0,
+      "CLIP"
+    ],
+    [
+      3,
+      2,
+      0,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      4,
+      3,
+      0,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      5,
+      4,
+      0,
+      7,
+      3,
+      "LATENT"
+    ],
+    [
+      6,
+      5,
+      0,
+      7,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      7,
+      6,
+      0,
+      7,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      8,
+      7,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      9,
+      8,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      10,
+      8,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "STEP 1 - CHARACTER (text -> photoreal child)",
+      "bounding": [
+        0,
+        60,
+        1900,
+        760
+      ],
+      "color": "#3f789e",
+      "font_size": 28,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.62,
+      "offset": [
+        0,
+        0
+      ]
+    }
+  },
+  "version": 0.4
+}

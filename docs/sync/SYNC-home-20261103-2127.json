@@ -1,0 +1,107 @@
+{
+    "machine":  "home",
+    "scope":  "H3_Character_Sheet",
+    "timestamp":  "2026-11-03T21:27:42",
+    "applied":  false,
+    "api_up":  true,
+    "node_types_checked":  true,
+    "counts":  {
+                   "workflows":  5,
+                   "workflows_missing_or_differs":  0,
+                   "models_missing":  0,
+                   "node_types_missing":  2,
+                   "inputs_missing":  10
+               },
+    "missing":  {
+                    "workflows":  [
+
+                                  ],
+                    "models":  [
+
+                               ],
+                    "node_types":  [
+                                       {
+                                           "type":  "H3CharacterSheetDesignerMultiReference",
+                                           "custom_node_folder":  "H3-Character-Sheet-Designer",
+                                           "workflows":  [
+                                                             "H3_Character_Sheet\\experimental\\H3_Character_Sheet_Designer_MultiReference_wf.json"
+                                                         ]
+                                       },
+                                       {
+                                           "type":  "H3CharacterSheetDesignerReferenceV13",
+                                           "custom_node_folder":  "H3-Character-Sheet-Designer",
+                                           "workflows":  [
+                                                             "H3_Character_Sheet\\02_Master_Sheet_NEWTECONS_PPE_360_4K.json"
+                                                         ]
+                                       }
+                                   ],
+                    "inputs":  [
+                                   {
+                                       "name":  "AI_HUMAN_FACE.png",
+                                       "workflows":  [
+                                                         "H3_Character_Sheet\\00_PIPELINE_TU_DONG_STEP1_SANG_STEP2_4K.json"
+                                                     ]
+                                   },
+                                   {
+                                       "name":  "AO_PHAN_QUANG_1.png",
+                                       "workflows":  [
+                                                         "H3_Character_Sheet\\00_PIPELINE_TU_DONG_STEP1_SANG_STEP2_4K.json"
+                                                     ]
+                                   },
+                                   {
+                                       "name":  "BLENDER_HELMET_FRONT.png",
+                                       "workflows":  [
+                                                         "H3_Character_Sheet\\02_Master_Sheet_NEWTECONS_PPE_360_4K.json"
+                                                     ]
+                                   },
+                                   {
+                                       "name":  "BLENDER_SHIRT_COMPANY_FRONT.png",
+                                       "workflows":  [
+                                                         "H3_Character_Sheet\\02_Master_Sheet_NEWTECONS_PPE_360_4K.json"
+                                                     ]
+                                   },
+                                   {
+                                       "name":  "BLENDER_VEST_SITE_MALE_FRONT.png",
+                                       "workflows":  [
+                                                         "H3_Character_Sheet\\02_Master_Sheet_NEWTECONS_PPE_360_4K.json"
+                                                     ]
+                                   },
+                                   {
+                                       "name":  "f06fe4f6b36.webp",
+                                       "workflows":  [
+                                                         "H3_Character_Sheet\\01_Tao_Nhan_Vat_Chinh_Real_NoctQ.json"
+                                                     ]
+                                   },
+                                   {
+                                       "name":  "full_P002_front.png",
+                                       "workflows":  [
+                                                         "H3_Character_Sheet\\00_PIPELINE_TU_DONG_STEP1_SANG_STEP2_4K.json",
+                                                         "H3_Character_Sheet\\01_Tao_Nhan_Vat_Chinh_Real_NoctQ.json"
+                                                     ]
+                                   },
+                                   {
+                                       "name":  "krea2_00327_.webp",
+                                       "workflows":  [
+                                                         "H3_Character_Sheet\\experimental\\H3_Character_Sheet_Designer_MultiReference_wf.json"
+                                                     ]
+                                   },
+                                   {
+                                       "name":  "NEWTECONS_Character_Fused.png",
+                                       "workflows":  [
+                                                         "H3_Character_Sheet\\02_Master_Sheet_LIFESTYLE_HIYORI_4K.json",
+                                                         "H3_Character_Sheet\\02_Master_Sheet_NEWTECONS_PPE_360_4K.json"
+                                                     ]
+                                   },
+                                   {
+                                       "name":  "SPR-0004.png",
+                                       "workflows":  [
+                                                         "H3_Character_Sheet\\01_Tao_Nhan_Vat_Chinh_Real_NoctQ.json"
+                                                     ]
+                                   }
+                               ]
+                },
+    "download_command":  null,
+    "applied_files":  [
+
+                      ]
+}
