@@ -19,7 +19,7 @@ Dùng khi cần một phim 1–3 phút có nhân vật CGI (rồng, linh vật) 
 1. **Chuỗi ảnh đầu–cuối.** Shot n chạy từ ảnh chốt n đến ảnh chốt n+1. Ảnh chốt lấy từ khung cuối / khung đầu của clip liền kề, hoặc từ ảnh render thật của người dùng. Không ghép hai clip rời rồi hy vọng liền mạch.
 2. **Tận dụng clip đã có.** Khi người dùng góp ý, chỉ thêm cầu nối và cảnh mới; không render lại toàn bộ.
 3. **Chạy thử trước khi chạy đại trà.** 2–3 shot đại diện, gửi bảng khung hình + bản ghép thử, báo credit còn lại, chờ duyệt.
-4. **Khác bối cảnh thì dùng chuyển cảnh đồ hoạ** (ngọc loé, loé sáng); cùng mạch bay thì dùng shot nối tốc độ cao (xuyên mây) thay cho cắt.
+4. **Khác bối cảnh thì dùng chuyển cảnh đồ hoạ** (ngọc loé, loé sáng); cùng mạch bay thì dùng shot nối tốc độ cao (xuyên mây) thay cho cắt. **Một hiệu ứng (hoặc một tệp SFX nghe rõ như nhau) dùng tối đa 2 lần mỗi phim**; lần thứ 3 đổi hiệu ứng cùng ý nghĩa hoặc bỏ, và mỗi lần nhân vật chạm đất phải khác nhau. Đếm bằng bảng kiểm `KIEM_HIEU_UNG_LAP` trước mỗi bản dựng (v4m: ngọc loé 3 lần, SFX flyby 6 lần). Chèn chuyển cảnh: skill `hyperframes-add-transition`.
 5. **Nhân vật chạm đất ở mỗi khu vực** rồi mới bay tiếp: ảnh chốt của khu vực là nhân vật đang đứng trên nền ở đó.
 6. **Luôn có storyboard** (`storyboard_<bản>.json` + bản `.md`) là nguồn duy nhất: mã shot, giây vào–ra, tệp nguồn, model, ảnh đầu → ảnh cuối, lớp chữ, SFX. Ghép phim đọc từ tệp này.
 7. **Mỗi lần giao là một bản có hậu tố mới** (v2, v3, v3b…), không ghi đè; giao bản 720p đầy đủ, không giao bản nén thấp hơn trừ khi người dùng hỏi.
@@ -55,6 +55,10 @@ Dùng khi cần một phim 1–3 phút có nhân vật CGI (rồng, linh vật) 
 - Gửi lệnh: dùng công cụ gửi có khoá của người dùng; nếu nó lỗi thì **dừng và hỏi**, chỉ gửi thẳng `POST /prompt` khi người dùng cho phép, sau khi kiểm hàng đợi trống.
 - **Ảnh đầu phải thấy rõ bối cảnh.** Ảnh đầu là cận cảnh thì model tự bịa nền khi lùi máy. Prompt ghi địa điểm cụ thể, "same location from start to end", negative liệt kê thứ không được có (street, road, trees…).
 - Muốn so chất lượng: chạy song song cùng ảnh đầu–cuối trên Seedance, lấy bản Seedance làm chuẩn để chỉnh prompt/thông số ComfyUI, ghi kết quả vào tệp bài học.
+- **Dựng lại cả phim bằng ComfyUI local (từ 18/11, theo cảnh từ đầu):** nguồn chỉ là ảnh chốt đã tạo trên Higgsfield + prompt video Higgsfield của shot đó, không lấy khung từ video Higgsfield. Shot có path Blender phải bám path: guide Canny từ render Blender → ControlNet H3 (`MiniMaxH3FunControlNetApply`, strength 0,7). Shot chưa có path thì hỏi dựng path hay chạy ảnh chốt + prompt. Benchmark với bản Higgsfield lượt cuối (bảng chuẩn hybrid, sau này thêm TopView AI). Chỉ gửi theo hàng đợi đã duyệt (`05.ComfyUI/00.Hang_doi/HANG_DOI_<bản>.csv`), Manual từng job hoặc Auto theo cảnh, luôn 1 job một lúc; dừng khi lỗi hoặc hết cảnh. Cây workflow/output, nút KẾT QUẢ, cấu hình RAM máy (WSL 48GB + swap 16GB ổ C, container 40g, `--disable-pinned-memory`) và cách gửi job: skill `studio-video-engine`, mục "Cây workflow ComfyUI theo kịch bản" và các mục ngay sau. Khi render: đóng Blender, tạm dừng VoiceStudio.
+- **Làm lại một shot đã duyệt bằng local (18/11, SC06_SH04_GB2, v01 → v05):** chỉ ảnh đầu + ảnh cuối thì H3 tự bịa đường đi (v01: rồng không bay). Thêm `MiniMaxH3AddGuide` nối tiếp sau `MiniMaxH3ImageToVideo`, mỗi node một khung lấy từ clip đã duyệt (ảnh 1280×720, `frame_idx` = khung gốc × 124/121). Đặt neo dày ở đoạn hành động nhanh: 3 neo mất rồng ở đoạn xuyên kính; 6 neo đủ mạch nhưng cú đạp chân ra khói trắng; 9 neo (thêm đúng các khung của hiệu ứng 94/98/104) + tả hiệu ứng bằng chữ trong prompt ("thin ring of golden light spreads flat… no smoke, no dust, no steam"; `BasicGuider` không có negative) thì khớp gốc. 960×544 ~5 phút nhưng xem toàn màn hình mềm hơn Higgsfield; bản giao chạy 1280×704 (~13,6 phút, độ nét Laplacian 141 so gốc 108) rồi SeedVR2 ×2 chia đoạn 29 khung chồng 4 khung (không nâng RAM). Đây là chạy lại có neo, không phải retrain. Mỗi workflow video có node xanh "KẾT QUẢ vNN" (LoadVideo trỏ bản đã render chép vào input) để mở workflow là thấy kết quả. So các bản bằng trang benchmark (kéo chia đôi / cạnh nhau / tất cả, nhảy theo nhịp, bảng ✓/✗, chuyển động, độ nét).
+- **Ảnh chốt bằng Krea2 (local):** `Krea2EditModelPatch` + LoRA identity_edit (ref_boost 2, 1536×864, 14 bước) → general_edit (phát sáng) → SeedVR2 7B lên 2560×1440. Ảnh tham chiếu nhân vật phải cùng hướng đầu với cảnh đích (lật ngang nếu cần), dùng ảnh cắt gốc.
+- **Đặt tên theo cảnh:** ảnh chốt `SCxx_Knn` (đánh số trong cảnh), shot `SCxx_SHnn_<ID>` = `Kaa → Kbb`, shot cùng mạch dùng lại đúng K cuối của shot trước; khung neo `SCxx_SHnn_N<khung>`; workflow `SCxx_SHnn_<ID>_{IMG,VID}_vNN_<model>_Kaa-Kbb[_neoN].json`; bảng chuỗi ở `CHUOI_CANH_SHOT_ANH_<bản>.md`. Phim mới dùng khung chuẩn của skill `film-project-structure` (SQ/SH bước 10).
 
 ### 6. Lớp dựng trên máy
 - Video nền đen hoặc `.mov` codec png có alpha, 1280×720 @24. Mỗi loại một script để sửa chữ không phải render lại hình: mở đầu (logo ráp từ mảnh kim loại, loé sáng ra màu thật, tan thành hạt ráp thành số, chỉ hai số cuối lật), tiêu đề/địa danh/nhãn, chuyển cảnh, kết (toà nhà toả tia sáng, số năm đặt một bên, thông điệp hiện bên dưới, chuyển đen sâu, thông điệp 2, logo).
@@ -82,24 +86,22 @@ Giữ ba tầng tách nhau để mỗi lần sửa chạy lại ít nhất:
 
 Sau mỗi lần trộn lại: đo mức âm từng giây của bản mới so với bản trước và liệt kê các giây lệch quá 1 dB; chúng phải nằm trong đoạn định sửa.
 
-- **Khi phim dài ra hoặc ngắn đi** (thêm shot, đổi tốc độ): giữ nhạc bắt đầu từ giây 0 và đổi nhịp nhạc bằng `atempo` (giữ cao độ, trong khoảng ±2 %) để cú dứt vẫn trùng mốc logo. Không lùi nhạc bằng `delay`: đoạn mở êm của nhạc sẽ trượt vào giữa phần mở đầu và để lại khoảng lặng (đã gặp: 0:04–0:06 còn −45 dB).
-- **Lớp chữ trong HyperFrames phải đủ như bản ghép cũ.** Đối chiếu từng trường storyboard mà bản ghép ffmpeg dùng cho bản có chữ: `overlays`, `label_screen` (lớp nhãn Blender nền đen, chồng kiểu screen), `logo_seq`. Lỗi đã gặp: nhãn bốn ga (`label_screen`) biến mất suốt nhiều bản vì project HyperFrames chỉ đọc `overlays`. Sau lần chuyển đầu tiên, so khung hình với bản có chữ trước đó ở mọi shot có lớp chữ.
+**Khi phim dài ra hoặc ngắn đi** (thêm shot, đổi tốc độ): giữ nhạc bắt đầu từ giây 0 và đổi nhịp nhạc bằng `atempo` (giữ cao độ, trong khoảng ±2 %) để cú dứt vẫn trùng mốc logo. Không lùi nhạc bằng `delay`: đoạn mở êm của nhạc sẽ trượt vào giữa phần mở đầu và để lại khoảng lặng (đã gặp: 0:04–0:06 còn −45 dB).
+
+**Lớp chữ trong HyperFrames phải đủ như bản ghép cũ.** Khi chuyển phần chữ sang HyperFrames trên nền phim không chữ, đối chiếu từng trường của storyboard mà bản ghép ffmpeg dùng cho bản có chữ: `overlays`, `label_screen` (lớp nhãn Blender nền đen, chồng kiểu screen), `logo_seq`. Lỗi đã gặp: nhãn bốn ga (`label_screen`) biến mất suốt nhiều bản vì project HyperFrames chỉ đọc `overlays`. Sau lần chuyển đầu tiên, so khung hình của bản mới với bản có chữ trước đó ở mọi shot có lớp chữ.
 
 ## Gói bàn giao: 3 lớp tách rời
 
 Mỗi lần chốt bản, chạy `export_stems.py <B> <TAG> <final.mp4> <thư mục>` để xuất vào `film/BAN_GIAO_<TAG>/`:
+
 - phim hoàn chỉnh;
-- `01_VIDEO_khong_tieng.mp4` (copy luồng hình, không mã hoá lại);
-- `02_MUSIC.wav` (đúng vị trí, nhịp và âm lượng trong phim, dài bằng phim);
-- `03_SFX.wav`;
-- `04_TIENG_GOC_CLIP.wav` (tiếng gốc của các clip AI, để riêng);
-- `SFX_cue_sheet.csv`, storyboard `.json`, bản có giờ và bản `.md`.
+- `01_VIDEO_khong_tieng.mp4` — lớp hình (copy luồng hình, không mã hoá lại);
+- `02_MUSIC.wav` — nhạc đúng vị trí, nhịp và âm lượng trong phim, dài bằng phim;
+- `03_SFX.wav` — toàn bộ SFX;
+- `04_TIENG_GOC_CLIP.wav` — tiếng gốc của các clip AI (để riêng, vì nó không phải nhạc cũng không phải SFX đặt tay);
+- `SFX_cue_sheet.csv` (giây, tệp, gain, sự kiện), storyboard `.json`, bản có giờ và bản `.md`.
 
 Kiểm: cộng ba lớp tiếng phải ra đúng mức của bản trộn (đo LUFS). Cập nhật storyboard `.md` trong Project theo đúng bản bàn giao.
-
-Gói source mang về nhà (`pack_source.py`): phim cuối + 3 lớp, clip nguồn trong phim, ảnh chốt (có thư mục con chỉ gồm ảnh của bản cuối, đánh số theo shot), lớp hậu kỳ, project HyperFrames, script + storyboard, Blender, tham chiếu ComfyUI, kịch bản + prompt (kèm bảng đối chiếu shot → prompt), storyboard minh hoạ, skill. Không xoá bản nháp; chỉ lập danh sách.
-
-**Lưu prompt ngay khi gửi job.** Công cụ lịch sử Higgsfield chỉ trả về mã job và đường dẫn, không trả về prompt, nên prompt không ghi lại lúc chạy thì về sau không lấy lại được bằng công cụ. Mỗi lần gửi ảnh / video / nhạc / SFX, ghi nguyên văn prompt, model, ảnh đầu–cuối và mã job vào tệp prompt của dự án.
 
 ## Soát SFX trước khi giao
 
@@ -127,14 +129,13 @@ Gói source mang về nhà (`pack_source.py`): phim cuối + 3 lớp, clip ngu�
 
 - Chỉ chèn ở chỗ đã có chuyển cảnh đồ hoạ (ngọc). Không chèn vào giữa hai shot nối liền bằng ảnh chốt chung, và không thêm chuyển cảnh ngọc lên cuối một shot đang nối liền: nó che mất đoạn nhân vật bay tới (lỗi đã gặp ở Masterplan → toàn cảnh).
 - Tăng tốc shot để dồn nhịp: không tăng tốc shot mà người dùng coi là cảnh chính; nói rõ shot nào tăng bao nhiêu.
-
 - Tăng tốc bằng trường `speed` của shot: tiếng gốc dùng `atempo` (giữ cao độ); SFX gắn theo `shot + offset` nên tự dời; sau đó đo lại mức âm cả đoạn.
 - Thêm địa danh bám theo một điểm trên hình (cột sáng trên bản đồ): đo vị trí điểm đó trên vài khung, đặt chữ bằng keyframe GSAP; nếu ngay sau đó đã có nhãn cùng tên thì chỉ giữ một.
 
 ## Chuyển cảnh biến hoá giữa hai cảnh (số → vật, cảnh A → cảnh B)
 
-- Ảnh đầu = khung thật cuối của cảnh trước, ảnh cuối = khung thật đầu của cảnh sau; tạo thêm **ảnh giữa** bằng gpt_image với hai ảnh đó làm tham chiếu. Gửi bảng 3 ảnh cho người dùng duyệt rồi mới chạy video.
-- Chạy hai đoạn ảnh đầu → ảnh giữa → ảnh cuối (Wan là đủ cho đồ hoạ; đoạn có nhân vật lao mạnh thì Seedance).
+- Ảnh đầu = khung thật cuối của cảnh trước, ảnh cuối = khung thật đầu của cảnh sau; tạo thêm **ảnh giữa** bằng gpt_image với hai ảnh đó làm tham chiếu (ví dụ: bốn chữ số tách ra bay về bốn góc, mảnh ghép xoáy mở ra vật thể). Gửi bảng 3 ảnh cho người dùng duyệt rồi mới chạy video.
+- Chạy hai đoạn ảnh đầu → ảnh giữa → ảnh cuối (Wan là đủ cho đồ hoạ; cú nhân vật lao mạnh thì Seedance cho đoạn có nhân vật).
 - **Không ghép thẳng hai đoạn rồi tua nhanh**: mỗi đoạn AI chậm dần ở cuối và khởi động chậm ở đầu nên chỗ nối bị khựng, và khung cuối của Wan không trùng hẳn ảnh cuối nên bị giật ở điểm cắt. Dựng một đoạn liền bằng script (`make_x01.py`): bỏ phần chậm hai bên chỗ nối, ánh xạ thời gian tốc độ đều rồi giảm tốc liên tục về cuối, hoà các khung nguồn khi tua nhanh và nội suy khi chậm hơn 1 khung, hoà 10–14 khung cuối vào **đúng khung đầu của cảnh sau**.
 - Kiểm bằng số: chênh lệch khung liền kề (`tblend=difference` + `signalstats YAVG`) suốt đoạn chuyển và qua điểm cắt; không được có chỗ tụt về gần 0 giữa chừng hay nhảy vọt ở điểm cắt.
 - Cảnh nối có nhân vật đi qua hai bối cảnh (lao qua thác vào vườn): cắt cảnh trước ở khung nhân vật còn trong hình để làm ảnh đầu; ảnh giữa là khoảnh khắc mạnh nhất (xuyên màn nước, nước nổ); cảnh sau có thể vào bằng cắt theo hành động thay vì ảnh chốt chung, và phải nói rõ điều đó. Âm thanh cần đủ: tiếng nền của nơi chốn (thác đổ), tiếng nhân vật (gầm), tiếng va chạm (nước nổ, tỏm).
@@ -160,7 +161,9 @@ Gói source mang về nhà (`pack_source.py`): phim cuối + 3 lớp, clip ngu�
 | Khựng ở chỗ nối hai đoạn AI, giật ở điểm cắt | Dựng một đoạn liền có ánh xạ thời gian và hoà vào khung đầu cảnh sau; đo chênh lệch khung |
 | Khoảng lặng ở phần mở đầu sau khi phim dài ra | Đổi nhịp nhạc bằng `atempo`, không lùi nhạc |
 | Hiệu ứng ngọc che mất đoạn nhân vật bay tới | Không thêm chuyển cảnh ngọc lên shot đang nối liền bằng ảnh chốt |
-| Không lấy lại được prompt của các shot cũ | Ghi prompt vào tệp của dự án ngay lúc gửi job |
+
+## Cây thư mục phim Gia Bình v4m (đang dùng)
+`GiaBinhDragon_v4m\{00.MUC_LUC_DU_AN.md, 00.Guideline\{01.Kich_ban, 02.Storyboard, 03.Ho_so_phim, 04.Quy_uoc, 05.Kiem_tra, 06.Tai_lieu_goc_v1, 07.Ban_luu_project}, 01.Hyperframe\{index.html, 01.Image, 02.Video, 03.Music, 04.Src, 05.Graphic, 06.Out\{01.Review, 02.Version, 03.Upscale, 04.Final, 05.Stems}}, 02.Premiere, 03.Blender_3D, 04.Tools, 05.ComfyUI\{00.Quy_uoc, SCxx_<Cảnh>\SHnn_<ID>\{01.Anh_chot, 02.Neo_khung, 03.Video, 04.So_sanh\benchmark, 05.Workflow}}, 06.Skill_Quy_trinh\{00.README_SKILL.md, 01.SO_DO_QUAN_HE.md, 02.Ban_sao_skill (4 nhóm), 03.Transition_registry, 04.Benchmark_clip}}`. "Hồ sơ phim" thay cho chữ "Bible". Guideline nằm ngoài project HyperFrames để app không hoàn tác mất tài liệu. Phim mới: khung chuẩn của skill `film-project-structure`.
 
 ## Hỏi người dùng khi
 - Chọn model đắt cho nhiều shot, hoặc tổng credit vượt mức đã duyệt.
