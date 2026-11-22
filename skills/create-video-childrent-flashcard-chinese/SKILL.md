@@ -5,6 +5,8 @@ description: "Tạo video flashcard tiếng Trung cho bé mầm non: pinyin + H�
 
 # create-video-childrent-flashcard-chinese
 
+> **Cửa vào chung:** [jenniejoy-card-video](../jenniejoy-card-video/SKILL.md) (bảng chọn nhánh). Skill này là **nhánh B**: thẻ có bé người thật / nhân vật nhép miệng, cần ComfyUI ([comfyui-video-pipeline](../comfyui-video-pipeline/SKILL.md): Qwen-Image → MiniMax H3) và xin phép người dùng trước mỗi lần chạy GPU. Thẻ chỉ cần hình cắt + chữ + giọng (Claude làm hết, không GPU) thì dùng nhánh A ở skill kia. Dựng Remotion dùng runtime toàn cục: `rmm studio|render <tên project>` (`~/.remotion-hub`), không cài lại node_modules.
+
 Video flashcard tiếng Trung cho bé 3–5 tuổi. Mỗi thẻ: pinyin trên, Hán tự + nghĩa Việt dưới
 (cột trái), bé người thật đang nói trong khung bo góc (cột phải), nền kem nhạt,
 nhạc nền + SFX pop, kết bằng outro cảm ơn.

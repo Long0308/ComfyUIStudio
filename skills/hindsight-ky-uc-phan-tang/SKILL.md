@@ -71,7 +71,7 @@ phải gỡ ra, thay bằng `«uid ẩn»`. Cổng phải chạy **trước mỗ
 
 ## Quy trình dùng mỗi lượt
 
-1. Đọc luật gốc §0b tại `C:/Users/philong.pham/.claude/rules/cach-lam-viec.md`.
+1. Đọc luật gốc §0b tại `~/.claude/rules/cach-lam-viec.md`.
    Gọi `which_bank` trước; workspace `D:/61.SetupAgent` chọn `may-agent-memory`.
    Không nạp lại các bank may-50/may-49 chỉ vì recall rỗng: lịch sử chúng là tập con.
 2. Quét `recall_error_db`, tra nội dung Hindsight rồi Cognee engine thật trước sửa.
@@ -117,3 +117,8 @@ không nối ống lấy exit code của lệnh cuối. Không kéo nội dung/t
    - **Bảo toàn dữ liệu cá nhân:** Quá trình `update.cmd` trên các máy tuyệt đối không ghi đè `.env`, `chatgpt-account-pool.json` hay các Token đăng nhập ChatGPT cục bộ.
 3. **Bài học Sửa lỗi Xung đột Tài khoản Pool:**
    - Khi thêm tài khoản ChatGPT vào pool, mỗi danh tính (email + accountId) chỉ được xuất hiện đúng 1 lần. Bản ghi trùng lặp sẽ kích hoạt chốt chặn an toàn `The ChatGPT account identity is registered more than once`, làm kẹt hàng đợi và timeout. Sửa bằng cách dọn sạch ID trùng trong `chatgpt-account-pool.json`.
+
+## Bàn giao 19–20/11/2026 (CDE Newtecons) — bài học ghi/đọc
+- Lane relay Codex KHÔNG ghi được Hindsight: MCP trong lane bị từ chối `MCP tool call requires approval, but approval policy is never`. Root Claude ghi sau khi tự kiểm kết quả lane.
+- `retain_fact` trả `{"ok": true}` chỉ là đã nhận. Đọc lại bằng `brain_bridge_kiem.kiem_fact_trong_bank(bank, neo, cho_giay=…)` — 🩸 thứ tự tham số là **bank trước, neo sau**; truyền ngược thì mỗi lượt chờ hết `cho_giay` (60 s) rồi timeout, tưởng là bank hỏng.
+- 4 fact phiên này (tag `phien-2026-11-19`/`phien-2026-11-20`) ở `may-agent-memory`; neo đọc lại: `CDE_JWT_LEGACY_START_EPOCH`, `pdfcraft-cde-patch`, `live-status.ts`, `approval policy is never`.

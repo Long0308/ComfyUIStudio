@@ -1,0 +1,1667 @@
+{
+  "generatedAt": "2026-11-12T02:46:17.993Z",
+  "method": "Read actual PNG scanlines through shared native PNG reader; source pixels never modified",
+  "assets": [
+    {
+      "width": 1332,
+      "height": 1181,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "8f096f3ba7c52dc6610c9d3e66fd60fdf41ef67466ba50df14161d5cdb57d120",
+      "alpha": {
+        "transparentPixels": 538059,
+        "partialPixels": 1027223,
+        "opaquePixels": 7810
+      },
+      "contentBounds": {
+        "x": 0,
+        "y": 2,
+        "width": 1332,
+        "height": 1179
+      },
+      "transparentCorners": true,
+      "file": "assets/brand/A02-engineers-branded.png",
+      "format": "png",
+      "bytes": 2095407,
+      "category": "brand",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 1134,
+      "height": 633,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "e320eabbf4af707351a6e36e13cf961fca71b43c058d84e60b61c3681552ca51",
+      "alpha": {
+        "transparentPixels": 564048,
+        "partialPixels": 10468,
+        "opaquePixels": 143306
+      },
+      "contentBounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1134,
+        "height": 633
+      },
+      "transparentCorners": true,
+      "file": "assets/brand/company-logo-full-color.png",
+      "format": "png",
+      "bytes": 21873,
+      "category": "brand",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 1134,
+      "height": 633,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "785e1770dfcb5d60e15c4ec5cbb85cf666dbf5431185896b891c98a26dac1df7",
+      "alpha": {
+        "transparentPixels": 564048,
+        "partialPixels": 10468,
+        "opaquePixels": 143306
+      },
+      "contentBounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1134,
+        "height": 633
+      },
+      "transparentCorners": true,
+      "file": "assets/brand/company-logo-full-white.png",
+      "format": "png",
+      "bytes": 19697,
+      "category": "brand",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 1508,
+      "height": 373,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "506685cf632da0a63d0d3b79920239e2394b30dff25efba7fe2f8e1ddb7f02c5",
+      "alpha": {
+        "transparentPixels": 409939,
+        "partialPixels": 8957,
+        "opaquePixels": 143588
+      },
+      "contentBounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1508,
+        "height": 373
+      },
+      "transparentCorners": false,
+      "file": "assets/brand/company-logo-horizontal.png",
+      "format": "png",
+      "bytes": 21114,
+      "category": "brand",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 317,
+      "height": 380,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "4e7e17c5291c17cbad14a2644967b7df030f6bd284dfa47dd8015ceef1909862",
+      "alpha": {
+        "transparentPixels": 50390,
+        "partialPixels": 2078,
+        "opaquePixels": 67992
+      },
+      "contentBounds": {
+        "x": 0,
+        "y": 0,
+        "width": 317,
+        "height": 380
+      },
+      "transparentCorners": false,
+      "file": "assets/brand/company-n-symbol.png",
+      "format": "png",
+      "bytes": 3278,
+      "category": "brand",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 2172,
+      "height": 724,
+      "bitDepth": 8,
+      "colorType": 2,
+      "sha256": "d23dc170e54490b6a1aab0167543703583855dc6cd5ee30a63ba4cd364cfac44",
+      "file": "assets/generated/A01-site-background.png",
+      "format": "png",
+      "bytes": 2671660,
+      "category": "generated",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 1332,
+      "height": 1181,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "c9ce3394d5182f32f6d37bc4b0b41506a39fda57c6bfeb7a0fb250b0c18a6788",
+      "alpha": {
+        "transparentPixels": 538059,
+        "partialPixels": 1034501,
+        "opaquePixels": 532
+      },
+      "contentBounds": {
+        "x": 0,
+        "y": 2,
+        "width": 1332,
+        "height": 1179
+      },
+      "transparentCorners": true,
+      "file": "assets/generated/A02-engineers-tablet.png",
+      "format": "png",
+      "bytes": 2074942,
+      "category": "generated",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 1448,
+      "height": 1086,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "df0e83b3e5dce37053ad994de7817559ef9a0acaf8bef3d6a82209abfced19e6",
+      "alpha": {
+        "transparentPixels": 936454,
+        "partialPixels": 635675,
+        "opaquePixels": 399
+      },
+      "contentBounds": {
+        "x": 0,
+        "y": 9,
+        "width": 1445,
+        "height": 1077
+      },
+      "transparentCorners": false,
+      "file": "assets/generated/A03-bim-mep-module.png",
+      "format": "png",
+      "bytes": 1333398,
+      "category": "generated",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 1448,
+      "height": 1086,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "bc310b76a9a7f7494c51f1294598d6674cfb2273638e7e661579d2c2c6980ef4",
+      "alpha": {
+        "transparentPixels": 785131,
+        "partialPixels": 785838,
+        "opaquePixels": 1559
+      },
+      "contentBounds": {
+        "x": 0,
+        "y": 7,
+        "width": 1368,
+        "height": 1053
+      },
+      "transparentCorners": true,
+      "file": "assets/generated/A04-dashboard-panels.png",
+      "format": "png",
+      "bytes": 1091274,
+      "category": "generated",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "31b71a7fdcd59aebb17c14f8b3a5dfd67a12d6c486e8a47ca1a21532fca0fcbb",
+      "alpha": {
+        "transparentPixels": 2040059,
+        "partialPixels": 29702,
+        "opaquePixels": 3839
+      },
+      "contentBounds": {
+        "x": 0,
+        "y": 689,
+        "width": 1920,
+        "height": 244
+      },
+      "transparentCorners": true,
+      "file": "assets/generated/A05-cyan-ribbon.png",
+      "format": "png",
+      "bytes": 45739,
+      "category": "generated",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "25eb3d335c3f740aca246fa4bb24d79af24c3b070811f24d8230f03a2d081c53",
+      "alpha": {
+        "transparentPixels": 2051241,
+        "partialPixels": 22359,
+        "opaquePixels": 0
+      },
+      "contentBounds": {
+        "x": 87,
+        "y": 697,
+        "width": 1833,
+        "height": 383
+      },
+      "transparentCorners": true,
+      "file": "assets/generated/A06-network-lines.png",
+      "format": "png",
+      "bytes": 57078,
+      "category": "generated",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 1000,
+      "height": 800,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "d0578e77490f4faec3bdcc24169efa9b3c3c75121a0a3ece1f6d5fe7281b634f",
+      "alpha": {
+        "transparentPixels": 493361,
+        "partialPixels": 11499,
+        "opaquePixels": 295140
+      },
+      "contentBounds": {
+        "x": 13,
+        "y": 39,
+        "width": 878,
+        "height": 758
+      },
+      "transparentCorners": true,
+      "file": "assets/mechanical/assembly-complete.png",
+      "format": "png",
+      "bytes": 188922,
+      "category": "mechanical",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 1000,
+      "height": 800,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "8d1e57783f67359cd6bc80035c751256d5aef972608e5ef625cbb0e8fe759ed3",
+      "alpha": {
+        "transparentPixels": 654105,
+        "partialPixels": 2642,
+        "opaquePixels": 143253
+      },
+      "contentBounds": {
+        "x": 13,
+        "y": 407,
+        "width": 878,
+        "height": 390
+      },
+      "transparentCorners": true,
+      "file": "assets/mechanical/M01-base.png",
+      "format": "png",
+      "bytes": 47802,
+      "category": "mechanical",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 1000,
+      "height": 800,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "88c00965ff9d2fe5955f49c52a92168542fda5d623b6e6cf92c8ff586461fec1",
+      "alpha": {
+        "transparentPixels": 743446,
+        "partialPixels": 7610,
+        "opaquePixels": 48944
+      },
+      "contentBounds": {
+        "x": 40,
+        "y": 39,
+        "width": 827,
+        "height": 721
+      },
+      "transparentCorners": true,
+      "file": "assets/mechanical/M02-frame.png",
+      "format": "png",
+      "bytes": 60940,
+      "category": "mechanical",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 1000,
+      "height": 800,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "9c8fbde7168e1738818161e0e5f88c2bebe9c41c7f56515ebf7ddf9333f1b007",
+      "alpha": {
+        "transparentPixels": 750501,
+        "partialPixels": 2141,
+        "opaquePixels": 47358
+      },
+      "contentBounds": {
+        "x": 131,
+        "y": 117,
+        "width": 634,
+        "height": 317
+      },
+      "transparentCorners": true,
+      "file": "assets/mechanical/M03-duct.png",
+      "format": "png",
+      "bytes": 33363,
+      "category": "mechanical",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 1000,
+      "height": 800,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "98df2f3f5a81753534b6ebb771e73240c98cdc8c95be2856ee7127a8d3d92c88",
+      "alpha": {
+        "transparentPixels": 758497,
+        "partialPixels": 3550,
+        "opaquePixels": 37953
+      },
+      "contentBounds": {
+        "x": 221,
+        "y": 199,
+        "width": 587,
+        "height": 407
+      },
+      "transparentCorners": true,
+      "file": "assets/mechanical/M04-pipes.png",
+      "format": "png",
+      "bytes": 44516,
+      "category": "mechanical",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 1000,
+      "height": 800,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "5a444d4de89802000e3a112c636b753902ab078726e824a63f565e3f3963e87e",
+      "alpha": {
+        "transparentPixels": 771318,
+        "partialPixels": 1592,
+        "opaquePixels": 27090
+      },
+      "contentBounds": {
+        "x": 100,
+        "y": 315,
+        "width": 560,
+        "height": 240
+      },
+      "transparentCorners": true,
+      "file": "assets/mechanical/M05-tray.png",
+      "format": "png",
+      "bytes": 49913,
+      "category": "mechanical",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 1000,
+      "height": 800,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "77f433a688f6a11a55f660b3b1b48410d2db4eb992e31221fdee981bcd016522",
+      "alpha": {
+        "transparentPixels": 773437,
+        "partialPixels": 985,
+        "opaquePixels": 25578
+      },
+      "contentBounds": {
+        "x": 651,
+        "y": 342,
+        "width": 167,
+        "height": 241
+      },
+      "transparentCorners": true,
+      "file": "assets/mechanical/M06-control-panel.png",
+      "format": "png",
+      "bytes": 17180,
+      "category": "mechanical",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 1000,
+      "height": 800,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "25a396a61d47aae6ab38462ab07a541015ced20e01d008eec965f8724de46ad8",
+      "alpha": {
+        "transparentPixels": 779542,
+        "partialPixels": 1741,
+        "opaquePixels": 18717
+      },
+      "contentBounds": {
+        "x": 16,
+        "y": 144,
+        "width": 253,
+        "height": 537
+      },
+      "transparentCorners": true,
+      "file": "assets/mechanical/M07-fixture.png",
+      "format": "png",
+      "bytes": 21895,
+      "category": "mechanical",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 2103,
+      "height": 425,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "e04a511ae237bb3a6f63df6f6b7dd60f88f2cd896fdb8a57b9607e85f5a35449",
+      "alpha": {
+        "transparentPixels": 565857,
+        "partialPixels": 11592,
+        "opaquePixels": 316326
+      },
+      "contentBounds": {
+        "x": 59,
+        "y": 59,
+        "width": 1985,
+        "height": 307
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T01_WORKSHOP.png",
+      "format": "png",
+      "bytes": 34525,
+      "category": "text",
+      "textId": "T01_WORKSHOP",
+      "exactText": "WORKSHOP",
+      "fontStyle": "Bold",
+      "animationGroup": "T01_WORKSHOP",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 720,
+      "height": 664,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "185bf427f0f7baeb9d9539a634cee0f53f65ba7fd42dc08f8de7ec7ddfc7212d",
+      "alpha": {
+        "transparentPixels": 336692,
+        "partialPixels": 2664,
+        "opaquePixels": 138724
+      },
+      "contentBounds": {
+        "x": 90,
+        "y": 90,
+        "width": 540,
+        "height": 484
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T02_AI.png",
+      "format": "png",
+      "bytes": 14499,
+      "category": "text",
+      "textId": "T02_AI",
+      "exactText": "AI",
+      "fontStyle": "Bold",
+      "animationGroup": "T02_AI",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 997,
+      "height": 250,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "ec53a8cd6394507978daa1e8dcd87473c695f027da9f71283803994bcfc8a058",
+      "alpha": {
+        "transparentPixels": 187719,
+        "partialPixels": 5210,
+        "opaquePixels": 56321
+      },
+      "contentBounds": {
+        "x": 29,
+        "y": 29,
+        "width": 939,
+        "height": 192
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T03_DEPARTMENT.png",
+      "format": "png",
+      "bytes": 14389,
+      "category": "text",
+      "textId": "T03_DEPARTMENT",
+      "exactText": "KHỐI CƠ ĐIỆN",
+      "fontStyle": "Bold",
+      "animationGroup": "T03_DEPARTMENT",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 2339,
+      "height": 212,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "65d0abd3e731217a7aa3870ea20b543fa8d840bfd837b1e80ee2af6fd0e959fb",
+      "alpha": {
+        "transparentPixels": 379946,
+        "partialPixels": 11834,
+        "opaquePixels": 104088
+      },
+      "contentBounds": {
+        "x": 25,
+        "y": 25,
+        "width": 2289,
+        "height": 162
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T04_FIELD_APPLICATION.png",
+      "format": "png",
+      "bytes": 33037,
+      "category": "text",
+      "textId": "T04_FIELD_APPLICATION",
+      "exactText": "ỨNG DỤNG AI THỰC TẾ Ở CÔNG TRƯỜNG",
+      "fontStyle": "Bold",
+      "animationGroup": "T04_FIELD_APPLICATION",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 1976,
+      "height": 216,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "fbc40ec356943a39b7b2097ba0a312b43f9ce61b04a5d99fd3dc9df034cb05e7",
+      "alpha": {
+        "transparentPixels": 319346,
+        "partialPixels": 10566,
+        "opaquePixels": 96904
+      },
+      "contentBounds": {
+        "x": 26,
+        "y": 26,
+        "width": 1924,
+        "height": 164
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T05_RESPONSIBLE_AI.png",
+      "format": "png",
+      "bytes": 28744,
+      "category": "text",
+      "textId": "T05_RESPONSIBLE_AI",
+      "exactText": "ỨNG DỤNG AI CÓ TRÁCH NHIỆM",
+      "fontStyle": "Bold",
+      "animationGroup": "T05_RESPONSIBLE_AI",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 730,
+      "height": 162,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "4609ae943905fa851ce5fe5588fad524b7192aee238bcfa806b32ebb18752e06",
+      "alpha": {
+        "transparentPixels": 88235,
+        "partialPixels": 3051,
+        "opaquePixels": 26974
+      },
+      "contentBounds": {
+        "x": 26,
+        "y": 26,
+        "width": 678,
+        "height": 110
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T06_DATE.png",
+      "format": "png",
+      "bytes": 8503,
+      "category": "text",
+      "textId": "T06_DATE",
+      "exactText": "14.11.2026",
+      "fontStyle": "Bold",
+      "animationGroup": "T06_DATE",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 1023,
+      "height": 153,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "6550dca5d10cf14893fe52341bbb64a283851c5f9d960ca848ab9791b568e93a",
+      "alpha": {
+        "transparentPixels": 106437,
+        "partialPixels": 4909,
+        "opaquePixels": 45173
+      },
+      "contentBounds": {
+        "x": 25,
+        "y": 25,
+        "width": 973,
+        "height": 103
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T07_LOCATION.png",
+      "format": "png",
+      "bytes": 13208,
+      "category": "text",
+      "textId": "T07_LOCATION",
+      "exactText": "12A NEWTECONS",
+      "fontStyle": "Bold",
+      "animationGroup": "T07_LOCATION",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 822,
+      "height": 153,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "1615a4064b7ed73d538332080548976592bf91bda480fd1915e468e5c0dc7673",
+      "alpha": {
+        "transparentPixels": 94472,
+        "partialPixels": 3474,
+        "opaquePixels": 27820
+      },
+      "contentBounds": {
+        "x": 25,
+        "y": 25,
+        "width": 772,
+        "height": 103
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T08_TIME.png",
+      "format": "png",
+      "bytes": 10017,
+      "category": "text",
+      "textId": "T08_TIME",
+      "exactText": "08:30 – 11:00",
+      "fontStyle": "Bold",
+      "animationGroup": "T08_TIME",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 535,
+      "height": 199,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "6e1f6cbcb4f2b6ef0d483ab54bcc4e73388ef120f6529eacf9093057ed099999",
+      "alpha": {
+        "transparentPixels": 76437,
+        "partialPixels": 3013,
+        "opaquePixels": 27015
+      },
+      "contentBounds": {
+        "x": 26,
+        "y": 26,
+        "width": 483,
+        "height": 147
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T09_OPENING.png",
+      "format": "png",
+      "bytes": 8758,
+      "category": "text",
+      "textId": "T09_OPENING",
+      "exactText": "MỞ ĐẦU",
+      "fontStyle": "Bold",
+      "animationGroup": "T09_OPENING",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 491,
+      "height": 194,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "31fb0400add663a94294d7756afdd7abcedf0850d91d8cae0112a572548e7dde",
+      "alpha": {
+        "transparentPixels": 71297,
+        "partialPixels": 2158,
+        "opaquePixels": 21799
+      },
+      "contentBounds": {
+        "x": 26,
+        "y": 26,
+        "width": 439,
+        "height": 142
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T10_PART1.png",
+      "format": "png",
+      "bytes": 6340,
+      "category": "text",
+      "textId": "T10_PART1",
+      "exactText": "PHẦN 1",
+      "fontStyle": "Bold",
+      "animationGroup": "T10_PART1",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 508,
+      "height": 194,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "569740672be540efd520e8a6ddd5813992ec27eeb174338d6b8d84c970655792",
+      "alpha": {
+        "transparentPixels": 73162,
+        "partialPixels": 2328,
+        "opaquePixels": 23062
+      },
+      "contentBounds": {
+        "x": 26,
+        "y": 26,
+        "width": 456,
+        "height": 142
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T11_PART2.png",
+      "format": "png",
+      "bytes": 6875,
+      "category": "text",
+      "textId": "T11_PART2",
+      "exactText": "PHẦN 2",
+      "fontStyle": "Bold",
+      "animationGroup": "T11_PART2",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 507,
+      "height": 196,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "a20d0894be39904a02f7d6500cc39ba35df51a20be518cc18b0a415a35e8236d",
+      "alpha": {
+        "transparentPixels": 73930,
+        "partialPixels": 2395,
+        "opaquePixels": 23047
+      },
+      "contentBounds": {
+        "x": 26,
+        "y": 26,
+        "width": 455,
+        "height": 144
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T12_PART3.png",
+      "format": "png",
+      "bytes": 7049,
+      "category": "text",
+      "textId": "T12_PART3",
+      "exactText": "PHẦN 3",
+      "fontStyle": "Bold",
+      "animationGroup": "T12_PART3",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 669,
+      "height": 200,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "f549d599901c09952fa5eb8f4f29b84f29be304c6f95e8643b20231189fde72d",
+      "alpha": {
+        "transparentPixels": 99217,
+        "partialPixels": 3333,
+        "opaquePixels": 31250
+      },
+      "contentBounds": {
+        "x": 26,
+        "y": 26,
+        "width": 617,
+        "height": 148
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T13_SUMMARY.png",
+      "format": "png",
+      "bytes": 8911,
+      "category": "text",
+      "textId": "T13_SUMMARY",
+      "exactText": "TỔNG KẾT",
+      "fontStyle": "Bold",
+      "animationGroup": "T13_SUMMARY",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 2175,
+      "height": 174,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "f9cf8dca3deea77ad0aa1ff64ba2ae32c4b86b0a2b0ee7fa020d3edb377714e7",
+      "alpha": {
+        "transparentPixels": 292370,
+        "partialPixels": 9769,
+        "opaquePixels": 76311
+      },
+      "contentBounds": {
+        "x": 24,
+        "y": 24,
+        "width": 2127,
+        "height": 126
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T14_TOPIC_1.png",
+      "format": "png",
+      "bytes": 28193,
+      "category": "text",
+      "textId": "T14_TOPIC_1",
+      "exactText": "1. Claude – Trợ lý văn phòng công trường",
+      "fontStyle": "Bold",
+      "animationGroup": "T14_TOPIC_1",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 1846,
+      "height": 179,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "2d4e369ce712347f2b5984bdc5edf12af7042066026a9316da42afdc6584ff9d",
+      "alpha": {
+        "transparentPixels": 260286,
+        "partialPixels": 8045,
+        "opaquePixels": 62103
+      },
+      "contentBounds": {
+        "x": 24,
+        "y": 24,
+        "width": 1798,
+        "height": 131
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T15_TOPIC_2.png",
+      "format": "png",
+      "bytes": 23186,
+      "category": "text",
+      "textId": "T15_TOPIC_2",
+      "exactText": "2. Claude – Trợ thủ đắc lực cho QS",
+      "fontStyle": "Bold",
+      "animationGroup": "T15_TOPIC_2",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 2717,
+      "height": 180,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "a05cdb18b256c66d4ab362dfb889a348ed6fae2dd29a7b5eb778f63cbbeb2f4e",
+      "alpha": {
+        "transparentPixels": 382714,
+        "partialPixels": 12543,
+        "opaquePixels": 93803
+      },
+      "contentBounds": {
+        "x": 24,
+        "y": 24,
+        "width": 2669,
+        "height": 132
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T16_TOPIC_3.png",
+      "format": "png",
+      "bytes": 35543,
+      "category": "text",
+      "textId": "T16_TOPIC_3",
+      "exactText": "3. Dashboard – Tiến độ, T&C và hồ sơ trong tầm tay",
+      "fontStyle": "Bold",
+      "animationGroup": "T16_TOPIC_3",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 2347,
+      "height": 182,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "2caa6ca98980dbbfea0adf2f50f78d5f171ae79a965daf15e58b3573b78dd1ca",
+      "alpha": {
+        "transparentPixels": 334506,
+        "partialPixels": 10530,
+        "opaquePixels": 82118
+      },
+      "contentBounds": {
+        "x": 24,
+        "y": 24,
+        "width": 2299,
+        "height": 134
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T17_TOPIC_4.png",
+      "format": "png",
+      "bytes": 29059,
+      "category": "text",
+      "textId": "T17_TOPIC_4",
+      "exactText": "4. AI – Kiến tạo công cụ quản lý công trường",
+      "fontStyle": "Bold",
+      "animationGroup": "T17_TOPIC_4",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 2751,
+      "height": 183,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "a4f0a804595a9a1320a19ceb1d5cb2af80312e7b8d96cdc230153ae36a2226db",
+      "alpha": {
+        "transparentPixels": 392391,
+        "partialPixels": 13394,
+        "opaquePixels": 97648
+      },
+      "contentBounds": {
+        "x": 24,
+        "y": 24,
+        "width": 2703,
+        "height": 135
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T18_TOPIC_5.png",
+      "format": "png",
+      "bytes": 36309,
+      "category": "text",
+      "textId": "T18_TOPIC_5",
+      "exactText": "5. AI Agent – Triển khai bản vẽ, tính tổn thất ống gió",
+      "fontStyle": "Bold",
+      "animationGroup": "T18_TOPIC_5",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 2201,
+      "height": 131,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "316c10a58a49711280f4479bf99ad7dc4eb58d0ee7bdea39236f07925999009c",
+      "alpha": {
+        "transparentPixels": 242422,
+        "partialPixels": 11741,
+        "opaquePixels": 34168
+      },
+      "contentBounds": {
+        "x": 19,
+        "y": 19,
+        "width": 2162,
+        "height": 93
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T19_PRESENTER_1.png",
+      "format": "png",
+      "bytes": 30314,
+      "category": "text",
+      "textId": "T19_PRESENTER_1",
+      "exactText": "Trình bày: Trần Dương Hồng Quân - Dự án: Sân bay Long Thành",
+      "fontStyle": "Italic",
+      "animationGroup": "T19_PRESENTER_1",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 1818,
+      "height": 133,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "69ad250367960ba4c40c4d079b48dd6a249ae1a05d31e4ac7e49dd7d6ebeeefe",
+      "alpha": {
+        "transparentPixels": 204624,
+        "partialPixels": 9534,
+        "opaquePixels": 27636
+      },
+      "contentBounds": {
+        "x": 19,
+        "y": 19,
+        "width": 1780,
+        "height": 95
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T20_PRESENTER_2.png",
+      "format": "png",
+      "bytes": 25064,
+      "category": "text",
+      "textId": "T20_PRESENTER_2",
+      "exactText": "Trình bày: Nguyễn Văn Hải - Dự án: The One Sài Gòn",
+      "fontStyle": "Italic",
+      "animationGroup": "T20_PRESENTER_2",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 2044,
+      "height": 133,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "902f7d79e519cc7958b081acc1fcad0759a69bc6d38715e15143748cf1f1715e",
+      "alpha": {
+        "transparentPixels": 229174,
+        "partialPixels": 10913,
+        "opaquePixels": 31765
+      },
+      "contentBounds": {
+        "x": 19,
+        "y": 19,
+        "width": 2006,
+        "height": 95
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T21_PRESENTER_3.png",
+      "format": "png",
+      "bytes": 28516,
+      "category": "text",
+      "textId": "T21_PRESENTER_3",
+      "exactText": "Trình bày: Nguyễn Đình Thiệu - Dự án: Sân bay Long Thành",
+      "fontStyle": "Italic",
+      "animationGroup": "T21_PRESENTER_3",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 1654,
+      "height": 133,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "1ff9992aa55f8eb073447994a80c879312f36a12b86abfb33412aecaaf670997",
+      "alpha": {
+        "transparentPixels": 185426,
+        "partialPixels": 8769,
+        "opaquePixels": 25787
+      },
+      "contentBounds": {
+        "x": 19,
+        "y": 19,
+        "width": 1616,
+        "height": 95
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T22_PRESENTER_4.png",
+      "format": "png",
+      "bytes": 23246,
+      "category": "text",
+      "textId": "T22_PRESENTER_4",
+      "exactText": "Trình bày: Nguyễn Thanh Hoàng - Dự án: Bason",
+      "fontStyle": "Italic",
+      "animationGroup": "T22_PRESENTER_4",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 2453,
+      "height": 132,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "e0d6165e8f7aedad55da9c9900be158ee198e114f9a11e5b9fa21476b85dbe78",
+      "alpha": {
+        "transparentPixels": 271776,
+        "partialPixels": 13152,
+        "opaquePixels": 38868
+      },
+      "contentBounds": {
+        "x": 19,
+        "y": 19,
+        "width": 2415,
+        "height": 94
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T23_PRESENTER_5.png",
+      "format": "png",
+      "bytes": 34675,
+      "category": "text",
+      "textId": "T23_PRESENTER_5",
+      "exactText": "Trình bày: Phạm Phi Long & Ngô Ngọc Sơn - Văn phòng: Khối Kỹ Thuật",
+      "fontStyle": "Italic",
+      "animationGroup": "T23_PRESENTER_5",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 1787,
+      "height": 125,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "bb00e87f6324c6504cf9c05a9d463f99251d65ba1bc43ea0076f4c261332a229",
+      "alpha": {
+        "transparentPixels": 186621,
+        "partialPixels": 9264,
+        "opaquePixels": 27490
+      },
+      "contentBounds": {
+        "x": 19,
+        "y": 19,
+        "width": 1749,
+        "height": 87
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T24_PART2_PRESENTER.png",
+      "format": "png",
+      "bytes": 24454,
+      "category": "text",
+      "textId": "T24_PART2_PRESENTER",
+      "exactText": "Trình bày: Trương Quang Vinh - Văn phòng: P.CNTT",
+      "fontStyle": "Italic",
+      "animationGroup": "T24_PART2_PRESENTER",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 1369,
+      "height": 169,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "579fb4925c802347956406381fc5c376cdc6d0e76d224aeea786e9f16aeeaecd",
+      "alpha": {
+        "transparentPixels": 180058,
+        "partialPixels": 6903,
+        "opaquePixels": 44400
+      },
+      "contentBounds": {
+        "x": 23,
+        "y": 23,
+        "width": 1323,
+        "height": 123
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T25_PART2_SUBTOPIC_1.png",
+      "format": "png",
+      "bytes": 18655,
+      "category": "text",
+      "textId": "T25_PART2_SUBTOPIC_1",
+      "exactText": "(1)  Các cấp độ ứng dụng AI",
+      "fontStyle": "Bold",
+      "animationGroup": "T25_PART2_SUBTOPIC_1",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 2160,
+      "height": 168,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "117a33ac3ce53fc27f023dbf7d1add4bff0d6933e369c00f45c16420ce80da41",
+      "alpha": {
+        "transparentPixels": 279049,
+        "partialPixels": 10666,
+        "opaquePixels": 73165
+      },
+      "contentBounds": {
+        "x": 23,
+        "y": 23,
+        "width": 2114,
+        "height": 122
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T26_PART2_SUBTOPIC_2.png",
+      "format": "png",
+      "bytes": 28678,
+      "category": "text",
+      "textId": "T26_PART2_SUBTOPIC_2",
+      "exactText": "(2)  Phân biệt AI cá nhân và AI doanh nghiệp",
+      "fontStyle": "Bold",
+      "animationGroup": "T26_PART2_SUBTOPIC_2",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 2032,
+      "height": 172,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "97973a3d1347eaaf6d96ba03c9f7f4699c51754b959cc59a07414facf74089d3",
+      "alpha": {
+        "transparentPixels": 271030,
+        "partialPixels": 9828,
+        "opaquePixels": 68646
+      },
+      "contentBounds": {
+        "x": 23,
+        "y": 23,
+        "width": 1986,
+        "height": 126
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T27_PART2_SUBTOPIC_3.png",
+      "format": "png",
+      "bytes": 27444,
+      "category": "text",
+      "textId": "T27_PART2_SUBTOPIC_3",
+      "exactText": "(3)  Hướng dẫn sử dụng AI có trách nhiệm",
+      "fontStyle": "Bold",
+      "animationGroup": "T27_PART2_SUBTOPIC_3",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 1570,
+      "height": 168,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "875984b8af2a7166689f87112b157715855779ceddabd5dc5046669778b022e6",
+      "alpha": {
+        "transparentPixels": 204695,
+        "partialPixels": 7725,
+        "opaquePixels": 51340
+      },
+      "contentBounds": {
+        "x": 23,
+        "y": 23,
+        "width": 1524,
+        "height": 122
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T28_PART2_SUBTOPIC_4.png",
+      "format": "png",
+      "bytes": 21955,
+      "category": "text",
+      "textId": "T28_PART2_SUBTOPIC_4",
+      "exactText": "(4)  Giới thiệu câu lạc bộ AI HST",
+      "fontStyle": "Bold",
+      "animationGroup": "T28_PART2_SUBTOPIC_4",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 1088,
+      "height": 189,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "565f7412cd65a8fe88cf69d6557c86ce2c761ebf77f41a04193d1ae0bf5dcd39",
+      "alpha": {
+        "transparentPixels": 150013,
+        "partialPixels": 5153,
+        "opaquePixels": 50466
+      },
+      "contentBounds": {
+        "x": 26,
+        "y": 26,
+        "width": 1036,
+        "height": 137
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T29_OPENING_SPEAKER.png",
+      "format": "png",
+      "bytes": 14435,
+      "category": "text",
+      "textId": "T29_OPENING_SPEAKER",
+      "exactText": "VÕ THANH CANG",
+      "fontStyle": "Bold",
+      "animationGroup": "T29_OPENING_SPEAKER",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 1099,
+      "height": 128,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "4b26ec5fcb7da8e5c61da3c4dc541b3155f159fd97abf029fbe7105d7381c496",
+      "alpha": {
+        "transparentPixels": 117380,
+        "partialPixels": 6003,
+        "opaquePixels": 17289
+      },
+      "contentBounds": {
+        "x": 19,
+        "y": 19,
+        "width": 1061,
+        "height": 90
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T30_OPENING_ROLE.png",
+      "format": "png",
+      "bytes": 15983,
+      "category": "text",
+      "textId": "T30_OPENING_ROLE",
+      "exactText": "Giám đốc Khối Cơ Điện chia sẻ",
+      "fontStyle": "Italic",
+      "animationGroup": "T30_OPENING_ROLE",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 1808,
+      "height": 181,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "f7ea671139dd2e86880b708e4d79e00801ef0c83d7066557937e24d263b1b9e2",
+      "alpha": {
+        "transparentPixels": 249254,
+        "partialPixels": 8592,
+        "opaquePixels": 69402
+      },
+      "contentBounds": {
+        "x": 24,
+        "y": 24,
+        "width": 1760,
+        "height": 133
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T31_MINIGAME.png",
+      "format": "png",
+      "bytes": 25653,
+      "category": "text",
+      "textId": "T31_MINIGAME",
+      "exactText": "Minigame: Giải mã công trường AI",
+      "fontStyle": "Bold",
+      "animationGroup": "T31_MINIGAME",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 464,
+      "height": 132,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "38be5ea3e7e207943419ff06fff2061d52f3d38d5ea5961889808ae2b47768a5",
+      "alpha": {
+        "transparentPixels": 50861,
+        "partialPixels": 2724,
+        "opaquePixels": 7663
+      },
+      "contentBounds": {
+        "x": 19,
+        "y": 19,
+        "width": 426,
+        "height": 94
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T32_MINIGAME_SUBTITLE.png",
+      "format": "png",
+      "bytes": 7089,
+      "category": "text",
+      "textId": "T32_MINIGAME_SUBTITLE",
+      "exactText": "Quà hấp dẫn",
+      "fontStyle": "Italic",
+      "animationGroup": "T32_MINIGAME_SUBTITLE",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 2120,
+      "height": 233,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "092cab51edbd038c2df091460f548530812fe616f52b098d62b1ec4ffcbd3c51",
+      "alpha": {
+        "transparentPixels": 362967,
+        "partialPixels": 10831,
+        "opaquePixels": 120162
+      },
+      "contentBounds": {
+        "x": 30,
+        "y": 30,
+        "width": 2060,
+        "height": 173
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T33_DASHBOARD_HOOK.png",
+      "format": "png",
+      "bytes": 29844,
+      "category": "text",
+      "textId": "T33_DASHBOARD_HOOK",
+      "exactText": "THÔNG TIN TRONG TẦM TAY",
+      "fontStyle": "Bold",
+      "animationGroup": "T33_DASHBOARD_HOOK",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    },
+    {
+      "width": 658,
+      "height": 188,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "3c490ff3ed6a9593ef519ba612ba902f73941a9714b433ef3dcc034d5c2a462b",
+      "alpha": {
+        "transparentPixels": 87554,
+        "partialPixels": 2613,
+        "opaquePixels": 33537
+      },
+      "contentBounds": {
+        "x": 30,
+        "y": 30,
+        "width": 598,
+        "height": 128
+      },
+      "transparentCorners": true,
+      "file": "assets/text/T34_AI_BIM_HOOK.png",
+      "format": "png",
+      "bytes": 8323,
+      "category": "text",
+      "textId": "T34_AI_BIM_HOOK",
+      "exactText": "AI × BIM",
+      "fontStyle": "Bold",
+      "animationGroup": "T34_AI_BIM_HOOK",
+      "coordinateOrigin": "top-left",
+      "pivot": [
+        0.5,
+        0.5
+      ],
+      "detail": "Raster; actual pixel dimensions shown"
+    }
+  ]
+}

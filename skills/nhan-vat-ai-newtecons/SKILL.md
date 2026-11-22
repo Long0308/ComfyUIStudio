@@ -1,6 +1,6 @@
 ---
 name: nhan-vat-ai-newtecons
-description: Tạo và sửa ảnh bốn nhân vật AI Newtecons, gồm "ảnh kỹ sư nam nhân vật AI newtecons" (newtecons_engineer_character), "ảnh kỹ sư nữ nhân vật AI newtecons" (newtecons_engineer_female), "ảnh cặp nam nữ kỹ sư newtecons" hay "ảnh đôi kỹ sư newtecons" (newtecons_cap_nam_nu), "ảnh đội ngũ one team newtecons 5 người" (newtecons_team_oneteam); kèm bảng BIẾN đổi bối cảnh công trường sang văn phòng hoặc studio, bỏ áo phản quang và nón bảo hộ, đổi chữ KHỐI KỸ THUẬT in trên ngực áo. Dùng cả khi sửa app/tools/tao_anh.py của NEX.
+description: Tạo và sửa ảnh bốn nhân vật AI Newtecons, gồm "ảnh kỹ sư nam nhân vật AI newtecons" (newtecons_engineer_character), "ảnh kỹ sư nữ nhân vật AI newtecons" (newtecons_engineer_female), "ảnh cặp nam nữ kỹ sư newtecons" hay "ảnh đôi kỹ sư newtecons" (newtecons_cap_nam_nu), "ảnh đội ngũ one team newtecons 5 người" (newtecons_team_oneteam); kèm bảng BIẾN đổi bối cảnh công trường sang văn phòng hoặc studio, bỏ áo phản quang và nón bảo hộ, đổi chữ KHỐI KỸ THUẬT in trên ngực áo. Có Workshop AI 4 style, ảnh mẫu trong skill, logo nón/áo, tagline Build on trust và tên khối thay đổi. Dùng cả khi sửa app/tools/tao_anh.py của NEX.
 ---
 
 # Nhân vật AI Newtecons
@@ -77,7 +77,7 @@ Khi người dùng yêu cầu đổi quần áo, thay váy, đổi giày, thêm 
 1. Chọn nhân vật theo bảng trên, đọc chữ đầy đủ ở `references/prompt-nhan-vat.md`.
 2. Chạy `_bien_nhan_vat(mo_ta)` để lấy năm biến: `boi_canh` (mặc định `cong_truong`; `van_phong` khi câu có *văn phòng · office · phòng họp · họp · sảnh · bàn làm việc · hội thảo*; `studio` khi có *studio · nền trắng · phông trắng/xanh*), `dong_phuc` (công trường `phan_quang` — áo gile + dải cam; văn phòng/studio `so_mi`), `mu` (`True` ở công trường, `False` ở văn phòng/studio), `chu_nguc` (mặc định `KHỐI KỸ THUẬT`, in trên gile ngực trái; đổi nếu câu khai tên đơn vị khác, phải IN HOA), `vi_tri_chu` (mặc định `ngực trái`; không bao giờ trỏ vào TÚI áo — cấm logo trên túi, không ngoại lệ).
 3. Bối cảnh VĂN PHÒNG (chốt 16/09/2026, chạy thật đã duyệt): áo sơ mi TRƠN đúng như tệp `ÁO PHẢN TRONG.png` — caro ô vuông trắng-xanh (fine white-and-blue gingham): ô trắng xen ô xanh nhạt trên lưới dệt dày, gần thấy từng ô, xa ra tổng thể xanh nhạt. Cả ba ca nam, nữ, cặp nam nữ đều dùng áo này. KHÔNG chữ, KHÔNG logo, KHÔNG phù hiệu, KHÔNG thêu, KHÔNG name tag ở bất cứ đâu trên áo. KHÔNG thẻ nhân viên, KHÔNG dây đeo cổ. KHÔNG nón bảo hộ ở bất cứ đâu trong khung, kể cả đặt trên bàn/ghế/sàn. KHÔNG áo phản quang trong cảnh. Người phải TRÔNG ĐANG LÀM VIỆC: dáng tự nhiên, hai tay không đối xứng, bắt được giữa lúc trao đổi, mắt KHÔNG nhìn ống kính mà nhìn vào bản vẽ/tablet/đồng nghiệp. Cặp: ĐÚNG HAI NGƯỜI, không người thứ ba kể cả phản chiếu.
-4. Ảnh tham chiếu ở `AI-Newteons/` — máy dev `L:\61.SetupAgent\awesome-gpt-image-2\AI-Newteons\`, VPS `/home/ubuntu/zalo-kkt/AI-Newteons/`: `FaceNu.png` (mặt nữ) · `AI HUMAN FACE.png` (mặt nam) · `ÁO PHẢN TRONG.png` (áo caro, dùng cho văn phòng) · `ÁO PHẢN QUANG 1.png` · `ÁO PHẢN QUANG 2.png` (gile) · `Nón bảo hộ.png` · `logo nguyen ban.png` (logo nón 3 màu) · `logo trang.png` (logo trắng ngực phải).
+4. Ảnh tham chiếu ở `AI-Newteons/` — máy dev `D:\61.SetupAgent\awesome-gpt-image-2\AI-Newteons\`, VPS `/home/ubuntu/zalo-kkt/AI-Newteons/`: `FaceNu.png` (mặt nữ) · `AI HUMAN FACE.png` (mặt nam) · `ÁO PHẢN TRONG.png` (áo caro, dùng cho văn phòng) · `ÁO PHẢN QUANG 1.png` · `ÁO PHẢN QUANG 2.png` (gile) · `Nón bảo hộ.png` · `logo nguyen ban.png` (logo nón 3 màu) · `logo trang.png` (logo trắng ngực phải).
    🩸 NỮ ở văn phòng — anh Long chốt 16/09/2026: **đi giày cao gót đen** (mũi nhọn, gót 7–9 cm) và **có thần thái cuốn hút**. Dịch đúng ý đó sang chuẩn ảnh doanh nghiệp: hút ở **dáng đứng, sự tự tin và ánh mắt** — KHÔNG hở hang. Nam đi giày da công sở. Câu chặn đi kèm bắt buộc: *"the charm comes from posture, confidence and the eyes, NOT from revealing clothing"*.
    🩸 **KHÔNG ÁO NGOÀI** (chốt 16/09): sơ mi mặc một mình — không gile, không blazer, không cardigan, không vest, không áo choàng, trên MỌI người trong khung.
    🩸 **NỮ mặc gì**: quần tây đen **HOẶC** váy/xuýp dài tới gối trở xuống (midi/maxi) — luôn đi gót cao. Cấm váy ngắn, cấm ôm sát.
@@ -139,3 +139,43 @@ Nguồn: [USER-PROMPT-NOTES-2026-10-30.md](J:/1.JennieHomeSchool/03%20Voice/docs
 python tools/run_master_character_pipeline.py "BAN TRUYỀN`nTHÔNG"
 # Hoặc: "KHỐI`nKỸ THUẬT"
 ```
+
+
+## Workshop AI — 4 style, ảnh trong skill và logo sắc nét (2026-11-12)
+
+**Ảnh mẫu đã chép thật vào skill**, gồm 8 poster 4K, hero/tham chiếu, logo gốc, prompt, mã dựng và evidence tại [assets/workshop-ai-2026-11-14](assets/workshop-ai-2026-11-14/README.md). Mở [gallery 4 style](assets/workshop-ai-2026-11-14/styles/README.md), không chỉ đọc tên file hoặc tìm ảnh ở Downloads.
+
+| Style | Nhân vật / cách trình bày | Tài nguyên trong skill |
+|---|---|---|
+| Blue–White | Kỹ sư MEP, trắng–xanh doanh nghiệp | [Bộ gốc](assets/workshop-ai-2026-11-14/README.md) |
+| Editorial | Kỹ sư ngoài công trường, lưới thoáng, chữ lớn, nhấn đỏ | [Editorial](assets/workshop-ai-2026-11-14/styles/editorial-2026-11-05/README.md) |
+| Signature Navy | Kỹ sư MEP, navy sâu, mảng trắng và nhấn đỏ | [Signature Navy](assets/workshop-ai-2026-11-14/styles/signature-navy-2026-11-05/README.md) |
+| Navy–Cyan | Hero MEP mới, navy/cyan, panel viền mảnh | [Navy–Cyan](assets/workshop-ai-2026-11-14/styles/navy-cyan-2026-11-12/README.md) |
+
+Mỗi style đủ **9:16 = 2160×3840** và **16:9 = 3840×2160**. Bốn prompt 01–04 của bộ gốc không phải bốn style. Ảnh nhân vật là tham chiếu phong cách; câu “identity lock” không chứng minh đầu ra đã đúng mặt.
+
+**Logo công ty là phần cố định; tên khối là phần thay được.** Đọc [quy tắc nhận diện](assets/workshop-ai-2026-11-14/branding/README.md) và [brand-contract.json](assets/workshop-ai-2026-11-14/branding/brand-contract.json) trước khi viết prompt:
+
+- Header dùng **một logo NEWTECONS đầy đủ + `{header_department_text}`**, mặc định **KHỐI CƠ ĐIỆN**. Đổi khối chỉ đổi lớp chữ đơn vị; không gõ NEWTECONS thêm lần nữa, không thay artwork logo.
+- Chữ ngực áo dùng biến riêng `wardrobe_department_text` / `chu_nguc`; không tự đổi theo header. Giữ tên đơn vị của diễn giả trong lịch. Renderer lưu trữ chưa có API tự thay những biến này.
+- **Nón phải rõ N, NEWTECONS, ® và dòng nhỏ “Build on trust” cùng dòng kẻ xanh.** Logo màu/trắng và N riêng đã chép vào `branding/assets/`. Giữ màu đúng biến thể, tỷ lệ và khoảng cách theo nguồn; logo trắng trên gile giữ dòng kẻ trắng tương ứng.
+- Nếu phải dựng vector, tách N/wordmark/®/dòng kẻ/tagline và dựng **từng ký tự thành outline/path** theo nguồn. Kiểm `N E W T E C O N S` và `B u i l d [space] o n [space] t r u s t`, kerning và baseline. Không dùng font gần giống để nhận là logo chính thức. Gói hiện **chưa có master vector được xác minh**.
+- Đặt logo theo phối cảnh/độ cong nón hoặc nếp vải; giữ mặt, nón, ánh sáng và chất liệu. Không in logo lên túi. Đánh giá riêng từng nón nam/nữ và từng áo; đừng lấy logo header rõ để nghiệm thu thay logo nhỏ.
+
+1. **Ảnh người trước, chữ sau:** khi tạo mới, gửi đúng mặt/áo/nón/logo có thật trong payload; kiểm người đang làm việc tự nhiên, tay, da và thớ vải. Prompt 03/04 là công thức tái dựng, không phải prompt lịch sử đã xác minh.
+2. **Giữ PPE:** form nón trắng, sơ mi caro trắng–xanh, gile và dải phản quang theo ảnh nguồn. Palette poster không thay màu logo/PPE. Tạo nhân vật mới theo quy định chữ áo; giữ ảnh đã chọn thì không tự thêm đơn vị mới.
+3. **Dàn trang:** phối hợp [tao-anh-prompt-as-code](../tao-anh-prompt-as-code/SKILL.md); font thật ở canvas cuối, PNG lossless, không upscale toàn poster để sửa chữ. Hero có số pixel riêng; 4K canvas không chứng minh hero native 4K.
+4. **Audit độc lập:** crop 1:1 từng logo, từng dòng nhỏ và **“trong tầm tay”** (`ầ`, không phải `ằ`); kiểm tên người, lịch 08:30–11:00 và QR. Phóng crop chỉ để soi pixel. Ghi `UNCERTAIN` nếu tagline/® không đủ rõ, không tự chuyển thành PASS hoặc kết luận sai logo thiếu bằng chứng.
+
+[Audit logo mới nhất](assets/workshop-ai-2026-11-14/evidence/logo-audit-2026-11-12.md) phát hiện header Navy–Cyan còn N chạm/vượt bảng trắng; PPE source fidelity chưa xác minh tuyệt đối. **Các poster mẫu chưa được sửa sau audit này.** Lần dựng sau phải giải quyết và kiểm lại trước khi tuyên bố logo đạt.
+
+Nguồn chính: [gói Workshop trên GitHub](https://github.com/Long0308/setupagent/tree/main/awesome-gpt-image-2/AI-Newteons/workshop-ai-2026-11-14), tại `D:/61.SetupAgent/awesome-gpt-image-2/AI-Newteons/workshop-ai-2026-11-14/`. Hai skill chứa snapshot cùng byte theo [manifest](assets/workshop-ai-2026-11-14/bundle-manifest.json); sửa nguồn chính rồi đồng bộ để giữ một quy trình.
+
+
+## Workshop Navy–Cyan — layered mechanical intro (2026-11-12)
+
+Read [the scoped workflow reference](references/workshop-navy-cyan-assembly.md) when extending the existing Navy–Cyan hero into a 20s intro with independently animated typography and MEP align/lock/activate parts. It records the current package/Git paths, fixed company artwork versus variable department, whole-phrase text limitations and actual-proof requirements. Keep the asset kit at the user-selected destination; do not duplicate the full poster snapshot.
+
+## GPT Motion for Claude
+
+For image layers, Vietnamese animated typography and a packaged Claude handoff, use [gpt-montion-for-claude](../gpt-montion-for-claude/SKILL.md). This user-requested skill contains an actual copy of the verified Workshop intro kit. Author new work in the user's project, then refresh the example snapshot only when requested; use its portable handoff template instead of copying historical absolute paths.

@@ -1,0 +1,17 @@
+Use your built-in image generation tool (image_gen) to create exactly ONE image. Do not run shell commands and do not write any file yourself.
+
+The attached input images, in order, are:
+Image 1: the REAL underground basement of the NEWTECONS project. This is the set: low concrete ceiling with red sprinkler pipes, grey cable trays and air ducts, white columns with E2 / E3 / D3 signs and yellow-black bands, blue painted walkway lines on a grey floor. Set only. IN THIS SHOT the basement is STILL UNDER CONSTRUCTION: remove every parked car; add MEP works in progress in the background — a mobile scaffold, a scissor lift, pipe stacks, cable reels, concrete dust in the air. [02_SET_SITE_BASEMENT.jpg]
+Image 2: CHAR_02, the Project Director (GĐDA) — identity reference: keep this exact Vietnamese man's face (about 45, weathered, salt-and-pepper short hair, strong jaw). Take ONLY the face. [04_CHAR02_GDDA_FACE.png]
+Image 3: the REAL NEWTECONS vest, FRONT: royal-blue vest, grey chest band, small white logo and the words SITE MANAGER on the chest, orange-silver reflective bands. Reproduce it exactly. [07_VEST_SITE_MANAGER_FRONT.png]
+Image 4: the REAL vest BACK: white N symbol and the word NEWTECONS. For any worker seen from behind. [08_VEST_SITE_MANAGER_BACK.png]
+Image 5: CANONICAL white hard hat V004 from the front: red N above blue NEWTECONS, ONLY on the front above the brim. [09_HELMET_V004_FRONT.png]
+Image 6: the same hard hat in six views: back and sides are PLAIN WHITE. [10_HELMET_V004_6VIEWS.png]
+Image 7: shirt fabric: very fine blue-white grid. Wardrobe only. [05_SHIRT_FINE_GRID.png]
+
+SHOT 3 LEFT HALF of scene 3: this image will be cropped to its CENTRE HALF for a 50/50 split screen, so keep the subject inside the central half of the frame.
+Camera: medium close-up (head to mid-chest), horizontal 16:9, 50 mm look, eye level, shallow depth of field, the busy basement softly out of focus behind him.
+PERSON: CHAR_02 the Project Director stands in the middle of the basement, body turned three-quarters toward the RIGHT side of the frame (he will face the other half of the split screen), holding a black smartphone to his right ear, listening hard, brow tight, a bead of sweat on his temple, the other hand on his hip. He wears the white hard hat of Image 5 — its front logo is visible because his face points toward camera — the SITE MANAGER vest of Image 3 over the fine blue-white grid shirt of Image 7, sleeves rolled once.
+BACKGROUND (blurred): two or three workers busy at the scaffold and with pipes, all in the same royal-blue NEWTECONS vests with orange-silver bands and white hard hats.
+HELMET RULE (strict): the NEWTECONS logo exists ONLY on the FRONT of a hard hat. Anyone whose head is turned away, looking up, or seen from behind has a PLAIN WHITE helmet back — no red mark, no blue text, no sticker. VEST BACKS read exactly NEWTECONS (never misspelled) or stay clean.
+LOOK: photorealistic live-action NEWTECONS corporate film still, full-frame cinema camera, natural light, real skin texture and pores, real fabric weave, no plastic or glossy AI look, no CGI, natural hands with five fingers. No subtitles, no captions, no watermark, no on-screen text overlays. Output: one photoreal horizontal 16:9 image, at least 1536 x 864.

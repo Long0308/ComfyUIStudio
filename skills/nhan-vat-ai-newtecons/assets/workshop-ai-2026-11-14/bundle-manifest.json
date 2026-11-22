@@ -1,0 +1,658 @@
+{
+  "version": "2026-11-12",
+  "source_package": "awesome-gpt-image-2/AI-Newteons/workshop-ai-2026-11-14",
+  "scope": "All package files except any output directory and this manifest; no generated render outputs in skill snapshots.",
+  "text_hash_note": "Text hashes normalize CRLF to LF for Git portability. Image hashes are exact file bytes. Current on-disk copies are additionally compared byte-for-byte.",
+  "style_count": 4,
+  "poster_count": 8,
+  "file_count": 91,
+  "image_count": 50,
+  "files": [
+    {
+      "file": ".gitignore",
+      "bytes_at_packaging": 9,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "3ED62B18DFD1F7BDF737DCFFA3AB7D5396082EE18152C7D95C1EFA5523030583"
+    },
+    {
+      "file": "assets-manifest.json",
+      "bytes_at_packaging": 2525,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "021ED51C50A24217398E2746AE93757317D3D28B9FCEE2A00C4B1D0C80FACD83"
+    },
+    {
+      "file": "assets/ChatGPT Image Nov 5, 2026, 11_10_50 AM.png",
+      "bytes_at_packaging": 2301988,
+      "hash_mode": "file_bytes",
+      "sha256": "ECC926B81DDABC6294CBF68B9C83B2355C2CBE38FA3432655CE6859B39769EF7",
+      "width": 1998,
+      "height": 787
+    },
+    {
+      "file": "assets/newtecons-original-logo.png",
+      "bytes_at_packaging": 21114,
+      "hash_mode": "file_bytes",
+      "sha256": "506685CF632DA0A63D0D3B79920239E2394B30DFF25EFBA7FE2F8E1DDB7F02C5",
+      "width": 1508,
+      "height": 373
+    },
+    {
+      "file": "assets/Newtecons-Workshop-AI-MEP-FINAL-16x9-4K-v2.png",
+      "bytes_at_packaging": 3438343,
+      "hash_mode": "file_bytes",
+      "sha256": "9139909D620728C6E02ADF5804B580F9C1BFB8192AF1FE32C9B25BB19D53511E",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "file": "assets/Newtecons-Workshop-AI-MEP-FINAL-9x16-4K-v2.png",
+      "bytes_at_packaging": 4499246,
+      "hash_mode": "file_bytes",
+      "sha256": "65317558CD0262F386B35FA001D4CEA1A4A3EBE7C255CCD25908CC94AF2DE8F8",
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "file": "assets/original-workshop-qr.jpg",
+      "bytes_at_packaging": 129172,
+      "hash_mode": "file_bytes",
+      "sha256": "7FF0C3CA98A1347C3318E90204C89C3EAE58FE3A3402F5D9FE9A0B5C2BBF949A",
+      "width": 1000,
+      "height": 1000
+    },
+    {
+      "file": "assets/workshopaiv4-character-detail.png",
+      "bytes_at_packaging": 4191404,
+      "hash_mode": "file_bytes",
+      "sha256": "25FE6E08DC14825FCA2C876A1F23EBEF7E30FCCA291DCBC4455D24A1B8D67F5A",
+      "width": 2160,
+      "height": 804
+    },
+    {
+      "file": "branding/assets/newtecons-full-color.png",
+      "bytes_at_packaging": 21873,
+      "hash_mode": "file_bytes",
+      "sha256": "E320EABBF4AF707351A6E36E13CF961FCA71B43C058D84E60B61C3681552CA51",
+      "width": 1134,
+      "height": 633
+    },
+    {
+      "file": "branding/assets/newtecons-full-white.png",
+      "bytes_at_packaging": 19697,
+      "hash_mode": "file_bytes",
+      "sha256": "785E1770DFCB5D60E15C4EC5CBB85CF666DBF5431185896B891C98A26DAC1DF7",
+      "width": 1134,
+      "height": 633
+    },
+    {
+      "file": "branding/assets/newtecons-n-symbol.png",
+      "bytes_at_packaging": 3278,
+      "hash_mode": "file_bytes",
+      "sha256": "4E7E17C5291C17CBAD14A2644967B7DF030F6BD284DFA47DD8015CEEF1909862",
+      "width": 317,
+      "height": 380
+    },
+    {
+      "file": "branding/brand-contract.json",
+      "bytes_at_packaging": 1532,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "B4B4271BD0366CA46555168C9F205C0AC0AFA171DDC884816A85E3FF691FD4D7"
+    },
+    {
+      "file": "branding/README.md",
+      "bytes_at_packaging": 7467,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "8771D2D65FE237B626AC1E9469E7F3BCA8494673614416A7A26E8AE849149BEC"
+    },
+    {
+      "file": "branding/reference-assets.json",
+      "bytes_at_packaging": 1196,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "552460EDA81F1448AD2B78B071E49EBF3703F5A18B542054040935944C44AB4A"
+    },
+    {
+      "file": "content.json",
+      "bytes_at_packaging": 3763,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "3D720996A234C9A646C223910136BCA351EE0E152F2BD3FCA92AF3839570A018"
+    },
+    {
+      "file": "evidence/approved-layout-audit.json",
+      "bytes_at_packaging": 27075,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "DF687EC8E56D87319A5BBA8D3B0C11C2BFE75DE38557AF04B23BC90198AA2E5E"
+    },
+    {
+      "file": "evidence/font-reference-hashes.json",
+      "bytes_at_packaging": 654,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "AC21807DB49832ABB536791E3A957C3E8FD1A2E9F068C43AC97DB32C59EB1C62"
+    },
+    {
+      "file": "evidence/independent-review-2026-11-12.md",
+      "bytes_at_packaging": 3199,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "BA384549854041305096D6A8B562247920F3008B7295A9D78C24B603B5A7CED4"
+    },
+    {
+      "file": "evidence/landscape-part1.png",
+      "bytes_at_packaging": 110552,
+      "hash_mode": "file_bytes",
+      "sha256": "CE8159C9B7390F7BA6745E3D806036A1EF7A032F36BEF1360448422AA91DAA31",
+      "width": 1930,
+      "height": 860
+    },
+    {
+      "file": "evidence/legacy-options-canvas-bounds.json",
+      "bytes_at_packaging": 52662,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "34BB29AB1908324444E32E8CCE984897BA0358E8DFC1C8F6933F0E792E248447"
+    },
+    {
+      "file": "evidence/legacy-options-contact-sheet.png",
+      "bytes_at_packaging": 1794772,
+      "hash_mode": "file_bytes",
+      "sha256": "864B75A2E13E6DD92B6671DE6F75CAA3DF847D42FE612C81CFE956DE0E260AF2",
+      "width": 2400,
+      "height": 1800
+    },
+    {
+      "file": "evidence/legacy-options-design-audit-and-prompts.txt",
+      "bytes_at_packaging": 5672,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "C976434E67A286E4D16BEAF99638DEF730FA02B898F21306BB4FC66DF8CDDCB5"
+    },
+    {
+      "file": "evidence/legacy-options-layout-audit.json",
+      "bytes_at_packaging": 59305,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "369A262D62BC90FFF2ECF2C1612F8BBD6C58620467EB61C50858292472B989B9"
+    },
+    {
+      "file": "evidence/logo-audit-2026-11-12.md",
+      "bytes_at_packaging": 3399,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "A3C5B2C49B58381CA295BE7A6A551E2424BBC23FA86FF1DE80BABBC48A42521C"
+    },
+    {
+      "file": "evidence/options-reproduction-2026-11-12.json",
+      "bytes_at_packaging": 9909,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "A99C9224222D41794038FAC47127B44F94ED7B186C4F167573D72BCAC1285AB2"
+    },
+    {
+      "file": "evidence/portrait-helmet-detail.png",
+      "bytes_at_packaging": 704094,
+      "hash_mode": "file_bytes",
+      "sha256": "B04281F9B1015EE255C6E781961FA6D7E416537C90FF73458E1E0F431C21071E",
+      "width": 790,
+      "height": 390
+    },
+    {
+      "file": "evidence/portrait-tam-tay.png",
+      "bytes_at_packaging": 7846,
+      "hash_mode": "file_bytes",
+      "sha256": "F8D817214323562FE4C1AE6052662D59D41F77E82833B46AE82F3AF29D216DA6",
+      "width": 730,
+      "height": 170
+    },
+    {
+      "file": "evidence/README.md",
+      "bytes_at_packaging": 5015,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "D74A12B8A2CF717011F3EFA5CFCC22492E5F17FA40305C2DCF2291811A3B2FAF"
+    },
+    {
+      "file": "evidence/skill-bundle-review-2026-11-12.md",
+      "bytes_at_packaging": 3133,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "B52D1661A8B958122CB4F1418749D7BE60933FBF9F49532313DC947A3E125815"
+    },
+    {
+      "file": "prompts/01-portrait-9x16.json",
+      "bytes_at_packaging": 7501,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "305C29AABA4E88B5AC9659A519A0D0F73D45F539DCCFB31561D26B21888A902E"
+    },
+    {
+      "file": "prompts/02-landscape-16x9.json",
+      "bytes_at_packaging": 7700,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "2B6E4CC8577B77BA3C5F0F553B3E89A0EAFA62AC0F854D41245944C4465EC5AE"
+    },
+    {
+      "file": "prompts/03-natural-mep-hero.json",
+      "bytes_at_packaging": 5035,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "91FC701698B4A3AEEE21A502756713A93B228F192FF031F262E38E8A0282C1B2"
+    },
+    {
+      "file": "prompts/04-bim-character-reference.json",
+      "bytes_at_packaging": 4899,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "B27174EB0C7ED04A59170283D8DC8781D667F2A6244F4126F49686FB78FABE95"
+    },
+    {
+      "file": "README.md",
+      "bytes_at_packaging": 16146,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "614EE67F15ECF42F28A215CA7C78EA447C0FCE1687767261E5644BBDF7B2B71D"
+    },
+    {
+      "file": "scripts/OptionsRenderer.cs",
+      "bytes_at_packaging": 16323,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "61FDD6DF911D4BFA316098AE1B0280FE63DB225ED4F5672E5875F5BFFBF1DB74"
+    },
+    {
+      "file": "scripts/PosterRenderer.cs",
+      "bytes_at_packaging": 16515,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "215665B6373792A0A9CBA1400BE2547618B49A14493F1115072254BEA8C8F22D"
+    },
+    {
+      "file": "scripts/render-options.ps1",
+      "bytes_at_packaging": 5798,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "517073A81B30C243E2D741B1F8733DDCADC19634FC70822643193EFC3559555F"
+    },
+    {
+      "file": "scripts/render.ps1",
+      "bytes_at_packaging": 4761,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "C802270260ADB2B3406AC2DFD96E74762F785FE314A485CFFB90537334BD99E8"
+    },
+    {
+      "file": "scripts/verify.ps1",
+      "bytes_at_packaging": 10613,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "93802151BC05AD3339458951838509AEC9FC4511F2860CAA67E470CC35911A0E"
+    },
+    {
+      "file": "styles/editorial-2026-11-05/assets/option-01-natural-site.png",
+      "bytes_at_packaging": 2332273,
+      "hash_mode": "file_bytes",
+      "sha256": "960A4A35A4F81D56109E9A144F32AF25AE9DC6D6C227B2F5F21D5FD0C0D2CADF",
+      "width": 2020,
+      "height": 778
+    },
+    {
+      "file": "styles/editorial-2026-11-05/final/Option-01-Editorial-16x9-4K.png",
+      "bytes_at_packaging": 3638112,
+      "hash_mode": "file_bytes",
+      "sha256": "81BF848270A616B1CDEC57AC01BD81501C84B0ECCCD8939E812CE7E9A6E86B4F",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "file": "styles/editorial-2026-11-05/final/Option-01-Editorial-9x16-4K.png",
+      "bytes_at_packaging": 3958755,
+      "hash_mode": "file_bytes",
+      "sha256": "EA79528E41A95E4B69E27E63B6A7BC1837F157B589A700873A3B4D3D4834C547",
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "file": "styles/editorial-2026-11-05/prompt-as-code.json",
+      "bytes_at_packaging": 9594,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "E57AD09FAE782D29F2A4F71DF6B7A8B09589249936646E2D80E4A2F2CC7190D8"
+    },
+    {
+      "file": "styles/editorial-2026-11-05/README.md",
+      "bytes_at_packaging": 3656,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "B51A24C9BE2BA61F2B1215F581AFDC6AE45EE2EAEB8B8E129111BE5A2F22165A"
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/.gitignore",
+      "bytes_at_packaging": 14,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "0B1FADE65023F12E43950B7988FFC217970B801393B7799E1A5D7DDA59409293"
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/assets/navy-cyan-mep-header.png",
+      "bytes_at_packaging": 2290811,
+      "hash_mode": "file_bytes",
+      "sha256": "A0E0D9DB6C71094F0D0A56D897AEDE039F4656A282FDC94F2207AA38F9A64F51",
+      "width": 2172,
+      "height": 724
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/assets/user-style-reference.png",
+      "bytes_at_packaging": 2296167,
+      "hash_mode": "file_bytes",
+      "sha256": "BE7C6FA9F5B2B277E9FCC135AE9C9B0C8B37F85EE7A6E78F946485125C62114A",
+      "width": 1613,
+      "height": 909
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/audit-logo-2026-11-12/independent/16x9-header.png",
+      "bytes_at_packaging": 34441,
+      "hash_mode": "file_bytes",
+      "sha256": "E8AD313A0766FF5D00DD75DD46482389668EB9188219CB8E5C498C264F39D28D",
+      "width": 1635,
+      "height": 260
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/audit-logo-2026-11-12/independent/16x9-helmet-man-4x-inspection.png",
+      "bytes_at_packaging": 33496,
+      "hash_mode": "file_bytes",
+      "sha256": "C4D7BD9B5408A15A36982C0A42F686683E9E2B2BF91F6642CCEAC396C9CB4F8C",
+      "width": 500,
+      "height": 440
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/audit-logo-2026-11-12/independent/16x9-helmet-man.png",
+      "bytes_at_packaging": 21133,
+      "hash_mode": "file_bytes",
+      "sha256": "AB7845B6991E392731F65F0D7BBAFB453044FF7B8619F555C8C1B919C52F443D",
+      "width": 125,
+      "height": 110
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/audit-logo-2026-11-12/independent/16x9-helmet-woman-4x-inspection.png",
+      "bytes_at_packaging": 32796,
+      "hash_mode": "file_bytes",
+      "sha256": "515B760CDD1A2D27CFCCAFC2858A06CD7E7F4B31C373522340B13A19E56AC0DE",
+      "width": 500,
+      "height": 460
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/audit-logo-2026-11-12/independent/16x9-helmet-woman.png",
+      "bytes_at_packaging": 20690,
+      "hash_mode": "file_bytes",
+      "sha256": "3D9A15283431FDC19E235B4DD21AC35EC9148B2F335B518A745FADB80566F245",
+      "width": 125,
+      "height": 115
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/audit-logo-2026-11-12/independent/16x9-qr.png",
+      "bytes_at_packaging": 38229,
+      "hash_mode": "file_bytes",
+      "sha256": "41C69464C66DA5B984E6D8D098AF42D8FA7E0D896D86117331BEFB2A012B7262",
+      "width": 290,
+      "height": 288
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/audit-logo-2026-11-12/independent/16x9-vest-man-4x-inspection.png",
+      "bytes_at_packaging": 24917,
+      "hash_mode": "file_bytes",
+      "sha256": "87769355B5613A416CA60E595ADCC7E8F8756EE310EAA8B026459EDBE809237E",
+      "width": 420,
+      "height": 320
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/audit-logo-2026-11-12/independent/16x9-vest-man.png",
+      "bytes_at_packaging": 15953,
+      "hash_mode": "file_bytes",
+      "sha256": "526EB1D3A35851CEFAB6F01C707B0F699F936749C55D2A79A36E725043E3A415",
+      "width": 105,
+      "height": 80
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/audit-logo-2026-11-12/independent/16x9-vest-woman-4x-inspection.png",
+      "bytes_at_packaging": 25765,
+      "hash_mode": "file_bytes",
+      "sha256": "9D4CA50FFAB8F7DD61B28B52DBBF4BA6780614A8FC6E493851723D1DCD6F167D",
+      "width": 500,
+      "height": 300
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/audit-logo-2026-11-12/independent/16x9-vest-woman.png",
+      "bytes_at_packaging": 16586,
+      "hash_mode": "file_bytes",
+      "sha256": "F2A8496DED23E45DA9015B5E7AE66D3E799E8699FD961F61B8910DB38A03F29A",
+      "width": 125,
+      "height": 75
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/audit-logo-2026-11-12/independent/9x16-header.png",
+      "bytes_at_packaging": 110612,
+      "hash_mode": "file_bytes",
+      "sha256": "776EFB065FBD03877A1561C4EC3996823BD09BE53B987EBA9A709992F33F1668",
+      "width": 1660,
+      "height": 260
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/audit-logo-2026-11-12/independent/9x16-helmet-man-4x-inspection.png",
+      "bytes_at_packaging": 38495,
+      "hash_mode": "file_bytes",
+      "sha256": "301F0E39B363D4658597F2FF5096D69DDC34F12299664ECE06209F0F0E4DDBCC",
+      "width": 520,
+      "height": 500
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/audit-logo-2026-11-12/independent/9x16-helmet-man.png",
+      "bytes_at_packaging": 24291,
+      "hash_mode": "file_bytes",
+      "sha256": "A2E883775D1C36188E315546CE5B4BFE03ED8970A4FD17F2160F9BCA28FC3849",
+      "width": 130,
+      "height": 125
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/audit-logo-2026-11-12/independent/9x16-helmet-woman-4x-inspection.png",
+      "bytes_at_packaging": 42972,
+      "hash_mode": "file_bytes",
+      "sha256": "999BF36F5C038BC914B1CEEF62CFB714C1F5AB71A9C62E9EAFF51D9A0A40F012",
+      "width": 580,
+      "height": 520
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/audit-logo-2026-11-12/independent/9x16-helmet-woman.png",
+      "bytes_at_packaging": 27300,
+      "hash_mode": "file_bytes",
+      "sha256": "F18E2567C21142CA479A14F521BE69F67680B7017D7D9C35579077B10B487835",
+      "width": 145,
+      "height": 130
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/audit-logo-2026-11-12/independent/9x16-qr-4x-inspection.png",
+      "bytes_at_packaging": 53595,
+      "hash_mode": "file_bytes",
+      "sha256": "75C1DC5EB12B0FCD3DCA386E3FEA978E26484A9F4C9D341454B02AAF68FCA0DA",
+      "width": 1080,
+      "height": 1100
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/audit-logo-2026-11-12/independent/9x16-qr.png",
+      "bytes_at_packaging": 31936,
+      "hash_mode": "file_bytes",
+      "sha256": "876D757EA48EB5F01FCFFC9E88ACEA428C6C58549A5CFD217DF83A74691EACAD",
+      "width": 270,
+      "height": 275
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/audit-logo-2026-11-12/independent/9x16-vest-man-4x-inspection.png",
+      "bytes_at_packaging": 30197,
+      "hash_mode": "file_bytes",
+      "sha256": "6A3E2DA583DE091B03438B6EA87229AF39978920CD2A5C51626DE222C30A76A7",
+      "width": 460,
+      "height": 360
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/audit-logo-2026-11-12/independent/9x16-vest-man.png",
+      "bytes_at_packaging": 19241,
+      "hash_mode": "file_bytes",
+      "sha256": "A02DDE710C76951A2CCE9C5EE4D3361FC066C909C1287CBA19E09603715151F6",
+      "width": 115,
+      "height": 90
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/audit-logo-2026-11-12/independent/9x16-vest-woman-4x-inspection.png",
+      "bytes_at_packaging": 26812,
+      "hash_mode": "file_bytes",
+      "sha256": "EB7196F7574056EFDF721B24BEBD5D0751AB6B1CB35D55222A9DEDBECE2EA150",
+      "width": 480,
+      "height": 340
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/audit-logo-2026-11-12/independent/9x16-vest-woman.png",
+      "bytes_at_packaging": 17256,
+      "hash_mode": "file_bytes",
+      "sha256": "BA91C90F16A0DCBE38C727D0B0DA9AFC8B72F1F5CE8D725E6A9C543FA1D42F57",
+      "width": 120,
+      "height": 85
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/evidence/helmets-native.png",
+      "bytes_at_packaging": 449106,
+      "hash_mode": "file_bytes",
+      "sha256": "D4863A60D44AD1AA31234A1A8F33AADE91100DD0ACBC6C37CC2CB584C3C7451F",
+      "width": 560,
+      "height": 320
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/evidence/layout-audit.json",
+      "bytes_at_packaging": 87176,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "707D6F911104CF4B280CB7649878781C1A19F546F17C65EC537497DC0316CEBE"
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/evidence/portrait-dashboard-native.png",
+      "bytes_at_packaging": 18077,
+      "hash_mode": "file_bytes",
+      "sha256": "B9E89F03CFFF95AAED4020D997EC9DA9134F6C927299FF31E05B9AC5D6480330",
+      "width": 1420,
+      "height": 150
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/evidence/verification.json",
+      "bytes_at_packaging": 2360,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "D006ECE3F967C4E83E1AA7FB194DEFEF4C8969A376B07E3D197746FBB72CE785"
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/final/Newtecons-Workshop-AI-Navy-Cyan-16x9-4K.png",
+      "bytes_at_packaging": 3628303,
+      "hash_mode": "file_bytes",
+      "sha256": "186F2E15DC22515F47D74E9EEFBE02E098342C152061DDE81C18B3441A71EDE8",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/final/Newtecons-Workshop-AI-Navy-Cyan-9x16-4K.png",
+      "bytes_at_packaging": 3664863,
+      "hash_mode": "file_bytes",
+      "sha256": "DF54A1A75168952A77F46B6FB400730A4334724F2BC38C27670BD49668C2D17C",
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/generation-record.json",
+      "bytes_at_packaging": 2663,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "2DEA3B4C7D80B047E0FF09E8825E7E982106C899E926B8FABB79351FD6DEE79D"
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/prompt-as-code.json",
+      "bytes_at_packaging": 4059,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "C78E3A7D72723486FB4EF5E03FB878ABBAED8A72B914A7797891810C76189C93"
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/qa-01/layout-audit.json",
+      "bytes_at_packaging": 86264,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "5C80E20B9E322335E7068E0E98DB57799CC81BD3169ED76CE2B6F02F36B14C0F"
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/qa-01/Newtecons-Workshop-AI-Navy-Cyan-16x9-4K.png",
+      "bytes_at_packaging": 3923382,
+      "hash_mode": "file_bytes",
+      "sha256": "03AFBFD21E7C613CC689AEC91B49C2492DF367FEC2119C230FD8F63D055DB7C1",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/qa-01/Newtecons-Workshop-AI-Navy-Cyan-9x16-4K.png",
+      "bytes_at_packaging": 3672497,
+      "hash_mode": "file_bytes",
+      "sha256": "92EEE6CC3CB3D54ECBDD7A1678671C26C1059D79F7E43E6944E63224FBC9B859",
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/qa-02/layout-audit.json",
+      "bytes_at_packaging": 87176,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "707D6F911104CF4B280CB7649878781C1A19F546F17C65EC537497DC0316CEBE"
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/qa-02/Newtecons-Workshop-AI-Navy-Cyan-16x9-4K.png",
+      "bytes_at_packaging": 3628303,
+      "hash_mode": "file_bytes",
+      "sha256": "186F2E15DC22515F47D74E9EEFBE02E098342C152061DDE81C18B3441A71EDE8",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/qa-02/Newtecons-Workshop-AI-Navy-Cyan-9x16-4K.png",
+      "bytes_at_packaging": 3664840,
+      "hash_mode": "file_bytes",
+      "sha256": "5A6A3DE490C0689673AE0B44496C6BAD73431CAA23E9D3D7B039ED96AEFA9219",
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/README.md",
+      "bytes_at_packaging": 4060,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "2793A11E7C8D43E5911BB56859C7D26F73CFF941F8B916FECDA6305E5D508E90"
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/scripts/NavyCyanRenderer.cs",
+      "bytes_at_packaging": 13920,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "A28FDE927A9B83671D6556E7912872D76FA07AFCF21FF8EAE2945833260D1926"
+    },
+    {
+      "file": "styles/navy-cyan-2026-11-12/scripts/render.ps1",
+      "bytes_at_packaging": 4537,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "6A53DA202AA86C945AC0529A74F57622D75311FBBC27BBE288BC24B950191E7E"
+    },
+    {
+      "file": "styles/README.md",
+      "bytes_at_packaging": 4155,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "07752F3297DEBCCE96F1632CC93956D7907322FD0804FF666630AF60963913C7"
+    },
+    {
+      "file": "styles/signature-navy-2026-11-05/assets/option-02-natural-mep.png",
+      "bytes_at_packaging": 2301988,
+      "hash_mode": "file_bytes",
+      "sha256": "ECC926B81DDABC6294CBF68B9C83B2355C2CBE38FA3432655CE6859B39769EF7",
+      "width": 1998,
+      "height": 787
+    },
+    {
+      "file": "styles/signature-navy-2026-11-05/final/Option-02-Signature-Navy-16x9-4K.png",
+      "bytes_at_packaging": 2239008,
+      "hash_mode": "file_bytes",
+      "sha256": "6113F59727B77583ECACD621AB02F196717906C57307BD2C07F2742EEC7CD086",
+      "width": 3840,
+      "height": 2160
+    },
+    {
+      "file": "styles/signature-navy-2026-11-05/final/Option-02-Signature-Navy-9x16-4K.png",
+      "bytes_at_packaging": 3721526,
+      "hash_mode": "file_bytes",
+      "sha256": "67043F4178B033464C3E4648FE429AA85B397D3D4F48E0150A1516A51444BFF9",
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "file": "styles/signature-navy-2026-11-05/prompt-as-code.json",
+      "bytes_at_packaging": 9837,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "54DC897CCA643743162E1B7EA790D4C1EB504DED0BECCB27BB84FDDDC0C141BE"
+    },
+    {
+      "file": "styles/signature-navy-2026-11-05/README.md",
+      "bytes_at_packaging": 4171,
+      "hash_mode": "utf8_crlf_normalized_to_lf",
+      "sha256": "F5893F8214E0BC4AFE059E5781FA375C99543498857F189439B7214146BFC4E4"
+    }
+  ]
+}

@@ -7,6 +7,13 @@ description: "Run local ComfyUI H3 motion and scoped restoration for JennieJoyKi
 
 Use [production system](../jenniejoy-production-system/SKILL.md) for current state and engine ownership; [film skill](../create-video-jenniejoykids/SKILL.md) owns script, canonical cast and delivery under the common [engine dispatch contract](../create-video-jenniejoykids/references/engine-dispatch-contract.md). Load only references for the current stage.
 
+## Human storyboard gate before any motion (user 2026-11-15)
+
+No image enters H3 / video generation until the user has approved it **on a storyboard page**, image by image. This applies to both domains (JennieJoy cartoon and NEWTECONS live-action) and to every route (local ComfyUI, GPT lane, cloud API). "QA-accepted" below means machine/agent QA **plus** this user approval; an agent's own visual check never replaces it. Order: build the storyboard page (shared real set photo, locked layout · props · chair table, per shot: frame in use beside the new frame, duration, speaker, line, camera/action, list of points to decide) → one master keyframe → user approves → remaining keyframes derived from the master as Image 1 → storyboard updated, unapproved frames labelled "bản nháp" → user approves each frame → only then submit motion. Record the approval (who, when, image sha256) before the H3 submit; a frame changed after approval needs a new approval. Rule text and a runnable example: [create-video-newtecons](../create-video-newtecons/SKILL.md) ("Storyboard cho người duyệt") and `docs/media-stage/S05-OFFICE-REBUILD-V001/build_storyboard.py`.
+
+## Đường cloud Topview đã đo → bài học cho ComfyUI local (16/11)
+Đọc [topview-cloud-route-lessons.md](references/topview-cloud-route-lessons.md): giá/thời gian đo thật WAN 3.0 ($0,0618/giây 720P) và H3 (`reference_audio`), một receipt mỗi clip + Idempotency-Key, prompt video 4 khối (máy quay · thoại · Sound · LOOK), 720p → user duyệt → SeedVR2 local, clone giọng WAN rồi dùng H3 để khẩu hình khớp, SFX lồng tại máy, luật nối shot (xem studio-video-engine). SeedVR2 2560×1408 làm sập ComfyUI 16/11.
+
 ## Explicit subskill contract
 
 - **Input Trigger:** QA-accepted complete storyboard anchor image (Branch A native GPT imagegen or Branch B local ComfyUI) + the exact receipt dialogue WAV, i.e. the WAV named in the H3 preparation receipt (`preparation.json` → `wav.sha256`; S01_A: `hybrid-v001/job.json` → `wav_sha256`) (48kHz stereo PCM16; trimmed once before H3 if trimmed).

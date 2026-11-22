@@ -1,0 +1,10 @@
+Use your built-in image generation tool (image_gen) to create exactly ONE image. Do not run shell commands and do not write any file yourself.
+
+The attached input images, in order, are:
+Image 1: the frame to edit. [13_K3R_V001_BASE.png]
+Image 2: CHAR_03 Technical Block Director face reference — keep this exact face and glasses. [03_CHAR03_GD_KHOI_FACE.png]
+
+LOCAL EDIT — TARGET: his head direction and eyes. CHANGE: he turns his head and eyes toward the LEFT side of the frame (looking slightly past camera to frame-left, as if facing the person on the left half of a split screen), still holding the phone to his ear with the same hand, still speaking calmly and decisively, mouth slightly open mid-word.
+PRESERVE (pixel-faithful): his identity and glasses, the fine blue-white grid shirt with the tiny N on the collar tip (not mirrored), the phone, the office background with grey roller blinds, window light, tan leather chair, the plant on the right, the MacBook edge at the bottom, light, colour, framing, 16:9 crop. Do NOT mirror or flip the image.
+ALLOW: natural changes of neck and collar folds from the head turn.
+No subtitles, no captions, no watermark. Output: one photoreal 16:9 image, same framing as Image 1, at least 1536 x 864.

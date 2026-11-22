@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "recorded_date": "2026-11-05",
+  "assets": [
+    {
+      "id": "portrait_reference",
+      "path": "assets/Newtecons-Workshop-AI-MEP-FINAL-9x16-4K-v2.png",
+      "width": 2160,
+      "height": 3840,
+      "bytes": 4499246,
+      "sha256": "65317558CD0262F386B35FA001D4CEA1A4A3EBE7C255CCD25908CC94AF2DE8F8",
+      "role": "portrait_reference",
+      "provenance": "User-selected artifact or authentic supplied production asset; copied without image re-encoding."
+    },
+    {
+      "id": "landscape_reference",
+      "path": "assets/Newtecons-Workshop-AI-MEP-FINAL-16x9-4K-v2.png",
+      "width": 3840,
+      "height": 2160,
+      "bytes": 3438343,
+      "sha256": "9139909D620728C6E02ADF5804B580F9C1BFB8192AF1FE32C9B25BB19D53511E",
+      "role": "landscape_reference",
+      "provenance": "User-selected artifact or authentic supplied production asset; copied without image re-encoding."
+    },
+    {
+      "id": "hero",
+      "path": "assets/ChatGPT Image Nov 5, 2026, 11_10_50 AM.png",
+      "width": 1998,
+      "height": 787,
+      "bytes": 2301988,
+      "sha256": "ECC926B81DDABC6294CBF68B9C83B2355C2CBE38FA3432655CE6859B39769EF7",
+      "role": "hero",
+      "provenance": "User-selected artifact or authentic supplied production asset; copied without image re-encoding."
+    },
+    {
+      "id": "bim_reference",
+      "path": "assets/workshopaiv4-character-detail.png",
+      "width": 2160,
+      "height": 804,
+      "bytes": 4191404,
+      "sha256": "25FE6E08DC14825FCA2C876A1F23EBEF7E30FCCA291DCBC4455D24A1B8D67F5A",
+      "role": "bim_reference",
+      "provenance": "User-selected artifact or authentic supplied production asset; copied without image re-encoding."
+    },
+    {
+      "id": "logo",
+      "path": "assets/newtecons-original-logo.png",
+      "width": 1508,
+      "height": 373,
+      "bytes": 21114,
+      "sha256": "506685CF632DA0A63D0D3B79920239E2394B30DFF25EFBA7FE2F8E1DDB7F02C5",
+      "role": "logo",
+      "provenance": "User-selected artifact or authentic supplied production asset; copied without image re-encoding."
+    },
+    {
+      "id": "qr",
+      "path": "assets/original-workshop-qr.jpg",
+      "width": 1000,
+      "height": 1000,
+      "bytes": 129172,
+      "sha256": "7FF0C3CA98A1347C3318E90204C89C3EAE58FE3A3402F5D9FE9A0B5C2BBF949A",
+      "role": "qr",
+      "provenance": "User-selected artifact or authentic supplied production asset; copied without image re-encoding."
+    }
+  ]
+}

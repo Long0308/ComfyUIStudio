@@ -1,0 +1,242 @@
+{
+  "schemaVersion": 1,
+  "reference": "references/navy-cyan-canvas-source.png",
+  "note": "Prompts record reproducible intent, not a claim that every original generation parameter was captured.",
+  "rejectedAsset": {
+    "file": "evidence/A02-draft-branding-unverified.png",
+    "reason": "Generated helmet microtext was not acceptable; use clean A02 plus supplied original logo."
+  },
+  "recipes": [
+    {
+      "id": "A01",
+      "output": "assets/generated/A01-site-background.png",
+      "method": "imagegen edit reconstruction",
+      "originalToolOutput": "exec-ca6e3e96-dc2f-4f8b-9c90-1cc1764b32ca.png",
+      "actualPixels": [
+        2172,
+        724
+      ],
+      "subject": "Construction-site MEP interior with ducts, trays and services; no people, tablet or graphic overlays",
+      "composition": "Wide background, darker calm area left, perspective remains consistent with approved hero",
+      "aspect": "3:1 source plate",
+      "transparency": false,
+      "text_content": [],
+      "style": "Navy–Cyan corporate engineering editorial, matching references/navy-cyan-canvas-source.png",
+      "lighting": "Cool construction-site daylight, controlled highlights, restrained cyan accents",
+      "palette": [
+        "#061829",
+        "#0B2945",
+        "#36CCE9",
+        "#FFFFFF"
+      ],
+      "material": "Realistic navy fabric, white safety helmets, galvanized MEP steel; native mechanical elements are vector illustrations",
+      "negative": [
+        "Gibberish lettering",
+        "AI redrawn company logos",
+        "Extra people or fingers",
+        "Fake transparent checkerboard",
+        "Overloaded HUDs",
+        "Invented live measurements"
+      ],
+      "provenance": "Reconstructed production brief from the session handoff; not a verbatim API prompt log. No model version or seed was returned."
+    },
+    {
+      "id": "A02",
+      "output": "assets/generated/A02-engineers-tablet.png",
+      "finalUse": "assets/brand/A02-engineers-branded.svg",
+      "method": "imagegen edit reconstruction plus native original-logo overlay",
+      "originalToolOutput": "exec-b2192298-5623-4457-aa5e-9d41495e7ebd.png",
+      "actualPixels": [
+        1332,
+        1181
+      ],
+      "subject": "Same male and female engineers sharing one tablet, white hard hats, blue check shirts, navy safety vests",
+      "composition": "Waist-up isolated full paired silhouette, preserve faces, hands and tablet; clear helmet and chest areas for supplied exact artwork",
+      "aspect": "Portrait-leaning isolated layer; keep original proportions",
+      "transparency": true,
+      "text_content": [],
+      "brand": "Generate clean PPE, then embed original PNG logo bytes using scripts/build-brand.cjs and brand-placement.json; no invented glyphs",
+      "style": "Navy–Cyan corporate engineering editorial, matching references/navy-cyan-canvas-source.png",
+      "lighting": "Cool construction-site daylight, controlled highlights, restrained cyan accents",
+      "palette": [
+        "#061829",
+        "#0B2945",
+        "#36CCE9",
+        "#FFFFFF"
+      ],
+      "material": "Realistic navy fabric, white safety helmets, galvanized MEP steel; native mechanical elements are vector illustrations",
+      "negative": [
+        "Gibberish lettering",
+        "AI redrawn company logos",
+        "Extra people or fingers",
+        "Fake transparent checkerboard",
+        "Overloaded HUDs",
+        "Invented live measurements"
+      ],
+      "provenance": "Reconstructed production brief from the session handoff; not a verbatim API prompt log. No model version or seed was returned."
+    },
+    {
+      "id": "A03",
+      "output": "assets/generated/A03-bim-mep-module.png",
+      "method": "imagegen isolated illustrative module",
+      "originalToolOutput": "exec-c273cefd-a80e-4521-a453-8f5afff7fe1c.png",
+      "actualPixels": [
+        1448,
+        1086
+      ],
+      "subject": "One floating BIM/MEP assembly, cyan frame with blue ducts and service pipes",
+      "composition": "Isometric complete module on transparent background, unclipped silhouette",
+      "aspect": "4:3 asset canvas",
+      "transparency": true,
+      "text_content": [],
+      "usage": "Material/lighting reference or rigid 2D layer; use separate M01–M06 vectors for true layer assembly",
+      "style": "Navy–Cyan corporate engineering editorial, matching references/navy-cyan-canvas-source.png",
+      "lighting": "Cool construction-site daylight, controlled highlights, restrained cyan accents",
+      "palette": [
+        "#061829",
+        "#0B2945",
+        "#36CCE9",
+        "#FFFFFF"
+      ],
+      "material": "Realistic navy fabric, white safety helmets, galvanized MEP steel; native mechanical elements are vector illustrations",
+      "negative": [
+        "Gibberish lettering",
+        "AI redrawn company logos",
+        "Extra people or fingers",
+        "Fake transparent checkerboard",
+        "Overloaded HUDs",
+        "Invented live measurements"
+      ],
+      "provenance": "Reconstructed production brief from the session handoff; not a verbatim API prompt log. No model version or seed was returned."
+    },
+    {
+      "id": "A04",
+      "output": "assets/generated/A04-dashboard-panels.png",
+      "method": "imagegen isolated illustration",
+      "originalToolOutput": "exec-3c404870-de27-4171-b5a9-fb6ce40787dc.png",
+      "actualPixels": [
+        1448,
+        1086
+      ],
+      "subject": "Four navy glass-like dashboard panes with cyan charts and no words or numbers",
+      "composition": "One coherent isolated screen cluster, calm balanced chart shapes",
+      "aspect": "4:3 asset canvas",
+      "transparency": true,
+      "text_content": [],
+      "usage": "Decorative dashboard, not evidence of actual project metrics",
+      "style": "Navy–Cyan corporate engineering editorial, matching references/navy-cyan-canvas-source.png",
+      "lighting": "Cool construction-site daylight, controlled highlights, restrained cyan accents",
+      "palette": [
+        "#061829",
+        "#0B2945",
+        "#36CCE9",
+        "#FFFFFF"
+      ],
+      "material": "Realistic navy fabric, white safety helmets, galvanized MEP steel; native mechanical elements are vector illustrations",
+      "negative": [
+        "Gibberish lettering",
+        "AI redrawn company logos",
+        "Extra people or fingers",
+        "Fake transparent checkerboard",
+        "Overloaded HUDs",
+        "Invented live measurements"
+      ],
+      "provenance": "Reconstructed production brief from the session handoff; not a verbatim API prompt log. No model version or seed was returned."
+    },
+    {
+      "id": "A05",
+      "output": "assets/generated/A05-cyan-ribbon.svg",
+      "method": "native SVG from animation/build-assets.cjs",
+      "actualPixelsForPNG": [
+        1920,
+        1080
+      ],
+      "subject": "One restrained cyan curve crossing the lower visual field",
+      "composition": "Full canvas overlay behind text and people",
+      "aspect": "16:9; recompose vertically in portrait",
+      "transparency": true,
+      "text_content": [],
+      "usage": "Animate path reveal or frame-based small offset; avoid a bright line crossing text",
+      "style": "Navy–Cyan corporate engineering editorial, matching references/navy-cyan-canvas-source.png",
+      "lighting": "Cool construction-site daylight, controlled highlights, restrained cyan accents",
+      "palette": [
+        "#061829",
+        "#0B2945",
+        "#36CCE9",
+        "#FFFFFF"
+      ],
+      "material": "Realistic navy fabric, white safety helmets, galvanized MEP steel; native mechanical elements are vector illustrations",
+      "negative": [
+        "Gibberish lettering",
+        "AI redrawn company logos",
+        "Extra people or fingers",
+        "Fake transparent checkerboard",
+        "Overloaded HUDs",
+        "Invented live measurements"
+      ],
+      "provenance": "Reconstructed production brief from the session handoff; not a verbatim API prompt log. No model version or seed was returned."
+    },
+    {
+      "id": "A06",
+      "output": "assets/generated/A06-network-lines.svg",
+      "method": "native SVG from animation/build-assets.cjs",
+      "actualPixelsForPNG": [
+        1920,
+        1080
+      ],
+      "subject": "Sparse technical nodes and connecting lines",
+      "composition": "Lower background layer, low opacity, no clutter over text",
+      "aspect": "16:9 source overlay with portrait adaptation",
+      "transparency": true,
+      "text_content": [],
+      "usage": "Frame-deterministic connection emphasis; illustrative only",
+      "style": "Navy–Cyan corporate engineering editorial, matching references/navy-cyan-canvas-source.png",
+      "lighting": "Cool construction-site daylight, controlled highlights, restrained cyan accents",
+      "palette": [
+        "#061829",
+        "#0B2945",
+        "#36CCE9",
+        "#FFFFFF"
+      ],
+      "material": "Realistic navy fabric, white safety helmets, galvanized MEP steel; native mechanical elements are vector illustrations",
+      "negative": [
+        "Gibberish lettering",
+        "AI redrawn company logos",
+        "Extra people or fingers",
+        "Fake transparent checkerboard",
+        "Overloaded HUDs",
+        "Invented live measurements"
+      ],
+      "provenance": "Reconstructed production brief from the session handoff; not a verbatim API prompt log. No model version or seed was returned."
+    },
+    {
+      "id": "MECHANICAL",
+      "output": "assets/mechanical/",
+      "method": "native SVG plus browser rasterization",
+      "subject": "Separate base, frame, duct, pipes, tray, control panel, plus assembly fixture when listed in final manifest",
+      "composition": "Shared isometric coordinates; preserve common canvas so all parts align exactly",
+      "aspect": "Shared 1000×800 part canvas",
+      "transparency": true,
+      "text_content": [],
+      "usage": "See parts.json, motion-scenes.json, animation/preview.js; each layer arrives, aligns, locks, activates",
+      "style": "Navy–Cyan corporate engineering editorial, matching references/navy-cyan-canvas-source.png",
+      "lighting": "Cool construction-site daylight, controlled highlights, restrained cyan accents",
+      "palette": [
+        "#061829",
+        "#0B2945",
+        "#36CCE9",
+        "#FFFFFF"
+      ],
+      "material": "Realistic navy fabric, white safety helmets, galvanized MEP steel; native mechanical elements are vector illustrations",
+      "negative": [
+        "Gibberish lettering",
+        "AI redrawn company logos",
+        "Extra people or fingers",
+        "Fake transparent checkerboard",
+        "Overloaded HUDs",
+        "Invented live measurements"
+      ],
+      "provenance": "Reconstructed production brief from the session handoff; not a verbatim API prompt log. No model version or seed was returned."
+    }
+  ]
+}

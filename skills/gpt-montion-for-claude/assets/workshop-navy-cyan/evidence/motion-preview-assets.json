@@ -1,0 +1,225 @@
+{
+  "verification": "Decoded actual Chrome PNG scanlines; native SVG illustrations rasterized without background",
+  "assets": [
+    {
+      "file": "assets/mechanical/assembly-complete.png",
+      "width": 1000,
+      "height": 800,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "d0578e77490f4faec3bdcc24169efa9b3c3c75121a0a3ece1f6d5fe7281b634f",
+      "alpha": {
+        "transparentPixels": 493361,
+        "partialPixels": 11499,
+        "opaquePixels": 295140
+      },
+      "contentBounds": {
+        "x": 13,
+        "y": 39,
+        "width": 878,
+        "height": 758
+      },
+      "transparentCorners": true
+    },
+    {
+      "file": "assets/mechanical/M01-base.png",
+      "width": 1000,
+      "height": 800,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "8d1e57783f67359cd6bc80035c751256d5aef972608e5ef625cbb0e8fe759ed3",
+      "alpha": {
+        "transparentPixels": 654105,
+        "partialPixels": 2642,
+        "opaquePixels": 143253
+      },
+      "contentBounds": {
+        "x": 13,
+        "y": 407,
+        "width": 878,
+        "height": 390
+      },
+      "transparentCorners": true
+    },
+    {
+      "file": "assets/mechanical/M02-frame.png",
+      "width": 1000,
+      "height": 800,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "88c00965ff9d2fe5955f49c52a92168542fda5d623b6e6cf92c8ff586461fec1",
+      "alpha": {
+        "transparentPixels": 743446,
+        "partialPixels": 7610,
+        "opaquePixels": 48944
+      },
+      "contentBounds": {
+        "x": 40,
+        "y": 39,
+        "width": 827,
+        "height": 721
+      },
+      "transparentCorners": true
+    },
+    {
+      "file": "assets/mechanical/M03-duct.png",
+      "width": 1000,
+      "height": 800,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "9c8fbde7168e1738818161e0e5f88c2bebe9c41c7f56515ebf7ddf9333f1b007",
+      "alpha": {
+        "transparentPixels": 750501,
+        "partialPixels": 2141,
+        "opaquePixels": 47358
+      },
+      "contentBounds": {
+        "x": 131,
+        "y": 117,
+        "width": 634,
+        "height": 317
+      },
+      "transparentCorners": true
+    },
+    {
+      "file": "assets/mechanical/M04-pipes.png",
+      "width": 1000,
+      "height": 800,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "98df2f3f5a81753534b6ebb771e73240c98cdc8c95be2856ee7127a8d3d92c88",
+      "alpha": {
+        "transparentPixels": 758497,
+        "partialPixels": 3550,
+        "opaquePixels": 37953
+      },
+      "contentBounds": {
+        "x": 221,
+        "y": 199,
+        "width": 587,
+        "height": 407
+      },
+      "transparentCorners": true
+    },
+    {
+      "file": "assets/mechanical/M05-tray.png",
+      "width": 1000,
+      "height": 800,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "5a444d4de89802000e3a112c636b753902ab078726e824a63f565e3f3963e87e",
+      "alpha": {
+        "transparentPixels": 771318,
+        "partialPixels": 1592,
+        "opaquePixels": 27090
+      },
+      "contentBounds": {
+        "x": 100,
+        "y": 315,
+        "width": 560,
+        "height": 240
+      },
+      "transparentCorners": true
+    },
+    {
+      "file": "assets/mechanical/M06-control-panel.png",
+      "width": 1000,
+      "height": 800,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "77f433a688f6a11a55f660b3b1b48410d2db4eb992e31221fdee981bcd016522",
+      "alpha": {
+        "transparentPixels": 773437,
+        "partialPixels": 985,
+        "opaquePixels": 25578
+      },
+      "contentBounds": {
+        "x": 651,
+        "y": 342,
+        "width": 167,
+        "height": 241
+      },
+      "transparentCorners": true
+    },
+    {
+      "file": "assets/mechanical/M07-fixture.png",
+      "width": 1000,
+      "height": 800,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "25a396a61d47aae6ab38462ab07a541015ced20e01d008eec965f8724de46ad8",
+      "alpha": {
+        "transparentPixels": 779542,
+        "partialPixels": 1741,
+        "opaquePixels": 18717
+      },
+      "contentBounds": {
+        "x": 16,
+        "y": 144,
+        "width": 253,
+        "height": 537
+      },
+      "transparentCorners": true
+    },
+    {
+      "file": "assets/generated/A05-cyan-ribbon.png",
+      "width": 1920,
+      "height": 1080,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "31b71a7fdcd59aebb17c14f8b3a5dfd67a12d6c486e8a47ca1a21532fca0fcbb",
+      "alpha": {
+        "transparentPixels": 2040059,
+        "partialPixels": 29702,
+        "opaquePixels": 3839
+      },
+      "contentBounds": {
+        "x": 0,
+        "y": 689,
+        "width": 1920,
+        "height": 244
+      },
+      "transparentCorners": true
+    },
+    {
+      "file": "assets/generated/A06-network-lines.png",
+      "width": 1920,
+      "height": 1080,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "25eb3d335c3f740aca246fa4bb24d79af24c3b070811f24d8230f03a2d081c53",
+      "alpha": {
+        "transparentPixels": 2051241,
+        "partialPixels": 22359,
+        "opaquePixels": 0
+      },
+      "contentBounds": {
+        "x": 87,
+        "y": 697,
+        "width": 1833,
+        "height": 383
+      },
+      "transparentCorners": true
+    },
+    {
+      "file": "assets/brand/A02-engineers-branded.png",
+      "width": 1332,
+      "height": 1181,
+      "bitDepth": 8,
+      "colorType": 6,
+      "sha256": "8f096f3ba7c52dc6610c9d3e66fd60fdf41ef67466ba50df14161d5cdb57d120",
+      "alpha": {
+        "transparentPixels": 538059,
+        "partialPixels": 1027223,
+        "opaquePixels": 7810
+      },
+      "contentBounds": {
+        "x": 0,
+        "y": 2,
+        "width": 1332,
+        "height": 1179
+      },
+      "transparentCorners": true
+    }
+  ]
+}

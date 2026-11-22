@@ -1,0 +1,79 @@
+{
+  "status": "Native editable 2.5D isometric vector illustration; not extracted Revit geometry",
+  "viewBox": [
+    0,
+    0,
+    1000,
+    800
+  ],
+  "layerOrder": [
+    "M01-base",
+    "M02-frame",
+    "M03-duct",
+    "M04-pipes",
+    "M05-tray",
+    "M06-control-panel"
+  ],
+  "parts": [
+    {
+      "id": "M01-base",
+      "svg": "assets/mechanical/M01-base.svg",
+      "png": "assets/mechanical/M01-base.png",
+      "arrivalSeconds": 5,
+      "offset": [
+        0,
+        125
+      ]
+    },
+    {
+      "id": "M02-frame",
+      "svg": "assets/mechanical/M02-frame.svg",
+      "png": "assets/mechanical/M02-frame.png",
+      "arrivalSeconds": 5.23,
+      "offset": [
+        -85,
+        -130
+      ]
+    },
+    {
+      "id": "M03-duct",
+      "svg": "assets/mechanical/M03-duct.svg",
+      "png": "assets/mechanical/M03-duct.png",
+      "arrivalSeconds": 5.46,
+      "offset": [
+        95,
+        -210
+      ]
+    },
+    {
+      "id": "M04-pipes",
+      "svg": "assets/mechanical/M04-pipes.svg",
+      "png": "assets/mechanical/M04-pipes.png",
+      "arrivalSeconds": 5.69,
+      "offset": [
+        -180,
+        -40
+      ]
+    },
+    {
+      "id": "M05-tray",
+      "svg": "assets/mechanical/M05-tray.svg",
+      "png": "assets/mechanical/M05-tray.png",
+      "arrivalSeconds": 5.92,
+      "offset": [
+        180,
+        -100
+      ]
+    },
+    {
+      "id": "M06-control-panel",
+      "svg": "assets/mechanical/M06-control-panel.svg",
+      "png": "assets/mechanical/M06-control-panel.png",
+      "arrivalSeconds": 6.15,
+      "offset": [
+        170,
+        70
+      ]
+    }
+  ]
+}

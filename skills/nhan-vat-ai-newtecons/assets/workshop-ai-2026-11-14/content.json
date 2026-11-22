@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "role": "Verification snapshot of the approved content in scripts/PosterRenderer.cs; not an alternative scheduling engine.",
+  "event": {
+    "title": "TIMELINE WORKSHOP AI",
+    "date": "2026-11-14",
+    "location": "12A NEWTECONS",
+    "department": "KHỐI CƠ ĐIỆN",
+    "start": "08:30",
+    "end": "11:00",
+    "duration_minutes": 150,
+    "timing_source": "Lịch giữ từ mẫu người dùng đã chọn; chưa xác nhận độc lập với ban tổ chức."
+  },
+  "sections": [
+    {
+      "id": "opening",
+      "title": "MỞ ĐẦU",
+      "start": "08:30",
+      "end": "08:55",
+      "children": [
+        {
+          "id": "opening-1",
+          "start": "08:30",
+          "end": "08:40",
+          "title": "VÕ THANH CANG",
+          "subtitle": "Giám đốc Khối Cơ Điện chia sẻ"
+        },
+        {
+          "id": "opening-2",
+          "start": "08:40",
+          "end": "08:55",
+          "title": "Minigame: Giải mã công trường AI",
+          "subtitle": "Quà hấp dẫn"
+        }
+      ]
+    },
+    {
+      "id": "part1",
+      "title": "ỨNG DỤNG AI THỰC TẾ Ở CÔNG TRƯỜNG",
+      "start": "08:55",
+      "end": "10:15",
+      "children": [
+        {
+          "id": "part1-1",
+          "start": "08:55",
+          "end": "09:10",
+          "title": "1. Claude – Trợ lý văn phòng công trường",
+          "presenter": "Trình bày: Trần Dương Hồng Quân - Dự án: Sân bay Long Thành"
+        },
+        {
+          "id": "part1-2",
+          "start": "09:10",
+          "end": "09:25",
+          "title": "2. Claude – Trợ thủ đắc lực cho QS",
+          "presenter": "Trình bày: Nguyễn Văn Hải - Dự án: The One Sài Gòn"
+        },
+        {
+          "id": "part1-3",
+          "start": "09:25",
+          "end": "09:40",
+          "title": "3. Dashboard – Tiến độ, T&C và hồ sơ trong tầm tay",
+          "presenter": "Trình bày: Nguyễn Đình Thiệu - Dự án: Sân bay Long Thành"
+        },
+        {
+          "id": "part1-4",
+          "start": "09:40",
+          "end": "09:55",
+          "title": "4. AI – Kiến tạo công cụ quản lý công trường",
+          "presenter": "Trình bày: Nguyễn Thanh Hoàng - Dự án: Bason"
+        },
+        {
+          "id": "part1-5",
+          "start": "09:55",
+          "end": "10:15",
+          "title": "5. AI Agent – Triển khai bản vẽ, tính tổn thất ống gió",
+          "presenter": "Trình bày: Phạm Phi Long & Ngô Ngọc Sơn - Văn phòng: Khối Kỹ Thuật"
+        }
+      ]
+    },
+    {
+      "id": "part2",
+      "title": "ỨNG DỤNG AI CÓ TRÁCH NHIỆM",
+      "start": "10:15",
+      "end": "10:50",
+      "presenter": "Trình bày: Trương Quang Vinh - Văn phòng: P.CNTT",
+      "children": [
+        {
+          "id": "part2-1",
+          "title": "(1)  Các cấp độ ứng dụng AI"
+        },
+        {
+          "id": "part2-2",
+          "title": "(2)  Phân biệt AI cá nhân và AI doanh nghiệp"
+        },
+        {
+          "id": "part2-3",
+          "title": "(3)  Hướng dẫn sử dụng AI có trách nhiệm"
+        },
+        {
+          "id": "part2-4",
+          "title": "(4)  Giới thiệu câu lạc bộ AI HST"
+        }
+      ]
+    },
+    {
+      "id": "part3",
+      "title": "TỔNG KẾT",
+      "start": "10:50",
+      "end": "11:00",
+      "children": []
+    }
+  ],
+  "qr": {
+    "placement": "below_part3",
+    "decoded_value": "https://q.me-qr.com/k3x1m00q"
+  },
+  "glyph_lock": {
+    "word": "tầm",
+    "codepoints": [
+      "U+0074",
+      "U+1EA7",
+      "U+006D"
+    ],
+    "warning": "ầ = â + dấu huyền. Không thay bằng ằ hoặc ẵ."
+  }
+}

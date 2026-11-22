@@ -1,0 +1,32 @@
+NEWTECONS WORKSHOP AI — TWO ADDITIONAL OPTIONS
+2026-11-05 (Asia/Bangkok)
+
+DELIVERABLES: two design concepts, each portrait2160x3840 and landscape3840x2160.
+Option01 Editorial: white, navy, restrainedbrandred, naturaloutdoorconstructionphoto, large headline andredAI/dateaccent.
+Option02 Signature Navy: deepnavy,whiteheadline/redAI, naturalphysicalMEPfloorphoto; landscape uses3columnagenda andportraittimesonright.
+Allagenda strings inheritedfromcanonicalPosterRendererdata; noinventednewclaims.
+Typography drawnwithnativefonts atfinal4Kcanvas sizes,5titlesboldsingleline,presenterlines smalleritalic.
+OriginalbrandlogoandoriginalQR embedded. No priorposterbitmapusedasoutputbase.
+Photos createdusingbuilt-inimage_gen fromoriginaluserphotoandbrandreferences, not real-event documentary photographs.
+AssetA2020x778, assetB1998x787; these photographicassets are notnativefull-frame4Kphotographs.
+
+VALIDATION
+Independentvisualcritic inspected4PNGs: no blockingvisualgap, confirmslegibletitles/metadata,correct'tầm',helmetswithlegibleNEWTECONS, noextrastandaloneword, noAIhologram/neon/icons.
+CriticpreferredOption02landscape forstrongerfocalpoint; thisisadesignjudgment,notguaranteeduserpreference.
+C#code review andnativeAdd-Typecompilationpassed.
+QR/footerplacementissue inEditoriallandscapefixed: QRy1810size285,paddedbottom2110; footerstarts2116.
+163textwidthrecords and163canvasboundrecords reportnofailures; thesechecksarenotall-pairsoverlaptests.
+Rootverified4PNGdimensions andOpenCVQRdecodedall4todestinationmatchingoriginalhttps://q.me-qr.com/k3x1m00q.
+Downloads copies verifiedagainstsourceSHA256hash.
+Zip contains4finalPNGs.
+
+PHOTO PROMPT A
+Create a new high-detail photographic asset for a premium NEWTECONS engineering workshop poster. PHOTOGRAPH ONLY, no poster text, no headings, no giant floating brand logo, no UI. Use the supplied original engineer photograph ONLY as identity and uniform reference; keep the same two Vietnamese engineers and authentic blue/navy workwear, white hard hats, natural faces, believable hands, and a tablet. Use supplied exact NEWTECONS logo as branding reference: red N above blue NEWTECONS on each helmet, accurately spelled and small but clearly legible, white logo on vest. Never invent letters.
+The user expressly wants this to look LESS AI-generated: professional human corporate editorial photography, real construction materials, natural skin texture and eye expression, believable physical architecture and pipes, documentary camera perspective. Completely remove holograms, glowing BIM wireframes, neon lights, floating interfaces and virtual buildings. No excessive retouching or plastic faces, no lens flare, no decorative icons. Real daylight, restrained corporate color, strong composition, clean details. Landscape wide banner about2.6:1, highest native detail, target3840x1472 if possible. Keep both helmets entirely in frame with reasonable breathing space. Any logos must use the official source proportions.
+OPTION A photography direction: premium architectural magazine reportage on an active open-air construction site. The two engineers in a candid collaborative moment reviewing the tablet, three-quarter chest-up framing, naturally smiling, positioned slightly right of center. Behind them real steel/concrete structure, crane and scaffold lines form clean architectural geometry, softly receding into depth. Bright neutral daylight, clean whites and navy, natural muted blue sky. A little asymmetrical open space at left for architectural context, no writing. Calm, assured, precise and sophisticated.
+
+PHOTO PROMPT B
+Create a new high-detail photographic asset for a premium NEWTECONS engineering workshop poster. PHOTOGRAPH ONLY, no poster text, no headings, no giant floating brand logo, no UI. Use the supplied original engineer photograph ONLY as identity and uniform reference; keep the same two Vietnamese engineers and authentic blue/navy workwear, white hard hats, natural faces, believable hands, and a tablet. Use supplied exact NEWTECONS logo as branding reference: red N above blue NEWTECONS on each helmet, accurately spelled and small but clearly legible, white logo on vest. Never invent letters.
+The user expressly wants this to look LESS AI-generated: professional human corporate editorial photography, real construction materials, natural skin texture and eye expression, believable physical architecture and pipes, documentary camera perspective. Completely remove holograms, glowing BIM wireframes, neon lights, floating interfaces and virtual buildings. No excessive retouching or plastic faces, no lens flare, no decorative icons. Real daylight, restrained corporate color, strong composition, clean details. Landscape wide banner about2.6:1, highest native detail, target3840x1472 if possible. Keep both helmets entirely in frame with reasonable breathing space. Any logos must use the official source proportions.
+OPTION B photography direction: a different real corporate editorial shot inside a large unfinished commercial building's MEP services level. The same engineers reviewing a tablet beneath real galvanized silver ventilation ducts, structural beams, and organized physical service pipes. Daylight from a broad opening softly lights the faces; the background is a little darker but realistic, with strong depth and architectural lines. Medium close composition with the engineers centered, believable candid working expressions. Rich restrained navy uniforms, neutral gray structure, natural skin. Visually confident and cinematic through composition only, no glow, no unreal volumetric light, no fantasy. Helmets and exact NEWTECONS marks clean and readable.
+

@@ -1,0 +1,26 @@
+{
+  "kind": "design_contract_not_renderer_api",
+  "version": "2026-11-12",
+  "company": "NEWTECONS",
+  "header_department_text": "KHỐI CƠ ĐIỆN",
+  "wardrobe_department_text": null,
+  "department_policy": "Header and wardrobe are separate Unicode layers. Change only the requested layer; preserve agenda project/department strings.",
+  "tagline_exact": "Build on trust",
+  "tagline_characters": ["B", "u", "i", "l", "d", " ", "o", "n", " ", "t", "r", "u", "s", "t"],
+  "wordmark_characters": ["N", "E", "W", "T", "E", "C", "O", "N", "S"],
+  "required_source_elements": ["N symbol", "NEWTECONS wordmark", "registered mark where present", "blue rule", "Build on trust"],
+  "source_assets": {
+    "helmet_full_color": "assets/newtecons-full-color.png",
+    "vest_full_white": "assets/newtecons-full-white.png",
+    "n_geometry_reference": "assets/newtecons-n-symbol.png",
+    "historical_horizontal_header": "../assets/newtecons-original-logo.png"
+  },
+  "vector_status": "no_verified_official_vector_in_package",
+  "vector_rebuild_policy": "If required, reconstruct and independently compare each glyph/path to the clean source; label reconstructed_candidate, never official_vector without provenance.",
+  "final_canvases": [[2160, 3840], [3840, 2160]],
+  "audit_dimensions": ["readability", "geometry", "source_fidelity", "clearspace"],
+  "audit_values": ["PASS", "FAIL", "UNCERTAIN"],
+  "historical_poster_logo_fix_applied": false,
+  "instructions": "README.md",
+  "latest_logo_audit": "../evidence/logo-audit-2026-11-12.md"
+}

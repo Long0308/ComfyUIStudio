@@ -1,0 +1,33 @@
+{
+  "generatedAt": "2026-11-12T02:46:17.993Z",
+  "contiguous": true,
+  "eventDurationMinutes": 150,
+  "sections": [
+    {
+      "id": "opening",
+      "start": "08:30",
+      "end": "08:55",
+      "durationMinutes": 25
+    },
+    {
+      "id": "part1",
+      "start": "08:55",
+      "end": "10:15",
+      "durationMinutes": 80
+    },
+    {
+      "id": "part2",
+      "start": "10:15",
+      "end": "10:50",
+      "durationMinutes": 35
+    },
+    {
+      "id": "part3",
+      "start": "10:50",
+      "end": "11:00",
+      "durationMinutes": 10
+    }
+  ],
+  "part2Children": "No individual time slots specified in canonical; none invented.",
+  "scope": "Consistency of saved source; not organizer confirmation."
+}

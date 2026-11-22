@@ -1,0 +1,11 @@
+{
+  "skill": "gpt-montion-for-claude",
+  "packageVersion": "1.0.0",
+  "example": "assets/workshop-navy-cyan",
+  "sourceArchiveSha256": "9D0C9E3636D778D50F9539EC281D302C50A07DF966586D5D71309930C41AAEF0",
+  "actualAssetFiles": 98,
+  "textPairs": 34,
+  "copiedFiles": 190,
+  "provenance": "Snapshot of the verified Workshop intro kit; source project kept at user output directory",
+  "generatedAtUtc": "2026-11-12T02:58:24.8805940Z"
+}

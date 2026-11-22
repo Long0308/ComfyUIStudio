@@ -220,3 +220,7 @@ Trước khi `worker` sửa một file C# hoặc cấu hình hệ thống:
 * Đã lưu toàn bộ bài học và mốc nghiệm thu vào 2 bank:
   - `may-agent-memory` (Bank tri thức kỹ thuật & Cloudflare của BIM-02).
   - `may-61-setupagent` (Bank quản trị hệ sinh thái SetupAgent).
+
+## Bàn giao 19–20/11/2026 (CDE Newtecons)
+- Bán cầu phải: 4 fact chọn lọc vào `may-agent-memory` (env fail-closed r25, PDFCraft basePath/AGPL, live-status neon, giới hạn lane Codex); đọc lại bằng neo, xem `hindsight-ky-uc-phan-tang`.
+- Bán cầu trái (Cognee): **held** theo PLAN CTX-F12 / HANDOVER R95 — phiên này KHÔNG ingest, KHÔNG retry engine; capsule nguồn giữ ở `newteconsrevitsever/docs/HANDOVER-2026-11-19-20-cde-r57-r59-pdfcraft.md` để ingest khi gỡ hold.

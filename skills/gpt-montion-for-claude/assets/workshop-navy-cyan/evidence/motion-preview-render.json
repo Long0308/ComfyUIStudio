@@ -1,0 +1,173 @@
+{
+  "generatedAt": "2026-11-12T02:38:08.593Z",
+  "mode": "video",
+  "preview": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "frames": 600,
+    "durationSeconds": 20
+  },
+  "portrait": {
+    "width": 1080,
+    "height": 1920,
+    "delivery": "playable HTML and seven inspected sampled stills"
+  },
+  "sceneFrames": [
+    [
+      0,
+      60
+    ],
+    [
+      60,
+      150
+    ],
+    [
+      150,
+      240
+    ],
+    [
+      240,
+      330
+    ],
+    [
+      330,
+      390
+    ],
+    [
+      390,
+      480
+    ],
+    [
+      480,
+      600
+    ]
+  ],
+  "determinism": [
+    {
+      "frame": 185,
+      "hash": "dad275f9fce0fa5cdf3cd2c9237d3b88a173207761c84dfac6c69434edfe38e1",
+      "matchesFirst": true
+    },
+    {
+      "frame": 0,
+      "hash": "660c571d5d547682e6be1ad412c731173394b37fba55ca03899f93fc904131bd",
+      "matchesFirst": true
+    },
+    {
+      "frame": 599,
+      "hash": "14e6d6225a97f504dd92a303230852047a678292ec9934b4a12e3a53d9b37744",
+      "matchesFirst": true
+    },
+    {
+      "frame": 90,
+      "hash": "a5d383ee9767780c9b660277cc501421c9a14173b8506541fcfd32bece336384",
+      "matchesFirst": true
+    },
+    {
+      "frame": 185,
+      "hash": "dad275f9fce0fa5cdf3cd2c9237d3b88a173207761c84dfac6c69434edfe38e1",
+      "matchesFirst": true
+    }
+  ],
+  "resourceFailures": [],
+  "assetResourceDimensions": [
+    {
+      "src": "../assets/generated/A01-site-background.png",
+      "ok": true,
+      "width": 2172,
+      "height": 724
+    },
+    {
+      "src": "../assets/generated/A06-network-lines.svg",
+      "ok": true,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "src": "../assets/generated/A05-cyan-ribbon.svg",
+      "ok": true,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "src": "../references/navy-cyan-canvas-source.png",
+      "ok": true,
+      "width": 2172,
+      "height": 724
+    },
+    {
+      "src": "../assets/brand/company-logo-horizontal.png",
+      "ok": true,
+      "width": 1508,
+      "height": 373
+    },
+    {
+      "src": "../assets/brand/A02-engineers-branded.svg",
+      "ok": true,
+      "width": 1332,
+      "height": 1181
+    },
+    {
+      "src": "../assets/generated/A04-dashboard-panels.png",
+      "ok": true,
+      "width": 1448,
+      "height": 1086
+    }
+  ],
+  "sampleFrames": [
+    0,
+    59,
+    60,
+    90,
+    149,
+    150,
+    165,
+    185,
+    210,
+    239,
+    240,
+    270,
+    329,
+    330,
+    360,
+    389,
+    390,
+    420,
+    479,
+    480,
+    500,
+    599
+  ],
+  "hashes": {
+    "0": "660c571d5d547682e6be1ad412c731173394b37fba55ca03899f93fc904131bd",
+    "59": "e5d6f4710b5841465b037e863ffa23af46738f3436493dc71a3ef74887151ea4",
+    "60": "9370eaaaa346870fbac6d665f61b1d61f683adc75714f755ffa44393b59a7c14",
+    "90": "a5d383ee9767780c9b660277cc501421c9a14173b8506541fcfd32bece336384",
+    "149": "252bea0403e62429a1c2bf479427051293ee7c8755f32602a8226fcc4cd9d466",
+    "150": "94fdf4c9af79700ed5f961a0f377c2a64dc105242b125c7ade8e33b760c34013",
+    "165": "1dccb3f4067d9b3472185b4ca94a874fcde3b366f4b4e989abffb49aebbf8e9f",
+    "185": "dad275f9fce0fa5cdf3cd2c9237d3b88a173207761c84dfac6c69434edfe38e1",
+    "210": "a1e1273179f5f1212e7fa073fc92fa4eaffe28177e2679d41dcc7b7c201b2c98",
+    "239": "3ca709b42d7cd7807af12f70798f53faa9b3abcef0876a763fb4396ac33de598",
+    "240": "47a803ce6876f38b8208730b9e92eaefafdde551362297c4af3090a8b3f7052b",
+    "270": "95df1fc889b183cf3be17e3cdb8b070e011164f7593de40b77f0f546559be1f1",
+    "329": "4e32a9e3cbbdcaf94d6b3dbdad86781d80d389a0b23e378b427ae94722716b76",
+    "330": "79edc7c91e993a3eb611ec1073dd9327c1f7c81ca50aa9969b5f54dfdc950971",
+    "360": "78e5276b1692059a2f0d9edffa2030d6e56cdfe920deec22186b235afb14c354",
+    "389": "3ff69ed6c86f5c25798cb9094e8001bc65f3d97c36eb7eaf33ae318a1d2ae3aa",
+    "390": "4be1a9451cc5eff7583699cbb2a26a33d9459729785edde5378b18c7154cd0af",
+    "420": "d0bcf174e57d65a156b35923125499cde29d5fe1022abb485d7f737e66b200cb",
+    "479": "ad2faed8b4f3219a0eed11d9e185b7fbb469d962e19fc26303ab32e38554d737",
+    "480": "3e818be72693ed9258d86e1f61262439d13349ef27ad508e813739a51765fa13",
+    "500": "2b79573ba0ee3cffc8ff57e5a19012805ff2616f6162ba3ffe166f3e573af42a",
+    "599": "14e6d6225a97f504dd92a303230852047a678292ec9934b4a12e3a53d9b37744"
+  },
+  "limitations": [
+    "2.5D isometric vector illustration, not actual Revit geometry",
+    "Source photographs static; illustrative dashboards not measured traffic",
+    "Silent preview; no licensed audio supplied",
+    "1080p preview; no native4K claim",
+    "Portrait typography preserves entire outlined phrases; no clipping of Vietnamese graphemes"
+  ]
+}

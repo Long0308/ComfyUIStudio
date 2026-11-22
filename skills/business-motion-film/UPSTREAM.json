@@ -1,0 +1,11 @@
+{
+  "repository": "https://github.com/echris6/motion-video-kit",
+  "commit": "255562b04b1e5ecaa4ba98e5c9aa191d5ba7f6fa",
+  "path": "business-motion-film",
+  "installedAtDate": "2026-10-03",
+  "license": "MIT",
+  "localChanges": ["SKILL.md: SetupAgent integration scope", "references/setupagent-integration.md: renderer and ownership contract"],
+  "scope": "workspace only; no user-global skill or model configuration writes",
+  "renderer": "Remotion",
+  "qualityOwner": "independent critic"
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "filename": "RobotoCondensed-Bold.ttf",
+    "bytes": 169044,
+    "sha256": "32E42D57A7A9E62DD943722D5ECE99AF4736FBD11A9927CF07378299C117D3BD"
+  },
+  {
+    "filename": "RobotoCondensed-BoldItalic.ttf",
+    "bytes": 175112,
+    "sha256": "914A53960E2B6EE4427D591E441C471D08299B7E36558FB163A94D488EB98138"
+  },
+  {
+    "filename": "RobotoCondensed-Italic.ttf",
+    "bytes": 174428,
+    "sha256": "776BFB34E9311C23DCB64137EA81FF49056B13CCE7212E4F71870EBE01653E4E"
+  },
+  {
+    "filename": "RobotoCondensed-Regular.ttf",
+    "bytes": 169544,
+    "sha256": "077394DE64AD30E64BE10ED6464A7C281427DEC2C22E3080043F78C221333BFE"
+  }
+]

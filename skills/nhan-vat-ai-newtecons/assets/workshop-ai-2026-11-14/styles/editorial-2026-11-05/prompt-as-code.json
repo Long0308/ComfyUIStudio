@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "id": "editorial-2026-11-05",
+  "type": "poster",
+  "starting_point": "Historical source packaging and native layout reproduction",
+  "pipeline": "archived photo + original logo/QR + native final-canvas typography",
+  "provenance": {
+    "historical_date": "2026-11-05",
+    "packaged_date": "2026-11-12",
+    "source_workspace": "%USERPROFILE%\\.codex\\visualizations\\2026\\11\\05\\01a1a9ae-ce30-7a70-a1a5-ce36d3649cb1",
+    "source_prompt": "../../evidence/legacy-options-design-audit-and-prompts.txt",
+    "historical_photo_prompt_available": true,
+    "photo_prompt_note": "The text below is transcribed from the historical note. Exact generation model, seed, original identity-reference path/hash, and ordered generation payload are not verified; none is invented here.",
+    "renderer_source": "../../scripts/OptionsRenderer.cs",
+    "shared_renderer": "../../scripts/PosterRenderer.cs",
+    "source_policy": "Archived heroes and final PNGs copied byte-for-byte; no image generation, logo repair or poster redesign in this packaging run."
+  },
+  "subject": "Workshop AI NEWTECONS, exactly two Vietnamese engineers (one man and one woman) collaborating around one tablet, with the canonical agenda.",
+  "style": "Premium corporate editorial layout with white canvas, navy headings, restrained red AI/date accents and outdoor construction photography.",
+  "composition": {
+    "portrait": "Logo and header, large headline, outdoor hero, opening, Part 1, Part 2, Part 3 and QR arranged top to bottom; left time column.",
+    "landscape": "Logo/headline left, outdoor hero upper-right; opening and Part 1 left; Part 2 and Part 3 right.",
+    "hero_fit": "Cover crop, scale=max(destination_width/source_width,destination_height/source_height), centered; original implementation preserved.",
+    "measured_hero_placements": [
+      {
+        "scale": 0.998019801980198,
+        "height": 752,
+        "source_width": 2020,
+        "format": "9:16",
+        "width": 2016,
+        "source_height": 778
+      },
+      {
+        "scale": 0.9356435643564357,
+        "height": 704,
+        "source_width": 2020,
+        "format": "16:9",
+        "width": 1890,
+        "source_height": 778
+      }
+    ]
+  },
+  "lighting": "Natural daylight in the archived construction photograph; native opaque poster typography. These are observed/directed lighting properties, not verified real-camera EXIF.",
+  "palette": [
+    "#FFFFFF",
+    "#0A2540",
+    "#E6302C",
+    "#224674"
+  ],
+  "material": "Natural skin, white hardhat plastic, blue gingham and navy workwear, concrete and real metal; text rasterized with real fonts on final pixel canvas.",
+  "aspect": "9:16 = 2160 x 3840; 16:9 = 3840 x 2160",
+  "negative": [
+    "No whole-poster bitmap enlargement",
+    "No fabricated agenda/time intervals",
+    "No generated QR",
+    "No extra standalone NEWTECONS header wordmark",
+    "No invented model or seed",
+    "Do not claim small helmet/vest logo fidelity from historical notes or hash equality",
+    "Do not silently change archived hero crop or photo scale"
+  ],
+  "text_content_ref": "../../content.json",
+  "text_content": [
+    "KHỐI CƠ ĐIỆN",
+    "TIMELINE",
+    "14.11.2026",
+    "WORKSHOP",
+    "AI",
+    "12A NEWTECONS   |   08:30 – 11:00",
+    "MỞ ĐẦU",
+    "08:30 – 08:40",
+    "VÕ THANH CANG",
+    "Giám đốc Khối Cơ Điện chia sẻ",
+    "08:40 – 08:55",
+    "Minigame: Giải mã công trường AI",
+    "Quà hấp dẫn",
+    "PHẦN 1",
+    "ỨNG DỤNG AI THỰC TẾ Ở CÔNG TRƯỜNG",
+    "08:55 – 09:10",
+    "1. Claude – Trợ lý văn phòng công trường",
+    "Trình bày: Trần Dương Hồng Quân - Dự án: Sân bay Long Thành",
+    "09:10 – 09:25",
+    "2. Claude – Trợ thủ đắc lực cho QS",
+    "Trình bày: Nguyễn Văn Hải - Dự án: The One Sài Gòn",
+    "09:25 – 09:40",
+    "3. Dashboard – Tiến độ, T&C và hồ sơ trong tầm tay",
+    "Trình bày: Nguyễn Đình Thiệu - Dự án: Sân bay Long Thành",
+    "09:40 – 09:55",
+    "4. AI – Kiến tạo công cụ quản lý công trường",
+    "Trình bày: Nguyễn Thanh Hoàng - Dự án: Bason",
+    "09:55 – 10:15",
+    "5. AI Agent – Triển khai bản vẽ, tính tổn thất ống gió",
+    "Trình bày: Phạm Phi Long & Ngô Ngọc Sơn - Văn phòng: Khối Kỹ Thuật",
+    "PHẦN 2",
+    "10:15 – 10:50",
+    "ỨNG DỤNG AI CÓ TRÁCH NHIỆM",
+    "Trình bày: Trương Quang Vinh - Văn phòng: P.CNTT",
+    "(1)  Các cấp độ ứng dụng AI",
+    "(2)  Phân biệt AI cá nhân và AI doanh nghiệp",
+    "(3)  Hướng dẫn sử dụng AI có trách nhiệm",
+    "(4)  Giới thiệu câu lạc bộ AI HST",
+    "PHẦN 3",
+    "10:50 – 11:00",
+    "TỔNG KẾT"
+  ],
+  "text_hierarchy": {
+    "headings": "Arial Bold",
+    "body": "Roboto Condensed",
+    "part1_titles": "Equal fitted Bold size within each format; one line each",
+    "presenters": "Smaller Italic, not Bold",
+    "source": "Exact coordinates and fitted sizes in shared OptionsRenderer.cs and newly generated layout audit."
+  },
+  "font_mood": "Condensed corporate sans body, large confident Arial headings, smaller italic metadata.",
+  "input_roles": [
+    {
+      "role": "Actual archived photo used unchanged by native renderer; use as recreation reference only if new image generation is separately requested.",
+      "path": "assets/option-01-natural-site.png"
+    },
+    {
+      "role": "Original wide header brand logo; not proof of small physical helmet-logo geometry.",
+      "path": "../../assets/newtecons-original-logo.png"
+    },
+    {
+      "role": "Original QR pixels; renderer crop (100,0,800,800).",
+      "path": "../../assets/original-workshop-qr.jpg"
+    }
+  ],
+  "change_contract": {
+    "target": "Self-contained historical style package",
+    "change": "Relocate wrapper and add documentation/provenance",
+    "preserve": "Exact original hero, four archived final PNGs, agenda, logo/QR and native layout source",
+    "allow": "Output directory relocation only; fresh audit files and reproduction evidence"
+  },
+  "prompt": "Reproduce the archived Editorial Workshop AI poster using the referenced assets and native renderer. Preserve exact text_content, timeline, layout geometry, original logo and QR. Render both final canvases directly with installed Roboto Condensed/Arial, export lossless PNG and compare hashes with the archived final files. This layout instruction was written for packaging; it is not represented as a historical image-generation prompt.",
+  "historical_photo_prompt": "Create a new high-detail photographic asset for a premium NEWTECONS engineering workshop poster. PHOTOGRAPH ONLY, no poster text, no headings, no giant floating brand logo, no UI. Use the supplied original engineer photograph ONLY as identity and uniform reference; keep the same two Vietnamese engineers and authentic blue/navy workwear, white hard hats, natural faces, believable hands, and a tablet. Use supplied exact NEWTECONS logo as branding reference: red N above blue NEWTECONS on each helmet, accurately spelled and small but clearly legible, white logo on vest. Never invent letters.\nThe user expressly wants this to look LESS AI-generated: professional human corporate editorial photography, real construction materials, natural skin texture and eye expression, believable physical architecture and pipes, documentary camera perspective. Completely remove holograms, glowing BIM wireframes, neon lights, floating interfaces and virtual buildings. No excessive retouching or plastic faces, no lens flare, no decorative icons. Real daylight, restrained corporate color, strong composition, clean details. Landscape wide banner about2.6:1, highest native detail, target3840x1472 if possible. Keep both helmets entirely in frame with reasonable breathing space. Any logos must use the official source proportions.\nOPTION A photography direction: premium architectural magazine reportage on an active open-air construction site. The two engineers in a candid collaborative moment reviewing the tablet, three-quarter chest-up framing, naturally smiling, positioned slightly right of center. Behind them real steel/concrete structure, crane and scaffold lines form clean architectural geometry, softly receding into depth. Bright neutral daylight, clean whites and navy, natural muted blue sky. A little asymmetrical open space at left for architectural context, no writing. Calm, assured, precise and sophisticated.",
+  "render_command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\render-options.ps1",
+  "render_command_cwd": "Canonical workshop package root (two levels above this style directory). The common wrapper renders both historical styles.",
+  "verification_evidence": "../../evidence/options-reproduction-2026-11-12.json",
+  "acceptance": [
+    "Compare all copied source/final SHA-256 values with originals",
+    "Fresh Windows PowerShell 5.1 render must match all four original PNG hashes",
+    "Record true hero dimensions and cover scales, including slight Signature Navy portrait enlargement",
+    "Width and bounds audits have no failures; these do not test all overlaps",
+    "Inspect native-size face/hand/helmet/vest crops separately; logo fidelity remains unverified",
+    "Decode actual final QR separately; hash reproduction is not a new QR decoding run"
+  ]
+}

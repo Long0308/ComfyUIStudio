@@ -1,0 +1,637 @@
+{
+    "generated_at_utc":  "2026-11-12T02:24:27.8012152Z",
+    "runtime":  "5.1.26100.9711",
+    "output_directory":  "D:\\61.SetupAgent\\revit-live-demo-20261110\\pttx\\workshop-ai-intro-navy-cyan\\assets\\text",
+    "count":  34,
+    "text_contract_checks":  34,
+    "canonical_sha256":  "3d720996a234c9a646c223910136bca351ee0e152f2bd3fca92af3839570a018",
+    "fonts":  [
+                  {
+                      "style":  "Bold",
+                      "file":  "C:\\Windows\\Fonts\\RobotoCondensed-Bold.ttf",
+                      "sha256":  "32E42D57A7A9E62DD943722D5ECE99AF4736FBD11A9927CF07378299C117D3BD",
+                      "version":  2017
+                  },
+                  {
+                      "style":  "Italic",
+                      "file":  "C:\\Windows\\Fonts\\RobotoCondensed-Italic.ttf",
+                      "sha256":  "776BFB34E9311C23DCB64137EA81FF49056B13CCE7212E4F71870EBE01653E4E",
+                      "version":  2017
+                  }
+              ],
+    "svg_grouping":  "One intact phrase outline per RUN_01; individual word/glyph groups are not provided.",
+    "measurements":  [
+                         {
+                             "id":  "T01_WORKSHOP",
+                             "width":  2103,
+                             "height":  425,
+                             "font":  "Roboto Condensed",
+                             "style":  "Bold",
+                             "alpha_zero_pixels":  565857,
+                             "painted_pixels":  327918,
+                             "partial_alpha_pixels":  11592,
+                             "bounds":  [
+                                            59,
+                                            59,
+                                            2043,
+                                            365
+                                        ],
+                             "png_sha256":  "E04A511AE237BB3A6F63DF6F6B7DD60F88F2CD896FDB8A57B9607E85F5A35449",
+                             "svg_sha256":  "56B2302B331AEA57E3A0699C907B9AFFBAE17DA1CFFBA31D9BBD625915FA47BC"
+                         },
+                         {
+                             "id":  "T02_AI",
+                             "width":  720,
+                             "height":  664,
+                             "font":  "Roboto Condensed",
+                             "style":  "Bold",
+                             "alpha_zero_pixels":  336692,
+                             "painted_pixels":  141388,
+                             "partial_alpha_pixels":  2664,
+                             "bounds":  [
+                                            90,
+                                            90,
+                                            629,
+                                            573
+                                        ],
+                             "png_sha256":  "185BF427F0F7BAEB9D9539A634CEE0F53F65BA7FD42DC08F8DE7EC7DDFC7212D",
+                             "svg_sha256":  "4F2066AA8CD177210B9320E64F85E5979022AF0A40F8B3AF46BBC5055113BD4C"
+                         },
+                         {
+                             "id":  "T03_DEPARTMENT",
+                             "width":  997,
+                             "height":  250,
+                             "font":  "Roboto Condensed",
+                             "style":  "Bold",
+                             "alpha_zero_pixels":  187719,
+                             "painted_pixels":  61531,
+                             "partial_alpha_pixels":  5210,
+                             "bounds":  [
+                                            29,
+                                            29,
+                                            967,
+                                            220
+                                        ],
+                             "png_sha256":  "EC53A8CD6394507978DAA1E8DCD87473C695F027DA9F71283803994BCFC8A058",
+                             "svg_sha256":  "0C1A01CF58DBF161655FF200156A897EC75549A443F7ED16D0F6E0C8A05FFA35"
+                         },
+                         {
+                             "id":  "T04_FIELD_APPLICATION",
+                             "width":  2339,
+                             "height":  212,
+                             "font":  "Roboto Condensed",
+                             "style":  "Bold",
+                             "alpha_zero_pixels":  379946,
+                             "painted_pixels":  115922,
+                             "partial_alpha_pixels":  11834,
+                             "bounds":  [
+                                            25,
+                                            25,
+                                            2313,
+                                            186
+                                        ],
+                             "png_sha256":  "65D0ABD3E731217A7AA3870EA20B543FA8D840BFD837B1E80EE2AF6FD0E959FB",
+                             "svg_sha256":  "D6854056976A75E7F69F6268AD83C8BC8F19C3D81DEB4C67B06C3ED64760B7F6"
+                         },
+                         {
+                             "id":  "T05_RESPONSIBLE_AI",
+                             "width":  1976,
+                             "height":  216,
+                             "font":  "Roboto Condensed",
+                             "style":  "Bold",
+                             "alpha_zero_pixels":  319346,
+                             "painted_pixels":  107470,
+                             "partial_alpha_pixels":  10566,
+                             "bounds":  [
+                                            26,
+                                            26,
+                                            1949,
+                                            189
+                                        ],
+                             "png_sha256":  "FBC40EC356943A39B7B2097BA0A312B43F9CE61B04A5D99FD3DC9DF034CB05E7",
+                             "svg_sha256":  "BC5E38A300B99043B54080203A836EF632C4AD351B2175637928D746D8CC7C49"
+                         },
+                         {
+                             "id":  "T06_DATE",
+                             "width":  730,
+                             "height":  162,
+                             "font":  "Roboto Condensed",
+                             "style":  "Bold",
+                             "alpha_zero_pixels":  88235,
+                             "painted_pixels":  30025,
+                             "partial_alpha_pixels":  3051,
+                             "bounds":  [
+                                            26,
+                                            26,
+                                            703,
+                                            135
+                                        ],
+                             "png_sha256":  "4609AE943905FA851CE5FE5588FAD524B7192AEE238BCFA806B32EBB18752E06",
+                             "svg_sha256":  "432BB1DE18D7F0F5D6356DD84300604B3CBC99AE6D6C12F882A272BDE4C05A97"
+                         },
+                         {
+                             "id":  "T07_LOCATION",
+                             "width":  1023,
+                             "height":  153,
+                             "font":  "Roboto Condensed",
+                             "style":  "Bold",
+                             "alpha_zero_pixels":  106437,
+                             "painted_pixels":  50082,
+                             "partial_alpha_pixels":  4909,
+                             "bounds":  [
+                                            25,
+                                            25,
+                                            997,
+                                            127
+                                        ],
+                             "png_sha256":  "6550DCA5D10CF14893FE52341BBB64A283851C5F9D960CA848AB9791B568E93A",
+                             "svg_sha256":  "2F4A59B7691A1B61E637BBFB07C9EFF3D6A1E629C3403BDECCA0CD5086FF093E"
+                         },
+                         {
+                             "id":  "T08_TIME",
+                             "width":  822,
+                             "height":  153,
+                             "font":  "Roboto Condensed",
+                             "style":  "Bold",
+                             "alpha_zero_pixels":  94472,
+                             "painted_pixels":  31294,
+                             "partial_alpha_pixels":  3474,
+                             "bounds":  [
+                                            25,
+                                            25,
+                                            796,
+                                            127
+                                        ],
+                             "png_sha256":  "1615A4064B7ED73D538332080548976592BF91BDA480FD1915E468E5C0DC7673",
+                             "svg_sha256":  "BC2D3291F0CD948D9ECE3F34412EF49C48E4E5BED8DDF22058037B6126C2C87A"
+                         },
+                         {
+                             "id":  "T09_OPENING",
+                             "width":  535,
+                             "height":  199,
+                             "font":  "Roboto Condensed",
+                             "style":  "Bold",
+                             "alpha_zero_pixels":  76437,
+                             "painted_pixels":  30028,
+                             "partial_alpha_pixels":  3013,
+                             "bounds":  [
+                                            26,
+                                            26,
+                                            508,
+                                            172
+                                        ],
+                             "png_sha256":  "6E1F6CBCB4F2B6EF0D483AB54BCC4E73388EF120F6529EACF9093057ED099999",
+                             "svg_sha256":  "7EE31CECF9A60CDE6C3D4AA5424CABB3ECA8751B26DA351A987DE04B9806F0CD"
+                         },
+                         {
+                             "id":  "T10_PART1",
+                             "width":  491,
+                             "height":  194,
+                             "font":  "Roboto Condensed",
+                             "style":  "Bold",
+                             "alpha_zero_pixels":  71297,
+                             "painted_pixels":  23957,
+                             "partial_alpha_pixels":  2158,
+                             "bounds":  [
+                                            26,
+                                            26,
+                                            464,
+                                            167
+                                        ],
+                             "png_sha256":  "31FB0400ADD663A94294D7756AFDD7ABCEDF0850D91D8CAE0112A572548E7DDE",
+                             "svg_sha256":  "65D87A97018542800329DE66407FDE5C2BED6C3C21AE26D9E6E9FFA3232AEF19"
+                         },
+                         {
+                             "id":  "T11_PART2",
+                             "width":  508,
+                             "height":  194,
+                             "font":  "Roboto Condensed",
+                             "style":  "Bold",
+                             "alpha_zero_pixels":  73162,
+                             "painted_pixels":  25390,
+                             "partial_alpha_pixels":  2328,
+                             "bounds":  [
+                                            26,
+                                            26,
+                                            481,
+                                            167
+                                        ],
+                             "png_sha256":  "569740672BE540EFD520E8A6DDD5813992EC27EEB174338D6B8D84C970655792",
+                             "svg_sha256":  "7714EAB0642A30F05CE08A537944C6979E2DFF002EC22760A994F7078508DDC2"
+                         },
+                         {
+                             "id":  "T12_PART3",
+                             "width":  507,
+                             "height":  196,
+                             "font":  "Roboto Condensed",
+                             "style":  "Bold",
+                             "alpha_zero_pixels":  73930,
+                             "painted_pixels":  25442,
+                             "partial_alpha_pixels":  2395,
+                             "bounds":  [
+                                            26,
+                                            26,
+                                            480,
+                                            169
+                                        ],
+                             "png_sha256":  "A20D0894BE39904A02F7D6500CC39BA35DF51A20BE518CC18B0A415A35E8236D",
+                             "svg_sha256":  "51AE189AE158861F6DBE5878594077C6115B1B6E87162BE88753F7816CA36DF0"
+                         },
+                         {
+                             "id":  "T13_SUMMARY",
+                             "width":  669,
+                             "height":  200,
+                             "font":  "Roboto Condensed",
+                             "style":  "Bold",
+                             "alpha_zero_pixels":  99217,
+                             "painted_pixels":  34583,
+                             "partial_alpha_pixels":  3333,
+                             "bounds":  [
+                                            26,
+                                            26,
+                                            642,
+                                            173
+                                        ],
+                             "png_sha256":  "F549D599901C09952FA5EB8F4F29B84F29BE304C6F95E8643B20231189FDE72D",
+                             "svg_sha256":  "6A14F6DC3D967713701E4E85AA08A0284F371F9BCBB8F27E2ACDDE78B1929DEA"
+                         },
+                         {
+                             "id":  "T14_TOPIC_1",
+                             "width":  2175,
+                             "height":  174,
+                             "font":  "Roboto Condensed",
+                             "style":  "Bold",
+                             "alpha_zero_pixels":  292370,
+                             "painted_pixels":  86080,
+                             "partial_alpha_pixels":  9769,
+                             "bounds":  [
+                                            24,
+                                            24,
+                                            2150,
+                                            149
+                                        ],
+                             "png_sha256":  "F9CF8DCA3DEEA77AD0AA1FF64BA2AE32C4B86B0A2B0EE7FA020D3EDB377714E7",
+                             "svg_sha256":  "8EF4D4CF068B92A9CE4AEA499BC1E0BB586ED94E8058D009E4BD1C18C8EF7FE1"
+                         },
+                         {
+                             "id":  "T15_TOPIC_2",
+                             "width":  1846,
+                             "height":  179,
+                             "font":  "Roboto Condensed",
+                             "style":  "Bold",
+                             "alpha_zero_pixels":  260286,
+                             "painted_pixels":  70148,
+                             "partial_alpha_pixels":  8045,
+                             "bounds":  [
+                                            24,
+                                            24,
+                                            1821,
+                                            154
+                                        ],
+                             "png_sha256":  "2D4E369CE712347F2B5984BDC5EDF12AF7042066026A9316DA42AFDC6584FF9D",
+                             "svg_sha256":  "E20510348B387D3BB46645C40627B1A17177B676724E01ED9A93E217E937738D"
+                         },
+                         {
+                             "id":  "T16_TOPIC_3",
+                             "width":  2717,
+                             "height":  180,
+                             "font":  "Roboto Condensed",
+                             "style":  "Bold",
+                             "alpha_zero_pixels":  382714,
+                             "painted_pixels":  106346,
+                             "partial_alpha_pixels":  12543,
+                             "bounds":  [
+                                            24,
+                                            24,
+                                            2692,
+                                            155
+                                        ],
+                             "png_sha256":  "A05CDB18B256C66D4AB362DFB889A348ED6FAE2DD29A7B5EB778F63CBBEB2F4E",
+                             "svg_sha256":  "4ADA14AC5A65CC424840F0D3BD3BF78494CBA78BAEDE4A476CA9A4CE02596194"
+                         },
+                         {
+                             "id":  "T17_TOPIC_4",
+                             "width":  2347,
+                             "height":  182,
+                             "font":  "Roboto Condensed",
+                             "style":  "Bold",
+                             "alpha_zero_pixels":  334506,
+                             "painted_pixels":  92648,
+                             "partial_alpha_pixels":  10530,
+                             "bounds":  [
+                                            24,
+                                            24,
+                                            2322,
+                                            157
+                                        ],
+                             "png_sha256":  "2CAA6CA98980DBBFEA0ADF2F50F78D5F171AE79A965DAF15E58B3573B78DD1CA",
+                             "svg_sha256":  "111293709EF7DD1522E3B8167B740C06DE4375B037F4936CE1F771AFBFFD16AE"
+                         },
+                         {
+                             "id":  "T18_TOPIC_5",
+                             "width":  2751,
+                             "height":  183,
+                             "font":  "Roboto Condensed",
+                             "style":  "Bold",
+                             "alpha_zero_pixels":  392391,
+                             "painted_pixels":  111042,
+                             "partial_alpha_pixels":  13394,
+                             "bounds":  [
+                                            24,
+                                            24,
+                                            2726,
+                                            158
+                                        ],
+                             "png_sha256":  "A4F0A804595A9A1320A19CEB1D5CB2AF80312E7B8D96CDC230153AE36A2226DB",
+                             "svg_sha256":  "895285A217B46B6D8D723811FC899BF3958516066D9B96305FEED156803FB645"
+                         },
+                         {
+                             "id":  "T19_PRESENTER_1",
+                             "width":  2201,
+                             "height":  131,
+                             "font":  "Roboto Condensed",
+                             "style":  "Italic",
+                             "alpha_zero_pixels":  242422,
+                             "painted_pixels":  45909,
+                             "partial_alpha_pixels":  11741,
+                             "bounds":  [
+                                            19,
+                                            19,
+                                            2180,
+                                            111
+                                        ],
+                             "png_sha256":  "316C10A58A49711280F4479BF99AD7DC4EB58D0EE7BDEA39236F07925999009C",
+                             "svg_sha256":  "70180ABC816CFEC5D4F6CD3553C6C132020622496A1963855D818F61B3EE1E51"
+                         },
+                         {
+                             "id":  "T20_PRESENTER_2",
+                             "width":  1818,
+                             "height":  133,
+                             "font":  "Roboto Condensed",
+                             "style":  "Italic",
+                             "alpha_zero_pixels":  204624,
+                             "painted_pixels":  37170,
+                             "partial_alpha_pixels":  9534,
+                             "bounds":  [
+                                            19,
+                                            19,
+                                            1798,
+                                            113
+                                        ],
+                             "png_sha256":  "69AD250367960BA4C40C4D079B48DD6A249AE1A05D31E4AC7E49DD7D6EBEEEFE",
+                             "svg_sha256":  "A26CD677F956FB3E195308A46B4FCAB9E75AA4F8A302BFE973DC69DC83A6BEBA"
+                         },
+                         {
+                             "id":  "T21_PRESENTER_3",
+                             "width":  2044,
+                             "height":  133,
+                             "font":  "Roboto Condensed",
+                             "style":  "Italic",
+                             "alpha_zero_pixels":  229174,
+                             "painted_pixels":  42678,
+                             "partial_alpha_pixels":  10913,
+                             "bounds":  [
+                                            19,
+                                            19,
+                                            2024,
+                                            113
+                                        ],
+                             "png_sha256":  "902F7D79E519CC7958B081ACC1FCAD0759A69BC6D38715E15143748CF1F1715E",
+                             "svg_sha256":  "02641B75155C77170A919130AE718D914A21C43AACBEB3C2EA008AD0C8F77121"
+                         },
+                         {
+                             "id":  "T22_PRESENTER_4",
+                             "width":  1654,
+                             "height":  133,
+                             "font":  "Roboto Condensed",
+                             "style":  "Italic",
+                             "alpha_zero_pixels":  185426,
+                             "painted_pixels":  34556,
+                             "partial_alpha_pixels":  8769,
+                             "bounds":  [
+                                            19,
+                                            19,
+                                            1634,
+                                            113
+                                        ],
+                             "png_sha256":  "1FF9992AA55F8EB073447994A80C879312F36A12B86ABFB33412AECAAF670997",
+                             "svg_sha256":  "AF7A5B6FA4AC96045936C2CFBBBE622229DC881166C205CACBFDCEA32E61DB9F"
+                         },
+                         {
+                             "id":  "T23_PRESENTER_5",
+                             "width":  2453,
+                             "height":  132,
+                             "font":  "Roboto Condensed",
+                             "style":  "Italic",
+                             "alpha_zero_pixels":  271776,
+                             "painted_pixels":  52020,
+                             "partial_alpha_pixels":  13152,
+                             "bounds":  [
+                                            19,
+                                            19,
+                                            2433,
+                                            112
+                                        ],
+                             "png_sha256":  "E0D6165E8F7AEDAD55DA9C9900BE158EE198E114F9A11E5B9FA21476B85DBE78",
+                             "svg_sha256":  "D0F1793EDD8EC2DC5B52236268FDD8C9DC9DFE967A150ADA963FFCB86BD1BC1A"
+                         },
+                         {
+                             "id":  "T24_PART2_PRESENTER",
+                             "width":  1787,
+                             "height":  125,
+                             "font":  "Roboto Condensed",
+                             "style":  "Italic",
+                             "alpha_zero_pixels":  186621,
+                             "painted_pixels":  36754,
+                             "partial_alpha_pixels":  9264,
+                             "bounds":  [
+                                            19,
+                                            19,
+                                            1767,
+                                            105
+                                        ],
+                             "png_sha256":  "BB00E87F6324C6504CF9C05A9D463F99251D65BA1BC43EA0076F4C261332A229",
+                             "svg_sha256":  "80067FA62CB436F70BE2432D7217AC10ECE32629824457B447E20ABF22363168"
+                         },
+                         {
+                             "id":  "T25_PART2_SUBTOPIC_1",
+                             "width":  1369,
+                             "height":  169,
+                             "font":  "Roboto Condensed",
+                             "style":  "Bold",
+                             "alpha_zero_pixels":  180058,
+                             "painted_pixels":  51303,
+                             "partial_alpha_pixels":  6903,
+                             "bounds":  [
+                                            23,
+                                            23,
+                                            1345,
+                                            145
+                                        ],
+                             "png_sha256":  "579FB4925C802347956406381FC5C376CDC6D0E76D224AEEA786E9F16AEEAECD",
+                             "svg_sha256":  "B7D30341C6716BC8C1CE83094DA20E3E29ADB82678E69FED278BAEFD9D970C9D"
+                         },
+                         {
+                             "id":  "T26_PART2_SUBTOPIC_2",
+                             "width":  2160,
+                             "height":  168,
+                             "font":  "Roboto Condensed",
+                             "style":  "Bold",
+                             "alpha_zero_pixels":  279049,
+                             "painted_pixels":  83831,
+                             "partial_alpha_pixels":  10666,
+                             "bounds":  [
+                                            23,
+                                            23,
+                                            2136,
+                                            144
+                                        ],
+                             "png_sha256":  "117A33AC3CE53FC27F023DBF7D1ADD4BFF0D6933E369C00F45C16420CE80DA41",
+                             "svg_sha256":  "D4BB1BC8CC3BFE93B9343C1A4820CFD237F3E74C5B9132FAB1972EAECEE58FB1"
+                         },
+                         {
+                             "id":  "T27_PART2_SUBTOPIC_3",
+                             "width":  2032,
+                             "height":  172,
+                             "font":  "Roboto Condensed",
+                             "style":  "Bold",
+                             "alpha_zero_pixels":  271030,
+                             "painted_pixels":  78474,
+                             "partial_alpha_pixels":  9828,
+                             "bounds":  [
+                                            23,
+                                            23,
+                                            2008,
+                                            148
+                                        ],
+                             "png_sha256":  "97973A3D1347EAAF6D96BA03C9F7F4699C51754B959CC59A07414FACF74089D3",
+                             "svg_sha256":  "A466DA8C64C16DC629D0D91911CFDDEFC76F1E283AAD0E0982408FC82E50B57D"
+                         },
+                         {
+                             "id":  "T28_PART2_SUBTOPIC_4",
+                             "width":  1570,
+                             "height":  168,
+                             "font":  "Roboto Condensed",
+                             "style":  "Bold",
+                             "alpha_zero_pixels":  204695,
+                             "painted_pixels":  59065,
+                             "partial_alpha_pixels":  7725,
+                             "bounds":  [
+                                            23,
+                                            23,
+                                            1546,
+                                            144
+                                        ],
+                             "png_sha256":  "875984B8AF2A7166689F87112B157715855779CEDDABD5DC5046669778B022E6",
+                             "svg_sha256":  "93BE27E54615C70609AB1BDA5F17D085D2FD8449A42EF9C935678F1DD0BC36B8"
+                         },
+                         {
+                             "id":  "T29_OPENING_SPEAKER",
+                             "width":  1088,
+                             "height":  189,
+                             "font":  "Roboto Condensed",
+                             "style":  "Bold",
+                             "alpha_zero_pixels":  150013,
+                             "painted_pixels":  55619,
+                             "partial_alpha_pixels":  5153,
+                             "bounds":  [
+                                            26,
+                                            26,
+                                            1061,
+                                            162
+                                        ],
+                             "png_sha256":  "565F7412CD65A8FE88CF69D6557C86CE2C761EBF77F41A04193D1AE0BF5DCD39",
+                             "svg_sha256":  "6D49B22FB6F67142913DFE7F99786EE2776AD31191BC4306332F41331DACFA8D"
+                         },
+                         {
+                             "id":  "T30_OPENING_ROLE",
+                             "width":  1099,
+                             "height":  128,
+                             "font":  "Roboto Condensed",
+                             "style":  "Italic",
+                             "alpha_zero_pixels":  117380,
+                             "painted_pixels":  23292,
+                             "partial_alpha_pixels":  6003,
+                             "bounds":  [
+                                            19,
+                                            19,
+                                            1079,
+                                            108
+                                        ],
+                             "png_sha256":  "4B26EC5FCB7DA8E5C61DA3C4DC541B3155F159FD97ABF029FBE7105D7381C496",
+                             "svg_sha256":  "0856754565F29DFF66884E4A73ECC970B6F6C553F34CAB6089DC3692F2DB067C"
+                         },
+                         {
+                             "id":  "T31_MINIGAME",
+                             "width":  1808,
+                             "height":  181,
+                             "font":  "Roboto Condensed",
+                             "style":  "Bold",
+                             "alpha_zero_pixels":  249254,
+                             "painted_pixels":  77994,
+                             "partial_alpha_pixels":  8592,
+                             "bounds":  [
+                                            24,
+                                            24,
+                                            1783,
+                                            156
+                                        ],
+                             "png_sha256":  "F7EA671139DD2E86880B708E4D79E00801EF0C83D7066557937E24D263B1B9E2",
+                             "svg_sha256":  "38FBD0420D7AC503417296BEBB4902D4D953A31AC6CFF525EE55B6AD55221485"
+                         },
+                         {
+                             "id":  "T32_MINIGAME_SUBTITLE",
+                             "width":  464,
+                             "height":  132,
+                             "font":  "Roboto Condensed",
+                             "style":  "Italic",
+                             "alpha_zero_pixels":  50861,
+                             "painted_pixels":  10387,
+                             "partial_alpha_pixels":  2724,
+                             "bounds":  [
+                                            19,
+                                            19,
+                                            444,
+                                            112
+                                        ],
+                             "png_sha256":  "38BE5EA3E7E207943419FF06FFF2061D52F3D38D5EA5961889808AE2B47768A5",
+                             "svg_sha256":  "116542945270109C80CDDC55838E9F48D719B4534C934EEE5E6AA9E115AAAEB1"
+                         },
+                         {
+                             "id":  "T33_DASHBOARD_HOOK",
+                             "width":  2120,
+                             "height":  233,
+                             "font":  "Roboto Condensed",
+                             "style":  "Bold",
+                             "alpha_zero_pixels":  362967,
+                             "painted_pixels":  130993,
+                             "partial_alpha_pixels":  10831,
+                             "bounds":  [
+                                            30,
+                                            30,
+                                            2089,
+                                            202
+                                        ],
+                             "png_sha256":  "092CAB51EDBD038C2DF091460F548530812FE616F52B098D62B1EC4FFCBD3C51",
+                             "svg_sha256":  "B1FCADE4CF7BB28A8A8FCDE304CB7BD27E8C7386B2CD969FFDEC0FF09E5D4CC3"
+                         },
+                         {
+                             "id":  "T34_AI_BIM_HOOK",
+                             "width":  658,
+                             "height":  188,
+                             "font":  "Roboto Condensed",
+                             "style":  "Bold",
+                             "alpha_zero_pixels":  87554,
+                             "painted_pixels":  36150,
+                             "partial_alpha_pixels":  2613,
+                             "bounds":  [
+                                            30,
+                                            30,
+                                            627,
+                                            157
+                                        ],
+                             "png_sha256":  "3C490FF3ED6A9593EF519BA612BA902F73941A9714B433EF3DCC034D5C2A462B",
+                             "svg_sha256":  "149537ABEFB9019F1DEE9963C0443A856ACA825C1E6FA8FCEB739D5F5E72B311"
+                         }
+                     ]
+}

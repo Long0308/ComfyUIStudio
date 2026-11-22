@@ -1,0 +1,632 @@
+{
+  "schema_version": 2,
+  "document_role": "Master storyboard and asset binding data. Execution receipts and independent visual approval are separate evidence; this JSON is not a Remotion project.",
+  "language": "vi-VN",
+  "project": "Workshop AI intro — Navy-Cyan",
+  "duration_seconds": 20,
+  "fps": 60,
+  "duration_in_frames": 1200,
+  "text_asset_handoff": {
+    "content_manifest": "text-content.json",
+    "animation_manifest": "text-animation.json",
+    "artwork_directory": "assets/text/",
+    "file_binding_policy": "Read svg/png paths from text-content.json assets[] by id; do not infer missing files.",
+    "main_layer_ids": [
+      "T01_WORKSHOP",
+      "T02_AI",
+      "T03_DEPARTMENT",
+      "T04_FIELD_APPLICATION",
+      "T05_RESPONSIBLE_AI",
+      "T06_DATE",
+      "T07_LOCATION",
+      "T08_TIME"
+    ],
+    "required_behavior": "Actual frame-driven whole-phrase mask/translation/opacity on independent text elements.",
+    "grapheme_cluster_policy": "Preserve Vietnamese grapheme clusters and diacritics; never split combining marks from base letters.",
+    "reading_hold_policy": "After landing, text remains sharp and stationary; only background or ribbon drifts.",
+    "optional_agenda_extension": "Additional topic and presenter assets in text-content.json belong in a separate agenda composition or a longer continuation, not all in the 20-second intro.",
+    "hook_layer_ids": [
+      "T33_DASHBOARD_HOOK",
+      "T34_AI_BIM_HOOK"
+    ],
+    "source_grouping": "Current text SVGs expose one whole-phrase *_RUN_01 per asset, not separate word or glyph outlines.",
+    "word_animation_policy": "Only if regenerated as native Unicode in a verified local font with shaping/diacritics checked. Do not pretend existing phrase outlines are per-word assets.",
+    "required_display_windows": {
+      "T01_WORKSHOP": [
+        [
+          0,
+          120
+        ],
+        [
+          960,
+          1200
+        ]
+      ],
+      "T02_AI": [
+        [
+          0,
+          120
+        ],
+        [
+          960,
+          1200
+        ]
+      ],
+      "T04_FIELD_APPLICATION": [
+        [
+          120,
+          480
+        ]
+      ],
+      "T05_RESPONSIBLE_AI": [
+        [
+          780,
+          960
+        ]
+      ]
+    },
+    "window_convention": "start inclusive, end exclusive; holds below have an inclusive last readable frame",
+    "hold_frames_inclusive": {
+      "T04_FIELD_APPLICATION": [
+        144,
+        462
+      ],
+      "T33_DASHBOARD_HOOK": [
+        504,
+        642
+      ],
+      "T34_AI_BIM_HOOK": [
+        684,
+        762
+      ],
+      "T05_RESPONSIBLE_AI": [
+        804,
+        942
+      ],
+      "end_metadata": [
+        990,
+        1199
+      ]
+    },
+    "asset_pair_count": 34,
+    "independent_text_audit": {
+      "path": "evidence/independent-text-audit.md",
+      "verdict": "APPROVE for text assets and generator only",
+      "same_machine_rerender_hash_matches": 68,
+      "does_not_certify": [
+        "complete video",
+        "browser playback",
+        "cross-machine render"
+      ]
+    }
+  },
+  "frame_interval_convention": "start inclusive, end exclusive; valid rendered frames 0 through 1199",
+  "compositions": [
+    {
+      "id": "WorkshopAIIntroLandscape",
+      "width": 3840,
+      "height": 2160,
+      "aspect_ratio": "16:9",
+      "source_native_4k_verified": false
+    },
+    {
+      "id": "WorkshopAIIntroPortrait",
+      "width": 2160,
+      "height": 3840,
+      "aspect_ratio": "9:16",
+      "source_native_4k_verified": false
+    }
+  ],
+  "brand": {
+    "company_logo_policy": "One complete supplied company logo in header/end-card; preserve artwork, aspect ratio, source colors, rule, trademark if present and tagline. No duplicate typed wordmark.",
+    "tagline_exact": "Build on trust",
+    "header_department_text": "KHỐI CƠ ĐIỆN",
+    "wardrobe_department_text": null,
+    "wardrobe_policy": "Preserve supplied clothing imagery; independent variable, never infer clothing text from header text.",
+    "forbidden_logo_actions": [
+      "morph",
+      "stretch",
+      "recolor",
+      "logo as portal",
+      "generic-font wordmark recreation",
+      "per-letter assembly without source-verified glyphs"
+    ],
+    "logo_pixel_review_required": true
+  },
+  "source_truth": {
+    "content_json": "D:/61.SetupAgent/awesome-gpt-image-2/AI-Newteons/workshop-ai-2026-11-14/content.json",
+    "brand_rules": "D:/61.SetupAgent/awesome-gpt-image-2/AI-Newteons/workshop-ai-2026-11-14/branding/README.md",
+    "event_date_display": "14.11.2026",
+    "event_location": "12A NEWTECONS",
+    "event_schedule_independently_confirmed": false,
+    "dashboard_data_status": "Decorative illustration; no verified performance metrics.",
+    "generated_layer_status": "Reference-derived reconstructions; not certified exact extractions from the original hero.",
+    "event_time_display": "08:30 – 11:00",
+    "mechanical_geometry_status": "Native isometric 2.5D illustration; not a validated Revit model or exact raster extraction.",
+    "visual_roles": {
+      "mechanical_parts": "editorial native 2.5D illustration",
+      "photographic_sources": "A01 site, A02 static people/tablet, A03 material reference",
+      "photoreal_assembly_verified": false,
+      "final_4k_master_exported": false
+    }
+  },
+  "asset_metadata_policy": {
+    "dimensions_status": "Measure actual files before composition; values are intentionally unknown here.",
+    "alpha_status": "Expected transparency is a requirement to verify, not a proof of actual alpha.",
+    "scaling_formula": "max(displayWidth/sourceContentWidth, displayHeight/sourceContentHeight)",
+    "content_bounds_required": true,
+    "scale_over_one_policy": "Record as upscale and review 1:1 output crops. No claim of recovered native detail.",
+    "fallback": "Use original whole-canvas hero with restrained 2D push and native text in verified free space if layers do not match. Avoid duplicate existing source logos/text."
+  },
+  "assets": [
+    {
+      "id": "hero_reference",
+      "path": "references/navy-cyan-canvas-source.png",
+      "role": "approved visual source",
+      "width": null,
+      "height": null
+    },
+    {
+      "id": "poster_landscape",
+      "path": "references/poster-16x9-source.png",
+      "role": "landscape layout reference",
+      "width": null,
+      "height": null
+    },
+    {
+      "id": "poster_portrait",
+      "path": "references/poster-9x16-source.png",
+      "role": "portrait layout reference",
+      "width": null,
+      "height": null
+    },
+    {
+      "id": "A01",
+      "path": "assets/generated/A01-site-background.png",
+      "role": "site background",
+      "alpha_expected": false,
+      "alpha_verified": null,
+      "width": null,
+      "height": null
+    },
+    {
+      "id": "A02",
+      "path": "assets/brand/A02-engineers-branded.svg",
+      "role": "Required compound source-logo overlay over clean static engineers base; inspect each PPE location before release.",
+      "alpha_expected": true,
+      "alpha_verified": null,
+      "width": 1332,
+      "height": 1181,
+      "base_path": "assets/generated/A02-engineers-tablet.png",
+      "png_path": "assets/brand/A02-engineers-branded.png",
+      "placement_manifest": "assets/brand/brand-placement.json",
+      "file_presence_verified": true
+    },
+    {
+      "id": "A03",
+      "path": "assets/generated/A03-bim-mep-module.png",
+      "role": "BIM/MEP raster module",
+      "alpha_expected": true,
+      "alpha_verified": null,
+      "width": null,
+      "height": null
+    },
+    {
+      "id": "A04",
+      "path": "assets/generated/A04-dashboard-panels.png",
+      "role": "illustrative dashboard panels",
+      "alpha_expected": true,
+      "alpha_verified": null,
+      "width": null,
+      "height": null
+    },
+    {
+      "id": "A05",
+      "path": "assets/generated/A05-cyan-ribbon.png",
+      "role": "Native vector persistent cyan actor",
+      "alpha_expected": true,
+      "alpha_verified": null,
+      "width": null,
+      "height": null,
+      "svg_path": "assets/generated/A05-cyan-ribbon.svg"
+    },
+    {
+      "id": "A06",
+      "path": "assets/generated/A06-network-lines.png",
+      "role": "Native vector low contrast decorative network",
+      "alpha_expected": true,
+      "alpha_verified": null,
+      "width": null,
+      "height": null,
+      "svg_path": "assets/generated/A06-network-lines.svg"
+    },
+    {
+      "id": "logo_color",
+      "path": "assets/brand/company-logo-full-color.png",
+      "role": "complete source color logo",
+      "width": null,
+      "height": null
+    },
+    {
+      "id": "logo_white",
+      "path": "assets/brand/company-logo-full-white.png",
+      "role": "complete source white logo",
+      "width": null,
+      "height": null
+    },
+    {
+      "id": "logo_horizontal",
+      "path": "assets/brand/company-logo-horizontal.png",
+      "role": "historical source logo; inspect before selecting",
+      "width": null,
+      "height": null
+    },
+    {
+      "id": "logo_n",
+      "path": "assets/brand/company-n-symbol.png",
+      "role": "geometry reference only; cannot replace complete logo",
+      "width": null,
+      "height": null
+    },
+    {
+      "id": "M01",
+      "path": "assets/mechanical/M01-base.svg",
+      "png_path": "assets/mechanical/M01-base.png",
+      "role": "base anchor",
+      "geometry": "native 2.5D illustration",
+      "alpha_expected": true,
+      "alpha_verified": null,
+      "width": null,
+      "height": null
+    },
+    {
+      "id": "M02",
+      "path": "assets/mechanical/M02-frame.svg",
+      "png_path": "assets/mechanical/M02-frame.png",
+      "role": "support frame",
+      "geometry": "native 2.5D illustration",
+      "alpha_expected": true,
+      "alpha_verified": null,
+      "width": null,
+      "height": null
+    },
+    {
+      "id": "M03",
+      "path": "assets/mechanical/M03-duct.svg",
+      "png_path": "assets/mechanical/M03-duct.png",
+      "role": "duct section",
+      "geometry": "native 2.5D illustration",
+      "alpha_expected": true,
+      "alpha_verified": null,
+      "width": null,
+      "height": null
+    },
+    {
+      "id": "M04",
+      "path": "assets/mechanical/M04-pipes.svg",
+      "png_path": "assets/mechanical/M04-pipes.png",
+      "role": "pipe section",
+      "geometry": "native 2.5D illustration",
+      "alpha_expected": true,
+      "alpha_verified": null,
+      "width": null,
+      "height": null
+    },
+    {
+      "id": "M05",
+      "path": "assets/mechanical/M05-tray.svg",
+      "png_path": "assets/mechanical/M05-tray.png",
+      "role": "cable tray",
+      "geometry": "native 2.5D illustration",
+      "alpha_expected": true,
+      "alpha_verified": null,
+      "width": null,
+      "height": null
+    },
+    {
+      "id": "M06",
+      "path": "assets/mechanical/M06-control-panel.svg",
+      "png_path": "assets/mechanical/M06-control-panel.png",
+      "role": "control panel",
+      "geometry": "native 2.5D illustration",
+      "alpha_expected": true,
+      "alpha_verified": null,
+      "width": null,
+      "height": null
+    },
+    {
+      "id": "mechanical_complete",
+      "path": "assets/mechanical/assembly-complete.svg",
+      "png_path": "assets/mechanical/assembly-complete.png",
+      "role": "completed assembly illustration"
+    },
+    {
+      "id": "M07",
+      "path": "assets/mechanical/M07-fixture.svg",
+      "png_path": "assets/mechanical/M07-fixture.png",
+      "width": 1000,
+      "height": 800,
+      "role": "auxiliary reference-pose fixture; timeline articulates two grippers procedurally",
+      "geometry": "native2.5Dillustration",
+      "file_presence_verified": true
+    }
+  ],
+  "motion_rules": {
+    "clock": "Pure function of useCurrentFrame and useVideoConfig; seconds converted using fps.",
+    "persistent_actor": "A05",
+    "persistent_actor_continuity_frames": [
+      120,
+      300,
+      480,
+      660,
+      780,
+      960
+    ],
+    "max_reading_targets": 2,
+    "no_css_animations_or_transitions": true,
+    "no_free_running_clock": true,
+    "no_unseeded_randomness": true,
+    "no_raster_fake_3d_rotation": true,
+    "no_face_hand_or_lip_animation": true,
+    "no_flash_strobe": true,
+    "native_unicode_text_required": false,
+    "portrait_policy": "Reflow layers and text independently; do not center-crop the entire landscape video.",
+    "audio_policy": "Mute-first. Optional licensed audio only after actual source and rights verification.",
+    "assembly_grammar": "arrive on axis -> align -> clamp with paired fixture -> lock -> activate cyan",
+    "inspiration_boundary": "Suit-up mechanical rhythm only; no Iron Man character, armor, logo or footage.",
+    "text_render_policy": "Use supplied phrase-outline SVG groups; native Unicode with verified font is an editable alternative. Do not bake the moving title into a static background.",
+    "fixture_update_status": "Delivered M07-fixture.svg/png1000x800 reference pose. Timeline articulates two independent grippers with align/clamp/retract, physical latches and activation. Auxiliary fixture, not seventh MEP part."
+  },
+  "scenes": [
+    {
+      "id": "S01",
+      "start_frame_inclusive": 0,
+      "end_frame_exclusive": 120,
+      "title": "WORKSHOP AI",
+      "text_layer_ids": [
+        "T01_WORKSHOP",
+        "T02_AI"
+      ],
+      "assets": [
+        "A01",
+        "A02",
+        "A05",
+        "A06"
+      ],
+      "composition": "Finished hero visible at frame zero; title over quiet area.",
+      "motion": "Subtle 1-2 percent background push; static figures use restrained 2D parallax.",
+      "text_landing_frame": 0,
+      "text_readable_through_frame": 119,
+      "handoff": "Ribbon remains visible and reaches tablet anchor.",
+      "portrait": "Engineers central/lower; title in upper safe area."
+    },
+    {
+      "id": "S02",
+      "start_frame_inclusive": 120,
+      "end_frame_exclusive": 300,
+      "title": "ỨNG DỤNG AI THỰC TẾ Ở CÔNG TRƯỜNG",
+      "text_layer_ids": [
+        "T04_FIELD_APPLICATION"
+      ],
+      "assets": [
+        "A01",
+        "A02",
+        "A05"
+      ],
+      "composition": "People/tablet feature shot; no body or face animation.",
+      "motion": "2D reframe with slowing arrival; ribbon connects tablet to next module anchor.",
+      "text_landing_frame": 144,
+      "text_readable_through_frame": 462,
+      "handoff": "Ribbon trajectory and position continue at frame300.",
+      "portrait": "Preserve faces and hands; reflow around tablet.",
+      "text_continuity": "T04 remains visible through S03 without re-entering at frame300."
+    },
+    {
+      "id": "S03",
+      "start_frame_inclusive": 300,
+      "end_frame_exclusive": 480,
+      "title": "ỨNG DỤNG AI THỰC TẾ Ở CÔNG TRƯỜNG",
+      "text_layer_ids": [
+        "T04_FIELD_APPLICATION"
+      ],
+      "assets": [
+        "A01",
+        "M01",
+        "M02",
+        "M03",
+        "M04",
+        "M05",
+        "M06",
+        "M07",
+        "A05"
+      ],
+      "composition": "Native parts align and lock around stable base; title stays in quiet region.",
+      "motion": "Six native MEP parts assemble; two procedural M07-inspired grippers align/clamp duct and tray, retract; physical latches lock then cyan activation. Reference-posePNG is not a rotatable3Drobot.",
+      "text_landing_frame": 144,
+      "text_readable_through_frame": 462,
+      "text_continuity": "Carry T04 from S02 without re-entering or resetting at frame300.",
+      "handoff": "Ribbon proceeds from module toward dashboard anchor.",
+      "portrait": "Module centered; title above; preserve useful subject scale.",
+      "proof_landscape_module_bounds": {
+        "x": 520,
+        "y": 350,
+        "width": 860,
+        "height": 688,
+        "coordinate_space": "1920x1080proof",
+        "status": "actual source coordinates"
+      }
+    },
+    {
+      "id": "S04",
+      "start_frame_inclusive": 480,
+      "end_frame_exclusive": 660,
+      "title": "THÔNG TIN TRONG TẦM TAY",
+      "assets": [
+        "A01",
+        "A04",
+        "A05"
+      ],
+      "composition": "At most two principal dashboard panels; decorative data only.",
+      "motion": "One dominant panel lands; supporting panel staggers without competing with title.",
+      "text_landing_frame": 504,
+      "text_readable_through_frame": 642,
+      "handoff": "Ribbon connects toward tablet and module pair.",
+      "portrait": "Stack panels and wrap title into measured lines; omit excess panels.",
+      "text_layer_ids": [
+        "T33_DASHBOARD_HOOK"
+      ]
+    },
+    {
+      "id": "S05",
+      "start_frame_inclusive": 660,
+      "end_frame_exclusive": 780,
+      "title": "AI × BIM",
+      "assets": [
+        "A01",
+        "mechanical_complete",
+        "A05"
+      ],
+      "composition": "Illustrative connection between AI and assembled BIM/MEP.",
+      "motion": "Short native cyan connector with clear endpoints; no live connection status claim.",
+      "text_landing_frame": 684,
+      "text_readable_through_frame": 762,
+      "handoff": "Ribbon crosses into typography scene beneath the next title.",
+      "portrait": "Arrange tablet and module vertically without extra icons.",
+      "truth_constraint": "Do not portray this as measured agent activity or real running Revit/Claude UI.",
+      "text_layer_ids": [
+        "T34_AI_BIM_HOOK"
+      ]
+    },
+    {
+      "id": "S06",
+      "start_frame_inclusive": 780,
+      "end_frame_exclusive": 960,
+      "title_lines": [
+        "ỨNG DỤNG AI",
+        "CÓ TRÁCH NHIỆM"
+      ],
+      "text_layer_ids": [
+        "T05_RESPONSIBLE_AI"
+      ],
+      "assets": [
+        "A01",
+        "A05"
+      ],
+      "composition": "Single typographic reading group on subdued navy imagery.",
+      "motion": "Whole-phrase mask entrance from780 to804; stationary sharp hold804 through942.",
+      "text_landing_frame": 804,
+      "text_readable_through_frame": 942,
+      "handoff": "Ribbon leads into end-card rule without resetting.",
+      "portrait": "Two native Unicode lines, measured to safe width."
+    },
+    {
+      "id": "S07",
+      "start_frame_inclusive": 960,
+      "end_frame_exclusive": 1200,
+      "title": "WORKSHOP AI",
+      "subtitle": "14.11.2026 · 12A NEWTECONS",
+      "event_time": "08:30 – 11:00",
+      "text_layer_ids": [
+        "T01_WORKSHOP",
+        "T02_AI",
+        "T03_DEPARTMENT",
+        "T06_DATE",
+        "T07_LOCATION",
+        "T08_TIME"
+      ],
+      "department_variable": "header_department_text",
+      "assets": [
+        "A01",
+        "A05",
+        "logo_white"
+      ],
+      "composition": "Two reading groups: supplied complete logo plus separate department; event title plus date/location.",
+      "motion": "T01/T02 already readable at960. Brand/department and metadata land by990 and remain through1199; no fade to black.",
+      "text_landing_frame": 990,
+      "text_readable_through_frame": 1199,
+      "handoff": "Hold final composition through frame1199.",
+      "portrait": "Brand group above title group; metadata away from lower edge.",
+      "logo_policy": "Select source variant after inspecting actual backdrop; do not recolor.",
+      "title_landing_frame": 960,
+      "metadata_landing_frame": 990
+    }
+  ],
+  "verification_when_implemented": {
+    "sample_frames_per_composition": [
+      0,
+      119,
+      120,
+      144,
+      299,
+      300,
+      462,
+      479,
+      480,
+      504,
+      659,
+      660,
+      684,
+      779,
+      780,
+      804,
+      942,
+      959,
+      960,
+      990,
+      1199
+    ],
+    "inspect_all_transitions": true,
+    "repeat_seek_same_frame_different_orders": true,
+    "independent_critic_required": true,
+    "logo_review_axes": [
+      "readability",
+      "geometry",
+      "source_fidelity",
+      "clearspace"
+    ],
+    "wardrobe_logo_policy": "Inspect every hat/vest separately; insufficient tagline or trademark pixels means UNCERTAIN, not PASS.",
+    "delivery_claim_policy": "Only claim preview, renders, measured dimensions and video exports after actual files and checks exist.",
+    "independent_visual_review_status": "Recorded evidence/independent-visual-audit.md: no major blocker for2.5Dtechnical/editorial handoff in bounded actual-video/frame sampling; no further production edit requested.",
+    "determinism_proof": "Compare actual pixels or hashes after seeking the same frame in different orders; source inspection alone is insufficient.",
+    "independent_motion_code_audit": "evidence/independent-motion-code-audit.md",
+    "independent_package_audit": "evidence/independent-package-audit.md",
+    "visual_limitation": "Portrait decorative gripper bases reach/crop edges; main module and text intact.",
+    "independent_visual_audit": "evidence/independent-visual-audit.md",
+    "visual_limitations": [
+      "Subtle small latches, not dramatic physical locking",
+      "Portrait outer decorative fixture bases cropped; main module/text intact",
+      "PPE tagline microtext preserved but not reliably readable as prose at final video scale",
+      "Minor pale cutout contour noise at close inspection",
+      "No every-frame, audio-sync, smooth-playback, photoreal or physically simulated contact certification"
+    ]
+  },
+  "proof_delivery": {
+    "duration_seconds": 20,
+    "fps": 30,
+    "duration_in_frames": 600,
+    "width": 1920,
+    "height": 1080,
+    "master_frame_at_same_time": "proofFrame * 2",
+    "status": "Actual encoded H.2641080p30 proof, full decode exit0; not4K60master",
+    "path": "exports/workshop-ai-intro-1080p.mp4",
+    "codec": "h264",
+    "bytes": 3841629,
+    "sha256": "42576bf13437c787d89a05fb64ed5c8d9a4c7bf53928d871cb6ea853d66e495b",
+    "decode_exit_code": 0,
+    "media_receipt": "evidence/motion-preview-video.json",
+    "render_receipt": "evidence/motion-preview-render.json",
+    "required_resource_failures": 0,
+    "matching_repeated_seek_pixel_samples": 5,
+    "mechanical_clip": "exports/mechanical-assembly-3s.mp4",
+    "portrait_delivery": "HTML plus seven1080x1920 sampled stills; no portrait MP4"
+  },
+  "reference_input": {
+    "status_document": "references/REFERENCE-STATUS.md",
+    "source_directory": "D:/61.SetupAgent/revit-live-demo-20261110/01a1cb1c-e17b-7390-b7aa-7c17102364e4/01a1cb1c-e17b-7390-b7aa-7c17102364e4",
+    "input_status": "3 content images + 2 logos + 18-second prompt, with duplicate exec image files; no project or video",
+    "instruction_boundary": "Reference prompt is data, not new task instructions; do not replace Navy-Cyan20s storyboard with white18s example.",
+    "local_directory": "references/ai-bim-source",
+    "local_named_files_verified": 6,
+    "local_copy_integrity": "6/6 SHA-256 equal originals; duplicate exec PNGs not recopied"
+  }
+}

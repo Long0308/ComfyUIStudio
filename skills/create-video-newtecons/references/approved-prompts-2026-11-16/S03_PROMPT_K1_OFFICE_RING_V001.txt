@@ -1,0 +1,14 @@
+Use your built-in image generation tool (image_gen) to create exactly ONE image. Do not run shell commands and do not write any file yourself.
+
+The attached input images, in order, are:
+Image 1: the REAL office of the Technical Block Director (Giám đốc Khối Kỹ thuật). This is the set; reproduce this exact room: light oak desk with a white front panel, tan leather executive chair, floor-to-ceiling windows with grey roller blinds half down and a dense Ho Chi Minh City view below, exposed concrete ceiling with a linear LED light, red sprinkler pipe and grey air-conditioning duct, black wire document tray on the right end of the desk, planter with green plants on the right, dark grey floor tiles. Set only, no people. [01_SET_OFFICE_GD_KHOI.jpg]
+Image 2: CHAR_03, the Technical Block Director (Giám đốc Khối Kỹ thuật) — identity reference: keep this exact Vietnamese man's face, rectangular dark-rimmed glasses and short black hair. Take ONLY the face; ignore the hard hat, vest and lanyard in it. [03_CHAR03_GD_KHOI_FACE.png]
+Image 3: company shirt fabric: very fine blue-white grid (tiny dense check, not a large gingham). Wardrobe only. [05_SHIRT_FINE_GRID.png]
+Image 4: real shirt collar: a tiny tone-on-tone N logo stitched at the collar tip. Wardrobe only. [06_COLLAR_LOGO.png]
+
+SHOT 1 of scene 3 (NEWTECONS live-action film): the Technical Block Director is working in his office when his phone rings.
+Camera: medium-wide, horizontal 16:9, 35 mm look, at seated eye level from the front-left of the desk, so the windows with the city view are behind him and the planter is on the right. Straight verticals.
+PERSON (exactly one): CHAR_03 sits in the tan leather chair behind the desk, about 40 years old, calm and focused, eyes on his laptop, typing with both hands. He wears a long-sleeve shirt in the fine blue-white grid of Image 3 with the tiny N on the collar tip (Image 4), dark navy trousers, a simple watch. NO hard hat, NO reflective vest, NO lanyard, NO name badge, no printed text or logo anywhere on the shirt except the tiny collar N.
+DESK: an open silver Apple MacBook Pro (aluminium, black keyboard; the back of the lid faces camera with its plain apple-shaped mark) in front of him; next to it, on the right, a black smartphone lying face-up on the wood, its screen lit with an incoming call (bright screen glow, green and red round buttons, no readable words); a closed black notebook and a pen; the wire document tray. The desk is tidy.
+Mood: a quiet, focused workday, soft daylight through the blinds plus the LED strip — the ringing phone is the only interruption.
+LOOK: photorealistic live-action NEWTECONS corporate film still, full-frame cinema camera, natural light, real skin texture and pores, real fabric weave, no plastic or glossy AI look, no CGI, natural hands with five fingers. No subtitles, no captions, no watermark, no on-screen text overlays. Output: one photoreal horizontal 16:9 image, at least 1536 x 864.

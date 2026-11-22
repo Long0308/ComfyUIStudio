@@ -1,6 +1,6 @@
 ---
 name: jenniejoy-hyperframes
-description: "Create or validate JennieJoy Studio HyperFrames graphics and labelled film benchmarks, preserving the standalone component contract with the Remotion Master."
+description: "Create or validate JennieJoy Studio HyperFrames graphics and labelled film benchmarks, preserving the standalone component contract with the Remotion Master. Also where to pick ready-made motion effects (LP effects library, 711 previews, lp-* text/count/transition/zoom effects) for JennieJoy intros and cards."
 ---
 
 Use [production hub](../jenniejoy-production-system/SKILL.md) for overall status, then this skill for motion graphics and visual component engineering under the common [engine dispatch contract](../create-video-jenniejoykids/references/engine-dispatch-contract.md). User authorization to render remains valid; do not add unnecessary approval gates for requested graphics.
@@ -41,6 +41,10 @@ For JennieJoy cartoons, read [character-first casting gate](../create-video-jenn
 Avoid concurrent heavy GPU inference while executing intensive GPU video rendering; CPU software rendering for motion graphics is supported and preserves CUDA headroom for H3 and SeedVR2.
 
 Updating HyperFrames recipes and contracts refines deterministic graphics generation; it does not constitute model-weight retraining. Read [motion engineering lessons](../create-video-jenniejoykids/references/motion-engineering-lessons.md) for deterministic animation principles and [production case studies](../create-video-jenniejoykids/references/production-case-studies-20261027.md).
+
+## Thư viện hiệu ứng LP (lấy hiệu ứng có sẵn)
+
+Cần hiệu ứng chữ / số đếm / chuyển cảnh / zoom-pan / ráp chữ: xem trước ở trang thư viện http://127.0.0.1:4401/ (711 thẻ, 14 hiệu ứng `lp-*` + 448 khối kho HyperFrames) rồi chép sang dự án bằng `tools/chep_hieu_ung.py`. Đường dẫn, lệnh mở trang và luật dùng cho phim trẻ em ở [thu-vien-hieu-ung-lp.md](references/thu-vien-hieu-ung-lp.md). Chỉ lấy hiệu ứng, không lấy chữ/logo/tiếng của phim Workshop; hợp đồng timeline ở trên vẫn thắng.
 
 ## Opus motion engineering (code-driven title and flashcard motion)
 

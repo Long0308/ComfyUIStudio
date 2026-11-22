@@ -1,0 +1,274 @@
+{
+  "schema_version": 1,
+  "packaged_date": "2026-11-12",
+  "measured_at": "2026-11-12T01:39:06.0429746Z",
+  "kind": "New measurement of exact historical source reproduction; not new image generation",
+  "source_workspace": "%USERPROFILE%\\.codex\\visualizations\\2026\\11\\05\\01a1a9ae-ce30-7a70-a1a5-ce36d3649cb1",
+  "package_root": "D:\\61.SetupAgent\\awesome-gpt-image-2\\AI-Newteons\\workshop-ai-2026-11-14",
+  "runtime": {
+    "PSVersion": "5.1.26100.9711",
+    "PSEdition": "Desktop",
+    "CLRVersion": "4.0.30319.42000",
+    "OS": "Microsoft Windows NT 10.0.26300.0"
+  },
+  "command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\render-options.ps1",
+  "final_command_exit_code": 0,
+  "copied_artifacts": [
+    {
+      "source": "OptionsRenderer.cs",
+      "destination": "scripts/OptionsRenderer.cs",
+      "bytes": 16323,
+      "sha256": "61FDD6DF911D4BFA316098AE1B0280FE63DB225ED4F5672E5875F5BFFBF1DB74",
+      "byte_identical": true
+    },
+    {
+      "source": "assets/option-01-natural-site.png",
+      "destination": "styles/editorial-2026-11-05/assets/option-01-natural-site.png",
+      "bytes": 2332273,
+      "sha256": "960A4A35A4F81D56109E9A144F32AF25AE9DC6D6C227B2F5F21D5FD0C0D2CADF",
+      "byte_identical": true
+    },
+    {
+      "source": "assets/option-02-natural-mep.png",
+      "destination": "styles/signature-navy-2026-11-05/assets/option-02-natural-mep.png",
+      "bytes": 2301988,
+      "sha256": "ECC926B81DDABC6294CBF68B9C83B2355C2CBE38FA3432655CE6859B39769EF7",
+      "byte_identical": true
+    },
+    {
+      "source": "output/options/Option-01-Editorial-9x16-4K.png",
+      "destination": "styles/editorial-2026-11-05/final/Option-01-Editorial-9x16-4K.png",
+      "bytes": 3958755,
+      "sha256": "EA79528E41A95E4B69E27E63B6A7BC1837F157B589A700873A3B4D3D4834C547",
+      "byte_identical": true
+    },
+    {
+      "source": "output/options/Option-01-Editorial-16x9-4K.png",
+      "destination": "styles/editorial-2026-11-05/final/Option-01-Editorial-16x9-4K.png",
+      "bytes": 3638112,
+      "sha256": "81BF848270A616B1CDEC57AC01BD81501C84B0ECCCD8939E812CE7E9A6E86B4F",
+      "byte_identical": true
+    },
+    {
+      "source": "output/options/Option-02-Signature-Navy-9x16-4K.png",
+      "destination": "styles/signature-navy-2026-11-05/final/Option-02-Signature-Navy-9x16-4K.png",
+      "bytes": 3721526,
+      "sha256": "67043F4178B033464C3E4648FE429AA85B397D3D4F48E0150A1516A51444BFF9",
+      "byte_identical": true
+    },
+    {
+      "source": "output/options/Option-02-Signature-Navy-16x9-4K.png",
+      "destination": "styles/signature-navy-2026-11-05/final/Option-02-Signature-Navy-16x9-4K.png",
+      "bytes": 2239008,
+      "sha256": "6113F59727B77583ECACD621AB02F196717906C57307BD2C07F2742EEC7CD086",
+      "byte_identical": true
+    },
+    {
+      "source": "output/options/options-design-audit-and-prompts.txt",
+      "destination": "evidence/legacy-options-design-audit-and-prompts.txt",
+      "bytes": 5672,
+      "sha256": "C976434E67A286E4D16BEAF99638DEF730FA02B898F21306BB4FC66DF8CDDCB5",
+      "byte_identical": true
+    },
+    {
+      "source": "output/options/options-layout-audit.json",
+      "destination": "evidence/legacy-options-layout-audit.json",
+      "bytes": 59305,
+      "sha256": "755EC7BD90A22773508CF67CE692AED525BA76927F6C89ED5434101B24D99112",
+      "byte_identical": true
+    },
+    {
+      "source": "output/options/options-canvas-bounds.json",
+      "destination": "evidence/legacy-options-canvas-bounds.json",
+      "bytes": 52662,
+      "sha256": "5974353983FF046DAA581373866DE208BCAD9B2430CBDAAF37840E80F3EB7704",
+      "byte_identical": true
+    },
+    {
+      "source": "output/options/Options-Contact-Sheet.png",
+      "destination": "evidence/legacy-options-contact-sheet.png",
+      "bytes": 1794772,
+      "sha256": "864B75A2E13E6DD92B6671DE6F75CAA3DF847D42FE612C81CFE956DE0E260AF2",
+      "byte_identical": true
+    }
+  ],
+  "renders": [
+    {
+      "path": "output/options/Option-01-Editorial-9x16-4K.png",
+      "reference": "styles/editorial-2026-11-05/final/Option-01-Editorial-9x16-4K.png",
+      "width": 2160,
+      "height": 3840,
+      "bytes": 3958755,
+      "sha256": "EA79528E41A95E4B69E27E63B6A7BC1837F157B589A700873A3B4D3D4834C547",
+      "matches_archived_final": true
+    },
+    {
+      "path": "output/options/Option-01-Editorial-16x9-4K.png",
+      "reference": "styles/editorial-2026-11-05/final/Option-01-Editorial-16x9-4K.png",
+      "width": 3840,
+      "height": 2160,
+      "bytes": 3638112,
+      "sha256": "81BF848270A616B1CDEC57AC01BD81501C84B0ECCCD8939E812CE7E9A6E86B4F",
+      "matches_archived_final": true
+    },
+    {
+      "path": "output/options/Option-02-Signature-Navy-9x16-4K.png",
+      "reference": "styles/signature-navy-2026-11-05/final/Option-02-Signature-Navy-9x16-4K.png",
+      "width": 2160,
+      "height": 3840,
+      "bytes": 3721526,
+      "sha256": "67043F4178B033464C3E4648FE429AA85B397D3D4F48E0150A1516A51444BFF9",
+      "matches_archived_final": true
+    },
+    {
+      "path": "output/options/Option-02-Signature-Navy-16x9-4K.png",
+      "reference": "styles/signature-navy-2026-11-05/final/Option-02-Signature-Navy-16x9-4K.png",
+      "width": 3840,
+      "height": 2160,
+      "bytes": 2239008,
+      "sha256": "6113F59727B77583ECACD621AB02F196717906C57307BD2C07F2742EEC7CD086",
+      "matches_archived_final": true
+    }
+  ],
+  "fresh_audit": {
+    "width_records": 163,
+    "width_failures": 0,
+    "canvas_records": 163,
+    "canvas_failures": 0,
+    "layout_audit_sha256": "755EC7BD90A22773508CF67CE692AED525BA76927F6C89ED5434101B24D99112",
+    "canvas_bounds_sha256": "5974353983FF046DAA581373866DE208BCAD9B2430CBDAAF37840E80F3EB7704"
+  },
+  "historical_audit": {
+    "source_date": "2026-11-05",
+    "width_records": 163,
+    "width_failures": 0,
+    "canvas_records": 163,
+    "canvas_failures": 0,
+    "claims_status": "Historical visual/QR/logo notes are preserved verbatim as provenance; not newly confirmed."
+  },
+  "hero_placements": [
+    {
+      "style": "Editorial",
+      "format": "9:16",
+      "source": [
+        2020,
+        778
+      ],
+      "destination": [
+        72,
+        680,
+        2016,
+        752
+      ],
+      "cover_scale": 0.998019801980198,
+      "enlargement_percent": 0
+    },
+    {
+      "style": "Editorial",
+      "format": "16:9",
+      "source": [
+        2020,
+        778
+      ],
+      "destination": [
+        1950,
+        0,
+        1890,
+        704
+      ],
+      "cover_scale": 0.9356435643564357,
+      "enlargement_percent": 0
+    },
+    {
+      "style": "Signature Navy",
+      "format": "9:16",
+      "source": [
+        1998,
+        787
+      ],
+      "destination": [
+        72,
+        735,
+        2016,
+        690
+      ],
+      "cover_scale": 1.009009009009009,
+      "enlargement_percent": 0.9009009009008917
+    },
+    {
+      "style": "Signature Navy",
+      "format": "16:9",
+      "source": [
+        1998,
+        787
+      ],
+      "destination": [
+        72,
+        250,
+        1400,
+        520
+      ],
+      "cover_scale": 0.7007007007007007,
+      "enlargement_percent": 0
+    }
+  ],
+  "hero_scale_formula": "max(destination_width/source_width,destination_height/source_height), followed by centered cover crop in the unchanged Hero method",
+  "prompt_checks": [
+    {
+      "style": "editorial-2026-11-05",
+      "eight_fields_present": true,
+      "text_snapshot_matches_render": true,
+      "text_records_unique": 41,
+      "historical_photo_prompt_chars": 1921
+    },
+    {
+      "style": "signature-navy-2026-11-05",
+      "eight_fields_present": true,
+      "text_snapshot_matches_render": true,
+      "text_records_unique": 42,
+      "historical_photo_prompt_chars": 2078
+    }
+  ],
+  "protected_output_test": {
+    "argument": "-OutputDir .\\assets",
+    "exit_code": 1,
+    "expected_rejection": true,
+    "message": "OutputDir must stay inside the package output directory"
+  },
+  "attempt_history": [
+    {
+      "attempt": 1,
+      "exit_code": 1,
+      "error": "Rendered PNG differs from the archived historical final: Option-01-Editorial-9x16-4K.png. Check fonts and environment; do not replace archived finals.",
+      "actual_hash_captured": false,
+      "status": "First wrapper attempt failed; cause not established. No archived source/final files were overwritten."
+    },
+    {
+      "attempt": 2,
+      "kind": "Diagnostic direct RenderOptions in fresh Windows PowerShell",
+      "exit_code": 0,
+      "result": "All four PNG hashes and contact sheet matched originals."
+    },
+    {
+      "attempt": 3,
+      "kind": "Relocated wrapper, failure message enriched with expected and actual hashes",
+      "exit_code": 0,
+      "result": "All four PNG hashes matched originals."
+    },
+    {
+      "attempt": 4,
+      "kind": "Repeated fresh wrapper to check unresolved initial failure",
+      "exit_code": 0,
+      "result": "All four PNG hashes matched originals."
+    }
+  ],
+  "limitations": [
+    "No image-generation call in this packaging run.",
+    "Source photos are 2020x778 and 1998x787; only final canvas and typography are 4K.",
+    "Signature Navy portrait photo is enlarged 1.009009009x, approximately 0.9009%; retained from historical source.",
+    "Small helmet/vest logo fidelity remains unverified; historic PASS wording is not a current verdict.",
+    "QR decoding not rerun; historical note reports decoding to https://q.me-qr.com/k3x1m00q.",
+    "Width and canvas checks do not test all-pairs overlap, anatomy or identity fidelity.",
+    "Exact historical generation model, seed and identity-reference path/hash are unknown."
+  ]
+}

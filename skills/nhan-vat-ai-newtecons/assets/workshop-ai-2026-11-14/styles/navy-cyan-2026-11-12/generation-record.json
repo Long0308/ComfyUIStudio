@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-12",
+  "tool": "image_gen.imagegen",
+  "model_id": "not exposed by tool",
+  "type": "generated header asset for new navy/cyan variant",
+  "prompt": "Use case: ads-marketing / compositing. Create ONE ultra-wide cinematic HEADER ARTWORK asset, approximately 3:1 landscape, request maximum native detail (3840 by 1280 if supported). This is only the photographic/technical header for a Vietnamese corporate workshop poster, not the full poster. INPUT ROLES: reference 1 is the desired navy/cyan visual style only; ignore ALL agenda text, panels, logo plaque, date, QR and lettering in reference1. Reference2 is the approved pair of engineers: preserve the same male-left/female-right identities, facial appearance, blue-white small-check shirts, navy safety vests and exact white helmets, brand wordmarks, one tablet, and collaborative hand gesture. SCENE: photorealistic unfinished MEP construction floor with galvanized metal ventilation ducts, cable trays, red fire-suppression pipe overhead. Main engineer pair occupies middle-left about x0.30-0.65, both helmet tops safely inset at least7% from top, no chopped faces/hands/tablet. Right quarter transitions into an elegant transparent cyan BIM wireframe of realistic structural framing and MEP routes plus one restrained abstract dashboard with unlabelled graphs. Far left quarter and lower edge fade smoothly into deep navy #041E35 to support later typography. High-end corporate campaign photographic finish, believable skin and sharp woven fabric, natural friendly concentration, bright clear faces, controlled cyan rim accents and architectural edge light. Technical glow is confined to BIM graphics, not skin. Preserve actual supplied helmet wordmarks: red N above blue NEWTECONS; white vest logo follows source. No additional people, no robot, no giant AI chip, no watermark, no extra text or numbers, no QR, no title, no schedule, no decorative large NEWTECONS logo. Make fresh detailed visual art with clean accurate anatomy; do not enlarge the old complete poster. Render a coherent borderless panoramic scene suitable for high-resolution 4K poster composition.",
+  "input_roles": [
+    {
+      "path": "assets/user-style-reference.png",
+      "role": "style_only"
+    },
+    {
+      "path": "../../assets/ChatGPT Image Nov 5, 2026, 11_10_50 AM.png",
+      "role": "people_pose_uniform"
+    }
+  ],
+  "requested_size": [
+    3840,
+    1280
+  ],
+  "actual_size": [
+    2172,
+    724
+  ],
+  "transparency": false,
+  "output": "assets/navy-cyan-mep-header.png",
+  "note": "Actual generated size is not native4K. Final type/layout will be rendered directly at2160x3840 and3840x2160."
+}

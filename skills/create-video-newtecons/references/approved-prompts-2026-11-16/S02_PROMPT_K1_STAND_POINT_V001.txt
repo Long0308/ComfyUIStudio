@@ -1,0 +1,20 @@
+Use your built-in image generation tool (image_gen) to create exactly ONE image. Do not run shell commands and do not write any file yourself.
+
+The attached input images, in order, are:
+Image 1: the REAL site meeting room of the NEWTECONS command team (Ban chỉ huy). This is the set: raw grey concrete walls and columns, exposed yellow, orange and white conduits and electrical boxes, a ceiling projector and a white projection screen, long light-wood tables joined in a row, blue plastic stools, a tall window on the left, wood-look floor. The real people in this photo are NOT characters — do not copy their faces; ignore the timestamp text. [01_SET_PHONG_HOP_BCH.jpg]
+Image 2: the same meeting room from another angle (set only, same rules). [02_SET_PHONG_HOP_A.jpg]
+Image 3: the APPROVED previous shot (scene 1): in this same room the Project Director has just slammed his white NEWTECONS hard hat down crooked on the light-wood table. CONTINUITY: same table, same crooked helmet, same SITE MANAGER vest, same fine blue-white grid shirt, navy trousers. [03_S01_K3_V004_HELMET_TABLE.png]
+Image 4: CHAR_02 the Project Director (GĐDA) — keep this exact face (about 45, weathered, salt-and-pepper short hair, strong jaw). Take ONLY the face. [04_CHAR02_GDDA_FACE.png]
+Image 5: the REAL NEWTECONS vest FRONT with SITE MANAGER on the chest — reproduce exactly. [05_VEST_SITE_MANAGER_FRONT.png]
+Image 6: shirt fabric: very fine blue-white grid. Wardrobe only. [06_SHIRT_FINE_GRID.png]
+Image 7: real collar: tiny tone-on-tone N at the collar tip. Wardrobe only. [07_COLLAR_LOGO.png]
+Image 8: canonical white hard hat V004 from the front: red N above blue NEWTECONS, logo ONLY on the front. [08_HELMET_V004_FRONT.png]
+Image 9: the same Project Director APPROVED in scene 3 (face and vest continuity). [09_S03_GDDA_APPROVED.png]
+
+SHOT 1 of scene 2 (NEWTECONS live-action film, tense progress meeting).
+Camera: wide shot, horizontal 16:9, 28 mm look, from the far end of the table at seated eye level, so the whole long table, the team on both sides and the projection screen at the back are visible. Straight verticals.
+GĐDA (CHAR_02) has just STOOD UP at the head of the table near the screen: one hand planted hard on the table, the other arm stretched out pointing at the projected progress schedule, jaw set, face hard with pressure and authority. He wears the SITE MANAGER vest of Image 5 over the fine grid shirt with rolled sleeves, navy trousers, NO hard hat on his head. His white NEWTECONS hard hat lies CROOKED on the table in front of him, exactly as in Image 3.
+SCREEN: the projector shows a construction progress Gantt chart — horizontal bars, several of them RED marking delays, a vertical red today line; no readable words or numbers.
+THE COMMAND TEAM (Ban chỉ huy): six or seven Vietnamese site engineers aged 28–45, all invented people (not the people of Image 1), seated on the blue stools around the long table, wearing the fine blue-white grid shirt of Image 6 with the tiny collar N (two of them wear a royal-blue NEWTECONS vest over it), notebooks, pens, water bottles and two laptops on the table. Any hard hat on the table shows its logo only on the front; helmets seen from behind or upside-down are plain white. They look up at him, tense and silent.
+Mood: tense, urgent, the schedule is slipping.
+LOOK: photorealistic live-action NEWTECONS corporate film still, full-frame cinema camera, natural mixed window and fluorescent light, real skin texture, real fabric weave, no plastic or glossy AI look, no CGI, natural hands with five fingers. No subtitles, no captions, no watermark, no timestamp or on-screen text overlays. Output: one photoreal horizontal 16:9 image, at least 1536 x 864.

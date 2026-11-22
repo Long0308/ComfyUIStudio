@@ -1,0 +1,10 @@
+Use your built-in image generation tool (image_gen) to create exactly ONE image. Do not run shell commands and do not write any file yourself.
+
+The attached input images, in order, are:
+Image 1: the frame to edit. [12_K3L_V001_BASE.png]
+Image 2: CHAR_02 Project Director face reference — keep this exact face. [04_CHAR02_GDDA_FACE.png]
+
+LOCAL EDIT — TARGET: the Project Director's head direction and eyes. CHANGE: he turns his head and eyes toward the RIGHT side of the frame (looking slightly past camera to frame-right, as if facing the person on the other half of a split screen), still holding the phone to his right ear, still listening with a tense frown and a bead of sweat at the temple. The front NEWTECONS logo on his hard hat stays visible.
+PRESERVE (pixel-faithful): his identity, the white hard hat with the red N and blue NEWTECONS on the FRONT only, the SITE MANAGER vest with its lettering, the fine blue-white grid shirt, the basement, columns D3/E2/E3, scaffold, scissor lift, the three background workers (their helmet backs plain white, vest backs reading NEWTECONS), light, colour, framing, 16:9 crop.
+ALLOW: natural changes of the neck and collar folds from the head turn.
+No subtitles, no captions, no watermark. Output: one photoreal 16:9 image, same framing as Image 1, at least 1536 x 864.

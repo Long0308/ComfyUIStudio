@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "pipeline": "native_poster",
+  "starting_point": "Recreation / approved hero replacement",
+  "provenance": {
+    "kind": "documented_production_recipe",
+    "date": "2026-11-05",
+    "historical_image_model_prompt": "not available verbatim",
+    "method": "Approved photo + original logo and QR + unchanged native renderer; not a one-shot generative poster."
+  },
+  "subject": "1 lịch Workshop AI NEWTECONS; 2 kỹ sư (1 nam, 1 nữ) trong ảnh MEP đã chọn; mở đầu 2 mục, phần 1 có 5 bài, phần 2 có 4 chủ đề và 1 diễn giả, phần 3 tổng kết kèm 1 QR.",
+  "style": "Corporate editorial blue-white. Clear hierarchy, confident geometry, restrained detail. Natural construction photograph; no added sci-fi effects.",
+  "lighting": "Preserve natural daylight and material detail from the selected MEP hero. Text area is flat white, no glow or shadow behind type.",
+  "palette": [
+    "#FFFFFF",
+    "#0A2540",
+    "#0B4FD9",
+    "#E2F0FF",
+    "#224674"
+  ],
+  "material": "Crisp real-font typography and vector rules; original raster photograph and logo. Lossless PNG; preserve fabric weave, reflective bands, helmet surface and metal ducts.",
+  "negative": [
+    "no duplicate NEWTECONS wordmark beside the official header logo",
+    "no AI-generated agenda lettering",
+    "no misspelling or missing Vietnamese accents",
+    "no extra icons, robot heads, neon circuit motifs",
+    "no enlargement of an old complete poster as the production method",
+    "no crop of helmets, text, time labels or QR",
+    "no generative QR"
+  ],
+  "font_mood": "Roboto Condensed. Main title and session titles Bold. Presenter/project/office line Italic (non-bold), smaller. No simulated thin strokes or condensed bitmap lettering.",
+  "input_roles": [
+    {
+      "path": "../assets/ChatGPT Image Nov 5, 2026, 11_10_50 AM.png",
+      "role": "hero",
+      "use": "Only approved photo: faces, pose, uniform, helmets, tablet, MEP environment",
+      "exclude": "No agenda or extra decorative logo"
+    },
+    {
+      "path": "../assets/newtecons-original-logo.png",
+      "role": "logo",
+      "use": "Authentic header logo once",
+      "exclude": "Do not retype the wordmark"
+    },
+    {
+      "path": "../assets/original-workshop-qr.jpg",
+      "role": "qr",
+      "use": "Preserve real QR modules; native renderer uses recorded crop",
+      "exclude": "Do not generate a QR approximation"
+    }
+  ],
+  "change_contract": {
+    "target": "Poster layout and typography at final output pixel size",
+    "change": "Rebuild with native renderer; place approved hero in the defined photo region",
+    "preserve": "All exact agenda strings and times; original logo/QR; approved people and uniforms",
+    "allow": "Cover-crop/resample the photo within its region; natural existing photo light and shadows"
+  },
+  "render": {
+    "runner": "../scripts/render.ps1",
+    "engine": "Windows PowerShell 5.1 + System.Drawing",
+    "format": "PNG",
+    "dpi_metadata": 300,
+    "detail_claim": "Native-size 4K canvas/text; hero source is 1998x787. DPI and file size are not detail measurements."
+  },
+  "acceptance": [
+    "Exact width/height and aspect ratio",
+    "Exact text_content order and characters in layout audit",
+    "All five Part 1 titles bold, same size, single-line",
+    "Presenter lines smaller, italic, non-bold, no truncation",
+    "Nine scheduled intervals contiguous 08:30–11:00 (150 minutes)",
+    "Visual pixel review of tầm, Vietnamese names, helmet wordmarks and margins",
+    "Decode final QR to https://q.me-qr.com/k3x1m00q",
+    "Hash comparison with archived reference; no claim of pixel identity until measured"
+  ],
+  "id": "01-portrait-9x16",
+  "aspect": "9:16",
+  "output": {
+    "filename": "Newtecons-Workshop-AI-MEP-FINAL-9x16-4K-v2.png",
+    "width": 2160,
+    "height": 3840
+  },
+  "composition": {
+    "frame": "Full-frame portrait; photo across top; vertical chronological reading below",
+    "photo_box_px": [
+      0,
+      0,
+      2160,
+      804
+    ],
+    "photo_box_normalized": [
+      0,
+      0,
+      1,
+      0.209375
+    ],
+    "content_margin_px": 72,
+    "section_top_px": {
+      "opening": 1320,
+      "part1": 1730,
+      "part2": 2705,
+      "part3": 3287
+    },
+    "qr_box_px": [
+      914,
+      3507,
+      332,
+      332
+    ],
+    "note": "Exact geometry is in PosterRenderer.cs. QR below Part 3; maintain quiet zone."
+  },
+  "text_content": [
+    "KHỐI CƠ ĐIỆN",
+    "TIMELINE WORKSHOP AI",
+    "14.11.2026   |   12A NEWTECONS   |   08:30 – 11:00",
+    "MỞ ĐẦU",
+    "08:30 – 08:40",
+    "VÕ THANH CANG",
+    "Giám đốc Khối Cơ Điện chia sẻ",
+    "08:40 – 08:55",
+    "Minigame: Giải mã công trường AI",
+    "Quà hấp dẫn",
+    "PHẦN 1",
+    "ỨNG DỤNG AI THỰC TẾ Ở CÔNG TRƯỜNG",
+    "08:55 – 09:10",
+    "1. Claude – Trợ lý văn phòng công trường",
+    "Trình bày: Trần Dương Hồng Quân - Dự án: Sân bay Long Thành",
+    "09:10 – 09:25",
+    "2. Claude – Trợ thủ đắc lực cho QS",
+    "Trình bày: Nguyễn Văn Hải - Dự án: The One Sài Gòn",
+    "09:25 – 09:40",
+    "3. Dashboard – Tiến độ, T&C và hồ sơ trong tầm tay",
+    "Trình bày: Nguyễn Đình Thiệu - Dự án: Sân bay Long Thành",
+    "09:40 – 09:55",
+    "4. AI – Kiến tạo công cụ quản lý công trường",
+    "Trình bày: Nguyễn Thanh Hoàng - Dự án: Bason",
+    "09:55 – 10:15",
+    "5. AI Agent – Triển khai bản vẽ, tính tổn thất ống gió",
+    "Trình bày: Phạm Phi Long & Ngô Ngọc Sơn - Văn phòng: Khối Kỹ Thuật",
+    "PHẦN 2",
+    "10:15 – 10:50",
+    "ỨNG DỤNG AI CÓ TRÁCH NHIỆM",
+    "Trình bày: Trương Quang Vinh - Văn phòng: P.CNTT",
+    "(1)  Các cấp độ ứng dụng AI",
+    "(2)  Phân biệt AI cá nhân và AI doanh nghiệp",
+    "(3)  Hướng dẫn sử dụng AI có trách nhiệm",
+    "(4)  Giới thiệu câu lạc bộ AI HST",
+    "PHẦN 3",
+    "10:50 – 11:00",
+    "TỔNG KẾT"
+  ],
+  "text_hierarchy": {
+    "family": "Roboto Condensed",
+    "headline": {
+      "size_px": 128,
+      "style": "Bold"
+    },
+    "section_label": {
+      "size_px": 72,
+      "style": "Bold"
+    },
+    "part1_title": {
+      "size_px": 58,
+      "style": "Bold",
+      "single_line": true
+    },
+    "part1_presenter": {
+      "size_px": 44,
+      "style": "Italic",
+      "single_line": true
+    },
+    "time": {
+      "size_px": 48,
+      "style": "Bold"
+    },
+    "part2_presenter": {
+      "size_px": 48,
+      "style": "Italic"
+    },
+    "principle": "Size ratios such as 14:12:10 are hierarchy guidance, not literal 4K pixel sizes."
+  },
+  "prompt": "Dựng poster Workshop AI NEWTECONS dọc 9:16 trên canvas 2160×3840 bằng scripts/render.ps1. Dùng đúng ba input_roles; ghép ảnh MEP đã chọn vào vùng trên, logo gốc cạnh KHỐI CƠ ĐIỆN. Dàn từng chuỗi text_content bằng Roboto Condensed thật theo text_hierarchy và geometry của renderer. Tiêu đề 5 bài phần 1 nằm một dòng đậm; dòng người trình bày và dự án nhỏ hơn, nghiêng, không đậm. Giữ thứ tự lịch và nhóm mục từ content.json. QR nằm dưới tổng kết. Nền trắng, xanh navy, xanh thương hiệu, tối giản icon. Không đưa toàn bộ lịch cho mô hình sinh ảnh vẽ chữ. Xuất PNG đúng pixel rồi chạy verify.ps1 -Render và audit ảnh 1:1."
+}

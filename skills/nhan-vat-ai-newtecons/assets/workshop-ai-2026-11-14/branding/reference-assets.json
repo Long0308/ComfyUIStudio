@@ -1,0 +1,36 @@
+{
+  "version": "2026-11-12",
+  "source_status": "user-supplied raster references",
+  "assets": [
+    {
+      "file": "assets/newtecons-full-color.png",
+      "width": 1134,
+      "height": 633,
+      "bytes": 21873,
+      "sha256": "E320EABBF4AF707351A6E36E13CF961FCA71B43C058D84E60B61C3681552CA51",
+      "source": "User-supplied full color logo; original filename: logo nguyen ban.png",
+      "copy_mode": "byte-identical",
+      "vector": false
+    },
+    {
+      "file": "assets/newtecons-full-white.png",
+      "width": 1134,
+      "height": 633,
+      "bytes": 19697,
+      "sha256": "785E1770DFCB5D60E15C4EC5CBB85CF666DBF5431185896B891C98A26DAC1DF7",
+      "source": "User-supplied full white logo; original filename: logo trang.png",
+      "copy_mode": "byte-identical",
+      "vector": false
+    },
+    {
+      "file": "assets/newtecons-n-symbol.png",
+      "width": 317,
+      "height": 380,
+      "bytes": 3278,
+      "sha256": "4E7E17C5291C17CBAD14A2644967B7DF030F6BD284DFA47DD8015CEEF1909862",
+      "source": "User-attached N-only source: Zalo-KKT/aicon/logo-nguyen ban.png",
+      "copy_mode": "byte-identical",
+      "vector": false
+    }
+  ]
+}

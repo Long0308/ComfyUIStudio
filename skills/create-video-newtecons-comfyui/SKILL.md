@@ -5,6 +5,33 @@ description: "Phim người thật NEWTECONS; tạo/sửa ảnh và video bằng
 
 Tên người dùng đã đổi: **create-video-newtecons-comfyui**. Tên `create-video-newtecons` chỉ là alias tương thích. Đây là pipeline ảnh và video người thật NEWTECONS, endpoint **http://127.0.0.1:8188**.
 
+## 🩸 Video về là gắn NGAY lên storyboard của CẢNH, có TAG NGUỒN (user 16/11)
+- Mỗi clip về (dù là nháp) chép vào `studio-app/model-review/<đợt>/sNN/video/` rồi dựng lại trang storyboard cảnh đó: clip nằm **ngay dưới shot của nó**, kèm dải «Video cảnh» (bản ghép) ở đầu trang. Không chỉ gửi file, không để clip nằm riêng một trang.
+- **Tag nguồn bắt buộc trên khung video**: `TOPVIEW AI · <model>` (nền xanh #0B4FD9) hoặc `COMFYUI LOCAL · <graph>` (nền xanh lá #134611); caption ghi độ phân giải, nguồn tiếng (model sinh / SFX local / giọng VoiceStudio). Bản ghép cũng ghi `[TOPVIEW AI]` / `[COMFYUI LOCAL]` trong tên hiển thị.
+- Hai luồng chạy SONG SONG cho cùng shot đã duyệt khi user muốn so: Topview (WAN 3.0 720P) và ComfyUI local (Stable Audio 3 SFX ⇒ H3 ref2va dùng SFX làm âm thanh dẫn). Cùng bộ SFX dùng để lồng cho clip Topview (bản B) ⇒ so công bằng; cân cả hai về ≈ −16 LUFS.
+- Mẫu chạy được: `docs/media-stage/S01-INTRO-REBUILD-V001/` — `video/run_wan.py` (Topview), `local/run_local.py sfx|h3` (local, graph lưu `02 Workflow Video/S01-INTRO/`), `build_storyboard.py` (`clips()` gắn tag).
+- **Tự động lên web, không chép tay (user 16/11 «chưa có api tự động đẩy lên web»)**: mỗi cảnh chạy nền `auto_publish.py` (mẫu `docs/media-stage/S01-INTRO-REBUILD-V001/auto_publish.py`). Cứ 10 s nó soát `takes/`, `video/` (Topview), `local/` (ComfyUI), `voice/`; có file mới thì chép clip lên app (ComfyUI đổi sang H.264 yuv420p faststart, hậu tố `_h3_local`), dựng lại storyboard, ghi `version.json`; trang tự tải lại khi version đổi, link video có `?v=<mtime>` nên trình duyệt không giữ bản cũ.
+- **Bảng tiến trình trên trang**: `status.json` (10 s/lần) gom 3 nguồn: ảnh Codex (lane log → take), video Topview (receipt `task_id/status/charged_usd`), ComfyUI (receipt `prompt_id` + `/queue`: xếp hàng / đang render / xong). % là ƯỚC theo thời gian trung bình đã đo (ảnh 180 s, Topview 125 s, H3 local 205 s), ghi rõ trên trang là ước; trang tự cập nhật 5 s. Bật lại sau khi máy khởi động: `python -X utf8 -I auto_publish.py` trong thư mục cảnh. Chưa có: % thật từ websocket ComfyUI.
+- **Logo nón theo HƯỚNG MẶT từng người, kể cả người trên giàn/xe nâng (16/11)**: chỉ người quay mặt về máy mới thấy logo; người quay lưng, ngửa lên trần, nhìn nghiêng ra xa ⇒ nón trắng trơn. Soát bằng cách cắt phóng TỪNG nón trong ảnh toàn cảnh (lượt sửa đầu sót 2 thợ trên giàn). Sửa ảnh TRƯỚC khi gửi video: clip sinh từ ảnh sai chép lỗi theo.
+- Soát mỗi clip bằng dải 3 khung (đầu/giữa/cuối) trước khi báo: 16/11 WAN Shot 2 lọt thợ gile vàng ở cuối, Shot 3 nón biến hình giữa clip.
+
+## Đường cloud Topview đã đo → bài học cho ComfyUI local (16/11)
+Đọc [topview-cloud-route-lessons.md](../comfyui-video-pipeline/references/topview-cloud-route-lessons.md): giá/thời gian đo thật WAN 3.0 ($0,0618/giây 720P) và H3 (`reference_audio`), một receipt mỗi clip + Idempotency-Key, prompt video 4 khối (máy quay · thoại · Sound · LOOK), 720p → user duyệt → SeedVR2 local, clone giọng WAN rồi dùng H3 để khẩu hình khớp, SFX lồng tại máy, luật nối shot (xem studio-video-engine). SeedVR2 2560×1408 làm sập ComfyUI 16/11.
+
+### 🩸 Phán quyết của user 16/11 sau khi so 2 luồng Cảnh 1 (ĐỌC TRƯỚC khi chọn đường)
+| Hạng mục | Chốt | Vì sao (user) |
+|---|---|---|
+| **Tiếng** (bước chân, công trường, tiếng hô) | **Topview WAN 3.0 tự sinh trong clip** | SFX local Stable Audio 3 làm audio dẫn cho H3 ⇒ «bị tiếng sai». **Không dùng ComfyUI làm tiếng** cho NEWTECONS. |
+| Giọng giám sát hô | Giọng do WAN sinh trong clip Shot 0 V2 («mạnh mẽ») | thắng 2 giọng VoiceStudio thu riêng |
+| Shot 1 sau lưng đi · Shot 2 bàn chân qua cửa | clip Topview WAN 3.0 720p | rõ hơn, bước chân đều (bản V2) |
+| Clip H3 local | **chỉ tham khảo hình**, chưa qua: mờ hơn (độ nét Laplacian ≈ ½ Topview), sai diễn (vẫy tay về ống kính, máy quay đi lùi, nón méo) | — |
+
+Lỗi diễn WAN đã gặp và câu prompt sửa:
+- **Vật bị đập/đặt «dằn 2 nhịp»**: prompt có «jolts and rocks… settles / rattling to rest» ⇒ model sinh HAI cú chạm. Viết: «ONE single hard impact, exactly once… does not bounce, does not lift, does not rock… stays completely still» + dòng Sound «exactly one thump, no second knock».
+- Người quay lưng có logo trên nón: soát ẢNH khung đầu trước khi gửi video (crop từng nón), không trông vào câu prompt video.
+- **Thử ComfyUI 20 bước 16/11 (workflow TIMELAPSE-R4 của user, H3 fl2va + LoRA Pika rank56, bỏ depth ControlNet)**: 777 s/4 s, Laplacian CAO hơn Topview nhưng soi 1:1 thấy **lưới ô vuông phủ khung** giữa clip + chữ lưng gile nhoè ⇒ CHƯA ĐẠT. Laplacian một mình KHÔNG chứng minh nét — luôn soi crop 1:1 ở ít nhất 3 thời điểm.
+⇒ Muốn đưa luồng local lên ngang Topview phải giải 3 việc trước: (1) tiếng: dùng tiếng Topview/thu thật, không SFX model; (2) nét: length ≥124 + SeedVR2 1080p (chưa đo); (3) diễn: khung đầu+cuối (fl2va) cho hành động có vật.
+
 ## Phạm vi bắt buộc — NEWTECONS là phim người thật
 
 - `production_domain: newtecons_live_action`. NEWTECONS là phim/trailer doanh nghiệp **người thật**, giữ nhận diện từ ảnh tham chiếu, tỷ lệ cơ thể người trưởng thành, kết cấu da/tóc/vải và ánh sáng điện ảnh tự nhiên. Không chuyển thành nhân vật hoạt hình, đầu/mắt phóng đại hay phong cách thiếu nhi.

@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "id": "05-navy-cyan-workshop-style",
+  "date": "2026-11-12",
+  "type": "poster",
+  "pipeline": "new generated header + native two-format typesetting",
+  "subject": "Workshop AI NEWTECONS, 2 kỹ sư nam/nữ từ nguồn được chọn,1tablet,MEP/BIM; lịch giữ đúng content.json gói cha.",
+  "style": "Deep navy and cyan corporate technical campaign; crisp bordered timeline cards, angled cyan headers and bold white typography, following user's supplied style reference.",
+  "composition": {
+    "landscape": "Header title and authentic white logo plaque left; new photo right; opening full-width band;Part1 left,Part2 thenPart3 right.",
+    "portrait": "Logo plaque then fresh header photo, title/event, opening,Part1,Part2,Part3/QR vertically.",
+    "hero_max_scale": 1,
+    "formats": [
+      {
+        "aspect": "9:16",
+        "width": 2160,
+        "height": 3840
+      },
+      {
+        "aspect": "16:9",
+        "width": 3840,
+        "height": 2160
+      }
+    ]
+  },
+  "lighting": "Fresh header uses natural light on engineers; cyan technical edges restricted to BIM/network graphics, balanced navy gradients elsewhere.",
+  "palette": [
+    "#041E35",
+    "#06182D",
+    "#00DCFA",
+    "#FFFFFF"
+  ],
+  "material": "True skin and gingham weave, molded hardhat plastic, galvanized duct metal; real Roboto Condensed typography rasterized directly on final-size canvas.",
+  "aspect": "9:16 and 16:9",
+  "negative": [
+    "no whole-poster bitmap upscaling",
+    "no enlargement of generated header",
+    "no second NEWTECONS header wordmark",
+    "no incorrect tầm/ầ",
+    "no shorthand replacement of canonical titles",
+    "no invented time intervals",
+    "no generated QR"
+  ],
+  "text_content_ref": "../../content.json",
+  "text_content_note": "Native renderer reuses exact canonical agenda arrays. Extra title lines WORKSHOP AI and TIMELINE CHƯƠNG TRÌNH are style headings.",
+  "text_hierarchy": {
+    "font": "Roboto Condensed",
+    "part1_title": {
+      "portrait_px": 58,
+      "landscape_px": 67,
+      "style": "Bold",
+      "single_line": true
+    },
+    "presenter": {
+      "portrait_px": 44,
+      "landscape_px": 50,
+      "style": "Italic",
+      "single_line": true
+    }
+  },
+  "font_mood": "Condensed corporate sans; white bold titles, smaller light-colored italic metadata; no glowing body text.",
+  "input_roles": [
+    {
+      "path": "assets/user-style-reference.png",
+      "role": "visual style only, not authoritative text"
+    },
+    {
+      "path": "../../assets/ChatGPT Image Nov 5, 2026, 11_10_50 AM.png",
+      "role": "engineers and attire reference for newly generated header"
+    },
+    {
+      "path": "assets/navy-cyan-mep-header.png",
+      "role": "actual fresh generated header placed <=1:1"
+    },
+    {
+      "path": "../../assets/newtecons-original-logo.png",
+      "role": "authentic full header logo"
+    },
+    {
+      "path": "../../assets/original-workshop-qr.jpg",
+      "role": "authentic QR"
+    }
+  ],
+  "change_contract": {
+    "target": "New navy/cyan visual option",
+    "change": "Generate new MEP/BIM header and native layout in two formats",
+    "preserve": "Canonical event/time/title/presenter text and authentic logo/QR",
+    "allow": "User-authorized cyan/BIM effects from the new reference; native layout reflow per aspect"
+  },
+  "generate_record": "generation-record.json",
+  "render_command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\render.ps1 -HeroPath .\\assets\\navy-cyan-mep-header.png",
+  "quality_claim": "Final canvas and text are4K; actual newly generated photo source2172x724. Landscape photo1.0x, portrait0.994475x. No source enlargement.",
+  "acceptance": [
+    "Check final dimensions",
+    "Check actual photo scale<=1",
+    "Compare agenda strings to canonical source",
+    "Five equal-size one-line bold titles per format",
+    "Presenter smaller italic nonbold",
+    "Audit native crops of tầm and helmet logos",
+    "Decode actual final QR",
+    "Independent source and artifact review"
+  ]
+}

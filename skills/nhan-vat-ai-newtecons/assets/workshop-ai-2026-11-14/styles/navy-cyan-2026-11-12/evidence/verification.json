@@ -1,0 +1,82 @@
+{
+  "date": "2026-11-12",
+  "status": "PASS",
+  "opencv": "4.12.0",
+  "outputs": [
+    {
+      "file": "final/Newtecons-Workshop-AI-Navy-Cyan-9x16-4K.png",
+      "width": 2160,
+      "height": 3840,
+      "bytes": 3664863,
+      "sha256": "DF54A1A75168952A77F46B6FB400730A4334724F2BC38C27670BD49668C2D17C",
+      "text_rows": 40,
+      "canonical_agenda_match": true,
+      "part1_title_px": 58,
+      "presenter_styles": [
+        "Italic"
+      ],
+      "glyph_codepoints": [
+        "U+0074",
+        "U+1EA7",
+        "U+006D"
+      ],
+      "qr_decoded": "https://q.me-qr.com/k3x1m00q",
+      "qr_method": "OpenCV detectAndDecode full final PNG"
+    },
+    {
+      "file": "final/Newtecons-Workshop-AI-Navy-Cyan-16x9-4K.png",
+      "width": 3840,
+      "height": 2160,
+      "bytes": 3628303,
+      "sha256": "186F2E15DC22515F47D74E9EEFBE02E098342C152061DDE81C18B3441A71EDE8",
+      "text_rows": 40,
+      "canonical_agenda_match": true,
+      "part1_title_px": 67,
+      "presenter_styles": [
+        "Italic"
+      ],
+      "glyph_codepoints": [
+        "U+0074",
+        "U+1EA7",
+        "U+006D"
+      ],
+      "qr_decoded": "https://q.me-qr.com/k3x1m00q",
+      "qr_method": "OpenCV detectAndDecode full final PNG"
+    }
+  ],
+  "text_rows_total": 80,
+  "canvas_bounds_total": 80,
+  "image_placement": [
+    {
+      "Poster": "navy-cyan-portrait-9x16",
+      "SourceWidth": 2172,
+      "SourceHeight": 724,
+      "X": 0,
+      "Y": 220,
+      "Width": 2160,
+      "Height": 720,
+      "Scale": 0.9944751,
+      "Upscaled": false
+    },
+    {
+      "Poster": "navy-cyan-landscape-16x9",
+      "SourceWidth": 2172,
+      "SourceHeight": 724,
+      "X": 1668,
+      "Y": 0,
+      "Width": 2172,
+      "Height": 724,
+      "Scale": 1,
+      "Upscaled": false
+    }
+  ],
+  "scope": "Machine checks of exact canonical text, font styles, bounds, image scale, dimensions, QR and hashes; visual spelling/helmets/panel review is separate.",
+  "brand_audit_addendum": {
+    "date": "2026-11-12",
+    "report": "../../../evidence/logo-audit-2026-11-12.md",
+    "header_clearspace": "FAIL",
+    "small_ppe_source_fidelity": "UNCERTAIN",
+    "logo_repair_applied": false,
+    "note": "Existing PASS is limited to recorded machine/content checks, not exact-logo certification."
+  }
+}

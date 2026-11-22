@@ -1,0 +1,1039 @@
+{
+  "schemaVersion": 1,
+  "durationSeconds": 20,
+  "fps": 60,
+  "totalFrames": 1200,
+  "frameConvention": "inclusive frameIn/frameOut, frames 0..1199",
+  "status": "Motion specification and static layers only; no video or playback implementation",
+  "mainAssetIds": [
+    "T01_WORKSHOP",
+    "T02_AI",
+    "T03_DEPARTMENT",
+    "T04_FIELD_APPLICATION",
+    "T05_RESPONSIBLE_AI",
+    "T06_DATE",
+    "T07_LOCATION",
+    "T08_TIME",
+    "T33_DASHBOARD_HOOK",
+    "T34_AI_BIM_HOOK"
+  ],
+  "detailTemplate": "Optional agenda assets use a separate 360-frame/6-second card template at 60fps. They are not all inserted into the 20-second intro.",
+  "coordinateSpace": "Asset-local pixels; placement and scaling resolved by compositor. Apply entrance and exit to top-level id; RUN_01 is an intact phrase.",
+  "assets": {
+    "T01_WORKSHOP": {
+      "timeline": "main-20s",
+      "frameIn": 0,
+      "frameOut": 1199,
+      "holdStart": 36,
+      "holdEnd": 1199,
+      "groupId": "T01_WORKSHOP",
+      "runIds": [
+        "T01_WORKSHOP_RUN_01"
+      ],
+      "entrance": {
+        "type": "scene-instance-specific; frame zero already visible",
+        "durationFrames": 0,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 1,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "hold-through-cut",
+        "durationFrames": 0,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 6,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold.",
+      "visibilityWindows": [
+        {
+          "startFrameInclusive": 0,
+          "endFrameExclusive": 120,
+          "entranceFrames": 0,
+          "opacityAtStart": 1
+        },
+        {
+          "startFrameInclusive": 960,
+          "endFrameExclusive": 1200,
+          "entranceFrames": 30,
+          "opacityAtStart": 0
+        }
+      ]
+    },
+    "T02_AI": {
+      "timeline": "main-20s",
+      "frameIn": 0,
+      "frameOut": 1199,
+      "holdStart": 48,
+      "holdEnd": 1199,
+      "groupId": "T02_AI",
+      "runIds": [
+        "T02_AI_RUN_01"
+      ],
+      "entrance": {
+        "type": "scene-instance-specific; frame zero already visible",
+        "durationFrames": 0,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 1,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "hold-through-cut",
+        "durationFrames": 0,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 12,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold.",
+      "visibilityWindows": [
+        {
+          "startFrameInclusive": 0,
+          "endFrameExclusive": 120,
+          "entranceFrames": 0,
+          "opacityAtStart": 1
+        },
+        {
+          "startFrameInclusive": 960,
+          "endFrameExclusive": 1200,
+          "entranceFrames": 30,
+          "opacityAtStart": 0
+        }
+      ]
+    },
+    "T03_DEPARTMENT": {
+      "timeline": "main-20s",
+      "frameIn": 960,
+      "frameOut": 1199,
+      "holdStart": 990,
+      "holdEnd": 1199,
+      "groupId": "T03_DEPARTMENT",
+      "runIds": [
+        "T03_DEPARTMENT_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 30,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "hold-through-cut",
+        "durationFrames": 0,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 6,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T04_FIELD_APPLICATION": {
+      "timeline": "main-20s",
+      "frameIn": 120,
+      "frameOut": 479,
+      "holdStart": 144,
+      "holdEnd": 462,
+      "groupId": "T04_FIELD_APPLICATION",
+      "runIds": [
+        "T04_FIELD_APPLICATION_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 24,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "opacity + translateY",
+        "durationFrames": 18,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 6,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T05_RESPONSIBLE_AI": {
+      "timeline": "main-20s",
+      "frameIn": 780,
+      "frameOut": 959,
+      "holdStart": 804,
+      "holdEnd": 942,
+      "groupId": "T05_RESPONSIBLE_AI",
+      "runIds": [
+        "T05_RESPONSIBLE_AI_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 24,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "opacity + translateY",
+        "durationFrames": 18,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 6,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T06_DATE": {
+      "timeline": "main-20s",
+      "frameIn": 966,
+      "frameOut": 1199,
+      "holdStart": 990,
+      "holdEnd": 1199,
+      "groupId": "T06_DATE",
+      "runIds": [
+        "T06_DATE_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 24,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "hold-through-cut",
+        "durationFrames": 0,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 6,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T07_LOCATION": {
+      "timeline": "main-20s",
+      "frameIn": 972,
+      "frameOut": 1199,
+      "holdStart": 996,
+      "holdEnd": 1199,
+      "groupId": "T07_LOCATION",
+      "runIds": [
+        "T07_LOCATION_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 24,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "hold-through-cut",
+        "durationFrames": 0,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 6,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T08_TIME": {
+      "timeline": "main-20s",
+      "frameIn": 978,
+      "frameOut": 1199,
+      "holdStart": 1002,
+      "holdEnd": 1199,
+      "groupId": "T08_TIME",
+      "runIds": [
+        "T08_TIME_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 24,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "hold-through-cut",
+        "durationFrames": 0,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 6,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T09_OPENING": {
+      "timeline": "optional-detail-template",
+      "frameIn": 0,
+      "frameOut": 359,
+      "holdStart": 30,
+      "holdEnd": 329,
+      "groupId": "T09_OPENING",
+      "runIds": [
+        "T09_OPENING_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 30,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "opacity + translateY",
+        "durationFrames": 30,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 0,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T10_PART1": {
+      "timeline": "optional-detail-template",
+      "frameIn": 0,
+      "frameOut": 359,
+      "holdStart": 30,
+      "holdEnd": 329,
+      "groupId": "T10_PART1",
+      "runIds": [
+        "T10_PART1_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 30,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "opacity + translateY",
+        "durationFrames": 30,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 0,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T11_PART2": {
+      "timeline": "optional-detail-template",
+      "frameIn": 0,
+      "frameOut": 359,
+      "holdStart": 30,
+      "holdEnd": 329,
+      "groupId": "T11_PART2",
+      "runIds": [
+        "T11_PART2_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 30,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "opacity + translateY",
+        "durationFrames": 30,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 0,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T12_PART3": {
+      "timeline": "optional-detail-template",
+      "frameIn": 0,
+      "frameOut": 359,
+      "holdStart": 30,
+      "holdEnd": 329,
+      "groupId": "T12_PART3",
+      "runIds": [
+        "T12_PART3_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 30,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "opacity + translateY",
+        "durationFrames": 30,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 0,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T13_SUMMARY": {
+      "timeline": "optional-detail-template",
+      "frameIn": 0,
+      "frameOut": 359,
+      "holdStart": 30,
+      "holdEnd": 329,
+      "groupId": "T13_SUMMARY",
+      "runIds": [
+        "T13_SUMMARY_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 30,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "opacity + translateY",
+        "durationFrames": 30,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 0,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T14_TOPIC_1": {
+      "timeline": "optional-detail-template",
+      "frameIn": 0,
+      "frameOut": 359,
+      "holdStart": 30,
+      "holdEnd": 329,
+      "groupId": "T14_TOPIC_1",
+      "runIds": [
+        "T14_TOPIC_1_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 30,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "opacity + translateY",
+        "durationFrames": 30,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 0,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T15_TOPIC_2": {
+      "timeline": "optional-detail-template",
+      "frameIn": 0,
+      "frameOut": 359,
+      "holdStart": 30,
+      "holdEnd": 329,
+      "groupId": "T15_TOPIC_2",
+      "runIds": [
+        "T15_TOPIC_2_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 30,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "opacity + translateY",
+        "durationFrames": 30,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 0,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T16_TOPIC_3": {
+      "timeline": "optional-detail-template",
+      "frameIn": 0,
+      "frameOut": 359,
+      "holdStart": 30,
+      "holdEnd": 329,
+      "groupId": "T16_TOPIC_3",
+      "runIds": [
+        "T16_TOPIC_3_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 30,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "opacity + translateY",
+        "durationFrames": 30,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 0,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T17_TOPIC_4": {
+      "timeline": "optional-detail-template",
+      "frameIn": 0,
+      "frameOut": 359,
+      "holdStart": 30,
+      "holdEnd": 329,
+      "groupId": "T17_TOPIC_4",
+      "runIds": [
+        "T17_TOPIC_4_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 30,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "opacity + translateY",
+        "durationFrames": 30,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 0,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T18_TOPIC_5": {
+      "timeline": "optional-detail-template",
+      "frameIn": 0,
+      "frameOut": 359,
+      "holdStart": 30,
+      "holdEnd": 329,
+      "groupId": "T18_TOPIC_5",
+      "runIds": [
+        "T18_TOPIC_5_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 30,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "opacity + translateY",
+        "durationFrames": 30,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 0,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T19_PRESENTER_1": {
+      "timeline": "optional-detail-template",
+      "frameIn": 0,
+      "frameOut": 359,
+      "holdStart": 30,
+      "holdEnd": 329,
+      "groupId": "T19_PRESENTER_1",
+      "runIds": [
+        "T19_PRESENTER_1_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 30,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "opacity + translateY",
+        "durationFrames": 30,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 0,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T20_PRESENTER_2": {
+      "timeline": "optional-detail-template",
+      "frameIn": 0,
+      "frameOut": 359,
+      "holdStart": 30,
+      "holdEnd": 329,
+      "groupId": "T20_PRESENTER_2",
+      "runIds": [
+        "T20_PRESENTER_2_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 30,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "opacity + translateY",
+        "durationFrames": 30,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 0,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T21_PRESENTER_3": {
+      "timeline": "optional-detail-template",
+      "frameIn": 0,
+      "frameOut": 359,
+      "holdStart": 30,
+      "holdEnd": 329,
+      "groupId": "T21_PRESENTER_3",
+      "runIds": [
+        "T21_PRESENTER_3_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 30,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "opacity + translateY",
+        "durationFrames": 30,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 0,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T22_PRESENTER_4": {
+      "timeline": "optional-detail-template",
+      "frameIn": 0,
+      "frameOut": 359,
+      "holdStart": 30,
+      "holdEnd": 329,
+      "groupId": "T22_PRESENTER_4",
+      "runIds": [
+        "T22_PRESENTER_4_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 30,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "opacity + translateY",
+        "durationFrames": 30,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 0,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T23_PRESENTER_5": {
+      "timeline": "optional-detail-template",
+      "frameIn": 0,
+      "frameOut": 359,
+      "holdStart": 30,
+      "holdEnd": 329,
+      "groupId": "T23_PRESENTER_5",
+      "runIds": [
+        "T23_PRESENTER_5_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 30,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "opacity + translateY",
+        "durationFrames": 30,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 0,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T24_PART2_PRESENTER": {
+      "timeline": "optional-detail-template",
+      "frameIn": 0,
+      "frameOut": 359,
+      "holdStart": 30,
+      "holdEnd": 329,
+      "groupId": "T24_PART2_PRESENTER",
+      "runIds": [
+        "T24_PART2_PRESENTER_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 30,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "opacity + translateY",
+        "durationFrames": 30,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 0,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T25_PART2_SUBTOPIC_1": {
+      "timeline": "optional-detail-template",
+      "frameIn": 0,
+      "frameOut": 359,
+      "holdStart": 30,
+      "holdEnd": 329,
+      "groupId": "T25_PART2_SUBTOPIC_1",
+      "runIds": [
+        "T25_PART2_SUBTOPIC_1_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 30,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "opacity + translateY",
+        "durationFrames": 30,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 0,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T26_PART2_SUBTOPIC_2": {
+      "timeline": "optional-detail-template",
+      "frameIn": 0,
+      "frameOut": 359,
+      "holdStart": 30,
+      "holdEnd": 329,
+      "groupId": "T26_PART2_SUBTOPIC_2",
+      "runIds": [
+        "T26_PART2_SUBTOPIC_2_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 30,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "opacity + translateY",
+        "durationFrames": 30,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 0,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T27_PART2_SUBTOPIC_3": {
+      "timeline": "optional-detail-template",
+      "frameIn": 0,
+      "frameOut": 359,
+      "holdStart": 30,
+      "holdEnd": 329,
+      "groupId": "T27_PART2_SUBTOPIC_3",
+      "runIds": [
+        "T27_PART2_SUBTOPIC_3_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 30,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "opacity + translateY",
+        "durationFrames": 30,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 0,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T28_PART2_SUBTOPIC_4": {
+      "timeline": "optional-detail-template",
+      "frameIn": 0,
+      "frameOut": 359,
+      "holdStart": 30,
+      "holdEnd": 329,
+      "groupId": "T28_PART2_SUBTOPIC_4",
+      "runIds": [
+        "T28_PART2_SUBTOPIC_4_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 30,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "opacity + translateY",
+        "durationFrames": 30,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 0,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T29_OPENING_SPEAKER": {
+      "timeline": "optional-detail-template",
+      "frameIn": 0,
+      "frameOut": 359,
+      "holdStart": 30,
+      "holdEnd": 329,
+      "groupId": "T29_OPENING_SPEAKER",
+      "runIds": [
+        "T29_OPENING_SPEAKER_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 30,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "opacity + translateY",
+        "durationFrames": 30,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 0,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T30_OPENING_ROLE": {
+      "timeline": "optional-detail-template",
+      "frameIn": 0,
+      "frameOut": 359,
+      "holdStart": 30,
+      "holdEnd": 329,
+      "groupId": "T30_OPENING_ROLE",
+      "runIds": [
+        "T30_OPENING_ROLE_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 30,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "opacity + translateY",
+        "durationFrames": 30,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 0,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T31_MINIGAME": {
+      "timeline": "optional-detail-template",
+      "frameIn": 0,
+      "frameOut": 359,
+      "holdStart": 30,
+      "holdEnd": 329,
+      "groupId": "T31_MINIGAME",
+      "runIds": [
+        "T31_MINIGAME_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 30,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "opacity + translateY",
+        "durationFrames": 30,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 0,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T32_MINIGAME_SUBTITLE": {
+      "timeline": "optional-detail-template",
+      "frameIn": 0,
+      "frameOut": 359,
+      "holdStart": 30,
+      "holdEnd": 329,
+      "groupId": "T32_MINIGAME_SUBTITLE",
+      "runIds": [
+        "T32_MINIGAME_SUBTITLE_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 30,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "opacity + translateY",
+        "durationFrames": 30,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 0,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T33_DASHBOARD_HOOK": {
+      "timeline": "main-20s",
+      "frameIn": 480,
+      "frameOut": 659,
+      "holdStart": 504,
+      "holdEnd": 642,
+      "groupId": "T33_DASHBOARD_HOOK",
+      "runIds": [
+        "T33_DASHBOARD_HOOK_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 24,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "opacity + translateY",
+        "durationFrames": 18,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 6,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    },
+    "T34_AI_BIM_HOOK": {
+      "timeline": "main-20s",
+      "frameIn": 660,
+      "frameOut": 779,
+      "holdStart": 684,
+      "holdEnd": 762,
+      "groupId": "T34_AI_BIM_HOOK",
+      "runIds": [
+        "T34_AI_BIM_HOOK_RUN_01"
+      ],
+      "entrance": {
+        "type": "mask-reveal + translateY + opacity",
+        "durationFrames": 24,
+        "fromY": 36,
+        "toY": 0,
+        "opacityFrom": 0,
+        "opacityTo": 1,
+        "maskDirection": "left-to-right",
+        "easing": "cubic-bezier(0.16,1,0.3,1)"
+      },
+      "exit": {
+        "type": "opacity + translateY",
+        "durationFrames": 18,
+        "toY": -16,
+        "opacityTo": 0
+      },
+      "staggerFrames": 6,
+      "readability": "No glyph scrambling, per-character morphing, or separated Vietnamese marks. Keep phrase intact during hold."
+    }
+  },
+  "visibilityPrecedence": "visibilityWindows override broad frameIn/frameOut for repeated title assets. Intervals are start-inclusive/end-exclusive."
+}

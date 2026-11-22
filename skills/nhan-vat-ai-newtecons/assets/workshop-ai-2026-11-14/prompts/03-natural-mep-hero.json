@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "id": "03-natural-mep-hero",
+  "pipeline": "image_recreation",
+  "starting_point": "Recreation",
+  "provenance": {
+    "kind": "reconstructed_recipe",
+    "historical_prompt_available": false,
+    "source": "User-selected image; exact historical generation prompt and backend model ID are not verified.",
+    "date": "2026-11-05"
+  },
+  "subject": "EXACTLY TWO Vietnamese construction engineers: one man on the left, one woman on the right, collaborating around one tablet. Preserve the two approved people in the attached source.",
+  "style": "Natural on-site corporate documentary photography, convincing people at work, restrained finish. No stylized AI look.",
+  "composition": {
+    "frame": "Wide waist-up banner. Both white helmets fully visible. Pair centered, man's pointing hand and woman's tablet remain legible.",
+    "source_box_normalized": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "environment": "Concrete column at left; exposed galvanized ducts, cable trays and red fire pipe overhead; daylight opening at right.",
+    "framing_note": "Use approved source unchanged for matching posters. For a genuinely new 16:9 hero, create more surroundings while protecting helmets and hands, then reflow poster crop; do not stretch this banner."
+  },
+  "lighting": "Soft natural side daylight from the open construction floor; realistic highlight rolloff on white helmets and steel; both faces sharply focused. Photographic intent: eye-level 35–50 mm lens at f/4–f/5.6, not a claim about real EXIF.",
+  "palette": [
+    "#0A2540",
+    "#0B4FD9",
+    "#FFFFFF",
+    "#BAC4CA"
+  ],
+  "material": "Fine white-and-blue gingham, navy work vest, real reflective tape and source orange safety band, natural skin texture, molded white hard hats, brushed galvanized duct sheet, dusty concrete, matte tablet.",
+  "aspect": "1998:787",
+  "output": {
+    "filename": "ChatGPT Image Nov 5, 2026, 11_10_50 AM.png",
+    "width": 1998,
+    "height": 787,
+    "role": "Archived source dimensions, not a claim that the generative tool can return exact pixels."
+  },
+  "negative": [
+    "no third person or duplicated face",
+    "no cropped helmets",
+    "no plastic skin or sharpened halos",
+    "no robotic/CGI characters",
+    "no holograms or neon circuit decoration",
+    "no invented logo letters",
+    "no added agenda, slogan or decorative header wordmark",
+    "no PPE redesign or spontaneous department text"
+  ],
+  "input_roles": [
+    {
+      "path": "../assets/ChatGPT Image Nov 5, 2026, 11_10_50 AM.png",
+      "role": "approved_identity_pose_uniform_environment",
+      "use": "Clean source for reconstruction; attach the actual file",
+      "exclude": "No unseen face-reference assets are implied"
+    },
+    {
+      "path": "../../logo nguyen ban.png",
+      "role": "helmet_brand_reference",
+      "use": "Original helmet logo shape and color if recreating locally",
+      "exclude": "Do not substitute the wide header logo geometry"
+    }
+  ],
+  "text_content": [
+    "NEWTECONS"
+  ],
+  "text_hierarchy": {
+    "scope": "Helmet and vest branding only; physical placement follows source geometry. No agenda."
+  },
+  "font_mood": "Authentic supplied logo artwork; do not approximate the wordmark by choosing a font.",
+  "change_contract": {
+    "target": "New reconstruction of the natural MEP scene only",
+    "change": "Recover photographic detail in a fresh generation when requested",
+    "preserve": "Approved count, identities, pose relationship, helmet/PPE geometry and MEP environment",
+    "allow": "Natural microtexture and lighting variation; small background differences if the user requests a new version"
+  },
+  "prompt": "Use the attached natural MEP image as the sole identity, pose, clothing and environment source. Recreate a believable corporate documentary photograph of exactly two engineers, one man left and one woman right, studying one tablet on an unfinished MEP floor. Keep both white hard hats fully inside the frame, correct red N above blue NEWTECONS, navy vests with the existing reflective bands, fine white-and-blue gingham shirts, natural pores and hair. The man points at the tablet; the woman holds it. Include the existing metal ducts, cable trays, red fire pipe and concrete at eye level in soft daylight. No holograms, extra people, decorative icons or agenda text. Preserve the approved photo's actual branding placements; do not invent department lettering. Supply the actual logo reference if asking to repair branding. Inspect lettering, anatomy and clothing at 1:1 after generation. A recreation is a new image, not a pixel-identical recovery.",
+  "acceptance": [
+    "Exactly 2 people and 1 tablet",
+    "Both helmet silhouettes uncut",
+    "Helmet wordmarks checked on native-size crop",
+    "PPE/pose consistent with approved source",
+    "No fake sharpening/skin smoothing",
+    "Record actual output dimensions/model/tool; source is 1998x787, not native 4K",
+    "Use approved source unchanged when exact poster reproduction is requested"
+  ]
+}

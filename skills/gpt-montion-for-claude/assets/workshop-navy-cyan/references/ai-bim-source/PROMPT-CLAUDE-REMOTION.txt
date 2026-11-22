@@ -1,0 +1,51 @@
+Hãy trực tiếp dựng và render một video motion graphics cao cấp bằng Remotion, dùng bộ asset tại:
+C:/Users/Admin/.codex/generated_images/01a1cb1c-e17b-7390-b7aa-7c17102364e4
+
+MỤC TIÊU
+Video mở đầu AI × BIM, mô tả Claude và Codex kết nối qua MCP Revit Server tới không gian bản vẽ AutoCAD 2D và mô hình Revit 3D. Cảm giác công nghệ cao cấp, chính xác, gọn, chuyển động có chủ đích. Triển khai và xuất video thật, không chỉ trả lại kế hoạch hoặc code mẫu. Đây là hình minh họa kiến trúc kết nối, không phải bằng chứng kết nối đang hoạt động ngoài đời.
+
+ASSET
+- reference-ai-bim.png: ảnh tổng mẫu bố cục/phong cách. Chỉ dùng đối chiếu, không dùng như một ảnh nền phẳng rồi zoom cả ảnh.
+- claude.png: logo Claude gốc; giữ nguyên biểu tượng và wordmark. File có khoảng trắng, dùng wrapper crop/position phù hợp, không kéo méo.
+- codex.png: logo gốc người dùng cung cấp; hiển thị nhãn Codex bên cạnh. Giữ đúng hình học logo, không tự vẽ lại.
+- autocad-2d.png: bản vẽ mặt bằng riêng; có vùng trắng bên trong bản vẽ, nền ngoài trong suốt.
+- revit-3d.png: ảnh render mô hình riêng, có alpha. Đây là PNG, không phải mô hình 3D có thể xoay camera thực sự.
+Đọc kích thước và kiểm tra alpha các file trước khi dựng. Dùng Img/object-fit:contain, chừa khoảng an toàn; không cắt mất mô hình, cầu thang hoặc kích thước bản vẽ. Các ảnh do AI tạo dùng để minh họa, không coi là bản vẽ kỹ thuật đo đạc chính xác.
+
+ART DIRECTION
+1920 × 1080, 30fps, 18 giây, nền trắng #FFFFFF; chữ navy #0A2540; kết nối xanh #0B4FD9; trạng thái Connected màu xanh lá #16A34A với nền pill xanh rất nhạt. Giữ coral gốc của logo Claude. Khung trắng có viền kính xanh nhạt, shadow tinh tế. Không thêm tông vàng/be hoặc nhiều chi tiết HUD gây rối. Không thêm nhạc/voice nếu chưa có asset được cấp phép; video không âm thanh là hợp lệ.
+
+BỐ CỤC ĐÍCH
+- Tiêu đề AI × BIM, dòng nhỏ SYSTEM CONNECTION ở vùng trên trái.
+- Hai card bên trái: Claude trên, Codex dưới, mỗi card có trạng thái Connected màu xanh lá.
+- Giữa: MCP Revit Server, biểu tượng server vẽ SVG đơn giản và bệ kính tinh tế.
+- Bên phải: một khối lớn chia theo chiều ngang. NỬA TRÊN là AutoCAD 2D; NỬA DƯỚI là Revit 3D. Giữ thứ tự này suốt đoạn kết.
+- Hai client nối hai chiều tới MCP server; mỗi nhánh ghi MCP Protocol. Server nối tới khối BIM bên phải. Đây là sơ đồ minh họa theo brief, không tự thêm tuyên bố rằng AutoCAD kết nối trực tiếp server.
+- 2D và 3D cùng xuất hiện rõ trong cảnh cuối, không thay nhau chiếm toàn bộ khối.
+- Safe margin tối thiểu 64px. Chữ nhãn tối thiểu 28px ở đầu ra 1080p; chữ phụ nhỏ nhất 24px. Không chồng chữ lên đường nối hoặc logo.
+
+TIMELINE CHI TIẾT (18 GIÂY, 540 FRAME)
+0–2s: nền trắng, ánh xanh mềm, tiêu đề AI × BIM hiện bằng opacity + translateY rất nhẹ. Dòng SYSTEM CONNECTION vào sau 8 frame.
+2–4s: hai card Claude/Codex lần lượt vào từ trái khoảng 28px bằng spring có damping cao. Logo không quay, không bị stretch. Status chờ đến lúc packet tới rồi mới bật xanh.
+4–6s: hub MCP server hiện lên khoảng 20px, SVG server LED sáng tuần tự. Hai connector SVG tự vẽ từ client tới server bằng strokeDashoffset. Label MCP Protocol xuất hiện sau khi đường hoàn thành.
+6–8s: chấm packet xanh chạy theo đúng geometry connector từ client tới server; server Connected chuyển xanh, sau đó packet phản hồi chạy ngược về client và hai client Connected bật xanh. Mỗi status chỉ pulse một lần rất nhẹ.
+8–11s: khung phải dựng lên. Bản vẽ AutoCAD 2D ở nửa trên được reveal bằng clip-path/wipe; một đường scan xanh mỏng đi qua bản vẽ. Không giả lập rằng mỗi nét PNG có thể tự vẽ độc lập. Có thể thêm 2–3 path SVG MEP vẽ riêng để hỗ trợ hiệu ứng, phải khớp vị trí nhìn thấy.
+11–14s: nửa dưới xuất hiện mô hình Revit 3D qua opacity + translateY 24px + scale 0.97 đến 1, giữ chi tiết sắc nét. Các ray đăng ký mảnh nối từ khung 2D xuống khung 3D tạo cảm giác 2D→BIM, không khẳng định các điểm khớp kỹ thuật tuyệt đối. Vệt sáng chạy ngang tại ranh giới hai nửa. Không quay PNG như vật thể 3D, không dùng flip lộ mặt phẳng.
+14–16s: toàn bộ hệ thống đã kết nối; packet chạy hai chiều một chu kỳ mượt, highlight xanh nhẹ ở server và MEP, một ánh lướt tinh tế qua viền kính.
+16–18s: giữ hình kết hoàn chỉnh sạch, rõ, đủ đọc; packet giảm dần và dừng, không fade về đen. Khung cuối gần bố cục reference-ai-bim.png.
+
+REMOTION IMPLEMENTATION
+- Nếu workspace đã có project Remotion, đọc cấu trúc và tái sử dụng; không ghi đè phần không liên quan. Nếu chưa có, tạo project riêng trong thư mục con ai-bim-remotion tại thư mục asset trên.
+- Copy asset vào public/assets/ để video không phụ thuộc đường dẫn tuyệt đối khi render; dùng staticFile.
+- Tách component: BrandClientCard, McpServerHub, AnimatedConnector, ConnectionStatus, CadPanel, RevitPanel, SceneTitle.
+- Dựng chữ, pill, card, icon server, đường connector, glow và bệ bằng React/CSS/SVG, không yêu cầu thêm ảnh raster cho những chi tiết này.
+- useCurrentFrame, useVideoConfig, interpolate và spring; toàn bộ chuyển động xác định theo frame. Không dùng Date.now, Math.random không seed, CSS animation theo wall-clock, setInterval hoặc network asset lúc render.
+- Tính tọa độ connector theo một hệ tọa độ viewBox cố định; packet phải chạy đúng path SVG, nhãn phải tránh vùng giao cắt.
+- Clamp interpolation, đảm bảo không opacity âm hoặc >1. Dùng font local hoặc font đã có sẵn, chờ font sẵn sàng trước render.
+- Không tạo logo Autodesk sai hình. Nếu chưa có logo AutoCAD/Revit chính xác được cấp, dùng nhãn AutoCAD 2D và Revit 3D bằng chữ đẹp, không bịa logo.
+- Không hứa khôi phục vector hoặc mô hình 3D từ PNG. Phân biệt hiệu ứng overlay với nội dung gốc.
+
+KIỂM TRA VÀ BÀN GIAO
+Render các frame 0, 90, 180, 300, 420, 510; tự mở kiểm tra và sửa lỗi crop, alpha fringe trên nền trắng, chữ bé, card chồng nhau hoặc connector đi xuyên chữ. Kiểm tra frame 510 có đủ Claude, Codex, MCP Revit Server, hai label MCP Protocol, AutoCAD 2D trên và Revit 3D dưới, tất cả Connected xanh lá.
+Xuất out/ai-bim-system-connection.mp4 (H.264, 1920×1080, 30fps, 18s), out/ai-bim-poster.png từ frame 510 và contact sheet các mốc kiểm tra. Có thể xuất thêm 4K nếu asset đủ nét, nhưng không thay thế bản 1080p bắt buộc.
+Xác minh file bằng ffprobe hoặc công cụ tương đương: độ dài, kích thước, fps; ghi đúng kết quả đo, không tự báo thành công nếu render lỗi. Bàn giao đường dẫn video, poster, mã nguồn và lệnh chạy/render. Thực hiện liên tục đến khi có artifact đã kiểm tra; chỉ hỏi khi có thiếu sót thật sự ngăn không thể làm tiếp.

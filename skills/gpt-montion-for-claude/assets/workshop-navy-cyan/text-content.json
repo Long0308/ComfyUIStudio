@@ -1,0 +1,656 @@
+{
+    "schemaVersion":  1,
+    "canonicalSource":  "references/workshop-content.json",
+    "canonicalSha256":  "3d720996a234c9a646c223910136bca351ee0e152f2bd3fca92af3839570a018",
+    "typography":  "Roboto Condensed, real installed Windows font; GDI+ outlines, no SVG font dependency",
+    "raster":  "Transparent RGBA PNG; max 3840px wide; SVG viewBox exactly matches PNG canvas; no upscaling",
+    "brand":  "12A NEWTECONS is a venue line. Official corporate logo is a separate supplied artwork, never font synthesized.",
+    "assets":  [
+                   {
+                       "id":  "T01_WORKSHOP",
+                       "text":  "WORKSHOP",
+                       "source":  "event.title: WORKSHOP token",
+                       "png":  "assets/text/T01_WORKSHOP.png",
+                       "svg":  "assets/text/T01_WORKSHOP.svg",
+                       "width":  2103,
+                       "height":  425,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  420,
+                       "fontStyle":  "Bold",
+                       "color":  "#FFFFFF",
+                       "groupId":  "T01_WORKSHOP",
+                       "runIds":  [
+                                      "T01_WORKSHOP_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "main-intro"
+                   },
+                   {
+                       "id":  "T02_AI",
+                       "text":  "AI",
+                       "source":  "event.title: AI token",
+                       "png":  "assets/text/T02_AI.png",
+                       "svg":  "assets/text/T02_AI.svg",
+                       "width":  720,
+                       "height":  664,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  680,
+                       "fontStyle":  "Bold",
+                       "color":  "#26D9F2",
+                       "groupId":  "T02_AI",
+                       "runIds":  [
+                                      "T02_AI_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "main-intro"
+                   },
+                   {
+                       "id":  "T03_DEPARTMENT",
+                       "text":  "KHỐI CƠ ĐIỆN",
+                       "source":  "event.department",
+                       "png":  "assets/text/T03_DEPARTMENT.png",
+                       "svg":  "assets/text/T03_DEPARTMENT.svg",
+                       "width":  997,
+                       "height":  250,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  170,
+                       "fontStyle":  "Bold",
+                       "color":  "#FFFFFF",
+                       "groupId":  "T03_DEPARTMENT",
+                       "runIds":  [
+                                      "T03_DEPARTMENT_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "main-intro"
+                   },
+                   {
+                       "id":  "T04_FIELD_APPLICATION",
+                       "text":  "ỨNG DỤNG AI THỰC TẾ Ở CÔNG TRƯỜNG",
+                       "source":  "sections[1].title",
+                       "png":  "assets/text/T04_FIELD_APPLICATION.png",
+                       "svg":  "assets/text/T04_FIELD_APPLICATION.svg",
+                       "width":  2339,
+                       "height":  212,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  140,
+                       "fontStyle":  "Bold",
+                       "color":  "#FFFFFF",
+                       "groupId":  "T04_FIELD_APPLICATION",
+                       "runIds":  [
+                                      "T04_FIELD_APPLICATION_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "main-intro"
+                   },
+                   {
+                       "id":  "T05_RESPONSIBLE_AI",
+                       "text":  "ỨNG DỤNG AI CÓ TRÁCH NHIỆM",
+                       "source":  "sections[2].title",
+                       "png":  "assets/text/T05_RESPONSIBLE_AI.png",
+                       "svg":  "assets/text/T05_RESPONSIBLE_AI.svg",
+                       "width":  1976,
+                       "height":  216,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  150,
+                       "fontStyle":  "Bold",
+                       "color":  "#FFFFFF",
+                       "groupId":  "T05_RESPONSIBLE_AI",
+                       "runIds":  [
+                                      "T05_RESPONSIBLE_AI_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "main-intro"
+                   },
+                   {
+                       "id":  "T06_DATE",
+                       "text":  "14.11.2026",
+                       "source":  "event.date formatted dd.MM.yyyy",
+                       "png":  "assets/text/T06_DATE.png",
+                       "svg":  "assets/text/T06_DATE.svg",
+                       "width":  730,
+                       "height":  162,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  150,
+                       "fontStyle":  "Bold",
+                       "color":  "#FFFFFF",
+                       "groupId":  "T06_DATE",
+                       "runIds":  [
+                                      "T06_DATE_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "main-intro"
+                   },
+                   {
+                       "id":  "T07_LOCATION",
+                       "text":  "12A NEWTECONS",
+                       "source":  "event.location (venue, not corporate wordmark)",
+                       "png":  "assets/text/T07_LOCATION.png",
+                       "svg":  "assets/text/T07_LOCATION.svg",
+                       "width":  1023,
+                       "height":  153,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  140,
+                       "fontStyle":  "Bold",
+                       "color":  "#FFFFFF",
+                       "groupId":  "T07_LOCATION",
+                       "runIds":  [
+                                      "T07_LOCATION_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "main-intro"
+                   },
+                   {
+                       "id":  "T08_TIME",
+                       "text":  "08:30 – 11:00",
+                       "source":  "event.start + en dash + event.end",
+                       "png":  "assets/text/T08_TIME.png",
+                       "svg":  "assets/text/T08_TIME.svg",
+                       "width":  822,
+                       "height":  153,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  140,
+                       "fontStyle":  "Bold",
+                       "color":  "#26D9F2",
+                       "groupId":  "T08_TIME",
+                       "runIds":  [
+                                      "T08_TIME_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "main-intro"
+                   },
+                   {
+                       "id":  "T09_OPENING",
+                       "text":  "MỞ ĐẦU",
+                       "source":  "sections[0].title",
+                       "png":  "assets/text/T09_OPENING.png",
+                       "svg":  "assets/text/T09_OPENING.svg",
+                       "width":  535,
+                       "height":  199,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  150,
+                       "fontStyle":  "Bold",
+                       "color":  "#26D9F2",
+                       "groupId":  "T09_OPENING",
+                       "runIds":  [
+                                      "T09_OPENING_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "optional-agenda-detail"
+                   },
+                   {
+                       "id":  "T10_PART1",
+                       "text":  "PHẦN 1",
+                       "source":  "section ordinal: sections[1]",
+                       "png":  "assets/text/T10_PART1.png",
+                       "svg":  "assets/text/T10_PART1.svg",
+                       "width":  491,
+                       "height":  194,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  150,
+                       "fontStyle":  "Bold",
+                       "color":  "#26D9F2",
+                       "groupId":  "T10_PART1",
+                       "runIds":  [
+                                      "T10_PART1_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "optional-agenda-detail"
+                   },
+                   {
+                       "id":  "T11_PART2",
+                       "text":  "PHẦN 2",
+                       "source":  "section ordinal: sections[2]",
+                       "png":  "assets/text/T11_PART2.png",
+                       "svg":  "assets/text/T11_PART2.svg",
+                       "width":  508,
+                       "height":  194,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  150,
+                       "fontStyle":  "Bold",
+                       "color":  "#26D9F2",
+                       "groupId":  "T11_PART2",
+                       "runIds":  [
+                                      "T11_PART2_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "optional-agenda-detail"
+                   },
+                   {
+                       "id":  "T12_PART3",
+                       "text":  "PHẦN 3",
+                       "source":  "section ordinal: sections[3]",
+                       "png":  "assets/text/T12_PART3.png",
+                       "svg":  "assets/text/T12_PART3.svg",
+                       "width":  507,
+                       "height":  196,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  150,
+                       "fontStyle":  "Bold",
+                       "color":  "#26D9F2",
+                       "groupId":  "T12_PART3",
+                       "runIds":  [
+                                      "T12_PART3_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "optional-agenda-detail"
+                   },
+                   {
+                       "id":  "T13_SUMMARY",
+                       "text":  "TỔNG KẾT",
+                       "source":  "sections[3].title",
+                       "png":  "assets/text/T13_SUMMARY.png",
+                       "svg":  "assets/text/T13_SUMMARY.svg",
+                       "width":  669,
+                       "height":  200,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  150,
+                       "fontStyle":  "Bold",
+                       "color":  "#FFFFFF",
+                       "groupId":  "T13_SUMMARY",
+                       "runIds":  [
+                                      "T13_SUMMARY_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "optional-agenda-detail"
+                   },
+                   {
+                       "id":  "T14_TOPIC_1",
+                       "text":  "1. Claude – Trợ lý văn phòng công trường",
+                       "source":  "sections[1].children[0].title",
+                       "png":  "assets/text/T14_TOPIC_1.png",
+                       "svg":  "assets/text/T14_TOPIC_1.svg",
+                       "width":  2175,
+                       "height":  174,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  130,
+                       "fontStyle":  "Bold",
+                       "color":  "#FFFFFF",
+                       "groupId":  "T14_TOPIC_1",
+                       "runIds":  [
+                                      "T14_TOPIC_1_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "optional-agenda-detail"
+                   },
+                   {
+                       "id":  "T15_TOPIC_2",
+                       "text":  "2. Claude – Trợ thủ đắc lực cho QS",
+                       "source":  "sections[1].children[1].title",
+                       "png":  "assets/text/T15_TOPIC_2.png",
+                       "svg":  "assets/text/T15_TOPIC_2.svg",
+                       "width":  1846,
+                       "height":  179,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  130,
+                       "fontStyle":  "Bold",
+                       "color":  "#FFFFFF",
+                       "groupId":  "T15_TOPIC_2",
+                       "runIds":  [
+                                      "T15_TOPIC_2_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "optional-agenda-detail"
+                   },
+                   {
+                       "id":  "T16_TOPIC_3",
+                       "text":  "3. Dashboard – Tiến độ, T\u0026C và hồ sơ trong tầm tay",
+                       "source":  "sections[1].children[2].title",
+                       "png":  "assets/text/T16_TOPIC_3.png",
+                       "svg":  "assets/text/T16_TOPIC_3.svg",
+                       "width":  2717,
+                       "height":  180,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  130,
+                       "fontStyle":  "Bold",
+                       "color":  "#FFFFFF",
+                       "groupId":  "T16_TOPIC_3",
+                       "runIds":  [
+                                      "T16_TOPIC_3_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "optional-agenda-detail"
+                   },
+                   {
+                       "id":  "T17_TOPIC_4",
+                       "text":  "4. AI – Kiến tạo công cụ quản lý công trường",
+                       "source":  "sections[1].children[3].title",
+                       "png":  "assets/text/T17_TOPIC_4.png",
+                       "svg":  "assets/text/T17_TOPIC_4.svg",
+                       "width":  2347,
+                       "height":  182,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  130,
+                       "fontStyle":  "Bold",
+                       "color":  "#FFFFFF",
+                       "groupId":  "T17_TOPIC_4",
+                       "runIds":  [
+                                      "T17_TOPIC_4_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "optional-agenda-detail"
+                   },
+                   {
+                       "id":  "T18_TOPIC_5",
+                       "text":  "5. AI Agent – Triển khai bản vẽ, tính tổn thất ống gió",
+                       "source":  "sections[1].children[4].title",
+                       "png":  "assets/text/T18_TOPIC_5.png",
+                       "svg":  "assets/text/T18_TOPIC_5.svg",
+                       "width":  2751,
+                       "height":  183,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  130,
+                       "fontStyle":  "Bold",
+                       "color":  "#FFFFFF",
+                       "groupId":  "T18_TOPIC_5",
+                       "runIds":  [
+                                      "T18_TOPIC_5_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "optional-agenda-detail"
+                   },
+                   {
+                       "id":  "T19_PRESENTER_1",
+                       "text":  "Trình bày: Trần Dương Hồng Quân - Dự án: Sân bay Long Thành",
+                       "source":  "sections[1].children[0].presenter",
+                       "png":  "assets/text/T19_PRESENTER_1.png",
+                       "svg":  "assets/text/T19_PRESENTER_1.svg",
+                       "width":  2201,
+                       "height":  131,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  90,
+                       "fontStyle":  "Italic",
+                       "color":  "#FFFFFF",
+                       "groupId":  "T19_PRESENTER_1",
+                       "runIds":  [
+                                      "T19_PRESENTER_1_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "optional-agenda-detail"
+                   },
+                   {
+                       "id":  "T20_PRESENTER_2",
+                       "text":  "Trình bày: Nguyễn Văn Hải - Dự án: The One Sài Gòn",
+                       "source":  "sections[1].children[1].presenter",
+                       "png":  "assets/text/T20_PRESENTER_2.png",
+                       "svg":  "assets/text/T20_PRESENTER_2.svg",
+                       "width":  1818,
+                       "height":  133,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  90,
+                       "fontStyle":  "Italic",
+                       "color":  "#FFFFFF",
+                       "groupId":  "T20_PRESENTER_2",
+                       "runIds":  [
+                                      "T20_PRESENTER_2_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "optional-agenda-detail"
+                   },
+                   {
+                       "id":  "T21_PRESENTER_3",
+                       "text":  "Trình bày: Nguyễn Đình Thiệu - Dự án: Sân bay Long Thành",
+                       "source":  "sections[1].children[2].presenter",
+                       "png":  "assets/text/T21_PRESENTER_3.png",
+                       "svg":  "assets/text/T21_PRESENTER_3.svg",
+                       "width":  2044,
+                       "height":  133,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  90,
+                       "fontStyle":  "Italic",
+                       "color":  "#FFFFFF",
+                       "groupId":  "T21_PRESENTER_3",
+                       "runIds":  [
+                                      "T21_PRESENTER_3_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "optional-agenda-detail"
+                   },
+                   {
+                       "id":  "T22_PRESENTER_4",
+                       "text":  "Trình bày: Nguyễn Thanh Hoàng - Dự án: Bason",
+                       "source":  "sections[1].children[3].presenter",
+                       "png":  "assets/text/T22_PRESENTER_4.png",
+                       "svg":  "assets/text/T22_PRESENTER_4.svg",
+                       "width":  1654,
+                       "height":  133,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  90,
+                       "fontStyle":  "Italic",
+                       "color":  "#FFFFFF",
+                       "groupId":  "T22_PRESENTER_4",
+                       "runIds":  [
+                                      "T22_PRESENTER_4_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "optional-agenda-detail"
+                   },
+                   {
+                       "id":  "T23_PRESENTER_5",
+                       "text":  "Trình bày: Phạm Phi Long \u0026 Ngô Ngọc Sơn - Văn phòng: Khối Kỹ Thuật",
+                       "source":  "sections[1].children[4].presenter",
+                       "png":  "assets/text/T23_PRESENTER_5.png",
+                       "svg":  "assets/text/T23_PRESENTER_5.svg",
+                       "width":  2453,
+                       "height":  132,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  90,
+                       "fontStyle":  "Italic",
+                       "color":  "#FFFFFF",
+                       "groupId":  "T23_PRESENTER_5",
+                       "runIds":  [
+                                      "T23_PRESENTER_5_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "optional-agenda-detail"
+                   },
+                   {
+                       "id":  "T24_PART2_PRESENTER",
+                       "text":  "Trình bày: Trương Quang Vinh - Văn phòng: P.CNTT",
+                       "source":  "sections[2].presenter",
+                       "png":  "assets/text/T24_PART2_PRESENTER.png",
+                       "svg":  "assets/text/T24_PART2_PRESENTER.svg",
+                       "width":  1787,
+                       "height":  125,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  90,
+                       "fontStyle":  "Italic",
+                       "color":  "#FFFFFF",
+                       "groupId":  "T24_PART2_PRESENTER",
+                       "runIds":  [
+                                      "T24_PART2_PRESENTER_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "optional-agenda-detail"
+                   },
+                   {
+                       "id":  "T25_PART2_SUBTOPIC_1",
+                       "text":  "(1)  Các cấp độ ứng dụng AI",
+                       "source":  "sections[2].children[0].title",
+                       "png":  "assets/text/T25_PART2_SUBTOPIC_1.png",
+                       "svg":  "assets/text/T25_PART2_SUBTOPIC_1.svg",
+                       "width":  1369,
+                       "height":  169,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  120,
+                       "fontStyle":  "Bold",
+                       "color":  "#FFFFFF",
+                       "groupId":  "T25_PART2_SUBTOPIC_1",
+                       "runIds":  [
+                                      "T25_PART2_SUBTOPIC_1_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "optional-agenda-detail"
+                   },
+                   {
+                       "id":  "T26_PART2_SUBTOPIC_2",
+                       "text":  "(2)  Phân biệt AI cá nhân và AI doanh nghiệp",
+                       "source":  "sections[2].children[1].title",
+                       "png":  "assets/text/T26_PART2_SUBTOPIC_2.png",
+                       "svg":  "assets/text/T26_PART2_SUBTOPIC_2.svg",
+                       "width":  2160,
+                       "height":  168,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  120,
+                       "fontStyle":  "Bold",
+                       "color":  "#FFFFFF",
+                       "groupId":  "T26_PART2_SUBTOPIC_2",
+                       "runIds":  [
+                                      "T26_PART2_SUBTOPIC_2_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "optional-agenda-detail"
+                   },
+                   {
+                       "id":  "T27_PART2_SUBTOPIC_3",
+                       "text":  "(3)  Hướng dẫn sử dụng AI có trách nhiệm",
+                       "source":  "sections[2].children[2].title",
+                       "png":  "assets/text/T27_PART2_SUBTOPIC_3.png",
+                       "svg":  "assets/text/T27_PART2_SUBTOPIC_3.svg",
+                       "width":  2032,
+                       "height":  172,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  120,
+                       "fontStyle":  "Bold",
+                       "color":  "#FFFFFF",
+                       "groupId":  "T27_PART2_SUBTOPIC_3",
+                       "runIds":  [
+                                      "T27_PART2_SUBTOPIC_3_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "optional-agenda-detail"
+                   },
+                   {
+                       "id":  "T28_PART2_SUBTOPIC_4",
+                       "text":  "(4)  Giới thiệu câu lạc bộ AI HST",
+                       "source":  "sections[2].children[3].title",
+                       "png":  "assets/text/T28_PART2_SUBTOPIC_4.png",
+                       "svg":  "assets/text/T28_PART2_SUBTOPIC_4.svg",
+                       "width":  1570,
+                       "height":  168,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  120,
+                       "fontStyle":  "Bold",
+                       "color":  "#FFFFFF",
+                       "groupId":  "T28_PART2_SUBTOPIC_4",
+                       "runIds":  [
+                                      "T28_PART2_SUBTOPIC_4_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "optional-agenda-detail"
+                   },
+                   {
+                       "id":  "T29_OPENING_SPEAKER",
+                       "text":  "VÕ THANH CANG",
+                       "source":  "sections[0].children[0].title",
+                       "png":  "assets/text/T29_OPENING_SPEAKER.png",
+                       "svg":  "assets/text/T29_OPENING_SPEAKER.svg",
+                       "width":  1088,
+                       "height":  189,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  150,
+                       "fontStyle":  "Bold",
+                       "color":  "#FFFFFF",
+                       "groupId":  "T29_OPENING_SPEAKER",
+                       "runIds":  [
+                                      "T29_OPENING_SPEAKER_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "optional-agenda-detail"
+                   },
+                   {
+                       "id":  "T30_OPENING_ROLE",
+                       "text":  "Giám đốc Khối Cơ Điện chia sẻ",
+                       "source":  "sections[0].children[0].subtitle",
+                       "png":  "assets/text/T30_OPENING_ROLE.png",
+                       "svg":  "assets/text/T30_OPENING_ROLE.svg",
+                       "width":  1099,
+                       "height":  128,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  90,
+                       "fontStyle":  "Italic",
+                       "color":  "#FFFFFF",
+                       "groupId":  "T30_OPENING_ROLE",
+                       "runIds":  [
+                                      "T30_OPENING_ROLE_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "optional-agenda-detail"
+                   },
+                   {
+                       "id":  "T31_MINIGAME",
+                       "text":  "Minigame: Giải mã công trường AI",
+                       "source":  "sections[0].children[1].title",
+                       "png":  "assets/text/T31_MINIGAME.png",
+                       "svg":  "assets/text/T31_MINIGAME.svg",
+                       "width":  1808,
+                       "height":  181,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  130,
+                       "fontStyle":  "Bold",
+                       "color":  "#FFFFFF",
+                       "groupId":  "T31_MINIGAME",
+                       "runIds":  [
+                                      "T31_MINIGAME_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "optional-agenda-detail"
+                   },
+                   {
+                       "id":  "T32_MINIGAME_SUBTITLE",
+                       "text":  "Quà hấp dẫn",
+                       "source":  "sections[0].children[1].subtitle",
+                       "png":  "assets/text/T32_MINIGAME_SUBTITLE.png",
+                       "svg":  "assets/text/T32_MINIGAME_SUBTITLE.svg",
+                       "width":  464,
+                       "height":  132,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  90,
+                       "fontStyle":  "Italic",
+                       "color":  "#FFFFFF",
+                       "groupId":  "T32_MINIGAME_SUBTITLE",
+                       "runIds":  [
+                                      "T32_MINIGAME_SUBTITLE_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "optional-agenda-detail"
+                   },
+                   {
+                       "id":  "T33_DASHBOARD_HOOK",
+                       "text":  "THÔNG TIN TRONG TẦM TAY",
+                       "source":  "intro narrative hook",
+                       "png":  "assets/text/T33_DASHBOARD_HOOK.png",
+                       "svg":  "assets/text/T33_DASHBOARD_HOOK.svg",
+                       "width":  2120,
+                       "height":  233,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  180,
+                       "fontStyle":  "Bold",
+                       "color":  "#FFFFFF",
+                       "groupId":  "T33_DASHBOARD_HOOK",
+                       "runIds":  [
+                                      "T33_DASHBOARD_HOOK_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "main-intro"
+                   },
+                   {
+                       "id":  "T34_AI_BIM_HOOK",
+                       "text":  "AI × BIM",
+                       "source":  "intro narrative hook",
+                       "png":  "assets/text/T34_AI_BIM_HOOK.png",
+                       "svg":  "assets/text/T34_AI_BIM_HOOK.svg",
+                       "width":  658,
+                       "height":  188,
+                       "fontFamily":  "Roboto Condensed",
+                       "fontSizePx":  180,
+                       "fontStyle":  "Bold",
+                       "color":  "#FFFFFF",
+                       "groupId":  "T34_AI_BIM_HOOK",
+                       "runIds":  [
+                                      "T34_AI_BIM_HOOK_RUN_01"
+                                  ],
+                       "grouping":  "whole phrase; preserve Vietnamese shaping and all diacritics",
+                       "usage":  "main-intro"
+                   }
+               ]
+}

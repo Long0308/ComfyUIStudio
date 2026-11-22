@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "department": {
+    "header": "KHỐI CƠ ĐIỆN",
+    "replaceHeaderOnly": true,
+    "wardrobeDepartment": null
+  },
+  "companyArtwork": "Fixed source PNG artwork; keep N, NEWTECONS, registered mark, rule and Build on trust intact.",
+  "canvas": {
+    "width": 1332,
+    "height": 1181
+  },
+  "sources": [
+    {
+      "file": "assets/generated/A02-engineers-tablet.png",
+      "sha256": "c9ce3394d5182f32f6d37bc4b0b41506a39fda57c6bfeb7a0fb250b0c18a6788"
+    },
+    {
+      "file": "assets/brand/company-logo-full-color.png",
+      "sha256": "e320eabbf4af707351a6e36e13cf961fca71b43c058d84e60b61c3681552ca51"
+    },
+    {
+      "file": "assets/brand/company-logo-full-white.png",
+      "sha256": "785e1770dfcb5d60e15c4ec5cbb85cf666dbf5431185896b891c98a26dac1df7"
+    }
+  ],
+  "placements": [
+    {
+      "id": "male-helmet",
+      "source": "assets/brand/company-logo-full-color.png",
+      "x": 549,
+      "y": 148,
+      "width": 150,
+      "rotation": 12,
+      "height": 83.73015873015873
+    },
+    {
+      "id": "female-helmet",
+      "source": "assets/brand/company-logo-full-color.png",
+      "x": 875,
+      "y": 252,
+      "width": 145,
+      "rotation": 8,
+      "height": 80.93915343915344
+    },
+    {
+      "id": "male-vest",
+      "source": "assets/brand/company-logo-full-white.png",
+      "x": 548,
+      "y": 652,
+      "width": 120,
+      "rotation": 8,
+      "height": 66.98412698412699
+    },
+    {
+      "id": "female-vest",
+      "source": "assets/brand/company-logo-full-white.png",
+      "x": 994,
+      "y": 725,
+      "width": 135,
+      "rotation": -4,
+      "height": 75.35714285714286
+    }
+  ],
+  "limits": [
+    "Native layered SVG with original raster logo bytes; not an official vector master.",
+    "PPE logo is small at final video scale; source fidelity and microtext readability are separate checks.",
+    "No new department label is stamped onto wardrobe."
+  ],
+  "producedBy": "node scripts/build-brand.cjs"
+}

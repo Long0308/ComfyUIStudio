@@ -1,0 +1,4 @@
+interface:
+  display_name: "GPT Motion for Claude"
+  short_description: "Ảnh, chữ và prompt motion graphic cho Claude"
+  default_prompt: "Dùng $gpt-montion-for-claude để chuyển ảnh đã chọn thành bộ asset, chữ animation và prompt intro cho Claude."

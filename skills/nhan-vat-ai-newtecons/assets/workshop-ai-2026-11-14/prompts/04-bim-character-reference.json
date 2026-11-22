@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "id": "04-bim-character-reference",
+  "pipeline": "image_recreation",
+  "starting_point": "Recreation / legacy reference",
+  "provenance": {
+    "kind": "reconstructed_recipe",
+    "historical_prompt_available": false,
+    "source": "Older user-supplied BIM character banner. This recipe describes its observed composition, not a recovered original prompt.",
+    "date": "2026-11-05"
+  },
+  "subject": "EXACTLY TWO approved Vietnamese engineers (male left, female right) sharing one tablet, plus construction background at left and BIM/MEP visualization at right.",
+  "style": "Legacy corporate BIM composite: photographic characters, construction cranes, technical 3D MEP illustration. Reference-only style; natural MEP is the selected look for current posters.",
+  "composition": {
+    "frame": "2160×804 wide reference strip.",
+    "elements": [
+      {
+        "id": "logo_upper_left",
+        "approx_box": [
+          0.03,
+          0.05,
+          0.23,
+          0.34
+        ]
+      },
+      {
+        "id": "engineer_pair",
+        "approx_box": [
+          0.2,
+          0.04,
+          0.56,
+          0.96
+        ]
+      },
+      {
+        "id": "bim_scene_right",
+        "approx_box": [
+          0.7,
+          0,
+          0.3,
+          1
+        ]
+      }
+    ],
+    "note": "Approximate visual map; not segmentation masks. Preserve overlap, readable faces and full helmets. Upper-left logo belongs to this legacy image only."
+  },
+  "lighting": "Bright daylight on people and construction; blue BIM edge lighting restricted to the right technical illustration. Do not spread glow onto skin or brand lettering.",
+  "palette": [
+    "#0A2540",
+    "#0B4FD9",
+    "#FFFFFF",
+    "#00ADED"
+  ],
+  "material": "Natural skin and checked fabric against concrete, glass and steel; transparent BIM geometry, colored MEP pipe routes and fine luminous outlines in the right zone only.",
+  "aspect": "180:67",
+  "output": {
+    "filename": "workshopaiv4-character-detail.png",
+    "width": 2160,
+    "height": 804,
+    "role": "Archived reference, not a 9:16 or 16:9 final poster."
+  },
+  "negative": [
+    "no extra people",
+    "no changing the two approved faces",
+    "no duplicate large header logos outside the source layout",
+    "no generated agenda",
+    "no blurred helmet lettering",
+    "no pretending this source is a native 4K full poster"
+  ],
+  "input_roles": [
+    {
+      "path": "../assets/workshopaiv4-character-detail.png",
+      "role": "identity_uniform_pose_layout",
+      "use": "Actual attached source defines all visible people, PPE, props and composition",
+      "exclude": "Its legacy glow and extra large logo are not transferred into the selected natural-MEP posters"
+    },
+    {
+      "path": "../../logo nguyen ban.png",
+      "role": "brand_geometry",
+      "use": "Original brand artwork when repairing the legacy logo and helmets",
+      "exclude": "Do not invent alternate letters, color or proportions"
+    }
+  ],
+  "text_content": [
+    "NEWTECONS",
+    "Build on trust",
+    "BIM"
+  ],
+  "text_hierarchy": {
+    "scope": "Large legacy wordmark upper-left, BIM label right, small physically placed helmet and vest wordmarks; no agenda."
+  },
+  "font_mood": "Use supplied brand artwork; BIM is simple bold sans serif, not a decorative pseudo-font.",
+  "change_contract": {
+    "target": "The legacy character-detail banner",
+    "change": "Reconstruct observed image if this legacy option is requested",
+    "preserve": "Two characters, PPE, tablet interaction, logo-left/photo-center/BIM-right relationships",
+    "allow": "Fine noncritical construction geometry and natural shadows"
+  },
+  "prompt": "Reconstruct the attached workshopaiv4-character-detail reference as a wide corporate BIM banner. Exactly two engineers remain in the center, male left and female right, smiling naturally while reviewing one tablet, with white hard hats, navy reflective vests and white-blue checked shirts matching the source. Preserve faces and gestures. Left zone shows construction cranes and the original NEWTECONS logo; right zone shows the source BIM/MEP technical illustration and label BIM. Keep blue technical edge lighting confined to that right zone; keep faces, shirts and hard-hat wordmarks photographic and readable. Use authentic brand artwork for critical logos. Preserve original layout rather than adding agenda content. Record actual dimensions and audit native pixel crops. This is a reconstruction recipe, not the unknown historical prompt.",
+  "acceptance": [
+    "Exactly 2 engineers",
+    "Original layout preserved with correct brand spelling",
+    "Full helmet outlines and tablet interaction visible",
+    "BIM label legible",
+    "Legacy style explicitly labeled; never silently replace selected natural hero with this",
+    "Source 2160x804 reported honestly; no invented historical tool/model/seed"
+  ]
+}

@@ -1,0 +1,13 @@
+Use your built-in image generation tool (image_gen) to create exactly ONE image. Do not run shell commands and do not write any file yourself.
+
+The attached input images, in order, are:
+Image 1: SHOT 1 of this scene (the Technical Block Director at his desk, phone ringing). This is the CONTINUITY ANCHOR: same room, same desk, same MacBook, same phone, same man, same shirt, same light. [S03_K1 frame]
+Image 2: the REAL office (set reference, no people). [01_SET_OFFICE_GD_KHOI.jpg]
+Image 3: CHAR_03 the Technical Block Director (Giám đốc Khối Kỹ thuật) — keep this exact face and glasses; take ONLY the face. [03_CHAR03_GD_KHOI_FACE.png]
+Image 4: shirt fabric: very fine blue-white grid. Wardrobe only. [05_SHIRT_FINE_GRID.png]
+Image 5: real collar: tiny tone-on-tone N at the collar tip. Wardrobe only. [06_COLLAR_LOGO.png]
+
+SHOT 3 RIGHT HALF of scene 3 (split screen, two-person phone dialogue): this image will be cropped to its CENTRE HALF and placed on the RIGHT of a 50/50 split screen, so keep him inside the central half of the frame.
+Camera: medium close-up (head to mid-chest), horizontal 16:9, 50 mm look, eye level, shallow depth of field; the office of Image 1 softly out of focus behind him (grey roller blinds, window light, a bit of the plant).
+PERSON: CHAR_03 sits at his desk, body and face turned three-quarters toward the LEFT side of the frame (toward the other person in the split screen), holding the black smartphone to his right ear, speaking calmly and decisively in mid-sentence, mouth slightly open, a small firm nod, reassuring and in control. Same fine blue-white grid shirt with the tiny collar N, same glasses as Image 1. NO hard hat, NO vest, NO lanyard, no text on the shirt. The open silver MacBook is just visible at the lower edge of the frame.
+LOOK: photorealistic live-action NEWTECONS corporate film still, full-frame cinema camera, natural light, real skin texture and pores, real fabric weave, no plastic or glossy AI look, no CGI, natural hands with five fingers. No subtitles, no captions, no watermark, no on-screen text overlays. Output: one photoreal horizontal 16:9 image, at least 1536 x 864.
